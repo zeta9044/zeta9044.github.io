@@ -2,7 +2,7 @@
 layout: post
 title: "Quartz와 JNDI 연결."
 date: 2023-04-05
-tags: [연결, JNDI]
+tags: [JNDI, 연결]
 categories: blog
 ---
 

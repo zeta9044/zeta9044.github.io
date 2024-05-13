@@ -2,7 +2,7 @@
 layout: post
 title: "ORACLE: WHERE절 컬럼 타입 에러"
 date: 2023-03-30
-tags: [타입, 절, 에러, ORACLE, 컬럼]
+tags: [에러, 타입, 절, 컬럼, ORACLE]
 categories: blog
 ---
 

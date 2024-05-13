@@ -2,7 +2,7 @@
 layout: post
 title: "Nosce Te Ipsum"
 date: 2024-03-08
-tags: [Te, Nosce, Ipsum]
+tags: [Nosce, Te, Ipsum]
 categories: blog
 ---
 

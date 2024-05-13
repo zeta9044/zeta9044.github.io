@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC Gradle 태스크 제한"
 date: 2023-09-22
-tags: [태스크, JavaCC, 제한, Gradle]
+tags: [제한, JavaCC, 태스크, Gradle]
 categories: blog
 ---
 

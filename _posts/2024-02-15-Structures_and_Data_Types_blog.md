@@ -2,7 +2,7 @@
 layout: post
 title: "Structures and Data Types"
 date: 2024-02-15
-tags: [Structures, Data, and, Types]
+tags: [and, Types, Data, Structures]
 categories: blog
 ---
 

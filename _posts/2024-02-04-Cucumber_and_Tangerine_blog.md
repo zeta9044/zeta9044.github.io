@@ -2,7 +2,7 @@
 layout: post
 title: "Cucumber and Tangerine"
 date: 2024-02-04
-tags: [Tangerine, Cucumber, and]
+tags: [and, Tangerine, Cucumber]
 categories: blog
 ---
 

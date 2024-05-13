@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC .jj 파일에서 embedded Java 코드 블록 제거"
 date: 2023-07-03
-tags: [jj, 코드, JavaCC, embedded, Java, 파일, 블록, 제거]
+tags: [JavaCC, jj, 제거, 코드, 파일, embedded, Java, 블록]
 categories: blog
 ---
 

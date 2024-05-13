@@ -2,7 +2,7 @@
 layout: post
 title: "SQLPlus: 다중 파일 로딩"
 date: 2023-03-22
-tags: [다중, SQLPlus, 파일, 로딩]
+tags: [SQLPlus, 다중, 파일, 로딩]
 categories: blog
 ---
 

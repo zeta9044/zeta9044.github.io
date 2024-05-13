@@ -2,7 +2,7 @@
 layout: post
 title: "Java CALL_SUPER 취약점 해결법"
 date: 2023-11-28
-tags: [법, 해결, Java, 취약점]
+tags: [Java, 해결, 취약점, 법]
 categories: blog
 ---
 

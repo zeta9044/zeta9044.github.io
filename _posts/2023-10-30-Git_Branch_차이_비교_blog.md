@@ -2,7 +2,7 @@
 layout: post
 title: "Git Branch 차이 비교"
 date: 2023-10-30
-tags: [차이, Git, 비교, Branch]
+tags: [차이, Branch, 비교, Git]
 categories: blog
 ---
 

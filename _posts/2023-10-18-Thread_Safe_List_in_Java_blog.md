@@ -2,7 +2,7 @@
 layout: post
 title: "Thread Safe List in Java"
 date: 2023-10-18
-tags: [Safe, Java, Thread, List, in]
+tags: [Thread, in, List, Java, Safe]
 categories: blog
 ---
 

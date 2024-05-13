@@ -2,7 +2,7 @@
 layout: post
 title: "SQL Injection 방지 방법"
 date: 2023-11-21
-tags: [SQL, Injection, 방지, 방법]
+tags: [SQL, 방법, 방지, Injection]
 categories: blog
 ---
 

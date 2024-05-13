@@ -2,7 +2,7 @@
 layout: post
 title: "MyBatis SQL Query."
 date: 2023-02-22
-tags: [Query, SQL, MyBatis]
+tags: [SQL, Query, MyBatis]
 categories: blog
 ---
 

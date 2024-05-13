@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle DDL Error Explanation"
 date: 2023-10-05
-tags: [Error, DDL, Oracle, Explanation]
+tags: [DDL, Oracle, Error, Explanation]
 categories: blog
 ---
 

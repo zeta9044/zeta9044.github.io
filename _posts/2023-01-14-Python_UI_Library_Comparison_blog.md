@@ -2,7 +2,7 @@
 layout: post
 title: "Python UI Library Comparison"
 date: 2023-01-14
-tags: [Comparison, Library, UI, Python]
+tags: [Library, Python, Comparison, UI]
 categories: blog
 ---
 

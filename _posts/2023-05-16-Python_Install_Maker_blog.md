@@ -2,7 +2,7 @@
 layout: post
 title: "Python Install Maker"
 date: 2023-05-16
-tags: [Maker, Install, Python]
+tags: [Install, Maker, Python]
 categories: blog
 ---
 

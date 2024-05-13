@@ -2,7 +2,7 @@
 layout: post
 title: "Merge 후 add 취소"
 date: 2023-10-31
-tags: [취소, Merge, add, 후]
+tags: [후, Merge, 취소, add]
 categories: blog
 ---
 

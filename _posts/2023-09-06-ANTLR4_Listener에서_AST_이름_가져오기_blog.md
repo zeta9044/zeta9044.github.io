@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 Listener에서 AST 이름 가져오기"
 date: 2023-09-06
-tags: [AST, 이름]
+tags: [이름, AST]
 categories: blog
 ---
 

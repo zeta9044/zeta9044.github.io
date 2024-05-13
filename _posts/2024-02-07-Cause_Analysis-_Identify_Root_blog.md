@@ -2,7 +2,7 @@
 layout: post
 title: "Cause Analysis: Identify Root"
 date: 2024-02-07
-tags: [Root, Identify, Analysis, Cause]
+tags: [Cause, Analysis, Identify, Root]
 categories: blog
 ---
 

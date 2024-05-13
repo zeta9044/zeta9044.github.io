@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC의 pushMode, popMode 대응: 방법"
 date: 2023-07-04
-tags: [pushMode, popMode, 의, 방법, 대응]
+tags: [방법, 의, 대응, pushMode, popMode]
 categories: blog
 ---
 

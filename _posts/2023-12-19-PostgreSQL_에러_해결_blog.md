@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL 에러 해결"
 date: 2023-12-19
-tags: [해결, 에러, PostgreSQL]
+tags: [에러, PostgreSQL, 해결]
 categories: blog
 ---
 

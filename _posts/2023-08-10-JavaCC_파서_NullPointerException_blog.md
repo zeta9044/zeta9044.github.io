@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC 파서 NullPointerException"
 date: 2023-08-10
-tags: [NullPointerException, 파서, JavaCC]
+tags: [JavaCC, 파서, NullPointerException]
 categories: blog
 ---
 

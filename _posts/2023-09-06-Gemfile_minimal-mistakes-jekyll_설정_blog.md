@@ -2,7 +2,7 @@
 layout: post
 title: "Gemfile minimal-mistakes-jekyll 설정"
 date: 2023-09-06
-tags: [mistakes, jekyll, Gemfile, 설정, minimal]
+tags: [jekyll, Gemfile, mistakes, 설정, minimal]
 categories: blog
 ---
 

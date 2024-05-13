@@ -2,7 +2,7 @@
 layout: post
 title: "LeaperKim Lynx 방수 등급"
 date: 2023-12-21
-tags: [등급, Lynx, LeaperKim, 방수]
+tags: [Lynx, 등급, LeaperKim, 방수]
 categories: blog
 ---
 

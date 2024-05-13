@@ -2,7 +2,7 @@
 layout: post
 title: "Tomcat 9 DB 암호화"
 date: 2023-04-27
-tags: [암호, DB, Tomcat]
+tags: [Tomcat, 암호, DB]
 categories: blog
 ---
 

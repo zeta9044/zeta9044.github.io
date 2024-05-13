@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL NVL 함수"
 date: 2023-11-17
-tags: [함수, NVL, PostgreSQL]
+tags: [함수, PostgreSQL, NVL]
 categories: blog
 ---
 

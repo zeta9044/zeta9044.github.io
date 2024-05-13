@@ -2,7 +2,7 @@
 layout: post
 title: "백업 LIAUSR 스키마(PostgreSQL)"
 date: 2023-12-08
-tags: [스키마, LIAUSR, PostgreSQL, 백업]
+tags: [PostgreSQL, LIAUSR, 스키마, 백업]
 categories: blog
 ---
 

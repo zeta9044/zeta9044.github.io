@@ -2,7 +2,7 @@
 layout: post
 title: "Clear StringBuffer in Java 8"
 date: 2023-11-13
-tags: [Clear, Java, StringBuffer, in]
+tags: [Java, Clear, in, StringBuffer]
 categories: blog
 ---
 

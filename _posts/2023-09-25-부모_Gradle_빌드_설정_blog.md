@@ -2,7 +2,7 @@
 layout: post
 title: "부모 Gradle 빌드 설정"
 date: 2023-09-25
-tags: [부모, 빌드, 설정, Gradle]
+tags: [설정, Gradle, 빌드, 부모]
 categories: blog
 ---
 

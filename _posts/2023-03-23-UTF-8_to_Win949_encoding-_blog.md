@@ -2,7 +2,7 @@
 layout: post
 title: "UTF-8 to Win949 encoding."
 date: 2023-03-23
-tags: [UTF, encoding, to]
+tags: [UTF, to, encoding]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Guava Gradle 최신 버전"
 date: 2024-02-13
-tags: [최신, 버전, Guava, Gradle]
+tags: [Guava, 버전, Gradle, 최신]
 categories: blog
 ---
 

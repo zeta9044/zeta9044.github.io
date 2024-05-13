@@ -2,7 +2,7 @@
 layout: post
 title: "Liquid Syntax Error 해결"
 date: 2023-09-19
-tags: [Liquid, 해결, Error, Syntax]
+tags: [Error, Syntax, 해결, Liquid]
 categories: blog
 ---
 

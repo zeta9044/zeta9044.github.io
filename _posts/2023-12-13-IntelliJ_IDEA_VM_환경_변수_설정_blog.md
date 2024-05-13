@@ -2,7 +2,7 @@
 layout: post
 title: "IntelliJ IDEA VM 환경 변수 설정"
 date: 2023-12-13
-tags: [IntelliJ, VM, 설정, 변수, 환경, IDEA]
+tags: [IntelliJ, 변수, VM, 환경, 설정, IDEA]
 categories: blog
 ---
 

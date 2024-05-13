@@ -2,7 +2,7 @@
 layout: post
 title: "Revert Specific User's Commit"
 date: 2023-12-22
-tags: [s, Commit, Specific, Revert, User]
+tags: [Revert, s, Commit, User, Specific]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Java 8 vs Java 11"
 date: 2023-10-04
-tags: [vs, Java]
+tags: [Java, vs]
 categories: blog
 ---
 

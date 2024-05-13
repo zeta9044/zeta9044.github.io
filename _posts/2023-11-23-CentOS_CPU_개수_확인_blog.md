@@ -2,7 +2,7 @@
 layout: post
 title: "CentOS CPU 개수 확인"
 date: 2023-11-23
-tags: [개수, 확인, CPU, CentOS]
+tags: [확인, 개수, CPU, CentOS]
 categories: blog
 ---
 

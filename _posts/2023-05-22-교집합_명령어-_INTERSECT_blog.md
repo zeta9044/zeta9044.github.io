@@ -2,7 +2,7 @@
 layout: post
 title: "교집합 명령어: INTERSECT"
 date: 2023-05-22
-tags: [명령어, 교집합, INTERSECT]
+tags: [명령어, INTERSECT, 교집합]
 categories: blog
 ---
 

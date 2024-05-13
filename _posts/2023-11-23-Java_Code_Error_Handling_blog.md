@@ -2,7 +2,7 @@
 layout: post
 title: "Java Code Error Handling"
 date: 2023-11-23
-tags: [Handling, Error, Code, Java]
+tags: [Error, Java, Code, Handling]
 categories: blog
 ---
 

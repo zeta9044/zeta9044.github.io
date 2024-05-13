@@ -2,7 +2,7 @@
 layout: post
 title: "해결: PostgreSQL 드라이버 로드"
 date: 2023-12-13
-tags: [드라이버, PostgreSQL, 해결, 로드]
+tags: [로드, 드라이버, PostgreSQL, 해결]
 categories: blog
 ---
 

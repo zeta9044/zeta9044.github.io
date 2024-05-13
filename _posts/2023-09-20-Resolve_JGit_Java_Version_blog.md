@@ -2,7 +2,7 @@
 layout: post
 title: "Resolve JGit Java Version"
 date: 2023-09-20
-tags: [Resolve, JGit, Java, Version]
+tags: [JGit, Resolve, Java, Version]
 categories: blog
 ---
 

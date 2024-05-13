@@ -2,7 +2,7 @@
 layout: post
 title: "Java Constructor Inheritance"
 date: 2023-08-22
-tags: [Inheritance, Java, Constructor]
+tags: [Inheritance, Constructor, Java]
 categories: blog
 ---
 

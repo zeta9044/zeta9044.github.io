@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL 트랜잭션 상태"
 date: 2023-05-25
-tags: [상태, 트랜잭션, PostgreSQL]
+tags: [PostgreSQL, 트랜잭션, 상태]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Docker 호스트 디렉토리 매핑"
 date: 2023-03-15
-tags: [매핑, 디렉토리, 호스트, Docker]
+tags: [매핑, Docker, 디렉토리, 호스트]
 categories: blog
 ---
 

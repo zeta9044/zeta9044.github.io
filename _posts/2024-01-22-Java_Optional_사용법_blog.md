@@ -2,7 +2,7 @@
 layout: post
 title: "Java Optional 사용법"
 date: 2024-01-22
-tags: [Optional, 용법, Java]
+tags: [용법, Optional, Java]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "IntelliJ Groovy 모듈 설정"
 date: 2023-03-08
-tags: [IntelliJ, 모듈, 설정, Groovy]
+tags: [IntelliJ, 설정, 모듈, Groovy]
 categories: blog
 ---
 

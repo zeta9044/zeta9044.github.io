@@ -2,7 +2,7 @@
 layout: post
 title: "Fiat deposit supported 한글"
 date: 2023-12-09
-tags: [Fiat, 한글, supported, deposit]
+tags: [deposit, Fiat, supported, 한글]
 categories: blog
 ---
 

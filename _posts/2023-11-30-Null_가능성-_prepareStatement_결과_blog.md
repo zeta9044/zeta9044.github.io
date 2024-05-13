@@ -2,7 +2,7 @@
 layout: post
 title: "Null 가능성: prepareStatement 결과"
 date: 2023-11-30
-tags: [가능성, prepareStatement, Null, 결과]
+tags: [결과, Null, 가능성, prepareStatement]
 categories: blog
 ---
 

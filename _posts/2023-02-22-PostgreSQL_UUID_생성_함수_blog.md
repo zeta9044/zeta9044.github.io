@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL UUID 생성 함수"
 date: 2023-02-22
-tags: [함수, UUID, PostgreSQL, 생]
+tags: [함수, PostgreSQL, UUID, 생]
 categories: blog
 ---
 

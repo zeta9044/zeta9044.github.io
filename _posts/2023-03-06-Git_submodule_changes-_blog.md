@@ -2,7 +2,7 @@
 layout: post
 title: "Git submodule changes."
 date: 2023-03-06
-tags: [changes, Git, submodule]
+tags: [changes, submodule, Git]
 categories: blog
 ---
 

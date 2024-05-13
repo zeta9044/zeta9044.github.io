@@ -2,7 +2,7 @@
 layout: post
 title: "Monthly 200 Million Won"
 date: 2023-02-07
-tags: [Won, Monthly, Million]
+tags: [Million, Monthly, Won]
 categories: blog
 ---
 

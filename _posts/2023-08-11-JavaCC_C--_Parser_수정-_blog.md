@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC C++ Parser 수정."
 date: 2023-08-11
-tags: [Parser, 수정, C, JavaCC]
+tags: [JavaCC, 수정, C, Parser]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "ClassNotFoundException for org.dom4j.DocumentFactory"
 date: 2023-09-21
-tags: [DocumentFactory, ClassNotFoundException, for, org]
+tags: [ClassNotFoundException, for, org, DocumentFactory]
 categories: blog
 ---
 

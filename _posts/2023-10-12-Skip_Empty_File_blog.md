@@ -2,7 +2,7 @@
 layout: post
 title: "Skip Empty File"
 date: 2023-10-12
-tags: [File, Empty, Skip]
+tags: [Empty, File, Skip]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "HTML to Markdown Conversion"
 date: 2023-09-06
-tags: [Markdown, Conversion, HTML, to]
+tags: [Markdown, Conversion, to, HTML]
 categories: blog
 ---
 

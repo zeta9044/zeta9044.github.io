@@ -2,7 +2,7 @@
 layout: post
 title: ""PostgreSQL 음수 부분문자열 오류""
 date: 2023-05-10
-tags: [문자열, 오류, 부분, 음수, PostgreSQL]
+tags: [음수, PostgreSQL, 오류, 문자열, 부분]
 categories: blog
 ---
 

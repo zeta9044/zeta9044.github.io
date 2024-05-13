@@ -2,7 +2,7 @@
 layout: post
 title: "XML 파서 jjt 작성."
 date: 2023-06-30
-tags: [작성, jjt, 파서, XML]
+tags: [파서, jjt, 작성, XML]
 categories: blog
 ---
 

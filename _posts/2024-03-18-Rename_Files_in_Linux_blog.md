@@ -2,7 +2,7 @@
 layout: post
 title: "Rename Files in Linux"
 date: 2024-03-18
-tags: [Linux, Rename, Files, in]
+tags: [Rename, in, Linux, Files]
 categories: blog
 ---
 

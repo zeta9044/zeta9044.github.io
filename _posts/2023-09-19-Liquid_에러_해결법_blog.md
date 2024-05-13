@@ -2,7 +2,7 @@
 layout: post
 title: "Liquid 에러 해결법"
 date: 2023-09-19
-tags: [법, Liquid, 해결, 에러]
+tags: [에러, 해결, Liquid, 법]
 categories: blog
 ---
 

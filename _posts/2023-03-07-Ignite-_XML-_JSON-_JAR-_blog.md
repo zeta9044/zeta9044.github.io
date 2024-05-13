@@ -2,7 +2,7 @@
 layout: post
 title: "Ignite: XML, JSON, JAR."
 date: 2023-03-07
-tags: [JAR, Ignite, XML, JSON]
+tags: [JSON, JAR, Ignite, XML]
 categories: blog
 ---
 

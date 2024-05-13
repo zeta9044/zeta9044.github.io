@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL extract column name."
 date: 2023-04-13
-tags: [name, extract, PostgreSQL, column]
+tags: [name, column, PostgreSQL, extract]
 categories: blog
 ---
 

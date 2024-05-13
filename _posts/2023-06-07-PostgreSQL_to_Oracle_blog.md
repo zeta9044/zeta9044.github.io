@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL to Oracle"
 date: 2023-06-07
-tags: [Oracle, PostgreSQL, to]
+tags: [PostgreSQL, to, Oracle]
 categories: blog
 ---
 

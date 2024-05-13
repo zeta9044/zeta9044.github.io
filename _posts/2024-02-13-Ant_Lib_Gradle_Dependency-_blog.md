@@ -2,7 +2,7 @@
 layout: post
 title: "Ant Lib Gradle Dependency."
 date: 2024-02-13
-tags: [Dependency, Lib, Ant, Gradle]
+tags: [Dependency, Gradle, Lib, Ant]
 categories: blog
 ---
 

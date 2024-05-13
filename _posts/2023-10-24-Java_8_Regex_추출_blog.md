@@ -2,7 +2,7 @@
 layout: post
 title: "Java 8 Regex 추출"
 date: 2023-10-24
-tags: [Regex, Java, 추출]
+tags: [추출, Java, Regex]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "SpringBoot WebSocket 보안 설정"
 date: 2023-09-05
-tags: [WebSocket, 보안, 설정, SpringBoot]
+tags: [설정, SpringBoot, WebSocket, 보안]
 categories: blog
 ---
 

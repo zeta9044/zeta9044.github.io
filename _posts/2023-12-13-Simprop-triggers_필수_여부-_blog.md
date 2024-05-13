@@ -2,7 +2,7 @@
 layout: post
 title: "Simprop_triggers 필수 여부?"
 date: 2023-12-13
-tags: [여부, 필수]
+tags: [필수, 여부]
 categories: blog
 ---
 

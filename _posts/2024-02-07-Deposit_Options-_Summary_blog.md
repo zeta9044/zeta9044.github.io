@@ -2,7 +2,7 @@
 layout: post
 title: "Deposit Options: Summary"
 date: 2024-02-07
-tags: [Deposit, Summary, Options]
+tags: [Deposit, Options, Summary]
 categories: blog
 ---
 

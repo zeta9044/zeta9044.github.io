@@ -2,7 +2,7 @@
 layout: post
 title: "JSqlParser 유형 식별"
 date: 2024-02-27
-tags: [식별, 유형, JSqlParser]
+tags: [유형, 식별, JSqlParser]
 categories: blog
 ---
 

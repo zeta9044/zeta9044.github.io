@@ -2,7 +2,7 @@
 layout: post
 title: "자바 @Override 효과"
 date: 2023-07-05
-tags: [효과, 자바, Override]
+tags: [자바, Override, 효과]
 categories: blog
 ---
 

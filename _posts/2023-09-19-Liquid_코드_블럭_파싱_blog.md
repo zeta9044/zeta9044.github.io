@@ -2,7 +2,7 @@
 layout: post
 title: "Liquid 코드 블럭 파싱"
 date: 2023-09-19
-tags: [파싱, Liquid, 코드, 블럭]
+tags: [블럭, 코드, Liquid, 파싱]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "C++ Using Namespace 예제"
 date: 2023-11-17
-tags: [Using, C, Namespace, 예제]
+tags: [예제, Using, Namespace, C]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "C++ Version Evolution"
 date: 2023-08-31
-tags: [Evolution, C, Version]
+tags: [C, Version, Evolution]
 categories: blog
 ---
 

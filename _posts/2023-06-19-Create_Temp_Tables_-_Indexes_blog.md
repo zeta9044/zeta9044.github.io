@@ -2,7 +2,7 @@
 layout: post
 title: "Create Temp Tables & Indexes"
 date: 2023-06-19
-tags: [Create, Temp, Indexes, Tables]
+tags: [Indexes, Temp, Tables, Create]
 categories: blog
 ---
 

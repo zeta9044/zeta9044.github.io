@@ -2,7 +2,7 @@
 layout: post
 title: "정규식으로 declarationseq 검색"
 date: 2023-11-17
-tags: [검색, 정규식, declarationseq]
+tags: [정규식, 검색, declarationseq]
 categories: blog
 ---
 

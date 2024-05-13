@@ -2,7 +2,7 @@
 layout: post
 title: "VSCode 파일 비교"
 date: 2023-03-31
-tags: [VSCode, 비교, 파일]
+tags: [VSCode, 파일, 비교]
 categories: blog
 ---
 

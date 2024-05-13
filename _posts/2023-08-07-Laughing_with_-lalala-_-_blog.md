@@ -2,7 +2,7 @@
 layout: post
 title: "Laughing with "lalala" 😄"
 date: 2023-08-07
-tags: [lalala, Laughing, with]
+tags: [with, lalala, Laughing]
 categories: blog
 ---
 

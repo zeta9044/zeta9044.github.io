@@ -2,7 +2,7 @@
 layout: post
 title: "StringBuilder vs StringBuffer"
 date: 2023-11-20
-tags: [vs, StringBuilder, StringBuffer]
+tags: [StringBuilder, StringBuffer, vs]
 categories: blog
 ---
 

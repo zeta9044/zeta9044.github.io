@@ -2,7 +2,7 @@
 layout: post
 title: "Jekyll excerpt_separator 설정법"
 date: 2023-09-15
-tags: [법, 설정, Jekyll]
+tags: [설정, Jekyll, 법]
 categories: blog
 ---
 

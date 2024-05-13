@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo Script Task 설정"
 date: 2023-10-11
-tags: [Script, Task, 설정, Bamboo]
+tags: [설정, Task, Bamboo, Script]
 categories: blog
 ---
 

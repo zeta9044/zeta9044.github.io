@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 Options & Locations"
 date: 2023-08-22
-tags: [Options, Locations]
+tags: [Locations, Options]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "IBM DataStage 작업 정의"
 date: 2023-04-07
-tags: [작업, DataStage, IBM, 정의]
+tags: [정의, IBM, DataStage, 작업]
 categories: blog
 ---
 

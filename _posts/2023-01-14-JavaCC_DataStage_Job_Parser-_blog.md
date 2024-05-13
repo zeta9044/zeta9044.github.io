@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC DataStage Job Parser"
 date: 2023-01-14
-tags: [Parser, DataStage, Job, JavaCC]
+tags: [JavaCC, Job, DataStage, Parser]
 categories: blog
 ---
 

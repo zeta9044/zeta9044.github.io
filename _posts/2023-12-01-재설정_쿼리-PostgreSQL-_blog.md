@@ -2,7 +2,7 @@
 layout: post
 title: "재설정 쿼리(PostgreSQL)"
 date: 2023-12-01
-tags: [재, 쿼리, 설정, PostgreSQL]
+tags: [설정, PostgreSQL, 재, 쿼리]
 categories: blog
 ---
 

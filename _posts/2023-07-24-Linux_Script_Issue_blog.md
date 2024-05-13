@@ -2,7 +2,7 @@
 layout: post
 title: "Linux Script Issue"
 date: 2023-07-24
-tags: [Script, Issue, Linux]
+tags: [Issue, Linux, Script]
 categories: blog
 ---
 

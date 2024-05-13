@@ -2,7 +2,7 @@
 layout: post
 title: "Override in IntelliJ"
 date: 2023-09-04
-tags: [IntelliJ, in, Override]
+tags: [IntelliJ, Override, in]
 categories: blog
 ---
 

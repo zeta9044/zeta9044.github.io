@@ -2,7 +2,7 @@
 layout: post
 title: "자바 switch와 instanceof"
 date: 2024-01-26
-tags: [instanceof, 자바]
+tags: [자바, instanceof]
 categories: blog
 ---
 

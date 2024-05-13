@@ -2,7 +2,7 @@
 layout: post
 title: "Java ANTLR4 Listener Function"
 date: 2024-01-12
-tags: [Listener, Function, Java]
+tags: [Function, Java, Listener]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "한국의 테슬라 충전 가능 규격 (Tesla Charging in Korea)"
 date: 2023-04-07
-tags: [Korea, 한국, Tesla, 규격, 충전, in, 테슬라, 가능, Charging]
+tags: [Korea, 가능, 테슬라, Tesla, Charging, 규격, in, 한국, 충전]
 categories: blog
 ---
 

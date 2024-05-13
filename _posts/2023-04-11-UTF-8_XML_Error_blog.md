@@ -2,7 +2,7 @@
 layout: post
 title: "UTF-8 XML Error"
 date: 2023-04-11
-tags: [Error, UTF, XML]
+tags: [UTF, Error, XML]
 categories: blog
 ---
 

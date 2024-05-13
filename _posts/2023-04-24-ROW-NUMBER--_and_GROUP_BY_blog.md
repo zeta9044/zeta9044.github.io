@@ -2,7 +2,7 @@
 layout: post
 title: "ROW_NUMBER() and GROUP BY"
 date: 2023-04-24
-tags: [GROUP, BY, and]
+tags: [and, GROUP, BY]
 categories: blog
 ---
 

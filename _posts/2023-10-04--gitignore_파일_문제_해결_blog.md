@@ -2,7 +2,7 @@
 layout: post
 title: ".gitignore 파일 문제 해결"
 date: 2023-10-04
-tags: [gitignore, 문제, 해결, 파일]
+tags: [파일, gitignore, 해결, 문제]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "주석 다는 법 (How to add comments)"
 date: 2024-02-02
-tags: [comments, How, add, to, 법, 주석]
+tags: [주석, How, to, 법, comments, add]
 categories: blog
 ---
 

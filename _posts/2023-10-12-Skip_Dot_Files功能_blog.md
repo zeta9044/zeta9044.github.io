@@ -2,7 +2,7 @@
 layout: post
 title: "Skip Dot Files功能"
 date: 2023-10-12
-tags: [Skip, Dot]
+tags: [Dot, Skip]
 categories: blog
 ---
 

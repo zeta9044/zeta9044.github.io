@@ -2,7 +2,7 @@
 layout: post
 title: "Java Package AttributeError Fix"
 date: 2023-12-11
-tags: [Package, Java, AttributeError, Fix]
+tags: [Fix, Java, AttributeError, Package]
 categories: blog
 ---
 

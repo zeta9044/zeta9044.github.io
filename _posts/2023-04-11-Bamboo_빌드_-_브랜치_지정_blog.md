@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo 빌드 - 브랜치 지정"
 date: 2023-04-11
-tags: [빌드, 브랜치, Bamboo, 지정]
+tags: [브랜치, Bamboo, 빌드, 지정]
 categories: blog
 ---
 

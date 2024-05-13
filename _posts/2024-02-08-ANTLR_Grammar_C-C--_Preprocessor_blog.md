@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR Grammar C/C++ Preprocessor"
 date: 2024-02-08
-tags: [ANTLR, Grammar, C, Preprocessor]
+tags: [Grammar, Preprocessor, C, ANTLR]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "IBM DataStage ETL 설정."
 date: 2023-04-04
-tags: [DataStage, 설정, IBM, ETL]
+tags: [설정, IBM, ETL, DataStage]
 categories: blog
 ---
 

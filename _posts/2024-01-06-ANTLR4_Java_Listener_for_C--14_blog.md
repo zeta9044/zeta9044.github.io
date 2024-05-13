@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 Java Listener for C++14"
 date: 2024-01-06
-tags: [Listener, for, Java, C]
+tags: [for, Java, C, Listener]
 categories: blog
 ---
 

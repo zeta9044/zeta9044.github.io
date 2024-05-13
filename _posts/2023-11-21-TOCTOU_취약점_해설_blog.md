@@ -2,7 +2,7 @@
 layout: post
 title: "TOCTOU 취약점 해설"
 date: 2023-11-21
-tags: [TOCTOU, 해설, 취약점]
+tags: [TOCTOU, 취약점, 해설]
 categories: blog
 ---
 

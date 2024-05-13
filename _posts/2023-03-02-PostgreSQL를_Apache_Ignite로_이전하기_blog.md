@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL를 Apache Ignite로 이전하기"
 date: 2023-03-02
-tags: [Apache, 를, 이전, 로]
+tags: [를, Apache, 이전, 로]
 categories: blog
 ---
 

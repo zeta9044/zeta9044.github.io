@@ -2,7 +2,7 @@
 layout: post
 title: "DBeaver Postgres 덤프"
 date: 2023-06-13
-tags: [덤프, DBeaver, Postgres]
+tags: [DBeaver, Postgres, 덤프]
 categories: blog
 ---
 

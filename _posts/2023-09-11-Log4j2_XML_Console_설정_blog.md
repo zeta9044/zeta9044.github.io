@@ -2,7 +2,7 @@
 layout: post
 title: "Log4j2 XML Console 설정"
 date: 2023-09-11
-tags: [설정, XML, Console]
+tags: [설정, Console, XML]
 categories: blog
 ---
 

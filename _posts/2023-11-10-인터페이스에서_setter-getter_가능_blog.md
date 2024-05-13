@@ -2,7 +2,7 @@
 layout: post
 title: "인터페이스에서 setter/getter 가능"
 date: 2023-11-10
-tags: [getter, 인터페이스, 가능, setter]
+tags: [가능, getter, setter, 인터페이스]
 categories: blog
 ---
 

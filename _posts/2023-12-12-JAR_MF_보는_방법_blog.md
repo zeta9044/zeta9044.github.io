@@ -2,7 +2,7 @@
 layout: post
 title: "JAR MF 보는 방법"
 date: 2023-12-12
-tags: [JAR, MF, 방법]
+tags: [MF, 방법, JAR]
 categories: blog
 ---
 

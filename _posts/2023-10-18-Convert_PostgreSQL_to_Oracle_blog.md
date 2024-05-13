@@ -2,7 +2,7 @@
 layout: post
 title: "Convert PostgreSQL to Oracle"
 date: 2023-10-18
-tags: [Oracle, Convert, PostgreSQL, to]
+tags: [PostgreSQL, to, Oracle, Convert]
 categories: blog
 ---
 

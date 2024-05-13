@@ -2,7 +2,7 @@
 layout: post
 title: "DBCP2와 Quartz 설정법"
 date: 2023-11-02
-tags: [법, Quartz, 설정]
+tags: [설정, Quartz, 법]
 categories: blog
 ---
 

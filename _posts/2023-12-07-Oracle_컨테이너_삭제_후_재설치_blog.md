@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle 컨테이너 삭제 후 재설치"
 date: 2023-12-07
-tags: [설치, Oracle, 삭제, 후, 재, 컨테이너]
+tags: [설치, 재, 컨테이너, 삭제, Oracle, 후]
 categories: blog
 ---
 

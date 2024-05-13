@@ -2,7 +2,7 @@
 layout: post
 title: "Ignite Resource Injection."
 date: 2023-03-03
-tags: [Resource, Injection, Ignite]
+tags: [Injection, Ignite, Resource]
 categories: blog
 ---
 

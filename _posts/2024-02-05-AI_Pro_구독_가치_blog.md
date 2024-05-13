@@ -2,7 +2,7 @@
 layout: post
 title: "AI Pro 구독 가치"
 date: 2024-02-05
-tags: [AI, 구독, 가치, Pro]
+tags: [AI, 구독, Pro, 가치]
 categories: blog
 ---
 

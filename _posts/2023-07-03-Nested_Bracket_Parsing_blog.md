@@ -2,7 +2,7 @@
 layout: post
 title: "Nested Bracket Parsing"
 date: 2023-07-03
-tags: [Bracket, Parsing, Nested]
+tags: [Nested, Parsing, Bracket]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Tomcat 디렉토리 이동."
 date: 2023-03-29
-tags: [디렉토리, Tomcat, 이동]
+tags: [Tomcat, 이동, 디렉토리]
 categories: blog
 ---
 

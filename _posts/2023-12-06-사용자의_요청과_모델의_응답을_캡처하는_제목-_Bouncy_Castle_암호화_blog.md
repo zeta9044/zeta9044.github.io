@@ -2,7 +2,7 @@
 layout: post
 title: "사용자의 요청과 모델의 응답을 캡처하는 제목: Bouncy Castle 암호화"
 date: 2023-12-06
-tags: [제목, 암호, 요청, 모델, 사용자, Bouncy, 응답, 캡처, Castle]
+tags: [Bouncy, Castle, 제목, 사용자, 모델, 요청, 캡처, 암호, 응답]
 categories: blog
 ---
 

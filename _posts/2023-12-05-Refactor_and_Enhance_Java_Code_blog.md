@@ -2,7 +2,7 @@
 layout: post
 title: "Refactor and Enhance Java Code"
 date: 2023-12-05
-tags: [and, Java, Code, Enhance, Refactor]
+tags: [and, Enhance, Refactor, Java, Code]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Decision Psychology Course"
 date: 2024-03-12
-tags: [Decision, Psychology, Course]
+tags: [Course, Decision, Psychology]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Copy JAR to Directory"
 date: 2024-03-21
-tags: [JAR, Directory, Copy, to]
+tags: [Directory, to, Copy, JAR]
 categories: blog
 ---
 

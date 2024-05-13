@@ -2,7 +2,7 @@
 layout: post
 title: "C++ Object Declaration"
 date: 2024-01-03
-tags: [C, Declaration, Object]
+tags: [Declaration, Object, C]
 categories: blog
 ---
 

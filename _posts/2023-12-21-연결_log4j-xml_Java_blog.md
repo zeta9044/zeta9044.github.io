@@ -2,7 +2,7 @@
 layout: post
 title: "연결 log4j.xml Java"
 date: 2023-12-21
-tags: [연결, xml, Java]
+tags: [xml, Java, 연결]
 categories: blog
 ---
 

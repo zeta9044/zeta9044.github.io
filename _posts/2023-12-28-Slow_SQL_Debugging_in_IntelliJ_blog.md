@@ -2,7 +2,7 @@
 layout: post
 title: "Slow SQL Debugging in IntelliJ"
 date: 2023-12-28
-tags: [IntelliJ, Debugging, in, Slow, SQL]
+tags: [IntelliJ, SQL, Slow, Debugging, in]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "IntelliJ Gradle 오프라인 해결"
 date: 2024-02-13
-tags: [IntelliJ, 오프라인, 해결, Gradle]
+tags: [IntelliJ, Gradle, 해결, 오프라인]
 categories: blog
 ---
 

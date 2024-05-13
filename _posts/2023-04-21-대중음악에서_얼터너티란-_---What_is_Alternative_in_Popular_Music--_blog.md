@@ -2,7 +2,7 @@
 layout: post
 title: "대중음악에서 얼터너티란?"
 date: 2023-04-21
-tags: [티란, 얼, 터너, 대중음악]
+tags: [터너, 얼, 대중음악, 티란]
 categories: blog
 ---
 

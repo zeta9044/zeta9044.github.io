@@ -2,7 +2,7 @@
 layout: post
 title: "Copy Dependencies to Directory"
 date: 2024-02-07
-tags: [Dependencies, Copy, Directory, to]
+tags: [Directory, Dependencies, to, Copy]
 categories: blog
 ---
 

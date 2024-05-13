@@ -2,7 +2,7 @@
 layout: post
 title: "다운로드 OpenJDK 8 Ubuntu"
 date: 2023-12-01
-tags: [Ubuntu, OpenJDK, 다운로드]
+tags: [다운로드, Ubuntu, OpenJDK]
 categories: blog
 ---
 

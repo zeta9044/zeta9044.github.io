@@ -2,7 +2,7 @@
 layout: post
 title: "Promo code search."
 date: 2024-02-19
-tags: [code, Promo, search]
+tags: [Promo, code, search]
 categories: blog
 ---
 

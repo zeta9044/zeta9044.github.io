@@ -2,7 +2,7 @@
 layout: post
 title: "TOCTOU Race Condition 해결"
 date: 2023-12-05
-tags: [Race, TOCTOU, 해결, Condition]
+tags: [Race, 해결, Condition, TOCTOU]
 categories: blog
 ---
 

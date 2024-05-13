@@ -2,7 +2,7 @@
 layout: post
 title: "단축키: 주석 추가 (단축키: Ctrl + /, Ctrl + Shift + /)"
 date: 2023-06-22
-tags: [추가, 단축키, Shift, Ctrl, 주석]
+tags: [주석, 추가, 단축키, Shift, Ctrl]
 categories: blog
 ---
 

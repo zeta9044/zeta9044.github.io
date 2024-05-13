@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle 파일 필터링"
 date: 2023-09-22
-tags: [필터, Gradle, 파일, 링]
+tags: [링, 필터, 파일, Gradle]
 categories: blog
 ---
 

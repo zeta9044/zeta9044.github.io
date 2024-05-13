@@ -2,7 +2,7 @@
 layout: post
 title: "Adapter & Composite Pattern"
 date: 2024-02-13
-tags: [Pattern, Adapter, Composite]
+tags: [Adapter, Composite, Pattern]
 categories: blog
 ---
 

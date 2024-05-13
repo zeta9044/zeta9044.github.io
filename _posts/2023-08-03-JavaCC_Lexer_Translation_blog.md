@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC Lexer Translation"
 date: 2023-08-03
-tags: [Translation, Lexer, JavaCC]
+tags: [JavaCC, Translation, Lexer]
 categories: blog
 ---
 

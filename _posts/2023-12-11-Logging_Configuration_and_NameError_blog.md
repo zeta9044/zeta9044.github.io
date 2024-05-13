@@ -2,7 +2,7 @@
 layout: post
 title: "Logging Configuration and NameError"
 date: 2023-12-11
-tags: [Configuration, Logging, and, NameError]
+tags: [Configuration, NameError, and, Logging]
 categories: blog
 ---
 

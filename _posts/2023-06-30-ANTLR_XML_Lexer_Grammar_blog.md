@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR XML Lexer Grammar"
 date: 2023-06-30
-tags: [ANTLR, Lexer, Grammar, XML]
+tags: [XML, Lexer, Grammar, ANTLR]
 categories: blog
 ---
 

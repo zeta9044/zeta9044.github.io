@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle 프로퍼티 값 설정"
 date: 2023-07-05
-tags: [값, 퍼티, 프로, 설정, Gradle]
+tags: [Gradle, 프로, 퍼티, 값, 설정]
 categories: blog
 ---
 

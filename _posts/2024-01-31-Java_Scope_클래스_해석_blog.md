@@ -2,7 +2,7 @@
 layout: post
 title: "Java Scope 클래스 해석"
 date: 2024-01-31
-tags: [해석, Scope, 클래스, Java]
+tags: [클래스, Java, 해석, Scope]
 categories: blog
 ---
 

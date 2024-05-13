@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC XML Lexer"
 date: 2023-06-30
-tags: [Lexer, JavaCC, XML]
+tags: [JavaCC, Lexer, XML]
 categories: blog
 ---
 

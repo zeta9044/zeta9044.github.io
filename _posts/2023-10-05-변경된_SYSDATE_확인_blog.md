@@ -2,7 +2,7 @@
 layout: post
 title: "변경된 SYSDATE 확인"
 date: 2023-10-05
-tags: [변경, 확인, SYSDATE]
+tags: [확인, 변경, SYSDATE]
 categories: blog
 ---
 

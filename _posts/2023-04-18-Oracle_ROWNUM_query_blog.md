@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle ROWNUM query"
 date: 2023-04-18
-tags: [query, ROWNUM, Oracle]
+tags: [ROWNUM, Oracle, query]
 categories: blog
 ---
 

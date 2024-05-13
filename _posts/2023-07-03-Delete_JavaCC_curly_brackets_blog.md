@@ -2,7 +2,7 @@
 layout: post
 title: "Delete JavaCC curly brackets"
 date: 2023-07-03
-tags: [curly, JavaCC, Delete, brackets]
+tags: [JavaCC, Delete, brackets, curly]
 categories: blog
 ---
 

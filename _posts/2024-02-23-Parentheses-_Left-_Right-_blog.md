@@ -2,7 +2,7 @@
 layout: post
 title: "Parentheses: Left, Right."
 date: 2024-02-23
-tags: [Right, Left, Parentheses]
+tags: [Left, Parentheses, Right]
 categories: blog
 ---
 

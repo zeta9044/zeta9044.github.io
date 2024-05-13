@@ -2,7 +2,7 @@
 layout: post
 title: "Docker-compose 설정 예제"
 date: 2023-12-01
-tags: [Docker, compose, 설정, 예제]
+tags: [예제, 설정, compose, Docker]
 categories: blog
 ---
 

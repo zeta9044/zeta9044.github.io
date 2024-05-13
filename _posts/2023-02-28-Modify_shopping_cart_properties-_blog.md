@@ -2,7 +2,7 @@
 layout: post
 title: "Modify shopping cart properties."
 date: 2023-02-28
-tags: [shopping, cart, properties, Modify]
+tags: [cart, shopping, properties, Modify]
 categories: blog
 ---
 

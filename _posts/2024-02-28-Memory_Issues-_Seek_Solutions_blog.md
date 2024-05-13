@@ -2,7 +2,7 @@
 layout: post
 title: "Memory Issues, Seek Solutions"
 date: 2024-02-28
-tags: [Seek, Issues, Solutions, Memory]
+tags: [Solutions, Issues, Memory, Seek]
 categories: blog
 ---
 

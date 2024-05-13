@@ -2,7 +2,7 @@
 layout: post
 title: "DDL 판별 Java 함수"
 date: 2023-10-05
-tags: [함수, Java, DDL, 판별]
+tags: [함수, DDL, 판별, Java]
 categories: blog
 ---
 

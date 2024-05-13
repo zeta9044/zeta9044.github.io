@@ -2,7 +2,7 @@
 layout: post
 title: "Flutter 체크인앱 시작"
 date: 2023-06-05
-tags: [앱, 체크, Flutter, 시작]
+tags: [체크, Flutter, 시작, 앱]
 categories: blog
 ---
 

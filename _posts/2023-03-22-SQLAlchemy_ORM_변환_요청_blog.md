@@ -2,7 +2,7 @@
 layout: post
 title: "SQLAlchemy ORM 변환 요청"
 date: 2023-03-22
-tags: [ORM, 변환, SQLAlchemy, 요청]
+tags: [SQLAlchemy, 변환, 요청, ORM]
 categories: blog
 ---
 

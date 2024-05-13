@@ -2,7 +2,7 @@
 layout: post
 title: "비트버킷 HTTPS 설정"
 date: 2023-03-17
-tags: [비트, 버킷, HTTPS, 설정]
+tags: [HTTPS, 설정, 버킷, 비트]
 categories: blog
 ---
 

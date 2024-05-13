@@ -2,7 +2,7 @@
 layout: post
 title: "XML 파서 만들기: JJTree"
 date: 2023-06-29
-tags: [파서, 만들기, XML, JJTree]
+tags: [만들기, 파서, JJTree, XML]
 categories: blog
 ---
 

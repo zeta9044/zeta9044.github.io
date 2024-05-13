@@ -2,7 +2,7 @@
 layout: post
 title: "Linux 명령어로 에러 확인"
 date: 2023-12-13
-tags: [확인, 명령어, 에러, Linux]
+tags: [에러, 확인, 명령어, Linux]
 categories: blog
 ---
 

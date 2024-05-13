@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL 테이블 생성"
 date: 2023-11-22
-tags: [테이블, PostgreSQL, 생]
+tags: [PostgreSQL, 테이블, 생]
 categories: blog
 ---
 

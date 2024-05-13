@@ -2,7 +2,7 @@
 layout: post
 title: "Python executable not found."
 date: 2023-02-14
-tags: [not, executable, Python, found]
+tags: [not, Python, executable, found]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle 테이블 생성 문법"
 date: 2023-06-09
-tags: [테이블, Oracle, 문법, 생]
+tags: [문법, Oracle, 테이블, 생]
 categories: blog
 ---
 

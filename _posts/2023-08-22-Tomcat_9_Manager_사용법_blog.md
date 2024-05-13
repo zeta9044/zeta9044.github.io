@@ -2,7 +2,7 @@
 layout: post
 title: "Tomcat 9 Manager 사용법"
 date: 2023-08-22
-tags: [Manager, 용법, Tomcat]
+tags: [Tomcat, 용법, Manager]
 categories: blog
 ---
 

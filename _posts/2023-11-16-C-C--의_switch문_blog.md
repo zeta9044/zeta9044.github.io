@@ -2,7 +2,7 @@
 layout: post
 title: "C/C++의 switch문"
 date: 2023-11-16
-tags: [의, 문, C]
+tags: [의, C, 문]
 categories: blog
 ---
 

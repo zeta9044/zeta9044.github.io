@@ -2,7 +2,7 @@
 layout: post
 title: "톰캣 server.xml에서 shell의 환경변수 사용하기"
 date: 2023-04-27
-tags: [server, 의, 톰캣, 사용, 환경변수]
+tags: [톰캣, server, 의, 사용, 환경변수]
 categories: blog
 ---
 

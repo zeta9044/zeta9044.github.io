@@ -2,7 +2,7 @@
 layout: post
 title: "콘솔에서 Docker 컨테이너 로그 확인"
 date: 2023-06-08
-tags: [로그, Docker, 컨테이너, 콘솔, 확인]
+tags: [확인, 컨테이너, 콘솔, 로그, Docker]
 categories: blog
 ---
 

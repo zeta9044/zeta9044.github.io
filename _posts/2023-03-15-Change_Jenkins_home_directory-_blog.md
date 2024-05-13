@@ -2,7 +2,7 @@
 layout: post
 title: "Change Jenkins home directory."
 date: 2023-03-15
-tags: [home, Jenkins, Change, directory]
+tags: [Change, Jenkins, directory, home]
 categories: blog
 ---
 

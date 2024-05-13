@@ -2,7 +2,7 @@
 layout: post
 title: "Variable Assignment: a = 5"
 date: 2023-08-25
-tags: [Variable, a, Assignment]
+tags: [Assignment, a, Variable]
 categories: blog
 ---
 

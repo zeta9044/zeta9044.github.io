@@ -2,7 +2,7 @@
 layout: post
 title: "Left Join 설명."
 date: 2023-09-04
-tags: [설명, Left, Join]
+tags: [Left, 설명, Join]
 categories: blog
 ---
 

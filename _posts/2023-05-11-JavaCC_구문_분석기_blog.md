@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC 구문 분석기"
 date: 2023-05-11
-tags: [기, JavaCC, 구문, 분석]
+tags: [JavaCC, 구문, 기, 분석]
 categories: blog
 ---
 

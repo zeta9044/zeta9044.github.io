@@ -2,7 +2,7 @@
 layout: post
 title: "한글 .properties 파일 인코딩"
 date: 2023-12-14
-tags: [인코딩, 한글, properties, 파일]
+tags: [properties, 파일, 인코딩, 한글]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "발음 방법: Zetime"
 date: 2024-01-21
-tags: [발음, Zetime, 방법]
+tags: [발음, 방법, Zetime]
 categories: blog
 ---
 

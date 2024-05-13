@@ -2,7 +2,7 @@
 layout: post
 title: "Spring Boot caching error."
 date: 2023-04-17
-tags: [Boot, error, Spring, caching]
+tags: [Boot, Spring, error, caching]
 categories: blog
 ---
 

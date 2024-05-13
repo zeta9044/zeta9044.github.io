@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle query conversion."
 date: 2023-04-03
-tags: [conversion, query, Oracle]
+tags: [Oracle, query, conversion]
 categories: blog
 ---
 

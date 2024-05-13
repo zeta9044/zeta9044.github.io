@@ -2,7 +2,7 @@
 layout: post
 title: "Eclipse CDT Preprocessor Util"
 date: 2024-02-08
-tags: [Util, CDT, Eclipse, Preprocessor]
+tags: [Util, Eclipse, Preprocessor, CDT]
 categories: blog
 ---
 

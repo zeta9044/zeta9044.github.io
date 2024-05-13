@@ -2,7 +2,7 @@
 layout: post
 title: "고쳐봐 (Fix It)"
 date: 2023-09-27
-tags: [It, Fix]
+tags: [Fix, It]
 categories: blog
 ---
 

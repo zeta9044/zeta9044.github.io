@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle 19c에서 CASE WHEN 구문에서 IN 사용"
 date: 2023-04-20
-tags: [사용, Oracle, 구문, IN, WHEN, CASE]
+tags: [IN, WHEN, CASE, 사용, Oracle, 구문]
 categories: blog
 ---
 

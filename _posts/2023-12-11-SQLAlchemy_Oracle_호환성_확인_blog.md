@@ -2,7 +2,7 @@
 layout: post
 title: "SQLAlchemy Oracle 호환성 확인"
 date: 2023-12-11
-tags: [호환성, SQLAlchemy, 확인, Oracle]
+tags: [확인, 호환성, SQLAlchemy, Oracle]
 categories: blog
 ---
 

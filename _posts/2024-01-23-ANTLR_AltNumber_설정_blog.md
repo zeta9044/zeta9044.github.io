@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR AltNumber 설정"
 date: 2024-01-23
-tags: [ANTLR, 설정, AltNumber]
+tags: [설정, AltNumber, ANTLR]
 categories: blog
 ---
 

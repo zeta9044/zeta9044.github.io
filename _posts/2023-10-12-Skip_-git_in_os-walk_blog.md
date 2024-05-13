@@ -2,7 +2,7 @@
 layout: post
 title: "Skip .git in os.walk"
 date: 2023-10-12
-tags: [walk, in, Skip, git, os]
+tags: [walk, in, git, Skip, os]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "ChatGPT 가져오기: 파이썬 코드"
 date: 2023-06-14
-tags: [코드, ChatGPT, 파이썬]
+tags: [ChatGPT, 코드, 파이썬]
 categories: blog
 ---
 

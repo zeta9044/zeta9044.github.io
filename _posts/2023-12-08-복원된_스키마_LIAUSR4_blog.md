@@ -2,7 +2,7 @@
 layout: post
 title: "복원된 스키마 LIAUSR4"
 date: 2023-12-08
-tags: [복원, 스키마]
+tags: [스키마, 복원]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Javadoc 작성 방법"
 date: 2023-10-25
-tags: [작성, Javadoc, 방법]
+tags: [Javadoc, 작성, 방법]
 categories: blog
 ---
 

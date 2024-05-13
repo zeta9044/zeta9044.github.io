@@ -2,7 +2,7 @@
 layout: post
 title: "Docker 컨테이너 Oracle 시간 설정"
 date: 2023-12-14
-tags: [Oracle, 설정, 시간, Docker, 컨테이너]
+tags: [컨테이너, 시간, Oracle, Docker, 설정]
 categories: blog
 ---
 

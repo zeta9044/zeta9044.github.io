@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle CLOB 데이터 INSERT"
 date: 2023-02-23
-tags: [데이터, CLOB, INSERT, Oracle]
+tags: [CLOB, Oracle, INSERT, 데이터]
 categories: blog
 ---
 

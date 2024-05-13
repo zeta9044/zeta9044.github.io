@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo 웹훅 설정 방법"
 date: 2023-11-17
-tags: [웹훅, 설정, 방법, Bamboo]
+tags: [설정, 방법, Bamboo, 웹훅]
 categories: blog
 ---
 

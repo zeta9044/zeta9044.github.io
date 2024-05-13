@@ -2,7 +2,7 @@
 layout: post
 title: "Jekyll에서 iframe 사용"
 date: 2023-09-07
-tags: [iframe, 사용]
+tags: [사용, iframe]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC XML 파서"
 date: 2023-07-04
-tags: [파서, JavaCC, XML]
+tags: [JavaCC, 파서, XML]
 categories: blog
 ---
 

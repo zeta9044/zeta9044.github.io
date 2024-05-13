@@ -2,7 +2,7 @@
 layout: post
 title: "Commons Collections 3 vs 4"
 date: 2023-11-07
-tags: [Collections, vs, Commons]
+tags: [vs, Commons, Collections]
 categories: blog
 ---
 

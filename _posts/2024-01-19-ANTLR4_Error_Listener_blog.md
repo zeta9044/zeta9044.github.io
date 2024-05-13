@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 Error Listener"
 date: 2024-01-19
-tags: [Listener, Error]
+tags: [Error, Listener]
 categories: blog
 ---
 

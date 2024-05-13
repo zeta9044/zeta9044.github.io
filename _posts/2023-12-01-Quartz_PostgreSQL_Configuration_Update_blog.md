@@ -2,7 +2,7 @@
 layout: post
 title: "Quartz PostgreSQL Configuration Update"
 date: 2023-12-01
-tags: [Quartz, Update, Configuration, PostgreSQL]
+tags: [Configuration, PostgreSQL, Update, Quartz]
 categories: blog
 ---
 

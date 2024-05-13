@@ -2,7 +2,7 @@
 layout: post
 title: "postgresql upsert 존재함."
 date: 2023-03-10
-tags: [upsert, postgresql, 함, 존재]
+tags: [함, postgresql, 존재, upsert]
 categories: blog
 ---
 

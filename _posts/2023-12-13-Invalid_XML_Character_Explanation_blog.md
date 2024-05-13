@@ -2,7 +2,7 @@
 layout: post
 title: "Invalid XML Character Explanation"
 date: 2023-12-13
-tags: [Character, Explanation, XML, Invalid]
+tags: [Invalid, Explanation, Character, XML]
 categories: blog
 ---
 

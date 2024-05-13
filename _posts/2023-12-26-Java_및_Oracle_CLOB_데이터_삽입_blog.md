@@ -2,7 +2,7 @@
 layout: post
 title: "Java 및 Oracle CLOB 데이터 삽입"
 date: 2023-12-26
-tags: [및, Java, 삽입, Oracle, 데이터, CLOB]
+tags: [삽입, CLOB, Oracle, 및, Java, 데이터]
 categories: blog
 ---
 

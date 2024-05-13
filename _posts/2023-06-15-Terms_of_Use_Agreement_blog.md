@@ -2,7 +2,7 @@
 layout: post
 title: "Terms of Use Agreement"
 date: 2023-06-15
-tags: [Agreement, Use, Terms, of]
+tags: [Terms, of, Use, Agreement]
 categories: blog
 ---
 

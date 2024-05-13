@@ -2,7 +2,7 @@
 layout: post
 title: "Log4j Error Resolution"
 date: 2023-12-14
-tags: [Error, Resolution]
+tags: [Resolution, Error]
 categories: blog
 ---
 

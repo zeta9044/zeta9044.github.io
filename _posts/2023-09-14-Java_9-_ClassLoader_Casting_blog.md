@@ -2,7 +2,7 @@
 layout: post
 title: "Java 9+ ClassLoader Casting"
 date: 2023-09-14
-tags: [Casting, ClassLoader, Java]
+tags: [ClassLoader, Java, Casting]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "제우스 WAS Spring Boot 배포"
 date: 2023-04-17
-tags: [WAS, Spring, 제우스, Boot, 배포]
+tags: [Boot, 제우스, WAS, Spring, 배포]
 categories: blog
 ---
 

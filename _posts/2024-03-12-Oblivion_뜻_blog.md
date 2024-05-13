@@ -2,7 +2,7 @@
 layout: post
 title: "Oblivion 뜻"
 date: 2024-03-12
-tags: [뜻, Oblivion]
+tags: [Oblivion, 뜻]
 categories: blog
 ---
 

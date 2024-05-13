@@ -2,7 +2,7 @@
 layout: post
 title: "MyBatis XML 자동 리로드"
 date: 2023-03-02
-tags: [자동, 리, 로드, MyBatis, XML]
+tags: [자동, XML, 로드, MyBatis, 리]
 categories: blog
 ---
 

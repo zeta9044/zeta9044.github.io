@@ -2,7 +2,7 @@
 layout: post
 title: "Cpp Parser Validation"
 date: 2023-08-09
-tags: [Cpp, Parser, Validation]
+tags: [Parser, Validation, Cpp]
 categories: blog
 ---
 

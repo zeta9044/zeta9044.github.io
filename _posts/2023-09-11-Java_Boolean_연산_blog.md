@@ -2,7 +2,7 @@
 layout: post
 title: "Java Boolean 연산"
 date: 2023-09-11
-tags: [Boolean, Java, 연산]
+tags: [연산, Java, Boolean]
 categories: blog
 ---
 

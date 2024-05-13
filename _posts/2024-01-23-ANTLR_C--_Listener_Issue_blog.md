@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR C++ Listener Issue"
 date: 2024-01-23
-tags: [ANTLR, Listener, C, Issue]
+tags: [C, Issue, Listener, ANTLR]
 categories: blog
 ---
 

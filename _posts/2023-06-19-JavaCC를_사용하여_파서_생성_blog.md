@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC를 사용하여 파서 생성"
 date: 2023-06-19
-tags: [를, 파서, 사용, 생]
+tags: [사용, 를, 파서, 생]
 categories: blog
 ---
 

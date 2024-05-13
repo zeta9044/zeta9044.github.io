@@ -2,7 +2,7 @@
 layout: post
 title: "Java Version Mismatch"
 date: 2023-08-23
-tags: [Mismatch, Version, Java]
+tags: [Java, Version, Mismatch]
 categories: blog
 ---
 

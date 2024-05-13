@@ -2,7 +2,7 @@
 layout: post
 title: "Inappropriate Request Refused"
 date: 2023-02-02
-tags: [Refused, Inappropriate, Request]
+tags: [Request, Inappropriate, Refused]
 categories: blog
 ---
 

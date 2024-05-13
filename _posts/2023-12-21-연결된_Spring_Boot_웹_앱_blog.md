@@ -2,7 +2,7 @@
 layout: post
 title: "연결된 Spring Boot 웹 앱"
 date: 2023-12-21
-tags: [앱, Spring, 연결, Boot, 웹]
+tags: [웹, Boot, 연결, 앱, Spring]
 categories: blog
 ---
 

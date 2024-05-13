@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC with ANTLR4 Integration"
 date: 2023-07-12
-tags: [Integration, JavaCC, with]
+tags: [JavaCC, with, Integration]
 categories: blog
 ---
 

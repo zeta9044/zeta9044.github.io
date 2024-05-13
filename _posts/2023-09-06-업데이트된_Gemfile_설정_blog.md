@@ -2,7 +2,7 @@
 layout: post
 title: "업데이트된 Gemfile 설정"
 date: 2023-09-06
-tags: [Gemfile, 업데이트, 설정]
+tags: [설정, 업데이트, Gemfile]
 categories: blog
 ---
 

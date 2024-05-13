@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle 인스턴스 메모리 정보"
 date: 2023-12-07
-tags: [메모리, 인스턴스, 정보, Oracle]
+tags: [정보, Oracle, 인스턴스, 메모리]
 categories: blog
 ---
 

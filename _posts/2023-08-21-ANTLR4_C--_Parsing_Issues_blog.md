@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 C++ Parsing Issues"
 date: 2023-08-21
-tags: [Issues, C, Parsing]
+tags: [Issues, Parsing, C]
 categories: blog
 ---
 

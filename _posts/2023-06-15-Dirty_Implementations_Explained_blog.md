@@ -2,7 +2,7 @@
 layout: post
 title: "Dirty Implementations Explained"
 date: 2023-06-15
-tags: [Explained, Implementations, Dirty]
+tags: [Explained, Dirty, Implementations]
 categories: blog
 ---
 

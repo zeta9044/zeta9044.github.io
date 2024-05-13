@@ -2,7 +2,7 @@
 layout: post
 title: "CDATA 에러: 정의 오류"
 date: 2023-07-03
-tags: [CDATA, 에러, 오류, 정의]
+tags: [에러, 정의, 오류, CDATA]
 categories: blog
 ---
 

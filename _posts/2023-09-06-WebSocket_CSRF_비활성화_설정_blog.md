@@ -2,7 +2,7 @@
 layout: post
 title: "WebSocket CSRF 비활성화 설정"
 date: 2023-09-06
-tags: [활성화, 비, WebSocket, CSRF, 설정]
+tags: [CSRF, 활성화, 비, WebSocket, 설정]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "QT Creator Python App"
 date: 2023-02-28
-tags: [Creator, Python, QT, App]
+tags: [Creator, QT, App, Python]
 categories: blog
 ---
 

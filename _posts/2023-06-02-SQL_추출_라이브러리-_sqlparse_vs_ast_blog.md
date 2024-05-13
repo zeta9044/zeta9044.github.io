@@ -2,7 +2,7 @@
 layout: post
 title: "SQL 추출 라이브러리: sqlparse vs ast"
 date: 2023-06-02
-tags: [ast, sqlparse, vs, 라이브러리, SQL, 추출]
+tags: [SQL, ast, 추출, 라이브러리, sqlparse, vs]
 categories: blog
 ---
 

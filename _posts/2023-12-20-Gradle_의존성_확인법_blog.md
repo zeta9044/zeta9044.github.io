@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle 의존성 확인법"
 date: 2023-12-20
-tags: [법, 확인, 의존, Gradle]
+tags: [확인, 의존, Gradle, 법]
 categories: blog
 ---
 

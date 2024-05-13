@@ -2,7 +2,7 @@
 layout: post
 title: "Notepad++ Text Wrapping."
 date: 2023-03-28
-tags: [Wrapping, Notepad, Text]
+tags: [Text, Wrapping, Notepad]
 categories: blog
 ---
 

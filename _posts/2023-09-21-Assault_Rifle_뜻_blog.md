@@ -2,7 +2,7 @@
 layout: post
 title: "Assault Rifle 뜻"
 date: 2023-09-21
-tags: [Assault, 뜻, Rifle]
+tags: [Rifle, Assault, 뜻]
 categories: blog
 ---
 

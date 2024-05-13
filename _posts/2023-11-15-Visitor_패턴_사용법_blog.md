@@ -2,7 +2,7 @@
 layout: post
 title: "Visitor 패턴 사용법"
 date: 2023-11-15
-tags: [패턴, 용법, Visitor]
+tags: [Visitor, 용법, 패턴]
 categories: blog
 ---
 

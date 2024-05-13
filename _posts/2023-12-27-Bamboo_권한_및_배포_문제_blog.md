@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo 권한 및 배포 문제"
 date: 2023-12-27
-tags: [문제, 및, 권한, 배포, Bamboo]
+tags: [Bamboo, 문제, 및, 권한, 배포]
 categories: blog
 ---
 

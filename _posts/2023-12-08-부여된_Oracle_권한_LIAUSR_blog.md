@@ -2,7 +2,7 @@
 layout: post
 title: "부여된 Oracle 권한 LIAUSR"
 date: 2023-12-08
-tags: [Oracle, LIAUSR, 권한, 부여]
+tags: [LIAUSR, Oracle, 권한, 부여]
 categories: blog
 ---
 

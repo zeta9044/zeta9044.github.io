@@ -2,7 +2,7 @@
 layout: post
 title: "gradle 외부 jar 파일 지정"
 date: 2023-03-24
-tags: [gradle, 지정, 파일, jar, 외부]
+tags: [jar, gradle, 파일, 외부, 지정]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle 의존성 트리 요청"
 date: 2023-10-11
-tags: [트리, 요청, 의존, Gradle]
+tags: [Gradle, 의존, 요청, 트리]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Git Cherry-Pick 강제 방법"
 date: 2023-11-03
-tags: [Cherry, Pick, 방법, Git, 강제]
+tags: [Pick, 강제, 방법, Git, Cherry]
 categories: blog
 ---
 

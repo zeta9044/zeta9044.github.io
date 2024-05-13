@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 Token Retrieval"
 date: 2023-09-12
-tags: [Retrieval, Token]
+tags: [Token, Retrieval]
 categories: blog
 ---
 

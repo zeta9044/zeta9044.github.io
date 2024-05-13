@@ -2,7 +2,7 @@
 layout: post
 title: "테슬라 Supercharger 충전 방식"
 date: 2023-07-01
-tags: [Supercharger, 테슬라, 충전, 방식]
+tags: [방식, 충전, Supercharger, 테슬라]
 categories: blog
 ---
 

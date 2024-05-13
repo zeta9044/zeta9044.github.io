@@ -2,7 +2,7 @@
 layout: post
 title: "Handling NULL Subquery Results"
 date: 2023-05-15
-tags: [Results, Subquery, Handling, NULL]
+tags: [NULL, Results, Subquery, Handling]
 categories: blog
 ---
 

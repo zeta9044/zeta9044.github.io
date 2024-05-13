@@ -2,7 +2,7 @@
 layout: post
 title: "RESOURCE_LEAK 문제 해결"
 date: 2023-11-27
-tags: [문제, 해결]
+tags: [해결, 문제]
 categories: blog
 ---
 

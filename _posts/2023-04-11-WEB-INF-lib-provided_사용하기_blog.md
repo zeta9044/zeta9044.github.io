@@ -2,7 +2,7 @@
 layout: post
 title: "WEB-INF/lib-provided 사용하기"
 date: 2023-04-11
-tags: [provided, INF, 사용, WEB, lib]
+tags: [WEB, INF, provided, lib, 사용]
 categories: blog
 ---
 

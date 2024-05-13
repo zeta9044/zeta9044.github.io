@@ -2,7 +2,7 @@
 layout: post
 title: "Count ls lines"
 date: 2024-01-18
-tags: [ls, lines, Count]
+tags: [lines, ls, Count]
 categories: blog
 ---
 

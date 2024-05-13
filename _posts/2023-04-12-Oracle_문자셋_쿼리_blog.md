@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle 문자셋 쿼리"
 date: 2023-04-12
-tags: [Oracle, 쿼리, 문자셋]
+tags: [Oracle, 문자셋, 쿼리]
 categories: blog
 ---
 

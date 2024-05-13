@@ -2,7 +2,7 @@
 layout: post
 title: "Ubuntu에 source 명령 없음"
 date: 2023-12-01
-tags: [source, 명령]
+tags: [명령, source]
 categories: blog
 ---
 

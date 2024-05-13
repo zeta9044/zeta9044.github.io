@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo로 Graphviz 설치"
 date: 2023-08-24
-tags: [설치, Graphviz, 로]
+tags: [설치, 로, Graphviz]
 categories: blog
 ---
 

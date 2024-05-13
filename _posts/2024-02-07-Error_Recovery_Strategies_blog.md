@@ -2,7 +2,7 @@
 layout: post
 title: "Error Recovery Strategies"
 date: 2024-02-07
-tags: [Strategies, Recovery, Error]
+tags: [Recovery, Error, Strategies]
 categories: blog
 ---
 

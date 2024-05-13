@@ -2,7 +2,7 @@
 layout: post
 title: "연차휴가 법규 (Korea)"
 date: 2023-11-15
-tags: [법규, Korea, 휴가, 연차]
+tags: [법규, 휴가, Korea, 연차]
 categories: blog
 ---
 

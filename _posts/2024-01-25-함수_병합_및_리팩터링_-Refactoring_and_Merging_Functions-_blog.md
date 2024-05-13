@@ -2,7 +2,7 @@
 layout: post
 title: "함수 병합 및 리팩터링 (Refactoring and Merging Functions)"
 date: 2024-01-25
-tags: [병합, 및, and, 리, 팩터링, Functions, Refactoring, Merging, 함수]
+tags: [Functions, 병합, Merging, 함수, 팩터링, and, Refactoring, 및, 리]
 categories: blog
 ---
 

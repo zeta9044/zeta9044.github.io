@@ -2,7 +2,7 @@
 layout: post
 title: "Google 프론트 프레임워크"
 date: 2023-05-24
-tags: [Google, 프론트, 프레임워크]
+tags: [Google, 프레임워크, 프론트]
 categories: blog
 ---
 

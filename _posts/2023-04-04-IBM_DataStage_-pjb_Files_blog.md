@@ -2,7 +2,7 @@
 layout: post
 title: "IBM DataStage .pjb Files"
 date: 2023-04-04
-tags: [DataStage, pjb, IBM, Files]
+tags: [IBM, pjb, DataStage, Files]
 categories: blog
 ---
 

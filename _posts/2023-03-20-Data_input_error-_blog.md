@@ -2,7 +2,7 @@
 layout: post
 title: "Data input error."
 date: 2023-03-20
-tags: [input, Data, error]
+tags: [Data, input, error]
 categories: blog
 ---
 

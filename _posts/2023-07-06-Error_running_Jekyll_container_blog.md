@@ -2,7 +2,7 @@
 layout: post
 title: "Error running Jekyll container"
 date: 2023-07-06
-tags: [running, container, Error, Jekyll]
+tags: [Jekyll, running, container, Error]
 categories: blog
 ---
 

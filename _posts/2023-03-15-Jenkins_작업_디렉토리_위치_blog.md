@@ -2,7 +2,7 @@
 layout: post
 title: "Jenkins 작업 디렉토리 위치"
 date: 2023-03-15
-tags: [디렉토리, 작업, 위치, Jenkins]
+tags: [Jenkins, 위치, 디렉토리, 작업]
 categories: blog
 ---
 

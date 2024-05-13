@@ -2,7 +2,7 @@
 layout: post
 title: "Mainboard Possible Damage"
 date: 2024-02-13
-tags: [Damage, Mainboard, Possible]
+tags: [Possible, Damage, Mainboard]
 categories: blog
 ---
 

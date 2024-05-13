@@ -2,7 +2,7 @@
 layout: post
 title: "Wise UK GBP Operations"
 date: 2024-02-07
-tags: [Operations, Wise, GBP, UK]
+tags: [Wise, GBP, UK, Operations]
 categories: blog
 ---
 

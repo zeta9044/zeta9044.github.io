@@ -2,7 +2,7 @@
 layout: post
 title: "추출: ParserRuleContext에서 문자열"
 date: 2023-09-12
-tags: [문자열, 추출]
+tags: [추출, 문자열]
 categories: blog
 ---
 

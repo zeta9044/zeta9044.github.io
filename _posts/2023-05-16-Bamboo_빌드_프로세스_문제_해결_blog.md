@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo 빌드 프로세스 문제 해결"
 date: 2023-05-16
-tags: [문제, 프로세스, 해결, 빌드, Bamboo]
+tags: [프로세스, Bamboo, 해결, 빌드, 문제]
 categories: blog
 ---
 

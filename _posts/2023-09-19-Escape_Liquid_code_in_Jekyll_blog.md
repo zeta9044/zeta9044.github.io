@@ -2,7 +2,7 @@
 layout: post
 title: "Escape Liquid code in Jekyll"
 date: 2023-09-19
-tags: [code, Escape, in, Jekyll, Liquid]
+tags: [code, Liquid, Escape, Jekyll, in]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Debugging Eclipse CDT Classes"
 date: 2024-02-08
-tags: [CDT, Eclipse, Debugging, Classes]
+tags: [CDT, Eclipse, Classes, Debugging]
 categories: blog
 ---
 

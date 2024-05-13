@@ -2,7 +2,7 @@
 layout: post
 title: "Docker Compose로 Oracle 19c 실행"
 date: 2023-12-01
-tags: [Docker, 실행, Oracle, 로]
+tags: [Oracle, Docker, 실행, 로]
 categories: blog
 ---
 

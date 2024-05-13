@@ -2,7 +2,7 @@
 layout: post
 title: "SQLAlchemy Database Error"
 date: 2023-12-12
-tags: [Error, SQLAlchemy, Database]
+tags: [Database, SQLAlchemy, Error]
 categories: blog
 ---
 

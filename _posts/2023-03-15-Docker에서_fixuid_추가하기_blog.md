@@ -2,7 +2,7 @@
 layout: post
 title: "Docker에서 fixuid 추가하기"
 date: 2023-03-15
-tags: [fixuid, 추가]
+tags: [추가, fixuid]
 categories: blog
 ---
 

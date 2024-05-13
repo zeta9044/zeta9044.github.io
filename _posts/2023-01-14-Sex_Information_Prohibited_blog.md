@@ -2,7 +2,7 @@
 layout: post
 title: "Sex Information Prohibited"
 date: 2023-01-14
-tags: [Prohibited, Information, Sex]
+tags: [Information, Sex, Prohibited]
 categories: blog
 ---
 

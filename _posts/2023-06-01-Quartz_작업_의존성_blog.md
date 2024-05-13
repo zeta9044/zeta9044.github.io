@@ -2,7 +2,7 @@
 layout: post
 title: "Quartz 작업 의존성"
 date: 2023-06-01
-tags: [Quartz, 작업, 의존]
+tags: [의존, Quartz, 작업]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Fixing ORA-39070 Import Error"
 date: 2023-12-07
-tags: [Fixing, Import, Error, ORA]
+tags: [ORA, Error, Fixing, Import]
 categories: blog
 ---
 

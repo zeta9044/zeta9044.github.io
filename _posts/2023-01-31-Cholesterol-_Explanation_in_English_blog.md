@@ -2,7 +2,7 @@
 layout: post
 title: "Cholesterol: Explanation in English"
 date: 2023-01-31
-tags: [English, Cholesterol, Explanation, in]
+tags: [English, in, Cholesterol, Explanation]
 categories: blog
 ---
 

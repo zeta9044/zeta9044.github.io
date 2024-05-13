@@ -2,7 +2,7 @@
 layout: post
 title: "Jekyll 요약 설정 설명"
 date: 2023-09-15
-tags: [설명, 설정, 요약, Jekyll]
+tags: [설정, Jekyll, 설명, 요약]
 categories: blog
 ---
 

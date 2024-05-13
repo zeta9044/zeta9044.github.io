@@ -2,7 +2,7 @@
 layout: post
 title: "Cross vs Isolated Margin"
 date: 2023-12-21
-tags: [Margin, Isolated, vs, Cross]
+tags: [Margin, Cross, Isolated, vs]
 categories: blog
 ---
 

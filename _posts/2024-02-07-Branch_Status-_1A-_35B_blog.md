@@ -2,7 +2,7 @@
 layout: post
 title: "Branch Status: 1A, 35B"
 date: 2024-02-07
-tags: [Branch, Status]
+tags: [Status, Branch]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "AstroPay 출금 및 잔액"
 date: 2023-06-13
-tags: [잔액, 및, 출금, AstroPay]
+tags: [AstroPay, 출금, 및, 잔액]
 categories: blog
 ---
 

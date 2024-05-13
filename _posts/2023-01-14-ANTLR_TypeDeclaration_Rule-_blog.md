@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR TypeDeclaration Rule"
 date: 2023-01-14
-tags: [ANTLR, TypeDeclaration, Rule]
+tags: [Rule, TypeDeclaration, ANTLR]
 categories: blog
 ---
 

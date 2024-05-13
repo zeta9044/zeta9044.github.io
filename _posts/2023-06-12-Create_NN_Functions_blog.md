@@ -2,7 +2,7 @@
 layout: post
 title: "Create NN Functions"
 date: 2023-06-12
-tags: [Create, Functions, NN]
+tags: [Functions, NN, Create]
 categories: blog
 ---
 

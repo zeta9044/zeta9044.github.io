@@ -2,7 +2,7 @@
 layout: post
 title: "Bell vs Met: Comparison"
 date: 2024-02-20
-tags: [Comparison, Met, Bell, vs]
+tags: [Met, vs, Comparison, Bell]
 categories: blog
 ---
 

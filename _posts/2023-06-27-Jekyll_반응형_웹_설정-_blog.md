@@ -2,7 +2,7 @@
 layout: post
 title: "Jekyll 반응형 웹 설정."
 date: 2023-06-27
-tags: [반응, Jekyll, 웹, 설정]
+tags: [설정, 웹, 반응, Jekyll]
 categories: blog
 ---
 

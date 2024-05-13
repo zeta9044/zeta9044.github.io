@@ -2,7 +2,7 @@
 layout: post
 title: "HikariCP 설정 오류 해결"
 date: 2023-11-03
-tags: [해결, 설정, 오류, HikariCP]
+tags: [설정, 오류, HikariCP, 해결]
 categories: blog
 ---
 

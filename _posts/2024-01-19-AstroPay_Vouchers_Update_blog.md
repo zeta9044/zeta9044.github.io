@@ -2,7 +2,7 @@
 layout: post
 title: "AstroPay Vouchers Update"
 date: 2024-01-19
-tags: [Update, Vouchers, AstroPay]
+tags: [AstroPay, Vouchers, Update]
 categories: blog
 ---
 

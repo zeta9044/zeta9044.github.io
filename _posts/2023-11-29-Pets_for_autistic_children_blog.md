@@ -2,7 +2,7 @@
 layout: post
 title: "Pets for autistic children"
 date: 2023-11-29
-tags: [autistic, Pets, children, for]
+tags: [children, Pets, for, autistic]
 categories: blog
 ---
 

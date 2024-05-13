@@ -2,7 +2,7 @@
 layout: post
 title: "Qodana 구성 방법 (Qodana Configuration)"
 date: 2023-11-27
-tags: [Configuration, Qodana, 방법, 구성]
+tags: [Configuration, 방법, 구성, Qodana]
 categories: blog
 ---
 

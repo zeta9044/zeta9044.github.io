@@ -2,7 +2,7 @@
 layout: post
 title: "INMOTION 중국 제조 위치"
 date: 2023-12-12
-tags: [INMOTION, 위치, 중국, 제조]
+tags: [제조, INMOTION, 중국, 위치]
 categories: blog
 ---
 

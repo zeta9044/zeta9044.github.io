@@ -2,7 +2,7 @@
 layout: post
 title: "IBM DataStage stageType Explanation"
 date: 2023-04-21
-tags: [stageType, DataStage, Explanation, IBM]
+tags: [stageType, IBM, DataStage, Explanation]
 categories: blog
 ---
 

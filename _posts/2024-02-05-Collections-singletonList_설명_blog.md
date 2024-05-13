@@ -2,7 +2,7 @@
 layout: post
 title: "Collections.singletonList 설명"
 date: 2024-02-05
-tags: [설명, Collections, singletonList]
+tags: [singletonList, 설명, Collections]
 categories: blog
 ---
 

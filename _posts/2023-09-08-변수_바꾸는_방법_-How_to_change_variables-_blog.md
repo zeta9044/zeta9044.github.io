@@ -2,7 +2,7 @@
 layout: post
 title: "변수 바꾸는 방법 (How to change variables)"
 date: 2023-09-08
-tags: [change, How, 방법, to, 변수, variables]
+tags: [변수, How, 방법, variables, to, change]
 categories: blog
 ---
 

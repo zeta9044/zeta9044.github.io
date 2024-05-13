@@ -2,7 +2,7 @@
 layout: post
 title: "Tomcat에서 DB 연결 방법"
 date: 2023-04-27
-tags: [연결, DB, 방법]
+tags: [방법, DB, 연결]
 categories: blog
 ---
 

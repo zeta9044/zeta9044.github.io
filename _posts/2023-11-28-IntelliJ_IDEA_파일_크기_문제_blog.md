@@ -2,7 +2,7 @@
 layout: post
 title: "IntelliJ IDEA 파일 크기 문제"
 date: 2023-11-28
-tags: [IntelliJ, 문제, 크기, 파일, IDEA]
+tags: [IntelliJ, 크기, 파일, 문제, IDEA]
 categories: blog
 ---
 

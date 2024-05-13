@@ -2,7 +2,7 @@
 layout: post
 title: "iOS에서 QR 스캔하기"
 date: 2023-03-27
-tags: [QR, 스캔]
+tags: [스캔, QR]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "해결방법: INTEGER_OVERFLOW 보안 취약점"
 date: 2023-11-21
-tags: [보안, 해결, 방법, 취약점]
+tags: [방법, 취약점, 해결, 보안]
 categories: blog
 ---
 

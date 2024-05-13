@@ -2,7 +2,7 @@
 layout: post
 title: "Quartz 작업 의존성 설정"
 date: 2023-03-14
-tags: [Quartz, 작업, 설정, 의존]
+tags: [설정, 의존, Quartz, 작업]
 categories: blog
 ---
 

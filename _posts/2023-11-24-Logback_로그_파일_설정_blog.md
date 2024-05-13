@@ -2,7 +2,7 @@
 layout: post
 title: "Logback 로그 파일 설정"
 date: 2023-11-24
-tags: [Logback, 로그, 설정, 파일]
+tags: [설정, 파일, Logback, 로그]
 categories: blog
 ---
 

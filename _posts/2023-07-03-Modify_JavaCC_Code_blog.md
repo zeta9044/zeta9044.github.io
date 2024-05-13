@@ -2,7 +2,7 @@
 layout: post
 title: "Modify JavaCC Code"
 date: 2023-07-03
-tags: [Code, JavaCC, Modify]
+tags: [JavaCC, Modify, Code]
 categories: blog
 ---
 

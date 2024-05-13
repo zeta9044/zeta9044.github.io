@@ -2,7 +2,7 @@
 layout: post
 title: "Confluence 매크로 줄바꿈 설정"
 date: 2023-08-29
-tags: [바꿈, Confluence, 설정, 줄, 매크로]
+tags: [Confluence, 설정, 줄, 매크로, 바꿈]
 categories: blog
 ---
 

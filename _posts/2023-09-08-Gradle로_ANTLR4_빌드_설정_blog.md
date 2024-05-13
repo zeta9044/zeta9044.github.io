@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle로 ANTLR4 빌드 설정"
 date: 2023-09-08
-tags: [빌드, 설정, 로]
+tags: [설정, 빌드, 로]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Java에서 enum과 switch 사용 가능"
 date: 2024-01-31
-tags: [switch, 가능, 사용, 과]
+tags: [가능, 사용, 과, switch]
 categories: blog
 ---
 

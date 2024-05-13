@@ -2,7 +2,7 @@
 layout: post
 title: "동기화: Oracle & Linux"
 date: 2023-04-12
-tags: [Linux, Oracle, 동기화]
+tags: [동기화, Oracle, Linux]
 categories: blog
 ---
 

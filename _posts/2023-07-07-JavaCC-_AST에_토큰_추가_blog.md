@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC: AST에 토큰 추가"
 date: 2023-07-07
-tags: [토큰, JavaCC, 추가]
+tags: [JavaCC, 추가, 토큰]
 categories: blog
 ---
 

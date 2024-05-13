@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 ParseTree 이름 가져오기"
 date: 2023-09-08
-tags: [ParseTree, 이름]
+tags: [이름, ParseTree]
 categories: blog
 ---
 

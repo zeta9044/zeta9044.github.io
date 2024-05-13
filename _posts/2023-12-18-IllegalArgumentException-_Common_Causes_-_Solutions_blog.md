@@ -2,7 +2,7 @@
 layout: post
 title: "IllegalArgumentException: Common Causes & Solutions"
 date: 2023-12-18
-tags: [IllegalArgumentException, Causes, Solutions, Common]
+tags: [Solutions, IllegalArgumentException, Causes, Common]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL 계층 데이터 쿼리"
 date: 2023-03-13
-tags: [데이터, 쿼리, 계층, PostgreSQL]
+tags: [PostgreSQL, 계층, 쿼리, 데이터]
 categories: blog
 ---
 

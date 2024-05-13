@@ -2,7 +2,7 @@
 layout: post
 title: "Docker Oracle: Win949"
 date: 2023-03-22
-tags: [Docker, Oracle]
+tags: [Oracle, Docker]
 categories: blog
 ---
 

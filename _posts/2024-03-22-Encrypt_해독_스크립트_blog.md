@@ -2,7 +2,7 @@
 layout: post
 title: "Encrypt 해독 스크립트"
 date: 2024-03-22
-tags: [해독, Encrypt, 스크립트]
+tags: [해독, 스크립트, Encrypt]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Docker 이미지 실행하는 방법: 4단어"
 date: 2023-03-15
-tags: [이미지, 단어, 방법, Docker, 실행]
+tags: [이미지, 방법, Docker, 단어, 실행]
 categories: blog
 ---
 

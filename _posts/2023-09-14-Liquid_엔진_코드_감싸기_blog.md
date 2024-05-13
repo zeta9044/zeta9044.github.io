@@ -2,7 +2,7 @@
 layout: post
 title: "Liquid 엔진 코드 감싸기"
 date: 2023-09-14
-tags: [엔진, Liquid, 코드]
+tags: [코드, Liquid, 엔진]
 categories: blog
 ---
 

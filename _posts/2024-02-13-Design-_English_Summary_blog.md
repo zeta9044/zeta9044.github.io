@@ -2,7 +2,7 @@
 layout: post
 title: "Design: English Summary"
 date: 2024-02-13
-tags: [Design, Summary, English]
+tags: [English, Design, Summary]
 categories: blog
 ---
 

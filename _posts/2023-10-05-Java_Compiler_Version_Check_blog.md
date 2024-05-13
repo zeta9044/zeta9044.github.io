@@ -2,7 +2,7 @@
 layout: post
 title: "Java Compiler Version Check"
 date: 2023-10-05
-tags: [Compiler, Check, Version, Java]
+tags: [Check, Java, Version, Compiler]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC to ANTLR4 Conversion"
 date: 2023-06-28
-tags: [Conversion, JavaCC, to]
+tags: [JavaCC, Conversion, to]
 categories: blog
 ---
 

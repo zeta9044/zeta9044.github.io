@@ -2,7 +2,7 @@
 layout: post
 title: "English Practice: Elegant Responses"
 date: 2024-04-14
-tags: [Elegant, Responses, English, Practice]
+tags: [Elegant, Practice, English, Responses]
 categories: blog
 ---
 

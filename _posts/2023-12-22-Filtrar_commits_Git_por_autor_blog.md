@@ -2,7 +2,7 @@
 layout: post
 title: "Filtrar commits Git por autor"
 date: 2023-12-22
-tags: [Filtrar, commits, autor, por, Git]
+tags: [por, commits, Git, Filtrar, autor]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Java Runtime Compatibility Upgrade"
 date: 2024-03-21
-tags: [Upgrade, Compatibility, Java, Runtime]
+tags: [Runtime, Upgrade, Compatibility, Java]
 categories: blog
 ---
 

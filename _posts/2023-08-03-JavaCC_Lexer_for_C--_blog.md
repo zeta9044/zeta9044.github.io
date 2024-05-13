@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC Lexer for C++"
 date: 2023-08-03
-tags: [Lexer, for, JavaCC, C]
+tags: [JavaCC, C, Lexer, for]
 categories: blog
 ---
 

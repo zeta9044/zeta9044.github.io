@@ -2,7 +2,7 @@
 layout: post
 title: "C++에서 struct 상속"
 date: 2024-02-05
-tags: [C, 상속, struct]
+tags: [상속, C, struct]
 categories: blog
 ---
 

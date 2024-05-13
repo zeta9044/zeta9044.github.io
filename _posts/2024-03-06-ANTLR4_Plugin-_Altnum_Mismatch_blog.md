@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 Plugin: Altnum Mismatch"
 date: 2024-03-06
-tags: [Mismatch, Plugin, Altnum]
+tags: [Plugin, Altnum, Mismatch]
 categories: blog
 ---
 

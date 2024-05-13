@@ -2,7 +2,7 @@
 layout: post
 title: "Resolve Eclipse JGit Library"
 date: 2023-09-20
-tags: [Resolve, Eclipse, Library, JGit]
+tags: [JGit, Resolve, Library, Eclipse]
 categories: blog
 ---
 

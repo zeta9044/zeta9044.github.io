@@ -2,7 +2,7 @@
 layout: post
 title: "Fixing NoClassDefFoundError in Spring"
 date: 2023-09-06
-tags: [in, Fixing, Spring, NoClassDefFoundError]
+tags: [NoClassDefFoundError, Spring, in, Fixing]
 categories: blog
 ---
 

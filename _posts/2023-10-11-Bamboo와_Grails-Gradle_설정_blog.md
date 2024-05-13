@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo와 Grails/Gradle 설정"
 date: 2023-10-11
-tags: [Grails, 설정, Gradle]
+tags: [설정, Gradle, Grails]
 categories: blog
 ---
 

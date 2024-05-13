@@ -2,7 +2,7 @@
 layout: post
 title: "자바 프로그램 select 처리 속도 개선 방법"
 date: 2023-04-27
-tags: [프로그램, 속도, 처리, select, 자바, 방법, 개선]
+tags: [프로그램, 방법, 처리, 속도, 자바, 개선, select]
 categories: blog
 ---
 

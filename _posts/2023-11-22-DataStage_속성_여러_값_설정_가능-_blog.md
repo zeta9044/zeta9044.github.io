@@ -2,7 +2,7 @@
 layout: post
 title: "DataStage 속성 여러 값 설정 가능?"
 date: 2023-11-22
-tags: [여러, DataStage, 값, 속성, 설정, 가능]
+tags: [속성, 가능, 여러, 값, 설정, DataStage]
 categories: blog
 ---
 

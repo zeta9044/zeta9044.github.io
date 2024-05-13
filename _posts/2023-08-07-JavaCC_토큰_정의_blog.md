@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC 토큰 정의"
 date: 2023-08-07
-tags: [토큰, JavaCC, 정의]
+tags: [JavaCC, 정의, 토큰]
 categories: blog
 ---
 

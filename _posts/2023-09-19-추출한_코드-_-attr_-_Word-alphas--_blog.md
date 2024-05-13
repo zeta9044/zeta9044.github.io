@@ -2,7 +2,7 @@
 layout: post
 title: "추출한 코드: "attr = Word(alphas)""
 date: 2023-09-19
-tags: [alphas, attr, 코드, Word, 추출]
+tags: [alphas, 코드, Word, 추출, attr]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle에 Hamcrest 종속성 추가"
 date: 2023-06-30
-tags: [속성, Hamcrest, 추가, 종]
+tags: [속성, 추가, Hamcrest, 종]
 categories: blog
 ---
 

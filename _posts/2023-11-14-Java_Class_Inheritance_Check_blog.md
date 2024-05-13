@@ -2,7 +2,7 @@
 layout: post
 title: "Java Class Inheritance Check"
 date: 2023-11-14
-tags: [Class, Check, Java, Inheritance]
+tags: [Inheritance, Java, Class, Check]
 categories: blog
 ---
 

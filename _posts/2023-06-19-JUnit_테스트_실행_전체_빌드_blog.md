@@ -2,7 +2,7 @@
 layout: post
 title: "JUnit 테스트 실행 전체 빌드"
 date: 2023-06-19
-tags: [테스트, 전체, JUnit, 빌드, 실행]
+tags: [JUnit, 빌드, 테스트, 실행, 전체]
 categories: blog
 ---
 

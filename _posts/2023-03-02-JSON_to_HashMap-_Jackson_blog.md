@@ -2,7 +2,7 @@
 layout: post
 title: "JSON to HashMap: Jackson"
 date: 2023-03-02
-tags: [HashMap, to, Jackson, JSON]
+tags: [JSON, Jackson, to, HashMap]
 categories: blog
 ---
 

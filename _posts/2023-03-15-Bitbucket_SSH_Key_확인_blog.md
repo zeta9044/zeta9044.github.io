@@ -2,7 +2,7 @@
 layout: post
 title: "Bitbucket SSH Key 확인"
 date: 2023-03-15
-tags: [Bitbucket, Key, 확인, SSH]
+tags: [SSH, 확인, Key, Bitbucket]
 categories: blog
 ---
 

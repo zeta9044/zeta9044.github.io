@@ -2,7 +2,7 @@
 layout: post
 title: "SQL query for cell data."
 date: 2023-03-27
-tags: [data, query, cell, SQL, for]
+tags: [SQL, for, query, data, cell]
 categories: blog
 ---
 

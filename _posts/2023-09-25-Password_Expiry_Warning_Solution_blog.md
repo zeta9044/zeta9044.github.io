@@ -2,7 +2,7 @@
 layout: post
 title: "Password Expiry Warning Solution"
 date: 2023-09-25
-tags: [Password, Solution, Expiry, Warning]
+tags: [Warning, Solution, Password, Expiry]
 categories: blog
 ---
 

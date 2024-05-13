@@ -2,7 +2,7 @@
 layout: post
 title: "Flexible Work Project Names"
 date: 2024-01-05
-tags: [Project, Flexible, Names, Work]
+tags: [Project, Flexible, Work, Names]
 categories: blog
 ---
 

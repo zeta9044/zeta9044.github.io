@@ -2,7 +2,7 @@
 layout: post
 title: "Java Hibernate 쿼리 예제"
 date: 2023-11-15
-tags: [Hibernate, 쿼리, Java, 예제]
+tags: [예제, Hibernate, Java, 쿼리]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Markdown에서 데이터 흐름도 생성하기"
 date: 2023-08-24
-tags: [데이터, 흐름, 생]
+tags: [흐름, 생, 데이터]
 categories: blog
 ---
 

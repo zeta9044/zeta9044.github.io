@@ -2,7 +2,7 @@
 layout: post
 title: "MyBatis 동적 쿼리"
 date: 2023-05-03
-tags: [MyBatis, 쿼리, 적]
+tags: [적, MyBatis, 쿼리]
 categories: blog
 ---
 

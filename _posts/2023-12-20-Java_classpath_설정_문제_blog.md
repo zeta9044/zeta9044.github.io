@@ -2,7 +2,7 @@
 layout: post
 title: "Java classpath 설정 문제"
 date: 2023-12-20
-tags: [classpath, 문제, 설정, Java]
+tags: [설정, classpath, Java, 문제]
 categories: blog
 ---
 

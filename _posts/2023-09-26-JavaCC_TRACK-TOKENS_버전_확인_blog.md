@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC TRACK_TOKENS 버전 확인"
 date: 2023-09-26
-tags: [버전, JavaCC, 확인]
+tags: [JavaCC, 확인, 버전]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Jenkins to Bamboo Migration"
 date: 2023-03-17
-tags: [Jenkins, Migration, Bamboo, to]
+tags: [Jenkins, Bamboo, to, Migration]
 categories: blog
 ---
 

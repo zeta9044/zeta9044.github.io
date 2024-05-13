@@ -2,7 +2,7 @@
 layout: post
 title: "C++ 파일 객체명: cout"
 date: 2023-08-31
-tags: [객체, cout, C, 파일]
+tags: [파일, C, 객체, cout]
 categories: blog
 ---
 

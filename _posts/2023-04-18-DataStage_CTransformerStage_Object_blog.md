@@ -2,7 +2,7 @@
 layout: post
 title: "DataStage CTransformerStage Object"
 date: 2023-04-18
-tags: [Object, DataStage, CTransformerStage]
+tags: [CTransformerStage, Object, DataStage]
 categories: blog
 ---
 

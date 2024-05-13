@@ -2,7 +2,7 @@
 layout: post
 title: "Python OCR Text Extraction"
 date: 2023-03-28
-tags: [Extraction, Text, OCR, Python]
+tags: [Text, Python, OCR, Extraction]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Force Stop & Clean"
 date: 2023-05-16
-tags: [Stop, Clean, Force]
+tags: [Force, Clean, Stop]
 categories: blog
 ---
 

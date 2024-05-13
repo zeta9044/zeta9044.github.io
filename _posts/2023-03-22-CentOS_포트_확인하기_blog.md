@@ -2,7 +2,7 @@
 layout: post
 title: "CentOS 포트 확인하기"
 date: 2023-03-22
-tags: [포트, 확인, CentOS]
+tags: [CentOS, 확인, 포트]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Python UI 실행 파일"
 date: 2023-05-02
-tags: [UI, 실행, Python, 파일]
+tags: [파일, Python, 실행, UI]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Mermaid Diagram in Confluence"
 date: 2023-08-24
-tags: [Diagram, Confluence, Mermaid, in]
+tags: [Diagram, in, Confluence, Mermaid]
 categories: blog
 ---
 

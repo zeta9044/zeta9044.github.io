@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle error resolving dependencies"
 date: 2023-03-07
-tags: [error, dependencies, resolving, Gradle]
+tags: [dependencies, Gradle, resolving, error]
 categories: blog
 ---
 

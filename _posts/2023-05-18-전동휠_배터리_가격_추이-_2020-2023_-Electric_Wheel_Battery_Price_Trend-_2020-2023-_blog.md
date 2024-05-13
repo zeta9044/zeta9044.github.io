@@ -2,7 +2,7 @@
 layout: post
 title: "전동휠 배터리 가격 추이: 2020-2023 (Electric Wheel Battery Price Trend: 2020-2023)"
 date: 2023-05-18
-tags: [배터리, Price, Trend, 휠, 추이, Electric, 가격, Battery, Wheel]
+tags: [Price, Electric, Wheel, 추이, 가격, Battery, Trend, 배터리, 휠]
 categories: blog
 ---
 

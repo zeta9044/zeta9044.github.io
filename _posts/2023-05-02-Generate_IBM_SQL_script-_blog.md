@@ -2,7 +2,7 @@
 layout: post
 title: "Generate IBM SQL script."
 date: 2023-05-02
-tags: [Generate, script, SQL, IBM]
+tags: [SQL, IBM, script, Generate]
 categories: blog
 ---
 

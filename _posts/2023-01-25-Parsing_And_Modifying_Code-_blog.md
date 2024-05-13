@@ -2,7 +2,7 @@
 layout: post
 title: "Parsing And Modifying Code"
 date: 2023-01-25
-tags: [Code, And, Parsing, Modifying]
+tags: [Code, Modifying, Parsing, And]
 categories: blog
 ---
 

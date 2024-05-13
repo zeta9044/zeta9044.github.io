@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle .gitignore 파일"
 date: 2023-07-05
-tags: [gitignore, 파일, Gradle]
+tags: [파일, Gradle, gitignore]
 categories: blog
 ---
 

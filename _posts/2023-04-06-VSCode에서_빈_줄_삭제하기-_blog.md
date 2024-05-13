@@ -2,7 +2,7 @@
 layout: post
 title: "VSCode에서 빈 줄 삭제하기."
 date: 2023-04-06
-tags: [삭제, 줄, 빈]
+tags: [빈, 줄, 삭제]
 categories: blog
 ---
 

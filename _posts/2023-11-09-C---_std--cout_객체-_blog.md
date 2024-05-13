@@ -2,7 +2,7 @@
 layout: post
 title: "C++: std::cout 객체?"
 date: 2023-11-09
-tags: [객체, cout, C, std]
+tags: [std, cout, C, 객체]
 categories: blog
 ---
 

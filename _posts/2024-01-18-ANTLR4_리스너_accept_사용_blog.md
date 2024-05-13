@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 리스너 accept 사용"
 date: 2024-01-18
-tags: [accept, 사용, 리스너]
+tags: [리스너, 사용, accept]
 categories: blog
 ---
 

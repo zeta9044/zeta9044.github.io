@@ -2,7 +2,7 @@
 layout: post
 title: "Dependency Issue in Gradle"
 date: 2023-10-11
-tags: [Dependency, Issue, Gradle, in]
+tags: [Dependency, Gradle, in, Issue]
 categories: blog
 ---
 

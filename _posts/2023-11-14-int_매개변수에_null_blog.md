@@ -2,7 +2,7 @@
 layout: post
 title: "int 매개변수에 null"
 date: 2023-11-14
-tags: [int, null, 매개변수]
+tags: [null, 매개변수, int]
 categories: blog
 ---
 

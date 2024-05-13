@@ -2,7 +2,7 @@
 layout: post
 title: "Extract Full String from ANTLR4 RuleContext"
 date: 2023-09-12
-tags: [Full, String, RuleContext, from, Extract]
+tags: [String, Full, RuleContext, Extract, from]
 categories: blog
 ---
 

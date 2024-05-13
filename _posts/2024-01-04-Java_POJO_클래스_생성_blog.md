@@ -2,7 +2,7 @@
 layout: post
 title: "Java POJO 클래스 생성"
 date: 2024-01-04
-tags: [POJO, 클래스, Java, 생]
+tags: [클래스, POJO, Java, 생]
 categories: blog
 ---
 

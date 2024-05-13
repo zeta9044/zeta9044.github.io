@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC vs ANTLR4: MORE vs push/pop"
 date: 2023-07-05
-tags: [pop, JavaCC, MORE, push, vs]
+tags: [JavaCC, MORE, push, pop, vs]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Same Type Literal Check"
 date: 2024-01-24
-tags: [Type, Check, Literal, Same]
+tags: [Check, Same, Type, Literal]
 categories: blog
 ---
 

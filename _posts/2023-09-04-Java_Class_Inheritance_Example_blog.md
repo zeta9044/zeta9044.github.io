@@ -2,7 +2,7 @@
 layout: post
 title: "Java Class Inheritance Example"
 date: 2023-09-04
-tags: [Class, Java, Example, Inheritance]
+tags: [Inheritance, Java, Class, Example]
 categories: blog
 ---
 

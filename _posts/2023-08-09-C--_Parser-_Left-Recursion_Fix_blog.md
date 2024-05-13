@@ -2,7 +2,7 @@
 layout: post
 title: "C++ Parser: Left-Recursion Fix"
 date: 2023-08-09
-tags: [Parser, Left, C, Fix, Recursion]
+tags: [Fix, Parser, Recursion, Left, C]
 categories: blog
 ---
 

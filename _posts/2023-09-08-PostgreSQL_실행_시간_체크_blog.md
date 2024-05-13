@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL 실행 시간 체크"
 date: 2023-09-08
-tags: [체크, 실행, PostgreSQL, 시간]
+tags: [체크, PostgreSQL, 실행, 시간]
 categories: blog
 ---
 

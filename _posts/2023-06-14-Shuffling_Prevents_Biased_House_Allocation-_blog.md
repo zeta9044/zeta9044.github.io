@@ -2,7 +2,7 @@
 layout: post
 title: "Shuffling Prevents Biased House Allocation."
 date: 2023-06-14
-tags: [Allocation, Shuffling, House, Biased, Prevents]
+tags: [Allocation, Prevents, Shuffling, Biased, House]
 categories: blog
 ---
 

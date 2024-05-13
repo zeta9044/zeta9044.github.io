@@ -2,7 +2,7 @@
 layout: post
 title: "Java Uppercase String"
 date: 2023-07-11
-tags: [Uppercase, String, Java]
+tags: [String, Java, Uppercase]
 categories: blog
 ---
 

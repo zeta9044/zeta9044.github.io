@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 플러그인 규칙 ID"
 date: 2023-10-26
-tags: [플러그인, 규칙, ID]
+tags: [규칙, ID, 플러그인]
 categories: blog
 ---
 

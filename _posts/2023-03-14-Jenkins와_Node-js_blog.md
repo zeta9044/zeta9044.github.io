@@ -2,7 +2,7 @@
 layout: post
 title: "Jenkins와 Node.js"
 date: 2023-03-14
-tags: [Node, js]
+tags: [js, Node]
 categories: blog
 ---
 

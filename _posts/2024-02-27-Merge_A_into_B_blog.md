@@ -2,7 +2,7 @@
 layout: post
 title: "Merge A into B"
 date: 2024-02-27
-tags: [B, A, Merge, into]
+tags: [Merge, B, into, A]
 categories: blog
 ---
 

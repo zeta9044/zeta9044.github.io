@@ -2,7 +2,7 @@
 layout: post
 title: "Docker 컨테이너 삭제의 영향"
 date: 2023-03-15
-tags: [삭제, Docker, 컨테이너, 영향]
+tags: [삭제, 컨테이너, Docker, 영향]
 categories: blog
 ---
 

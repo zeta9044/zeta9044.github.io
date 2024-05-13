@@ -2,7 +2,7 @@
 layout: post
 title: "QR Code Generator GUI"
 date: 2023-04-03
-tags: [GUI, QR, Generator, Code]
+tags: [Generator, QR, GUI, Code]
 categories: blog
 ---
 

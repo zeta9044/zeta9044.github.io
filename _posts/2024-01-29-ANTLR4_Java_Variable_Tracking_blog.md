@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 Java Variable Tracking"
 date: 2024-01-29
-tags: [Variable, Tracking, Java]
+tags: [Tracking, Java, Variable]
 categories: blog
 ---
 

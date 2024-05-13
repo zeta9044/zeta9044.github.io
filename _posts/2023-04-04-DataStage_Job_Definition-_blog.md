@@ -2,7 +2,7 @@
 layout: post
 title: "DataStage Job Definition."
 date: 2023-04-04
-tags: [DataStage, Job, Definition]
+tags: [Definition, Job, DataStage]
 categories: blog
 ---
 

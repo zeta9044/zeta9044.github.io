@@ -2,7 +2,7 @@
 layout: post
 title: "해석: "Immigrant Song""
 date: 2023-12-29
-tags: [해석, Song, Immigrant]
+tags: [해석, Immigrant, Song]
 categories: blog
 ---
 

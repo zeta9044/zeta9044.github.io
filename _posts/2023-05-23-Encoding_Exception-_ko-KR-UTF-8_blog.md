@@ -2,7 +2,7 @@
 layout: post
 title: "Encoding Exception: ko_KR.UTF-8"
 date: 2023-05-23
-tags: [Exception, Encoding, UTF]
+tags: [UTF, Encoding, Exception]
 categories: blog
 ---
 

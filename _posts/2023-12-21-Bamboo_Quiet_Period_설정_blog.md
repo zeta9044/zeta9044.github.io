@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo Quiet Period 설정"
 date: 2023-12-21
-tags: [Period, Quiet, 설정, Bamboo]
+tags: [설정, Quiet, Bamboo, Period]
 categories: blog
 ---
 

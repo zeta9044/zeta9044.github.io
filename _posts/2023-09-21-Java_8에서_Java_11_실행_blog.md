@@ -2,7 +2,7 @@
 layout: post
 title: "Java 8에서 Java 11 실행"
 date: 2023-09-21
-tags: [실행, Java]
+tags: [Java, 실행]
 categories: blog
 ---
 

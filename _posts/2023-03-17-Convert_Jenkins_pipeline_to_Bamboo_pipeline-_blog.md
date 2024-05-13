@@ -2,7 +2,7 @@
 layout: post
 title: "Convert Jenkins pipeline to Bamboo pipeline."
 date: 2023-03-17
-tags: [pipeline, Convert, to, Jenkins, Bamboo]
+tags: [Bamboo, to, Convert, Jenkins, pipeline]
 categories: blog
 ---
 

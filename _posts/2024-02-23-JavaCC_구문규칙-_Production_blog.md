@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC 구문규칙: Production"
 date: 2024-02-23
-tags: [Production, JavaCC, 규칙, 구문]
+tags: [JavaCC, 구문, 규칙, Production]
 categories: blog
 ---
 

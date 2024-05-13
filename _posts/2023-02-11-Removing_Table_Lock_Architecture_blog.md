@@ -2,7 +2,7 @@
 layout: post
 title: "Removing Table Lock Architecture"
 date: 2023-02-11
-tags: [Table, Lock, Architecture, Removing]
+tags: [Table, Removing, Lock, Architecture]
 categories: blog
 ---
 

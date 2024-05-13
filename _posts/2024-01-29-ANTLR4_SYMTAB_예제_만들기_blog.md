@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 SYMTAB 예제 만들기"
 date: 2024-01-29
-tags: [SYMTAB, 만들기, 예제]
+tags: [예제, 만들기, SYMTAB]
 categories: blog
 ---
 

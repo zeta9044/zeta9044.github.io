@@ -2,7 +2,7 @@
 layout: post
 title: "C++ Listener 비즈니스 패턴"
 date: 2023-11-10
-tags: [비즈니스, Listener, C, 패턴]
+tags: [비즈니스, C, 패턴, Listener]
 categories: blog
 ---
 

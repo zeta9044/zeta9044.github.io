@@ -2,7 +2,7 @@
 layout: post
 title: "executeUpdate() limitations"
 date: 2023-06-13
-tags: [limitations, executeUpdate]
+tags: [executeUpdate, limitations]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "DBMS SQL Parser Program"
 date: 2023-06-29
-tags: [Parser, Program, SQL, DBMS]
+tags: [Parser, SQL, Program, DBMS]
 categories: blog
 ---
 

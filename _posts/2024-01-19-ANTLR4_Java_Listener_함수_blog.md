@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 Java Listener 함수"
 date: 2024-01-19
-tags: [함수, Listener, Java]
+tags: [함수, Java, Listener]
 categories: blog
 ---
 

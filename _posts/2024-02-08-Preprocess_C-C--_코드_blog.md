@@ -2,7 +2,7 @@
 layout: post
 title: "Preprocess C/C++ 코드"
 date: 2024-02-08
-tags: [Preprocess, 코드, C]
+tags: [코드, Preprocess, C]
 categories: blog
 ---
 

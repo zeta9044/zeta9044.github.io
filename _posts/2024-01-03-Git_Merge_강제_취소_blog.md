@@ -2,7 +2,7 @@
 layout: post
 title: "Git Merge 강제 취소"
 date: 2024-01-03
-tags: [Merge, 취소, Git, 강제]
+tags: [강제, Merge, 취소, Git]
 categories: blog
 ---
 

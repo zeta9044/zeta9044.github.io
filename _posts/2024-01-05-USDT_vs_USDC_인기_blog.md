@@ -2,7 +2,7 @@
 layout: post
 title: "USDT vs USDC 인기"
 date: 2024-01-05
-tags: [USDC, 인기, vs, USDT]
+tags: [인기, USDT, USDC, vs]
 categories: blog
 ---
 

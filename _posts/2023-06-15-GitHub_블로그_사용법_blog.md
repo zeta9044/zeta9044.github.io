@@ -2,7 +2,7 @@
 layout: post
 title: "GitHub 블로그 사용법"
 date: 2023-06-15
-tags: [용법, GitHub, 블로그]
+tags: [GitHub, 용법, 블로그]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Java Version Compatibility Issue"
 date: 2023-09-21
-tags: [Compatibility, Version, Java, Issue]
+tags: [Issue, Compatibility, Java, Version]
 categories: blog
 ---
 

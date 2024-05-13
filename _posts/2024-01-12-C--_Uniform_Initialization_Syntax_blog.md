@@ -2,7 +2,7 @@
 layout: post
 title: "C++ Uniform Initialization Syntax"
 date: 2024-01-12
-tags: [Initialization, C, Uniform, Syntax]
+tags: [Syntax, Initialization, C, Uniform]
 categories: blog
 ---
 

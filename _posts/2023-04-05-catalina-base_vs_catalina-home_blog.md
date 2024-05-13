@@ -2,7 +2,7 @@
 layout: post
 title: "catalina.base vs catalina.home"
 date: 2023-04-05
-tags: [home, base, catalina, vs]
+tags: [catalina, base, home, vs]
 categories: blog
 ---
 

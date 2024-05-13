@@ -2,7 +2,7 @@
 layout: post
 title: "Gwanak-gu 영문표기"
 date: 2024-02-20
-tags: [영문표기, gu, Gwanak]
+tags: [영문표기, Gwanak, gu]
 categories: blog
 ---
 

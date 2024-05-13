@@ -2,7 +2,7 @@
 layout: post
 title: "Dynamic Table Query Execution"
 date: 2023-03-09
-tags: [Dynamic, Table, Query, Execution]
+tags: [Dynamic, Execution, Table, Query]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Java instanceof List<String>"
 date: 2024-01-15
-tags: [List, instanceof, String, Java]
+tags: [String, List, Java, instanceof]
 categories: blog
 ---
 

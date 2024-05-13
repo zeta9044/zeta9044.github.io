@@ -2,7 +2,7 @@
 layout: post
 title: "최신 StringBuffer 기능"
 date: 2023-09-11
-tags: [최신, StringBuffer, 기능]
+tags: [기능, 최신, StringBuffer]
 categories: blog
 ---
 

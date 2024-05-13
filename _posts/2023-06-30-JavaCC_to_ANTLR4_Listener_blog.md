@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC to ANTLR4 Listener"
 date: 2023-06-30
-tags: [Listener, JavaCC, to]
+tags: [JavaCC, to, Listener]
 categories: blog
 ---
 

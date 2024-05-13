@@ -2,7 +2,7 @@
 layout: post
 title: "지정된 Node.js 버전 Bamboo"
 date: 2023-03-17
-tags: [지정, Node, 버전, Bamboo, js]
+tags: [js, Bamboo, Node, 지정, 버전]
 categories: blog
 ---
 

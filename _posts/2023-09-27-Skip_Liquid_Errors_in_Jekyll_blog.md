@@ -2,7 +2,7 @@
 layout: post
 title: "Skip Liquid Errors in Jekyll"
 date: 2023-09-27
-tags: [Jekyll, in, Errors, Skip, Liquid]
+tags: [Liquid, Errors, Jekyll, in, Skip]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "WebSocket 권한 설정 변경"
 date: 2023-09-06
-tags: [WebSocket, 변경, 설정, 권한]
+tags: [설정, 권한, 변경, WebSocket]
 categories: blog
 ---
 

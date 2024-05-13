@@ -2,7 +2,7 @@
 layout: post
 title: "AltNumber 리스너 구현"
 date: 2024-03-21
-tags: [구현, AltNumber, 리스너]
+tags: [리스너, 구현, AltNumber]
 categories: blog
 ---
 

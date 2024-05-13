@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 Type Casting Error"
 date: 2023-09-12
-tags: [Casting, Type, Error]
+tags: [Error, Type, Casting]
 categories: blog
 ---
 

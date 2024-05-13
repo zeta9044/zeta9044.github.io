@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle JDBC JAR 파일."
 date: 2023-04-05
-tags: [JAR, Oracle, JDBC, 파일]
+tags: [JDBC, 파일, Oracle, JAR]
 categories: blog
 ---
 

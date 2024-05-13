@@ -2,7 +2,7 @@
 layout: post
 title: "Short Shoe Size"
 date: 2024-01-19
-tags: [Size, Short, Shoe]
+tags: [Shoe, Short, Size]
 categories: blog
 ---
 

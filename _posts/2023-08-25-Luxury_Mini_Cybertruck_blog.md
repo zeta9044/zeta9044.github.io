@@ -2,7 +2,7 @@
 layout: post
 title: "Luxury Mini Cybertruck"
 date: 2023-08-25
-tags: [Luxury, Cybertruck, Mini]
+tags: [Luxury, Mini, Cybertruck]
 categories: blog
 ---
 

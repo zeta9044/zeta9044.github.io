@@ -2,7 +2,7 @@
 layout: post
 title: "Mobilize Duo 현황 2023"
 date: 2023-12-16
-tags: [Mobilize, Duo, 현황]
+tags: [Duo, Mobilize, 현황]
 categories: blog
 ---
 

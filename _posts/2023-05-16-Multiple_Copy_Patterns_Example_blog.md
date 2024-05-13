@@ -2,7 +2,7 @@
 layout: post
 title: "Multiple Copy Patterns Example"
 date: 2023-05-16
-tags: [Patterns, Copy, Multiple, Example]
+tags: [Patterns, Copy, Example, Multiple]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "제네릭 MultiValuedMap 선언"
 date: 2023-11-07
-tags: [선언, MultiValuedMap, 릭]
+tags: [릭, MultiValuedMap, 선언]
 categories: blog
 ---
 

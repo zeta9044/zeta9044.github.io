@@ -2,7 +2,7 @@
 layout: post
 title: "Java 8 Code Refactoring"
 date: 2023-11-27
-tags: [Refactoring, Code, Java]
+tags: [Java, Code, Refactoring]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC C++ 파서 문제"
 date: 2023-08-11
-tags: [문제, 파서, JavaCC, C]
+tags: [JavaCC, 파서, C, 문제]
 categories: blog
 ---
 

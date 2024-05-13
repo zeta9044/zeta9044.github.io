@@ -2,7 +2,7 @@
 layout: post
 title: "Node.js 설치 스크립트 (Node.js Installation Script)"
 date: 2023-03-20
-tags: [설치, Script, Node, 스크립트, Installation, js]
+tags: [설치, js, Node, Installation, 스크립트, Script]
 categories: blog
 ---
 

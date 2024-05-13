@@ -2,7 +2,7 @@
 layout: post
 title: "한글 파일명 .gitignore"
 date: 2023-10-04
-tags: [gitignore, 한글, 파일명]
+tags: [gitignore, 파일명, 한글]
 categories: blog
 ---
 

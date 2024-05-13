@@ -2,7 +2,7 @@
 layout: post
 title: "SymtabManager 클래스 구현"
 date: 2023-08-10
-tags: [구현, SymtabManager, 클래스]
+tags: [클래스, 구현, SymtabManager]
 categories: blog
 ---
 

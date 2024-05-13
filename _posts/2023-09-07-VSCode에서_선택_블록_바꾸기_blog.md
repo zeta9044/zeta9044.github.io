@@ -2,7 +2,7 @@
 layout: post
 title: "VSCode에서 선택 블록 바꾸기"
 date: 2023-09-07
-tags: [선택, 블록]
+tags: [블록, 선택]
 categories: blog
 ---
 

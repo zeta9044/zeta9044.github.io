@@ -2,7 +2,7 @@
 layout: post
 title: "JUnit 5 Migration Guide"
 date: 2023-09-08
-tags: [Guide, Migration, JUnit]
+tags: [Guide, JUnit, Migration]
 categories: blog
 ---
 

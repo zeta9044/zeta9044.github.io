@@ -2,7 +2,7 @@
 layout: post
 title: "GitHub Pages 테마 선택기 폐기"
 date: 2023-06-20
-tags: [Pages, 기, 폐기, 선택, 테마, GitHub]
+tags: [폐기, 기, Pages, 테마, GitHub, 선택]
 categories: blog
 ---
 

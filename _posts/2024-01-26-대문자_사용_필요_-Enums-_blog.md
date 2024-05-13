@@ -2,7 +2,7 @@
 layout: post
 title: "대문자 사용 필요 (Enums)"
 date: 2024-01-26
-tags: [필요, Enums, 사용, 대문자]
+tags: [사용, Enums, 필요, 대문자]
 categories: blog
 ---
 

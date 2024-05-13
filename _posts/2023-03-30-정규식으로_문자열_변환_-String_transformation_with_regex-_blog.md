@@ -2,7 +2,7 @@
 layout: post
 title: "정규식으로 문자열 변환 (String transformation with regex)"
 date: 2023-03-30
-tags: [문자열, 변환, transformation, 정규식, with, String, regex]
+tags: [String, with, 변환, 정규식, transformation, 문자열, regex]
 categories: blog
 ---
 

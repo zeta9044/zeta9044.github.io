@@ -2,7 +2,7 @@
 layout: post
 title: "Tomcat 9 Manager 설정"
 date: 2023-08-22
-tags: [Manager, 설정, Tomcat]
+tags: [Tomcat, 설정, Manager]
 categories: blog
 ---
 

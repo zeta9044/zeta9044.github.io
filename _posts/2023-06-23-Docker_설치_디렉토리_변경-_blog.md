@@ -2,7 +2,7 @@
 layout: post
 title: "Docker 설치 디렉토리 변경."
 date: 2023-06-23
-tags: [설치, 디렉토리, 변경, Docker]
+tags: [설치, Docker, 디렉토리, 변경]
 categories: blog
 ---
 

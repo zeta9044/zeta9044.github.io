@@ -2,7 +2,7 @@
 layout: post
 title: "자바에서 key-value 쌍"
 date: 2024-01-10
-tags: [key, value, 자바, 쌍]
+tags: [자바, key, 쌍, value]
 categories: blog
 ---
 

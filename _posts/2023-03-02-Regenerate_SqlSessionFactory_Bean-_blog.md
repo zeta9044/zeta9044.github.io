@@ -2,7 +2,7 @@
 layout: post
 title: "Regenerate SqlSessionFactory Bean."
 date: 2023-03-02
-tags: [SqlSessionFactory, Bean, Regenerate]
+tags: [Bean, Regenerate, SqlSessionFactory]
 categories: blog
 ---
 

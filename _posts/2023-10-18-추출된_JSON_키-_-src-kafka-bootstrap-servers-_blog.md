@@ -2,7 +2,7 @@
 layout: post
 title: "추출된 JSON 키: "src.kafka.bootstrap.servers""
 date: 2023-10-18
-tags: [kafka, 키, JSON, src, 추출, servers, bootstrap]
+tags: [JSON, src, 키, 추출, kafka, bootstrap, servers]
 categories: blog
 ---
 

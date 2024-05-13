@@ -2,7 +2,7 @@
 layout: post
 title: "Apache Ignite 객체 저장"
 date: 2023-03-05
-tags: [객체, Apache, 저장, Ignite]
+tags: [Ignite, 저장, 객체, Apache]
 categories: blog
 ---
 

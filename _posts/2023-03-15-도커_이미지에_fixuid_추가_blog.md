@@ -2,7 +2,7 @@
 layout: post
 title: "도커 이미지에 fixuid 추가"
 date: 2023-03-15
-tags: [도, fixuid, 이미지, 추가]
+tags: [도, 추가, fixuid, 이미지]
 categories: blog
 ---
 

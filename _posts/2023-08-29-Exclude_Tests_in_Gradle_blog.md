@@ -2,7 +2,7 @@
 layout: post
 title: "Exclude Tests in Gradle"
 date: 2023-08-29
-tags: [Tests, Exclude, Gradle, in]
+tags: [Tests, Gradle, in, Exclude]
 categories: blog
 ---
 

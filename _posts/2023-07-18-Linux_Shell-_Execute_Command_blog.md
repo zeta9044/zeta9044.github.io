@@ -2,7 +2,7 @@
 layout: post
 title: "Linux Shell: Execute Command"
 date: 2023-07-18
-tags: [Shell, Execute, Linux, Command]
+tags: [Command, Shell, Linux, Execute]
 categories: blog
 ---
 

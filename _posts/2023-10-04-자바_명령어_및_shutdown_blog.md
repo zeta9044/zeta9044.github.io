@@ -2,7 +2,7 @@
 layout: post
 title: "자바 명령어 및 shutdown"
 date: 2023-10-04
-tags: [명령어, 및, 자바, shutdown]
+tags: [자바, 명령어, 및, shutdown]
 categories: blog
 ---
 

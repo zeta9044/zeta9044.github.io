@@ -2,7 +2,7 @@
 layout: post
 title: "Quartz 오류 해결"
 date: 2023-11-03
-tags: [Quartz, 해결, 오류]
+tags: [오류, 해결, Quartz]
 categories: blog
 ---
 

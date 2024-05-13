@@ -2,7 +2,7 @@
 layout: post
 title: "#pragma once in C++"
 date: 2023-10-24
-tags: [in, C, once, pragma]
+tags: [once, C, pragma, in]
 categories: blog
 ---
 

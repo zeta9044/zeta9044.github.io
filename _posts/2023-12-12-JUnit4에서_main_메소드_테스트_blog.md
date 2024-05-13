@@ -2,7 +2,7 @@
 layout: post
 title: "JUnit4에서 main 메소드 테스트"
 date: 2023-12-12
-tags: [메, 테스트, 소드, main]
+tags: [메, 소드, main, 테스트]
 categories: blog
 ---
 

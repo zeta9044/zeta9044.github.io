@@ -2,7 +2,7 @@
 layout: post
 title: "Maven Build: Javadoc Warnings"
 date: 2023-09-21
-tags: [Build, Javadoc, Maven, Warnings]
+tags: [Build, Warnings, Javadoc, Maven]
 categories: blog
 ---
 

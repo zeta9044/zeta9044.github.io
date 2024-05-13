@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC Token for NONDIGIT"
 date: 2023-08-07
-tags: [NONDIGIT, Token, for, JavaCC]
+tags: [JavaCC, NONDIGIT, Token, for]
 categories: blog
 ---
 

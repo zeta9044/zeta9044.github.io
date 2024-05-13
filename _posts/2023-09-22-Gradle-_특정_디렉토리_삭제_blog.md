@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle: 특정 디렉토리 삭제"
 date: 2023-09-22
-tags: [삭제, 디렉토리, Gradle, 특정]
+tags: [삭제, Gradle, 디렉토리, 특정]
 categories: blog
 ---
 

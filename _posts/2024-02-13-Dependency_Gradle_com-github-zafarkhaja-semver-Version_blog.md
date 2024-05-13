@@ -2,7 +2,7 @@
 layout: post
 title: "Dependency Gradle com.github.zafarkhaja.semver.Version"
 date: 2024-02-13
-tags: [Dependency, github, com, semver, zafarkhaja, Gradle, Version]
+tags: [Dependency, Gradle, com, zafarkhaja, Version, github, semver]
 categories: blog
 ---
 

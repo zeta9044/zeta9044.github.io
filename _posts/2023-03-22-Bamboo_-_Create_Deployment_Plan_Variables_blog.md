@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo - Create Deployment Plan Variables"
 date: 2023-03-22
-tags: [Create, Plan, Deployment, Variables, Bamboo]
+tags: [Plan, Variables, Bamboo, Deployment, Create]
 categories: blog
 ---
 

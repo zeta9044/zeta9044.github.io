@@ -2,7 +2,7 @@
 layout: post
 title: "Java: Convert First Letter"
 date: 2024-01-19
-tags: [First, Convert, Java, Letter]
+tags: [First, Letter, Java, Convert]
 categories: blog
 ---
 

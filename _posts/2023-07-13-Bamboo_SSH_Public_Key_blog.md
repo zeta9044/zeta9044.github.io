@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo SSH Public Key"
 date: 2023-07-13
-tags: [Key, Bamboo, Public, SSH]
+tags: [SSH, Bamboo, Key, Public]
 categories: blog
 ---
 

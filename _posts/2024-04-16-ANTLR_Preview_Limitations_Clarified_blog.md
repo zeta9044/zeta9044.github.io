@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR Preview Limitations Clarified"
 date: 2024-04-16
-tags: [ANTLR, Preview, Clarified, Limitations]
+tags: [Preview, Clarified, Limitations, ANTLR]
 categories: blog
 ---
 

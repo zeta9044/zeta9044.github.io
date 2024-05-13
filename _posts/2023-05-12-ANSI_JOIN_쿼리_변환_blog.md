@@ -2,7 +2,7 @@
 layout: post
 title: "ANSI JOIN 쿼리 변환"
 date: 2023-05-12
-tags: [JOIN, 변환, 쿼리, ANSI]
+tags: [변환, JOIN, ANSI, 쿼리]
 categories: blog
 ---
 

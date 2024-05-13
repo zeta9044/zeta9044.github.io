@@ -2,7 +2,7 @@
 layout: post
 title: "HikariCP ConnectionProvider 클래스"
 date: 2023-11-03
-tags: [HikariCP, 클래스, ConnectionProvider]
+tags: [클래스, HikariCP, ConnectionProvider]
 categories: blog
 ---
 

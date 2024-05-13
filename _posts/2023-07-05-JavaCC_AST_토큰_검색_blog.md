@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC AST 토큰 검색"
 date: 2023-07-05
-tags: [토큰, AST, JavaCC, 검색]
+tags: [JavaCC, 토큰, 검색, AST]
 categories: blog
 ---
 

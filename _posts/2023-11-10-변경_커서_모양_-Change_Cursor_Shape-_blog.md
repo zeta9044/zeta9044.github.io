@@ -2,7 +2,7 @@
 layout: post
 title: "변경 커서 모양 (Change Cursor Shape)"
 date: 2023-11-10
-tags: [모양, 커서, Shape, Change, Cursor, 변경]
+tags: [Shape, 모양, 변경, Change, Cursor, 커서]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL 오류 코드 25P03"
 date: 2023-11-22
-tags: [코드, 오류, PostgreSQL]
+tags: [오류, 코드, PostgreSQL]
 categories: blog
 ---
 

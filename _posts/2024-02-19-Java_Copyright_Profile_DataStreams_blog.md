@@ -2,7 +2,7 @@
 layout: post
 title: "Java Copyright Profile DataStreams"
 date: 2024-02-19
-tags: [Copyright, Profile, Java, DataStreams]
+tags: [DataStreams, Profile, Java, Copyright]
 categories: blog
 ---
 

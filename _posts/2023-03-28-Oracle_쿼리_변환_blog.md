@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle 쿼리 변환"
 date: 2023-03-28
-tags: [변환, 쿼리, Oracle]
+tags: [변환, Oracle, 쿼리]
 categories: blog
 ---
 

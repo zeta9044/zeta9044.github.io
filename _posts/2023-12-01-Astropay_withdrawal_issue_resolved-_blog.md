@@ -2,7 +2,7 @@
 layout: post
 title: "Astropay withdrawal issue resolved?"
 date: 2023-12-01
-tags: [issue, withdrawal, resolved, Astropay]
+tags: [withdrawal, issue, Astropay, resolved]
 categories: blog
 ---
 

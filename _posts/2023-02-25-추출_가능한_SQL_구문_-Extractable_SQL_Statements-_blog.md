@@ -2,7 +2,7 @@
 layout: post
 title: "추출 가능한 SQL 구문 (Extractable SQL Statements)"
 date: 2023-02-25
-tags: [구문, Extractable, SQL, Statements, 추출]
+tags: [Extractable, SQL, 추출, Statements, 구문]
 categories: blog
 ---
 

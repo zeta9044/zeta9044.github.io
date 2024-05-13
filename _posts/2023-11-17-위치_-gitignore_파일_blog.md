@@ -2,7 +2,7 @@
 layout: post
 title: "위치 .gitignore 파일"
 date: 2023-11-17
-tags: [gitignore, 위치, 파일]
+tags: [파일, gitignore, 위치]
 categories: blog
 ---
 

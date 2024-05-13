@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle KST Timezone Change"
 date: 2023-04-12
-tags: [KST, Change, Timezone, Oracle]
+tags: [KST, Change, Oracle, Timezone]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Set IntelliJ Environment Variables"
 date: 2023-12-13
-tags: [IntelliJ, Set, Environment, Variables]
+tags: [IntelliJ, Environment, Set, Variables]
 categories: blog
 ---
 

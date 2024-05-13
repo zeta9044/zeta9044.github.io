@@ -2,7 +2,7 @@
 layout: post
 title: "No recent conflicts among Nordics."
 date: 2023-11-09
-tags: [among, conflicts, Nordics, recent, No]
+tags: [Nordics, among, conflicts, recent, No]
 categories: blog
 ---
 

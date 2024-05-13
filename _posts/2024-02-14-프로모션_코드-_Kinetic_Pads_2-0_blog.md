@@ -2,7 +2,7 @@
 layout: post
 title: "프로모션 코드: Kinetic Pads 2.0"
 date: 2024-02-14
-tags: [프로모션, Kinetic, Pads, 코드]
+tags: [Kinetic, 코드, Pads, 프로모션]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Java Enum 활용 예제"
 date: 2024-01-31
-tags: [Enum, 활용, Java, 예제]
+tags: [예제, 활용, Java, Enum]
 categories: blog
 ---
 

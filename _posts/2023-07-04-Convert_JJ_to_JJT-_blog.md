@@ -2,7 +2,7 @@
 layout: post
 title: "Convert JJ to JJT."
 date: 2023-07-04
-tags: [JJ, Convert, JJT, to]
+tags: [JJT, JJ, to, Convert]
 categories: blog
 ---
 

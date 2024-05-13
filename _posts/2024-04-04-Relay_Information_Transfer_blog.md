@@ -2,7 +2,7 @@
 layout: post
 title: "Relay Information Transfer"
 date: 2024-04-04
-tags: [Relay, Transfer, Information]
+tags: [Information, Relay, Transfer]
 categories: blog
 ---
 

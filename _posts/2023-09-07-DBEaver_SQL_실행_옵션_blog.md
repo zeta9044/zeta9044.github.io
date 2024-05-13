@@ -2,7 +2,7 @@
 layout: post
 title: "DBEaver SQL 실행 옵션"
 date: 2023-09-07
-tags: [DBEaver, 옵션, 실행, SQL]
+tags: [SQL, 실행, 옵션, DBEaver]
 categories: blog
 ---
 

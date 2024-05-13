@@ -2,7 +2,7 @@
 layout: post
 title: "IntelliJ 클래스패스 문제 해결"
 date: 2023-12-28
-tags: [IntelliJ, 문제, 클래스, 패스, 해결]
+tags: [IntelliJ, 클래스, 해결, 패스, 문제]
 categories: blog
 ---
 

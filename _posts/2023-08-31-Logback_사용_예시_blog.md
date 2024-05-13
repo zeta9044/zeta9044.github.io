@@ -2,7 +2,7 @@
 layout: post
 title: "Logback 사용 예시"
 date: 2023-08-31
-tags: [Logback, 사용, 예시]
+tags: [사용, 예시, Logback]
 categories: blog
 ---
 

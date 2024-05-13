@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4 TerminalNode 출력"
 date: 2024-02-16
-tags: [출력, TerminalNode]
+tags: [TerminalNode, 출력]
 categories: blog
 ---
 

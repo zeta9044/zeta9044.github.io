@@ -2,7 +2,7 @@
 layout: post
 title: "이빨 부러짐 치료 방법 (Tooth Fracture Treatment)"
 date: 2023-04-07
-tags: [이빨, Tooth, Treatment, 방법, Fracture, 치료]
+tags: [방법, Fracture, Tooth, 이빨, Treatment, 치료]
 categories: blog
 ---
 

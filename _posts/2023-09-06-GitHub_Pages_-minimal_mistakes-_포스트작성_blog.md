@@ -2,7 +2,7 @@
 layout: post
 title: "GitHub Pages "minimal mistakes" 포스트작성"
 date: 2023-09-06
-tags: [mistakes, Pages, 포스트, 작성, minimal, GitHub]
+tags: [Pages, 작성, 포스트, GitHub, mistakes, minimal]
 categories: blog
 ---
 

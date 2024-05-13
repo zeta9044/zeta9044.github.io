@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle DB Instance Identification"
 date: 2023-04-13
-tags: [Identification, DB, Instance, Oracle]
+tags: [Instance, Identification, Oracle, DB]
 categories: blog
 ---
 

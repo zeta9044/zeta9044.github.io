@@ -2,7 +2,7 @@
 layout: post
 title: "I am ChatGPT, a language model trained by OpenAI. How can I assist you today?"
 date: 2023-09-12
-tags: [language, today, trained, by, can, am, OpenAI, assist, you, How, a, model, I, ChatGPT]
+tags: [I, language, can, trained, ChatGPT, a, OpenAI, How, you, assist, am, today, model, by]
 categories: blog
 ---
 

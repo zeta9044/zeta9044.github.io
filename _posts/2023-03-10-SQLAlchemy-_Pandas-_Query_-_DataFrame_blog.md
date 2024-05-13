@@ -2,7 +2,7 @@
 layout: post
 title: "SQLAlchemy, Pandas: Query & DataFrame"
 date: 2023-03-10
-tags: [Query, Pandas, SQLAlchemy, DataFrame]
+tags: [DataFrame, SQLAlchemy, Pandas, Query]
 categories: blog
 ---
 

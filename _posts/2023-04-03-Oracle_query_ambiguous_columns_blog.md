@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle query ambiguous columns"
 date: 2023-04-03
-tags: [columns, query, Oracle, ambiguous]
+tags: [columns, ambiguous, Oracle, query]
 categories: blog
 ---
 

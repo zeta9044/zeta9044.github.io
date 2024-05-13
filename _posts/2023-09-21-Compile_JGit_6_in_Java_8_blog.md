@@ -2,7 +2,7 @@
 layout: post
 title: "Compile JGit 6 in Java 8"
 date: 2023-09-21
-tags: [Compile, JGit, Java, in]
+tags: [JGit, Java, in, Compile]
 categories: blog
 ---
 

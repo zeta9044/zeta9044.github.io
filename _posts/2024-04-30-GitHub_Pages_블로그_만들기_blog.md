@@ -2,7 +2,7 @@
 layout: post
 title: "GitHub Pages 블로그 만들기"
 date: 2024-04-30
-tags: [만들기, 블로그, GitHub, Pages]
+tags: [GitHub, 만들기, Pages, 블로그]
 categories: blog
 ---
 

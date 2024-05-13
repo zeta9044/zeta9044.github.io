@@ -2,7 +2,7 @@
 layout: post
 title: "소스셋 변경: Maven 디렉토리"
 date: 2023-06-30
-tags: [셋, 디렉토리, 소스, Maven, 변경]
+tags: [소스, Maven, 디렉토리, 변경, 셋]
 categories: blog
 ---
 

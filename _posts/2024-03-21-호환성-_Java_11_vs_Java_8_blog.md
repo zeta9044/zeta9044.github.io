@@ -2,7 +2,7 @@
 layout: post
 title: "호환성: Java 11 vs Java 8"
 date: 2024-03-21
-tags: [호환성, vs, Java]
+tags: [호환성, Java, vs]
 categories: blog
 ---
 

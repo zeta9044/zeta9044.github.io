@@ -2,7 +2,7 @@
 layout: post
 title: "Java compatibility warning."
 date: 2023-03-07
-tags: [compatibility, warning, Java]
+tags: [warning, compatibility, Java]
 categories: blog
 ---
 

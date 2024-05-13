@@ -2,7 +2,7 @@
 layout: post
 title: "IntelliJ 설정 초기화"
 date: 2023-03-08
-tags: [IntelliJ, 초기, 설정]
+tags: [IntelliJ, 설정, 초기]
 categories: blog
 ---
 

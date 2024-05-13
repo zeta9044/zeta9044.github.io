@@ -2,7 +2,7 @@
 layout: post
 title: "std::for_each vs std::cout"
 date: 2023-11-10
-tags: [cout, vs, std]
+tags: [cout, std, vs]
 categories: blog
 ---
 

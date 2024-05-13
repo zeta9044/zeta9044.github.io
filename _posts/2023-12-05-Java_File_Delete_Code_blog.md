@@ -2,7 +2,7 @@
 layout: post
 title: "Java File Delete Code"
 date: 2023-12-05
-tags: [File, Delete, Code, Java]
+tags: [File, Delete, Java, Code]
 categories: blog
 ---
 

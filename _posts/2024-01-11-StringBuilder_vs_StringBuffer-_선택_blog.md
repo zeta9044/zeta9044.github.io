@@ -2,7 +2,7 @@
 layout: post
 title: "StringBuilder vs StringBuffer: 선택"
 date: 2024-01-11
-tags: [선택, vs, StringBuilder, StringBuffer]
+tags: [StringBuilder, vs, StringBuffer, 선택]
 categories: blog
 ---
 

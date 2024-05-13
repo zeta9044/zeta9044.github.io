@@ -2,7 +2,7 @@
 layout: post
 title: "AstroPay 글로벌 디지털 지갑"
 date: 2023-12-08
-tags: [지갑, 글로벌, 디지털, AstroPay]
+tags: [지갑, AstroPay, 글로벌, 디지털]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "ClassNotFoundException 해결 방법"
 date: 2023-12-28
-tags: [ClassNotFoundException, 해결, 방법]
+tags: [ClassNotFoundException, 방법, 해결]
 categories: blog
 ---
 

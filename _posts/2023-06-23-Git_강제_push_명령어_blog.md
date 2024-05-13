@@ -2,7 +2,7 @@
 layout: post
 title: "Git 강제 push 명령어"
 date: 2023-06-23
-tags: [push, 명령어, Git, 강제]
+tags: [강제, 명령어, push, Git]
 categories: blog
 ---
 

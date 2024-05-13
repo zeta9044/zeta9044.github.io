@@ -2,7 +2,7 @@
 layout: post
 title: "Nested Name Specifiers Issue"
 date: 2023-08-08
-tags: [Issue, Specifiers, Nested, Name]
+tags: [Nested, Issue, Specifiers, Name]
 categories: blog
 ---
 

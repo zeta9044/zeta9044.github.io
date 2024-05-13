@@ -2,7 +2,7 @@
 layout: post
 title: "먹는 김 = Edible seaweed"
 date: 2023-12-17
-tags: [김, Edible, seaweed]
+tags: [Edible, 김, seaweed]
 categories: blog
 ---
 

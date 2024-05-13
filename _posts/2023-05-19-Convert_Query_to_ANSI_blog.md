@@ -2,7 +2,7 @@
 layout: post
 title: "Convert Query to ANSI"
 date: 2023-05-19
-tags: [ANSI, Query, Convert, to]
+tags: [ANSI, Query, to, Convert]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Python OCR 프로그램"
 date: 2023-03-29
-tags: [프로그램, OCR, Python]
+tags: [Python, OCR, 프로그램]
 categories: blog
 ---
 

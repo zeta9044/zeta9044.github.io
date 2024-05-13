@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC 인코딩 변경"
 date: 2023-06-19
-tags: [인코딩, 변경, JavaCC]
+tags: [JavaCC, 인코딩, 변경]
 categories: blog
 ---
 

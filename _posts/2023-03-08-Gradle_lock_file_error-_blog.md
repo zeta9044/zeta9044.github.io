@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle lock file error."
 date: 2023-03-08
-tags: [file, error, lock, Gradle]
+tags: [Gradle, file, error, lock]
 categories: blog
 ---
 

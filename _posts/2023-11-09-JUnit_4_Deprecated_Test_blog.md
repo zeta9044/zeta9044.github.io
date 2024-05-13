@@ -2,7 +2,7 @@
 layout: post
 title: "JUnit 4 Deprecated Test"
 date: 2023-11-09
-tags: [Test, Deprecated, JUnit]
+tags: [Deprecated, Test, JUnit]
 categories: blog
 ---
 

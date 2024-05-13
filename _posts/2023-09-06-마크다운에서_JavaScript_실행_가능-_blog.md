@@ -2,7 +2,7 @@
 layout: post
 title: "마크다운에서 JavaScript 실행 가능?"
 date: 2023-09-06
-tags: [JavaScript, 가능, 실행, 마크다운]
+tags: [가능, 마크다운, 실행, JavaScript]
 categories: blog
 ---
 

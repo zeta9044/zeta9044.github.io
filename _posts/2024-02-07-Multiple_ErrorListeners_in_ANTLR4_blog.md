@@ -2,7 +2,7 @@
 layout: post
 title: "Multiple ErrorListeners in ANTLR4"
 date: 2024-02-07
-tags: [ErrorListeners, Multiple, in]
+tags: [ErrorListeners, in, Multiple]
 categories: blog
 ---
 

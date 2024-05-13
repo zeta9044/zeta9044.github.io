@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle 의존성 순서"
 date: 2023-10-11
-tags: [순서, 의존, Gradle]
+tags: [Gradle, 의존, 순서]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Skip javadoc in Maven."
 date: 2023-09-21
-tags: [javadoc, Skip, Maven, in]
+tags: [in, Maven, javadoc, Skip]
 categories: blog
 ---
 

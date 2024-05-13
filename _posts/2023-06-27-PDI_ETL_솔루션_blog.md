@@ -2,7 +2,7 @@
 layout: post
 title: "PDI ETL 솔루션"
 date: 2023-06-27
-tags: [솔루션, PDI, ETL]
+tags: [ETL, PDI, 솔루션]
 categories: blog
 ---
 

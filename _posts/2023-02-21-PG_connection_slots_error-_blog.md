@@ -2,7 +2,7 @@
 layout: post
 title: "PG connection slots error."
 date: 2023-02-21
-tags: [connection, error, slots, PG]
+tags: [connection, PG, slots, error]
 categories: blog
 ---
 

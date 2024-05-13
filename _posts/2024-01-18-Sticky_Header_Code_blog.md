@@ -2,7 +2,7 @@
 layout: post
 title: "Sticky Header Code"
 date: 2024-01-18
-tags: [Header, Code, Sticky]
+tags: [Header, Sticky, Code]
 categories: blog
 ---
 

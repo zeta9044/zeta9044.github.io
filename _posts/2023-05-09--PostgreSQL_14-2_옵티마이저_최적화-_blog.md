@@ -2,7 +2,7 @@
 layout: post
 title: ""PostgreSQL 14.2 옵티마이저 최적화""
 date: 2023-05-09
-tags: [마이, 저, 최적화, 옵티, PostgreSQL]
+tags: [옵티, 저, 최적화, PostgreSQL, 마이]
 categories: blog
 ---
 

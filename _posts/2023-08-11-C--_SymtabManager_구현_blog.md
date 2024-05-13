@@ -2,7 +2,7 @@
 layout: post
 title: "C++ SymtabManager 구현"
 date: 2023-08-11
-tags: [구현, SymtabManager, C]
+tags: [SymtabManager, C, 구현]
 categories: blog
 ---
 

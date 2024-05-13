@@ -2,7 +2,7 @@
 layout: post
 title: "상속 공통 의존성 Gradle"
 date: 2023-09-22
-tags: [공통, 의존, 상속, Gradle]
+tags: [상속, 의존, 공통, Gradle]
 categories: blog
 ---
 

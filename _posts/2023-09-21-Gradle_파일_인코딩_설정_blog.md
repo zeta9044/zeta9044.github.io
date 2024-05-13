@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle 파일 인코딩 설정"
 date: 2023-09-21
-tags: [인코딩, 설정, 파일, Gradle]
+tags: [설정, 파일, Gradle, 인코딩]
 categories: blog
 ---
 

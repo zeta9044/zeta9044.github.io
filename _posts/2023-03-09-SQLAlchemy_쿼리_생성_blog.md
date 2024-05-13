@@ -2,7 +2,7 @@
 layout: post
 title: "SQLAlchemy 쿼리 생성"
 date: 2023-03-09
-tags: [SQLAlchemy, 쿼리, 생]
+tags: [SQLAlchemy, 생, 쿼리]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR getPayload 사용법"
 date: 2023-11-08
-tags: [ANTLR, 용법, getPayload]
+tags: [용법, getPayload, ANTLR]
 categories: blog
 ---
 

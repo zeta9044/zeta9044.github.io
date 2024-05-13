@@ -2,7 +2,7 @@
 layout: post
 title: "Java 8 HashMap Loop"
 date: 2023-09-05
-tags: [Loop, Java, HashMap]
+tags: [HashMap, Loop, Java]
 categories: blog
 ---
 

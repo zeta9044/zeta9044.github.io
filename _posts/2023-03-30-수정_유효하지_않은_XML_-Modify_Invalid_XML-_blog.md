@@ -2,7 +2,7 @@
 layout: post
 title: "수정 유효하지 않은 XML (Modify Invalid XML)"
 date: 2023-03-30
-tags: [수정, Invalid, XML, Modify]
+tags: [Invalid, 수정, Modify, XML]
 categories: blog
 ---
 

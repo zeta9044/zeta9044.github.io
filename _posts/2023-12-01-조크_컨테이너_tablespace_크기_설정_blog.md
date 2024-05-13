@@ -2,7 +2,7 @@
 layout: post
 title: "조크 컨테이너 tablespace 크기 설정"
 date: 2023-12-01
-tags: [크기, tablespace, 설정, 조, 컨테이너]
+tags: [컨테이너, 크기, tablespace, 설정, 조]
 categories: blog
 ---
 

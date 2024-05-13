@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle Shadow 플러그인 사용"
 date: 2024-01-05
-tags: [플러그인, Shadow, 사용, Gradle]
+tags: [Shadow, 사용, Gradle, 플러그인]
 categories: blog
 ---
 

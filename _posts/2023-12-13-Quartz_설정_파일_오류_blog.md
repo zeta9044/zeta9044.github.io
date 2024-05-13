@@ -2,7 +2,7 @@
 layout: post
 title: "Quartz 설정 파일 오류"
 date: 2023-12-13
-tags: [Quartz, 설정, 오류, 파일]
+tags: [설정, 파일, 오류, Quartz]
 categories: blog
 ---
 

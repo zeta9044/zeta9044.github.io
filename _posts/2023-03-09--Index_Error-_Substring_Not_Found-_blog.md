@@ -2,7 +2,7 @@
 layout: post
 title: ""Index Error: Substring Not Found""
 date: 2023-03-09
-tags: [Substring, Not, Error, Found, Index]
+tags: [Index, Error, Not, Substring, Found]
 categories: blog
 ---
 

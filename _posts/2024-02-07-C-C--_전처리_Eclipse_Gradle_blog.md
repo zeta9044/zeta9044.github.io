@@ -2,7 +2,7 @@
 layout: post
 title: "C/C++ 전처리 Eclipse Gradle"
 date: 2024-02-07
-tags: [Eclipse, C, Gradle, 처리]
+tags: [Eclipse, Gradle, C, 처리]
 categories: blog
 ---
 

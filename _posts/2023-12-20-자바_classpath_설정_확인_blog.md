@@ -2,7 +2,7 @@
 layout: post
 title: "자바 classpath 설정 확인"
 date: 2023-12-20
-tags: [확인, classpath, 설정, 자바]
+tags: [설정, 자바, 확인, classpath]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR to JavaCC Guide"
 date: 2023-08-10
-tags: [ANTLR, Guide, JavaCC, to]
+tags: [JavaCC, Guide, to, ANTLR]
 categories: blog
 ---
 

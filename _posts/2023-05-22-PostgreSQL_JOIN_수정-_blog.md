@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL JOIN 수정."
 date: 2023-05-22
-tags: [JOIN, 수정, PostgreSQL]
+tags: [PostgreSQL, 수정, JOIN]
 categories: blog
 ---
 

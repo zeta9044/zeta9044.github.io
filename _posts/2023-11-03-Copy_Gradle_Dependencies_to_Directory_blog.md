@@ -2,7 +2,7 @@
 layout: post
 title: "Copy Gradle Dependencies to Directory"
 date: 2023-11-03
-tags: [Dependencies, Copy, Gradle, to, Directory]
+tags: [Directory, Gradle, Dependencies, Copy, to]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Tomcat Start Error."
 date: 2023-04-27
-tags: [Error, Tomcat, Start]
+tags: [Tomcat, Error, Start]
 categories: blog
 ---
 

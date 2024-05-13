@@ -2,7 +2,7 @@
 layout: post
 title: "Refactor and Streamline Code"
 date: 2023-11-07
-tags: [and, Code, Refactor, Streamline]
+tags: [and, Streamline, Code, Refactor]
 categories: blog
 ---
 

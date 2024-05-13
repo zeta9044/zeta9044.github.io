@@ -2,7 +2,7 @@
 layout: post
 title: "XML JJT 파일 만들기"
 date: 2023-06-29
-tags: [XML, JJT, 만들기, 파일]
+tags: [만들기, 파일, JJT, XML]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Git Push Force Tags"
 date: 2023-10-12
-tags: [Tags, Git, Force, Push]
+tags: [Force, Tags, Push, Git]
 categories: blog
 ---
 

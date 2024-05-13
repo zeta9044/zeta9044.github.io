@@ -2,7 +2,7 @@
 layout: post
 title: "Pentaho Edition Comparison"
 date: 2023-06-28
-tags: [Comparison, Edition, Pentaho]
+tags: [Pentaho, Edition, Comparison]
 categories: blog
 ---
 

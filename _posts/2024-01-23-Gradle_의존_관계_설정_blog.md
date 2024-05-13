@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle 의존 관계 설정"
 date: 2024-01-23
-tags: [관계, 설정, 의존, Gradle]
+tags: [설정, Gradle, 의존, 관계]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Java Generics Type Mismatch"
 date: 2023-11-08
-tags: [Type, Mismatch, Generics, Java]
+tags: [Generics, Java, Type, Mismatch]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Fix JAR File Issue"
 date: 2023-09-21
-tags: [JAR, File, Issue, Fix]
+tags: [File, Fix, Issue, JAR]
 categories: blog
 ---
 

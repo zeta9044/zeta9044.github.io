@@ -2,7 +2,7 @@
 layout: post
 title: "Java File listFiles() 사용법"
 date: 2023-10-30
-tags: [File, listFiles, 용법, Java]
+tags: [File, 용법, Java, listFiles]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo: 공통 스테이지 소스 공유"
 date: 2023-05-16
-tags: [스테이지, 소스, 공통, 공유, Bamboo]
+tags: [소스, Bamboo, 공통, 스테이지, 공유]
 categories: blog
 ---
 

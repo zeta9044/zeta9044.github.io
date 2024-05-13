@@ -2,7 +2,7 @@
 layout: post
 title: "Differentiation between pointer referencing."
 date: 2024-02-15
-tags: [pointer, Differentiation, referencing, between]
+tags: [referencing, pointer, between, Differentiation]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "C++14 Struct 예제"
 date: 2024-01-03
-tags: [C, 예제, Struct]
+tags: [예제, C, Struct]
 categories: blog
 ---
 

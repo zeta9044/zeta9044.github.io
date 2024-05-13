@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle 쿼리 검토"
 date: 2023-10-05
-tags: [쿼리, Oracle, 검토]
+tags: [검토, Oracle, 쿼리]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "ANTLR4: ParserRuleContext vs RuleContext"
 date: 2023-06-22
-tags: [ParserRuleContext, vs, RuleContext]
+tags: [ParserRuleContext, RuleContext, vs]
 categories: blog
 ---
 

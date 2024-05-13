@@ -2,7 +2,7 @@
 layout: post
 title: "Quartz HikariCP PostgreSQL 설정 확인"
 date: 2023-12-13
-tags: [HikariCP, Quartz, 설정, 확인, PostgreSQL]
+tags: [HikariCP, 확인, PostgreSQL, 설정, Quartz]
 categories: blog
 ---
 

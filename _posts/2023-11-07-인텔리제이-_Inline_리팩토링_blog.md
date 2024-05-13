@@ -2,7 +2,7 @@
 layout: post
 title: "인텔리제이: Inline 리팩토링"
 date: 2023-11-07
-tags: [인텔리, Inline, 리팩토링, 제이]
+tags: [제이, 리팩토링, 인텔리, Inline]
 categories: blog
 ---
 

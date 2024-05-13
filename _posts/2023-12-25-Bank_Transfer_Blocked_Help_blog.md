@@ -2,7 +2,7 @@
 layout: post
 title: "Bank Transfer Blocked Help"
 date: 2023-12-25
-tags: [Blocked, Help, Bank, Transfer]
+tags: [Bank, Transfer, Help, Blocked]
 categories: blog
 ---
 

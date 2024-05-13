@@ -2,7 +2,7 @@
 layout: post
 title: "Jira 필터에서 비활성화된 assignee 제외"
 date: 2023-03-24
-tags: [제외, 활성화, 비, assignee, Jira, 필터]
+tags: [활성화, Jira, 비, assignee, 제외, 필터]
 categories: blog
 ---
 

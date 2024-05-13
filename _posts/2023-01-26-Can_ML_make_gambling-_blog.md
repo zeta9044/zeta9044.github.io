@@ -2,7 +2,7 @@
 layout: post
 title: "Can ML make gambling?"
 date: 2023-01-26
-tags: [Can, ML, make, gambling]
+tags: [gambling, ML, make, Can]
 categories: blog
 ---
 

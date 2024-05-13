@@ -2,7 +2,7 @@
 layout: post
 title: "JavaCC C++ Parser Fixes"
 date: 2023-08-09
-tags: [Parser, Fixes, C, JavaCC]
+tags: [JavaCC, Fixes, C, Parser]
 categories: blog
 ---
 

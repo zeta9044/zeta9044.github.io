@@ -2,7 +2,7 @@
 layout: post
 title: "C Printf SQL Jsqlparser"
 date: 2024-02-27
-tags: [Printf, C, SQL, Jsqlparser]
+tags: [Printf, SQL, C, Jsqlparser]
 categories: blog
 ---
 

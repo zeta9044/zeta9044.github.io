@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle & PostgreSQL Row Number"
 date: 2023-04-19
-tags: [Number, Row, PostgreSQL, Oracle]
+tags: [Row, PostgreSQL, Number, Oracle]
 categories: blog
 ---
 

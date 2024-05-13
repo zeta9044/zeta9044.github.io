@@ -2,7 +2,7 @@
 layout: post
 title: "Add JAR to Classpath"
 date: 2023-12-11
-tags: [JAR, Classpath, Add, to]
+tags: [Classpath, to, Add, JAR]
 categories: blog
 ---
 

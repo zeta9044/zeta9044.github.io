@@ -2,7 +2,7 @@
 layout: post
 title: "Join Optimization Query"
 date: 2023-05-22
-tags: [Query, Join, Optimization]
+tags: [Optimization, Query, Join]
 categories: blog
 ---
 

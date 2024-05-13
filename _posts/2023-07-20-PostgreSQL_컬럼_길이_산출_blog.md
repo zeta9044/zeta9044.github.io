@@ -2,7 +2,7 @@
 layout: post
 title: "PostgreSQL 컬럼 길이 산출"
 date: 2023-07-20
-tags: [길이, 산출, PostgreSQL, 컬럼]
+tags: [컬럼, PostgreSQL, 길이, 산출]
 categories: blog
 ---
 

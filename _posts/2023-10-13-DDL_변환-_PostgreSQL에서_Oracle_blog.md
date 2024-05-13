@@ -2,7 +2,7 @@
 layout: post
 title: "DDL 변환: PostgreSQL에서 Oracle"
 date: 2023-10-13
-tags: [변환, DDL, Oracle]
+tags: [DDL, 변환, Oracle]
 categories: blog
 ---
 

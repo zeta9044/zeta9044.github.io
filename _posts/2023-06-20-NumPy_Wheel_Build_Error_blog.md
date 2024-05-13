@@ -2,7 +2,7 @@
 layout: post
 title: "NumPy Wheel Build Error"
 date: 2023-06-20
-tags: [Build, NumPy, Error, Wheel]
+tags: [Build, Wheel, NumPy, Error]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "배양육 만드는 방법 (How to make cultured meat)"
 date: 2023-04-02
-tags: [make, How, 배양육, 방법, to, meat, cultured]
+tags: [배양육, make, meat, 방법, How, to, cultured]
 categories: blog
 ---
 

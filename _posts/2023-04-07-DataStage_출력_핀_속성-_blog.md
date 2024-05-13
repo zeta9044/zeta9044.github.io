@@ -2,7 +2,7 @@
 layout: post
 title: "DataStage 출력 핀 속성."
 date: 2023-04-07
-tags: [출력, 속성, DataStage, 핀]
+tags: [속성, 핀, 출력, DataStage]
 categories: blog
 ---
 

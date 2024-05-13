@@ -2,7 +2,7 @@
 layout: post
 title: "C에서 "Hello, World!" 출력"
 date: 2023-11-10
-tags: [출력, World, Hello]
+tags: [World, 출력, Hello]
 categories: blog
 ---
 

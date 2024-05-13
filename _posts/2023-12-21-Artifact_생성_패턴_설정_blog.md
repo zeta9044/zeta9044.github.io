@@ -2,7 +2,7 @@
 layout: post
 title: "Artifact 생성 패턴 설정"
 date: 2023-12-21
-tags: [패턴, Artifact, 설정, 생]
+tags: [설정, Artifact, 패턴, 생]
 categories: blog
 ---
 

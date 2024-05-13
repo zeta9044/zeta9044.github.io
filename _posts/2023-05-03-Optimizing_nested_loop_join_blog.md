@@ -2,7 +2,7 @@
 layout: post
 title: "Optimizing nested loop join"
 date: 2023-05-03
-tags: [join, loop, nested, Optimizing]
+tags: [Optimizing, join, nested, loop]
 categories: blog
 ---
 

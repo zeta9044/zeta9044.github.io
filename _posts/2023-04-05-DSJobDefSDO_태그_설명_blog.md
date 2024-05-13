@@ -2,7 +2,7 @@
 layout: post
 title: "DSJobDefSDO 태그 설명"
 date: 2023-04-05
-tags: [설명, 태그, DSJobDefSDO]
+tags: [설명, DSJobDefSDO, 태그]
 categories: blog
 ---
 

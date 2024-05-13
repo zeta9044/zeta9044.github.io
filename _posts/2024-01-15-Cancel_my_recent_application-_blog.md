@@ -2,7 +2,7 @@
 layout: post
 title: "Cancel my recent application."
 date: 2024-01-15
-tags: [application, recent, my, Cancel]
+tags: [Cancel, application, recent, my]
 categories: blog
 ---
 

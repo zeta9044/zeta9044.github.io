@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle 작업 그룹 설정"
 date: 2023-09-21
-tags: [작업, 그룹, 설정, Gradle]
+tags: [그룹, 설정, Gradle, 작업]
 categories: blog
 ---
 

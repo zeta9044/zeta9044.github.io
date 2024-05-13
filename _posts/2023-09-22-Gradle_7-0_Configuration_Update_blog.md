@@ -2,7 +2,7 @@
 layout: post
 title: "Gradle 7.0 Configuration Update"
 date: 2023-09-22
-tags: [Configuration, Update, Gradle]
+tags: [Configuration, Gradle, Update]
 categories: blog
 ---
 

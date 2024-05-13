@@ -2,7 +2,7 @@
 layout: post
 title: "Convert Oracle Query to PostgreSQL"
 date: 2023-04-26
-tags: [Query, Convert, Oracle, to, PostgreSQL]
+tags: [PostgreSQL, Oracle, to, Convert, Query]
 categories: blog
 ---
 

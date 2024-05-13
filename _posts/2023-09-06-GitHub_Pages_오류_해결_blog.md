@@ -2,7 +2,7 @@
 layout: post
 title: "GitHub Pages 오류 해결"
 date: 2023-09-06
-tags: [해결, 오류, GitHub, Pages]
+tags: [GitHub, 오류, 해결, Pages]
 categories: blog
 ---
 

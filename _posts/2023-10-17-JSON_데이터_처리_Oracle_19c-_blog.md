@@ -2,7 +2,7 @@
 layout: post
 title: "JSON 데이터 처리 Oracle 19c+"
 date: 2023-10-17
-tags: [데이터, JSON, Oracle, 처리]
+tags: [JSON, Oracle, 처리, 데이터]
 categories: blog
 ---
 

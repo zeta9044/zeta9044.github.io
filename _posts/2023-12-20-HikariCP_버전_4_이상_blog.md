@@ -2,7 +2,7 @@
 layout: post
 title: "HikariCP 버전 4 이상"
 date: 2023-12-20
-tags: [HikariCP, 버전, 이상]
+tags: [이상, HikariCP, 버전]
 categories: blog
 ---
 

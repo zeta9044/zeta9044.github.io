@@ -2,7 +2,7 @@
 layout: post
 title: "추출 불가능한 "call var""
 date: 2023-11-15
-tags: [var, call, 추출]
+tags: [추출, var, call]
 categories: blog
 ---
 

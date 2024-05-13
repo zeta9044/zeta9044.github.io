@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle SQL*Plus ORA-01034 Troubleshooting"
 date: 2023-12-07
-tags: [Oracle, Plus, SQL, Troubleshooting, ORA]
+tags: [SQL, Troubleshooting, ORA, Plus, Oracle]
 categories: blog
 ---
 

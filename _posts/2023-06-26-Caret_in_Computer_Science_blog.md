@@ -2,7 +2,7 @@
 layout: post
 title: "Caret in Computer Science"
 date: 2023-06-26
-tags: [Computer, Caret, Science, in]
+tags: [in, Caret, Science, Computer]
 categories: blog
 ---
 

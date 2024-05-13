@@ -2,7 +2,7 @@
 layout: post
 title: "자바 Stack 클래스 사용법"
 date: 2024-01-08
-tags: [용법, 클래스, 자바, Stack]
+tags: [Stack, 클래스, 자바, 용법]
 categories: blog
 ---
 

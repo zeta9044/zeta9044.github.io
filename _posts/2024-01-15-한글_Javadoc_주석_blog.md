@@ -2,7 +2,7 @@
 layout: post
 title: "한글 Javadoc 주석"
 date: 2024-01-15
-tags: [Javadoc, 한글, 주석]
+tags: [Javadoc, 주석, 한글]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "TOC/TOU 취약점 확인"
 date: 2023-12-06
-tags: [TOC, TOU, 확인, 취약점]
+tags: [확인, TOC, TOU, 취약점]
 categories: blog
 ---
 

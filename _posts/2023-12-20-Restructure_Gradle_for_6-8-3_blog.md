@@ -2,7 +2,7 @@
 layout: post
 title: "Restructure Gradle for 6.8.3"
 date: 2023-12-20
-tags: [Restructure, for, Gradle]
+tags: [Gradle, for, Restructure]
 categories: blog
 ---
 

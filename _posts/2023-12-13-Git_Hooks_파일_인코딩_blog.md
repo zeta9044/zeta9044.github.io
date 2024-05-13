@@ -2,7 +2,7 @@
 layout: post
 title: "Git Hooks 파일 인코딩"
 date: 2023-12-13
-tags: [인코딩, Hooks, Git, 파일]
+tags: [Hooks, 파일, 인코딩, Git]
 categories: blog
 ---
 

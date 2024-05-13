@@ -2,7 +2,7 @@
 layout: post
 title: "Apache Ignite 모듈 추가"
 date: 2023-03-06
-tags: [Ignite, 모듈, Apache, 추가]
+tags: [추가, 모듈, Ignite, Apache]
 categories: blog
 ---
 

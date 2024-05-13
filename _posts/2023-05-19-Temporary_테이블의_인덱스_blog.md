@@ -2,7 +2,7 @@
 layout: post
 title: "Temporary 테이블의 인덱스"
 date: 2023-05-19
-tags: [인덱스, 테이블, Temporary]
+tags: [Temporary, 테이블, 인덱스]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Git Commit 수정 방법"
 date: 2023-11-27
-tags: [수정, Git, Commit, 방법]
+tags: [Commit, 방법, 수정, Git]
 categories: blog
 ---
 

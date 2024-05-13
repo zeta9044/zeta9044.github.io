@@ -2,7 +2,7 @@
 layout: post
 title: "Renault Duo Production 2023"
 date: 2023-12-16
-tags: [Production, Duo, Renault]
+tags: [Duo, Production, Renault]
 categories: blog
 ---
 

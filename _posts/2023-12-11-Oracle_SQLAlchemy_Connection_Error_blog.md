@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle SQLAlchemy Connection Error"
 date: 2023-12-11
-tags: [Error, SQLAlchemy, Oracle, Connection]
+tags: [SQLAlchemy, Error, Oracle, Connection]
 categories: blog
 ---
 

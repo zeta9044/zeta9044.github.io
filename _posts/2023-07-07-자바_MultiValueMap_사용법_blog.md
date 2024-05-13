@@ -2,7 +2,7 @@
 layout: post
 title: "자바 MultiValueMap 사용법"
 date: 2023-07-07
-tags: [용법, MultiValueMap, 자바]
+tags: [MultiValueMap, 용법, 자바]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "McDonald's Big Mac Meal"
 date: 2023-10-25
-tags: [Meal, s, Big, McDonald, Mac]
+tags: [McDonald, s, Meal, Mac, Big]
 categories: blog
 ---
 

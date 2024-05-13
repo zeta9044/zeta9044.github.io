@@ -2,7 +2,7 @@
 layout: post
 title: "ORA-28040 Error Solution"
 date: 2023-02-23
-tags: [Solution, Error, ORA]
+tags: [Solution, ORA, Error]
 categories: blog
 ---
 

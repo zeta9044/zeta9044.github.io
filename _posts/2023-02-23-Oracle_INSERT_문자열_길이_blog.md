@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle INSERT 문자열 길이"
 date: 2023-02-23
-tags: [문자열, INSERT, Oracle, 길이]
+tags: [길이, Oracle, INSERT, 문자열]
 categories: blog
 ---
 

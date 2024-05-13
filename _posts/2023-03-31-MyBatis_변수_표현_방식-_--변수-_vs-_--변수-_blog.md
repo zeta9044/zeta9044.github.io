@@ -2,7 +2,7 @@
 layout: post
 title: "MyBatis 변수 표현 방식: ${변수} vs. #{변수}"
 date: 2023-03-31
-tags: [방식, MyBatis, vs, 변수, 표현]
+tags: [변수, 표현, 방식, MyBatis, vs]
 categories: blog
 ---
 

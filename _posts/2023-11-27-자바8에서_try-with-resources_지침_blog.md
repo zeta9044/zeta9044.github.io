@@ -2,7 +2,7 @@
 layout: post
 title: "자바8에서 try-with-resources 지침"
 date: 2023-11-27
-tags: [with, 지침, 자바, try, resources]
+tags: [with, try, resources, 지침, 자바]
 categories: blog
 ---
 

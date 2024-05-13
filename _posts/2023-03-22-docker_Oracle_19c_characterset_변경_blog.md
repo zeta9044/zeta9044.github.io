@@ -2,7 +2,7 @@
 layout: post
 title: "docker Oracle 19c characterset 변경"
 date: 2023-03-22
-tags: [Oracle, 변경, characterset, docker]
+tags: [characterset, docker, Oracle, 변경]
 categories: blog
 ---
 

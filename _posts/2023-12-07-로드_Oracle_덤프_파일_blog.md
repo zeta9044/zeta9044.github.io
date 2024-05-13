@@ -2,7 +2,7 @@
 layout: post
 title: "로드 Oracle 덤프 파일"
 date: 2023-12-07
-tags: [로드, 덤프, Oracle, 파일]
+tags: [로드, 파일, Oracle, 덤프]
 categories: blog
 ---
 

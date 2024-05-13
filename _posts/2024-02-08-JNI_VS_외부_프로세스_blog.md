@@ -2,7 +2,7 @@
 layout: post
 title: "JNI VS 외부 프로세스"
 date: 2024-02-08
-tags: [프로세스, JNI, VS, 외부]
+tags: [VS, 프로세스, JNI, 외부]
 categories: blog
 ---
 

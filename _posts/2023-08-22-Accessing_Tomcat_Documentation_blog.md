@@ -2,7 +2,7 @@
 layout: post
 title: "Accessing Tomcat Documentation"
 date: 2023-08-22
-tags: [Documentation, Accessing, Tomcat]
+tags: [Tomcat, Documentation, Accessing]
 categories: blog
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Bamboo의 스테이지 간 디렉토리: artifact."
 date: 2023-03-22
-tags: [스테이지, 간, 디렉토리, 의, artifact]
+tags: [artifact, 의, 디렉토리, 간, 스테이지]
 categories: blog
 ---
 

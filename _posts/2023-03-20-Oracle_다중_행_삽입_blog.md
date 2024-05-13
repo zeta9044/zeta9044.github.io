@@ -2,7 +2,7 @@
 layout: post
 title: "Oracle 다중 행 삽입"
 date: 2023-03-20
-tags: [행, 다중, Oracle, 삽입]
+tags: [삽입, 다중, 행, Oracle]
 categories: blog
 ---
 

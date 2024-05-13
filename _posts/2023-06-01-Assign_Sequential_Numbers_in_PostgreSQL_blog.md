@@ -2,7 +2,7 @@
 layout: post
 title: "Assign Sequential Numbers in PostgreSQL"
 date: 2023-06-01
-tags: [Sequential, in, Assign, Numbers, PostgreSQL]
+tags: [Assign, Sequential, Numbers, PostgreSQL, in]
 categories: blog
 ---
 

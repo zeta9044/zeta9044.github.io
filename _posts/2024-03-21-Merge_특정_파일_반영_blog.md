@@ -2,7 +2,7 @@
 layout: post
 title: "Merge 특정 파일 반영"
 date: 2024-03-21
-tags: [Merge, 반영, 파일, 특정]
+tags: [파일, Merge, 반영, 특정]
 categories: blog
 ---
 

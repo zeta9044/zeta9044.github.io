@@ -2,7 +2,7 @@
 layout: post
 title: "Skipping <S> Token"
 date: 2023-07-05
-tags: [Skipping, S, Token]
+tags: [Skipping, Token, S]
 categories: blog
 ---
 
