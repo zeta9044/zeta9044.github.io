@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "데이터 유형 불일치 (Data Type Mismatch)"
-date: 2023-02-22
-tags: [유형, Data, 일치, Mismatch, Type, 불, 데이터]
-categories: blog
+tags: [불, 데이터, Data, Type, 일치, 유형, Mismatch]
 ---
 
 ## 사용자 입력:

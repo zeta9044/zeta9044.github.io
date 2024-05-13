@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Apache Ignite 객체 저장"
-date: 2023-03-05
 tags: [Ignite, 저장, 객체, Apache]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -25,7 +23,7 @@ Java에서 Ignite에 객체를 저장하려면 객체를 직렬화하고 Ignite 
 
 예를 들어, Java에서 Ignite에 객체를 저장하려면 다음과 같은 코드를 사용할 수 있습니다.
 
-```
+{% raw %}```
 // Create Ignite configuration
 IgniteConfiguration cfg = new IgniteConfiguration();
     
@@ -42,7 +40,7 @@ obj.setField2("Value 2");
     
 // Put object to cache
 cache.put(1, obj);
-```
+```{% endraw %}
 
-이 코드에서 `MyObject`는 저장하려는 객체를 나타내며, `IgniteCache`는 Ignite 캐시를 나타냅니다. `cache.put(1, obj)`는 `MyObject`를 `myCache` 캐시의 키 1에 저장합니다.
+이 코드에서 {% raw %}`MyObject`{% endraw %}는 저장하려는 객체를 나타내며, {% raw %}`IgniteCache`{% endraw %}는 Ignite 캐시를 나타냅니다. {% raw %}`cache.put(1, obj)`{% endraw %}는 {% raw %}`MyObject`{% endraw %}를 {% raw %}`myCache`{% endraw %} 캐시의 키 1에 저장합니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Oracle CLOB 데이터 INSERT"
-date: 2023-02-23
-tags: [CLOB, Oracle, INSERT, 데이터]
-categories: blog
+tags: [INSERT, Oracle, CLOB, 데이터]
 ---
 
 ## 사용자 입력:
@@ -18,31 +16,31 @@ Oracle 데이터베이스에서 CLOB 데이터를 삽입하는 방법에는 여�
 
 예를 들어, 다음과 같은 테이블이 있다고 가정해보겠습니다.
 
-```sql
+{% raw %}```sql
 CREATE TABLE my_table (
   id NUMBER PRIMARY KEY,
   clob_column CLOB
 );
-```
+```{% endraw %}
 
 이제 CLOB 데이터를 삽입하려면 다음과 같은 INSERT INTO 문을 사용할 수 있습니다.
 
-```sql
+{% raw %}```sql
 INSERT INTO my_table (id, clob_column) VALUES (1, 'This is my CLOB data');
-```
+```{% endraw %}
 
 2. PL/SQL 블록을 사용하여 CLOB 데이터를 삽입합니다.
 
 예를 들어, 다음과 같은 PL/SQL 블록을 사용하여 CLOB 데이터를 삽입할 수 있습니다.
 
-```sql
+{% raw %}```sql
 DECLARE
   clob_data CLOB;
 BEGIN
   clob_data := 'This is my CLOB data';
   INSERT INTO my_table (id, clob_column) VALUES (1, clob_data);
 END;
-```
+```{% endraw %}
 
 이 방법은 더 복잡하지만 CLOB 데이터를 프로그래밍 방식으로 처리해야하는 경우 유용합니다.
 
@@ -60,9 +58,9 @@ END;
 
 따라서 CLOB 데이터를 INSERT 문을 사용하여 삽입할 수 있습니다. 예를 들어, 다음과 같은 SQL 문을 사용하여 CLOB 데이터를 삽입할 수 있습니다.
 
-```sql
+{% raw %}```sql
 INSERT INTO my_table (id, clob_column) VALUES (1, 'This is my CLOB data');
-```
+```{% endraw %}
 
 위의 예제에서 'This is my CLOB data'는 CLOB 데이터를 나타냅니다. 따라서 CLOB 데이터를 삽입하기 위해서 내장 함수를 사용하는 것은 필요하지 않습니다.
 
@@ -104,17 +102,17 @@ NLS_LENGTH_SEMANTICS 매개변수를 변경하는 방법은 다음과 같습니�
 
 먼저, 현재 NLS_LENGTH_SEMANTICS 설정 값을 확인해야 합니다. 다음 SQL 문을 실행하여 현재 설정 값을 확인할 수 있습니다.
 
-```sql
+{% raw %}```sql
 SELECT value FROM nls_database_parameters WHERE parameter='NLS_LENGTH_SEMANTICS';
-```
+```{% endraw %}
 
 2. NLS_LENGTH_SEMANTICS 설정 변경하기
 
 다음 SQL 문을 실행하여 NLS_LENGTH_SEMANTICS 설정 값을 문자(character) 단위로 변경할 수 있습니다.
 
-```sql
+{% raw %}```sql
 ALTER SYSTEM SET NLS_LENGTH_SEMANTICS=CHARACTER;
-```
+```{% endraw %}
 
 이제 변경된 설정 값을 적용하기 위해 데이터베이스를 재시작해야 합니다. 
 
@@ -122,20 +120,20 @@ ALTER SYSTEM SET NLS_LENGTH_SEMANTICS=CHARACTER;
 
 재시작 후, 다시 첫 번째 단계에서와 같은 SQL 문을 실행하여 설정 값을 확인할 수 있습니다.
 
-```sql
+{% raw %}```sql
 SELECT value FROM nls_database_parameters WHERE parameter='NLS_LENGTH_SEMANTICS';
-```
+```{% endraw %}
 
 이제 설정이 변경되었으므로 VARCHAR2 데이터 타입을 사용하여 문자열을 저장할 때 문자(character) 단위로 길이를 지정하면 됩니다. 
 
 예를 들어, 다음과 같이 VARCHAR2 데이터 타입을 사용하여 문자열을 저장할 수 있습니다.
 
-```sql
+{% raw %}```sql
 CREATE TABLE my_table (
   id NUMBER,
   name VARCHAR2(100 CHAR)
 );
-```
+```{% endraw %}
 
 위의 예제에서 'CHAR' 키워드는 문자(character) 단위로 길이를 지정한다는 것을 의미합니다. 이제 이러한 방법으로 VARCHAR2 데이터 타입을 사용하여 문자열을 저장하면 ORA-01704 오류를 해결할 수 있습니다.
 
@@ -143,7 +141,7 @@ CREATE TABLE my_table (
 > ALTER SYSTEM SET NLS_LENGTH_SEMANTICS=CHARACTER; 오류발생
 
 ## ChatGPT 응답:
-> `ALTER SYSTEM SET NLS_LENGTH_SEMANTICS=CHARACTER` 문을 실행할 때 발생하는 오류는 다양한 원인이 있을 수 있습니다. 대표적인 경우는 다음과 같습니다.
+> {% raw %}`ALTER SYSTEM SET NLS_LENGTH_SEMANTICS=CHARACTER`{% endraw %} 문을 실행할 때 발생하는 오류는 다양한 원인이 있을 수 있습니다. 대표적인 경우는 다음과 같습니다.
 
 1. 권한 부족
 
@@ -157,5 +155,5 @@ PFILE을 사용하여 데이터베이스를 시작한 경우, ALTER SYSTEM SET �
 
 오라클 버전 호환성 문제로 인해 ALTER SYSTEM SET 문이 실행되지 않을 수 있습니다. 이 경우에는 오라클 버전과 호환되는 ALTER SYSTEM SET 문을 찾아보거나, 다른 해결책을 시도해야 합니다.
 
-위의 경우들을 제외하고도 다양한 다른 원인으로 인해 `ALTER SYSTEM SET NLS_LENGTH_SEMANTICS=CHARACTER` 문이 실행되지 않을 수 있습니다. 이 경우에는 오류 메시지를 자세히 살펴보고, 해당 오류에 대한 문서나 웹사이트를 참조하여 해결책을 찾아봐야 합니다.
+위의 경우들을 제외하고도 다양한 다른 원인으로 인해 {% raw %}`ALTER SYSTEM SET NLS_LENGTH_SEMANTICS=CHARACTER`{% endraw %} 문이 실행되지 않을 수 있습니다. 이 경우에는 오류 메시지를 자세히 살펴보고, 해당 오류에 대한 문서나 웹사이트를 참조하여 해결책을 찾아봐야 합니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Java File Delete Code"
-date: 2023-12-05
-tags: [File, Delete, Java, Code]
-categories: blog
+tags: [Delete, Code, File, Java]
 ---
 
 ## 사용자 입력:
@@ -23,9 +21,9 @@ categories: blog
 	}  이 자바코드를 참조해서, 파라미터가 File file일때를 만들어줘.
 
 ## ChatGPT 응답:
-> Java 코드에서 `Path` 객체 대신 `File` 객체를 사용하여 동일한 기능을 수행하는 코드를 작성할 수 있습니다. 아래의 수정된 코드는 `File` 객체를 파라미터로 받아 파일 또는 디렉토리의 존재 여부를 확인하고, 디렉토리인 경우 디렉토리를 재귀적으로 삭제하거나 파일인 경우 파일을 삭제합니다.
+> Java 코드에서 {% raw %}`Path`{% endraw %} 객체 대신 {% raw %}`File`{% endraw %} 객체를 사용하여 동일한 기능을 수행하는 코드를 작성할 수 있습니다. 아래의 수정된 코드는 {% raw %}`File`{% endraw %} 객체를 파라미터로 받아 파일 또는 디렉토리의 존재 여부를 확인하고, 디렉토리인 경우 디렉토리를 재귀적으로 삭제하거나 파일인 경우 파일을 삭제합니다.
 
-```java
+{% raw %}```java
 public static void delete(File file) throws IOException {
     // 파일 또는 디렉토리가 존재하는지 확인
     if (file.exists()) {
@@ -49,7 +47,7 @@ private static void deleteDirectory(File directory) throws IOException {
     }
     directory.delete();
 }
-```
+```{% endraw %}
 
-이 코드에서는 `deleteDirectory` 메소드를 추가로 정의하여 디렉토리 내의 모든 파일과 하위 디렉토리를 재귀적으로 삭제합니다. `File` 클래스의 `listFiles` 메소드를 사용하여 디렉토리 내의 파일 및 하위 디렉토리 목록을 가져옵니다. 그 후, 각 항목에 대해 `delete` 메소드를 재귀적으로 호출하여 전체 디렉토리를 삭제합니다.
+이 코드에서는 {% raw %}`deleteDirectory`{% endraw %} 메소드를 추가로 정의하여 디렉토리 내의 모든 파일과 하위 디렉토리를 재귀적으로 삭제합니다. {% raw %}`File`{% endraw %} 클래스의 {% raw %}`listFiles`{% endraw %} 메소드를 사용하여 디렉토리 내의 파일 및 하위 디렉토리 목록을 가져옵니다. 그 후, 각 항목에 대해 {% raw %}`delete`{% endraw %} 메소드를 재귀적으로 호출하여 전체 디렉토리를 삭제합니다.
 

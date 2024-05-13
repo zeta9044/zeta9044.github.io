@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "AES256 License Reissue"
-date: 2023-12-13
 tags: [Reissue, License]
-categories: blog
 ---
 
 ## 사용자 입력:

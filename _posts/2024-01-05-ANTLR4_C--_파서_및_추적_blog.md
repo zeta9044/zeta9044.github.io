@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 C++ 파서 및 추적"
-date: 2024-01-05
-tags: [파서, 및, C, 추적]
-categories: blog
+tags: [C, 파서, 및, 추적]
 ---
 
 ## 사용자 입력:
@@ -24,7 +22,7 @@ categories: blog
 
 I'll provide you with a basic structure of how you might implement this in Java using ANTLR4:
 
-```java
+{% raw %}```java
 public class CppVariableTracker extends CPP14BaseListener {
     // Data structure to track variables
     private Map<String, Object> variables = new HashMap<>();
@@ -43,7 +41,7 @@ public class CppVariableTracker extends CPP14BaseListener {
 
     // Add additional methods as needed to track and update variables
 }
-```
+```{% endraw %}
 
 To implement this effectively, you'll need a strong understanding of the C++ grammar and how to navigate an AST (Abstract Syntax Tree) with ANTLR4. Also, handling all the intricacies of C++ (like pointers, references, class members, etc.) can be quite complex, so it's important to define the scope of your analysis clearly.
 

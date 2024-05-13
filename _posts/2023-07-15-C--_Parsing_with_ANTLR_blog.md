@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "C++ Parsing with ANTLR"
-date: 2023-07-15
-tags: [with, Parsing, C, ANTLR]
-categories: blog
+tags: [Parsing, C, ANTLR, with]
 ---
 
 ## 사용자 입력:
@@ -38,7 +36,7 @@ Clang은 또한 라이브러리 형태로 제공되며, 이를 이용해 C++ 코
 
 AST는 프로그램의 구조를 표현하는 트리 구조이며, Clang에서는 각 노드가 특정 구문 요소(예: 함수, 변수 선언 등)를 나타냅니다. 이 AST는 Clang의 다양한 API를 통해 탐색하고 수정하거나, 특정 정보를 추출할 수 있습니다.
 
-예를 들어, Clang의 `clang::ASTContext` 클래스를 통해 전체 AST에 대한 정보를 얻거나, `clang::Decl`, `clang::Stmt`, `clang::Expr` 등의 클래스를 통해 각각 선언, 문장, 표현식 등에 대한 정보를 얻을 수 있습니다.
+예를 들어, Clang의 {% raw %}`clang::ASTContext`{% endraw %} 클래스를 통해 전체 AST에 대한 정보를 얻거나, {% raw %}`clang::Decl`{% endraw %}, {% raw %}`clang::Stmt`{% endraw %}, {% raw %}`clang::Expr`{% endraw %} 등의 클래스를 통해 각각 선언, 문장, 표현식 등에 대한 정보를 얻을 수 있습니다.
 
 Clang의 AST는 매우 상세한 정보를 제공하므로, 이를 이용하면 C++ 코드의 구조와 의미를 정확하게 이해하고 분석할 수 있습니다.
 
@@ -60,7 +58,7 @@ AST는 프로그램의 구문적 구조를 트리 형태로 나타내며, 각 �
 ## ChatGPT 응답:
 > Clang이 생성하는 추상 구문 트리(Abstract Syntax Tree, AST)는 일반 텍스트 형태로 자동적으로 출력되지는 않습니다. 그 대신, AST는 메모리 내에 트리 구조 데이터 형태로 존재하며, 이는 코드의 문법적 구조를 나타냅니다.
 
-다만, Clang은 AST를 적절한 형태로 출력하거나 시각화하는 다양한 도구와 API를 제공합니다. 예를 들어, `clang::ASTDumper` 클래스를 사용하면 AST를 문자열 형태로 출력할 수 있으며, 이 출력 결과는 각 노드의 타입과 속성, 그리고 노드 간의 관계를 표현하는 텍스트 정보를 포함합니다.
+다만, Clang은 AST를 적절한 형태로 출력하거나 시각화하는 다양한 도구와 API를 제공합니다. 예를 들어, {% raw %}`clang::ASTDumper`{% endraw %} 클래스를 사용하면 AST를 문자열 형태로 출력할 수 있으며, 이 출력 결과는 각 노드의 타입과 속성, 그리고 노드 간의 관계를 표현하는 텍스트 정보를 포함합니다.
 
 이처럼 Clang을 통해 생성된 AST는 코드의 복잡한 구조와 의미를 표현하고, 이를 통해 코드 분석, 리팩토링, 문법 검사 등의 작업을 수행할 수 있습니다. 그러나 Clang은 C++로 작성된 라이브러리이므로, 자바에서 직접 사용하려면 JNI(Java Native Interface) 같은 기술을 사용하여 Clang 라이브러리를 호출하거나, C++로 작성된 Clang의 출력 결과를 자바에서 사용할 수 있는 형태로 변환하는 등의 추가 작업이 필요합니다.
 

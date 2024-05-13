@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "New chat"
-date: 2023-07-03
-tags: [chat, New]
-categories: blog
+tags: [New, chat]
 ---
 
 ## 사용자 입력:
@@ -12,7 +10,7 @@ categories: blog
 ## ChatGPT 응답:
 > 다음은 JavaCC를 사용하여 XML 구문을 분석하는 데 사용할 수 있는 간단한 XML 문법입니다.
 
-```
+{% raw %}```
 options {
   UNICODE_INPUT = true;
   STATIC = false;
@@ -73,7 +71,7 @@ void emptyTag() :
 {
   <OPEN_TAG> <CLOSE_TAG>
 }
-```
+```{% endraw %}
 
 위의 코드는 JavaCC에서 사용할 수 있는 간단한 XML 문법입니다. 이 문법은 태그, 열린 태그, 닫힌 태그, 텍스트 및 빈 태그를 인식합니다. 추가로 원하는 기능을 구현하려면 이 코드를 수정하고 확장해야 할 수 있습니다.
 
@@ -85,7 +83,7 @@ void emptyTag() :
 ## ChatGPT 응답:
 > 다음은 ANTLR4에서 사용되는 XML 문법을 참고하여 JavaCC용 JJ 파일을 작성한 것입니다:
 
-```java
+{% raw %}```java
 options {
   UNICODE_INPUT = true;
   STATIC = false;
@@ -149,7 +147,7 @@ void emptyTag() :
 {
   <OPEN_TAG> <CLOSE_TAG>
 }
-```
+```{% endraw %}
 
 위의 코드는 ANTLR4에서 사용되는 XML 문법을 기반으로 JavaCC용 JJ 파일을 작성한 것입니다. 단순한 XML 구문을 처리하는 예제이며, 필요에 따라 기능을 추가하거나 확장할 수 있습니다.
 
@@ -165,7 +163,7 @@ ANTLR4와 JavaCC는 서로 다른 문법 정의 및 구문 분석 도구입니�
 
 그러나 필요한 기능에 따라 JavaCC용으로 XML 문법을 작성할 수 있습니다. 아래에는 간단한 XML 문법을 작성한 예시를 제공합니다:
 
-```java
+{% raw %}```java
 options {
   UNICODE_INPUT = true;
   STATIC = false;
@@ -228,7 +226,7 @@ void emptyTag() :
 {
   <OPEN_TAG> <CLOSE_TAG>
 }
-```
+```{% endraw %}
 
 이 예시는 간단한 XML 구문을 처리하는 JavaCC용 JJ 파일입니다. 필요한 경우 기능을 추가하거나 확장할 수 있습니다. 그러나 어떤 도구를 사용하든 XML 문법을 다른 구문 분석 도구로 변환하는 작업은 일부 수정과 작업이 필요하며, 수작업으로 이루어져야 합니다.
 
@@ -236,9 +234,9 @@ void emptyTag() :
 > 위 코드로 파싱하면 <?로 시작하는 xml선언부터 오류발생 할 것 같네
 
 ## ChatGPT 응답:
-> 맞습니다. 위의 코드는 XML 문법을 파싱하는 데 있어서 XML 선언부 (`<?xml ... ?>`)를 처리하지 않았습니다. XML 선언부를 파싱하려면 문법에 해당 규칙을 추가해야 합니다. 아래에 XML 선언부를 포함한 수정된 코드 예시를 제시하겠습니다:
+> 맞습니다. 위의 코드는 XML 문법을 파싱하는 데 있어서 XML 선언부 ({% raw %}`<?xml ... ?>`{% endraw %})를 처리하지 않았습니다. XML 선언부를 파싱하려면 문법에 해당 규칙을 추가해야 합니다. 아래에 XML 선언부를 포함한 수정된 코드 예시를 제시하겠습니다:
 
-```java
+{% raw %}```java
 options {
   UNICODE_INPUT = true;
   STATIC = false;
@@ -302,9 +300,9 @@ void emptyTag() :
 {
   <OPEN_TAG> <CLOSE_TAG>
 }
-```
+```{% endraw %}
 
-위의 코드에서는 `XML_DECL` 토큰을 추가하여 XML 선언부를 인식하도록 했습니다. 이렇게 수정한 코드는 XML 선언부를 파싱할 수 있어 `<?xml ... ?>`과 같은 선언부를 처리할 수 있습니다. 필요한 경우 기능을 추가하거나 수정하여 더 복잡한 XML 구문을 처리할 수 있습니다.
+위의 코드에서는 {% raw %}`XML_DECL`{% endraw %} 토큰을 추가하여 XML 선언부를 인식하도록 했습니다. 이렇게 수정한 코드는 XML 선언부를 파싱할 수 있어 {% raw %}`<?xml ... ?>`{% endraw %}과 같은 선언부를 처리할 수 있습니다. 필요한 경우 기능을 추가하거나 수정하여 더 복잡한 XML 구문을 처리할 수 있습니다.
 
 ## 사용자 입력:
 > 위 코드에서는 XML_DECL을 사용하는 곳이 없네
@@ -312,7 +310,7 @@ void emptyTag() :
 ## ChatGPT 응답:
 > 오해가 있었습니다. 죄송합니다. XML 선언부를 처리하기 위해서는 추가적인 규칙 및 토큰 정의가 필요합니다. 아래는 XML 선언부를 파싱하기 위해 수정된 코드 예시입니다:
 
-```java
+{% raw %}```java
 options {
   UNICODE_INPUT = true;
   STATIC = false;
@@ -376,9 +374,9 @@ void emptyTag() :
 {
   <OPEN_TAG> <CLOSE_TAG>
 }
-```
+```{% endraw %}
 
-위의 코드에서는 `XML_DECL` 토큰을 추가하여 XML 선언부를 인식하도록 했습니다. `XML_DECL`은 `document()` 규칙에서 선택적으로 사용되도록 했습니다. 이제 XML 선언부(`<?xml ... ?>`)를 파싱하여 처리할 수 있어야 합니다. 필요한 경우 기능을 추가하거나 수정하여 더 복잡한 XML 구문을 처리할 수 있습니다.
+위의 코드에서는 {% raw %}`XML_DECL`{% endraw %} 토큰을 추가하여 XML 선언부를 인식하도록 했습니다. {% raw %}`XML_DECL`{% endraw %}은 {% raw %}`document()`{% endraw %} 규칙에서 선택적으로 사용되도록 했습니다. 이제 XML 선언부({% raw %}`<?xml ... ?>`{% endraw %})를 파싱하여 처리할 수 있어야 합니다. 필요한 경우 기능을 추가하거나 수정하여 더 복잡한 XML 구문을 처리할 수 있습니다.
 
 ## 사용자 입력:
 > 태그명 속성명은 구분되어야지
@@ -386,7 +384,7 @@ void emptyTag() :
 ## ChatGPT 응답:
 > 태그명과 속성명을 구분하기 위해 약간의 수정이 필요합니다. 현재의 코드에서는 태그명과 속성명이 같은 토큰 패턴을 사용하고 있습니다. 태그명과 속성명을 구분하려면 토큰 패턴을 조정해야 합니다. 아래는 수정된 코드 예시입니다:
 
-```java
+{% raw %}```java
 options {
   UNICODE_INPUT = true;
   STATIC = false;
@@ -451,7 +449,7 @@ void emptyTag() :
 {
   <OPEN_TAG> <CLOSE_TAG>
 }
-```
+```{% endraw %}
 
-위의 코드에서는 `TAG_NAME` 토큰과 `ATTRIBUTE_NAME` 토큰을 추가하여 태그명과 속성명을 구분하도록 수정했습니다. 이제 태그명과 속성명이 서로 다른 토큰 패턴을 가지고 있습니다. 필요한 경우 기능을 추가하거나 수정하여 더 복잡한 XML 구문을 처리할 수 있습니다.
+위의 코드에서는 {% raw %}`TAG_NAME`{% endraw %} 토큰과 {% raw %}`ATTRIBUTE_NAME`{% endraw %} 토큰을 추가하여 태그명과 속성명을 구분하도록 수정했습니다. 이제 태그명과 속성명이 서로 다른 토큰 패턴을 가지고 있습니다. 필요한 경우 기능을 추가하거나 수정하여 더 복잡한 XML 구문을 처리할 수 있습니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Binance Web3 Wallet 설명"
-date: 2023-12-13
 tags: [설명, Binance, Wallet]
-categories: blog
 ---
 
 ## 사용자 입력:

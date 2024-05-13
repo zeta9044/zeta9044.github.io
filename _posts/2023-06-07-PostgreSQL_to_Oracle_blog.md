@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "PostgreSQL to Oracle"
-date: 2023-06-07
 tags: [PostgreSQL, to, Oracle]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -12,9 +10,9 @@ categories: blog
 ## ChatGPT 응답:
 > Oracle에서 동일한 작업을 수행하기 위해 다음과 같은 쿼리를 사용할 수 있습니다.
 
-```sql
+{% raw %}```sql
 SELECT REVERSE(SUBSTR(REVERSE(ATTR_VALUE), INSTR(REVERSE(ATTR_VALUE), '\\')+1)) FROM YOUR_TABLE;
-```
+```{% endraw %}
 
 위 쿼리는 ATTR_VALUE 열에서 역순으로 뒤집은 후, 역순으로 뒤집은 ATTR_VALUE에서 역슬래시(\\)의 위치를 찾은 다음, 해당 위치 이후의 부분 문자열을 추출합니다.
 
@@ -29,12 +27,12 @@ YOUR_TABLE은 작업을 수행하려는 테이블의 이름으로 대체해야 �
 ## ChatGPT 응답:
 > Oracle에서 동일한 조건을 수행하기 위해 다음과 같은 CASE 문을 사용할 수 있습니다.
 
-```sql
+{% raw %}```sql
 CASE
     WHEN INSTR(second_part, '.') > 0 THEN SUBSTR(second_part, 1, INSTR(second_part, '.') - 1)
     ELSE NULL
 END
-```
+```{% endraw %}
 
 위 쿼리는 second_part 문자열에 점(.)이 있는 경우, 점(.) 이전의 부분 문자열을 추출합니다. 점(.)이 없는 경우 NULL을 반환합니다.
 
@@ -84,13 +82,13 @@ END; 오라클 펑션인데, 컴파일하면, 부적당한 상태로 나온다. 
 ## ChatGPT 응답:
 > 오류를 수정하기 위해 몇 가지 수정 사항이 필요합니다.
 
-1. PostgreSQL의 `split_part` 함수와 달리 Oracle에는 해당 함수가 내장되어 있지 않으므로, 이를 대체할 수 있는 방법이 필요합니다. Oracle에서 문자열을 분할하는 방법 중 하나는 `REGEXP_SUBSTR` 함수를 사용하는 것입니다.
+1. PostgreSQL의 {% raw %}`split_part`{% endraw %} 함수와 달리 Oracle에는 해당 함수가 내장되어 있지 않으므로, 이를 대체할 수 있는 방법이 필요합니다. Oracle에서 문자열을 분할하는 방법 중 하나는 {% raw %}`REGEXP_SUBSTR`{% endraw %} 함수를 사용하는 것입니다.
 
-2. 변수 `v_db_instance_name`을 선언하기 전에 변수 `v_schema_name`을 선언하고 있으므로, 순서를 조정해야 합니다.
+2. 변수 {% raw %}`v_db_instance_name`{% endraw %}을 선언하기 전에 변수 {% raw %}`v_schema_name`{% endraw %}을 선언하고 있으므로, 순서를 조정해야 합니다.
 
 아래는 수정된 함수입니다.
 
-```sql
+{% raw %}```sql
 CREATE OR REPLACE FUNCTION datastage_get_owner_name(ATTR_VALUE VARCHAR2)
    RETURN VARCHAR2
 AS
@@ -119,7 +117,7 @@ BEGIN
    RETURN v_result;
 END;
 /
-```
+```{% endraw %}
 
 위 코드를 실행하면 함수가 컴파일되어 정상적으로 생성되어야 합니다.
 
@@ -145,7 +143,7 @@ END;
 ## ChatGPT 응답:
 > 예, 주어진 쿼리는 Oracle에서 정상적으로 작동할 것입니다. 아래는 오라클에서 해당 쿼리를 실행할 수 있는 방법입니다.
 
-```sql
+{% raw %}```sql
 SELECT REVERSE(REGEXP_SUBSTR(REVERSE(ATTR_VALUE), '[^\\]+', 1, 2))
 INTO v_db_instance_name
 FROM dual;
@@ -160,7 +158,7 @@ FROM
         SELECT REVERSE(REGEXP_SUBSTR(REVERSE(ATTR_VALUE), '[^\\]+')) AS second_part
         FROM dual
     );
-```
+```{% endraw %}
 
 위의 코드는 주어진 ATTR_VALUE 문자열에서 역슬래시(\\)로 분할하여 두 번째 부분을 가져옵니다. 그리고 가져온 두 번째 부분에 대해 마침표(.)가 있는지 확인한 후, 있다면 마침표 이전의 부분을 추출합니다.
 
@@ -203,13 +201,13 @@ BEGIN
 END; 오라클 펑션인데, 컴파일하면 invalid가 되는 이유를 모르겠다.
 
 ## ChatGPT 응답:
-> 주어진 함수를 컴파일하면 `ORA-00904: "SECOND_PART": invalid identifier`와 같은 오류가 발생하는 이유는 `second_part`라는 컬럼 또는 변수가 정의되어 있지 않기 때문입니다. `second_part`는 하위 쿼리에서만 사용되고, 외부에는 존재하지 않기 때문에 오류가 발생합니다.
+> 주어진 함수를 컴파일하면 {% raw %}`ORA-00904: "SECOND_PART": invalid identifier`{% endraw %}와 같은 오류가 발생하는 이유는 {% raw %}`second_part`{% endraw %}라는 컬럼 또는 변수가 정의되어 있지 않기 때문입니다. {% raw %}`second_part`{% endraw %}는 하위 쿼리에서만 사용되고, 외부에는 존재하지 않기 때문에 오류가 발생합니다.
 
-해당 오류를 해결하기 위해서는 `v_schema_name` 변수를 선언하기 전에 `second_part`를 선언하도록 수정해야 합니다.
+해당 오류를 해결하기 위해서는 {% raw %}`v_schema_name`{% endraw %} 변수를 선언하기 전에 {% raw %}`second_part`{% endraw %}를 선언하도록 수정해야 합니다.
 
 다음은 수정된 함수입니다.
 
-```sql
+{% raw %}```sql
 CREATE OR REPLACE FUNCTION LIAUSR.datastage_get_owner_name(ATTR_VALUE VARCHAR2)
    RETURN VARCHAR2
 AS
@@ -245,7 +243,7 @@ BEGIN
    RETURN v_result;
 END;
 /
-```
+```{% endraw %}
 
 위 코드를 실행하면 함수가 정상적으로 컴파일되어야 합니다.
 
@@ -270,7 +268,7 @@ $$ LANGUAGE plpgsql
 ## ChatGPT 응답:
 > 다음은 주어진 PostgreSQL 함수를 Oracle 함수로 변환한 코드입니다.
 
-```sql
+{% raw %}```sql
 CREATE OR REPLACE FUNCTION datastage_get_table_name(ATTR_VALUE VARCHAR2, ALT_ATTR_VALUE VARCHAR2)
    RETURN VARCHAR2
 AS
@@ -291,7 +289,7 @@ BEGIN
    RETURN v_result;
 END;
 /
-```
+```{% endraw %}
 
 위의 코드는 Oracle에서 동일한 기능을 수행하는 함수입니다. 주어진 ATTR_VALUE 문자열에서 역슬래시(\\)로 분할하여 마지막 부분을 추출하고, 마지막 부분에서 마침표(.) 이후의 부분을 반환합니다. 그리고 결과가 NULL인 경우 ALT_ATTR_VALUE를 반환합니다.
 
@@ -372,7 +370,7 @@ CREATE INDEX t_opin_$${{prj_id}}_idx01 ON t_opin_$${{prj_id}} USING btree (prj_i
 ## ChatGPT 응답:
 > 다음은 주어진 PostgreSQL SQL 문을 Oracle SQL 문으로 변환한 코드입니다.
 
-```sql
+{% raw %}```sql
 CREATE GLOBAL TEMPORARY TABLE t_opin_$$prj_id AS
 SELECT
     x3.prj_id,
@@ -442,18 +440,18 @@ WHERE
 	);    
 
 CREATE INDEX t_opin_$$prj_id_idx01 ON t_opin_$$prj_id (prj_id, file_id, opin_id);
-```
+```{% endraw %}
 
 주의: Oracle은 PostgreSQL과 문법 및 기능에서 약간 다를 수 있으므로 코드 조정이 필요할 수 있습니다. 실제 사용 사례
 
 ## ChatGPT 응답:
-> 에 따라 적절한 수정이 필요할 수 있습니다. 또한, Oracle에서는 임시 테이블을 생성하기 위해 `GLOBAL TEMPORARY TABLE`을 사용할 수 있습니다.
+> 에 따라 적절한 수정이 필요할 수 있습니다. 또한, Oracle에서는 임시 테이블을 생성하기 위해 {% raw %}`GLOBAL TEMPORARY TABLE`{% endraw %}을 사용할 수 있습니다.
 
 ## 사용자 입력:
 > dense_rank() over는 오라클도 똑같은가?
 
 ## ChatGPT 응답:
-> 네, `DENSE_RANK()` 함수는 오라클에서도 PostgreSQL과 동일한 방식으로 작동합니다. `DENSE_RANK()` 함수는 동일한 순위를 가진 행들에 대해 밀집된 순위를 부여하는 윈도우 함수입니다. 이 함수는 오라클에서도 사용할 수 있으며, 동일한 결과를 반환합니다.
+> 네, {% raw %}`DENSE_RANK()`{% endraw %} 함수는 오라클에서도 PostgreSQL과 동일한 방식으로 작동합니다. {% raw %}`DENSE_RANK()`{% endraw %} 함수는 동일한 순위를 가진 행들에 대해 밀집된 순위를 부여하는 윈도우 함수입니다. 이 함수는 오라클에서도 사용할 수 있으며, 동일한 결과를 반환합니다.
 
 ## 사용자 입력:
 >                             CASE
@@ -467,12 +465,12 @@ CREATE INDEX t_opin_$$prj_id_idx01 ON t_opin_$$prj_id (prj_id, file_id, opin_id)
 ## ChatGPT 응답:
 > 다음은 주어진 PostgreSQL 코드를 Oracle 코드로 변환한 것입니다.
 
-```sql
+{% raw %}```sql
 CASE
     WHEN INSTR(x.ATTR_VALUE, 'ConnectorPX') > 0 THEN 'tbl'
     ELSE 'obj'
 END
-```
+```{% endraw %}
 
 위의 코드는 PostgreSQL에서 'ATTR_VALUE' 문자열에 'ConnectorPX'가 포함되어 있을 경우 'tbl'을 반환하고, 그렇지 않은 경우에는 'obj'를 반환하는 CASE 문입니다. 이 코드는 Oracle에서도 동일하게 작동합니다.
 
@@ -487,15 +485,15 @@ DROP FUNCTION IF EXISTS datastage_get_table_name(text,text);
 ## ChatGPT 응답:
 > 다음은 주어진 PostgreSQL 코드를 Oracle 코드로 변환한 것입니다.
 
-```sql
+{% raw %}```sql
 -- datastage_get_owner_name 함수 삭제
 DROP FUNCTION datastage_get_owner_name;
 
 -- datastage_get_table_name 함수 삭제
 DROP FUNCTION datastage_get_table_name;
-```
+```{% endraw %}
 
-위의 코드는 PostgreSQL에서 함수를 삭제하는 방법입니다. Oracle에서도 동일한 코드를 사용하여 함수를 삭제할 수 있습니다. `IF EXISTS` 절은 Oracle에서는 사용할 수 없으므로 제거하였습니다. 함수 이름만 지정하여 해당 함수를 삭제할 수 있습니다.
+위의 코드는 PostgreSQL에서 함수를 삭제하는 방법입니다. Oracle에서도 동일한 코드를 사용하여 함수를 삭제할 수 있습니다. {% raw %}`IF EXISTS`{% endraw %} 절은 Oracle에서는 사용할 수 없으므로 제거하였습니다. 함수 이름만 지정하여 해당 함수를 삭제할 수 있습니다.
 
 ## 사용자 입력:
 > git bash에서  파일 여러개가 있는데, 일괄적으로 확장자를 xml에서  sql 로 바꾸는 법 알려줘.,
@@ -505,33 +503,33 @@ DROP FUNCTION datastage_get_table_name;
 
 1. Git Bash를 열고 파일이 있는 디렉토리로 이동합니다.
 
-2. 아래의 명령어를 사용하여 파일 확장자를 일괄적으로 변경합니다. `*.xml`은 확장자를 변경하고자 하는 파일들의 패턴을 나타냅니다.
+2. 아래의 명령어를 사용하여 파일 확장자를 일괄적으로 변경합니다. {% raw %}`*.xml`{% endraw %}은 확장자를 변경하고자 하는 파일들의 패턴을 나타냅니다.
 
-```bash
+{% raw %}```bash
 rename 's/\.xml$/.sql/' *.xml
-```
+```{% endraw %}
 
-위 명령어에서 `'s/\.xml$/.sql/'` 부분은 변경할 패턴을 정의하는 정규식입니다. 여기서는 `.xml` 확장자를 `.sql`로 변경하도록 지정되어 있습니다.
+위 명령어에서 {% raw %}`'s/\.xml$/.sql/'`{% endraw %} 부분은 변경할 패턴을 정의하는 정규식입니다. 여기서는 {% raw %}`.xml`{% endraw %} 확장자를 {% raw %}`.sql`{% endraw %}로 변경하도록 지정되어 있습니다.
 
-실행하면 `.xml` 확장자를 가진 모든 파일들의 확장자가 `.sql`로 변경됩니다. 변경된 파일은 원본 파일에 덮어씌워집니다. 변경 전에는 원본 파일을 백업하거나 주의하여 작업하시기 바랍니다.
+실행하면 {% raw %}`.xml`{% endraw %} 확장자를 가진 모든 파일들의 확장자가 {% raw %}`.sql`{% endraw %}로 변경됩니다. 변경된 파일은 원본 파일에 덮어씌워집니다. 변경 전에는 원본 파일을 백업하거나 주의하여 작업하시기 바랍니다.
 
 ## 사용자 입력:
 > rename이란 명령어가 없다는데.
 
 ## ChatGPT 응답:
-> 실례합니다. 죄송합니다. Git Bash에서는 `rename` 명령어가 기본적으로 제공되지 않습니다. 대신 `mv` 명령어를 사용하여 파일 이름을 변경할 수 있습니다. 아래의 방법을 따라 해주세요:
+> 실례합니다. 죄송합니다. Git Bash에서는 {% raw %}`rename`{% endraw %} 명령어가 기본적으로 제공되지 않습니다. 대신 {% raw %}`mv`{% endraw %} 명령어를 사용하여 파일 이름을 변경할 수 있습니다. 아래의 방법을 따라 해주세요:
 
 1. Git Bash를 열고 파일이 있는 디렉토리로 이동합니다.
 
-2. 아래의 명령어를 사용하여 파일 확장자를 일괄적으로 변경합니다. `*.xml`은 확장자를 변경하고자 하는 파일들의 패턴을 나타냅니다.
+2. 아래의 명령어를 사용하여 파일 확장자를 일괄적으로 변경합니다. {% raw %}`*.xml`{% endraw %}은 확장자를 변경하고자 하는 파일들의 패턴을 나타냅니다.
 
-```bash
+{% raw %}```bash
 for file in *.xml; do mv "$file" "${file%.xml}.sql"; done
-```
+```{% endraw %}
 
-위 명령어는 `.xml` 확장자를 가진 모든 파일을 찾아서 확장자를 `.sql`로 변경합니다. 변경된 파일은 원본 파일에 덮어씌워집니다. 변경 전에는 원본 파일을 백업하거나 주의하여 작업하시기 바랍니다.
+위 명령어는 {% raw %}`.xml`{% endraw %} 확장자를 가진 모든 파일을 찾아서 확장자를 {% raw %}`.sql`{% endraw %}로 변경합니다. 변경된 파일은 원본 파일에 덮어씌워집니다. 변경 전에는 원본 파일을 백업하거나 주의하여 작업하시기 바랍니다.
 
-이 방법은 `for` 루프를 사용하여 각 파일에 대해 `mv` 명령어를 실행하여 파일 이름을 변경하는 방식입니다.
+이 방법은 {% raw %}`for`{% endraw %} 루프를 사용하여 각 파일에 대해 {% raw %}`mv`{% endraw %} 명령어를 실행하여 파일 이름을 변경하는 방식입니다.
 
 ## 사용자 입력:
 > Msg = ORA-00933: SQL 명령어가 올바르게 종료되지 않았습니다 . 오라클에서 이런 에러 메시지는 어떤 경우에 생기나?
@@ -705,7 +703,7 @@ Oracle에서는 임시 테이블을 생성할 때 "ON COMMIT DELETE ROWS" 옵션
 
 예를 들어, 다음과 같이 쿼리문을 수정할 수 있습니다:
 
-```sql
+{% raw %}```sql
 CREATE GLOBAL TEMPORARY TABLE ais0038_296 (
   -- 테이블 구조 정의
 )
@@ -718,7 +716,7 @@ FROM
 WHERE
   -- 필터 조건
 ;
-```
+```{% endraw %}
 
 위의 예시에서는 "ON COMMIT DELETE ROWS" 옵션을 사용하여 임시 테이블의 데이터가 커밋 후에 자동으로 삭제되도록 설정했습니다. 이렇게 수정한 쿼리문을 Oracle에서 실행하면 임시 테이블이 올바르게 생성될 것입니다.
 

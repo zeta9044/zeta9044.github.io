@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Jenkins to Bamboo Migration"
-date: 2023-03-17
-tags: [Jenkins, Bamboo, to, Migration]
-categories: blog
+tags: [Jenkins, to, Bamboo, Migration]
 ---
 
 ## 사용자 입력:
@@ -223,7 +221,7 @@ node {
 2. Plan 설정에서 소스 코드 선택 후, Git 저장소 URL 및 자격 증명을 입력합니다.
 3. Stage를 추가하고, "Script" 타입으로 변환한 뒤, 아래 스크립트를 붙여넣기합니다. 
 
-```
+{% raw %}``{% endraw %}`
 // git parameter plugin을 썼을 때, origin/develop에서 develop만 추출하도록 하는 로직
 // 태그 패턴 구분
 if (bamboo.GIT_SOURCE =~ /\d.\d.\d/) {

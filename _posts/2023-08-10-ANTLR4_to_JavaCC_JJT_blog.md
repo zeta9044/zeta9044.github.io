@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 to JavaCC JJT"
-date: 2023-08-10
-tags: [JavaCC, JJT, to]
-categories: blog
+tags: [JJT, to, JavaCC]
 ---
 
 ## 사용자 입력:
@@ -109,16 +107,16 @@ else:
 sections
 
 ## ChatGPT 응답:
-> 파일의 주요 섹션을 성공적으로 분리했습니다: `options`, `PARSER_BEGIN`, `PARSER_END`, `tokens`, 그리고 `productions`.
+> 파일의 주요 섹션을 성공적으로 분리했습니다: {% raw %}`options`{% endraw %}, {% raw %}`PARSER_BEGIN`{% endraw %}, {% raw %}`PARSER_END`{% endraw %}, {% raw %}`tokens`{% endraw %}, 그리고 {% raw %}`productions`{% endraw %}.
 
 각 섹션의 문제점을 찾아보겠습니다. 
 
-1. `options` 섹션: 올바른 옵션이 설정되었는지 확인합니다.
-2. `PARSER_BEGIN` 및 `PARSER_END` 섹션: 클래스 정의와 관련된 문제가 있는지 확인합니다.
-3. `tokens` 섹션: 토큰 정의와 관련된 문제점을 확인합니다.
-4. `productions` 섹션: 구문 규칙과 관련된 문제점을 확인합니다.
+1. {% raw %}`options`{% endraw %} 섹션: 올바른 옵션이 설정되었는지 확인합니다.
+2. {% raw %}`PARSER_BEGIN`{% endraw %} 및 {% raw %}`PARSER_END`{% endraw %} 섹션: 클래스 정의와 관련된 문제가 있는지 확인합니다.
+3. {% raw %}`tokens`{% endraw %} 섹션: 토큰 정의와 관련된 문제점을 확인합니다.
+4. {% raw %}`productions`{% endraw %} 섹션: 구문 규칙과 관련된 문제점을 확인합니다.
 
-먼저 `options` 섹션부터 시작하겠습니다.
+먼저 {% raw %}`options`{% endraw %} 섹션부터 시작하겠습니다.
 
 ## ChatGPT 응답:
 > # Let's start by analyzing the 'options' section of the .jjt file.
@@ -132,18 +130,18 @@ options_lines = options_section.split('\n')[1:-1]  # Removing the opening and cl
 options_lines
 
 ## ChatGPT 응답:
-> `options` 섹션에서 다음 옵션이 설정되어 있습니다:
+> {% raw %}`options`{% endraw %} 섹션에서 다음 옵션이 설정되어 있습니다:
 
-1. `MULTI = true;`
-2. `VISITOR = true;`
-3. `TRACK_TOKENS = true;`
-4. `STATIC = false;`
-5. `DEBUG_PARSER = true;`
-6. `DEBUG_TOKEN_MANAGER = false;`
+1. {% raw %}`MULTI = true;`{% endraw %}
+2. {% raw %}`VISITOR = true;`{% endraw %}
+3. {% raw %}`TRACK_TOKENS = true;`{% endraw %}
+4. {% raw %}`STATIC = false;`{% endraw %}
+5. {% raw %}`DEBUG_PARSER = true;`{% endraw %}
+6. {% raw %}`DEBUG_TOKEN_MANAGER = false;`{% endraw %}
 
 이러한 옵션 설정은 일반적으로 JavaCC에서 사용됩니다. 문제가 없는 것으로 보입니다.
 
-다음으로 `PARSER_BEGIN` 및 `PARSER_END` 섹션을 살펴보겠습니다. 이 섹션들은 파서의 초기화와 마무리 작업을 정의하는 곳입니다.
+다음으로 {% raw %}`PARSER_BEGIN`{% endraw %} 및 {% raw %}`PARSER_END`{% endraw %} 섹션을 살펴보겠습니다. 이 섹션들은 파서의 초기화와 마무리 작업을 정의하는 곳입니다.
 
 ## ChatGPT 응답:
 > # Analyzing the PARSER_BEGIN and PARSER_END sections
@@ -221,10 +219,10 @@ skip_section
 
 - Whitespace: 공백 및 탭
 - Newline: 새 줄 문자
-- BlockComment: 블록 주석 (`/* ... */`)
-- LineComment: 라인 주석 (`// ...`)
+- BlockComment: 블록 주석 ({% raw %}`/* ... */`{% endraw %})
+- LineComment: 라인 주석 ({% raw %}`// ...`{% endraw %})
 - MultiLineMacro: 다중 라인 매크로
-- Directive: 디렉티브 (`# ...`)
+- Directive: 디렉티브 ({% raw %}`# ...`{% endraw %})
 
 이 섹션에는 문법적으로 잘못된 부분이 보이지 않습니다. 다음으로 "Token" 섹션을 살펴보겠습니다.
 

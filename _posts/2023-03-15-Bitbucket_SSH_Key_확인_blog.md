@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Bitbucket SSH Key 확인"
-date: 2023-03-15
-tags: [SSH, 확인, Key, Bitbucket]
-categories: blog
+tags: [SSH, Bitbucket, Key, 확인]
 ---
 
 ## 사용자 입력:
@@ -88,11 +86,11 @@ Clone of 'ssh://git@192.168.0.119:7999/qtss/jgraphx.git' into submodule path 'jg
 
 1. Jenkins 서버에서 Git 서브모듈에 대한 SSH 키를 설정합니다. 이를 위해 Jenkins 서버에서 다음 명령어를 실행하여 SSH 키를 생성합니다.
    
-   ```
+   {% raw %}```
    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-   ```
+   ```{% endraw %}
 
-   이후에 생성된 SSH 개인 키를 Jenkins 서버의 `~/.ssh/` 디렉토리에 복사합니다. 
+   이후에 생성된 SSH 개인 키를 Jenkins 서버의 {% raw %}`~/.ssh/`{% endraw %} 디렉토리에 복사합니다. 
 
 2. Jenkins에서 해당 Git 서브모듈을 사용하는 작업을 수행하는 사용자에 대한 SSH 키를 등록합니다. 이를 위해 다음과 같이 수행합니다.
 
@@ -109,10 +107,10 @@ Clone of 'ssh://git@192.168.0.119:7999/qtss/jgraphx.git' into submodule path 'jg
 
 1. Node.js 14.x.x를 설치합니다. 예를 들어, Ubuntu에서는 다음 명령어를 사용하여 Node.js 14.x.x를 설치할 수 있습니다.
 
-   ```
+   {% raw %}```
    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
    sudo apt-get install -y nodejs
-   ```
+   ```{% endraw %}
 
 2. Jenkins에서 "Global Tool Configuration"을 엽니다.
 
@@ -130,7 +128,7 @@ Clone of 'ssh://git@192.168.0.119:7999/qtss/jgraphx.git' into submodule path 'jg
 
 이제 Jenkins에서 Node.js 14.x.x를 사용할 수 있습니다. Jenkinsfile에서 다음과 같은 코드를 사용하여 Node.js 14.x.x를 사용할 수 있습니다.
 
-```
+{% raw %}```
 pipeline {
     agent {
         node {
@@ -147,9 +145,9 @@ pipeline {
         }
     }
 }
-```
+```{% endraw %}
 
-위 코드에서 `tool 'Node.js 14.x.x'` 부분이 Node.js 14.x.x를 설정하는 부분입니다. 이를 통해 Jenkins에서 Node.js 14.x.x를 사용하여 빌드 및 테스트 등을 수행할 수 있습니다.
+위 코드에서 {% raw %}`tool 'Node.js 14.x.x'`{% endraw %} 부분이 Node.js 14.x.x를 설정하는 부분입니다. 이를 통해 Jenkins에서 Node.js 14.x.x를 사용하여 빌드 및 테스트 등을 수행할 수 있습니다.
 
 ## 사용자 입력:
 > pipeline declarative 로 알려줘
@@ -157,7 +155,7 @@ pipeline {
 ## ChatGPT 응답:
 > Jenkins의 파이프라인을 Declarative Syntax로 작성하려면 다음과 같이 작성할 수 있습니다.
 
-```
+{% raw %}```
 pipeline {
     agent any
     tools {
@@ -171,13 +169,13 @@ pipeline {
         }
     }
 }
-```
+```{% endraw %}
 
-위 코드에서 `tools` 섹션은 `Node.js 14.x.x`를 사용하도록 구성하는 부분입니다. `sh 'node --version'`은 해당 노드 버전이 정상적으로 설정되었는지 확인하는 코드입니다. 
+위 코드에서 {% raw %}`tools`{% endraw %} 섹션은 {% raw %}`Node.js 14.x.x`{% endraw %}를 사용하도록 구성하는 부분입니다. {% raw %}`sh 'node --version'`{% endraw %}은 해당 노드 버전이 정상적으로 설정되었는지 확인하는 코드입니다. 
 
-위 코드에서 사용된 `pipeline` 블록은 파이프라인의 시작점을 정의하는 데 사용됩니다. `agent` 블록은 빌드를 수행하는 노드를 선택하는 데 사용됩니다. `tools` 블록은 빌드에 필요한 도구를 선택하는 데 사용됩니다. `stages` 블록은 파이프라인을 구성하는 단계를 정의하는 데 사용됩니다.
+위 코드에서 사용된 {% raw %}`pipeline`{% endraw %} 블록은 파이프라인의 시작점을 정의하는 데 사용됩니다. {% raw %}`agent`{% endraw %} 블록은 빌드를 수행하는 노드를 선택하는 데 사용됩니다. {% raw %}`tools`{% endraw %} 블록은 빌드에 필요한 도구를 선택하는 데 사용됩니다. {% raw %}`stages`{% endraw %} 블록은 파이프라인을 구성하는 단계를 정의하는 데 사용됩니다.
 
-위 코드에서는 `Build`라는 하나의 단계만 정의하고 있지만, 필요한 만큼 더 많은 단계를 추가할 수 있습니다. 파이프라인은 단계 단위로 실행되며, 각 단계에서는 여러 개의 스텝으로 나눌 수 있습니다.
+위 코드에서는 {% raw %}`Build`{% endraw %}라는 하나의 단계만 정의하고 있지만, 필요한 만큼 더 많은 단계를 추가할 수 있습니다. 파이프라인은 단계 단위로 실행되며, 각 단계에서는 여러 개의 스텝으로 나눌 수 있습니다.
 
 Declarative Syntax는 Scripted Syntax와 달리 좀 더 간결하고 직관적이며, 파이프라인을 더욱 쉽게 이해하고 유지보수할 수 있게 합니다.
 
@@ -187,20 +185,20 @@ Declarative Syntax는 Scripted Syntax와 달리 좀 더 간결하고 직관적�
 ## ChatGPT 응답:
 > Jenkins의 파이프라인을 Scripted Syntax로 작성하려면 다음과 같이 작성할 수 있습니다.
 
-```
+{% raw %}```
 node {
     def nodejsHome = tool 'Node.js 14.x.x'
     sh "${nodejsHome}/bin/node --version"
 }
-```
+```{% endraw %}
 
-위 코드에서 `node` 블록은 빌드를 수행하는 노드를 선택하는 데 사용됩니다. `tool` 함수는 `Node.js 14.x.x`를 사용하도록 구성합니다. `sh` 함수는 해당 노드 버전이 정상적으로 설정되었는지 확인하는 코드입니다.
+위 코드에서 {% raw %}`node`{% endraw %} 블록은 빌드를 수행하는 노드를 선택하는 데 사용됩니다. {% raw %}`tool`{% endraw %} 함수는 {% raw %}`Node.js 14.x.x`{% endraw %}를 사용하도록 구성합니다. {% raw %}`sh`{% endraw %} 함수는 해당 노드 버전이 정상적으로 설정되었는지 확인하는 코드입니다.
 
 위 코드에서는 하나의 단계만 정의하고 있지만, 필요한 만큼 더 많은 단계를 추가할 수 있습니다. Scripted Syntax는 Declarative Syntax와 달리 자유로운 문법을 사용할 수 있으며, 파이프라인을 더욱 유연하게 작성할 수 있습니다.
 
 다음은 Scripted Syntax로 작성된 간단한 파이프라인 예시입니다.
 
-```
+{% raw %}```
 node {
     stage('Build') {
         def mvnHome = tool 'Maven 3.8.4'
@@ -211,9 +209,9 @@ node {
         sh "${mvnHome}/bin/mvn test"
     }
 }
-```
+```{% endraw %}
 
-위 코드에서는 `node` 블록을 사용하여 빌드를 수행할 노드를 선택하고 있습니다. `stage` 함수는 파이프라인을 구성하는 단계를 정의하는 데 사용됩니다. 각 단계에서는 `def`로 시작하는 변수를 사용하여 필요한 도구를 설정하고, `sh` 함수를 사용하여 쉘 명령어를 실행할 수 있습니다. 이렇게 작성된 Scripted Syntax는 복잡한 파이프라인을 작성하는 데 유용합니다.
+위 코드에서는 {% raw %}`node`{% endraw %} 블록을 사용하여 빌드를 수행할 노드를 선택하고 있습니다. {% raw %}`stage`{% endraw %} 함수는 파이프라인을 구성하는 단계를 정의하는 데 사용됩니다. 각 단계에서는 {% raw %}`def`{% endraw %}로 시작하는 변수를 사용하여 필요한 도구를 설정하고, {% raw %}`sh`{% endraw %} 함수를 사용하여 쉘 명령어를 실행할 수 있습니다. 이렇게 작성된 Scripted Syntax는 복잡한 파이프라인을 작성하는 데 유용합니다.
 
 ## 사용자 입력:
 > def buildForUi() {
@@ -237,13 +235,13 @@ node {
 }  이 코드는 yarn을 실행하는데 이 때, node 14.x.x로 실행해야 하면 어떻게 코딩해야하니?
 
 ## ChatGPT 응답:
-> 해당 파이프라인 코드에서 `node` 명령어를 직접 사용하고 있지 않고, `yarn` 명령어만 사용하고 있습니다. 하지만 `yarn` 명령어를 실행하면 내부적으로 Node.js를 사용하므로, Node.js 14.x.x를 사용하려면 다음과 같이 수정할 수 있습니다.
+> 해당 파이프라인 코드에서 {% raw %}`node`{% endraw %} 명령어를 직접 사용하고 있지 않고, {% raw %}`yarn`{% endraw %} 명령어만 사용하고 있습니다. 하지만 {% raw %}`yarn`{% endraw %} 명령어를 실행하면 내부적으로 Node.js를 사용하므로, Node.js 14.x.x를 사용하려면 다음과 같이 수정할 수 있습니다.
 
 1. Node.js 14.x.x를 Jenkins에서 설정합니다. 이전에 설명한 방법과 같이 "Global Tool Configuration"에서 "Add NodeJS" 버튼을 클릭하여 Node.js 14.x.x를 추가합니다.
 
-2. 파이프라인 코드에서 `buildForUi` 함수를 사용하여 UI 빌드를 수행하는 블록을 정의하고 있습니다. `dir` 함수를 사용하여 디렉토리를 이동한 후, `sh` 함수를 사용하여 `yarn` 명령어를 실행하고 있습니다. 이 부분을 다음과 같이 수정합니다.
+2. 파이프라인 코드에서 {% raw %}`buildForUi`{% endraw %} 함수를 사용하여 UI 빌드를 수행하는 블록을 정의하고 있습니다. {% raw %}`dir`{% endraw %} 함수를 사용하여 디렉토리를 이동한 후, {% raw %}`sh`{% endraw %} 함수를 사용하여 {% raw %}`yarn`{% endraw %} 명령어를 실행하고 있습니다. 이 부분을 다음과 같이 수정합니다.
 
-   ```
+   {% raw %}```
    dir('./qtrack-web/src/main/js') {
        withEnv(['PATH+NODEJS=/usr/local/bin']) {
            try {
@@ -259,9 +257,9 @@ node {
            }
        }
    }
-   ```
+   ```{% endraw %}
 
-   위 코드에서 `withEnv(['PATH+NODEJS=/usr/local/bin'])` 함수를 사용하여 `PATH` 환경 변수에 `/usr/local/bin`을 추가합니다. 이렇게 하면 Node.js 14.x.x가 설치된 디렉토리가 PATH 환경 변수에 추가되어, `yarn` 명령어가 Node.js 14.x.x를 사용하게 됩니다.
+   위 코드에서 {% raw %}`withEnv(['PATH+NODEJS=/usr/local/bin'])`{% endraw %} 함수를 사용하여 {% raw %}`PATH`{% endraw %} 환경 변수에 {% raw %}`/usr/local/bin`{% endraw %}을 추가합니다. 이렇게 하면 Node.js 14.x.x가 설치된 디렉토리가 PATH 환경 변수에 추가되어, {% raw %}`yarn`{% endraw %} 명령어가 Node.js 14.x.x를 사용하게 됩니다.
 
-위와 같이 수정하면 `yarn` 명령어가 Node.js 14.x.x를 사용하여 실행됩니다.
+위와 같이 수정하면 {% raw %}`yarn`{% endraw %} 명령어가 Node.js 14.x.x를 사용하여 실행됩니다.
 

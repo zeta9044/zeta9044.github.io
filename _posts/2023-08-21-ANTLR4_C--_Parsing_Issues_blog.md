@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 C++ Parsing Issues"
-date: 2023-08-21
-tags: [Issues, Parsing, C]
-categories: blog
+tags: [Parsing, C, Issues]
 ---
 
 ## 사용자 입력:
@@ -30,20 +28,20 @@ categories: blog
 
 3. **오류 메시지 확인**: ANTLR4가 반환하는 토큰 오류나 다른 오류 메시지를 제공해주시면, 문제의 원인을 더 쉽게 파악할 수 있습니다.
 
-4. **CharStreams의 인코딩**: `CharStreams.fromString`을 사용할 때 문자열의 인코딩 문제가 발생할 수 있습니다. `fromString` 메서드는 시스템의 기본 인코딩을 사용하는데, C++ 코드가 다른 인코딩으로 저장되어 있다면 문제가 발생할 수 있습니다.
+4. **CharStreams의 인코딩**: {% raw %}`CharStreams.fromString`{% endraw %}을 사용할 때 문자열의 인코딩 문제가 발생할 수 있습니다. {% raw %}`fromString`{% endraw %} 메서드는 시스템의 기본 인코딩을 사용하는데, C++ 코드가 다른 인코딩으로 저장되어 있다면 문제가 발생할 수 있습니다.
 
-5. **CPP14Lexer 및 CPP14Parser 확인**: 사용하고 있는 `CPP14Lexer` 및 `CPP14Parser`의 정의를 확인하세요. 이 두 정의 파일에서 특정 토큰이나 규칙이 누락되었거나 잘못 정의되었을 수 있습니다.
+5. **CPP14Lexer 및 CPP14Parser 확인**: 사용하고 있는 {% raw %}`CPP14Lexer`{% endraw %} 및 {% raw %}`CPP14Parser`{% endraw %}의 정의를 확인하세요. 이 두 정의 파일에서 특정 토큰이나 규칙이 누락되었거나 잘못 정의되었을 수 있습니다.
 
 6. **Error Listener 추가**: ANTLR에는 파싱 중에 발생하는 오류를 추적하기 위한 Error Listener가 있습니다. 이를 추가하여 어떤 문제가 발생하는지 좀 더 구체적으로 알아볼 수 있습니다.
 
-```java
+{% raw %}```java
 parser.addErrorListener(new BaseErrorListener() {
     @Override
     public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
         throw new IllegalStateException("Failed to parse at line " + line + " due to " + msg, e);
     }
 });
-```
+```{% endraw %}
 
 위의 방법 중 일부를 시도하여 문제의 원인을 찾아보세요. 필요한 추가 정보나 오류 메시지를 제공해주시면 더 구체적인 도움을 드리겠습니다.
 

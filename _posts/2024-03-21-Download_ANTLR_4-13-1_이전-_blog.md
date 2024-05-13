@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Download ANTLR 4.13.1 이전."
-date: 2024-03-21
-tags: [Download, 이전, ANTLR]
-categories: blog
+tags: [Download, ANTLR, 이전]
 ---
 
 ## 사용자 입력:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Create Grouped Table IDs"
-date: 2023-05-18
 tags: [Table, Grouped, IDs, Create]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -63,11 +61,11 @@ WHERE
     AND FLOW_S2.ATTR_NAME = 'name';  이 postgresql에서 m.prj_id,m.file_id,link_s1.attr_value 그룹단위로 번호를 부여하고 싶어. 쿼리 만들어봐. 즉, table_id 쿼리 부분이 제대로 나오도록 고쳐봐.
 
 ## ChatGPT 응답:
-> 이 SQL 쿼리는 이미 `ROW_NUMBER()` 함수를 사용하여 `m.prj_id`, `m.file_id`, `link_s1.ATTR_VALUE`에 따라 `table_id` 컬럼에 번호를 부여하도록 되어 있습니다. 그러나 `table_id`의 정의에 `ORDER BY` 절이 포함되어 있는데, 이는 불필요한 것으로 보입니다. `ROW_NUMBER()`는 각 파티션 내에서 고유한 번호를 생성하기 때문에 `ORDER BY` 절은 단지 그 번호의 부여 순서를 결정합니다.
+> 이 SQL 쿼리는 이미 {% raw %}`ROW_NUMBER()`{% endraw %} 함수를 사용하여 {% raw %}`m.prj_id`{% endraw %}, {% raw %}`m.file_id`{% endraw %}, {% raw %}`link_s1.ATTR_VALUE`{% endraw %}에 따라 {% raw %}`table_id`{% endraw %} 컬럼에 번호를 부여하도록 되어 있습니다. 그러나 {% raw %}`table_id`{% endraw %}의 정의에 {% raw %}`ORDER BY`{% endraw %} 절이 포함되어 있는데, 이는 불필요한 것으로 보입니다. {% raw %}`ROW_NUMBER()`{% endraw %}는 각 파티션 내에서 고유한 번호를 생성하기 때문에 {% raw %}`ORDER BY`{% endraw %} 절은 단지 그 번호의 부여 순서를 결정합니다.
 
 그렇게 하려면 쿼리를 다음과 같이 수정하십시오:
 
-```sql
+{% raw %}```sql
 SELECT
     m.prj_id
     , m.file_id
@@ -88,9 +86,9 @@ FROM
     JOIN ais0038_296_test flow ON link.PRJ_ID = FLOW.PRJ_ID AND link.FILE_ID = flow.FILE_ID AND link.TAG_SEQ_ID = flow.PARENT_SEQ_ID AND flow.TAG_ID = 'contains_FlowVariable'
     JOIN ais0039_296_test flow_s1 ON flow.PRJ_ID = FLOW_S1.PRJ_ID AND flow.FILE_ID = FLOW_S1.FILE_ID AND flow.TAG_SEQ_ID = FLOW_S1.TAG_SEQ_ID AND FLOW_S1.ATTR_NAME = 'xmi:id' AND m.prj_id = flow_s1.PRJ_ID AND m.file_id = flow_s1.FILE_ID AND flow_s1.attr_value = m.src_col_id
     JOIN ais0039_296_test flow_s2 ON flow.PRJ_ID = FLOW_S2.PRJ_ID AND flow.FILE_ID = FLOW_S2.FILE_ID AND flow.TAG_SEQ_ID = FLOW_S2.TAG_SEQ_ID AND FLOW_S2.ATTR_NAME = 'name';
-```
+```{% endraw %}
 
-이 쿼리에서는 `ROW_NUMBER()` 함수를 사용하여 `m.prj_id`, `m.file_id`, `link_s1.ATTR_VALUE`를 기준으로 `table_id` 값을 생성합니다. 이 경우, 같은 `m.prj_id`, `m.file_id`, `link_s1.ATTR_VALUE`를 가진 행은 모두 다른 `table_id` 값을 가질 것입니다.
+이 쿼리에서는 {% raw %}`ROW_NUMBER()`{% endraw %} 함수를 사용하여 {% raw %}`m.prj_id`{% endraw %}, {% raw %}`m.file_id`{% endraw %}, {% raw %}`link_s1.ATTR_VALUE`{% endraw %}를 기준으로 {% raw %}`table_id`{% endraw %} 값을 생성합니다. 이 경우, 같은 {% raw %}`m.prj_id`{% endraw %}, {% raw %}`m.file_id`{% endraw %}, {% raw %}`link_s1.ATTR_VALUE`{% endraw %}를 가진 행은 모두 다른 {% raw %}`table_id`{% endraw %} 값을 가질 것입니다.
 
 그러나 이 쿼리는 기존 데이터베이스 구조와 데이터가 어떻게 분포되어 있는지에 따라 결과가 달라질 수 있습니다.
 
@@ -98,11 +96,11 @@ FROM
 > 위 쿼리를 실행하면 , table_id가 prj_id,file_id 그룹별로 1,2,3,4 이런식으로 생겨...내가 원하는건  prj_id,file_id , attr_value 그룹별로 table_id가 유니크하게 생기는 거야.
 
 ## ChatGPT 응답:
-> 아하, 이해했습니다. 여러분이 원하는 것은 `m.prj_id`, `m.file_id`, `link_s1.ATTR_VALUE` 그룹별로 `table_id`가 유니크하게 생성되는 것입니다. 그렇다면, 우리는 `DENSE_RANK()` 함수를 사용하여 같은 그룹 내의 모든 레코드에 동일한 ID를 할당할 수 있습니다. `ROW_NUMBER()`와 달리, `DENSE_RANK()`는 같은 그룹 내에서 동일한 번호를 제공합니다.
+> 아하, 이해했습니다. 여러분이 원하는 것은 {% raw %}`m.prj_id`{% endraw %}, {% raw %}`m.file_id`{% endraw %}, {% raw %}`link_s1.ATTR_VALUE`{% endraw %} 그룹별로 {% raw %}`table_id`{% endraw %}가 유니크하게 생성되는 것입니다. 그렇다면, 우리는 {% raw %}`DENSE_RANK()`{% endraw %} 함수를 사용하여 같은 그룹 내의 모든 레코드에 동일한 ID를 할당할 수 있습니다. {% raw %}`ROW_NUMBER()`{% endraw %}와 달리, {% raw %}`DENSE_RANK()`{% endraw %}는 같은 그룹 내에서 동일한 번호를 제공합니다.
 
 아래는 수정된 쿼리입니다:
 
-```sql
+{% raw %}```sql
 SELECT
     m.prj_id
     , m.file_id
@@ -124,9 +122,9 @@ FROM
     JOIN ais0038_296_test flow ON link.PRJ_ID = FLOW.PRJ_ID AND link.FILE_ID = flow.FILE_ID AND link.TAG_SEQ_ID = flow.PARENT_SEQ_ID AND flow.TAG_ID = 'contains_FlowVariable'
     JOIN ais0039_296_test flow_s1 ON flow.PRJ_ID = FLOW_S1.PRJ_ID AND flow.FILE_ID = FLOW_S1.FILE_ID AND flow.TAG_SEQ_ID = FLOW_S1.TAG_SEQ_ID AND FLOW_S1.ATTR_NAME = 'xmi:id' AND m.prj_id = flow_s1.PRJ_ID AND m.file_id = flow_s1.FILE_ID AND flow_s1.attr_value = m.src_col_id
     JOIN ais0039_296_test flow_s2 ON flow.PRJ_ID = FLOW_S2.PRJ_ID AND flow.FILE_ID = FLOW_S2.FILE_ID AND flow.TAG_SEQ_ID = FLOW_S2.TAG_SEQ_ID AND FLOW_S2.ATTR_NAME = 'name';
-```
+```{% endraw %}
 
-이 쿼리는 `m.prj_id`, `m.file_id`, `link_s1.ATTR_VALUE` 그룹별로 `table_id`를 생성하며, 그룹 내에서 동일한 `table_id`가 부여됩니다. 이렇게 하면 `table_id`가 그룹별로 유니크하게 생성됩니다.
+이 쿼리는 {% raw %}`m.prj_id`{% endraw %}, {% raw %}`m.file_id`{% endraw %}, {% raw %}`link_s1.ATTR_VALUE`{% endraw %} 그룹별로 {% raw %}`table_id`{% endraw %}를 생성하며, 그룹 내에서 동일한 {% raw %}`table_id`{% endraw %}가 부여됩니다. 이렇게 하면 {% raw %}`table_id`{% endraw %}가 그룹별로 유니크하게 생성됩니다.
 
 ## 사용자 입력:
 > SELECT
@@ -198,7 +196,7 @@ AND FLOW_S4.ATTR_NAME = 'sourceColumnID';
 
 다음은 그에 따른 수정된 쿼리입니다:
 
-```sql
+{% raw %}```sql
 SELECT
     m.prj_id
     , m.file_id
@@ -230,9 +228,9 @@ FROM
     JOIN ais0039_296_test flow_s2 ON flow.PRJ_ID = FLOW_S2.PRJ_ID AND flow.FILE_ID = FLOW_S2.FILE_ID AND flow.TAG_SEQ_ID = FLOW_S2.TAG_SEQ_ID AND FLOW_S2.ATTR_NAME = 'name'
     JOIN ais0039_296_test flow_s3 ON flow.PRJ_ID = FLOW_S3.PRJ_ID AND flow.FILE_ID = FLOW_S3.FILE_ID AND flow.TAG_SEQ_ID = FLOW_S3.TAG_SEQ_ID AND FLOW_S3.ATTR_NAME = 'sequenceNumber'
     JOIN ais0039_296_test flow_s4 ON flow.PRJ_ID = FLOW_S4.PRJ_ID AND flow.FILE_ID = FLOW_S4.FILE_ID AND flow.TAG_SEQ_ID = FLOW_S4.TAG_SEQ_ID AND FLOW_S4.ATTR_NAME = 'sourceColumnID';
-```
+```{% endraw %}
 
-위 쿼리에서는 각 테이블 간의 관계를 `JOIN` 구문을 사용하여 명시적으로 표현하고 있습니다. 이렇게 하면 쿼리의 가독성이 향상되고, 각 테이블 간의 관계를 이해하기가 더 쉬워집니다.
+위 쿼리에서는 각 테이블 간의 관계를 {% raw %}`JOIN`{% endraw %} 구문을 사용하여 명시적으로 표현하고 있습니다. 이렇게 하면 쿼리의 가독성이 향상되고, 각 테이블 간의 관계를 이해하기가 더 쉬워집니다.
 
 ## 사용자 입력:
 > SELECT
@@ -311,7 +309,7 @@ FROM
 
 다음은 그에 따른 수정된 쿼리입니다:
 
-```sql
+{% raw %}```sql
 SELECT
     *
 FROM
@@ -384,10 +382,10 @@ FROM
 ## ChatGPT 응답:
 > 죄송합니다. 쿼리가 잘못 잘렸네요. 아래는 이어서 작성한 쿼리입니다:
 
-```sql
+```{% endraw %}sql
             AND m.map_tgt_col_id = tgt.col_id
     ) A;
-```
+{% raw %}```
 
 전체적으로 보면, 이 쿼리는 t_transform_$${{prj_id}}, t_src_$${{prj_id}}, 그리고 t_tgt_$${{prj_id}}라는 세 테이블을 조인합니다. 이 때 m 테이블 (t_transform_$${{prj_id}})은 src 테이블 (t_src_$${{prj_id}})과 tgt 테이블 (t_tgt_$${{prj_id}})를 연결하는 다리 역할을 하며, 각 테이블은 prj_id와 file_id 필드를 기반으로 조인됩니다. WHERE절은 이 조인 조건을 보완하며, src_table_id, src_col_id, tgt_table_id, 그리고 map_tgt_col_id 필드를 사용해 m 테이블에서 일치하는 레코드를 필터링합니다.
 
@@ -448,7 +446,7 @@ WHERE
 ## ChatGPT 응답:
 > PostgreSQL의 기존 쿼리를 ANSI 표준 JOIN 구문으로 변환해 보겠습니다. 이 변환은 원래의 쿼리가 명시적으로 테이블을 CROSS JOIN (모든 행의 조합을 생성하는 JOIN 유형)하는 방식을 사용하고 있기 때문에, 이를 INNER JOIN 으로 변환해 보겠습니다. 
 
-```sql
+```{% endraw %}sql
 SELECT DISTINCT 
     x3.prj_id, 
     x3.file_id, 
@@ -477,7 +475,7 @@ WHERE
         FROM ais0038_296_test z 
         WHERE z.prj_id = x1.prj_id AND z.file_id = x1.file_id AND z.PARENT_SEQ_ID = x1.PARENT_SEQ_ID AND z.TAG_ID = 'has_InputPin'
     );
-```
+{% raw %}```
 
 이 쿼리는 기존 쿼리의 WHERE 절을 사용하여 각 테이블이 어떻게 조인되는지를 명확히 표현한 ANSI 표준 SQL JOIN 쿼리입니다.
 
@@ -531,7 +529,7 @@ WHERE
 ## ChatGPT 응답:
 > 여러 테이블의 내부 조인을 사용하여 Postgres SQL 쿼리를 ANSI 표준 SQL로 변환해 보겠습니다.
 
-```sql
+```{% endraw %}sql
 SELECT 
     x2.prj_id, 
     x2.file_id, 
@@ -557,7 +555,7 @@ WHERE
         FROM ais0038_296_test z 
         WHERE z.prj_id = x1.prj_id AND z.file_id = x1.file_id AND z.PARENT_SEQ_ID = x1.PARENT_SEQ_ID AND z.TAG_ID = 'has_InputPin'
     );
-```
+{% raw %}```
 
 이 쿼리는 기존 쿼리의 WHERE 절을 사용하여 각 테이블이 어떻게 조인되는지를 명확히 표현한 ANSI 표준 SQL JOIN 쿼리입니다.
 
@@ -617,7 +615,7 @@ WHERE
 ## ChatGPT 응답:
 > 주어진 Postgres SQL 쿼리를 ANSI 표준 SQL의 조인 형식으로 변환하겠습니다.
 
-```sql
+```{% endraw %}sql
 SELECT 
     x3.prj_id, 
     x3.file_id, 
@@ -646,7 +644,7 @@ WHERE
         FROM ais0038_296_test z 
         WHERE z.prj_id = x1.prj_id AND z.file_id = x1.file_id AND z.PARENT_SEQ_ID = x1.PARENT_SEQ_ID AND z.TAG_ID = 'has_OutputPin'
     );
-```
+{% raw %}```
 
 이 쿼리는 기존 쿼리의 WHERE 절을 사용하여 각 테이블이 어떻게 조인되는지를 명확히 표현한 ANSI 표준 SQL JOIN 쿼리입니다.
 
@@ -702,7 +700,7 @@ WHERE
 ## ChatGPT 응답:
 > 당신의 PostgreSQL 쿼리를 ANSI 표준 SQL 조인 형식으로 변환하겠습니다.
 
-```sql
+```{% endraw %}sql
 CREATE TEMPORARY TABLE t_ipin_file_296_test AS
 SELECT
     x2.prj_id,
@@ -730,7 +728,7 @@ WHERE
         FROM ais0038_296_test z
         WHERE z.prj_id = x1.prj_id AND z.file_id = x1.file_id AND z.PARENT_SEQ_ID = x1.PARENT_SEQ_ID AND z.TAG_ID = 'has_OutputPin'
     );
-```
+{% raw %}``{% endraw %}`
 
 이 변환된 쿼리는 이전에 각 테이블이 어떻게 조인되는지를 명확히 하는 ANSI 표준 SQL JOIN을 사용합니다.
 

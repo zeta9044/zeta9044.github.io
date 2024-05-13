@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "SQL 추출 라이브러리: sqlparse vs ast"
-date: 2023-06-02
-tags: [SQL, ast, 추출, 라이브러리, sqlparse, vs]
-categories: blog
+title: "SQL 추출 라이브러리 - sqlparse vs ast"
+tags: [vs, 라이브러리, 추출, SQL, ast, sqlparse]
 ---
 
 ## 사용자 입력:
@@ -12,9 +10,9 @@ categories: blog
 ## ChatGPT 응답:
 > Python에서 SQL 문을 추출하기 위한 여러 라이브러리가 있습니다. 다음은 대표적인 두 가지 방법을 안내해드리겠습니다.
 
-1. `sqlparse`: `sqlparse`는 Python에서 SQL 문을 구문 분석하고 형식을 지정하는 데 사용되는 인기 있는 라이브러리입니다. 이 라이브러리를 사용하여 SQL 문을 추출할 수 있습니다. 다음은 간단한 예제입니다:
+1. {% raw %}`sqlparse`{% endraw %}: {% raw %}`sqlparse`{% endraw %}는 Python에서 SQL 문을 구문 분석하고 형식을 지정하는 데 사용되는 인기 있는 라이브러리입니다. 이 라이브러리를 사용하여 SQL 문을 추출할 수 있습니다. 다음은 간단한 예제입니다:
 
-```python
+{% raw %}```python
 import sqlparse
 
 # SQL 문 추출 예제
@@ -29,13 +27,13 @@ statements = parsed[0]
 extracted_sql = statements.to_unicode()
 
 print(extracted_sql)
-```
+```{% endraw %}
 
-위의 예제에서 `sqlparse.parse()` 함수를 사용하여 SQL 문을 구문 분석하고, `to_unicode()` 메서드를 사용하여 추출된 SQL 문을 문자열로 변환합니다.
+위의 예제에서 {% raw %}`sqlparse.parse()`{% endraw %} 함수를 사용하여 SQL 문을 구문 분석하고, {% raw %}`to_unicode()`{% endraw %} 메서드를 사용하여 추출된 SQL 문을 문자열로 변환합니다.
 
-2. `ast` 모듈: Python의 `ast` 모듈은 파이썬 코드를 구문 분석하고 분석 트리(Abstract Syntax Tree)를 생성하는 기능을 제공합니다. 이를 사용하여 SQL 문을 추출할 수도 있습니다. 다음은 예제입니다:
+2. {% raw %}`ast`{% endraw %} 모듈: Python의 {% raw %}`ast`{% endraw %} 모듈은 파이썬 코드를 구문 분석하고 분석 트리(Abstract Syntax Tree)를 생성하는 기능을 제공합니다. 이를 사용하여 SQL 문을 추출할 수도 있습니다. 다음은 예제입니다:
 
-```python
+{% raw %}```python
 import ast
 
 # SQL 문 추출 예제
@@ -60,9 +58,9 @@ sql_statements = [node.s for node in ast.walk(tree) if isinstance(node, ast.Expr
 
 for sql in sql_statements:
     print(sql)
-```
+```{% endraw %}
 
-위의 예제에서 `ast.parse()` 함수를 사용하여 Python 코드를 구문 분석하고, `ast.walk()` 함수와 필터링을 사용하여 추출된 SQL 문을 찾습니다. 이 방법은 Python 코드에 포함된 모든 문자열 중에서 SQL 문을 추출합니다.
+위의 예제에서 {% raw %}`ast.parse()`{% endraw %} 함수를 사용하여 Python 코드를 구문 분석하고, {% raw %}`ast.walk()`{% endraw %} 함수와 필터링을 사용하여 추출된 SQL 문을 찾습니다. 이 방법은 Python 코드에 포함된 모든 문자열 중에서 SQL 문을 추출합니다.
 
 이러한 라이브러리들을 사용하여 SQL 문을 추출할 수 있으며, 프로그램의 요구 사항과 선호에 따라 선택하시면 됩니다.
 
@@ -70,12 +68,12 @@ for sql in sql_statements:
 > 위 라이브러리가 자바소스,xml에서도 sql문만 추출할 수 있나?
 
 ## ChatGPT 응답:
-> 앞서 언급한 `sqlparse`와 `ast` 모듈은 주로 Python 코드를 다루는 데 사용되지만, 자바 소스 코드나 XML 파일에서도 SQL 문을 추출하는 데에도 사용할 수 있습니다. 다음은 간단한 예제를 제공합니다.
+> 앞서 언급한 {% raw %}`sqlparse`{% endraw %}와 {% raw %}`ast`{% endraw %} 모듈은 주로 Python 코드를 다루는 데 사용되지만, 자바 소스 코드나 XML 파일에서도 SQL 문을 추출하는 데에도 사용할 수 있습니다. 다음은 간단한 예제를 제공합니다.
 
 1. 자바 소스 코드에서 SQL 문 추출하기:
-`javalang` 라이브러리를 사용하여 자바 소스 코드를 구문 분석하고 SQL 문을 추출할 수 있습니다. `javalang` 라이브러리는 자바 코드를 파싱하여 추상 구문 트리(Abstract Syntax Tree)를 생성하는 데 사용됩니다.
+{% raw %}`javalang`{% endraw %} 라이브러리를 사용하여 자바 소스 코드를 구문 분석하고 SQL 문을 추출할 수 있습니다. {% raw %}`javalang`{% endraw %} 라이브러리는 자바 코드를 파싱하여 추상 구문 트리(Abstract Syntax Tree)를 생성하는 데 사용됩니다.
 
-```python
+{% raw %}```python
 import javalang
 from javalang.tree import *
 
@@ -119,14 +117,14 @@ public class Main {
 sql_statements = extract_sql_from_java(java_code)
 for sql in sql_statements:
     print(sql)
-```
+```{% endraw %}
 
-위의 예제에서 `javalang.parse.parse()` 함수를 사용하여 자바 코드를 구문 분석하고, `MethodInvocation` 노드를 찾아 `PreparedStatement`의 인자로 전달되는 문자열 리터럴을 추출합니다.
+위의 예제에서 {% raw %}`javalang.parse.parse()`{% endraw %} 함수를 사용하여 자바 코드를 구문 분석하고, {% raw %}`MethodInvocation`{% endraw %} 노드를 찾아 {% raw %}`PreparedStatement`{% endraw %}의 인자로 전달되는 문자열 리터럴을 추출합니다.
 
 2. XML에서 SQL 문 추출하기:
-XML 파일에서 SQL 문을 추출하기 위해서는 XML 파서를 사용해야 합니다. `xml.etree.ElementTree` 모듈은 Python에 내장된 XML 파싱 기능을 제공합니다. XML 파일을 구문 분석하고 필요한 요소를 추출하여 SQL 문을 찾을 수 있습니다. 다음은 예제입니다:
+XML 파일에서 SQL 문을 추출하기 위해서는 XML 파서를 사용해야 합니다. {% raw %}`xml.etree.ElementTree`{% endraw %} 모듈은 Python에 내장된 XML 파싱 기능을 제공합니다. XML 파일을 구문 분석하고 필요한 요소를 추출하여 SQL 문을 찾을 수 있습니다. 다음은 예제입니다:
 
-```python
+{% raw %}```python
 import xml.etree.ElementTree as ET
 
 def extract_sql_from_xml(xml_file):
@@ -147,14 +145,14 @@ xml_file = "example.xml"
 sql_statements = extract_sql_from_xml(xml_file)
 for sql in sql_statements:
     print(sql)
-```
+```{% endraw %}
 
-위의 예제에서 `xml.etree.ElementTree` 모듈을 사용하여 XML 파일을 구문 분석하고,
+위의 예제에서 {% raw %}`xml.etree.ElementTree`{% endraw %} 모듈을 사용하여 XML 파일을 구문 분석하고,
 
 ## ChatGPT 응답:
->  `iter()` 메서드를 사용하여 필요한 XML 요소를 찾습니다. 이 예제에서는 `tag`가 "sql"인 요소를 찾아 `text` 속성에서 SQL 문을 추출합니다.
+>  {% raw %}`iter()`{% endraw %} 메서드를 사용하여 필요한 XML 요소를 찾습니다. 이 예제에서는 {% raw %}`tag`{% endraw %}가 "sql"인 요소를 찾아 {% raw %}`text`{% endraw %} 속성에서 SQL 문을 추출합니다.
 
-따라서, `sqlparse`와 `ast` 모듈을 사용하여 자바 소스 코드와 XML 파일에서도 SQL 문을 추출할 수 있습니다. 하지만 각 파일 형식에 따라 약간의 커스터마이징이 필요할 수 있으므로, 구체적인 요구 사항에 맞게 코드를 수정해야 할 수도 있습니다.
+따라서, {% raw %}`sqlparse`{% endraw %}와 {% raw %}`ast`{% endraw %} 모듈을 사용하여 자바 소스 코드와 XML 파일에서도 SQL 문을 추출할 수 있습니다. 하지만 각 파일 형식에 따라 약간의 커스터마이징이 필요할 수 있으므로, 구체적인 요구 사항에 맞게 코드를 수정해야 할 수도 있습니다.
 
 ## 사용자 입력:
 > 위 xml에서 sql구문 추출하는 건 sql이 태그로 지정되어 있는게 아니어서, 위의 방법으로 어려워
@@ -162,9 +160,9 @@ for sql in sql_statements:
 ## ChatGPT 응답:
 > 이해합니다. XML 파일의 구조에 따라 SQL 문을 추출하는 방법이 다를 수 있습니다. 특정 XML 파일에 맞는 구문 추출 방법을 만들기 위해 더 자세한 정보가 필요합니다. 그러나 일반적으로는 XPath 또는 XML 파서를 사용하여 원하는 요소를 선택하고 해당 요소의 값을 추출하는 방법을 사용할 수 있습니다.
 
-XPath를 사용하여 XML에서 SQL 문을 추출하는 예제를 제공하겠습니다. 다음은 Python의 `lxml` 라이브러리를 사용하여 XPath를 실행하는 방법입니다:
+XPath를 사용하여 XML에서 SQL 문을 추출하는 예제를 제공하겠습니다. 다음은 Python의 {% raw %}`lxml`{% endraw %} 라이브러리를 사용하여 XPath를 실행하는 방법입니다:
 
-```python
+{% raw %}```python
 from lxml import etree
 
 def extract_sql_from_xml(xml_file):
@@ -184,9 +182,9 @@ xml_file = "example.xml"
 sql_statements = extract_sql_from_xml(xml_file)
 for sql in sql_statements:
     print(sql)
-```
+```{% endraw %}
 
-위의 예제에서는 `lxml` 라이브러리의 `etree` 모듈을 사용하여 XML 파일을 파싱하고, `xpath()` 메서드를 사용하여 XPath 식을 실행하여 원하는 `sql` 요소를 선택하고 해당 요소의 텍스트 값을 추출합니다. 이 예제에서는 XPath 식 `//sql`을 사용하여 모든 `sql` 요소를 선택합니다.
+위의 예제에서는 {% raw %}`lxml`{% endraw %} 라이브러리의 {% raw %}`etree`{% endraw %} 모듈을 사용하여 XML 파일을 파싱하고, {% raw %}`xpath()`{% endraw %} 메서드를 사용하여 XPath 식을 실행하여 원하는 {% raw %}`sql`{% endraw %} 요소를 선택하고 해당 요소의 텍스트 값을 추출합니다. 이 예제에서는 XPath 식 {% raw %}`//sql`{% endraw %}을 사용하여 모든 {% raw %}`sql`{% endraw %} 요소를 선택합니다.
 
 실제 XML 파일의 구조에 따라 XPath 식을 조정해야 할 수 있습니다. XML 파일의 구조와 요구 사항을 고려하여 적절한 XPath 식을 작성하십시오.
 
@@ -194,13 +192,13 @@ for sql in sql_statements:
 > 아니.....위의 추출내용은 태그에 sql이 지정되어 있다고 가정하고 추출하는 거잖아. 그게 아니라,  그냥 xml문에 있는 sql문을 추출하는 거야.
 
 ## ChatGPT 응답:
-> 죄송합니다. 이해를 잘못하고 있었습니다. 태그에 직접 `sql`이 지정되어 있지 않은 경우, XML 문서에서 SQL 문을 추출하는 것은 좀 더 복잡할 수 있습니다. XML의 구조와 규칙에 따라서 SQL 문을 식별하고 추출해야 합니다.
+> 죄송합니다. 이해를 잘못하고 있었습니다. 태그에 직접 {% raw %}`sql`{% endraw %}이 지정되어 있지 않은 경우, XML 문서에서 SQL 문을 추출하는 것은 좀 더 복잡할 수 있습니다. XML의 구조와 규칙에 따라서 SQL 문을 식별하고 추출해야 합니다.
 
-일반적으로 이러한 상황에서는 XML 파서를 사용하여 XML 문서를 구문 분석하고, 원하는 요소를 찾기 위해 XPath 또는 DOM을 조작하는 방법을 사용합니다. 이를 위해 Python의 `xml.etree.ElementTree` 모듈이나 `lxml` 라이브러리를 활용할 수 있습니다.
+일반적으로 이러한 상황에서는 XML 파서를 사용하여 XML 문서를 구문 분석하고, 원하는 요소를 찾기 위해 XPath 또는 DOM을 조작하는 방법을 사용합니다. 이를 위해 Python의 {% raw %}`xml.etree.ElementTree`{% endraw %} 모듈이나 {% raw %}`lxml`{% endraw %} 라이브러리를 활용할 수 있습니다.
 
 다음은 XML 문서에서 SQL 문을 추출하는 예제입니다. 예제에서는 XML 문서에서 모든 텍스트 요소를 추출하고, 추출된 텍스트에서 SQL 문을 찾습니다.
 
-```python
+{% raw %}```python
 import xml.etree.ElementTree as ET
 
 def extract_sql_from_xml(xml_file):
@@ -226,9 +224,9 @@ xml_file = "example.xml"
 sql_statements = extract_sql_from_xml(xml_file)
 for sql in sql_statements:
     print(sql)
-```
+```{% endraw %}
 
-위의 예제에서는 `xml.etree.ElementTree` 모듈을 사용하여 XML 파일을 구문 분석하고, 재귀 함수 `find_sql()`을 사용하여 모든 텍스트 요소를 추출합니다. 추출된 텍스트가 "SELECT", "INSERT", "UPDATE", "DELETE"와 같은 키워드를 포함하면 해당 텍스트를 SQL 문으로 간주하고 추출합니다.
+위의 예제에서는 {% raw %}`xml.etree.ElementTree`{% endraw %} 모듈을 사용하여 XML 파일을 구문 분석하고, 재귀 함수 {% raw %}`find_sql()`{% endraw %}을 사용하여 모든 텍스트 요소를 추출합니다. 추출된 텍스트가 "SELECT", "INSERT", "UPDATE", "DELETE"와 같은 키워드를 포함하면 해당 텍스트를 SQL 문으로 간주하고 추출합니다.
 
 실제 XML 파일의 구조와 데이터에 따라서 위 예제를 수정해야 할 수 있습니다. XML 파일의 구조를 분석하고 원하는 요소를 식별하는 데 도움이 되는 XPath 또는 DOM 메서드를 사용하여 적합한 로직을 작성하십시오.
 
@@ -238,7 +236,7 @@ for sql in sql_statements:
 ## ChatGPT 응답:
 > 앞선 답변에서 SQL 문을 추출하는 방법을 확장하여 DDL (Data Definition Language) 문도 추출할 수 있습니다. DDL 문은 데이터베이스의 스키마를 정의하거나 수정하는 데 사용되는 문장들입니다. 다음은 DDL 문을 추출하기 위한 예제입니다.
 
-```python
+{% raw %}```python
 import xml.etree.ElementTree as ET
 
 def extract_ddl_from_xml(xml_file):
@@ -264,7 +262,7 @@ xml_file = "example.xml"
 ddl_statements = extract_ddl_from_xml(xml_file)
 for ddl in ddl_statements:
     print(ddl)
-```
+```{% endraw %}
 
 위의 예제는 이전 예제와 동일한 구조를 가지며, SQL 문 추출을 위한 로직을 확장하여 "CREATE", "ALTER", "DROP"과 같은 키워드를 포함하는 텍스트 요소를 DDL 문으로 추출합니다.
 
@@ -282,7 +280,7 @@ XML 파일의 구조와 데이터에 따라서 예제를 수정해야 할 수 �
 
 1. Django 백엔드 (API) 예시 코드:
 
-```python
+{% raw %}```python
 # models.py
 from django.db import models
 
@@ -308,11 +306,11 @@ class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         fields = ['id', 'title', 'author', 'publication_date']
-```
+```{% endraw %}
 
 2. React 프론트엔드 예시 코드:
 
-```jsx
+{% raw %}```jsx
 // App.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -349,12 +347,12 @@ const App = () => {
 };
 
 export default App;
-```
+```{% endraw %}
 
-위의 예시 코드에서 Django는 `Book` 모델을 정의하고, `BookViewSet`을 통해 CRUD (생성, 조회, 수정, 삭제) API를
+위의 예시 코드에서 Django는 {% raw %}`Book`{% endraw %} 모델을 정의하고, {% raw %}`BookViewSet`{% endraw %}을 통해 CRUD (생성, 조회, 수정, 삭제) API를
 
 ## ChatGPT 응답:
->  제공합니다. React 앱은 `App` 컴포넌트에서 `axios`를 사용하여 백엔드 API를 호출하고, `DataGrid` 컴포넌트를 사용하여 책 데이터를 그리드로 표시합니다.
+>  제공합니다. React 앱은 {% raw %}`App`{% endraw %} 컴포넌트에서 {% raw %}`axios`{% endraw %}를 사용하여 백엔드 API를 호출하고, {% raw %}`DataGrid`{% endraw %} 컴포넌트를 사용하여 책 데이터를 그리드로 표시합니다.
 
 이 예시 코드는 Django와 React를 함께 사용하여 간단한 도서 관리 시스템을 만드는 데 도움이 될 수 있습니다. 하지만 실제로 프로젝트를 개발할 때는 이 코드를 기반으로 필요한 기능을 추가하고 보완해야 할 수 있습니다.
 
@@ -497,7 +495,7 @@ Flutter를 사용하여 iOS와 Android를 모두 대상으로 하는 앱을 개�
 
 1. Flutter 설치: Flutter 개발을 시작하기 위해 Flutter SDK를 설치해야 합니다. 공식 Flutter 웹사이트(https://flutter.dev)에서 해당 플랫폼에 맞는 설치 가이드를 참조하여 Flutter SDK를 설치합니다.
 
-2. 프로젝트 생성: Flutter 프로젝트를 생성합니다. Flutter CLI(Command Line Interface)를 사용하여 프로젝트를 생성할 수 있으며, `flutter create` 명령을 실행하여 새로운 프로젝트를 만듭니다.
+2. 프로젝트 생성: Flutter 프로젝트를 생성합니다. Flutter CLI(Command Line Interface)를 사용하여 프로젝트를 생성할 수 있으며, {% raw %}`flutter create`{% endraw %} 명령을 실행하여 새로운 프로젝트를 만듭니다.
 
 3. 개발 환경 설정: 개발에 필요한 편집기(예: Visual Studio Code)를 설치하고, Flutter 및 Dart 플러그인을 설정합니다. 이를 통해 코드 작성, 디버깅, 실행 등을 수행할 수 있습니다.
 

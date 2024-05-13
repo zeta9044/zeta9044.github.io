@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Qodana 발음 알려줘"
-date: 2023-11-24
-tags: [발음, Qodana]
-categories: blog
+tags: [Qodana, 발음]
 ---
 
 ## 사용자 입력:

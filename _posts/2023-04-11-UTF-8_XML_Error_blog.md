@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "UTF-8 XML Error"
-date: 2023-04-11
 tags: [UTF, Error, XML]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -30,15 +28,15 @@ categories: blog
 
 예를 들어, MySQL 데이터베이스의 경우, 다음과 같이 연결 URL을 설정할 수 있습니다.
 
-```
+{% raw %}```
 jdbc:mysql://localhost:3306/mydatabase?useUnicode=true&characterEncoding=UTF-8
-```
+```{% endraw %}
 
 Oracle 데이터베이스의 경우, 다음과 같이 연결 URL을 설정할 수 있습니다.
 
-```
+{% raw %}```
 jdbc:oracle:thin:@localhost:1521:ORCL;charset=UTF-8
-```
+```{% endraw %}
 
 위의 예제에서는 "characterEncoding" 매개 변수를 UTF-8로 설정하여 인코딩 방식을 지정하고 있습니다. 이렇게 설정하면 JNDI 데이터 소스에서 가져오는 데이터의 인코딩 방식이 UTF-8로 지정되어 문제를 해결할 수 있습니다.
 
@@ -50,15 +48,15 @@ jdbc:oracle:thin:@localhost:1521:ORCL;charset=UTF-8
 
 예를 들어, 다음과 같이 연결 URL을 설정할 수 있습니다.
 
-```
+{% raw %}```
 jdbc:oracle:thin:@localhost:1521/ORCLPDB1?useUnicode=true&characterEncoding=UTF-8
-```
+```{% endraw %}
 
 위 예제에서는 "characterEncoding" 매개 변수를 UTF-8로 설정하여 인코딩 방식을 지정하고 있습니다. 이렇게 설정하면 Oracle 19c에서 JNDI 데이터 소스에서 가져오는 데이터의 인코딩 방식이 UTF-8로 지정되어 문제를 해결할 수 있습니다.
 
 또는 다음과 같이 JNDI 데이터 소스 구성 파일에서 "connectionProperties" 속성을 추가하여 UTF-8 인코딩을 사용하도록 설정할 수도 있습니다.
 
-```
+{% raw %}```
 <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
     <property name="jndiName" value="java:comp/env/jdbc/myDataSource"/>
     <property name="connectionProperties">
@@ -68,7 +66,7 @@ jdbc:oracle:thin:@localhost:1521/ORCLPDB1?useUnicode=true&characterEncoding=UTF-
         </props>
     </property>
 </bean>
-```
+```{% endraw %}
 
 위의 예제에서는 "connectionProperties" 속성을 사용하여 "useUnicode"와 "characterEncoding" 매개 변수를 설정하고 있습니다. 이렇게 설정하면 Oracle 19c에서 JNDI 데이터 소스에서 가져오는 데이터의 인코딩 방식이 UTF-8로 지정되어 문제를 해결할 수 있습니다.
 
@@ -81,9 +79,9 @@ jdbc:oracle:thin:@localhost:1521/ORCLPDB1?useUnicode=true&characterEncoding=UTF-
 
 XML 선언은 다음과 같은 형식으로 구성됩니다.
 
-```
+{% raw %}```
 <?xml version="1.0" encoding="UTF-8"?>
-```
+```{% endraw %}
 
 여기서 "encoding" 속성은 문서의 문자 인코딩 방식을 지정합니다. 이 속성에 대한 값은 ';' 문자로 끝나야 합니다.
 
@@ -99,15 +97,15 @@ XML 선언은 다음과 같은 형식으로 구성됩니다.
 
 정확한 JDBC 연결 URL은 다음과 같습니다.
 
-```
+{% raw %}```
 jdbc:oracle:thin:@localhost:1521/ORCLPDB1?useUnicode=true&encoding=UTF-8
-```
+```{% endraw %}
 
 위의 예제에서는 "encoding" 매개 변수를 UTF-8로 설정하여 인코딩 방식을 지정하고 있습니다. 이렇게 설정하면 Oracle 19c에서 JNDI 데이터 소스에서 가져오는 데이터의 인코딩 방식이 UTF-8로 지정되어 문제를 해결할 수 있습니다.
 
 또한, Spring Framework에서 JNDI 데이터 소스 구성 파일에서 "connectionProperties" 속성을 추가하여 UTF-8 인코딩을 사용하도록 설정할 수도 있습니다.
 
-```
+{% raw %}```
 <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
     <property name="jndiName" value="java:comp/env/jdbc/myDataSource"/>
     <property name="connectionProperties">
@@ -117,7 +115,7 @@ jdbc:oracle:thin:@localhost:1521/ORCLPDB1?useUnicode=true&encoding=UTF-8
         </props>
     </property>
 </bean>
-```
+```{% endraw %}
 
 위의 예제에서는 "connectionProperties" 속성을 사용하여 "useUnicode"와 "encoding" 매개 변수를 설정하고 있습니다. 이렇게 설정하면 Oracle 19c에서 JNDI 데이터 소스에서 가져오는 데이터의 인코딩 방식이 UTF-8로 지정되어 문제를 해결할 수 있습니다.
 
@@ -131,9 +129,9 @@ jdbc:oracle:thin:@localhost:1521/ORCLPDB1?useUnicode=true&encoding=UTF-8
 
 JDBC 드라이버에 인코딩을 UTF-8로 설정하는 방법은 JDBC 드라이버의 URL에 "useUnicode=true&characterEncoding=UTF-8" 매개 변수를 추가하는 것입니다. 예를 들어, 다음과 같은 URL을 사용할 수 있습니다.
 
-```
+{% raw %}```
 jdbc:oracle:thin:@localhost:1521:ORCL?useUnicode=true&characterEncoding=UTF-8
-```
+```{% endraw %}
 
 2. Oracle 데이터베이스에 설정하기
 
@@ -141,15 +139,15 @@ Oracle 데이터베이스의 NLS_LANG 매개 변수를 UTF-8로 설정하는 방
 
 NLS_LANG 매개 변수를 설정하려면 다음과 같은 명령을 사용합니다.
 
-```
+{% raw %}```
 export NLS_LANG=.AL32UTF8
-```
+```{% endraw %}
 
 3. 애플리케이션에서 설정하기
 
 애플리케이션에서 데이터를 가져올 때 UTF-8 인코딩을 사용하도록 설정하는 방법도 있습니다. 이 방법은 JNDI 데이터 소스를 가져올 때 "encoding" 속성을 UTF-8로 설정하는 것입니다.
 
-```
+{% raw %}```
 <Context>
   <Resource name="jdbc/myDataSource" auth="Container"
             type="javax.sql.DataSource"
@@ -160,7 +158,7 @@ export NLS_LANG=.AL32UTF8
             maxActive="20"
             encoding="UTF-8" />
 </Context>
-```
+```{% endraw %}
 
 위의 방법 중 하나를 선택하여 데이터 소스에서 데이터를 UTF-8로 가져와 문제를 해결할 수 있습니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
-title: ""Index Error: Substring Not Found""
-date: 2023-03-09
-tags: [Index, Error, Not, Substring, Found]
-categories: blog
+title: "'Index Error - Substring Not Found'"
+tags: [Substring, Index, Not, Found, Error]
 ---
 
 ## 사용자 입력:
@@ -14,9 +12,9 @@ categories: blog
 
 Here's the output of the code:
 
-```
+{% raw %}```
 ValueError: substring not found
-```
+```{% endraw %}
 
 ## 사용자 입력:
 > python에서 문자열 포함여부 판단하는 예제
@@ -24,29 +22,29 @@ ValueError: substring not found
 ## ChatGPT 응답:
 > 문자열 포함 여부를 판단하는 방법은 다양합니다. 여기에는 몇 가지 예제를 제공합니다.
 
-1. `in` 연산자를 사용하는 방법:
+1. {% raw %}`in`{% endraw %} 연산자를 사용하는 방법:
 
-```python
+{% raw %}```python
 text = "Hello, World!"
 if "Hello" in text:
     print("문자열에 'Hello'가 포함되어 있습니다.")
 else:
     print("문자열에 'Hello'가 포함되어 있지 않습니다.")
-```
+```{% endraw %}
 
-2. `find()` 메서드를 사용하는 방법:
+2. {% raw %}`find()`{% endraw %} 메서드를 사용하는 방법:
 
-```python
+{% raw %}```python
 text = "Hello, World!"
 if text.find("Hello") != -1:
     print("문자열에 'Hello'가 포함되어 있습니다.")
 else:
     print("문자열에 'Hello'가 포함되어 있지 않습니다.")
-```
+```{% endraw %}
 
 3. 정규식을 사용하는 방법:
 
-```python
+{% raw %}```python
 import re
 
 text = "Hello, World!"
@@ -55,9 +53,9 @@ if re.search(pattern, text):
     print("문자열에 'Hello'가 포함되어 있습니다.")
 else:
     print("문자열에 'Hello'가 포함되어 있지 않습니다.")
-```
+```{% endraw %}
 
-위 예제들은 각각 `in` 연산자, `find()` 메서드, 정규식을 사용하여 문자열 포함 여부를 판단하는 방법을 보여줍니다. 이 중에서도 `in` 연산자를 사용하는 방법이 가장 간단하고 직관적입니다.
+위 예제들은 각각 {% raw %}`in`{% endraw %} 연산자, {% raw %}`find()`{% endraw %} 메서드, 정규식을 사용하여 문자열 포함 여부를 판단하는 방법을 보여줍니다. 이 중에서도 {% raw %}`in`{% endraw %} 연산자를 사용하는 방법이 가장 간단하고 직관적입니다.
 
 ## 사용자 입력:
 > 파이썬에서 2023-03-09 09:00:03,249 - db2xml - ERROR - make_was_xml - (cx_Oracle.DatabaseError) ORA-01036: illegal variable name/number
@@ -86,7 +84,7 @@ else:
 ## ChatGPT 응답:
 > 이 코드는 에러 메시지로 보입니다. 이 에러는 cx_Oracle 라이브러리를 사용하여 Oracle 데이터베이스에 쿼리를 실행할 때 발생하는 것 같습니다. 이 에러는 "ORA-01036: illegal variable name/number"라는 오라클 데이터베이스에서 발생하는 에러 메시지입니다. 이 오류는 SQL 쿼리에 매개 변수 이름이나 번호가 잘못된 경우 발생합니다.
 
-해결책으로는 SQL 쿼리에서 사용되는 매개 변수 `pgm_grp_id`나 `pgm_grp_nm`의 값이 잘못 전달되었을 가능성이 있습니다. 이 경우, 값을 수정하거나 변수 이름을 확인해야합니다. 또한 cx_Oracle 라이브러리에서 매개 변수를 처리하는 방식도 확인할 필요가 있을 수 있습니다. 
+해결책으로는 SQL 쿼리에서 사용되는 매개 변수 {% raw %}`pgm_grp_id`{% endraw %}나 {% raw %}`pgm_grp_nm`{% endraw %}의 값이 잘못 전달되었을 가능성이 있습니다. 이 경우, 값을 수정하거나 변수 이름을 확인해야합니다. 또한 cx_Oracle 라이브러리에서 매개 변수를 처리하는 방식도 확인할 필요가 있을 수 있습니다. 
 
 그 외에도 SQL 쿼리 내부적인 문제나 데이터베이스 구조의 문제가 있는 경우도 있으므로, 추가적인 정보가 필요할 수 있습니다.
 
@@ -118,13 +116,13 @@ def create_engine(args=None):
     return sa.create_engine(db_url)  여기에서 리턴되는 객체에서 db명을 알 수 있나?
 
 ## ChatGPT 응답:
-> `create_engine()` 함수에서 리턴되는 객체는 SQLAlchemy의 `Engine` 클래스의 인스턴스입니다. `Engine` 클래스의 인스턴스는 데이터베이스 연결에 대한 정보를 가지고 있으며, 데이터베이스와 상호 작용하는 데 사용됩니다. 
+> {% raw %}`create_engine()`{% endraw %} 함수에서 리턴되는 객체는 SQLAlchemy의 {% raw %}`Engine`{% endraw %} 클래스의 인스턴스입니다. {% raw %}`Engine`{% endraw %} 클래스의 인스턴스는 데이터베이스 연결에 대한 정보를 가지고 있으며, 데이터베이스와 상호 작용하는 데 사용됩니다. 
 
-그러나 `Engine` 클래스의 인스턴스는 데이터베이스 이름을 직접 제공하지 않습니다. 데이터베이스 이름은 데이터베이스 URL 문자열에 포함되어 있습니다. 따라서 데이터베이스 이름을 확인하려면 `db_url` 변수를 살펴보아야 합니다. 
+그러나 {% raw %}`Engine`{% endraw %} 클래스의 인스턴스는 데이터베이스 이름을 직접 제공하지 않습니다. 데이터베이스 이름은 데이터베이스 URL 문자열에 포함되어 있습니다. 따라서 데이터베이스 이름을 확인하려면 {% raw %}`db_url`{% endraw %} 변수를 살펴보아야 합니다. 
 
-예를 들어, 위의 코드에서 `db_url`은 PostgreSQL 데이터베이스에 대한 URL 문자열로 설정되어 있습니다. 이 문자열에서 데이터베이스 이름은 "postgres"입니다. 
+예를 들어, 위의 코드에서 {% raw %}`db_url`{% endraw %}은 PostgreSQL 데이터베이스에 대한 URL 문자열로 설정되어 있습니다. 이 문자열에서 데이터베이스 이름은 "postgres"입니다. 
 
-따라서 `create_engine()` 함수에서 리턴된 `Engine` 객체를 사용하여 데이터베이스와 상호 작용하려면, 데이터베이스 이름이 필요하지 않습니다. 단지 `Engine` 객체를 사용하여 데이터베이스 쿼리를 실행하면 됩니다.
+따라서 {% raw %}`create_engine()`{% endraw %} 함수에서 리턴된 {% raw %}`Engine`{% endraw %} 객체를 사용하여 데이터베이스와 상호 작용하려면, 데이터베이스 이름이 필요하지 않습니다. 단지 {% raw %}`Engine`{% endraw %} 객체를 사용하여 데이터베이스 쿼리를 실행하면 됩니다.
 
 ## 사용자 입력:
 > import pandas as pd
@@ -331,9 +329,9 @@ def make_was_xml(was_xml_path: str, was_group_query: str, was_program_query: str
     return len(was_rtde_group_df)
 
 ## ChatGPT 응답:
-> `create_engine()` 함수에서 리턴되는 `Engine` 객체는 단순히 데이터베이스 연결 정보만 가지고 있으며, 데이터베이스 이름은 포함되어 있지 않습니다. 데이터베이스 이름은 데이터베이스 URL 문자열에 포함되어 있습니다.
+> {% raw %}`create_engine()`{% endraw %} 함수에서 리턴되는 {% raw %}`Engine`{% endraw %} 객체는 단순히 데이터베이스 연결 정보만 가지고 있으며, 데이터베이스 이름은 포함되어 있지 않습니다. 데이터베이스 이름은 데이터베이스 URL 문자열에 포함되어 있습니다.
 
-따라서 `create_engine()` 함수에서 리턴된 `Engine` 객체에서는 데이터베이스 이름을 알 수 없습니다. 하지만 데이터베이스 URL 문자열에서 데이터베이스 이름을 직접 추출할 수 있습니다. 예를 들어 PostgreSQL 데이터베이스의 URL 문자열은 "postgresql://<username>:<password>@<host>:<port>/<database>" 형식으로 되어 있습니다. 여기에서 `<database>`가 데이터베이스 이름입니다. 따라서 `db_url` 변수에서 URL 문자열을 추출하여 데이터베이스 이름을 확인할 수 있습니다.
+따라서 {% raw %}`create_engine()`{% endraw %} 함수에서 리턴된 {% raw %}`Engine`{% endraw %} 객체에서는 데이터베이스 이름을 알 수 없습니다. 하지만 데이터베이스 URL 문자열에서 데이터베이스 이름을 직접 추출할 수 있습니다. 예를 들어 PostgreSQL 데이터베이스의 URL 문자열은 "postgresql://<username>:<password>@<host>:<port>/<database>" 형식으로 되어 있습니다. 여기에서 {% raw %}`<database>`{% endraw %}가 데이터베이스 이름입니다. 따라서 {% raw %}`db_url`{% endraw %} 변수에서 URL 문자열을 추출하여 데이터베이스 이름을 확인할 수 있습니다.
 
 ## 사용자 입력:
 > 위에 제시한 코드를 sqlalchemy의 orm을 이용해서 바꿔줘
@@ -341,7 +339,7 @@ def make_was_xml(was_xml_path: str, was_group_query: str, was_program_query: str
 ## ChatGPT 응답:
 > 안녕하세요! 코드를 SQLAlchemy ORM으로 변경해드리겠습니다.
 
-```python
+{% raw %}```python
 from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy.ext.declarative import declarative_base
@@ -392,29 +390,29 @@ def rtde_program_query(type: str, session, ais8801_table_name: str, ais8800_tabl
     else:
         print("type은 was 또는 lia")
         exit()
-```
+```{% endraw %}
 
-`rtde_program_query` 함수에서는 SQLAlchemy ORM의 query 객체를 사용하여 데이터베
+{% raw %}`rtde_program_query`{% endraw %} 함수에서는 SQLAlchemy ORM의 query 객체를 사용하여 데이터베
 
 ## 사용자 입력:
 > 계속
 
 ## ChatGPT 응답:
-> 이어서 쿼리를 구성합니다. SQLAlchemy ORM은 이를 가능하게 하는 매우 강력한 도구입니다. query 객체에서 `.statement` 속성을 사용하면 쿼리문을 확인할 수 있습니다. 이를 사용하여 기존의 문자열 쿼리를 변경합니다.
+> 이어서 쿼리를 구성합니다. SQLAlchemy ORM은 이를 가능하게 하는 매우 강력한 도구입니다. query 객체에서 {% raw %}`.statement`{% endraw %} 속성을 사용하면 쿼리문을 확인할 수 있습니다. 이를 사용하여 기존의 문자열 쿼리를 변경합니다.
 
-그리고 `create_session` 함수를 만들어 데이터베이스 연결 정보를 이용해 Session 객체를 생성하는 코드를 작성합니다. 이 함수를 호출하여 Session 객체를 생성하여 `session` 매개변수로 전달하면, 이 객체를 사용하여 query를 실행합니다.
+그리고 {% raw %}`create_session`{% endraw %} 함수를 만들어 데이터베이스 연결 정보를 이용해 Session 객체를 생성하는 코드를 작성합니다. 이 함수를 호출하여 Session 객체를 생성하여 {% raw %}`session`{% endraw %} 매개변수로 전달하면, 이 객체를 사용하여 query를 실행합니다.
 
-마지막으로, 이전에 사용되던 `trans` 함수에서는 전역 변수를 사용하여 기존 문자열을 변경했지만, 이제는 ORM 객체에서 직접 값을 수정할 수 있습니다. 수정된 값을 다시 ORM 객체에 저장하여 저장소에 반영할 수 있습니다. 이렇게 하면 전역 변수를 사용하는 것보다 코드가 더 깔끔해집니다.
+마지막으로, 이전에 사용되던 {% raw %}`trans`{% endraw %} 함수에서는 전역 변수를 사용하여 기존 문자열을 변경했지만, 이제는 ORM 객체에서 직접 값을 수정할 수 있습니다. 수정된 값을 다시 ORM 객체에 저장하여 저장소에 반영할 수 있습니다. 이렇게 하면 전역 변수를 사용하는 것보다 코드가 더 깔끔해집니다.
 
 ## 사용자 입력:
 > pgm_desc가 oracle에서 clob타입인데, 위에 제시한 코드로 될까?
 
 ## ChatGPT 응답:
-> `pgm_desc` 필드가 Oracle에서 CLOB 타입인 경우, SQLAlchemy ORM에서는 Text 타입으로 매핑됩니다. 이는 문자열 필드의 크기가 일반적인 DBMS에서 제한될 수 있기 때문입니다. 
+> {% raw %}`pgm_desc`{% endraw %} 필드가 Oracle에서 CLOB 타입인 경우, SQLAlchemy ORM에서는 Text 타입으로 매핑됩니다. 이는 문자열 필드의 크기가 일반적인 DBMS에서 제한될 수 있기 때문입니다. 
 
-따라서 `Ais8800` ORM 클래스의 `pgm_desc` 필드를 `Column(Text)`로 선언하면 됩니다. 아래는 해당 코드입니다.
+따라서 {% raw %}`Ais8800`{% endraw %} ORM 클래스의 {% raw %}`pgm_desc`{% endraw %} 필드를 {% raw %}`Column(Text)`{% endraw %}로 선언하면 됩니다. 아래는 해당 코드입니다.
 
-```python
+{% raw %}```python
 from sqlalchemy import Column, Integer, String, Text, create_engine
 from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy.ext.declarative import declarative_base
@@ -470,7 +468,7 @@ def rtde_program_query(type: str, session, ais8801_table_name: str, ais8800_tabl
 
 아래는 `automap_base`를 사용하여 모델 클래스를 자동 생성하는 예시 코드입니다.
 
-```python
+```{% endraw %}python
 from sqlalchemy import create_engine
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -487,7 +485,7 @@ session = Session(engine)
 
 program_group_query = session.query(Ais8801.pgm_grp_id, Ais8801.pgm_grp_nm).filter_by(lia_type_cd='0', aval_ed_dt='99991231235959').order_by(Ais8801.pgm_grp_id, Ais8801.exec_ord_no).statement
 program_query = session.query(Ais8800.pgm_id, Ais8800.pgm_grp_id, Ais8801.pgm_grp_nm, Ais8801.exec_ord_no, Ais8800.pgm_src).join(Ais8801, Ais8800.pgm_grp_id == Ais8801.pgm_grp_id).filter(Ais8800.aval_ed_dt == '99991231235959', Ais8800.lia_type_cd == '0', Ais8801.aval_ed_dt == '99991231235959', Ais8801.lia_type_cd == '0', Ais8800.pgm_grp_id == Ais8801.pgm_grp_id).filter(Ais8800.pgm_grp_id == bindparam('pgm_grp_id')).filter(Ais8801.pgm_grp_nm == bindparam('pgm_grp_nm')).order_by(Ais8801.exec_ord_no, Ais8800.pgm_grp_id, Ais8800.exec_ord_no).statement
-```
+{% raw %}```
 
 이렇게 하면 데이터베이스에 대한 정보를 모두 ORM 클래스에서 정의할 필요 없이, `Base` 객체를 사용하여 자동으로 생성된 모델 클래스를 이용하여 데이터베이스에 접근할 수 있습니다.
 
@@ -635,7 +633,7 @@ def rtde_program_meta_query(type: str, ais8800_table_name: str):
 ## ChatGPT 응답:
 > SQLAlchemy의 ORM, `automap_base`를 이용하여 코드를 변환하면 다음과 같습니다.
 
-```python
+```{% endraw %}python
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 
@@ -696,9 +694,9 @@ def rtde_group_meta_query(type: str, ais8801_table_name: str):
 > 계속
 
 ## ChatGPT 응답:
-> ORM으로 변경된 코드입니다. SQLAlchemy의 `declarative_base`를 사용하여 테이블을 클래스로 정의하였습니다. 이후 `automap_base`로 테이블을 매핑하였습니다. `session.query`를 이용하여 쿼리를 실행하였습니다. 
+> ORM으로 변경된 코드입니다. SQLAlchemy의 {% raw %}`declarative_base`{% endraw %}를 사용하여 테이블을 클래스로 정의하였습니다. 이후 {% raw %}`automap_base`{% endraw %}로 테이블을 매핑하였습니다. {% raw %}`session.query`{% endraw %}를 이용하여 쿼리를 실행하였습니다. 
 
-```python
+{% raw %}```python
 import pandas as pd
 import os
 import math
@@ -773,7 +771,7 @@ def rtde_group_meta_query(type: str, ais8801_table_name: str, meta):
 ## ChatGPT 응답:
 > 아래는 SQLAlchemy ORM과 automap_base를 사용하여 변환한 코드입니다.
 
-```python
+```{% endraw %}python
 import pandas as pd
 import os
 import math
@@ -1006,9 +1004,9 @@ def rtde_program_meta_query(type: str, ais8800_table_name: str):
     return query   이 코드를 sqlalchemy의 automap_base를 가지고 바꿔줘
 
 ## ChatGPT 응답:
-> SQLAlchemy의 `automap_base`를 사용하여 기존의 코드를 ORM으로 바꿔보겠습니다.
+> SQLAlchemy의 {% raw %}`automap_base`{% endraw %}를 사용하여 기존의 코드를 ORM으로 바꿔보겠습니다.
 
-```python
+{% raw %}```python
 import pandas as pd
 import os
 import math
@@ -1159,7 +1157,7 @@ def rtde_program_query(type: str, ais8801_table_name: str, ais8800_table_name: s
 ## ChatGPT 응답:
 > 안녕하세요, SQLAlchemy의 `automap_base`를 사용하여 코드를 변경해보겠습니다.
 
-```python
+```{% endraw %}python
 import pandas as pd
 import os
 import math
@@ -1269,9 +1267,9 @@ def rtde_program_meta_query(type: str, ais8800_table_name: str):
     return query  을 sqlachemy의 automap_base를 사용하여 바꿔줘
 
 ## ChatGPT 응답:
-> 안녕하세요, SQLAlchemy의 `automap_base()`를 사용하여 변환하겠습니다. 
+> 안녕하세요, SQLAlchemy의 {% raw %}`automap_base()`{% endraw %}를 사용하여 변환하겠습니다. 
 
-```python
+{% raw %}```python
 from sqlalchemy.ext.automap import automap_base
 
 Base = automap_base()
@@ -1317,10 +1315,10 @@ def rtde_program_meta_query(type: str, ais8800_table_name: str):
     ).order_by(ProgramMeta.pgm_grp_id, ProgramMeta.exec_ord_no)
 
     return query
-```
+```{% endraw %}
 
 ## ChatGPT 응답:
-> ```python
+> {% raw %}```python
 from sqlalchemy.ext.automap import automap_base
 
 Base = automap_base()
@@ -1348,7 +1346,7 @@ def rtde_program_meta_query(type: str, ais8800_table_name: str):
                           ProgramMeta.data_maker, ProgramMeta.common_exec_yn, ProgramMeta.use_type_cd, 
                           ProgramMeta.del_yn).filter(ProgramMeta.lia_type_cd != '0', ProgramMeta.aval_ed_dt == '99991231235959').order_by(ProgramMeta.pgm_grp_id, ProgramMeta.exec_ord_no).statement
     return query
-```
+```{% endraw %}
 
 ## 사용자 입력:
 > # 프로그램그룹메타쿼리
@@ -1379,11 +1377,11 @@ def rtde_group_meta_query(type: str, ais8801_table_name: str):
     return query  이 코드를 sqlachemy의 automap_base를 이용하여 바꿔줘
 
 ## ChatGPT 응답:
-> SQLAlchemy의 `automap_base`를 사용하여 데이터베이스 테이블을 클래스로 매핑할 수 있습니다. 이를 위해서는 데이터베이스에 연결된 SQLAlchemy `engine` 객체와 매핑할 클래스의 기본 클래스인 `Base` 객체가 필요합니다. `Base` 객체를 생성한 후, `Base.prepare()` 메서드를 호출하여 데이터베이스 테이블을 클래스로 매핑할 수 있습니다. 
+> SQLAlchemy의 {% raw %}`automap_base`{% endraw %}를 사용하여 데이터베이스 테이블을 클래스로 매핑할 수 있습니다. 이를 위해서는 데이터베이스에 연결된 SQLAlchemy {% raw %}`engine`{% endraw %} 객체와 매핑할 클래스의 기본 클래스인 {% raw %}`Base`{% endraw %} 객체가 필요합니다. {% raw %}`Base`{% endraw %} 객체를 생성한 후, {% raw %}`Base.prepare()`{% endraw %} 메서드를 호출하여 데이터베이스 테이블을 클래스로 매핑할 수 있습니다. 
 
-아래는 `ais8800` 테이블과 `ais8801` 테이블을 클래스로 매핑하는 예시입니다.
+아래는 {% raw %}`ais8800`{% endraw %} 테이블과 {% raw %}`ais8801`{% endraw %} 테이블을 클래스로 매핑하는 예시입니다.
 
-```python
+{% raw %}```python
 from sqlalchemy.ext.automap import automap_base
 
 # create engine and connect to the database
@@ -1398,40 +1396,40 @@ Base.prepare(engine, reflect=True)
 # map the classes to table names
 Ais8800 = Base.classes.ais8800
 Ais8801 = Base.classes.ais8801
-```
+```{% endraw %}
 
-`Base.classes` 속성을 사용하여 매핑된 클래스에 접근할 수 있습니다. 매핑된 클래스는 데이터베이스 테이블의 각 열에 해당하는 속성을 가지고 있습니다. 이제 `rtde_program_query()`, `rtde_program_meta_query()`, `rtde_group_meta_query()` 함수에서 사용되는 테이블 이름을 클래스로 변경하면 됩니다.
+{% raw %}`Base.classes`{% endraw %} 속성을 사용하여 매핑된 클래스에 접근할 수 있습니다. 매핑된 클래스는 데이터베이스 테이블의 각 열에 해당하는 속성을 가지고 있습니다. 이제 {% raw %}`rtde_program_query()`{% endraw %}, {% raw %}`rtde_program_meta_query()`{% endraw %}, {% raw %}`rtde_group_meta_query()`{% endraw %} 함수에서 사용되는 테이블 이름을 클래스로 변경하면 됩니다.
 
 ## ChatGPT 응답:
 > 안녕하세요! automap_base를 사용하여 코드를 변경해드리겠습니다.
 
-```python
+{% raw %}```python
 from sqlalchemy.ext.automap import automap_base
 
 Base = automap_base()
-```
+```{% endraw %}
 
 automap_base로 Base라는 객체를 생성한 후에,
 
-```python
+{% raw %}```python
 metadata = sa.MetaData()
 metadata.reflect(bind=engine)
 Base.prepare(metadata.bind, reflect=True)
-```
+```{% endraw %}
 
 이런식으로 metadata를 사용하여 DB의 정보를 받아와서 Base 객체와 매핑해줍니다. 여기서 engine은 create_engine 함수를 통해 만든 DB연결 객체입니다.
 
 그리고 이후에는 Base 객체를 사용하여 자동 매핑된 테이블 클래스를 이용할 수 있습니다.
 
-```python
+{% raw %}```python
 ProgramMeta = Base.classes.program_meta
 ProgramGroupMeta = Base.classes.program_group_meta
 Program = Base.classes.program
-```
+```{% endraw %}
 
 이렇게 매핑된 클래스를 사용하면 됩니다. 전체 코드는 아래와 같습니다.
 
-```python
+{% raw %}``{% endraw %}`python
 import pandas as pd
 import os
 import math

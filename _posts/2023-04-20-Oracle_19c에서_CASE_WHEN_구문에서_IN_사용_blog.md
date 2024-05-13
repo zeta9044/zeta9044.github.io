@@ -1,31 +1,29 @@
 ---
 layout: post
 title: "Oracle 19c에서 CASE WHEN 구문에서 IN 사용"
-date: 2023-04-20
-tags: [IN, WHEN, CASE, 사용, Oracle, 구문]
-categories: blog
+tags: [구문, IN, WHEN, CASE, 사용, Oracle]
 ---
 
 ## 사용자 입력:
 > oracle19c에서 case when절에서 in 구문을 쓸 수 있나?
 
 ## ChatGPT 응답:
-> 네, Oracle 19c에서는 `CASE WHEN` 구문에서 `IN` 연산자를 사용할 수 있습니다. `IN` 연산자는 주어진 목록의 값 중 하나와 일치하는지 여부를 확인하는 데 사용됩니다. 
+> 네, Oracle 19c에서는 {% raw %}`CASE WHEN`{% endraw %} 구문에서 {% raw %}`IN`{% endraw %} 연산자를 사용할 수 있습니다. {% raw %}`IN`{% endraw %} 연산자는 주어진 목록의 값 중 하나와 일치하는지 여부를 확인하는 데 사용됩니다. 
 
-다음은 `CASE WHEN` 구문에서 `IN` 연산자를 사용하는 예제입니다.
+다음은 {% raw %}`CASE WHEN`{% endraw %} 구문에서 {% raw %}`IN`{% endraw %} 연산자를 사용하는 예제입니다.
 
-```SQL
+{% raw %}```SQL
 SELECT
   CASE
     WHEN column1 IN ('value1', 'value2', 'value3') THEN 'Matched'
     ELSE 'Not matched'
   END AS result
 FROM table1;
-```
+```{% endraw %}
 
-위 예제에서 `column1`의 값이 `'value1'`, `'value2'`, 또는 `'value3'` 중 하나와 일치하면 `'Matched'`가 반환되고, 그렇지 않으면 `'Not matched'`가 반환됩니다.
+위 예제에서 {% raw %}`column1`{% endraw %}의 값이 {% raw %}`'value1'`{% endraw %}, {% raw %}`'value2'`{% endraw %}, 또는 {% raw %}`'value3'`{% endraw %} 중 하나와 일치하면 {% raw %}`'Matched'`{% endraw %}가 반환되고, 그렇지 않으면 {% raw %}`'Not matched'`{% endraw %}가 반환됩니다.
 
-따라서 `IN` 연산자를 `CASE WHEN` 구문에서 사용하여 여러 값에 대한 조건을 지정할 수 있습니다.
+따라서 {% raw %}`IN`{% endraw %} 연산자를 {% raw %}`CASE WHEN`{% endraw %} 구문에서 사용하여 여러 값에 대한 조건을 지정할 수 있습니다.
 
 ## 사용자 입력:
 > oracle19c에서 case when절에서 not in 구문을 쓸 수 있나?
@@ -35,14 +33,14 @@ FROM table1;
 
 예를 들어, 다음과 같이 사용할 수 있습니다.
 
-```
+{% raw %}```
 SELECT 
     CASE 
         WHEN column1 NOT IN (value1, value2) THEN 'A'
         ELSE 'B'
     END as result
 FROM table1;
-```
+```{% endraw %}
 
 위의 쿼리는 column1 값이 value1이나 value2와 같지 않으면 'A'를 반환하고, 그렇지 않으면 'B'를 반환합니다. 이때 NOT IN 구문은 CASE WHEN 절 내부에서 사용되었습니다.
 
@@ -58,11 +56,11 @@ FROM table1;
 위에서 ''있는데, 논리적으로 not in 비교가 되나? oracle19c에서
 
 ## ChatGPT 응답:
-> 네, Oracle 19c에서도 빈 문자열(`''`)을 포함한 NOT IN 비교가 가능합니다.
+> 네, Oracle 19c에서도 빈 문자열({% raw %}`''`{% endraw %})을 포함한 NOT IN 비교가 가능합니다.
 
-빈 문자열은 NULL이 아니기 때문에, `''`을 NOT IN 구문으로 비교하면 해당 컬럼의 값이 빈 문자열이 아닌 경우에는 'A'를 반환하고, 빈 문자열인 경우에는 'B'를 반환합니다.
+빈 문자열은 NULL이 아니기 때문에, {% raw %}`''`{% endraw %}을 NOT IN 구문으로 비교하면 해당 컬럼의 값이 빈 문자열이 아닌 경우에는 'A'를 반환하고, 빈 문자열인 경우에는 'B'를 반환합니다.
 
-따라서, 예시로 제시해주신 쿼리에서 `column1`의 값이 빈 문자열(`''`)이 아니고, `value2`와 같지 않으면 'A'를 반환하고, 빈 문자열인 경우에는 'B'를 반환합니다. 이는 논리적으로 올바른 비교입니다.
+따라서, 예시로 제시해주신 쿼리에서 {% raw %}`column1`{% endraw %}의 값이 빈 문자열({% raw %}`''`{% endraw %})이 아니고, {% raw %}`value2`{% endraw %}와 같지 않으면 'A'를 반환하고, 빈 문자열인 경우에는 'B'를 반환합니다. 이는 논리적으로 올바른 비교입니다.
 
 ## 사용자 입력:
 > SELECT 

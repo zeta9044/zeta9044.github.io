@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Warriors 해석"
-date: 2023-04-18
 tags: [해석, Warriors]
-categories: blog
 ---
 
 ## 사용자 입력:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "PG connection slots error."
-date: 2023-02-21
-tags: [connection, PG, slots, error]
-categories: blog
+tags: [connection, slots, error, PG]
 ---
 
 ## 사용자 입력:

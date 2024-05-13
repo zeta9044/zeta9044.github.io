@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Cucumber and Tangerine"
-date: 2024-02-04
-tags: [and, Tangerine, Cucumber]
-categories: blog
+tags: [Cucumber, Tangerine, and]
 ---
 
 ## 사용자 입력:

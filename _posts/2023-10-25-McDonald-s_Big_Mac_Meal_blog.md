@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "McDonald's Big Mac Meal"
-date: 2023-10-25
-tags: [McDonald, s, Meal, Mac, Big]
-categories: blog
+tags: [Mac, Big, Meal, s, McDonald]
 ---
 
 ## 사용자 입력:

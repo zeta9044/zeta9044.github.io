@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "JavaCC Lexer Translation"
-date: 2023-08-03
-tags: [JavaCC, Translation, Lexer]
-categories: blog
+tags: [Lexer, Translation, JavaCC]
 ---
 
 ## 사용자 입력:
@@ -404,11 +402,11 @@ UserDefinedCharacterLiteral: CharacterLiteral Udsuffix;
 fragment Udsuffix: Identifier;  이것은 antlr4의 렉서구문인데, 명칭 그대로 javaCC의  토큰 구문으로 바꿔줘.
 
 ## ChatGPT 응답:
-> JavaCC does not support EBNF notation directly as ANTLR does. In particular, it does not support the `*` (zero or more), `+` (one or more), `?` (zero or one) operators, and it doesn't have the concept of "fragments" that ANTLR uses. However, you can achieve similar results by using optional blocks (`[]`), repetition blocks (`() *` or `() +`), and choices (`|`).
+> JavaCC does not support EBNF notation directly as ANTLR does. In particular, it does not support the {% raw %}`*`{% endraw %} (zero or more), {% raw %}`+`{% endraw %} (one or more), {% raw %}`?`{% endraw %} (zero or one) operators, and it doesn't have the concept of "fragments" that ANTLR uses. However, you can achieve similar results by using optional blocks ({% raw %}`[]`{% endraw %}), repetition blocks ({% raw %}`() *`{% endraw %} or {% raw %}`() +`{% endraw %}), and choices ({% raw %}`|`{% endraw %}).
 
 Here is an example how you can translate the lexer grammar to JavaCC. Please note that this example is not a complete translation of your ANTLR grammar, but it should give you a basic understanding of how to proceed with the translation:
 
-```
+{% raw %}```
 TOKEN :
 {
   < DECIMAL_LITERAL: (NON_ZERO_DIGIT (["'"]? DIGIT)*) | ("0" (["'"]? OCTAL_DIGIT)*) | (("0x" | "0X") HEX_DIGIT (["'"]? HEX_DIGIT)*) | (("0b" | "0B") BINARY_DIGIT (["'"]? BINARY_DIGIT)*) >
@@ -446,7 +444,7 @@ TOKEN :
 {
   < CONCAT_TOKEN: "a" "b" "c" >
 }
-```
+```{% endraw %}
 
 Please replace "TOKEN" with your actual token names. Each rule should have a unique name.
 

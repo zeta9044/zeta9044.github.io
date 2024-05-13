@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "C/C++ Libraries Search"
-date: 2024-03-18
 tags: [Libraries, C, Search]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -36,23 +34,23 @@ categories: blog
 
 1. **업데이트하기**: 먼저 시스템 패키지 목록을 최신 상태로 업데이트합니다. 터미널을 열고 다음 명령을 실행합니다:
 
-```
+{% raw %}```
 sudo apt update
-```
+```{% endraw %}
 
 2. **GCC 설치하기**: GCC는 대부분의 우분투 시스템에 기본적으로 설치되어 있습니다. 그러나 확인하기 위해 다음 명령을 실행할 수 있습니다:
 
-```
+{% raw %}```
 sudo apt install g++
-```
+```{% endraw %}
 
 이 명령은 GCC 컴파일러와 함께 C++ 표준 라이브러리를 설치합니다.
 
 3. **설치 확인하기**: 설치가 완료되었는지 확인하려면 다음 명령을 사용하여 버전을 확인합니다:
 
-```
+{% raw %}```
 g++ --version
-```
+```{% endraw %}
 
 이 명령은 설치된 GCC 버전과 함께 C++ 컴파일러를 보여줍니다.
 
@@ -62,16 +60,16 @@ g++ --version
 > c/c++ 표준 라이브러리에 대한 include 파일 위치
 
 ## ChatGPT 응답:
-> C 및 C++ 표준 라이브러리의 헤더 파일은 일반적으로 시스템의 특정 위치에 있습니다. 대부분의 경우 표준 라이브러리 헤더 파일은 `/usr/include` 또는 `/usr/local/include` 디렉토리에 위치합니다.
+> C 및 C++ 표준 라이브러리의 헤더 파일은 일반적으로 시스템의 특정 위치에 있습니다. 대부분의 경우 표준 라이브러리 헤더 파일은 {% raw %}`/usr/include`{% endraw %} 또는 {% raw %}`/usr/local/include`{% endraw %} 디렉토리에 위치합니다.
 
-C 언어의 표준 라이브러리 헤더 파일은 주로 `<stdio.h>`, `<stdlib.h>`, `<string.h>` 등으로 알려져 있습니다. 예를 들어, `stdio.h` 헤더 파일은 입력 및 출력 함수를 포함하고 있습니다.
+C 언어의 표준 라이브러리 헤더 파일은 주로 {% raw %}`<stdio.h>`{% endraw %}, {% raw %}`<stdlib.h>`{% endraw %}, {% raw %}`<string.h>`{% endraw %} 등으로 알려져 있습니다. 예를 들어, {% raw %}`stdio.h`{% endraw %} 헤더 파일은 입력 및 출력 함수를 포함하고 있습니다.
 
-C++ 언어의 표준 라이브러리 헤더 파일은 주로 `<iostream>`, `<string>`, `<vector>` 등으로 알려져 있습니다. 예를 들어, `iostream` 헤더 파일은 입출력 스트림을 다루는데 사용됩니다.
+C++ 언어의 표준 라이브러리 헤더 파일은 주로 {% raw %}`<iostream>`{% endraw %}, {% raw %}`<string>`{% endraw %}, {% raw %}`<vector>`{% endraw %} 등으로 알려져 있습니다. 예를 들어, {% raw %}`iostream`{% endraw %} 헤더 파일은 입출력 스트림을 다루는데 사용됩니다.
 
 따라서 시스템에서 특정 헤더 파일을 찾으려면 다음 경로에서 확인할 수 있습니다:
 
-- C 언어의 경우: `/usr/include`
-- C++ 언어의 경우: `/usr/include/c++` 또는 `/usr/local/include/c++`
+- C 언어의 경우: {% raw %}`/usr/include`{% endraw %}
+- C++ 언어의 경우: {% raw %}`/usr/include/c++`{% endraw %} 또는 {% raw %}`/usr/local/include/c++`{% endraw %}
 
 위 경로에 표준 라이브러리 헤더 파일이 없는 경우, 시스템의 설정에 따라 다를 수 있습니다. 일반적으로 대부분의 리눅스 배포판에서는 해당 위치에 표준 라이브러리 헤더 파일이 제공됩니다. 만약 헤더 파일을 찾을 수 없다면, 시스템에서 어디에서 표준 라이브러리를 설치했는지 확인해야 합니다.
 

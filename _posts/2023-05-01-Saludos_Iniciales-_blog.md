@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Saludos Iniciales."
-date: 2023-05-01
-tags: [Saludos, Iniciales]
-categories: blog
+tags: [Iniciales, Saludos]
 ---
 
 ## 사용자 입력:

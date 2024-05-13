@@ -1,18 +1,16 @@
 ---
 layout: post
 title: "Nested Bracket Parsing"
-date: 2023-07-03
-tags: [Nested, Parsing, Bracket]
-categories: blog
+tags: [Parsing, Bracket, Nested]
 ---
 
 ## 사용자 입력:
 > pyparsing으로 This is some {example {nested} string} with {multiple {levels {of {nested "{" } brackets}}}. 문장을 This is some {example  string} with {multiple }. 이렇게 변환할 수 있게 만들어줘.
 
 ## ChatGPT 응답:
-> `pyparsing`은 복잡한 텍스트 파싱 문제를 해결하는 데 도움이 되는 Python 라이브러리입니다. 중괄호 사이에 중첩된 텍스트를 제거하는 작업을 위해 다음과 같은 `pyparsing` 스크립트를 사용할 수 있습니다:
+> {% raw %}`pyparsing`{% endraw %}은 복잡한 텍스트 파싱 문제를 해결하는 데 도움이 되는 Python 라이브러리입니다. 중괄호 사이에 중첩된 텍스트를 제거하는 작업을 위해 다음과 같은 {% raw %}`pyparsing`{% endraw %} 스크립트를 사용할 수 있습니다:
 
-```python
+{% raw %}```python
 from pyparsing import *
 
 # 중괄호에 둘러싸인 텍스트를 정의
@@ -34,13 +32,13 @@ print("After parsing: ", cleaned)
 final_string = " ".join(" ".join(i) if isinstance(i, list) else i for i in cleaned)
 final_string = final_string.replace(" { ", "{").replace(" } ", "}")  # 중괄호 사이의 공백 제거
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이 스크립트는 원래의 문자열을 파싱하여 중괄호 안에 중첩된 문자열을 제거하고, 최종 문자열을 생성합니다. 이 스크립트는 입력이 정확하게 중괄호로 둘러싸여 있고, 중괄호가 올바르게 닫혀 있는 경우에만 작동합니다.
 
-그런데 제공해주신 결과 예시를 보면, 중첩된 중괄호 내용 뿐만 아니라 모든 중괄호 내용이 제거되어 있습니다. 이 경우에는 `pyparsing`를 사용하여 중괄호 내의 모든 문자열을 제거하는 방식으로 접근할 수 있습니다.
+그런데 제공해주신 결과 예시를 보면, 중첩된 중괄호 내용 뿐만 아니라 모든 중괄호 내용이 제거되어 있습니다. 이 경우에는 {% raw %}`pyparsing`{% endraw %}를 사용하여 중괄호 내의 모든 문자열을 제거하는 방식으로 접근할 수 있습니다.
 
-```python
+{% raw %}```python
 from pyparsing import *
 import re
 
@@ -68,7 +66,7 @@ final_string = re.sub(r'\{ +', '{', final_string)
 final_string = re.sub(r' +\}', '}', final_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이 스크립트는 중괄호 안의 모든 내용을 제거하고, 중괄호를 유지합니다. 제공한 입력 예제에 따르면, 이 스크립트가 원하는 결과를 제공해야 합니다.
 
@@ -82,7 +80,7 @@ SyntaxError: closing parenthesis ')' does not match opening parenthesis '{'
 ## ChatGPT 응답:
 > 죄송합니다, 제가 문장의 중괄호를 잘못 다루었습니다. 올바르게 처리하는 코드는 다음과 같습니다:
 
-```python
+{% raw %}```python
 from pyparsing import *
 import re
 
@@ -108,7 +106,7 @@ final_string = re.sub(r'\{ +', '{', final_string)
 final_string = re.sub(r' +\}', '}', final_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이제 문장 내부의 중괄호를 제대로 다루고 있습니다. 이 스크립트는 중괄호 안의 모든 내용을 제거하고, 중괄호를 유지합니다. 제공한 입력 예제에 따르면, 이 스크립트가 원하는 결과를 제공해야 합니다.
 
@@ -150,9 +148,9 @@ pyparsing.exceptions.ParseException: Expected nested {} expression, found 'This'
 ## ChatGPT 응답:
 > 죄송합니다. PyParsing에서는 문자열이 중괄호로 시작하고 끝나야 합니다. 문자열의 일부만 중괄호로 둘러싸인 경우 PyParsing에서는 파싱 오류가 발생합니다.
 
-따라서 우리는 다른 접근법을 사용해야 합니다. 여기에는 Python의 `re` 모듈을 사용하여 정규 표현식을 작성하고 중첩된 중괄호를 제거하는 방법이 포함될 수 있습니다. 다음은 이 작업을 수행하는 코드입니다:
+따라서 우리는 다른 접근법을 사용해야 합니다. 여기에는 Python의 {% raw %}`re`{% endraw %} 모듈을 사용하여 정규 표현식을 작성하고 중첩된 중괄호를 제거하는 방법이 포함될 수 있습니다. 다음은 이 작업을 수행하는 코드입니다:
 
-```python
+{% raw %}```python
 import re
 
 def remove_nested_brackets(text):
@@ -167,7 +165,7 @@ input_string = "This is some {example {nested} string} with {multiple {levels {o
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이 코드는 중괄호 안의 모든 텍스트를 제거하고, 외부 중괄호를 유지합니다. 이것은 제공된 입력 예제에 따라 원하는 결과를 생성해야 합니다.
 
@@ -192,7 +190,7 @@ print("Final string: ", final_string)  단순한 프로그램인데, 안 끝나�
 
 아래 코드는 재귀를 사용하여 중첩된 중괄호를 안쪽부터 제거합니다:
 
-```python
+{% raw %}```python
 import re
 
 def remove_nested_brackets(text):
@@ -206,7 +204,7 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이 코드는 중괄호 안의 모든 텍스트를 제거하고, 외부 중괄호를 유지합니다. 이것은 제공된 입력 예제에 따라 원하는 결과를 생성해야 합니다.
 
@@ -218,7 +216,7 @@ print("Final string: ", final_string)
 
 중괄호 안의 모든 텍스트를 제거하되, 중첩 구조를 고려하는 함수는 다음과 같습니다.
 
-```python
+{% raw %}```python
 import re
 
 def remove_nested_brackets(text):
@@ -232,7 +230,7 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이 코드는 중괄호 안의 모든 텍스트를 제거하고, 외부 중괄호를 유지합니다. 이것은 제공된 입력 예제에 따라 원하는 결과를 생성해야 합니다.
 
@@ -246,7 +244,7 @@ print("Final string: ", final_string)
 
 다음은 문제를 해결하는 Python 코드입니다:
 
-```python
+{% raw %}```python
 import re
 
 def remove_nested_brackets(text):
@@ -261,7 +259,7 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이 코드는 재귀를 사용하여 가장 깊은 중첩부터 중괄호 안의 모든 텍스트를 제거합니다. 이 코드를 실행하면 원하시는 결과가 출력됩니다.
 
@@ -273,7 +271,7 @@ print("Final string: ", final_string)
 
 반복문을 사용하여 재귀 문제를 해결해 보겠습니다. 다음은 중첩된 중괄호 내의 텍스트를 제거하는 Python 코드입니다:
 
-```python
+{% raw %}```python
 import re
 
 def remove_nested_brackets(text):
@@ -288,7 +286,7 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이 코드는 재귀를 사용하지 않고 중괄호 내의 모든 텍스트를 제거합니다. 이 코드를 실행하면 원하시는 결과가 출력됩니다.
 
@@ -298,7 +296,7 @@ print("Final string: ", final_string)
 ## ChatGPT 응답:
 > 죄송합니다, 제가 실수로 무한 루프를 만들어버렸습니다. 파이썬의 정규 표현식 라이브러리를 사용해 다시 시도해 봅시다. 다음 코드는 정규식을 사용하여 중괄호 안의 텍스트를 재귀적으로 제거합니다:
 
-```python
+{% raw %}```python
 import re
 
 def remove_nested_brackets(text):
@@ -313,7 +311,7 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이 코드는 중괄호 내부에 다른 중괄호가 있는 경우도 처리하며, 무한 루프에 빠지지 않습니다.
 
@@ -325,7 +323,7 @@ print("Final string: ", final_string)
 
 다음은 파이썬에서 재귀적으로 중첩된 중괄호를 제거하는 방법입니다.
 
-```python
+{% raw %}```python
 import re
 
 def remove_nested_brackets(s):
@@ -340,9 +338,9 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
-이 코드는 가장 안쪽에 있는 중괄호 쌍부터 제거해 나가는 방식으로 작동합니다. 중괄호 내부의 텍스트는 `{}`로 대체됩니다. 이 코드를 실행하면 예상하는 출력인 `This is some {example  string} with {multiple }.`를 얻을 수 있을 것입니다.
+이 코드는 가장 안쪽에 있는 중괄호 쌍부터 제거해 나가는 방식으로 작동합니다. 중괄호 내부의 텍스트는 {% raw %}`{}`{% endraw %}로 대체됩니다. 이 코드를 실행하면 예상하는 출력인 {% raw %}`This is some {example  string} with {multiple }.`{% endraw %}를 얻을 수 있을 것입니다.
 
 ## 사용자 입력:
 > 위 코드는 무한루프에 빠졌나봐. 결과가 안나와.
@@ -350,7 +348,7 @@ print("Final string: ", final_string)
 ## ChatGPT 응답:
 > 죄송합니다, 제 코드에서 중괄호 내부에 중괄호가 포함된 경우를 제대로 처리하지 못했습니다. 다음은 모든 중첩된 중괄호를 올바르게 제거하는 코드입니다:
 
-```python
+{% raw %}```python
 def remove_nested_brackets(s):
     while '{' in s:  # 중괄호가 없어질 때까지 반복
         s = re.sub(r'\{[^{}]*?\}', '{}', s)  # 중괄호 안의 내용을 제거 (가장 작은 범위부터)
@@ -360,9 +358,9 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
-이 코드는 `{}` 안의 내용을 제거하되 중괄호를 유지하는 방식으로 작동합니다. 이 코드를 실행하면 원하는 출력인 `This is some {example  string} with {multiple }.`를 얻을 수 있을 것입니다.
+이 코드는 {% raw %}`{}`{% endraw %} 안의 내용을 제거하되 중괄호를 유지하는 방식으로 작동합니다. 이 코드를 실행하면 원하는 출력인 {% raw %}`This is some {example  string} with {multiple }.`{% endraw %}를 얻을 수 있을 것입니다.
 
 ## 사용자 입력:
 > 결과가 안나온다...무한 루프.
@@ -370,7 +368,7 @@ print("Final string: ", final_string)
 ## ChatGPT 응답:
 > 죄송합니다, 제 코드에서는 아직 중첩 중괄호 처리에 문제가 있습니다. 다음 코드는 파이썬에서 재귀를 사용해 중괄호 안의 중첩된 중괄호와 텍스트를 제거합니다:
 
-```python
+{% raw %}```python
 import re
 
 def remove_nested_brackets(s):
@@ -384,7 +382,7 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이 코드는 재귀적으로 중괄호 안의 중괄호를 제거하며, 중첩이 없을 때까지 이를 반복합니다. 따라서 이 코드는 예상대로 중괄호 내의 텍스트를 제거하고, 외부 중괄호를 유지해야 합니다.
 
@@ -394,7 +392,7 @@ print("Final string: ", final_string)
 ## ChatGPT 응답:
 > 죄송합니다, 이번에는 문제를 조금 다르게 접근해 보겠습니다. 괄호의 쌍을 찾아 해당 내용을 제거한 뒤, 다시 해당 프로세스를 반복하는 함수를 작성해 보겠습니다. 이를 위해 Stack을 사용하겠습니다.
 
-```python
+{% raw %}```python
 def remove_nested_brackets(s):
     stack = []
     for c in s:
@@ -413,8 +411,8 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
-이 코드는 문자열을 순회하면서 중괄호를 찾고, 중괄호 사이의 내용을 제거한 후 결과를 출력합니다. 위 코드는 원하는 결과인 `This is some {example  string} with {multiple }.`를 출력할 것입니다.
+```{% endraw %}
+이 코드는 문자열을 순회하면서 중괄호를 찾고, 중괄호 사이의 내용을 제거한 후 결과를 출력합니다. 위 코드는 원하는 결과인 {% raw %}`This is some {example  string} with {multiple }.`{% endraw %}를 출력할 것입니다.
 
 ## 사용자 입력:
 > 결과가 This is some {} with {}.이렇게 나오네.
@@ -422,7 +420,7 @@ print("Final string: ", final_string)
 ## ChatGPT 응답:
 > 죄송합니다. 제가 제공한 코드는 중괄호 내의 모든 내용을 제거했습니다. 중괄호 내에서 또다른 중괄호가 없는 경우에는 그 내용을 유지해야 하는 것을 간과했습니다. 그러한 경우를 처리하도록 코드를 수정해 보겠습니다:
 
-```python
+{% raw %}```python
 def remove_nested_brackets(s):
     stack = []
     for c in s:
@@ -444,9 +442,9 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
-위 코드는 중첩된 중괄호 내의 문자열을 제거하되, 중첩되지 않은 중괄호 내의 문자열은 유지합니다. 이 코드를 실행하면 원하는 출력인 `This is some {example  string} with {multiple }.`를 얻어야 합니다.
+위 코드는 중첩된 중괄호 내의 문자열을 제거하되, 중첩되지 않은 중괄호 내의 문자열은 유지합니다. 이 코드를 실행하면 원하는 출력인 {% raw %}`This is some {example  string} with {multiple }.`{% endraw %}를 얻어야 합니다.
 
 ## 사용자 입력:
 > This is some example nested} string} with multiple levels of nested ""} } brackets}}}. 이런 결과야.
@@ -456,7 +454,7 @@ print("Final string: ", final_string)
 
 중괄호 내부에 다른 중괄호가 없을 때만 문자열을 유지하도록 아래 코드를 수정했습니다.
 
-```python
+{% raw %}```python
 def remove_nested_brackets(s):
     stack = []
     for c in s:
@@ -478,9 +476,9 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
-이 코드는 중첩된 중괄호 내의 문자열을 제거하되, 중첩되지 않은 중괄호 내의 문자열은 유지합니다. 이 코드를 실행하면 원하는 출력인 `This is some {example  string} with {multiple }.`를 얻어야 합니다.
+이 코드는 중첩된 중괄호 내의 문자열을 제거하되, 중첩되지 않은 중괄호 내의 문자열은 유지합니다. 이 코드를 실행하면 원하는 출력인 {% raw %}`This is some {example  string} with {multiple }.`{% endraw %}를 얻어야 합니다.
 
 ## 사용자 입력:
 > This is some example nested}  string}  with multiple levels of nested ""}  }  brackets} } } . 이런 결과야. 틀렸네.
@@ -488,11 +486,11 @@ print("Final string: ", final_string)
 ## ChatGPT 응답:
 > 죄송합니다, 제가 문제를 제대로 이해하지 못했네요. 수정된 접근 방법을 제공해 드리겠습니다.
 
-우선, `re` 라이브러리를 사용하여 중첩된 괄호를 제거하는 대신, 텍스트를 처리하면서 괄호의 개수를 추적하는 방식을 사용하겠습니다. 이는 괄호가 열릴 때마다 카운터를 증가시키고, 괄호가 닫힐 때마다 감소시키는 방식으로 작동합니다. 그런 다음, 출력 문자열을 만드는 동안 이 카운터를 사용하여 2 이상일 경우의 중괄호 내부의 텍스트를 제거합니다. 
+우선, {% raw %}`re`{% endraw %} 라이브러리를 사용하여 중첩된 괄호를 제거하는 대신, 텍스트를 처리하면서 괄호의 개수를 추적하는 방식을 사용하겠습니다. 이는 괄호가 열릴 때마다 카운터를 증가시키고, 괄호가 닫힐 때마다 감소시키는 방식으로 작동합니다. 그런 다음, 출력 문자열을 만드는 동안 이 카운터를 사용하여 2 이상일 경우의 중괄호 내부의 텍스트를 제거합니다. 
 
 다음은 수정된 코드입니다:
 
-```python
+{% raw %}```python
 def remove_nested_brackets(s):
     depth = 0
     output = ""
@@ -517,19 +515,19 @@ input_string = """This is some {example {nested} string} with {multiple {levels 
 final_string = remove_nested_brackets(input_string)
 
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
-위 코드를 실행하면 기대했던 결과인 `This is some {example  string} with {multiple }.`가 출력되어야 합니다. 이 방법은 중첩된 중괄호 내의 텍스트를 제거하는데 사용됩니다.
+위 코드를 실행하면 기대했던 결과인 {% raw %}`This is some {example  string} with {multiple }.`{% endraw %}가 출력되어야 합니다. 이 방법은 중첩된 중괄호 내의 텍스트를 제거하는데 사용됩니다.
 
 ## 사용자 입력:
 > 드디어 성공했다. 그러면, 위 코드에 문자열 또는 파일을 넣었을 때, 결과를 콘솔과 파일로 보여주는 프로그램 만들어.
 
 ## ChatGPT 응답:
-> 파이썬에서는 파일 입출력을 위해 내장된 `open` 함수를 사용할 수 있습니다. 이를 이용해 입력 문자열을 파일에서 읽어들이고, 결과를 다른 파일에 저장하는 코드를 작성해 보겠습니다. 콘솔에도 결과를 출력하도록 하겠습니다.
+> 파이썬에서는 파일 입출력을 위해 내장된 {% raw %}`open`{% endraw %} 함수를 사용할 수 있습니다. 이를 이용해 입력 문자열을 파일에서 읽어들이고, 결과를 다른 파일에 저장하는 코드를 작성해 보겠습니다. 콘솔에도 결과를 출력하도록 하겠습니다.
 
 다음은 수정된 코드입니다:
 
-```python
+{% raw %}```python
 def remove_nested_brackets(s):
     depth = 0
     output = ""
@@ -563,11 +561,11 @@ print("Final string: ", final_string)
 # 결과를 파일에 저장
 with open("output.txt", "w") as file:
     file.write(final_string)
-```
+```{% endraw %}
 
-위 코드를 사용하려면 `input.txt` 파일에 원본 문자열을 넣고, 프로그램을 실행하면 `output.txt` 파일에 최종 결과가 저장됩니다. 또한, 콘솔에도 동일한 결과가 출력됩니다.
+위 코드를 사용하려면 {% raw %}`input.txt`{% endraw %} 파일에 원본 문자열을 넣고, 프로그램을 실행하면 {% raw %}`output.txt`{% endraw %} 파일에 최종 결과가 저장됩니다. 또한, 콘솔에도 동일한 결과가 출력됩니다.
 
-참고로, 파일을 다룰 때는 항상 `with` 문을 사용하는 것이 좋습니다. `with` 문은 파일 작업이 끝나면 자동으로 파일을 닫아줍니다. 이는 파일을 올바르게 닫지 않았을 때 발생할 수 있는 문제를 방지해줍니다.
+참고로, 파일을 다룰 때는 항상 {% raw %}`with`{% endraw %} 문을 사용하는 것이 좋습니다. {% raw %}`with`{% endraw %} 문은 파일 작업이 끝나면 자동으로 파일을 닫아줍니다. 이는 파일을 올바르게 닫지 않았을 때 발생할 수 있는 문제를 방지해줍니다.
 
 ## 사용자 입력:
 > 위 코드에서 입력문자열 길이에 제한이 있니?
@@ -575,9 +573,9 @@ with open("output.txt", "w") as file:
 ## ChatGPT 응답:
 > 파이썬에서 파일에서 문자열을 읽을 때 문자열의 길이에 대한 하드한 제한은 없습니다. 다만, 사용하는 컴퓨터의 메모리 크기에 따라 제한이 있을 수 있습니다. 사용 가능한 메모리보다 큰 파일을 한 번에 읽으려고 하면 메모리 오류가 발생할 수 있습니다.
 
-따라서 매우 큰 파일을 처리해야 하는 경우에는 파일 전체를 한 번에 메모리에 로드하지 않고, 한 번에 처리할 수 있는 작은 단위로 나눠서 처리하는 것이 좋습니다. 이를 위해 파일을 줄 단위로 읽거나, `mmap` 모듈 같은 메모리 매핑을 사용하는 방법을 고려할 수 있습니다.
+따라서 매우 큰 파일을 처리해야 하는 경우에는 파일 전체를 한 번에 메모리에 로드하지 않고, 한 번에 처리할 수 있는 작은 단위로 나눠서 처리하는 것이 좋습니다. 이를 위해 파일을 줄 단위로 읽거나, {% raw %}`mmap`{% endraw %} 모듈 같은 메모리 매핑을 사용하는 방법을 고려할 수 있습니다.
 
-그러나 위 코드에서 제공된 `remove_nested_brackets` 함수는 문자열 전체를 한 번에 처리합니다. 따라서 매우 큰 파일을 처리하려면 이 함수를 수정하여 한 번에 처리할 수 있는 작은 단위로 문자열을 처리하도록 변경해야 할 수 있습니다. 이는 함수의 복잡도를 증가시키며, 중괄호가 문자열의 작은 단위 사이에 걸쳐 있을 때 올바르게 처리하는 방법을 고려해야 합니다.
+그러나 위 코드에서 제공된 {% raw %}`remove_nested_brackets`{% endraw %} 함수는 문자열 전체를 한 번에 처리합니다. 따라서 매우 큰 파일을 처리하려면 이 함수를 수정하여 한 번에 처리할 수 있는 작은 단위로 문자열을 처리하도록 변경해야 할 수 있습니다. 이는 함수의 복잡도를 증가시키며, 중괄호가 문자열의 작은 단위 사이에 걸쳐 있을 때 올바르게 처리하는 방법을 고려해야 합니다.
 
 ## 사용자 입력:
 > s = """
@@ -638,9 +636,9 @@ with open("output.txt", "w") as file:
 ## ChatGPT 응답:
 > 현재 코드는 괄호의 개수를 추적하여 깊이(depth)가 2 이상인 중괄호를 제거하도록 설계되어 있습니다. 다만 이런 방식은 중첩된 중괄호가 여러 줄에 걸쳐 있는 경우, 즉 중괄호 안에 다른 문자열이 있지 않은 경우에 대해 고려하지 못하고 있습니다. 
 
-해당 문제를 해결하려면, 괄호의 개수를 추적할 때 괄호 안에 실제 문자가 있는지 여부도 확인해야 합니다. 아래의 코드에서는 `non_space_char`라는 새로운 변수를 추가하여 괄호 안에 공백이 아닌 문자가 있는지 확인하고, 괄호를 닫을 때 이 변수를 기반으로 출력 문자열을 결정하도록 하였습니다.
+해당 문제를 해결하려면, 괄호의 개수를 추적할 때 괄호 안에 실제 문자가 있는지 여부도 확인해야 합니다. 아래의 코드에서는 {% raw %}`non_space_char`{% endraw %}라는 새로운 변수를 추가하여 괄호 안에 공백이 아닌 문자가 있는지 확인하고, 괄호를 닫을 때 이 변수를 기반으로 출력 문자열을 결정하도록 하였습니다.
 
-```python
+{% raw %}```python
 def remove_nested_brackets(s):
     depth = 0
     output = ""
@@ -708,7 +706,7 @@ input_string = """
 """
 final_string = remove_nested_brackets(input_string)
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이러한 방법을 통해 요구한 출력 결과를 얻을 수 있습니다.
 
@@ -733,7 +731,7 @@ print("Final string: ", final_string)
 
 다음은 이러한 로직을 수행하는 기본적인 파이썬 함수입니다:
 
-```python
+{% raw %}```python
 def process_brackets(s):
     stack = []
     result = ''
@@ -749,7 +747,7 @@ def process_brackets(s):
         else:
             result += c
     return result
-```
+```{% endraw %}
 
 이 함수는 중괄호의 내용을 별도의 문자열에 분리하여 처리하고, 닫는 괄호에서 이를 다시 조합합니다. 이를 통해 괄호 안의 내용을 쉽게 분석하고 처리할 수 있습니다. 이 함수를 수정하여 원하는 결과를 얻을 수 있을 것입니다.
 
@@ -759,7 +757,7 @@ def process_brackets(s):
 ## ChatGPT 응답:
 > 문자열 처리를 위해 추가적으로 구현해야 하는 함수는 무엇인지 확실하게 이해하지 못했습니다. 다음 코드는 위에서 언급한 것처럼 단순히 괄호 안의 문자열을 제거하는 기능을 가진 함수입니다. 이 함수는 괄호의 중첩을 확인하고 중첩된 괄호 사이의 문자열을 제거합니다.
 
-```python
+{% raw %}```python
 def process_brackets(s):
     stack = []
     result = ''
@@ -816,7 +814,7 @@ s = """
 """
 final_string = process_brackets(s)
 print("Final string: ", final_string)
-```
+```{% endraw %}
 이 프로그램은 중첩된 괄호 사이의 문자열을 제거하므로, 예상한 결과와 다를 수 있습니다. 이해를 돕기 위해 특정 조건에 따라 괄호 안의 문자열을 제거하려면 코드를 적절히 수정해야 합니다. 조금 더 구체적인 지침을 제공하면 더욱 도움이 될 것 같습니다.
 
 ## 사용자 입력:
@@ -843,7 +841,7 @@ print("Final string: ", final_string)
 
 다음은 그러한 수정을 반영한 코드입니다:
 
-```python
+{% raw %}```python
 def process_brackets(s):
     stack = []
     result = ''
@@ -902,7 +900,7 @@ s = """
 """
 final_string = process_brackets(s)
 print("Final string: ", final_string)
-```
+```{% endraw %}
 
 이 코드는 중괄호 안의 내용이 추가 중괄호를 포함하지 않는 경우에만 그 내용을 제거하므로, 중괄호가 중첩되지 않은 텍스트는 원래대로 유지됩니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Quartz 작업 의존성"
-date: 2023-06-01
-tags: [의존, Quartz, 작업]
-categories: blog
+tags: [작업, 의존, Quartz]
 ---
 
 ## 사용자 입력:
@@ -18,7 +16,7 @@ Quartz에서는 JobDetail 객체를 사용하여 작업을 정의하고, Trigger
 
 아래는 Quartz를 사용하여 선후행 작업을 구별하여 실행하는 예제 코드입니다:
 
-```java
+{% raw %}```java
 // Job1
 JobDetail job1 = JobBuilder.newJob(Job1.class).build();
 
@@ -61,7 +59,7 @@ scheduler.scheduleJob(job3, trigger3);
 
 // 스케줄러 실행
 scheduler.start();
-```
+```{% endraw %}
 
 위의 예제에서는 Job2가 Job1의 완료를 기다리고, Job3이 Job2의 완료를 기다리도록 의존성을 설정했습니다. 따라서 Job1이 먼저 실행되고, 그 후에 Job2가 실행되며, 마지막으로 Job3이 실행됩니다.
 
@@ -80,7 +78,7 @@ JobListener는 작업 실행 전후에 이벤트를 수신하고 특정 작업 �
 
 다음은 JobListener를 사용하여 작업의 선행 여부를 확인하고 실행하는 예제 코드입니다:
 
-```java
+{% raw %}```java
 public class MyJobListener implements JobListener {
     @Override
     public String getName() {
@@ -108,15 +106,15 @@ public class MyJobListener implements JobListener {
 
     // 다른 JobListener 메서드들도 구현해야 함 (생략)
 }
-```
+```{% endraw %}
 
-위의 코드에서는 `jobToBeExecuted()` 메서드를 통해 선행 작업의 완료 여부를 확인하고 작업 실행 여부를 결정하고 있습니다. 선행 작업이 완료되지 않은 경우 `SkipJobExecutionException`을 던져서 작업 실행을 건너뛸 수 있습니다.
+위의 코드에서는 {% raw %}`jobToBeExecuted()`{% endraw %} 메서드를 통해 선행 작업의 완료 여부를 확인하고 작업 실행 여부를 결정하고 있습니다. 선행 작업이 완료되지 않은 경우 {% raw %}`SkipJobExecutionException`{% endraw %}을 던져서 작업 실행을 건너뛸 수 있습니다.
 
 JobListener를 등록하려면 다음과 같이 스케줄러에 추가해야 합니다:
 
-```java
+{% raw %}```java
 scheduler.getListenerManager().addJobListener(new MyJobListener(), EverythingMatcher.allJobs());
-```
+```{% endraw %}
 
 위의 예제는 JobListener를 사용하여 작업 실행 전에 선행 작업의 완료 여부를 확인하고 실행하는 방법을 보여주고 있습니다. 이를 통해 스케줄러 실행 중에 작업의 선후행을 처리할 수 있습니다.
 
@@ -124,9 +122,9 @@ scheduler.getListenerManager().addJobListener(new MyJobListener(), EverythingMat
 > linux플랫폼에서 a.sh, b.sh를 만들어 놓고, a.sh가 끝나면, b.sh가 실행되도록 java quartz 프로그램 만들어줘.
 
 ## ChatGPT 응답:
-> 아래는 Java Quartz를 사용하여 Linux 플랫폼에서 a.sh 스크립트가 끝나면 b.sh 스크립트를 실행하는 예제 코드입니다. 예제에서는 `ProcessBuilder`를 사용하여 쉘 스크립트를 실행하고, `JobListener`를 사용하여 a.sh 스크립트의 완료 여부를 감지합니다.
+> 아래는 Java Quartz를 사용하여 Linux 플랫폼에서 a.sh 스크립트가 끝나면 b.sh 스크립트를 실행하는 예제 코드입니다. 예제에서는 {% raw %}`ProcessBuilder`{% endraw %}를 사용하여 쉘 스크립트를 실행하고, {% raw %}`JobListener`{% endraw %}를 사용하여 a.sh 스크립트의 완료 여부를 감지합니다.
 
-```java
+{% raw %}```java
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
@@ -195,11 +193,11 @@ public class ScriptJob implements Job {
         scheduler.shutdown(true);
     }
 }
-```
+```{% endraw %}
 
-위의 예제에서는 `ScriptJob` 클래스가 Quartz `Job` 인터페이스를 구현하여 스크립트 실행 로직을 담당합니다. `execute()` 메서드에서는 `ProcessBuilder`를 사용하여 a.sh를 실행하고 완료 후 b.sh를 실행합니다.
+위의 예제에서는 {% raw %}`ScriptJob`{% endraw %} 클래스가 Quartz {% raw %}`Job`{% endraw %} 인터페이스를 구현하여 스크립트 실행 로직을 담당합니다. {% raw %}`execute()`{% endraw %} 메서드에서는 {% raw %}`ProcessBuilder`{% endraw %}를 사용하여 a.sh를 실행하고 완료 후 b.sh를 실행합니다.
 
-메인 메서드에서는 Quartz 스케줄러를 생성하고, `ScriptJob`을 등록하여 실행합니다. 프로그램은 10초 동안 실행한 후 스케줄러를 종료합니다.
+메인 메서드에서는 Quartz 스케줄러를 생성하고, {% raw %}`ScriptJob`{% endraw %}을 등록하여 실행합니다. 프로그램은 10초 동안 실행한 후 스케줄러를 종료합니다.
 
 위의 예제 코드를 참고하여 a.sh와 b.sh 스크립트 파일을 생성한 후 실행해보시기 바랍니다.
 
@@ -209,7 +207,7 @@ public class ScriptJob implements Job {
 ## ChatGPT 응답:
 > 아래는 Java Quartz를 사용하여 Linux 플랫폼에서 a.sh, b.sh, c.sh, d.sh 순서대로 실행되도록 하는 예제 코드입니다. 각 스크립트 실행 후에 JobListener를 사용하여 완료 여부를 확인하고 다음 스크립트를 실행합니다.
 
-```java
+{% raw %}```java
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
@@ -288,11 +286,11 @@ public class ScriptJob implements Job {
         scheduler.shutdown(true);
     }
 }
-```
+```{% endraw %}
 
-위의 예제에서는 `ScriptJob` 클래스가 Quartz `Job` 인터페이스를 구현하여 스크립트 실행 로직을 담당합니다. `execute()` 메서드에서는 `JobExecutionContext`를 통해 스크립트 리스트를 가져오고, 각 스크립트를 순서대로 실행합니다.
+위의 예제에서는 {% raw %}`ScriptJob`{% endraw %} 클래스가 Quartz {% raw %}`Job`{% endraw %} 인터페이스를 구현하여 스크립트 실행 로직을 담당합니다. {% raw %}`execute()`{% endraw %} 메서드에서는 {% raw %}`JobExecutionContext`{% endraw %}를 통해 스크립트 리스트를 가져오고, 각 스크립트를 순서대로 실행합니다.
 
-메인 메서드에서는 Quartz 스케줄러를 생성하고, `ScriptJob`을 등록하여 실행합니다. 프로그램은 10초 동안 실행한 후 스케줄러를 종료합니다.
+메인 메서드에서는 Quartz 스케줄러를 생성하고, {% raw %}`ScriptJob`{% endraw %}을 등록하여 실행합니다. 프로그램은 10초 동안 실행한 후 스케줄러를 종료합니다.
 
 위의 예제 코드를 참고하여 a
 
@@ -303,9 +301,9 @@ public class ScriptJob implements Job {
 > 위 프로그램 고마워. 그런데, a.sh,b.sh,c.sh,d.sh의 정보를 postgresql DB에서 가져와서 처리하는 것을 위에 프로그램에 추가해줘. DB의 TIME테이블이 있고, 여기의 컬럼은 group_id, 순번, sh명이야. 4개의 shell이면 4개의 row가 기록되고 있지.
 
 ## ChatGPT 응답:
-> 아래는 Java Quartz를 사용하여 PostgreSQL 데이터베이스에서 a.sh, b.sh, c.sh, d.sh 스크립트 정보를 가져와 실행하는 예제 코드입니다. 예제에서는 PostgreSQL JDBC 드라이버를 사용하여 데이터베이스에 연결하고, `TIME` 테이블에서 스크립트 정보를 조회하여 실행합니다.
+> 아래는 Java Quartz를 사용하여 PostgreSQL 데이터베이스에서 a.sh, b.sh, c.sh, d.sh 스크립트 정보를 가져와 실행하는 예제 코드입니다. 예제에서는 PostgreSQL JDBC 드라이버를 사용하여 데이터베이스에 연결하고, {% raw %}`TIME`{% endraw %} 테이블에서 스크립트 정보를 조회하여 실행합니다.
 
-```java
+{% raw %}```java
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
@@ -428,13 +426,13 @@ public class ScriptJob implements Job {
         scheduler.shutdown(true);
     }
 }
-```
+```{% endraw %}
 
-위의 예제 코드에서는 `ScriptJob` 클래스가 Quartz `Job` 인터페이스를 구현하여 스크립트 실행 로직을 담당합니다. `execute()` 메서드에서는 PostgreSQL 데이터베이스에 연결한 후 `TIME` 테이블에서 스크립트 정보를 조회하여 실행합니다.
+위의 예제 코드에서는 {% raw %}`ScriptJob`{% endraw %} 클래스가 Quartz {% raw %}`Job`{% endraw %} 인터페이스를 구현하여 스크립트 실행 로직을 담당합니다. {% raw %}`execute()`{% endraw %} 메서드에서는 PostgreSQL 데이터베이스에 연결한 후 {% raw %}`TIME`{% endraw %} 테이블에서 스크립트 정보를 조회하여 실행합니다.
 
-메인 메서드에서는 PostgreSQL 연결 정보를 설정하고, Quartz 스케줄러를 생성하고, `ScriptJob`을 등록하여 실행합니다. 프로그램은 10초 동안 실행한 후 스케줄러를 종료합니다.
+메인 메서드에서는 PostgreSQL 연결 정보를 설정하고, Quartz 스케줄러를 생성하고, {% raw %}`ScriptJob`{% endraw %}을 등록하여 실행합니다. 프로그램은 10초 동안 실행한 후 스케줄러를 종료합니다.
 
-위의 예제 코드를 참고하여 PostgreSQL 데이터베이스에 `TIME` 테이블을 생성하고 a.sh, b.sh, c.sh, d.sh 스크립트 정보를 추가한 후 프로그램을 실행해보시기 바랍니다.
+위의 예제 코드를 참고하여 PostgreSQL 데이터베이스에 {% raw %}`TIME`{% endraw %} 테이블을 생성하고 a.sh, b.sh, c.sh, d.sh 스크립트 정보를 추가한 후 프로그램을 실행해보시기 바랍니다.
 
 ## 사용자 입력:
 > 위에 코드가 다 좋은데, cron형식의 스케줄정보가 없는 것 같네. 위 프로그램의 a.sh,b.sh,c.sh,d.sh는 언제 실행되는 거야?
@@ -442,9 +440,9 @@ public class ScriptJob implements Job {
 ## ChatGPT 응답:
 > 저희가 이전에 제공한 예제 코드에는 직접적인 cron 표현식을 사용하여 스케줄을 설정하는 부분이 포함되어 있지 않습니다. 대신, 예제 코드에서는 스케줄러를 시작할 때 즉시 실행하도록 설정했습니다.
 
-Java Quartz에서 cron 표현식을 사용하여 스케줄을 지정하려면 `Trigger` 객체를 생성할 때 `withSchedule` 메서드를 사용하여 CronTrigger를 생성해야 합니다. 아래는 해당 부분을 추가한 예제 코드입니다.
+Java Quartz에서 cron 표현식을 사용하여 스케줄을 지정하려면 {% raw %}`Trigger`{% endraw %} 객체를 생성할 때 {% raw %}`withSchedule`{% endraw %} 메서드를 사용하여 CronTrigger를 생성해야 합니다. 아래는 해당 부분을 추가한 예제 코드입니다.
 
-```java
+{% raw %}```java
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
@@ -546,7 +544,7 @@ public class ScriptJob implements Job {
 
 아래는 예제 코드를 수정하여 a.sh, b.sh, c.sh, d.sh 스크립트가 특정한 cron 표현식에 따라 실행되도록 하는 방법입니다.
 
-```java
+```{% endraw %}java
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
@@ -624,7 +622,7 @@ public class ScriptJob implements Job {
         scheduler.shutdown(true);
     }
 }
-```
+{% raw %}```
 
 위의 예제 코드에서는 `main()` 메서드에서 스케줄러의 `Trigger`를 생성할 때 `CronScheduleBuilder`를 사용하여 cron 표현식을 설정합니다. 현재 예제에서는 매 분 0초에 실행하도록 `0 * * ? * *`로 표현식을 설정했습니다.
 
@@ -636,7 +634,7 @@ public class ScriptJob implements Job {
 ## ChatGPT 응답:
 > 아래는 예제 코드를 수정하여 PostgreSQL 데이터베이스의 `TIME` 테이블에서 cron 스케줄 정보를 가져와서 실행하는 방법입니다. `schedule` 컬럼에서 cron 표현식을 읽어와서 `Trigger`를 생성합니다.
 
-```java
+```{% endraw %}java
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
@@ -792,7 +790,7 @@ class ScriptExecutionJob implements Job {
         }
     }
 }
-```
+{% raw %}```
 
 위의 코드에서 `ScriptJob` 클래스는 PostgreSQL 데이터베이스에서 스크립트 정보를 가져오는 데 사용됩니다. `retrieveScriptList()` 메서드는 `TIME` 테이블에서 group_id, 순번, sh명 및 schedule 컬럼을 조회하여 `ScriptInfo` 객체에 저장한 후 리스트로 반환합니다.
 
@@ -810,7 +808,7 @@ class ScriptExecutionJob implements Job {
 
 Temporary 함수를 생성하려면 함수 정의 앞에 `TEMPORARY` 키워드를 추가하면 됩니다. 예를 들어, 아래는 `my_temp_function`이라는 temporary 함수를 생성하는 예제입니다:
 
-```sql
+```{% endraw %}sql
 CREATE TEMPORARY FUNCTION my_temp_function()
 RETURNS void AS $$
 BEGIN
@@ -818,7 +816,7 @@ BEGIN
     -- ...
 END;
 $$ LANGUAGE plpgsql;
-```
+{% raw %}```
 
 위의 예제에서 `CREATE TEMPORARY FUNCTION` 문을 사용하여 `my_temp_function`을 temporary 함수로 생성합니다. 함수 로직은 `BEGIN`과 `END` 사이에 작성하면 됩니다.
 
@@ -1014,7 +1012,7 @@ WHERE
 ## ChatGPT 응답:
 > 주어진 PostgreSQL 쿼리에서 `owner_name`과 `table_name`을 가져오는 함수를 각각 정의하려면 다음과 같이 작성할 수 있습니다.
 
-```sql
+```{% endraw %}sql
 -- owner_name을 가져오는 함수
 CREATE FUNCTION get_owner_name(ATTR_VALUE text)
 RETURNS text AS $$
@@ -1043,13 +1041,13 @@ BEGIN
     );
 END;
 $$ LANGUAGE plpgsql;
-```
+{% raw %}```
 
 위의 코드에서 `get_owner_name` 함수는 `ATTR_VALUE`를 매개변수로 받아 해당하는 `owner_name` 값을 반환합니다. 마찬가지로 `get_table_name` 함수는 `ATTR_VALUE`를 매개변수로 받아 해당하는 `table_name` 값을 반환합니다.
 
 함수를 정의한 후에는 다음과 같이 사용할 수 있습니다:
 
-```sql
+```{% endraw %}sql
 SELECT
     get_owner_name(s4.ATTR_VALUE) AS owner_name,
     get_table_name(s4.ATTR_VALUE) AS table_name
@@ -1068,9 +1066,9 @@ FROM
   Position: 18 
 
 ## ChatGPT 응답:
-> 죄송합니다. PostgreSQL에서 함수를 생성하는 방법에 문법 오류가 있었습니다. PostgreSQL에서는 함수를 생성하기 위해 `CREATE FUNCTION` 문을 사용해야 합니다. 함수를 수정하여 다시 제공해 드리겠습니다.
+> 죄송합니다. PostgreSQL에서 함수를 생성하는 방법에 문법 오류가 있었습니다. PostgreSQL에서는 함수를 생성하기 위해 {% raw %}`CREATE FUNCTION`{% endraw %} 문을 사용해야 합니다. 함수를 수정하여 다시 제공해 드리겠습니다.
 
-```sql
+{% raw %}```sql
 -- owner_name을 가져오는 함수
 CREATE OR REPLACE FUNCTION get_owner_name(ATTR_VALUE text)
 RETURNS text AS $$
@@ -1099,9 +1097,9 @@ BEGIN
     );
 END;
 $$ LANGUAGE plpgsql;
-```
+```{% endraw %}
 
-위의 코드에서 `CREATE OR REPLACE FUNCTION` 문을 사용하여 함수를 생성하고, 문법 오류를 수정했습니다. 이제 함수를 정의하고 사용할 수 있어야 합니다.
+위의 코드에서 {% raw %}`CREATE OR REPLACE FUNCTION`{% endraw %} 문을 사용하여 함수를 생성하고, 문법 오류를 수정했습니다. 이제 함수를 정의하고 사용할 수 있어야 합니다.
 
 ## 사용자 입력:
 > CREATE TEMPORARY FUNCTION get_owner_name(ATTR_VALUE text)
@@ -1120,13 +1118,13 @@ END;
 $$ LANGUAGE plpgsql; 위 함수에서 오류나.....
 
 ## ChatGPT 응답:
-> 죄송합니다. PostgreSQL에서는 `CREATE TEMPORARY FUNCTION` 구문을 지원하지 않습니다. `CREATE TEMPORARY FUNCTION`은 일부 다른 데이터베이스 시스템에서 사용되는 문법이지만 PostgreSQL에는 해당 구문이 없습니다.
+> 죄송합니다. PostgreSQL에서는 {% raw %}`CREATE TEMPORARY FUNCTION`{% endraw %} 구문을 지원하지 않습니다. {% raw %}`CREATE TEMPORARY FUNCTION`{% endraw %}은 일부 다른 데이터베이스 시스템에서 사용되는 문법이지만 PostgreSQL에는 해당 구문이 없습니다.
 
-PostgreSQL에서 함수를 임시로 만들려면 일반적인 함수를 생성한 다음 세션에서 사용한 후 세션이 종료되면 함수가 자동으로 제거되도록 설정해야 합니다. 예를 들어, 함수를 생성한 후 세션이 종료될 때 자동으로 함수가 제거되도록 `ON COMMIT DROP` 옵션을 사용할 수 있습니다.
+PostgreSQL에서 함수를 임시로 만들려면 일반적인 함수를 생성한 다음 세션에서 사용한 후 세션이 종료되면 함수가 자동으로 제거되도록 설정해야 합니다. 예를 들어, 함수를 생성한 후 세션이 종료될 때 자동으로 함수가 제거되도록 {% raw %}`ON COMMIT DROP`{% endraw %} 옵션을 사용할 수 있습니다.
 
 아래는 이러한 방법으로 함수를 생성하는 예제입니다:
 
-```sql
+{% raw %}```sql
 -- owner_name을 가져오는 함수
 CREATE FUNCTION get_owner_name(ATTR_VALUE text)
 RETURNS text AS $$
@@ -1157,9 +1155,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql
 ON COMMIT DROP;
-```
+```{% endraw %}
 
-위의 코드에서 `ON COMMIT DROP` 옵션을 추가하여 함수가 세션 종료 시 자동으로 제거되도록 설정했습니다. 이렇게 하면 함수를 일시적으로 사용할 수 있습니다.
+위의 코드에서 {% raw %}`ON COMMIT DROP`{% endraw %} 옵션을 추가하여 함수가 세션 종료 시 자동으로 제거되도록 설정했습니다. 이렇게 하면 함수를 일시적으로 사용할 수 있습니다.
 
 ## 사용자 입력:
 > 위의 함수 아래와 같이 에러 발생해. Error occurred during SQL script execution
@@ -1169,7 +1167,7 @@ ON COMMIT DROP;
   Position: 457
 
 ## ChatGPT 응답:
-> 죄송합니다. 제가 제공한 코드에 문제가 있었습니다. PostgreSQL에서는 함수에 `ON COMMIT DROP` 옵션을 사용하여 일시적인 함수를 만들 수 없습니다. 대신에 다른 방법을 사용하여 일시적인 함수를 구현해야 합니다.
+> 죄송합니다. 제가 제공한 코드에 문제가 있었습니다. PostgreSQL에서는 함수에 {% raw %}`ON COMMIT DROP`{% endraw %} 옵션을 사용하여 일시적인 함수를 만들 수 없습니다. 대신에 다른 방법을 사용하여 일시적인 함수를 구현해야 합니다.
 
 일시적인 함수를 구현하기 위해 다음과 같은 접근 방식을 사용할 수 있습니다:
 
@@ -1179,7 +1177,7 @@ ON COMMIT DROP;
 
 아래의 코드 예제를 참고해 주세요:
 
-```sql
+{% raw %}```sql
 -- 임시 스키마 생성
 CREATE SCHEMA temp_schema;
 
@@ -1214,9 +1212,9 @@ $$ LANGUAGE plpgsql;
 
 -- 작업 완료 후 임시 스키마 삭제
 DROP SCHEMA temp_schema CASCADE;
-```
+```{% endraw %}
 
-위의 코드 예제에서 `temp_schema`라는 임시 스키마를 생성한 후 함수를 해당 스키마 내에 생성합니다. 작업이 완료되면 `DROP SCHEMA` 문을 사용하여 임시 스키마를 삭제합니다.
+위의 코드 예제에서 {% raw %}`temp_schema`{% endraw %}라는 임시 스키마를 생성한 후 함수를 해당 스키마 내에 생성합니다. 작업이 완료되면 {% raw %}`DROP SCHEMA`{% endraw %} 문을 사용하여 임시 스키마를 삭제합니다.
 
 이 방법을 사용하여 임시 함수를 구현할 수 있습니다. 이제 코드를 실행해 보시고 필요에 따라 수정하십시오.
 
@@ -1226,30 +1224,30 @@ DROP SCHEMA temp_schema CASCADE;
 ## ChatGPT 응답:
 > PostgreSQL에서 함수를 삭제하는 방법은 다음과 같습니다:
 
-```sql
+{% raw %}```sql
 -- 함수 삭제
 DROP FUNCTION [IF EXISTS] function_name([parameter_data_types]);
-```
+```{% endraw %}
 
-위의 명령문에서 `function_name`은 삭제하려는 함수의 이름입니다. 필요한 경우 `parameter_data_types`에 함수의 매개변수 데이터 유형을 지정할 수 있습니다. `[IF EXISTS]`는 함수가 존재하는 경우에만 삭제하도록 지정하는 옵션입니다. 이 옵션을 사용하면 함수가 존재하지 않을 때 오류가 발생하지 않습니다.
+위의 명령문에서 {% raw %}`function_name`{% endraw %}은 삭제하려는 함수의 이름입니다. 필요한 경우 {% raw %}`parameter_data_types`{% endraw %}에 함수의 매개변수 데이터 유형을 지정할 수 있습니다. {% raw %}`[IF EXISTS]`{% endraw %}는 함수가 존재하는 경우에만 삭제하도록 지정하는 옵션입니다. 이 옵션을 사용하면 함수가 존재하지 않을 때 오류가 발생하지 않습니다.
 
-예를 들어, `get_owner_name` 함수를 삭제하려면 다음과 같이 명령문을 사용합니다:
+예를 들어, {% raw %}`get_owner_name`{% endraw %} 함수를 삭제하려면 다음과 같이 명령문을 사용합니다:
 
-```sql
+{% raw %}```sql
 -- get_owner_name 함수 삭제
 DROP FUNCTION IF EXISTS get_owner_name(text);
-```
+```{% endraw %}
 
-위의 코드에서는 `get_owner_name` 함수를 삭제하고 있습니다. 필요한 경우 `text`와 같이 함수의 매개변수 데이터 유형을 지정할 수 있습니다. `IF EXISTS` 옵션은 함수가 존재하지 않을 때 오류를 방지합니다.
+위의 코드에서는 {% raw %}`get_owner_name`{% endraw %} 함수를 삭제하고 있습니다. 필요한 경우 {% raw %}`text`{% endraw %}와 같이 함수의 매개변수 데이터 유형을 지정할 수 있습니다. {% raw %}`IF EXISTS`{% endraw %} 옵션은 함수가 존재하지 않을 때 오류를 방지합니다.
 
-마찬가지로 `get_table_name` 함수를 삭제하려면 다음과 같이 명령문을 사용합니다:
+마찬가지로 {% raw %}`get_table_name`{% endraw %} 함수를 삭제하려면 다음과 같이 명령문을 사용합니다:
 
-```sql
+{% raw %}```sql
 -- get_table_name 함수 삭제
 DROP FUNCTION IF EXISTS get_table_name(text);
-```
+```{% endraw %}
 
-위의 코드에서는 `get_table_name` 함수를 삭제하고 있습니다.
+위의 코드에서는 {% raw %}`get_table_name`{% endraw %} 함수를 삭제하고 있습니다.
 
 함수 삭제를 위해 필요한 명령문을 사용하여 함수를 삭제할 수 있습니다. 이를 사용하여 원하는 함수를 삭제해 보세요.
 
@@ -1257,9 +1255,9 @@ DROP FUNCTION IF EXISTS get_table_name(text);
 > 위에 내가 만든 함수는 Return에서 바로 결과를 보내는 주는 건데, 중간에 변수값에 저장한 다음 return하려면?
 
 ## ChatGPT 응답:
-> 함수 내에서 중간에 계산된 값을 변수에 저장하고, 나중에 반환하려면 `DECLARE` 문을 사용하여 변수를 선언하고 `SET` 문을 사용하여 값을 저장할 수 있습니다. 다음은 그 예시입니다:
+> 함수 내에서 중간에 계산된 값을 변수에 저장하고, 나중에 반환하려면 {% raw %}`DECLARE`{% endraw %} 문을 사용하여 변수를 선언하고 {% raw %}`SET`{% endraw %} 문을 사용하여 값을 저장할 수 있습니다. 다음은 그 예시입니다:
 
-```sql
+{% raw %}```sql
 CREATE OR REPLACE FUNCTION get_owner_name(ATTR_VALUE text)
 RETURNS text AS $$
 DECLARE
@@ -1277,9 +1275,9 @@ BEGIN
     RETURN result; -- 변수 값을 반환
 END;
 $$ LANGUAGE plpgsql;
-```
+```{% endraw %}
 
-위의 예제에서는 `result`라는 변수를 선언하고 `SELECT INTO` 문을 사용하여 계산된 결과를 변수에 저장합니다. 마지막으로 `RETURN` 문을 사용하여 변수 값을 반환합니다.
+위의 예제에서는 {% raw %}`result`{% endraw %}라는 변수를 선언하고 {% raw %}`SELECT INTO`{% endraw %} 문을 사용하여 계산된 결과를 변수에 저장합니다. 마지막으로 {% raw %}`RETURN`{% endraw %} 문을 사용하여 변수 값을 반환합니다.
 
 위와 같은 방식으로 함수 내에서 중간 결과를 변수에 저장하고 반환할 수 있습니다. 필요에 따라 코드를 수정하여 변수를 사용하십시오.
 

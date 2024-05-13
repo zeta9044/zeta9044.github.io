@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Refactor and Streamline Code"
-date: 2023-11-07
-tags: [and, Streamline, Code, Refactor]
-categories: blog
+tags: [and, Refactor, Streamline, Code]
 ---
 
 ## 사용자 입력:
@@ -107,11 +105,11 @@ categories: blog
 중복제거해봐.
 
 ## ChatGPT 응답:
-> The provided code snippets iterate over two collections `sl` and `el`, performing very similar operations on both. The code appears to be processing some kind of C++ code analysis using a parser for C++14. The goal seems to be to collect information about pointer declarators and pointer member expressions, remove certain ones based on various conditions, and then log and store information about the ones that remain.
+> The provided code snippets iterate over two collections {% raw %}`sl`{% endraw %} and {% raw %}`el`{% endraw %}, performing very similar operations on both. The code appears to be processing some kind of C++ code analysis using a parser for C++14. The goal seems to be to collect information about pointer declarators and pointer member expressions, remove certain ones based on various conditions, and then log and store information about the ones that remain.
 
 To eliminate duplication, we can create a separate method that performs the common operations and call this method with each collection. Here's how you might refactor the code:
 
-```java
+{% raw %}```java
 public void processItems(List<?> items) {
     List<CPP14Parser.PointerDeclaratorContext> pdList = RuleUtil.findAll(items, CPP14Parser.PointerDeclaratorContext.class);
     List<CPP14Parser.PointerMemberExpressionContext> pmList = RuleUtil.findAll(items, CPP14Parser.PointerMemberExpressionContext.class);
@@ -177,16 +175,16 @@ private void logAndStorePointerMemberExpression(CPP14Parser.PointerMemberExpress
 // Then call processItems with your lists:
 processItems(sl);
 processItems(el);
-```
+```{% endraw %}
 
 I've created several helper methods:
-- `processItems` which accepts a list and processes it.
-- `processPointerDeclarators` for the common operations on `PointerDeclaratorContext` objects.
-- `processPointerMemberExpressions` for the common operations on `PointerMemberExpressionContext` objects.
-- `checkPointerDeclarator` to encapsulate the complex condition for removing pointer declarators.
-- `logAndStorePointerDeclarator` to encapsulate the logic of logging and storing pointer declarators.
-- `checkPointerMemberExpression` to encapsulate the condition for removing pointer member expressions.
-- `logAndStorePointerMemberExpression` to encapsulate the logic of logging and storing pointer member expressions.
+- {% raw %}`processItems`{% endraw %} which accepts a list and processes it.
+- {% raw %}`processPointerDeclarators`{% endraw %} for the common operations on {% raw %}`PointerDeclaratorContext`{% endraw %} objects.
+- {% raw %}`processPointerMemberExpressions`{% endraw %} for the common operations on {% raw %}`PointerMemberExpressionContext`{% endraw %} objects.
+- {% raw %}`checkPointerDeclarator`{% endraw %} to encapsulate the complex condition for removing pointer declarators.
+- {% raw %}`logAndStorePointerDeclarator`{% endraw %} to encapsulate the logic of logging and storing pointer declarators.
+- {% raw %}`checkPointerMemberExpression`{% endraw %} to encapsulate the condition for removing pointer member expressions.
+- {% raw %}`logAndStorePointerMemberExpression`{% endraw %} to encapsulate the logic of logging and storing pointer member expressions.
 
-Make sure to define `varNames`, `logger`, and `callpdMap` appropriately, as these are used in the helper methods and their definitions are not included in the original snippet. Also, replace the casts and method calls according to the actual types of your `sl`
+Make sure to define {% raw %}`varNames`{% endraw %}, {% raw %}`logger`{% endraw %}, and {% raw %}`callpdMap`{% endraw %} appropriately, as these are used in the helper methods and their definitions are not included in the original snippet. Also, replace the casts and method calls according to the actual types of your {% raw %}`sl`{% endraw %}
 

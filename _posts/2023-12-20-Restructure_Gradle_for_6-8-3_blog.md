@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Restructure Gradle for 6.8.3"
-date: 2023-12-20
-tags: [Gradle, for, Restructure]
-categories: blog
+tags: [Restructure, Gradle, for]
 ---
 
 ## 사용자 입력:
@@ -226,9 +224,9 @@ task runBigSugGraph(type: JavaExec ){
 ## ChatGPT 응답:
 > To restructure your Gradle script for compatibility with Gradle version 6.8.3, several modifications and updates are necessary. I'll outline the changes below:
 
-1. **Plugin Syntax**: The way plugins are applied has been updated in Gradle 6.8.3. Use the `plugins` block for a cleaner and more idiomatic way.
+1. **Plugin Syntax**: The way plugins are applied has been updated in Gradle 6.8.3. Use the {% raw %}`plugins`{% endraw %} block for a cleaner and more idiomatic way.
 
-2. **Dependency Configuration**: Gradle 6.x introduces changes in the way dependencies are declared. For instance, `compile` and `testCompile` configurations are deprecated and replaced by `implementation` and `testImplementation`.
+2. **Dependency Configuration**: Gradle 6.x introduces changes in the way dependencies are declared. For instance, {% raw %}`compile`{% endraw %} and {% raw %}`testCompile`{% endraw %} configurations are deprecated and replaced by {% raw %}`implementation`{% endraw %} and {% raw %}`testImplementation`{% endraw %}.
 
 3. **Source Sets**: The configuration for source sets remains largely the same, but ensure it aligns with your project structure.
 
@@ -244,7 +242,7 @@ task runBigSugGraph(type: JavaExec ){
 
 Below is the restructured script:
 
-```groovy
+{% raw %}```groovy
 plugins {
     id 'java'
     id 'war'
@@ -291,7 +289,7 @@ dependencies {
 task customTask(type: JavaExec) {
     // Task configuration
 }
-```
+```{% endraw %}
 
 This script is a basic guide. You will need to adjust it according to the specific requirements of your project and test it thoroughly to ensure compatibility with Gradle 6.8.3. Also, always refer to the official Gradle documentation for the most accurate and up-to-date information.
 
@@ -301,9 +299,9 @@ This script is a basic guide. You will need to adjust it according to the specif
 ## ChatGPT 응답:
 > Gradle 6.8.3 버전에 맞게 Gradle 스크립트를 재구성하기 위해 몇 가지 수정과 업데이트가 필요합니다. 아래에 변경 사항을 설명하겠습니다.
 
-1. **플러그인 구문**: Gradle 6.8.3에서는 플러그인을 적용하는 방식이 업데이트되었습니다. `plugins` 블록을 사용하여 보다 깔끔하고 관례적인 방식으로 플러그인을 적용하세요.
+1. **플러그인 구문**: Gradle 6.8.3에서는 플러그인을 적용하는 방식이 업데이트되었습니다. {% raw %}`plugins`{% endraw %} 블록을 사용하여 보다 깔끔하고 관례적인 방식으로 플러그인을 적용하세요.
 
-2. **의존성 구성**: Gradle 6.x는 의존성을 선언하는 방식에 변화를 가져왔습니다. 예를 들어, `compile` 및 `testCompile` 구성이 폐지되고 `implementation` 및 `testImplementation`으로 대체되었습니다.
+2. **의존성 구성**: Gradle 6.x는 의존성을 선언하는 방식에 변화를 가져왔습니다. 예를 들어, {% raw %}`compile`{% endraw %} 및 {% raw %}`testCompile`{% endraw %} 구성이 폐지되고 {% raw %}`implementation`{% endraw %} 및 {% raw %}`testImplementation`{% endraw %}으로 대체되었습니다.
 
 3. **소스 세트**: 소스 세트에 대한 구성은 대체로 동일하지만, 프로젝트 구조와 일치하는지 확인하세요.
 
@@ -319,7 +317,7 @@ This script is a basic guide. You will need to adjust it according to the specif
 
 아래는 재구성된 스크립트입니다:
 
-```groovy
+{% raw %}```groovy
 plugins {
     id 'java'
     id 'war'
@@ -366,7 +364,7 @@ dependencies {
 task customTask(type: JavaExec) {
     // 작업 구성
 }
-```
+```{% endraw %}
 
 이 스크립트는 기본적인 가이드입니다. 프로젝트의 특정 요구 사항에 맞게 조정하고 Gradle 6.8.3과의 호환성을 확보하기 위해 철저히 테스트해야 합니다. 또한, 가장 정확하고 최신의 정보를 얻기 위해서는 공식 Gradle 문서를 항상 참조하세요.
 

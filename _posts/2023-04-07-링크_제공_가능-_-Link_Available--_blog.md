@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "링크 제공 가능? (Link Available?)"
-date: 2023-04-07
-tags: [가능, Available, Link, 링크, 제공]
-categories: blog
+tags: [가능, 제공, Available, 링크, Link]
 ---
 
 ## 사용자 입력:
@@ -135,5 +133,5 @@ XMLProperties 파라미터의 valueExpression에는 XML 형식으로 이러한 �
 > "#BLUDB.INSTANCE# 이거 상수가 아니라 변수지?
 
 ## ChatGPT 응답:
-> `#BLUDB.INSTANCE#`은 XMLProperties 내에 정의된 Connection 요소의 Instance 하위 요소 값입니다. 이 값은 DataStage Job 실행 시 해당 변수에 실제 값이 할당됩니다. 따라서 이 값은 실행 시에 동적으로 결정되는 변수입니다.
+> {% raw %}`#BLUDB.INSTANCE#`{% endraw %}은 XMLProperties 내에 정의된 Connection 요소의 Instance 하위 요소 값입니다. 이 값은 DataStage Job 실행 시 해당 변수에 실제 값이 할당됩니다. 따라서 이 값은 실행 시에 동적으로 결정되는 변수입니다.
 

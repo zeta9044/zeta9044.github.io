@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Informatica PowerMart XML."
-date: 2023-03-22
-tags: [Informatica, PowerMart, XML]
-categories: blog
+tags: [Informatica, XML, PowerMart]
 ---
 
 ## 사용자 입력:

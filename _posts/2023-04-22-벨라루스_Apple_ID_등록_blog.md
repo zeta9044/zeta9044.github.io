@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "벨라루스 Apple ID 등록"
-date: 2023-04-22
-tags: [등록, 벨라루스, Apple, ID]
-categories: blog
+tags: [벨라루스, ID, Apple, 등록]
 ---
 
 ## 사용자 입력:

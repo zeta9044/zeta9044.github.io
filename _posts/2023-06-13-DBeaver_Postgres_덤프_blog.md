@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "DBeaver Postgres 덤프"
-date: 2023-06-13
-tags: [DBeaver, Postgres, 덤프]
-categories: blog
+tags: [덤프, DBeaver, Postgres]
 ---
 
 ## 사용자 입력:
@@ -48,14 +46,14 @@ Oracle 데이터베이스의 백업 및 복원 작업을 수행하려면 DBeaver
 
 1. DBeaver를 열고 Oracle 데이터베이스에 연결합니다.
 2. SQL 편집기 또는 쿼리 창을 열고 백업 쿼리를 작성합니다.
-   - 일반적으로 `EXPDP` 또는 `EXP` 유틸리티를 사용하여 데이터베이스 백업을 생성합니다.
+   - 일반적으로 {% raw %}`EXPDP`{% endraw %} 또는 {% raw %}`EXP`{% endraw %} 유틸리티를 사용하여 데이터베이스 백업을 생성합니다.
    - 예를 들면 다음과 같은 쿼리를 사용할 수 있습니다:
-     ```
+     {% raw %}```
      EXPDP username/password@hostname:port/service_name DUMPFILE='backup.dmp' FULL=YES
-     ```
-   - `username`, `password`, `hostname`, `port`, `service_name`은 각각 Oracle 데이터베이스에 연결할 때 사용하는 실제 정보로 대체되어야 합니다.
-   - `DUMPFILE`은 백업 파일의 경로와 이름을 지정합니다.
-   - `FULL=YES`는 전체 데이터베이스 백업을 수행함을 의미합니다.
+     ```{% endraw %}
+   - {% raw %}`username`{% endraw %}, {% raw %}`password`{% endraw %}, {% raw %}`hostname`{% endraw %}, {% raw %}`port`{% endraw %}, {% raw %}`service_name`{% endraw %}은 각각 Oracle 데이터베이스에 연결할 때 사용하는 실제 정보로 대체되어야 합니다.
+   - {% raw %}`DUMPFILE`{% endraw %}은 백업 파일의 경로와 이름을 지정합니다.
+   - {% raw %}`FULL=YES`{% endraw %}는 전체 데이터베이스 백업을 수행함을 의미합니다.
 3. 작성한 백업 쿼리를 실행하여 데이터베이스 백업 파일을 생성합니다.
 
 위의 절차는 DBeaver를 사용하여 Oracle 데이터베이스의 백업을 수행하는 일반적인 방법을 보여주기 위한 예시입니다. 사용자 환경에 따라 더 구체적인 쿼리 또는 도구를 사용해야 할 수 있습니다. 또는 Oracle 데이터베이스 관리 도구인 SQL Developer 등 다른 도구를 사용할 수도 있습니다.
@@ -64,23 +62,23 @@ Oracle 데이터베이스의 백업 및 복원 작업을 수행하려면 DBeaver
 > 쿼리에서 하는 방법은 없나?
 
 ## ChatGPT 응답:
-> 네, DBeaver를 사용하여 Oracle 데이터베이스의 백업 및 복원을 수행할 수 있습니다. Oracle 데이터베이스에서는 `expdp` 및 `impdp` 유틸리티를 사용하여 백업 및 복원 작업을 수행하는 것이 일반적입니다. 이를 DBeaver의 쿼리 창을 통해 실행할 수 있습니다.
+> 네, DBeaver를 사용하여 Oracle 데이터베이스의 백업 및 복원을 수행할 수 있습니다. Oracle 데이터베이스에서는 {% raw %}`expdp`{% endraw %} 및 {% raw %}`impdp`{% endraw %} 유틸리티를 사용하여 백업 및 복원 작업을 수행하는 것이 일반적입니다. 이를 DBeaver의 쿼리 창을 통해 실행할 수 있습니다.
 
-Oracle 데이터베이스의 백업을 수행하기 위해 `expdp` 명령을 사용할 수 있습니다. 예를 들어, 다음 쿼리를 실행하여 백업 파일을 생성할 수 있습니다:
+Oracle 데이터베이스의 백업을 수행하기 위해 {% raw %}`expdp`{% endraw %} 명령을 사용할 수 있습니다. 예를 들어, 다음 쿼리를 실행하여 백업 파일을 생성할 수 있습니다:
 
-```
+{% raw %}```
 expdp username/password@hostname:port/service_name DUMPFILE='backup.dmp' FULL=YES
-```
+```{% endraw %}
 
-위 쿼리에서 `username`, `password`, `hostname`, `port`, `service_name`은 실제 Oracle 데이터베이스에 연결할 때 사용하는 정보로 대체되어야 합니다. `DUMPFILE`은 백업 파일의 경로와 이름을 지정합니다. `FULL=YES`는 전체 데이터베이스 백업을 수행함을 의미합니다.
+위 쿼리에서 {% raw %}`username`{% endraw %}, {% raw %}`password`{% endraw %}, {% raw %}`hostname`{% endraw %}, {% raw %}`port`{% endraw %}, {% raw %}`service_name`{% endraw %}은 실제 Oracle 데이터베이스에 연결할 때 사용하는 정보로 대체되어야 합니다. {% raw %}`DUMPFILE`{% endraw %}은 백업 파일의 경로와 이름을 지정합니다. {% raw %}`FULL=YES`{% endraw %}는 전체 데이터베이스 백업을 수행함을 의미합니다.
 
-백업 파일을 사용하여 Oracle 데이터베이스를 복원하려면 `impdp` 명령을 사용할 수 있습니다. 예를 들어, 다음 쿼리를 실행하여 백업 파일로부터 데이터베이스를 복원할 수 있습니다:
+백업 파일을 사용하여 Oracle 데이터베이스를 복원하려면 {% raw %}`impdp`{% endraw %} 명령을 사용할 수 있습니다. 예를 들어, 다음 쿼리를 실행하여 백업 파일로부터 데이터베이스를 복원할 수 있습니다:
 
-```
+{% raw %}```
 impdp username/password@hostname:port/service_name DUMPFILE='backup.dmp' FULL=YES
-```
+```{% endraw %}
 
-위 쿼리에서도 마찬가지로 `username`, `password`, `hostname`, `port`, `service_name`은 실제 Oracle 데이터베이스에 연결할 때 사용하는 정보로 대체되어야 합니다. `DUMPFILE`은 백업 파일의 경로와 이름을 지정합니다. `FULL=YES`는 전체 데이터베이스 복원을 수행함을 의미합니다.
+위 쿼리에서도 마찬가지로 {% raw %}`username`{% endraw %}, {% raw %}`password`{% endraw %}, {% raw %}`hostname`{% endraw %}, {% raw %}`port`{% endraw %}, {% raw %}`service_name`{% endraw %}은 실제 Oracle 데이터베이스에 연결할 때 사용하는 정보로 대체되어야 합니다. {% raw %}`DUMPFILE`{% endraw %}은 백업 파일의 경로와 이름을 지정합니다. {% raw %}`FULL=YES`{% endraw %}는 전체 데이터베이스 복원을 수행함을 의미합니다.
 
 DBeaver의 쿼리 창에서 위의 쿼리를 실행하여 Oracle 데이터베이스의 백업 및 복원 작업을 수행할 수 있습니다.
 
@@ -88,9 +86,9 @@ DBeaver의 쿼리 창에서 위의 쿼리를 실행하여 Oracle 데이터베이
 > 위에 실행 하면 , SQL Error [900] [42000]: ORA-00900: SQL 문이 부적합합니다 
 
 ## ChatGPT 응답:
-> 죄송합니다. 위의 쿼리는 실제 Oracle 데이터베이스에서 실행될 때 적합하지 않은 형식의 쿼리일 수 있습니다. Oracle 데이터베이스에서 백업 및 복원 작업을 수행하기 위해서는 `expdp`와 `impdp` 유틸리티를 사용해야 합니다. DBeaver의 쿼리 창에서 직접 실행하는 방식으로는 제한적인 작업만 가능합니다.
+> 죄송합니다. 위의 쿼리는 실제 Oracle 데이터베이스에서 실행될 때 적합하지 않은 형식의 쿼리일 수 있습니다. Oracle 데이터베이스에서 백업 및 복원 작업을 수행하기 위해서는 {% raw %}`expdp`{% endraw %}와 {% raw %}`impdp`{% endraw %} 유틸리티를 사용해야 합니다. DBeaver의 쿼리 창에서 직접 실행하는 방식으로는 제한적인 작업만 가능합니다.
 
-Oracle 데이터베이스의 백업 및 복원을 위해서는 일반적으로 명령 프롬프트 또는 터미널에서 `expdp`와 `impdp` 명령을 실행해야 합니다. 이러한 명령은 DBeaver의 쿼리 창에서 실행되지 않습니다.
+Oracle 데이터베이스의 백업 및 복원을 위해서는 일반적으로 명령 프롬프트 또는 터미널에서 {% raw %}`expdp`{% endraw %}와 {% raw %}`impdp`{% endraw %} 명령을 실행해야 합니다. 이러한 명령은 DBeaver의 쿼리 창에서 실행되지 않습니다.
 
-따라서 Oracle 데이터베이스의 백업 및 복원 작업을 위해서는 DBeaver 외에도 Oracle의 공식 도구인 SQL*Plus, SQL Developer 등을 활용하시는 것이 좋습니다. 이러한 도구들은 `expdp`와 `impdp` 명령을 직접 실행할 수 있는 기능을 제공합니다.
+따라서 Oracle 데이터베이스의 백업 및 복원 작업을 위해서는 DBeaver 외에도 Oracle의 공식 도구인 SQL*Plus, SQL Developer 등을 활용하시는 것이 좋습니다. 이러한 도구들은 {% raw %}`expdp`{% endraw %}와 {% raw %}`impdp`{% endraw %} 명령을 직접 실행할 수 있는 기능을 제공합니다.
 

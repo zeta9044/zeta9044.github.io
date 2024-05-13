@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Oracle INSERT 문자열 길이"
-date: 2023-02-23
-tags: [길이, Oracle, INSERT, 문자열]
-categories: blog
+tags: [INSERT, 문자열, Oracle, 길이]
 ---
 
 ## 사용자 입력:
@@ -26,7 +24,7 @@ CLOB 데이터 타입의 열을 만들고 INSERT INTO VALUES 문으로 해당 �
 
 아래는 CLOB 데이터 타입의 열에 4GB 크기의 문자열을 삽입하는 예제입니다.
 
-```
+{% raw %}```
 DECLARE
   my_clob CLOB;
 BEGIN
@@ -34,7 +32,7 @@ BEGIN
   INSERT INTO my_table (clob_column) VALUES (my_clob); -- CLOB 변수를 이용하여 INSERT INTO VALUES 문 작성
 END;
 /
-``` 
+```{% endraw %} 
 
 위 예제에서는 my_table이라는 테이블의 clob_column 열에 my_clob 변수를 삽입하는 INSERT INTO VALUES 문을 사용하고 있습니다. 이때, my_clob 변수에는 4GB 이내의 문자열 데이터가 할당되어 있어야 합니다.
 
@@ -48,7 +46,7 @@ TO_CLOB 함수는 VARCHAR2 또는 CLOB 데이터 타입의 값을 CLOB 데이터
 
 아래는 TO_CLOB 함수를 사용하여 VARCHAR2 데이터 타입의 값을 CLOB 데이터 타입으로 변환하는 예제입니다.
 
-```
+{% raw %}```
 DECLARE
   my_varchar2 VARCHAR2(4000) := 'This is a test string';
   my_clob CLOB;
@@ -57,7 +55,7 @@ BEGIN
   -- 이후에는 CLOB 변수를 사용하여 열에 값을 삽입하거나 수정할 수 있습니다.
 END;
 /
-```
+```{% endraw %}
 
 위 예제에서는 TO_CLOB 함수를 사용하여 my_varchar2 변수에 할당된 VARCHAR2 값을 CLOB 데이터 타입으로 변환하고, 이를 my_clob 변수에 할당하고 있습니다. 이후에는 my_clob 변수를 사용하여 CLOB 데이터 타입의 열에 값을 삽입하거나 수정할 수 있습니다.
 

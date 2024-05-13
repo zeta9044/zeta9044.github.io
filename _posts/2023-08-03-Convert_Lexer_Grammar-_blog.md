@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Convert Lexer Grammar."
-date: 2023-08-03
-tags: [Grammar, Lexer, Convert]
-categories: blog
+tags: [Convert, Grammar, Lexer]
 ---
 
 ## 사용자 입력:
@@ -421,7 +419,7 @@ LineComment: '//' ~ [\r\n]* -> skip;
 ## ChatGPT 응답:
 > The JavaCC token specification for your given ANTLR lexer grammar might look something like this:
 
-```java
+{% raw %}```java
 TOKEN: {
   < DECIMAL_LITERAL: <NONZERO_DIGIT> (<DIGIT>)* (<INTEGER_SUFFIX>)? >
 | < OCTAL_LITERAL: "0" (<OCTAL_DIGIT>)* (<INTEGER_SUFFIX>)? >
@@ -464,13 +462,13 @@ TOKEN: {
 SKIP: {
   " " | "\t" | "\n" | "\r" | <"/*" (~["*"])* "*" (~["/"])* "/"> | "//" (~["\n","\r"])*
 }
-```
+```{% endraw %}
 
-Please note that you will need to define the helper tokens for `INTEGER_SUFFIX`, `CCHAR_SEQUENCE`, `FRACTIONAL_CONSTANT`, `EXPONENT_PART`, `ENCODING_PREFIX`, `S_CHAR_SEQUENCE`, `RAWSTRING`, `USER_DEFINED_INTEGER_LITERAL`, `USER_DEFINED_FLOATING_LITERAL`, `USER_DEFINED_STRING_LITERAL`, `USER_DEFINED_CHARACTER_LITERAL`, `IDENTIFIER_NON_DIGIT` and others as these are not provided in the lexer grammar you have provided. This is just a basic conversion and might need to be adjusted based on the full grammar and specific needs of your parser in JavaCC. 
+Please note that you will need to define the helper tokens for {% raw %}`INTEGER_SUFFIX`{% endraw %}, {% raw %}`CCHAR_SEQUENCE`{% endraw %}, {% raw %}`FRACTIONAL_CONSTANT`{% endraw %}, {% raw %}`EXPONENT_PART`{% endraw %}, {% raw %}`ENCODING_PREFIX`{% endraw %}, {% raw %}`S_CHAR_SEQUENCE`{% endraw %}, {% raw %}`RAWSTRING`{% endraw %}, {% raw %}`USER_DEFINED_INTEGER_LITERAL`{% endraw %}, {% raw %}`USER_DEFINED_FLOATING_LITERAL`{% endraw %}, {% raw %}`USER_DEFINED_STRING_LITERAL`{% endraw %}, {% raw %}`USER_DEFINED_CHARACTER_LITERAL`{% endraw %}, {% raw %}`IDENTIFIER_NON_DIGIT`{% endraw %} and others as these are not provided in the lexer grammar you have provided. This is just a basic conversion and might need to be adjusted based on the full grammar and specific needs of your parser in JavaCC. 
 
 Also note that JavaCC doesn't have built-in support for channels or modes in lexer like ANTLR does. You will need to handle this differently in JavaCC if your lexer grammar uses these features.
 
-Please replace all `...` with the corresponding lines from your provided lexer grammar.
+Please replace all {% raw %}`...`{% endraw %} with the corresponding lines from your provided lexer grammar.
 
 ## 사용자 입력:
 > 한글로 설명해줄래.
@@ -478,7 +476,7 @@ Please replace all `...` with the corresponding lines from your provided lexer g
 ## ChatGPT 응답:
 > 안녕하세요, 여러분이 제공한 ANTLR 렉서 문법을 JavaCC 토큰 명세로 변환하는 것은 다음과 같이 이루어집니다:
 
-```java
+{% raw %}```java
 TOKEN: {
   < DECIMAL_LITERAL: <NONZERO_DIGIT> (<DIGIT>)* (<INTEGER_SUFFIX>)? >
 | < OCTAL_LITERAL: "0" (<OCTAL_DIGIT>)* (<INTEGER_SUFFIX>)? >
@@ -521,13 +519,13 @@ TOKEN: {
 SKIP: {
   " " | "\t" | "\n" | "\r" | <"/*" (~["*"])* "*" (~["/"])* "/"> | "//" (~["\n","\r"])*
 }
-```
+```{% endraw %}
 
-이러한 변환을 수행하면서, `INTEGER_SUFFIX`, `CCHAR_SEQUENCE`, `FRACTIONAL_CONSTANT`, `EXPONENT_PART`, `ENCODING_PREFIX`, `S_CHAR_SEQUENCE`, `RAWSTRING`, `USER_DEFINED_INTEGER_LITERAL`, `USER_DEFINED_FLOATING_LITERAL`, `USER_DEFINED_STRING_LITERAL`, `USER_DEFINED_CHARACTER_LITERAL`, `IDENTIFIER_NON_DIGIT` 등과 같은 도우미 토큰도 정의해야 할 필요가 있습니다. 이 토큰들은 제공된 렉서 문법에 포함되어 있지 않았습니다. 이것은 기본적인 변환일 뿐이며, 전체 문법과 JavaCC 파서의 특정 요구에 따라 조정해야 할 수 있습니다.
+이러한 변환을 수행하면서, {% raw %}`INTEGER_SUFFIX`{% endraw %}, {% raw %}`CCHAR_SEQUENCE`{% endraw %}, {% raw %}`FRACTIONAL_CONSTANT`{% endraw %}, {% raw %}`EXPONENT_PART`{% endraw %}, {% raw %}`ENCODING_PREFIX`{% endraw %}, {% raw %}`S_CHAR_SEQUENCE`{% endraw %}, {% raw %}`RAWSTRING`{% endraw %}, {% raw %}`USER_DEFINED_INTEGER_LITERAL`{% endraw %}, {% raw %}`USER_DEFINED_FLOATING_LITERAL`{% endraw %}, {% raw %}`USER_DEFINED_STRING_LITERAL`{% endraw %}, {% raw %}`USER_DEFINED_CHARACTER_LITERAL`{% endraw %}, {% raw %}`IDENTIFIER_NON_DIGIT`{% endraw %} 등과 같은 도우미 토큰도 정의해야 할 필요가 있습니다. 이 토큰들은 제공된 렉서 문법에 포함되어 있지 않았습니다. 이것은 기본적인 변환일 뿐이며, 전체 문법과 JavaCC 파서의 특정 요구에 따라 조정해야 할 수 있습니다.
 
 또한 ANTLR이 지원하는 렉서의 채널이나 모드와 같은 기능은 JavaCC에 내장되어 있지 않습니다. JavaCC에서는 이러한 기능을 다르게 처리해야 합니다.
 
-`...`을 여러분이 제공한 렉서 문법의 해당하는 라인으로 교체해 주세요.
+{% raw %}`...`{% endraw %}을 여러분이 제공한 렉서 문법의 해당하는 라인으로 교체해 주세요.
 
 ## 사용자 입력:
 >  다음은 antlr4 렉서내용중 일부인데, 무슨 뜻인지 해석해줘. IntegerLiteral:
@@ -537,14 +535,14 @@ SKIP: {
 	| BinaryLiteral Integersuffix?;
 
 ## ChatGPT 응답:
-> 이 `IntegerLiteral` 레귤레이션(rule)은 정수 리터럴을 어떻게 인식하는지에 대한 규칙을 정의합니다. 정수 리터럴은 여기서 네 가지의 서로 다른 방식으로 표현될 수 있음을 나타냅니다. 
+> 이 {% raw %}`IntegerLiteral`{% endraw %} 레귤레이션(rule)은 정수 리터럴을 어떻게 인식하는지에 대한 규칙을 정의합니다. 정수 리터럴은 여기서 네 가지의 서로 다른 방식으로 표현될 수 있음을 나타냅니다. 
 
-- `DecimalLiteral Integersuffix?` : 이 부분은 10진수(decimal) 정수 리터럴을 나타냅니다. `Integersuffix?`는 선택적으로 존재할 수 있는 정수 접미사(integer suffix)를 의미하며, 이것은 정수 리터럴의 타입을 나타냅니다 (예: long, unsigned).
-- `OctalLiteral Integersuffix?` : 이 부분은 8진수(octal) 정수 리터럴을 나타냅니다. 
-- `HexadecimalLiteral Integersuffix?` : 이 부분은 16진수(hexadecimal) 정수 리터럴을 나타냅니다.
-- `BinaryLiteral Integersuffix?` : 이 부분은 이진수(binary) 정수 리터럴을 나타냅니다.
+- {% raw %}`DecimalLiteral Integersuffix?`{% endraw %} : 이 부분은 10진수(decimal) 정수 리터럴을 나타냅니다. {% raw %}`Integersuffix?`{% endraw %}는 선택적으로 존재할 수 있는 정수 접미사(integer suffix)를 의미하며, 이것은 정수 리터럴의 타입을 나타냅니다 (예: long, unsigned).
+- {% raw %}`OctalLiteral Integersuffix?`{% endraw %} : 이 부분은 8진수(octal) 정수 리터럴을 나타냅니다. 
+- {% raw %}`HexadecimalLiteral Integersuffix?`{% endraw %} : 이 부분은 16진수(hexadecimal) 정수 리터럴을 나타냅니다.
+- {% raw %}`BinaryLiteral Integersuffix?`{% endraw %} : 이 부분은 이진수(binary) 정수 리터럴을 나타냅니다.
 
-`Integersuffix?`에서의 물음표는 해당 요소가 선택적임을 의미합니다. 즉, 정수 리터럴 뒤에 접미사가 있을 수도 있고 없을 수도 있습니다.
+{% raw %}`Integersuffix?`{% endraw %}에서의 물음표는 해당 요소가 선택적임을 의미합니다. 즉, 정수 리터럴 뒤에 접미사가 있을 수도 있고 없을 수도 있습니다.
 
 ## 사용자 입력:
 > 이부분만 IntegerLiteral:
@@ -556,7 +554,7 @@ SKIP: {
 ## ChatGPT 응답:
 > JavaCC 문법을 사용하여 위 ANTLR4 레귤레이션을 토큰으로 변환하면 다음과 같습니다. 
 
-```java
+{% raw %}```java
 TOKEN :
 {
     < DECIMAL_LITERAL: <NONZERODIGIT> (["0"-"9"])* (<INTEGER_SUFFIX>)? >
@@ -569,11 +567,11 @@ TOKEN :
 {
   < INTEGER_SUFFIX: ["l", "L", "u", "U"] >
 }
-```
+```{% endraw %}
 
-참고로 `NONZERODIGIT`은 `["1"-"9"]`를 의미하며, `INTEGER_SUFFIX` 는 접미사로 사용되는 'l', 'L', 'u', 'U' 중 하나를 의미합니다.
+참고로 {% raw %}`NONZERODIGIT`{% endraw %}은 {% raw %}`["1"-"9"]`{% endraw %}를 의미하며, {% raw %}`INTEGER_SUFFIX`{% endraw %} 는 접미사로 사용되는 'l', 'L', 'u', 'U' 중 하나를 의미합니다.
 
-참고: JavaCC에서는 토큰 이름을 대문자로 쓰는 것이 일반적입니다. 그리고 문자 클래스 표현은 ANTLR4와 다르게 `["0"-"9"]`와 같은 방식으로 표현합니다. ANTLR4의 `*`는 JavaCC에서는 `()` 안에 들어가 있습니다. 예를 들어, `["0"-"9"]*`라고 쓰면 됩니다. 그리고 ANTLR4의 `?`는 JavaCC에서는 `()` 안에 들어가 있습니다. 예를 들어, `( <INTEGER_SUFFIX> )?`라고 쓰면 됩니다.
+참고: JavaCC에서는 토큰 이름을 대문자로 쓰는 것이 일반적입니다. 그리고 문자 클래스 표현은 ANTLR4와 다르게 {% raw %}`["0"-"9"]`{% endraw %}와 같은 방식으로 표현합니다. ANTLR4의 {% raw %}`*`{% endraw %}는 JavaCC에서는 {% raw %}`()`{% endraw %} 안에 들어가 있습니다. 예를 들어, {% raw %}`["0"-"9"]*`{% endraw %}라고 쓰면 됩니다. 그리고 ANTLR4의 {% raw %}`?`{% endraw %}는 JavaCC에서는 {% raw %}`()`{% endraw %} 안에 들어가 있습니다. 예를 들어, {% raw %}`( <INTEGER_SUFFIX> )?`{% endraw %}라고 쓰면 됩니다.
 
 ## 사용자 입력:
 > 좋은데, 명칭은 제시한 내용을 바탕으로 만들어주면 안돼?
@@ -581,7 +579,7 @@ TOKEN :
 ## ChatGPT 응답:
 > 네, 그렇다면 제공하신 내용을 기반으로 JavaCC 토큰 문법을 작성해봤습니다:
 
-```java
+{% raw %}```java
 TOKEN :
 {
     < DECIMAL_LITERAL: <NONZERODIGIT> (["0"-"9"])* (<INTEGER_SUFFIX>)? >
@@ -599,17 +597,17 @@ TOKEN :
 {
   < NONZERODIGIT: ["1"-"9"] >
 }
-```
+```{% endraw %}
 
-참고로 `NONZERODIGIT`는 `["1"-"9"]`를 의미하며, `INTEGER_SUFFIX` 는 접미사로 사용되는 'l', 'L', 'u', 'U' 중 하나를 의미합니다.
+참고로 {% raw %}`NONZERODIGIT`{% endraw %}는 {% raw %}`["1"-"9"]`{% endraw %}를 의미하며, {% raw %}`INTEGER_SUFFIX`{% endraw %} 는 접미사로 사용되는 'l', 'L', 'u', 'U' 중 하나를 의미합니다.
 
 ## 사용자 입력:
 > IntergerLiteral은 어디간거야?
 
 ## ChatGPT 응답:
-> 죄송합니다, `IntegerLiteral`을 포함하도록 수정한 JavaCC 토큰 문법은 다음과 같습니다:
+> 죄송합니다, {% raw %}`IntegerLiteral`{% endraw %}을 포함하도록 수정한 JavaCC 토큰 문법은 다음과 같습니다:
 
-```java
+{% raw %}```java
 TOKEN :
 {
   < INTEGER_LITERAL: <DECIMAL_LITERAL> | <OCTAL_LITERAL> | <HEXADECIMAL_LITERAL> | <BINARY_LITERAL> >
@@ -632,7 +630,7 @@ TOKEN :
 {
   < NONZERODIGIT: ["1"-"9"] >
 }
-```
+```{% endraw %}
 
-여기서 `INTEGER_LITERAL`은 `DECIMAL_LITERAL`, `OCTAL_LITERAL`, `HEXADECIMAL_LITERAL`, 또는 `BINARY_LITERAL` 중 하나를 의미합니다.
+여기서 {% raw %}`INTEGER_LITERAL`{% endraw %}은 {% raw %}`DECIMAL_LITERAL`{% endraw %}, {% raw %}`OCTAL_LITERAL`{% endraw %}, {% raw %}`HEXADECIMAL_LITERAL`{% endraw %}, 또는 {% raw %}`BINARY_LITERAL`{% endraw %} 중 하나를 의미합니다.
 

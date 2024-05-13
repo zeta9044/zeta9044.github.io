@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Python OCR 프로그램"
-date: 2023-03-29
-tags: [Python, OCR, 프로그램]
-categories: blog
+tags: [프로그램, Python, OCR]
 ---
 
 ## 사용자 입력:
@@ -14,26 +12,26 @@ categories: blog
 
 먼저, pytesseract 라이브러리를 설치해야 합니다. 다음 명령어를 사용하여 설치할 수 있습니다.
 
-```python
+{% raw %}```python
 !pip install pytesseract
-```
+```{% endraw %}
 
 그런 다음, PIL (Python Imaging Library) 또는 Pillow 라이브러리를 사용하여 이미지를 불러옵니다. 다음은 예시 이미지를 불러오는 코드입니다.
 
-```python
+{% raw %}```python
 from PIL import Image
 
 image = Image.open('example.jpg')
-```
+```{% endraw %}
 
 이제 pytesseract 라이브러리를 사용하여 이미지에서 텍스트를 추출할 수 있습니다. 다음은 예시 코드입니다.
 
-```python
+{% raw %}```python
 import pytesseract
 
 text = pytesseract.image_to_string(image)
 print(text)
-```
+```{% endraw %}
 
 이 코드를 실행하면 이미지에서 추출한 텍스트가 출력됩니다. 단순히 텍스트를 출력하는 것 외에도, 텍스트를 다른 방식으로 처리하거나 저장할 수 있습니다. 이를 위해서는 파이썬의 문자열 처리 및 파일 입출력 등에 대한 지식이 필요합니다.
 
@@ -64,22 +62,22 @@ TypeError: Unsupported image format/type
 
 2. Pillow 라이브러리를 사용하여 이미지를 불러올 때, 이미지의 형식과 타입을 지정합니다. 다음은 예시입니다.
 
-```python
+{% raw %}```python
 from PIL import Image
 
 image = Image.open('example.jpg').convert('RGB')
-```
+```{% endraw %}
 
 이미지 파일의 형식이 JPEG인 경우, Pillow에서는 이미지를 RGB 모드로 변환해야 합니다. 
 
 3. pytesseract.image_to_string() 함수에서 lang 옵션을 사용하여 언어를 지정합니다. 다음은 예시입니다.
 
-```python
+{% raw %}```python
 import pytesseract
 
 text = pytesseract.image_to_string(image, lang='eng')
 print(text)
-```
+```{% endraw %}
 
 이미지에 있는 텍스트가 영어로 된 경우, lang 옵션을 사용하여 언어를 지정하면 OCR 결과가 개선될 수 있습니다. 
 
@@ -93,20 +91,20 @@ print(text)
 
 다음은 한글과 영어가 섞여 있는 이미지에서 언어 감지 기능을 사용하여 OCR을 수행하는 예시 코드입니다.
 
-```python
+{% raw %}```python
 import pytesseract
 from PIL import Image
 
 image = Image.open('example.jpg').convert('RGB')
 text = pytesseract.image_to_string(image, lang='kor+eng')
 print(text)
-```
+```{% endraw %}
 
 lang 옵션을 'kor+eng'로 지정하여, 이미지에 있는 한글과 영어를 함께 인식할 수 있도록 합니다. 이렇게 하면 pytesseract에서 자동으로 언어 감지를 수행하고, 한글과 영어를 함께 인식할 수 있습니다.
 
 하지만 언어 감지 기능이 제대로 작동하지 않는 경우도 있습니다. 이 경우에는 각각의 언어를 따로 OCR을 수행하는 방법도 있습니다. 이 경우에는 다음과 같이 lang 옵션을 각각의 언어 코드로 지정합니다.
 
-```python
+{% raw %}```python
 import pytesseract
 from PIL import Image
 
@@ -115,7 +113,7 @@ text_kor = pytesseract.image_to_string(image, lang='kor')
 text_eng = pytesseract.image_to_string(image, lang='eng')
 print(text_kor)
 print(text_eng)
-```
+```{% endraw %}
 
 이렇게 하면 각각의 언어에 맞게 OCR을 수행할 수 있습니다.
 
@@ -151,11 +149,11 @@ https://github.com/UB-Mannheim/tesseract/wiki
 
 다음으로, pytesseract가 Tesseract OCR을 참조할 수 있도록 설정해야 합니다. 다음과 같이 pytesseract.pytesseract.tesseract_cmd 경로를 Tesseract OCR 설치 경로로 설정하면 됩니다. 
 
-```python
+{% raw %}```python
 import pytesseract
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
-```
+```{% endraw %}
 
 위와 같이 설정을 하면, pytesseract에서 Tesseract OCR 엔진을 정상적으로 참조할 수 있습니다.
 
@@ -167,7 +165,7 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tessera
 
 OCR 과정은 pytesseract를 사용하여 이미지에서 텍스트를 추출할 수 있습니다. 이미지에서 텍스트 추출을 위한 코드는 다음과 같습니다.
 
-```python
+{% raw %}```python
 import pytesseract
 from PIL import Image
 
@@ -176,13 +174,13 @@ image = Image.open('example.jpg')
 
 # 이미지에서 텍스트 추출
 text = pytesseract.image_to_string(image)
-```
+```{% endraw %}
 
 이제 추출된 텍스트를 파싱하여 XML 형식으로 변환해야 합니다. 추출된 텍스트는 텍스트 파일이나 문자열 형식으로 저장될 수 있습니다. 
 
 예를 들어, 추출된 텍스트를 문자열 형식으로 저장하고, 이를 xml.etree.ElementTree 모듈을 사용하여 XML 형식으로 변환할 수 있습니다. 다음은 예시 코드입니다.
 
-```python
+{% raw %}```python
 import xml.etree.ElementTree as ET
 
 # 추출된 텍스트를 문자열 형식으로 저장
@@ -196,13 +194,13 @@ xml_string = ET.tostring(root, encoding='utf8', method='xml').decode()
 
 # XML 형식으로 변환된 문자열 출력
 print(xml_string)
-```
+```{% endraw %}
 
 이 코드를 실행하면 다음과 같은 결과가 출력됩니다.
 
-```xml
+{% raw %}```xml
 <root><data>Hello, world!</data></root>
-```
+```{% endraw %}
 
 이와 같이 pytesseract를 사용하여 이미지에서 텍스트를 추출한 후, 추출된 텍스트를 XML 형식으로 변환할 수 있습니다.
 
@@ -230,11 +228,11 @@ print(xml_string)
 >  pytesseract을 사용하여 이미지에서 텍스트를 추출한 후, XML에 사용될 수 있는 특수기호를 인식하고 포함시키는 작업은 별도로 수행해야 합니다. 이거 어떻게 하는 거야?
 
 ## ChatGPT 응답:
-> 추출된 텍스트에서 XML에 사용될 수 있는 특수기호를 인식하고 포함시키는 작업은 문자열 처리 함수를 사용하여 수행할 수 있습니다. 예를 들어, Python의 내장 함수인 `replace()` 함수를 사용하여 문자열에서 특정 문자를 다른 문자로 대체할 수 있습니다.
+> 추출된 텍스트에서 XML에 사용될 수 있는 특수기호를 인식하고 포함시키는 작업은 문자열 처리 함수를 사용하여 수행할 수 있습니다. 예를 들어, Python의 내장 함수인 {% raw %}`replace()`{% endraw %} 함수를 사용하여 문자열에서 특정 문자를 다른 문자로 대체할 수 있습니다.
 
 다음은 pytesseract로 이미지에서 추출한 텍스트에서 XML에 사용될 수 없는 특수문자를 대체하여 XML에 적합한 형태로 변환하는 예시 코드입니다.
 
-```python
+{% raw %}```python
 import re
 
 # pytesseract로 이미지에서 텍스트 추출
@@ -245,9 +243,9 @@ text = re.sub('[^0-9a-zA-Zㄱ-힣\s\.\?\!,\;:\-\(\)]+', ' ', text)
 
 # 변환된 텍스트 출력
 print(text)
-```
+```{% endraw %}
 
-위 코드에서 `re.sub()` 함수는 정규 표현식을 사용하여 텍스트에서 XML에 사용될 수 없는 특수문자를 대체합니다. `[^0-9a-zA-Zㄱ-힣\s\.\?\!,\;:\-\(\)]+`는 특수문자를 제외한 문자, 숫자, 한글, 공백, 특정 기호들을 허용하도록 정규 표현식을 설정한 것입니다. 대체된 텍스트는 XML에 적합한 형태로 변환됩니다.
+위 코드에서 {% raw %}`re.sub()`{% endraw %} 함수는 정규 표현식을 사용하여 텍스트에서 XML에 사용될 수 없는 특수문자를 대체합니다. {% raw %}`[^0-9a-zA-Zㄱ-힣\s\.\?\!,\;:\-\(\)]+`{% endraw %}는 특수문자를 제외한 문자, 숫자, 한글, 공백, 특정 기호들을 허용하도록 정규 표현식을 설정한 것입니다. 대체된 텍스트는 XML에 적합한 형태로 변환됩니다.
 
 이렇게 변환된 텍스트를 XML 형식에 맞게 파싱하면, 이미지에서 추출한 텍스트를 XML로 변환할 수 있습니다.
 
@@ -259,32 +257,32 @@ print(text)
 
 먼저, pytesseract 라이브러리와 PIL(Python Imaging Library) 라이브러리를 import합니다. 그리고 이미지 파일을 열어서 PIL 이미지 객체로 변환합니다.
 
-```python
+{% raw %}```python
 import pytesseract
 from PIL import Image
 
 image = Image.open('example.jpg').convert('RGB')
-```
+```{% endraw %}
 
-이제 pytesseract 라이브러리의 `image_to_string()` 함수를 사용하여 이미지에서 텍스트를 추출합니다. lang 옵션을 'kor+eng'로 지정하여 한글과 영어를 모두 추출할 수 있도록 합니다.
+이제 pytesseract 라이브러리의 {% raw %}`image_to_string()`{% endraw %} 함수를 사용하여 이미지에서 텍스트를 추출합니다. lang 옵션을 'kor+eng'로 지정하여 한글과 영어를 모두 추출할 수 있도록 합니다.
 
-```python
+{% raw %}```python
 text = pytesseract.image_to_string(image, lang='kor+eng')
-```
+```{% endraw %}
 
-다음으로, 추출된 텍스트에서 XML에 사용될 수 없는 특수문자를 대체하여 XML에 적합한 형태로 변환합니다. 다음 코드는 정규 표현식을 사용하여 특수문자를 제외한 문자, 숫자, 한글, 공백, 특정 기호들을 허용하도록 정규 표현식을 설정한 후, `re.sub()` 함수를 사용하여 특수문자를 제거합니다.
+다음으로, 추출된 텍스트에서 XML에 사용될 수 없는 특수문자를 대체하여 XML에 적합한 형태로 변환합니다. 다음 코드는 정규 표현식을 사용하여 특수문자를 제외한 문자, 숫자, 한글, 공백, 특정 기호들을 허용하도록 정규 표현식을 설정한 후, {% raw %}`re.sub()`{% endraw %} 함수를 사용하여 특수문자를 제거합니다.
 
-```python
+{% raw %}```python
 import re
 
 text = re.sub('[^0-9a-zA-Zㄱ-힣\s\.\?\!,\;:\-\(\)]+', ' ', text)
-```
+```{% endraw %}
 
 이제 변환된 텍스트를 XML 형식에 맞게 파싱하면, 이미지에서 추출한 텍스트를 XML로 변환할 수 있습니다.
 
 전체 코드는 다음과 같습니다.
 
-```python
+{% raw %}```python
 import pytesseract
 from PIL import Image
 import re
@@ -307,7 +305,7 @@ xml_string = ET.tostring(root, encoding='utf8', method='xml').decode()
 
 # XML 형식으로 변환된 문자열 출력
 print(xml_string)
-```
+```{% endraw %}
 
 이 코드를 실행하면, 이미지에서 추출한 텍스트를 XML 형식으로 변환한 결과가 출력됩니다.
 
@@ -396,13 +394,13 @@ Snip & Sketch를 사용하여 화면을 캡처하는 방법은 다음과 같습�
 
 먼저, OpenCV를 설치해야 합니다. 아래 명령어를 사용하여 OpenCV를 설치할 수 있습니다.
 
-```
+{% raw %}```
 pip install opencv-python
-```
+```{% endraw %}
 
 설치가 완료되면, 아래 코드를 참고하여 이미지 세그멘테이션을 수행할 수 있습니다.
 
-``` python
+{% raw %}``` python
 import cv2
 
 # 이미지 로드
@@ -425,7 +423,7 @@ for contour in contours:
 
 # 결과 이미지 저장
 cv2.imwrite('result.jpg', img)
-```
+```{% endraw %}
 
 위 코드는 이미지에서 이진화, 엣지 검출, 컨투어 검출을 수행한 후, 각 컨투어를 감싸는 사각형을 그려주는 예시 코드입니다. 이 코드를 활용하여 원하는 이미지 세그멘테이션을 수행할 수 있습니다. 이후, 세그멘테이션된 이미지를 OCR 엔진에 전달하여 텍스트를 추출하면, OCR의 인식율을 향상시킬 수 있습니다.
 
@@ -439,7 +437,7 @@ cv2.imwrite('result.jpg', img)
 
 이미지 필터링을 수행하는 방법에는 다양한 기술들이 있습니다. 그 중에서도 OpenCV를 사용하여 이미지 필터링을 수행하는 예시 코드를 작성해보겠습니다.
 
-``` python
+{% raw %}``` python
 import cv2
 
 # 이미지 로드
@@ -456,7 +454,7 @@ thresh = cv2.threshold(blurred, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
 
 # 결과 이미지 저장
 cv2.imwrite('result.jpg', thresh)
-```
+```{% endraw %}
 
 위 코드는 이미지에서 그레이스케일 변환 후 가우시안 블러 필터링을 수행하고, 이진화를 수행하여 결과 이미지를 저장하는 예시 코드입니다.
 

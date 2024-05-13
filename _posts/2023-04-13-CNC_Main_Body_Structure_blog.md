@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "CNC Main Body Structure"
-date: 2023-04-13
-tags: [Body, CNC, Structure, Main]
-categories: blog
+tags: [CNC, Main, Body, Structure]
 ---
 
 ## 사용자 입력:

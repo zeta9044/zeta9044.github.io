@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "EU FTA 관세 면제"
-date: 2024-03-04
-tags: [EU, 관세, FTA, 면제]
-categories: blog
+tags: [FTA, 면제, 관세, EU]
 ---
 
 ## 사용자 입력:

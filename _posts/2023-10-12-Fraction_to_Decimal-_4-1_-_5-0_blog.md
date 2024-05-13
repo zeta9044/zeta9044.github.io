@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Fraction to Decimal: 4/1 = 5.0"
-date: 2023-10-12
-tags: [Decimal, Fraction, to]
-categories: blog
+title: "Fraction to Decimal - 4/1 = 5.0"
+tags: [to, Decimal, Fraction]
 ---
 
 ## 사용자 입력:

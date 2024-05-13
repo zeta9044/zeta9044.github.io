@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "JSqlParser 유형 식별"
-date: 2024-02-27
-tags: [유형, 식별, JSqlParser]
-categories: blog
+tags: [JSqlParser, 유형, 식별]
 ---
 
 ## 사용자 입력:
@@ -14,7 +12,7 @@ categories: blog
 
 다음은 JSqlParser를 사용하여 문자열이 어떤 유형의 SQL인지 확인하는 간단한 Java 코드의 예시입니다. 이 코드는 SQL 문의 첫 번째 토큰을 가져와서 해당 토큰이 어떤 유형인지 확인합니다.
 
-```java
+{% raw %}```java
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import net.sf.jsqlparser.statement.Statement;
@@ -49,7 +47,7 @@ public class SqlTypeIdentifier {
         }
     }
 }
-```
+```{% endraw %}
 
 이 코드는 SQL 문의 첫 번째 토큰을 검사하여 SELECT, INSERT/UPDATE/DELETE, CREATE/ALTER/DROP 중 어떤 유형인지 식별합니다. 하지만 이는 간단한 방법이며 완전한 검증을 위해서는 더 많은 로직과 검사가 필요할 수 있습니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "PostgreSQL JOIN 수정."
-date: 2023-05-22
-tags: [PostgreSQL, 수정, JOIN]
-categories: blog
+tags: [수정, PostgreSQL, JOIN]
 ---
 
 ## 사용자 입력:
@@ -37,7 +35,7 @@ categories: blog
 ## ChatGPT 응답:
 > 변경된 쿼리를 보여드리겠습니다. s3와 s4 테이블에 매칭되는 값이 없을 경우 LEFT JOIN을 사용하여 결과를 포함하도록 수정했습니다.
 
-```sql
+{% raw %}```sql
 SELECT *
 FROM ais0038_296_test t1
 JOIN ais0039_296_test s2 ON t1.PRJ_ID = s2.PRJ_ID AND t1.FILE_ID = s2.FILE_ID AND t1.TAG_SEQ_ID = s2.TAG_SEQ_ID AND s2.ATTR_NAME = 'xmi:id'
@@ -61,7 +59,7 @@ WHERE
             AND c.mm_class_id = 1016
             AND c.mm_obj_rmk2 = 'M0004'
     );
-```
+```{% endraw %}
 
 위의 수정된 쿼리는 s3와 s4 테이블에 매칭되는 값이 없을 때에도 결과를 반환합니다. 이제 전체 쿼리 결과가 나와야 합니다.
 

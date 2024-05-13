@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Sigmoid Gradient Calculation"
-date: 2023-06-12
 tags: [Sigmoid, Gradient, Calculation]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -42,9 +40,9 @@ g = zeros(size(z));
 end 완성해줘
 
 ## ChatGPT 응답:
-> To compute the gradient of the sigmoid function evaluated at each value of `z`, you can use the following code:
+> To compute the gradient of the sigmoid function evaluated at each value of {% raw %}`z`{% endraw %}, you can use the following code:
 
-```matlab
+{% raw %}```matlab
 function g = sigmoidGradient(z)
     % SIGMOIDGRADIENT returns the gradient of the sigmoid function
     % evaluated at z
@@ -58,11 +56,11 @@ function g = sigmoidGradient(z)
     g = sigmoid_z .* (1 - sigmoid_z);
 
 end
-```
+```{% endraw %}
 
-In this code, we first initialize `g` as a matrix of zeros with the same size as `z`. Then, we compute the sigmoid function `sigmoid_z` using the `sigmoid` function (which should be defined separately). Finally, we calculate the gradient by multiplying `sigmoid_z` element-wise with `(1 - sigmoid_z)`. This formula works for both matrices and vectors, as it performs element-wise operations.
+In this code, we first initialize {% raw %}`g`{% endraw %} as a matrix of zeros with the same size as {% raw %}`z`{% endraw %}. Then, we compute the sigmoid function {% raw %}`sigmoid_z`{% endraw %} using the {% raw %}`sigmoid`{% endraw %} function (which should be defined separately). Finally, we calculate the gradient by multiplying {% raw %}`sigmoid_z`{% endraw %} element-wise with {% raw %}`(1 - sigmoid_z)`{% endraw %}. This formula works for both matrices and vectors, as it performs element-wise operations.
 
-Make sure you have the `sigmoid` function implemented correctly, as the gradient calculation relies on it.
+Make sure you have the {% raw %}`sigmoid`{% endraw %} function implemented correctly, as the gradient calculation relies on it.
 
 ## 사용자 입력:
 > function W = randInitializeWeights(L_in, L_out)
@@ -99,9 +97,9 @@ W = zeros(L_out, 1 + L_in);
 end 완성해줘
 
 ## ChatGPT 응답:
-> To randomly initialize the weights of a layer with `L_in` incoming connections and `L_out` outgoing connections, you can use the following code:
+> To randomly initialize the weights of a layer with {% raw %}`L_in`{% endraw %} incoming connections and {% raw %}`L_out`{% endraw %} outgoing connections, you can use the following code:
 
-```matlab
+{% raw %}```matlab
 function W = randInitializeWeights(L_in, L_out)
     % RANDINITIALIZEWEIGHTS randomly initializes the weights of a layer
     % with L_in incoming connections and L_out outgoing connections
@@ -114,9 +112,9 @@ function W = randInitializeWeights(L_in, L_out)
     W = rand(L_out, 1 + L_in) * 2 * epsilon_init - epsilon_init;
 
 end
-```
+```{% endraw %}
 
-In this code, we first initialize `W` as a matrix of zeros with dimensions `(L_out, 1 + L_in)`. The `1 + L_in` accounts for the bias term. Then, we generate random values between `-epsilon_init` and `epsilon_init` using the `rand` function. We multiply the randomly generated values by `2 * epsilon_init` and subtract `epsilon_init` to ensure the range is within the desired bounds.
+In this code, we first initialize {% raw %}`W`{% endraw %} as a matrix of zeros with dimensions {% raw %}`(L_out, 1 + L_in)`{% endraw %}. The {% raw %}`1 + L_in`{% endraw %} accounts for the bias term. Then, we generate random values between {% raw %}`-epsilon_init`{% endraw %} and {% raw %}`epsilon_init`{% endraw %} using the {% raw %}`rand`{% endraw %} function. We multiply the randomly generated values by {% raw %}`2 * epsilon_init`{% endraw %} and subtract {% raw %}`epsilon_init`{% endraw %} to ensure the range is within the desired bounds.
 
 By initializing the weights randomly, we break the symmetry during the training process, which can help the neural network learn more effectively.
 
@@ -216,7 +214,7 @@ end 완성해줘
 ## ChatGPT 응답:
 > To implement the neural network cost function and gradient calculation for a two-layer neural network, you can use the following code:
 
-```matlab
+{% raw %}```matlab
 function [J, grad] = nnCostFunction(nn_params, ...
                                    input_layer_size, ...
                                    hidden_layer_size, ...
@@ -279,17 +277,17 @@ function [J, grad] = nnCostFunction(nn_params, ...
     grad = [Theta1_grad(:); Theta2_grad(:)];
 
 end
-```
+```{% endraw %}
 
 In this code, the neural network cost function and gradient calculation are implemented in three parts:
 
 1. Feedforward and cost calculation:
-   - The forward propagation is performed to compute the hypothesis `h` of the neural network.
-   - The cost `J` is calculated using the hypothesis and the target output `y`.
+   - The forward propagation is performed to compute the hypothesis {% raw %}`h`{% endraw %} of the neural network.
+   - The cost {% raw %}`J`{% endraw %} is calculated using the hypothesis and the target output {% raw %}`y`{% endraw %}.
    - The regularization term is computed and added to the cost.
 
 2. Backpropagation and gradient calculation:
-   - The backpropagation algorithm is implemented to compute the error terms (`delta3` and `delta2`) for each layer.
-   - The accumulated gradients (`Delta1` and `Delta2`) are computed.
-   - The gradients for each weight matrix (`Theta1_grad` and `Theta2_grad`)
+   - The backpropagation algorithm is implemented to compute the error terms ({% raw %}`delta3`{% endraw %} and {% raw %}`delta2`{% endraw %}) for each layer.
+   - The accumulated gradients ({% raw %}`Delta1`{% endraw %} and {% raw %}`Delta2`{% endraw %}) are computed.
+   - The gradients for each weight matrix ({% raw %}`Theta1_grad`{% endraw %} and {% raw %}`Theta2_grad`{% endraw %})
 

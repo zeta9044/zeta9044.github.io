@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Bamboo - Create Deployment Plan Variables"
-date: 2023-03-22
-tags: [Plan, Variables, Bamboo, Deployment, Create]
-categories: blog
+tags: [Plan, Create, Variables, Bamboo, Deployment]
 ---
 
 ## 사용자 입력:
@@ -39,9 +37,9 @@ categories: blog
 
 이제 변수를 사용하여 AWS Lambda 함수 이름을 참조할 수 있습니다. 예를 들어, AWS Lambda 함수 배포 스크립트에서 다음과 같이 변수를 사용할 수 있습니다:
 
-```
+{% raw %}```
 aws lambda update-function-code --function-name ${lambda_function_name} --zip-file fileb://function.zip
-```
+```{% endraw %}
 
 위와 같이 스크립트에서 변수를 사용하면 각각의 환경에서 올바른 AWS Lambda 함수 이름을 참조할 수 있습니다.
 

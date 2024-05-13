@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Helmet Safety Tech Comparison"
-date: 2024-02-20
-tags: [Helmet, Tech, Safety, Comparison]
-categories: blog
+tags: [Helmet, Comparison, Tech, Safety]
 ---
 
 ## 사용자 입력:

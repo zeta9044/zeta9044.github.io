@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "MyBatis SQL Query."
-date: 2023-02-22
-tags: [SQL, Query, MyBatis]
-categories: blog
+tags: [Query, MyBatis, SQL]
 ---
 
 ## 사용자 입력:
@@ -135,14 +133,14 @@ The resulting dataset includes several columns, such as "OBJECT_ID," "PGM_STATUS
 ## ChatGPT 응답:
 > The provided code is a MyBatis mapper XML file for executing a SQL query against a PostgreSQL database. To convert it to an Oracle query, the following changes should be made:
 
-1. Replace the recursive `WITH` clause with a hierarchical query using the `CONNECT BY` clause.
-2. Replace `LIMIT 1` with `ROWNUM = 1`.
-3. Replace `BETWEEN` with `>=` and `<=`.
-4. Use the `REGEXP_LIKE` function instead of the `LIKE` operator for pattern matching.
+1. Replace the recursive {% raw %}`WITH`{% endraw %} clause with a hierarchical query using the {% raw %}`CONNECT BY`{% endraw %} clause.
+2. Replace {% raw %}`LIMIT 1`{% endraw %} with {% raw %}`ROWNUM = 1`{% endraw %}.
+3. Replace {% raw %}`BETWEEN`{% endraw %} with {% raw %}`>=`{% endraw %} and {% raw %}`<=`{% endraw %}.
+4. Use the {% raw %}`REGEXP_LIKE`{% endraw %} function instead of the {% raw %}`LIKE`{% endraw %} operator for pattern matching.
 
 Here's the converted query:
 
-```
+{% raw %}``{% endraw %}`
 <select id="findAnalysisManagements" resultMap="AnalysisManagementMap">
     SELECT /* QtrackAnalysisManageMent.findAnalysisManagements */
           A.MM_OBJECT_ID     AS OBJECT_ID

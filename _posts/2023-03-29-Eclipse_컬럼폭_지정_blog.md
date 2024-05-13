@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Eclipse 컬럼폭 지정"
-date: 2023-03-29
-tags: [컬럼폭, Eclipse, 지정]
-categories: blog
+tags: [컬럼폭, 지정, Eclipse]
 ---
 
 ## 사용자 입력:

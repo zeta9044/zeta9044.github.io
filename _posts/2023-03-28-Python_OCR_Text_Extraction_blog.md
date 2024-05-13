@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Python OCR Text Extraction"
-date: 2023-03-28
-tags: [Text, Python, OCR, Extraction]
-categories: blog
+tags: [Text, Extraction, Python, OCR]
 ---
 
 ## 사용자 입력:
@@ -20,7 +18,7 @@ pytesseract를 사용하려면, 먼저 Tesseract OCR 엔진을 설치해야합�
 
 다음은 이미지 파일에서 텍스트를 추출하고 텍스트 파일로 저장하는 예제 코드입니다:
 
-```python
+{% raw %}```python
 import pytesseract
 from PIL import Image
 
@@ -33,7 +31,7 @@ text = pytesseract.image_to_string(image)
 # 추출된 문자 텍스트 파일로 저장
 with open('extracted_text.txt', mode ='w') as file:
     file.write(text)
-```
+```{% endraw %}
 
 위 코드에서 'example_image.png'는 추출하려는 이미지 파일의 경로이며, 'extracted_text.txt'는 추출 된 문자를 저장할 텍스트 파일의 이름입니다.
 
@@ -47,7 +45,7 @@ with open('extracted_text.txt', mode ='w') as file:
 
 다음은 .HEIC 확장자를 가진 iOS 이미지 파일에서 텍스트를 추출하고 텍스트 파일로 저장하는 예제 코드입니다:
 
-```python
+{% raw %}```python
 import pytesseract
 import imageio.core.util
 imageio.plugins.ffmpeg.download()
@@ -62,7 +60,7 @@ text = pytesseract.image_to_string(image)
 # 추출된 문자 텍스트 파일로 저장
 with open('extracted_text.txt', mode ='w') as file:
     file.write(text)
-```
+```{% endraw %}
 
 위 코드에서 'example_image.HEIC'는 추출하려는 iOS 이미지 파일의 경로입니다. 'imageio' 패키지를 사용하여 Pillow에서 이미지 파일을 올바르게 열 수 있도록 설정하였습니다. 이제 이미지 파일의 내용을 pytesseract로 분석하고 텍스트 파일로 저장할 수 있습니다.
 
@@ -76,7 +74,7 @@ with open('extracted_text.txt', mode ='w') as file:
 
 다음은 이미지와 관련된 XML 파일에서 XML 코드를 추출하는 예제 코드입니다:
 
-```python
+{% raw %}```python
 import xml.etree.ElementTree as ET
 
 # XML 파일 열기
@@ -89,7 +87,7 @@ xml_code = ET.tostring(root, encoding='unicode')
 # 추출된 XML 코드 텍스트 파일로 저장
 with open('extracted_xml.txt', mode ='w') as file:
     file.write(xml_code)
-```
+```{% endraw %}
 
 위 코드에서 'example_image.xml'은 추출하려는 XML 파일의 경로입니다. 'xml.etree.ElementTree' 모듈을 사용하여 XML 파일을 열고 XML 코드를 추출한 다음, 텍스트 파일로 저장합니다.
 
@@ -113,7 +111,7 @@ with open('extracted_xml.txt', mode ='w') as file:
 
 다음은 iOS 이미지 공유 URL에서 이미지를 다운로드하고 추출하는 예제 코드입니다:
 
-```python
+{% raw %}```python
 import requests
 from PIL import Image
 import pytesseract
@@ -131,7 +129,7 @@ text = pytesseract.image_to_string(image)
 # 추출된 문자 텍스트 파일로 저장
 with open('extracted_text.txt', mode ='w') as file:
     file.write(text)
-```
+```{% endraw %}
 
 위 코드에서 'https://example.com/image.png'는 iOS에서 공유된 이미지 URL입니다. requests 라이브러리를 사용하여 웹 페이지를 다운로드하고, BytesIO를 사용하여 이미지 파일을 엽니다. 그런 다음, 이미지에서 문자를 추출하고, 추출된 문자를 텍스트 파일로 저장합니다.
 
@@ -187,7 +185,7 @@ RegentCut은 사람의 얼굴 형태와 헤어 스타일 등의 데이터를 기
 
 다음은 예제 코드입니다:
 
-```python
+{% raw %}```python
 import qrcode
 import os
 
@@ -217,7 +215,7 @@ while text:
 
     # 인덱스 증가
     idx += 1
-```
+```{% endraw %}
 
 위 코드에서는 먼저 QR 코드 이미지를 저장할 디렉토리를 생성합니다. 그리고 텍스트 파일을 열어서 텍스트를 읽고, QR 코드 이미지를 생성하고 저장하는 과정을 반복합니다. 
 
@@ -235,7 +233,7 @@ while text:
 
 아래 예제 코드에서는, 생성된 QR 코드 이미지들을 가로 방향으로 조합하여 하나의 이미지 파일로 저장하는 방법을 보여줍니다. 
 
-```python
+{% raw %}```python
 from PIL import Image
 import os
 
@@ -275,7 +273,7 @@ for img in img_list:
 
 # 이미지 파일로 저장
 combined_img.save(f"{qr_dir}/combined_qr_codes.png")
-```
+```{% endraw %}
 
 위 코드에서는, 생성된 QR 코드 이미지들을 'img_list'라는 리스트에 추가합니다. 그리고, 'Pillow' 라이브러리의 Image 객체를 생성하여 리스트에 추가한 이미지를 가로 방향으로 조합합니다. 조합된 이미지는 'combined_img' 변수에 저장됩니다. 
 
@@ -315,7 +313,7 @@ combined_img.save(f"{qr_dir}/combined_qr_codes.png")
 
 예를 들어, 다음과 같이 코드를 작성하면, 프로그램 코드 전체를 한 번에 QR 코드 이미지로 변환할 수 있습니다.
 
-```python
+{% raw %}```python
 import qrcode
 
 # 프로그램 코드 읽기
@@ -336,7 +334,7 @@ img = qr.make_image(fill_color="black", back_color="white")
 
 # 이미지 저장
 img.save("program_code_qr.png")
-```
+```{% endraw %}
 
 위 코드에서는 'program.py' 파일에서 프로그램 코드를 읽어와서, 'qrcode' 라이브러리의 QR 코드 객체를 생성합니다. 이때, 버전을 1로 설정하고, 박스 크기를 10으로, 테두리(border) 크기를 4로 설정합니다.
 
@@ -402,7 +400,7 @@ img.save("program_code_qr.png")
 
 'qrcode' 라이브러리에서는 버전과 오류 정정 레벨을 설정하여 QR 코드를 생성할 수 있습니다. 예를 들어, 다음과 같이 코드를 작성하여, 최대 데이터 양을 사용하는 QR 코드를 생성할 수 있습니다.
 
-```python
+{% raw %}```python
 import qrcode
 
 # QR 코드 생성
@@ -420,7 +418,7 @@ img = qr.make_image(fill_color="black", back_color="white")
 
 # 이미지 저장
 img.save("qr_code.png")
-```
+```{% endraw %}
 
 위 코드에서는 'version=None'을 설정하여, 자동으로 QR 코드의 버전을 선택합니다. 'error_correction' 옵션은 QR 코드의 오류 정정 레벨을 선택하는데, 'ERROR_CORRECT_H'를 선택하면 고정 오류 정정 레벨을 사용합니다. 
 
@@ -482,7 +480,7 @@ QR 코드 디코딩을 위해 'pyzbar' 라이브러리를 사용할 수 있습�
 
 아래는 QR 코드 이미지를 디코딩하여 텍스트 파일로 만드는 예시 코드입니다.
 
-```python
+{% raw %}```python
 from PIL import Image
 from pyzbar.pyzbar import decode
 
@@ -495,7 +493,7 @@ qr_decoded = decode(img)
 # 디코딩된 결과를 텍스트 파일로 저장
 with open("qr_text.txt", "w") as f:
     f.write(qr_decoded[0].data.decode("utf-8"))
-```
+```{% endraw %}
 
 위 코드에서 'qr_code.png'는 디코딩할 QR 코드 이미지 파일이며, 'qr_text.txt'는 QR 코드에서 추출한 텍스트를 저장할 텍스트 파일 이름입니다. 'decode' 함수를 사용하여 QR 코드 이미지를 디코딩하고, 디코딩된 결과를 'qr_decoded' 변수에 저장합니다. 마지막으로, 'qr_decoded' 변수에서 추출한 텍스트를 'qr_text.txt' 파일에 저장합니다.
 
@@ -514,10 +512,10 @@ UnicodeDecodeError: 'cp949' codec can't decode byte 0xec in position 586: illega
 
 예를 들어, 파일의 인코딩이 'UTF-8'로 되어 있을 경우, 아래와 같이 파일을 열 때 인코딩 방식을 명시해주면 됩니다.
 
-```python
+{% raw %}```python
 with open('file.txt', 'r', encoding='utf-8') as file:
     text = file.read().replace('\n', '')
-```
+```{% endraw %}
 
 위 코드에서 'encoding' 옵션으로 'utf-8'을 명시하여 파일을 읽어들입니다. 파일의 인코딩 방식에 따라 옵션의 값이 다르게 설정될 수 있으므로, 파일의 인코딩 방식을 먼저 확인한 후, 해당 방식으로 인코딩 방식을 명시해주어야 합니다.
 
@@ -566,7 +564,7 @@ combined_img.save(f"{qr_dir}/combined_qr_codes.png")    이 코드는 이미지 
 ## ChatGPT 응답:
 > 아래는 개별적으로 순번이 붙은 QR 코드 이미지를 생성하는 코드 예시입니다.
 
-```python
+{% raw %}```python
 from PIL import Image
 import os
 import qrcode
@@ -594,7 +592,7 @@ while text:
 
     # 인덱스 증가
     idx += 1
-```
+```{% endraw %}
 
 위 코드에서는 'img.save' 함수를 사용하여 QR 코드 이미지를 파일로 저장하며, 이미지 파일의 이름에는 순번이 붙도록 하였습니다. 따라서, 'idx' 변수를 사용하여 QR 코드 이미지 파일 이름을 지정하게 됩니다.
 
@@ -617,7 +615,7 @@ with open("qr_text.txt", "w") as f:
 ## ChatGPT 응답:
 > 아래는 디렉토리에 있는 여러개의 QR 코드 이미지를 읽어들여 하나의 텍스트 파일로 만드는 코드 예시입니다.
 
-```python
+{% raw %}```python
 from PIL import Image
 from pyzbar.pyzbar import decode
 import os
@@ -641,7 +639,7 @@ for file_name in sorted(os.listdir(qr_dir)):
 # 추출된 텍스트 리스트를 하나의 텍스트 파일로 합치기
 with open("qr_text.txt", "w") as f:
     f.write("".join(qr_text_list))
-```
+```{% endraw %}
 
 위 코드에서는 'os.listdir' 함수를 사용하여 디렉토리에 있는 모든 QR 코드 이미지 파일들을 읽어들입니다. 'sorted' 함수를 사용하여 파일 이름 순서대로 읽어들이며, '.png' 확장자를 가진 파일들만 읽어들입니다.
 
@@ -725,22 +723,22 @@ Traceback (most recent call last):
 FileNotFoundError: Could not find module 'D:\git\python-rtde\.env\lib\site-packages\pyzbar\libzbar-64.dll' (or one of its dependencies). Try using the full path with constructor syntax.  위 프로그램 실행시키니 위와 같은 오류가 나네
 
 ## ChatGPT 응답:
-> `libiconv.dll` 및 `libzbar-64.dll` 파일이 빠졌거나 손상된 것 같습니다. 해당 파일들을 복구하거나 재설치하여 문제를 해결할 수 있습니다.
+> {% raw %}`libiconv.dll`{% endraw %} 및 {% raw %}`libzbar-64.dll`{% endraw %} 파일이 빠졌거나 손상된 것 같습니다. 해당 파일들을 복구하거나 재설치하여 문제를 해결할 수 있습니다.
 
-또는 `pyzbar` 패키지를 삭제하고 다시 설치해 보는 것도 좋은 방법일 수 있습니다. 이를 위해서는 다음과 같은 명령을 실행하면 됩니다.
+또는 {% raw %}`pyzbar`{% endraw %} 패키지를 삭제하고 다시 설치해 보는 것도 좋은 방법일 수 있습니다. 이를 위해서는 다음과 같은 명령을 실행하면 됩니다.
 
-```
+{% raw %}```
 pip uninstall pyzbar
 pip install pyzbar
-``` 
+```{% endraw %} 
 
-또한, 현재 `pyzbar` 패키지는 파이썬 3.10 버전과 호환되지 않을 수 있습니다. 만약 파이썬 3.10을 사용하고 있다면, 파이썬 버전을 3.9 등 낮은 버전으로 변경해 보는 것도 한 가지 방법입니다.
+또한, 현재 {% raw %}`pyzbar`{% endraw %} 패키지는 파이썬 3.10 버전과 호환되지 않을 수 있습니다. 만약 파이썬 3.10을 사용하고 있다면, 파이썬 버전을 3.9 등 낮은 버전으로 변경해 보는 것도 한 가지 방법입니다.
 
 ## 사용자 입력:
 > 사용하는 컴은 window10이야.. 그래서 안되는 건가?
 
 ## ChatGPT 응답:
-> 해당 오류는 `libiconv.dll`이나 `libzbar-64.dll` 라이브러리를 찾지 못해서 발생하는 오류입니다. Windows 운영체제에서도 문제가 될 수 있는 것이기 때문에, 일단 다음과 같이 해결 방법을 시도해보시기 바랍니다.
+> 해당 오류는 {% raw %}`libiconv.dll`{% endraw %}이나 {% raw %}`libzbar-64.dll`{% endraw %} 라이브러리를 찾지 못해서 발생하는 오류입니다. Windows 운영체제에서도 문제가 될 수 있는 것이기 때문에, 일단 다음과 같이 해결 방법을 시도해보시기 바랍니다.
 
 1. Visual Studio 2019 설치
 
@@ -758,11 +756,11 @@ https://www.microsoft.com/en-us/download/details.aspx?id=48159
 
 3. pyzbar 다시 설치
 
-설치가 완료되면, 다시 `pyzbar` 라이브러리를 설치해주세요. 아래 명령어를 실행하시면 됩니다.
+설치가 완료되면, 다시 {% raw %}`pyzbar`{% endraw %} 라이브러리를 설치해주세요. 아래 명령어를 실행하시면 됩니다.
 
-```
+{% raw %}```
 pip install pyzbar
-```
+```{% endraw %}
 
 위 방법으로도 문제가 해결되지 않는다면, 다른 방법을 찾아보셔야 합니다.
 
@@ -823,9 +821,9 @@ with open("qr_text.py", "w",encoding='utf-8') as f:
 위에 코드를 쓰면, 복원한 .py파일 내용에서 \n이 빠져서 이상하게 나와..바꿔줘
 
 ## ChatGPT 응답:
-> 아래와 같이 코드를 수정하여 개별 QR 코드 이미지로 분할하여 저장하고, 추출한 텍스트 파일에 개행 문자(`\n`)을 추가하여 저장할 수 있습니다.
+> 아래와 같이 코드를 수정하여 개별 QR 코드 이미지로 분할하여 저장하고, 추출한 텍스트 파일에 개행 문자({% raw %}`\n`{% endraw %})을 추가하여 저장할 수 있습니다.
 
-```
+{% raw %}```
 from PIL import Image
 import os
 import qrcode
@@ -878,9 +876,9 @@ for file_name in sorted(os.listdir(qr_dir)):
 # 추출된 텍스트 리스트를 하나의 텍스트 파일로 합치기
 with open("qr_text.py", "w",encoding='utf-8') as f:
     f.write("\n".join(qr_text_list))
-```
+```{% endraw %}
 
-추출된 텍스트 파일에 개행 문자를 추가하기 위해, 텍스트 파일을 쓸 때 `'\n'`을 문자열로 추가하면 됩니다.
+추출된 텍스트 파일에 개행 문자를 추가하기 위해, 텍스트 파일을 쓸 때 {% raw %}`'\n'`{% endraw %}을 문자열로 추가하면 됩니다.
 
 ## 사용자 입력:
 > 위에 코드는 단순히 프로그램코드를 qr로 바꾸고 바꾼 qr을 다른 파일이름으로 바꾸는데, 내용이 이상하게 다 잘려서 있어. 정상적으로 나오도록 프로그램 수정해
@@ -888,7 +886,7 @@ with open("qr_text.py", "w",encoding='utf-8') as f:
 ## ChatGPT 응답:
 > 확인해 보니, 텍스트를 분리할 때 띄어쓰기나 특수문자 등을 기준으로 분리하지 않고 일정 길이로만 분리해서 문제가 발생한 것 같습니다. 아래와 같이 수정하면 더 정확하게 분리할 수 있을 것입니다.
 
-```python
+{% raw %}```python
 # QR 코드 생성 및 이미지 저장
 split_size = 200 # 한 장당 저장될 문자열 길이
 idx = 0 # 이미지 파일 이름에 사용될 인덱스
@@ -908,7 +906,7 @@ while text:
 
     # 인덱스 증가
     idx += 1
-```
+```{% endraw %}
 
 이와 같이 수정하면 한 번에 분리해야 할 길이보다 적은 길이의 문자열이 생성될 때까지 문자를 계속해서 추가하면서 문자열을 분리합니다. 이렇게 하면 QR 코드가 너무 많이 분할되는 것을 방지할 수 있습니다.
 
@@ -916,11 +914,11 @@ while text:
 > 여전히 잘리고 정상적으로 안나와.
 
 ## ChatGPT 응답:
-> 파일에 저장된 내용을 출력할 때 줄바꿈이 없이 한 줄로 출력될 수 있기 때문에, 출력 시 줄바꿈 문자('\n')을 추가해 주어야 합니다. 따라서, `join()` 함수에 `\n` 문자를 추가하여 줄바꿈을 해 주면 됩니다.
+> 파일에 저장된 내용을 출력할 때 줄바꿈이 없이 한 줄로 출력될 수 있기 때문에, 출력 시 줄바꿈 문자('\n')을 추가해 주어야 합니다. 따라서, {% raw %}`join()`{% endraw %} 함수에 {% raw %}`\n`{% endraw %} 문자를 추가하여 줄바꿈을 해 주면 됩니다.
 
 아래는 수정된 코드입니다.
 
-```python
+{% raw %}```python
 from PIL import Image
 import os
 import qrcode
@@ -974,7 +972,7 @@ for file_name in sorted(os.listdir(qr_dir)):
 # 추출된 텍스트 리스트를 하나의 텍스트 파일로 합치기
 with open("qr_text.py", "w", encoding='utf-8') as f:
     f.write("\n".join(qr_text_list))
-```
+```{% endraw %}
 
 위 코드를 실행하면 "qr_text.py" 파일에 모든 QR 코드에 대해 추출된 텍스트들이 줄바꿈 문자('\n')을 포함하여 저장됩니다.
 
@@ -982,9 +980,9 @@ with open("qr_text.py", "w", encoding='utf-8') as f:
 > https://github.com/zeta9044/stuff/blob/main/DPNI_L0NUCA_TB_CMCA_CUST_INFO_INQ_L.pjb  이 url에 있는 텍스트를 qrcode로 만들고, 그 qrcode파일을 읽어서 텍스트를 원복하는 프로그램 만들어줘.
 
 ## ChatGPT 응답:
-> 아래는 요청하신 내용대로 프로그램을 작성한 예시입니다. 이 예시 프로그램을 실행하기 전에 `Pillow`, `qrcode`, `pyzbar` 라이브러리를 먼저 설치해주셔야 합니다.
+> 아래는 요청하신 내용대로 프로그램을 작성한 예시입니다. 이 예시 프로그램을 실행하기 전에 {% raw %}`Pillow`{% endraw %}, {% raw %}`qrcode`{% endraw %}, {% raw %}`pyzbar`{% endraw %} 라이브러리를 먼저 설치해주셔야 합니다.
 
-```python
+{% raw %}```python
 from PIL import Image
 import qrcode
 import os
@@ -1029,11 +1027,11 @@ for file_name in sorted(os.listdir(qr_dir)):
 # 추출된 텍스트 리스트를 하나의 텍스트 파일로 합치기
 with open("restored.txt", "w", encoding="utf-8") as f:
     f.write("".join(qr_text_list))
-```
+```{% endraw %}
 
-이 예시 프로그램은 먼저 `DPNI_L0NUCA_TB_CMCA_CUST_INFO_INQ_L.pjb` 파일을 읽어서 일정 길이로 분리한 후, 각각의 분리된 문자열에 대해서 QR 코드를 생성하여 이미지 파일로 저장합니다. 이때, 한 이미지 파일에 저장될 문자열 길이(`split_size`)는 200으로 설정하였습니다.
+이 예시 프로그램은 먼저 {% raw %}`DPNI_L0NUCA_TB_CMCA_CUST_INFO_INQ_L.pjb`{% endraw %} 파일을 읽어서 일정 길이로 분리한 후, 각각의 분리된 문자열에 대해서 QR 코드를 생성하여 이미지 파일로 저장합니다. 이때, 한 이미지 파일에 저장될 문자열 길이({% raw %}`split_size`{% endraw %})는 200으로 설정하였습니다.
 
-그 다음, 생성된 QR 코드 이미지 파일들을 읽어서 QR 코드 디코딩을 수행합니다. 이때, `pyzbar` 모듈에서 제공하는 `decode()` 함수를 사용하며, `symbols` 매개변수에는 `ZBarSymbol.QRCODE` 값을 지정하여 QR 코드를 디코딩합니다. 이를 통해 디코딩된 텍스트를 리스트에 추가합니다.
+그 다음, 생성된 QR 코드 이미지 파일들을 읽어서 QR 코드 디코딩을 수행합니다. 이때, {% raw %}`pyzbar`{% endraw %} 모듈에서 제공하는 {% raw %}`decode()`{% endraw %} 함수를 사용하며, {% raw %}`symbols`{% endraw %} 매개변수에는 {% raw %}`ZBarSymbol.QRCODE`{% endraw %} 값을 지정하여 QR 코드를 디코딩합니다. 이를 통해 디코딩된 텍스트를 리스트에 추가합니다.
 
 마지막으로, 추출된 텍스트 리스트를 하나의 텍스트 파일로 합쳐서 저장합니다
 
@@ -1043,7 +1041,7 @@ with open("restored.txt", "w", encoding="utf-8") as f:
 ## ChatGPT 응답:
 > 아래는 기존 코드에서 QR 코드 이미지와 텍스트 파일을 지우고 시작하는 기능을 추가한 코드입니다.
 
-```python
+{% raw %}```python
 from PIL import Image
 import os
 import qrcode
@@ -1096,9 +1094,9 @@ for file_name in sorted(os.listdir(qr_dir)):
 # 추출된 텍스트 리스트를 하나의 텍스트 파일로 합치기
 with open("qr_text.txt", "w", encoding='utf-8') as f:
     f.write("\n".join(qr_text_list))
-```
+```{% endraw %}
 
-위 코드를 실행하면 `DPNI_L0NUCA_TB_CMCA_CUST_INFO_INQ_L.pjb` 파일을 읽어들여서 QR 코드 이미지를 생성하고 저장합니다. 이어서 생성된 QR 코드 이미지를 디코딩하여 추출된 텍스트를 하나의 파일(`qr_text.txt`)에 저장합니다. 코드 실행 시에는 QR 코드 이미지와 텍스트 파일이 이미 존재한다면 삭제하고 시작합니다.
+위 코드를 실행하면 {% raw %}`DPNI_L0NUCA_TB_CMCA_CUST_INFO_INQ_L.pjb`{% endraw %} 파일을 읽어들여서 QR 코드 이미지를 생성하고 저장합니다. 이어서 생성된 QR 코드 이미지를 디코딩하여 추출된 텍스트를 하나의 파일({% raw %}`qr_text.txt`{% endraw %})에 저장합니다. 코드 실행 시에는 QR 코드 이미지와 텍스트 파일이 이미 존재한다면 삭제하고 시작합니다.
 
 ## 사용자 입력:
 > 확장자  png만 qr코드로 읽을 수 있나?

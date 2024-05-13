@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "자바 MultiValueMap 사용법"
-date: 2023-07-07
-tags: [MultiValueMap, 용법, 자바]
-categories: blog
+tags: [자바, 용법, MultiValueMap]
 ---
 
 ## 사용자 입력:
@@ -14,23 +12,23 @@ categories: blog
 
 먼저, Apache Commons 라이브러리를 프로젝트에 추가해야 합니다. Maven을 사용하는 경우 pom.xml 파일에 다음 종속성을 추가합니다:
 
-```xml
+{% raw %}```xml
 <dependency>
     <groupId>org.apache.commons</groupId>
     <artifactId>commons-collections4</artifactId>
     <version>4.4</version>
 </dependency>
-```
+```{% endraw %}
 
 Gradle을 사용하는 경우 build.gradle 파일에 다음 종속성을 추가합니다:
 
-```gradle
+{% raw %}```gradle
 implementation 'org.apache.commons:commons-collections4:4.4'
-```
+```{% endraw %}
 
 이제 MultiValueMap을 사용하여 여러 값을 연결할 수 있습니다. 다음은 예시 코드입니다:
 
-```java
+{% raw %}```java
 import org.apache.commons.collections4.MultiValueMap;
 import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 
@@ -70,9 +68,9 @@ public class MultiValueMapExample {
         System.out.println(multiValueMap.isEmpty()); // 출력: true
     }
 }
-```
+```{% endraw %}
 
-위의 예시에서는 `ArrayListValuedHashMap` 클래스를 사용하여 MultiValueMap을 생성했습니다. 다른 구현체도 사용할 수 있으며, `ArrayListValuedHashMap`은 키와 값의 순서를 보존하고 중복 값을 허용합니다.
+위의 예시에서는 {% raw %}`ArrayListValuedHashMap`{% endraw %} 클래스를 사용하여 MultiValueMap을 생성했습니다. 다른 구현체도 사용할 수 있으며, {% raw %}`ArrayListValuedHashMap`{% endraw %}은 키와 값의 순서를 보존하고 중복 값을 허용합니다.
 
 이와 같이 MultiValueMap을 사용하면 자바에서 여러 값을 하나의 키에 연결하여 관리할 수 있습니다.
 

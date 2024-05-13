@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "C Printf SQL Jsqlparser"
-date: 2024-02-27
-tags: [Printf, SQL, C, Jsqlparser]
-categories: blog
+tags: [Jsqlparser, C, Printf, SQL]
 ---
 
 ## 사용자 입력:
@@ -20,9 +18,9 @@ categories: blog
 > 내말은 SELECT parallel FROM block WHERE prj_id=%d AND prj_ver_id=%d AND block_id=%d 이런 문자열은 Jsqlparser에서 에러나는 거 맞지?
 
 ## ChatGPT 응답:
-> `SELECT parallel FROM block WHERE prj_id=%d AND prj_ver_id=%d AND block_id=%d`과 같은 SQL 문자열은 Jsqlparser에서 문제 없이 파싱될 것으로 예상됩니다. Jsqlparser는 일반적인 SQL 문을 파싱하는 기능을 제공하며, 주어진 SQL 문이 유효하다면 문제없이 파싱할 수 있습니다.
+> {% raw %}`SELECT parallel FROM block WHERE prj_id=%d AND prj_ver_id=%d AND block_id=%d`{% endraw %}과 같은 SQL 문자열은 Jsqlparser에서 문제 없이 파싱될 것으로 예상됩니다. Jsqlparser는 일반적인 SQL 문을 파싱하는 기능을 제공하며, 주어진 SQL 문이 유효하다면 문제없이 파싱할 수 있습니다.
 
-다만, `%d`와 같은 형식 지정자는 C에서 사용되는 것이며, SQL에서는 해당하지 않습니다. Jsqlparser는 SQL 문을 분석할 때 C의 형식 지정자를 인식하지 않으며, 해당 부분을 일반적인 SQL 문의 일부로 처리할 것입니다. 파싱 결과로 얻은 객체를 통해 SQL 문의 구조를 탐색하고 데이터베이스에서 실행하는 것은 개발자의 책임입니다.
+다만, {% raw %}`%d`{% endraw %}와 같은 형식 지정자는 C에서 사용되는 것이며, SQL에서는 해당하지 않습니다. Jsqlparser는 SQL 문을 분석할 때 C의 형식 지정자를 인식하지 않으며, 해당 부분을 일반적인 SQL 문의 일부로 처리할 것입니다. 파싱 결과로 얻은 객체를 통해 SQL 문의 구조를 탐색하고 데이터베이스에서 실행하는 것은 개발자의 책임입니다.
 
 따라서 Jsqlparser에서 에러가 발생하는 경우, SQL 문 자체에 오류가 있는 것일 가능성이 높습니다. 가능하다면 Jsqlparser의 오류 메시지를 확인하여 어떤 부분에서 문제가 발생했는지 확인하고 수정해야 합니다.
 

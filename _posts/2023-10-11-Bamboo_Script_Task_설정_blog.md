@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Bamboo Script Task 설정"
-date: 2023-10-11
-tags: [설정, Task, Bamboo, Script]
-categories: blog
+tags: [Script, Bamboo, 설정, Task]
 ---
 
 ## 사용자 입력:
@@ -22,7 +20,7 @@ categories: blog
    - 'Add Task'를 클릭하여 'Script'를 선택합니다.
 
 3. **Gradle 명령어 설정**:
-   - Script Task를 추가한 후, 'Script' 섹션에 Gradle 명령어를 입력합니다. 예를 들어, `./gradlew build`라는 명령어를 실행하고자 한다면 해당 명령어를 입력합니다.
+   - Script Task를 추가한 후, 'Script' 섹션에 Gradle 명령어를 입력합니다. 예를 들어, {% raw %}`./gradlew build`{% endraw %}라는 명령어를 실행하고자 한다면 해당 명령어를 입력합니다.
 
 4. **실패 시 빌드 중단 설정**:
    - Bamboo는 기본적으로 Script Task의 명령어가 실패하면 (즉, 0이 아닌 exit code를 반환하면) 그 이후의 Task들을 실행하지 않고 빌드를 실패로 표시합니다. 따라서 별도의 설정 없이도 Script Task의 명령어가 실패하면 빌드는 중단됩니다.
@@ -39,20 +37,20 @@ categories: blog
 ## ChatGPT 응답:
 > 멀티 라인 스크립트에서 중간에 에러가 발생할 경우도 Bamboo가 작업을 중단하도록 하려면, 각 명령어가 실패했을 때 즉시 스크립트 실행을 중단하도록 설정해야 합니다.
 
-Bash 스크립트를 사용하는 경우, `set -e` 명령어를 스크립트의 상단에 추가하여 명령어가 실패했을 때 스크립트 실행을 중단하도록 설정할 수 있습니다.
+Bash 스크립트를 사용하는 경우, {% raw %}`set -e`{% endraw %} 명령어를 스크립트의 상단에 추가하여 명령어가 실패했을 때 스크립트 실행을 중단하도록 설정할 수 있습니다.
 
 예시:
 
-```bash
+{% raw %}```bash
 #!/bin/bash
 set -e
 
 ./gradlew clean
 ./gradlew build
 ./gradlew test
-```
+```{% endraw %}
 
-`set -e`는 스크립트에서 명령어가 실패하면 즉시 스크립트 실행을 중단하게 됩니다. 따라서 `./gradlew clean`이 실패한다면 `./gradlew build`와 `./gradlew test`는 실행되지 않습니다.
+{% raw %}`set -e`{% endraw %}는 스크립트에서 명령어가 실패하면 즉시 스크립트 실행을 중단하게 됩니다. 따라서 {% raw %}`./gradlew clean`{% endraw %}이 실패한다면 {% raw %}`./gradlew build`{% endraw %}와 {% raw %}`./gradlew test`{% endraw %}는 실행되지 않습니다.
 
 Bamboo의 Script Task에 위와 같은 형식의 스크립트를 사용하면 중간에 명령어가 실패하더라도 Bamboo가 작업을 중단하도록 설정할 수 있습니다.
 

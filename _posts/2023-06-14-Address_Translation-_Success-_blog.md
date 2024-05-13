@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Address Translation: Success."
-date: 2023-06-14
-tags: [Address, Translation, Success]
-categories: blog
+title: "Address Translation - Success."
+tags: [Success, Translation, Address]
 ---
 
 ## 사용자 입력:

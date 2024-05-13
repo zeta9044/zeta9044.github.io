@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "내부 네트워크에서 HTTPS 인증서"
-date: 2024-02-01
-tags: [인증서, 네트워크, 내부, HTTPS]
-categories: blog
+tags: [내부, 인증서, 네트워크, HTTPS]
 ---
 
 ## 사용자 입력:

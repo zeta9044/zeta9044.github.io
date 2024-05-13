@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Terms of Use Agreement"
-date: 2023-06-15
-tags: [Terms, of, Use, Agreement]
-categories: blog
+tags: [Use, Agreement, Terms, of]
 ---
 
 ## 사용자 입력:

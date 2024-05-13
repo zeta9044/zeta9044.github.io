@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Assign Sequential Numbers in PostgreSQL"
-date: 2023-06-01
-tags: [Assign, Sequential, Numbers, PostgreSQL, in]
-categories: blog
+tags: [PostgreSQL, Assign, Numbers, in, Sequential]
 ---
 
 ## 사용자 입력:
@@ -92,11 +90,11 @@ exists (
 ) A  이것은 postgresql인데, col_order_no가 prj_id,file_id,src_table_id,attr_value 그룹으로 tag_seq_id 순서대로 순번이 나오게 할려면 어떻게 해야 되나?
 
 ## ChatGPT 응답:
-> PostgreSQL provides several window functions that can help achieve your desired result. In your case, you want to assign sequential numbers within groups defined by the columns `prj_id`, `file_id`, `src_table_id`, and `attr_value`, ordered by the `tag_seq_id` column. To achieve this, you can use the `ROW_NUMBER()` window function.
+> PostgreSQL provides several window functions that can help achieve your desired result. In your case, you want to assign sequential numbers within groups defined by the columns {% raw %}`prj_id`{% endraw %}, {% raw %}`file_id`{% endraw %}, {% raw %}`src_table_id`{% endraw %}, and {% raw %}`attr_value`{% endraw %}, ordered by the {% raw %}`tag_seq_id`{% endraw %} column. To achieve this, you can use the {% raw %}`ROW_NUMBER()`{% endraw %} window function.
 
-Here's an example of how you can modify your query to include the `ROW_NUMBER()` function for `col_order_no`:
+Here's an example of how you can modify your query to include the {% raw %}`ROW_NUMBER()`{% endraw %} function for {% raw %}`col_order_no`{% endraw %}:
 
-```sql
+{% raw %}```sql
 SELECT 
     prj_id,
     file_id,
@@ -169,20 +167,20 @@ FROM (
                 AND c.mm_object_name = b.job_id::varchar
         )
 ) A;
-```
+```{% endraw %}
 
-By adding the `ROW_NUMBER()` function and specifying the `PARTITION BY` clause with the desired grouping columns, and the `ORDER BY` clause with the desired ordering column (`flow_s
+By adding the {% raw %}`ROW_NUMBER()`{% endraw %} function and specifying the {% raw %}`PARTITION BY`{% endraw %} clause with the desired grouping columns, and the {% raw %}`ORDER BY`{% endraw %} clause with the desired ordering column ({% raw %}`flow_s
 
 ## ChatGPT 응답:
-> 2.TAG_ATTR_SEQ_ID` in this case), you can assign sequential numbers within the groups as per your requirement.
+> 2.TAG_ATTR_SEQ_ID`{% endraw %} in this case), you can assign sequential numbers within the groups as per your requirement.
 
 ## 사용자 입력:
 > 중복이 있어서, Dense_rank()를 사용했는데, 순번이 1부터 시작하지 않아.
 
 ## ChatGPT 응답:
-> If you want the sequential numbers to start from 1 within each group, you can use the `ROW_NUMBER()` function instead of `DENSE_RANK()`. Here's the modified query:
+> If you want the sequential numbers to start from 1 within each group, you can use the {% raw %}`ROW_NUMBER()`{% endraw %} function instead of {% raw %}`DENSE_RANK()`{% endraw %}. Here's the modified query:
 
-```sql
+{% raw %}```sql
 SELECT 
     prj_id,
     file_id,
@@ -255,9 +253,9 @@ FROM (
                 AND c.mm_object_name = b.job_id::varchar
         )
 ) A;
-```
+```{% endraw %}
 
-By using `ROW_NUMBER()` instead of `DENSE_RANK()`, the sequential numbers will start from 1 within each group.
+By using {% raw %}`ROW_NUMBER()`{% endraw %} instead of {% raw %}`DENSE_RANK()`{% endraw %}, the sequential numbers will start from 1 within each group.
 
 ## 사용자 입력:
 >         ROW_NUMBER() OVER (
@@ -271,9 +269,9 @@ By using `ROW_NUMBER()` instead of `DENSE_RANK()`, the sequential numbers will s
         ) AS col_order_no 이부분을 중복이 있어서 바꿀려고 하는 거야.
 
 ## ChatGPT 응답:
-> If you want to assign sequential numbers starting from 1 within each group while handling duplicates, you can modify the `ROW_NUMBER()` function to include a subquery that removes duplicates. Here's an updated version of the query:
+> If you want to assign sequential numbers starting from 1 within each group while handling duplicates, you can modify the {% raw %}`ROW_NUMBER()`{% endraw %} function to include a subquery that removes duplicates. Here's an updated version of the query:
 
-```sql
+{% raw %}```sql
 SELECT 
     prj_id,
     file_id,
@@ -332,7 +330,7 @@ FROM (
 ## ChatGPT 응답:
 > I apologize for the confusion. If you want to modify the `ROW_NUMBER()` function to handle duplicates and assign sequential numbers starting from 1 within each group, you can use the `DENSE_RANK()` function instead. Here's the modified query:
 
-```sql
+```{% endraw %}sql
 SELECT 
     prj_id,
     file_id,
@@ -408,9 +406,9 @@ FROM (
                 AND c.mm_object_name = b.job_id::varchar
         )
 ) A;
-```
+{% raw %}``{% endraw %}{% raw %}`
 
-In this modified query, both the `table_id` and `col_order_no` columns are generated using the `DENSE_RANK()` function. This function assigns a unique rank to each group within the specified partition, including duplicates. Adding 90000 to `DENSE_RANK()` for `table_id` ensures that the numbering starts from 
+In this modified query, both the `{% endraw %}table_id{% raw %}` and `{% endraw %}col_order_no{% raw %}` columns are generated using the `{% endraw %}DENSE_RANK(){% raw %}` function. This function assigns a unique rank to each group within the specified partition, including duplicates. Adding 90000 to `{% endraw %}DENSE_RANK(){% raw %}` for `{% endraw %}table_id` ensures that the numbering starts from 
 
 ## 사용자 입력:
 > python에서 제일 좋은 sql parser 라이브러리 추천해줘

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Override in IntelliJ"
-date: 2023-09-04
-tags: [IntelliJ, Override, in]
-categories: blog
+tags: [in, IntelliJ, Override]
 ---
 
 ## 사용자 입력:
@@ -45,7 +43,7 @@ categories: blog
    - 클래스 A의 코드에서 오버라이드하려는 함수가 위치한 곳으로 이동합니다.
 
 2. **오버라이드 생성 키워드 입력:**
-   - 함수가 위치한 곳에서 오버라이드하려는 함수를 오른쪽 클릭하거나, 단축키(`Ctrl` + `O` 또는 `Cmd` + `O` for Mac)를 사용하여 "Override Methods" 창을 엽니다.
+   - 함수가 위치한 곳에서 오버라이드하려는 함수를 오른쪽 클릭하거나, 단축키({% raw %}`Ctrl`{% endraw %} + {% raw %}`O`{% endraw %} 또는 {% raw %}`Cmd`{% endraw %} + {% raw %}`O`{% endraw %} for Mac)를 사용하여 "Override Methods" 창을 엽니다.
 
 3. **오버라이드할 함수 선택:**
    - "Override Methods" 창에서 오버라이드하려는 함수의 목록이 표시됩니다. 오버라이드할 함수를 선택합니다.

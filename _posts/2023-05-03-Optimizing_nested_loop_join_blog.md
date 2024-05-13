@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Optimizing nested loop join"
-date: 2023-05-03
-tags: [Optimizing, join, nested, loop]
-categories: blog
+tags: [loop, nested, Optimizing, join]
 ---
 
 ## 사용자 입력:
@@ -202,7 +200,7 @@ categories: blog
 ## ChatGPT 응답:
 > 이 쿼리를 최소한의 중첩 루프로 변경하기 위해, 서브쿼리를 CTE (Common Table Expression)로 변환하여 최대한 간소화하겠습니다. 주어진 쿼리를 완성하기 위해 변경된 쿼리는 다음과 같습니다:
 
-```sql
+{% raw %}```sql
 WITH output_pins AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.PARENT_SEQ_ID, y1.ATTR_VALUE AS xmi_id
     FROM ais0038 x1
@@ -257,7 +255,7 @@ FROM
 ## ChatGPT 응답:
 > 죄송합니다. 이어서 완성된 쿼리를 제공하겠습니다.
 
-```sql
+```{% endraw %}sql
 WITH output_pins AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.PARENT_SEQ_ID, y1.ATTR_VALUE AS xmi_id
     FROM ais0038 x1
@@ -312,7 +310,7 @@ FROM
 ## 사용자 입력:
 > 죄송합니다. 이어서 완성된 쿼리를 제공하겠습니다.
 
-```sql
+{% raw %}```sql
 WITH output_pins AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.PARENT_SEQ_ID, y1.ATTR_VALUE AS xmi_id
     FROM ais0038 x1
@@ -367,7 +365,7 @@ FROM
 ## ChatGPT 응답:
 > 죄송합니다. 이어서 완성된 쿼리를 제공하겠습니다.
 
-```sql
+```{% endraw %}sql
 WITH output_pins AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.PARENT_SEQ_ID, y1.ATTR_VALUE AS xmi_id
     FROM ais0038 x1
@@ -425,7 +423,7 @@ FROM
 ## ChatGPT 응답:
 > 죄송합니다. 이어서 완성된 쿼리를 제공하겠습니다.
 
-```sql
+{% raw %}```sql
 WITH output_pins AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.PARENT_SEQ_ID, y1.ATTR_VALUE AS xmi_id
     FROM ais0038 x1
@@ -483,7 +481,7 @@ FROM
 ## ChatGPT 응답:
 > 죄송합니다. 이어서 완성된 쿼리를 제공하겠습니다. 끊긴 부분부터 이어서 작성하겠습니다.
 
-```sql
+```{% endraw %}sql
     ...
     JOIN ais0038 t2 ON t1.PRJ_ID = t2.PRJ_ID AND t1.FILE_ID = t2.FILE_ID AND t1.PARENT_SEQ_ID = t2.PARENT_SEQ_ID
     JOIN ais0039 s6 ON t2.PRJ_ID = s6.PRJ_ID AND t2.FILE_ID = s6.FILE_ID AND t2.TAG_SEQ_ID = s6.TAG_SEQ_ID
@@ -498,7 +496,7 @@ WHERE
     AND s8.ATTR_NAME = 'name'
     AND s9.ATTR_NAME = 'table'
 ;
-```
+{% raw %}```
 
 위의 쿼리는 끊긴 부분부터 이어서 작성된 완성된 쿼리입니다. 이제 이 쿼리를 사용하여 원하는 결과를 얻을 수 있습니다.
 
@@ -508,7 +506,7 @@ WHERE
 ## ChatGPT 응답:
 > 죄송합니다. 지적해주신 부분을 수정하겠습니다. `s3.ATTR_NAME = 'columnReference'` 조건을 추가하겠습니다.
 
-```sql
+```{% endraw %}sql
 WITH output_pins AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.PARENT_SEQ_ID, y1.ATTR_VALUE AS xmi_id
     FROM ais0038 x1
@@ -756,7 +754,7 @@ FROM
 ## ChatGPT 응답:
 > 이 쿼리를 최소화하여 nested loop를 최소화하는 것이 목표입니다. 아래는 개선된 쿼리입니다. 끊기지 않도록 주의하겠습니다.
 
-```sql
+{% raw %}```sql
 WITH output_pins AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.PARENT_SEQ_ID, y1.ATTR_VALUE AS xmi_id
     FROM ais0038 x1
@@ -811,7 +809,7 @@ FROM
 ## ChatGPT 응답:
 > 죄송합니다. 끊긴 부분에서 이어서 계속 쿼리를 완성하겠습니다.
 
-```sql
+```{% endraw %}sql
 ...
 JOIN owner_table_names otn ON t1.PRJ_ID = otn.PRJ_ID AND t1.FILE_ID = otn.FILE_ID AND t1.TAG_SEQ_ID = otn.TAG_SEQ_ID
 JOIN ais0038 t2 ON t1.PRJ_ID = t2.PRJ_ID AND t1.FILE_ID = t2.FILE_ID AND t1.PARENT_SEQ_ID = t2.TAG_SEQ_ID
@@ -863,12 +861,12 @@ WHERE
 ## ChatGPT 응답:
 > 죄송합니다. 다시 끊긴 부분부터 이어서 쿼리를 완성하겠습니다.
 
-```sql
+{% raw %}```sql
 ...
                     AND z.TAG_ID = 'has_InputPin'
             )
     )
-```
+```{% endraw %}
 
 이제 위의 쿼리에서 nested loop를 최소화하였습니다. 이전 쿼리에 비해 JOIN 문을 사용하여 가독성이 향상되고, 중복 코드가 줄어들었습니다.
 
@@ -967,9 +965,9 @@ WHERE
 위 쿼리는 postgresql인데, oracle 쿼리로 바꿔줘
 
 ## ChatGPT 응답:
-> 아래 코드는 Oracle 쿼리로 변환한 것입니다. 주요 변경 사항은 문자열 관련 함수와 하위 쿼리에 대한 조건입니다. PostgreSQL의 `E'\\'` 대신 `CHR(92)`를 사용하여 역슬래시를 표현했습니다. 또한, `strpos` 대신 Oracle의 `INSTR` 함수를 사용하였습니다.
+> 아래 코드는 Oracle 쿼리로 변환한 것입니다. 주요 변경 사항은 문자열 관련 함수와 하위 쿼리에 대한 조건입니다. PostgreSQL의 {% raw %}`E'\\'`{% endraw %} 대신 {% raw %}`CHR(92)`{% endraw %}를 사용하여 역슬래시를 표현했습니다. 또한, {% raw %}`strpos`{% endraw %} 대신 Oracle의 {% raw %}`INSTR`{% endraw %} 함수를 사용하였습니다.
 
-```sql
+{% raw %}```sql
 WITH output_pins AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.PARENT_SEQ_ID, y1.ATTR_VALUE AS xmi_id
     FROM ais0038 x1
@@ -1023,7 +1021,7 @@ FROM
 ## ChatGPT 응답:
 > 죄송합니다. 위 쿼리에서 `TAG_SEQ_ID` 조건이 잘못 사용되었습니다. 아래 수정된 Oracle 쿼리를 사용해 주세요.
 
-```sql
+```{% endraw %}sql
 WITH output_pins AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.PARENT_SEQ_ID, y1.ATTR_VALUE AS xmi_id
     FROM ais0038 x1
@@ -1238,9 +1236,9 @@ WHERE
 	) 이 쿼리는 오라클인데, 성능튜닝해줘.
 
 ## ChatGPT 응답:
-> 이 쿼리를 성능 향상을 위해 다음과 같이 변경해 보았습니다. CTE (Common Table Expressions)를 사용하여 중첩된 SELECT문을 최소화하고, 조인의 개수를 줄였습니다. 또한, `EXISTS`와 `NOT EXISTS` 절을 최적화했습니다.
+> 이 쿼리를 성능 향상을 위해 다음과 같이 변경해 보았습니다. CTE (Common Table Expressions)를 사용하여 중첩된 SELECT문을 최소화하고, 조인의 개수를 줄였습니다. 또한, {% raw %}`EXISTS`{% endraw %}와 {% raw %}`NOT EXISTS`{% endraw %} 절을 최적화했습니다.
 
-```sql
+{% raw %}```sql
 WITH output_pins AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.PARENT_SEQ_ID, y1.ATTR_VALUE AS xmi_id
     FROM ais0038 x1
@@ -1285,7 +1283,7 @@ context_output_pins AS (
 ## ChatGPT 응답:
 > 죄송합니다. 쿼리가 끊긴 부분부터 이어서 완성하겠습니다.
 
-```sql
+```{% endraw %}sql
         AND y2.ATTR_VALUE = 'Context'
         AND y3.ATTR_NAME = 'valueExpression'
         AND y3.ATTR_VALUE = 'source'
@@ -1339,7 +1337,7 @@ WHERE
 ## ChatGPT 응답:
 > 죄송합니다. 끊긴 부분부터 이어서 쿼리를 완성하겠습니다.
 
-```sql
+{% raw %}```sql
     AND s2.ATTR_NAME = 'xmi:id'
     AND s3.ATTR_NAME = 'columnReference'
     AND s4.ATTR_NAME = 'tableDef'
@@ -1375,7 +1373,7 @@ WHERE
             AND z.TAG_ID = 'has_InputPin'
         )
     );
-```
+```{% endraw %}
 
 이 쿼리는 원래 쿼리를 보다 이해하기 쉽게 하기 위해 일부 서브쿼리를 분리하고 JOIN 구문을 사용하였습니다. 이렇게 변경한 쿼리를 사용하면 성능 향상이 기대됩니다.
 
@@ -1393,15 +1391,15 @@ WHERE
 
 인덱스가 이미 있다면, 다음과 같이 원래 쿼리에 힌트를 추가하여 옵티마이저가 인덱스를 사용하도록 유도할 수 있습니다:
 
-```sql
+{% raw %}```sql
 SELECT /*+ INDEX(f ais0010_idx) INDEX(t1 ais0038_idx) INDEX(s2 ais0039_idx) */
     ...
 FROM
     ais0010 f
     ...
-```
+```{% endraw %}
 
-위의 주석에 나온 `ais0010_idx`, `ais0038_idx`, `ais0039_idx`는 인덱스 이름을 적절하게 변경해야 합니다. 이렇게 힌트를 추가한 후 쿼리 성능이 개선되는지 확인해 보세요. 만약 성능이 여전히 미흡하다면, 추가적인 분석이 필요합니다. 이 경우, 실행 계획을 확인하여 더 나은 최적화 방법을 찾아보세요.
+위의 주석에 나온 {% raw %}`ais0010_idx`{% endraw %}, {% raw %}`ais0038_idx`{% endraw %}, {% raw %}`ais0039_idx`{% endraw %}는 인덱스 이름을 적절하게 변경해야 합니다. 이렇게 힌트를 추가한 후 쿼리 성능이 개선되는지 확인해 보세요. 만약 성능이 여전히 미흡하다면, 추가적인 분석이 필요합니다. 이 경우, 실행 계획을 확인하여 더 나은 최적화 방법을 찾아보세요.
 
 ## 사용자 입력:
 > 원래 쿼리는 not exists, exists, 서브쿼리 등이 있는데, 인덱스외에 성능을 개선하는 방법으로 쿼리 제안해줘.
@@ -1409,7 +1407,7 @@ FROM
 ## ChatGPT 응답:
 > 원래 쿼리에서 NOT EXISTS, EXISTS, 서브쿼리 등을 최대한 제거하고 성능을 개선하기 위해 다음과 같이 변경된 쿼리를 제안합니다:
 
-```sql
+{% raw %}```sql
 WITH output_pin AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.TAG_SEQ_ID, y1.ATTR_VALUE AS xmi_id
     FROM ais0038 x1
@@ -1453,7 +1451,7 @@ SELECT f.prj_id
 ## ChatGPT 응답:
 > 알겠습니다. 끊긴 부분부터 이어서 쿼리를 작성하겠습니다.
 
-```sql
+```{% endraw %}sql
 tableDef), '\\', 1)), '[^.]+', 1, 1) AS owner_name
     , REGEXP_SUBSTR(REVERSE(SPLIT_PART(REVERSE(flow_var.tableDef), '\\', 1)), '[^.]+', 1, 2) AS table_name
     , flow_var.PARENT_SEQ_ID AS call_sql_id
@@ -1480,7 +1478,7 @@ AND NOT EXISTS (
     FROM ais0038 z
     WHERE flow_var.prj_id = z.prj_id AND flow_var.FILE_ID = z.file_id AND z.PARENT_SEQ_ID = op1.PARENT_SEQ_ID AND z.TAG_ID = 'has_InputPin'
 )
-```
+{% raw %}```
 
 이 쿼리는 원래 쿼리의 NOT EXISTS, EXISTS, 서브쿼리를 최대한 제거하고, CTE(Common Table Expression)를 사용하여 성능을 개선하려고 합니다. 하지만 결과의 정확성을 확인하려면 실제 데이터와 테스트를 해봐야합니다.
 
@@ -1512,27 +1510,27 @@ AND NOT EXISTS (
 
 1. EXPLAIN PLAN 사용:
 
-   ```
+   ```{% endraw %}
    EXPLAIN PLAN FOR
    -- 여기에 쿼리를 입력하세요.
    SELECT ...
    FROM ...
    WHERE ...;
-   ```
+   {% raw %}```
 
 2. 결과 확인:
 
    실행 계획 결과를 확인하려면 PLAN_TABLE에서 쿼리를 실행하거나 DBMS_XPLAN.DISPLAY 함수를 사용할 수 있습니다.
 
-   ```
+   ```{% endraw %}
    SELECT * FROM PLAN_TABLE;
-   ```
+   {% raw %}```
 
    또는
 
-   ```
+   ```{% endraw %}
    SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY);
-   ```
+   {% raw %}```
 
 3. 실행 계획을 읽는 법:
 
@@ -1713,7 +1711,7 @@ WHERE
 ## ChatGPT 응답:
 > 쿼리에서 EXISTS 및 NOT EXISTS 조건을 제거하면 다음과 같습니다:
 
-```sql
+```{% endraw %}sql
 SELECT
 	f.prj_id,
 	f.FILE_ID,
@@ -1812,7 +1810,7 @@ WHERE
 ## ChatGPT 응답:
 > 죄송합니다. 이어서 완성된 쿼리를 제공하겠습니다.
 
-```sql
+{% raw %}```sql
 	AND t1.PRJ_ID = s3.PRJ_ID
 	AND t1.FILE_ID = s3.FILE_ID
 	AND t1.TAG_SEQ_ID = s3.TAG_SEQ_ID
@@ -1840,7 +1838,7 @@ WHERE
 	AND t2.FILE_ID = s9.FILE_ID
 	AND t2.TAG_SEQ_ID = s9.TAG_SEQ_ID
 	AND s9.ATTR_NAME = 'name';
-```
+```{% endraw %}
 
 이제 EXISTS 및 NOT EXISTS 조건이 제거된 쿼리를 확인하실 수 있습니다.
 
@@ -1852,7 +1850,7 @@ WHERE
 
 이렇게 수정해 보았습니다:
 
-```sql
+{% raw %}```sql
 FROM
     ais0010 f
     INNER JOIN ais0038 t1 ON f.PRJ_ID = t1.PRJ_ID AND f.FILE_ID = t1.FILE_ID
@@ -1885,7 +1883,7 @@ WHERE
     AND s8.ATTR_NAME = 'name'
     AND s9.ATTR_NAME = 'name'
     AND z.PARENT_SEQ_ID IS NULL;
-```
+```{% endraw %}
 
 이 쿼리는 EXISTS 및 NOT EXISTS 조건을 제거하고, 대신 INNER JOIN과 LEFT JOIN을 사용하여 동일한 결과를 얻을 수 있도록 변경했습니다.
 
@@ -1897,7 +1895,7 @@ WHERE
 
 다음 쿼리를 사용하여 원래의 결과와 일치하는지 확인해 주세요.
 
-```sql
+{% raw %}```sql
 WITH output_pins AS (
     SELECT
         x1.PRJ_ID, x1.FILE_ID, y1.ATTR_VALUE AS attr_value, x1.PARENT_SEQ_ID
@@ -1943,9 +1941,9 @@ WHERE
             AND z.PARENT_SEQ_ID = op.PARENT_SEQ_ID
             AND z.TAG_ID = 'has_InputPin'
     );
-```
+```{% endraw %}
 
-이 쿼리에서는 먼저 `output_pins` 및 `parameter_vals`라는 두 개의 CTE를 사용하여 원하는 조건을 필터링한 다음, 이를 LEFT JOIN하여 결과를 얻습니다. 이렇게 변경하면 원래 쿼리의 결과와 일치하는지 확인해 주세요.
+이 쿼리에서는 먼저 {% raw %}`output_pins`{% endraw %} 및 {% raw %}`parameter_vals`{% endraw %}라는 두 개의 CTE를 사용하여 원하는 조건을 필터링한 다음, 이를 LEFT JOIN하여 결과를 얻습니다. 이렇게 변경하면 원래 쿼리의 결과와 일치하는지 확인해 주세요.
 
 ## 사용자 입력:
 > 위에 쿼리 중간 생략했는데, 모두 다 써줘.
@@ -1953,7 +1951,7 @@ WHERE
 ## ChatGPT 응답:
 > 죄송합니다. 전체 쿼리를 제공하지 않았습니다. 전체 쿼리는 다음과 같습니다.
 
-```sql
+{% raw %}```sql
 WITH output_pins AS (
     SELECT
         x1.PRJ_ID, x1.FILE_ID, y1.ATTR_VALUE AS attr_value, x1.PARENT_SEQ_ID
@@ -2011,9 +2009,9 @@ WHERE
             AND z.PARENT_SEQ_ID = op.PARENT_SEQ_ID
             AND z.TAG_ID = 'has_InputPin'
     );
-```
+```{% endraw %}
 
-이 쿼리에서는 먼저 `output_pins` 및 `parameter_vals` 라는 두 개의 CTE를 사용하여 원하는 조건을 필터링한 다음, 이를 LEFT JOIN하여 결과를 얻습니다. 이렇게 변경하면 원래 쿼리의 결과와 일치하는지 확인해 주세요.
+이 쿼리에서는 먼저 {% raw %}`output_pins`{% endraw %} 및 {% raw %}`parameter_vals`{% endraw %} 라는 두 개의 CTE를 사용하여 원하는 조건을 필터링한 다음, 이를 LEFT JOIN하여 결과를 얻습니다. 이렇게 변경하면 원래 쿼리의 결과와 일치하는지 확인해 주세요.
 
 ## 사용자 입력:
 > 위 ...으로 생략한 부분도 모두 채워줘.
@@ -2021,7 +2019,7 @@ WHERE
 ## ChatGPT 응답:
 > 죄송합니다. 다시 모두 작성한 전체 쿼리를 제공하겠습니다.
 
-```sql
+{% raw %}```sql
 WITH output_pins AS (
     SELECT
         x1.PRJ_ID, x1.FILE_ID, y1.ATTR_VALUE AS attr_value, x1.PARENT_SEQ_ID
@@ -2107,7 +2105,7 @@ WHERE
 ## ChatGPT 응답:
 > 죄송합니다. 생략된 부분을 포함한 전체 쿼리를 제공하겠습니다.
 
-```sql
+```{% endraw %}sql
 WITH output_pins AS (
     SELECT
         x1.PRJ_ID, x1.FILE_ID, y1.ATTR_VALUE AS attr_value, x1.PARENT_SEQ_ID
@@ -2346,13 +2344,13 @@ WHERE
 
 문제가 되는 부분은 다음과 같습니다:
 
-1. `dual` 테이블은 Oracle 데이터베이스에서만 사용 가능하며, 다른 데이터베이스에서는 작동하지 않을 수 있습니다. `dual`을 사용한 서브 쿼리를 수정해야 할 수 있습니다.
+1. {% raw %}`dual`{% endraw %} 테이블은 Oracle 데이터베이스에서만 사용 가능하며, 다른 데이터베이스에서는 작동하지 않을 수 있습니다. {% raw %}`dual`{% endraw %}을 사용한 서브 쿼리를 수정해야 할 수 있습니다.
 
-2. `reverse`와 `split_part` 함수는 PostgreSQL에서 사용 가능한 함수입니다. 다른 데이터베이스에서 사용하려면 해당하는 함수를 사용해야 합니다.
+2. {% raw %}`reverse`{% endraw %}와 {% raw %}`split_part`{% endraw %} 함수는 PostgreSQL에서 사용 가능한 함수입니다. 다른 데이터베이스에서 사용하려면 해당하는 함수를 사용해야 합니다.
 
 아래는 수정된 쿼리입니다. 이 쿼리는 PostgreSQL 데이터베이스를 기준으로 작성되었습니다.
 
-```sql
+{% raw %}```sql
 SELECT
     f.prj_id,
     f.FILE_ID,
@@ -2375,20 +2373,20 @@ SELECT
 1. 아래 서브 쿼리에서 `FROM dual` 부분이 불필요하므로 제거해야 합니다. Oracle에서 `dual`을 사용할 때는 `FROM`절 없이 바로 `SELECT` 절을 사용할 수 있습니다.
 
    원본:
-   ```
+   ```{% endraw %}
    SELECT
        reverse(split_part(reverse(s4.ATTR_VALUE), '\\', 1)) AS second_part
    FROM
        dual
-   ```
+   {% raw %}```
 
    수정:
-   ```
+   ```{% endraw %}
    SELECT
        reverse(substr(s4.ATTR_VALUE, instr(s4.ATTR_VALUE, '\') + 1)) AS second_part
    FROM
        dual
-   ```
+   {% raw %}```
 
 이외에는 명확한 오류를 찾지 못했습니다. 쿼리가 여전히 오류가 있다면, 테이블 구조와 데이터, 그리고 원하는 결과에 대한 정보를 제공해 주시면 더 정확한 도움을 드릴 수 있습니다.
 
@@ -2398,25 +2396,25 @@ SELECT
 ## ChatGPT 응답:
 > 감사합니다. 오류 위치를 알려주셔서 정확한 문제를 찾을 수 있었습니다. 문제는 아래 부분에서 발생합니다.
 
-```
+```{% endraw %}
 SELECT
     reverse(split_part(reverse(s4.ATTR_VALUE), '\\', 1)) AS second_part
 FROM
     dual
-```
+{% raw %}```
 
 Oracle에서는 `split_part` 함수가 지원되지 않습니다. 대신 `regexp_substr` 함수를 사용하여 문자열을 분할할 수 있습니다. 해당 부분을 수정하면 다음과 같습니다.
 
-```
+```{% endraw %}
 SELECT
     reverse(regexp_substr(reverse(s4.ATTR_VALUE), '[^\\]+')) AS second_part
 FROM
     dual
-```
+{% raw %}```
 
 수정된 쿼리의 전체 내용은 다음과 같습니다.
 
-```
+```{% endraw %}
 SELECT
     f.prj_id
 , f.FILE_ID
@@ -2606,17 +2604,17 @@ WHERE
 ## ChatGPT 응답:
 > 알려주신 오류 위치를 참고하여, 아래 부분에서 오류가 발생하였음을 확인했습니다.
 
-```
+{% raw %}```
 	AND y1.ATTR_VALUE = s7.ATTR_VALUE
-```
+```{% endraw %}
 
 이 부분에서 발생한 오류는 s7 테이블 별칭이 사용되었지만, 이전에 정의되지 않았기 때문에 발생한 것으로 보입니다. 이를 해결하기 위해 해당 부분을 제거하고 전체 쿼리를 수정하겠습니다.
 
-또한 이전에 제안한 `split_part` 함수를 `regexp_substr`로 대체한 수정도 적용하겠습니다.
+또한 이전에 제안한 {% raw %}`split_part`{% endraw %} 함수를 {% raw %}`regexp_substr`{% endraw %}로 대체한 수정도 적용하겠습니다.
 
 수정된 쿼리는 다음과 같습니다.
 
-```sql
+{% raw %}```sql
 SELECT
 	f.prj_id
 , f.FILE_ID
@@ -2653,7 +2651,7 @@ SELECT
 
 예를 들어, 아래와 같이 인라인 뷰에서 외부 테이블의 컬럼을 참조하려고 하는 경우:
 
-```sql
+```{% endraw %}sql
 SELECT
     t1.col1,
     t2.col2
@@ -2667,13 +2665,13 @@ FROM
         WHERE
             table2.col4 = t1.col1
     ) t2;
-```
+{% raw %}```
 
 위의 쿼리는 오류가 발생합니다. 이 문제를 해결하려면 인라인 뷰를 메인 쿼리에 조인하거나, 인라인 뷰를 사용하지 않고 메인 쿼리에 필요한 조건을 추가해야 합니다.
 
 1. 인라인 뷰를 메인 쿼리에 조인하는 경우:
 
-```sql
+```{% endraw %}sql
 SELECT
     t1.col1,
     t2.col3 AS col2
@@ -2683,11 +2681,11 @@ JOIN
     table2 t2
 ON
     t2.col4 = t1.col1;
-```
+{% raw %}```
 
 2. 인라인 뷰를 사용하지 않고 메인 쿼리에 필요한 조건을 추가하는 경우:
 
-```sql
+```{% endraw %}sql
 SELECT
     t1.col1,
     t2.col3 AS col2
@@ -2696,7 +2694,7 @@ FROM
     table2 t2
 WHERE
     t2.col4 = t1.col1;
-```
+{% raw %}``{% endraw %}`
 
 위의 두 예제에서는 인라인 뷰를 사용하지 않고도 동일한 결과를 얻을 수 있습니다. 상황에 따라 필요한 방법을 선택하여 사용하면 됩니다.
 

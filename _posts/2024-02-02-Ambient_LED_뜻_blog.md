@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Ambient LED 뜻"
-date: 2024-02-02
 tags: [LED, Ambient, 뜻]
-categories: blog
 ---
 
 ## 사용자 입력:

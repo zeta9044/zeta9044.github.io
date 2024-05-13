@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Type Mismatch: int to char"
-date: 2023-09-22
-tags: [int, to, Mismatch, char, Type]
-categories: blog
+title: "Type Mismatch - int to char"
+tags: [char, Type, int, to, Mismatch]
 ---
 
 ## 사용자 입력:
@@ -11,29 +9,29 @@ categories: blog
      throw new TokenMgrError(EOFSeen, curLexState, error_line, error_column, error_after, curChar, TokenMgrError.LEXICAL_ERROR);
 
 ## ChatGPT 응답:
-> The error message you've provided suggests that there is a type mismatch involving an `int` and a `char` in your Java code. Specifically, you're trying to assign (or pass) an `int` value to a location that expects a `char`. The `int` type in Java uses 32 bits, while the `char` type uses 16 bits. So, if you try to assign an `int` value to a `char` without explicit casting, the compiler is warning you that there might be data loss.
+> The error message you've provided suggests that there is a type mismatch involving an {% raw %}`int`{% endraw %} and a {% raw %}`char`{% endraw %} in your Java code. Specifically, you're trying to assign (or pass) an {% raw %}`int`{% endraw %} value to a location that expects a {% raw %}`char`{% endraw %}. The {% raw %}`int`{% endraw %} type in Java uses 32 bits, while the {% raw %}`char`{% endraw %} type uses 16 bits. So, if you try to assign an {% raw %}`int`{% endraw %} value to a {% raw %}`char`{% endraw %} without explicit casting, the compiler is warning you that there might be data loss.
 
 Looking at the line you've provided:
 
-```java
+{% raw %}```java
 throw new TokenMgrError(EOFSeen, curLexState, error_line, error_column, error_after, curChar, TokenMgrError.LEXICAL_ERROR);
-```
+```{% endraw %}
 
-It's hard to tell which exact argument is causing the problem without more context about the `TokenMgrError` constructor and the types of the variables you're passing to it. However, my suspicion is that one of these variables (`EOFSeen`, `curLexState`, `error_line`, `error_column`, `error_after`, or `curChar`) is declared as an `int` but the corresponding parameter in the `TokenMgrError` constructor expects a `char`.
+It's hard to tell which exact argument is causing the problem without more context about the {% raw %}`TokenMgrError`{% endraw %} constructor and the types of the variables you're passing to it. However, my suspicion is that one of these variables ({% raw %}`EOFSeen`{% endraw %}, {% raw %}`curLexState`{% endraw %}, {% raw %}`error_line`{% endraw %}, {% raw %}`error_column`{% endraw %}, {% raw %}`error_after`{% endraw %}, or {% raw %}`curChar`{% endraw %}) is declared as an {% raw %}`int`{% endraw %} but the corresponding parameter in the {% raw %}`TokenMgrError`{% endraw %} constructor expects a {% raw %}`char`{% endraw %}.
 
 To resolve the issue:
 
-1. Check the constructor of the `TokenMgrError` class to determine the expected data types of each parameter.
+1. Check the constructor of the {% raw %}`TokenMgrError`{% endraw %} class to determine the expected data types of each parameter.
 2. Verify the data types of the variables you're passing into this constructor.
-3. If you find a mismatch, and you're certain that you want to make the conversion, you can explicitly cast the `int` to a `char`:
+3. If you find a mismatch, and you're certain that you want to make the conversion, you can explicitly cast the {% raw %}`int`{% endraw %} to a {% raw %}`char`{% endraw %}:
 
-```java
+{% raw %}```java
 (char) yourIntVariable
-```
+```{% endraw %}
 
-However, be cautious with this approach. Casting an `int` to a `char` can lead to data loss if the `int` value is outside the range that can be represented by a `char`.
+However, be cautious with this approach. Casting an {% raw %}`int`{% endraw %} to a {% raw %}`char`{% endraw %} can lead to data loss if the {% raw %}`int`{% endraw %} value is outside the range that can be represented by a {% raw %}`char`{% endraw %}.
 
-If you provide more context or details about the `TokenMgrError` constructor, I can give more specific guidance.
+If you provide more context or details about the {% raw %}`TokenMgrError`{% endraw %} constructor, I can give more specific guidance.
 
 ## 사용자 입력:
 > 한글로 설명해.
@@ -41,29 +39,29 @@ If you provide more context or details about the `TokenMgrError` constructor, I 
 ## ChatGPT 응답:
 > 죄송합니다. 오류 메시지를 한글로 설명하겠습니다.
 
-제공된 오류 메시지는 Java 코드에서 `int`와 `char` 사이에 타입 불일치가 있음을 나타냅니다. 구체적으로, `char`로 기대되는 위치에 `int` 값을 할당하거나 전달하려고 하면 이 문제가 발생합니다. Java의 `int` 타입은 32비트를 사용하며, `char` 타입은 16비트를 사용합니다. 따라서 명시적 캐스팅 없이 `int` 값을 `char`에 할당하려고 하면 데이터 손실이 있을 수 있음을 컴파일러가 경고합니다.
+제공된 오류 메시지는 Java 코드에서 {% raw %}`int`{% endraw %}와 {% raw %}`char`{% endraw %} 사이에 타입 불일치가 있음을 나타냅니다. 구체적으로, {% raw %}`char`{% endraw %}로 기대되는 위치에 {% raw %}`int`{% endraw %} 값을 할당하거나 전달하려고 하면 이 문제가 발생합니다. Java의 {% raw %}`int`{% endraw %} 타입은 32비트를 사용하며, {% raw %}`char`{% endraw %} 타입은 16비트를 사용합니다. 따라서 명시적 캐스팅 없이 {% raw %}`int`{% endraw %} 값을 {% raw %}`char`{% endraw %}에 할당하려고 하면 데이터 손실이 있을 수 있음을 컴파일러가 경고합니다.
 
 제공된 코드:
 
-```java
+{% raw %}```java
 throw new TokenMgrError(EOFSeen, curLexState, error_line, error_column, error_after, curChar, TokenMgrError.LEXICAL_ERROR);
-```
+```{% endraw %}
 
-에서 정확히 어떤 인자가 문제를 일으키는지 `TokenMgrError` 생성자와 전달하려는 변수의 타입에 대한 자세한 내용 없이는 알기 어렵습니다. 하지만 제 추측에 따르면 (`EOFSeen`, `curLexState`, `error_line`, `error_column`, `error_after`, `curChar` 중) 하나의 변수가 `int`로 선언되어 있지만 `TokenMgrError` 생성자에서는 `char`를 기대하고 있을 것 같습니다.
+에서 정확히 어떤 인자가 문제를 일으키는지 {% raw %}`TokenMgrError`{% endraw %} 생성자와 전달하려는 변수의 타입에 대한 자세한 내용 없이는 알기 어렵습니다. 하지만 제 추측에 따르면 ({% raw %}`EOFSeen`{% endraw %}, {% raw %}`curLexState`{% endraw %}, {% raw %}`error_line`{% endraw %}, {% raw %}`error_column`{% endraw %}, {% raw %}`error_after`{% endraw %}, {% raw %}`curChar`{% endraw %} 중) 하나의 변수가 {% raw %}`int`{% endraw %}로 선언되어 있지만 {% raw %}`TokenMgrError`{% endraw %} 생성자에서는 {% raw %}`char`{% endraw %}를 기대하고 있을 것 같습니다.
 
 이 문제를 해결하려면:
 
-1. `TokenMgrError` 클래스의 생성자를 확인하여 각 매개변수의 예상 데이터 타입을 확인합니다.
+1. {% raw %}`TokenMgrError`{% endraw %} 클래스의 생성자를 확인하여 각 매개변수의 예상 데이터 타입을 확인합니다.
 2. 이 생성자에 전달하는 변수의 데이터 타입을 확인합니다.
-3. 불일치를 발견하면, 그리고 확실히 변환을 원할 경우 `int`를 `char`로 명시적으로 캐스트할 수 있습니다:
+3. 불일치를 발견하면, 그리고 확실히 변환을 원할 경우 {% raw %}`int`{% endraw %}를 {% raw %}`char`{% endraw %}로 명시적으로 캐스트할 수 있습니다:
 
-```java
+{% raw %}```java
 (char) yourIntVariable
-```
+```{% endraw %}
 
-하지만 이 접근법에 주의해야 합니다. `int` 값을 `char`로 캐스팅하면 `char`로 표현할 수 있는 범위를 벗어난 `int` 값인 경우 데이터 손실이 발생할 수 있습니다.
+하지만 이 접근법에 주의해야 합니다. {% raw %}`int`{% endraw %} 값을 {% raw %}`char`{% endraw %}로 캐스팅하면 {% raw %}`char`{% endraw %}로 표현할 수 있는 범위를 벗어난 {% raw %}`int`{% endraw %} 값인 경우 데이터 손실이 발생할 수 있습니다.
 
-`TokenMgrError` 생성자에 대한 자세한 내용을 제공하면 더 구체적인 안내를 드릴 수 있습니다.
+{% raw %}`TokenMgrError`{% endraw %} 생성자에 대한 자세한 내용을 제공하면 더 구체적인 안내를 드릴 수 있습니다.
 
 ## 사용자 입력:
 > /* Generated By:JavaCC: Do not edit this line. TokenMgrError.java Version 5.0 */
@@ -216,27 +214,27 @@ public class TokenMgrError extends Error
 
 
 ## ChatGPT 응답:
-> 감사합니다. 제공된 `TokenMgrError` 클래스를 통해 문제를 분석해봤습니다.
+> 감사합니다. 제공된 {% raw %}`TokenMgrError`{% endraw %} 클래스를 통해 문제를 분석해봤습니다.
 
 문제의 코드는 다음 생성자를 호출하려고 합니다:
 
-```java
+{% raw %}```java
 public TokenMgrError(boolean EOFSeen, int lexState, int errorLine, int errorColumn, String errorAfter, char curChar, int reason) {
     this(LexicalError(EOFSeen, lexState, errorLine, errorColumn, errorAfter, curChar), reason);
 }
-```
+```{% endraw %}
 
-이 생성자는 7개의 매개변수를 받습니다. 그 중 `curChar` 매개변수는 `char` 타입입니다.
+이 생성자는 7개의 매개변수를 받습니다. 그 중 {% raw %}`curChar`{% endraw %} 매개변수는 {% raw %}`char`{% endraw %} 타입입니다.
 
-오류 메시지는 `int`에서 `char`로의 변환에서 데이터 손실이 발생할 수 있음을 나타내므로 `curChar` 변수에 대한 값이 `int` 타입일 가능성이 높습니다.
+오류 메시지는 {% raw %}`int`{% endraw %}에서 {% raw %}`char`{% endraw %}로의 변환에서 데이터 손실이 발생할 수 있음을 나타내므로 {% raw %}`curChar`{% endraw %} 변수에 대한 값이 {% raw %}`int`{% endraw %} 타입일 가능성이 높습니다.
 
-이 문제를 해결하려면 `curChar` 변수를 `char` 타입으로 캐스팅해야 합니다:
+이 문제를 해결하려면 {% raw %}`curChar`{% endraw %} 변수를 {% raw %}`char`{% endraw %} 타입으로 캐스팅해야 합니다:
 
-```java
+{% raw %}```java
 throw new TokenMgrError(EOFSeen, curLexState, error_line, error_column, error_after, (char) curChar, TokenMgrError.LEXICAL_ERROR);
-```
+```{% endraw %}
 
-하지만 이렇게 캐스팅하기 전에 `curChar` 변수의 값이 `char` 타입으로 안전하게 변환될 수 있는지 확인해야 합니다. `char` 타입은 0에서 65535 사이의 값을 표현할 수 있으므로, 이 범위를 벗어나는 `int` 값을 캐스팅하면 예상치 못한 결과가 발생할 수 있습니다.
+하지만 이렇게 캐스팅하기 전에 {% raw %}`curChar`{% endraw %} 변수의 값이 {% raw %}`char`{% endraw %} 타입으로 안전하게 변환될 수 있는지 확인해야 합니다. {% raw %}`char`{% endraw %} 타입은 0에서 65535 사이의 값을 표현할 수 있으므로, 이 범위를 벗어나는 {% raw %}`int`{% endraw %} 값을 캐스팅하면 예상치 못한 결과가 발생할 수 있습니다.
 
-따라서 `curChar`의 값을 확인하고, 필요한 경우 적절한 범위 내에 있는지 확인한 후 캐스팅하는 것이 좋습니다.
+따라서 {% raw %}`curChar`{% endraw %}의 값을 확인하고, 필요한 경우 적절한 범위 내에 있는지 확인한 후 캐스팅하는 것이 좋습니다.
 

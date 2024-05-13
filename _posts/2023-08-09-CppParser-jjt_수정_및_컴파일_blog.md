@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "CppParser.jjt 수정 및 컴파일"
-date: 2023-08-09
-tags: [수정, CppParser, 컴파일, 및, jjt]
-categories: blog
+tags: [CppParser, jjt, 컴파일, 수정, 및]
 ---
 
 ## 사용자 입력:
@@ -23,7 +21,7 @@ with open('/mnt/data/cpp_parser_compile_error.txt', 'r') as file:
 compile_errors[:500]
 
 ## ChatGPT 응답:
-> 오류 메시지에 따르면, 주요 문제는 일부 선택 구조에서 발생하는 충돌로 보입니다. 특히 `line 326` 및 `line 423`에서 발생한 충돌이며, 이와 관련된 공통 접두사가 있습니다.
+> 오류 메시지에 따르면, 주요 문제는 일부 선택 구조에서 발생하는 충돌로 보입니다. 특히 {% raw %}`line 326`{% endraw %} 및 {% raw %}`line 423`{% endraw %}에서 발생한 충돌이며, 이와 관련된 공통 접두사가 있습니다.
 
 해당 줄을 찾아서 수정해야 할 것 같습니다. 먼저 CppParser.jjt 파일을 열어 해당 줄을 찾아보겠습니다.
 
@@ -41,8 +39,8 @@ extracted_lines
 ## ChatGPT 응답:
 > 오류 메시지와 관련된 라인의 내용은 다음과 같습니다:
 
-- 라인 326: `) <Doublecolon> [nestedNameSpecifierPrime()]`
-- 라인 423: `| typeIdOfTheTypeId() <LeftParen> ( expression() |  theTypeId()) <RightParen> [postfixExpressionPrime()]`
+- 라인 326: {% raw %}`) <Doublecolon> [nestedNameSpecifierPrime()]`{% endraw %}
+- 라인 423: {% raw %}`| typeIdOfTheTypeId() <LeftParen> ( expression() |  theTypeId()) <RightParen> [postfixExpressionPrime()]`{% endraw %}
 
 라인 326의 경우, 선택 충돌이 있으므로 중첩된 확장과 다음 확장 사이의 공통 접두사를 확인해야 합니다. 고려해야 할 룩어헤드 수를 늘릴 수 있습니다.
 
@@ -67,7 +65,7 @@ surrounding_lines_display
 ## ChatGPT 응답:
 > 이제 문제를 더 잘 이해할 수 있으므로 수정을 시작하겠습니다.
 
-1. **라인 326**: 이미 `LOOKAHEAD(2)`가 있지만 여전히 충돌이 발생하고 있습니다. 이를 해결하기 위해 룩어헤드의 크기를 늘리거나 문법을 다시 구조화해야 할 수 있습니다.
+1. **라인 326**: 이미 {% raw %}`LOOKAHEAD(2)`{% endraw %}가 있지만 여전히 충돌이 발생하고 있습니다. 이를 해결하기 위해 룩어헤드의 크기를 늘리거나 문법을 다시 구조화해야 할 수 있습니다.
 2. **라인 423**: 두 확장 사이의 충돌로 인해 공통 접두사가 발생하고 있습니다. 이를 해결하기 위해 룩어헤드를 사용하거나 문법을 재조정해야 할 수 있습니다.
 
 이러한 문제를 해결하기 위해 먼저 라인 326에서 룩어헤드의 크기를 늘리겠습니다. 그런 다음 라인 423에서 문제를 자세히 살펴보겠습니다.
@@ -119,13 +117,13 @@ surrounding_lines_display[423]
 ## ChatGPT 응답:
 > 라인 423에서의 문제는 다음과 같은 선택 구조에서 발생하고 있습니다:
 
-```java
+{% raw %}```java
 | typeIdOfTheTypeId() <LeftParen> ( expression() | theTypeId()) <RightParen> [postfixExpressionPrime()]
-```
+```{% endraw %}
 
-여기서 `(expression() | theTypeId())` 부분에서 충돌이 발생하고 있습니다. 공통 접두사를 통해 이 충돌을 해결하려면, 이 부분의 문법을 재조정하거나 룩어헤드를 적용해야 할 것입니다.
+여기서 {% raw %}`(expression() | theTypeId())`{% endraw %} 부분에서 충돌이 발생하고 있습니다. 공통 접두사를 통해 이 충돌을 해결하려면, 이 부분의 문법을 재조정하거나 룩어헤드를 적용해야 할 것입니다.
 
-이 경우에는 공통 접두사가 `<Identifier> "<"`로 지정되어 있으므로, 이에 맞게 룩어헤드를 적용해 보겠습니다.
+이 경우에는 공통 접두사가 {% raw %}`<Identifier> "<"`{% endraw %}로 지정되어 있으므로, 이에 맞게 룩어헤드를 적용해 보겠습니다.
 
 ## ChatGPT 응답:
 > # Modifying line 423 by adding a lookahead to resolve the conflict
@@ -172,7 +170,7 @@ corrected_line_423_content
 > CppParser.jjt는  javaCC문법으로 만든 jjtree파일이고, cpp_parser_compile_error.txt는 CppParser.jjt를 컴파일했을때 나오는 오류야. 이 오류를 모두 수정해서,  수정된 CppParser.jjt를 제공해줘.
 
 ## ChatGPT 응답:
-> 먼저 `cpp_parser_compile_error.txt` 파일의 내용을 확인하여 컴파일 오류의 세부 사항을 알아보겠습니다. 그런 다음 `CppParser.jjt` 파일을 분석하여 문제를 수정하겠습니다.
+> 먼저 {% raw %}`cpp_parser_compile_error.txt`{% endraw %} 파일의 내용을 확인하여 컴파일 오류의 세부 사항을 알아보겠습니다. 그런 다음 {% raw %}`CppParser.jjt`{% endraw %} 파일을 분석하여 문제를 수정하겠습니다.
 
 ## ChatGPT 응답:
 > # Let's first read the content of the compilation error file to understand the issues
@@ -187,7 +185,7 @@ compile_errors[:2000]
 
 이러한 문제를 해결하려면 보통 "lookahead"를 사용하여 파서가 더 많은 토큰을 검사하도록 만듭니다. 이를 통해 파서가 어떤 경로를 따라야 할지 더 정확하게 결정할 수 있습니다.
 
-`CppParser.jjt` 파일의 내용을 살펴보고, 문제를 수정하기 위해 어떤 변경이 필요한지 파악해 보겠습니다.
+{% raw %}`CppParser.jjt`{% endraw %} 파일의 내용을 살펴보고, 문제를 수정하기 위해 어떤 변경이 필요한지 파악해 보겠습니다.
 
 ## ChatGPT 응답:
 > # Let's read the content of the CppParser.jjt file to analyze and make necessary modifications
@@ -198,7 +196,7 @@ with open('/mnt/data/CppParser.jjt', 'r') as jjt_file:
 cpp_parser_content[:1000]
 
 ## ChatGPT 응답:
-> `CppParser.jjt` 파일의 내용을 본 뒤, 오류 메시지에서 지정된 줄 번호를 참조하여 문제가 발생한 위치를 찾아보겠습니다.
+> {% raw %}`CppParser.jjt`{% endraw %} 파일의 내용을 본 뒤, 오류 메시지에서 지정된 줄 번호를 참조하여 문제가 발생한 위치를 찾아보겠습니다.
 
 먼저 326번째 줄부터 살펴보겠습니다.
 
@@ -212,7 +210,7 @@ error_context_326 = '\n'.join(lines_around_error)
 error_context_326
 
 ## ChatGPT 응답:
-> 326번째 줄에서 보이는 문제는 선택 구조 안에 중첩된 확장과 그 다음에 오는 확장이 공통 접두사를 가지고 있기 때문에 발생하는 것으로 보입니다. 여기서는 이미 `LOOKAHEAD(2)`를 사용하고 있으므로, 이 부분은 이미 처리된 것으로 보입니다.
+> 326번째 줄에서 보이는 문제는 선택 구조 안에 중첩된 확장과 그 다음에 오는 확장이 공통 접두사를 가지고 있기 때문에 발생하는 것으로 보입니다. 여기서는 이미 {% raw %}`LOOKAHEAD(2)`{% endraw %}를 사용하고 있으므로, 이 부분은 이미 처리된 것으로 보입니다.
 
 다음으로 423번째 줄의 문제를 살펴보겠습니다.
 
@@ -226,7 +224,7 @@ error_context_423 = '\n'.join(lines_around_error_423)
 error_context_423
 
 ## ChatGPT 응답:
-> 423번째 줄에서 보이는 선택 충돌은 다음 두 확장 사이에서 발생하며, 공통 접두사는 `<Identifier>`와 `" < "`입니다.
+> 423번째 줄에서 보이는 선택 충돌은 다음 두 확장 사이에서 발생하며, 공통 접두사는 {% raw %}`<Identifier>`{% endraw %}와 {% raw %}`" < "`{% endraw %}입니다.
 
 충돌을 해결하려면 이 선택 구조에서 더 많은 토큰을 검사해야 할 수 있습니다. 먼저, 이 구조가 어떻게 동작하는지 전체 문맥을 이해하기 위해 관련된 코드의 더 넓은 부분을 살펴보겠습니다.
 
@@ -257,7 +255,7 @@ error_context_450 = '\n'.join(lines_around_error_450)
 error_context_450
 
 ## ChatGPT 응답:
-> 450번째 줄에서는 중첩된 확장과 그 다음에 오는 확장이 공통 접두사를 가지고 있어 선택 충돌이 발생하고 있습니다. 여기서는 이미 `LOOKAHEAD(3)`을 사용하고 있으므로, 이 부분은 이미 처리된 것으로 보입니다.
+> 450번째 줄에서는 중첩된 확장과 그 다음에 오는 확장이 공통 접두사를 가지고 있어 선택 충돌이 발생하고 있습니다. 여기서는 이미 {% raw %}`LOOKAHEAD(3)`{% endraw %}을 사용하고 있으므로, 이 부분은 이미 처리된 것으로 보입니다.
 
 이제 483번째 줄의 문제를 살펴보겠습니다.
 
@@ -273,12 +271,12 @@ error_context_483
 ## ChatGPT 응답:
 > 483번째 줄에서 발생한 선택 충돌은 다음 두 확장 사이에서 발생합니다:
 
-1. `LOOKAHEAD(2) newTypeId()`
-2. `<LeftParen> theTypeId() <RightParen>`
+1. {% raw %}`LOOKAHEAD(2) newTypeId()`{% endraw %}
+2. {% raw %}`<LeftParen> theTypeId() <RightParen>`{% endraw %}
 
-공통 접두사는 `"("`입니다.
+공통 접두사는 {% raw %}`"("`{% endraw %}입니다.
 
-이러한 선택 충돌을 해결하기 위해 `LOOKAHEAD` 값을 증가시킬 수 있습니다. 이 경우 `LOOKAHEAD(2)`에서 `LOOKAHEAD(3)`으로 변경해 보겠습니다.
+이러한 선택 충돌을 해결하기 위해 {% raw %}`LOOKAHEAD`{% endraw %} 값을 증가시킬 수 있습니다. 이 경우 {% raw %}`LOOKAHEAD(2)`{% endraw %}에서 {% raw %}`LOOKAHEAD(3)`{% endraw %}으로 변경해 보겠습니다.
 
 같은 방법으로 다른 충돌도 수정하고 수정된 내용을 제공해 드리겠습니다.
 
@@ -306,7 +304,7 @@ with open(modified_file_path, 'w') as modified_file:
 modified_file_path
 
 ## ChatGPT 응답:
-> 수정된 `CppParser.jjt` 파일을 작성했습니다. 아래 링크를 클릭하면 다운로드할 수 있습니다.
+> 수정된 {% raw %}`CppParser.jjt`{% endraw %} 파일을 작성했습니다. 아래 링크를 클릭하면 다운로드할 수 있습니다.
 
 [Modified_CppParser.jjt 다운로드](sandbox:/mnt/data/Modified_CppParser.jjt)
 

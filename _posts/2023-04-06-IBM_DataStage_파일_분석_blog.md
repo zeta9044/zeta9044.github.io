@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "IBM DataStage 파일 분석"
-date: 2023-04-06
-tags: [파일, 분석, DataStage, IBM]
-categories: blog
+tags: [분석, 파일, DataStage, IBM]
 ---
 
 ## 사용자 입력:

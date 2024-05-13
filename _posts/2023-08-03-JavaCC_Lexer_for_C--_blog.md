@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "JavaCC Lexer for C++"
-date: 2023-08-03
-tags: [JavaCC, C, Lexer, for]
-categories: blog
+tags: [C, Lexer, for, JavaCC]
 ---
 
 ## 사용자 입력:
@@ -406,7 +404,7 @@ fragment Udsuffix: Identifier;  이것은 antlr4의 렉서구문인데, 명칭�
 ## ChatGPT 응답:
 > Sure! Here's the equivalent token syntax in JavaCC for the given lexer grammar:
 
-```java
+{% raw %}```java
 options {
   STATIC = false; // Set to true if the parser methods are static
 }
@@ -571,10 +569,10 @@ SPECIAL_TOKEN:
 | < SINGLE_LINE_COMMENT: "//" (~["\n", "\r"])* >
 | < MULTI_LINE_COMMENT: "/*" (~"*/")* "*/" >
 }
-```
+```{% endraw %}
 
-Please note that JavaCC uses the `SKIP` option to handle whitespace and comments. The `SPECIAL_TOKEN
+Please note that JavaCC uses the {% raw %}`SKIP`{% endraw %} option to handle whitespace and comments. The {% raw %}`SPECIAL_TOKEN
 
 ## ChatGPT 응답:
-> ` section defines regular expressions to skip whitespace, single-line comments, and multi-line comments. This way, they are ignored during the parsing process.
+> `{% endraw %} section defines regular expressions to skip whitespace, single-line comments, and multi-line comments. This way, they are ignored during the parsing process.
 

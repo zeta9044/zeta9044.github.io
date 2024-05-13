@@ -1,18 +1,16 @@
 ---
 layout: post
 title: "DDL 판별 Java 함수"
-date: 2023-10-05
 tags: [함수, DDL, 판별, Java]
-categories: blog
 ---
 
 ## 사용자 입력:
 > java로 DDL문을 판별하는 함수 만들어줘.
 
 ## ChatGPT 응답:
-> DDL(Data Definition Language) 문을 판별하는 Java 함수를 제공하겠습니다. DDL 문에는 주로 `CREATE`, `ALTER`, `DROP`, `TRUNCATE` 등의 키워드가 포함되어 있습니다. 아래는 이러한 키워드를 기반으로 DDL 문을 판별하는 간단한 Java 함수입니다:
+> DDL(Data Definition Language) 문을 판별하는 Java 함수를 제공하겠습니다. DDL 문에는 주로 {% raw %}`CREATE`{% endraw %}, {% raw %}`ALTER`{% endraw %}, {% raw %}`DROP`{% endraw %}, {% raw %}`TRUNCATE`{% endraw %} 등의 키워드가 포함되어 있습니다. 아래는 이러한 키워드를 기반으로 DDL 문을 판별하는 간단한 Java 함수입니다:
 
-```java
+{% raw %}```java
 public class DDLChecker {
 
     // DDL 키워드 리스트
@@ -45,7 +43,7 @@ public class DDLChecker {
         System.out.println(isDDL(testQuery2)); // false
     }
 }
-```
+```{% endraw %}
 
-위 코드에서 `isDDL` 함수는 주어진 SQL 쿼리 문자열이 DDL인지 판별합니다. 주의해야 할 점은 이 함수는 기본적인 DDL 판별만을 수행하므로, 복잡한 SQL 쿼리나 다양한 형태의 DDL 문에 대한 완벽한 판별을 원한다면 더 고도화된 로직이 필요합니다.
+위 코드에서 {% raw %}`isDDL`{% endraw %} 함수는 주어진 SQL 쿼리 문자열이 DDL인지 판별합니다. 주의해야 할 점은 이 함수는 기본적인 DDL 판별만을 수행하므로, 복잡한 SQL 쿼리나 다양한 형태의 DDL 문에 대한 완벽한 판별을 원한다면 더 고도화된 로직이 필요합니다.
 

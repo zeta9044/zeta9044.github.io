@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ROW_NUMBER() and GROUP BY"
-date: 2023-04-24
 tags: [and, GROUP, BY]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -14,10 +12,10 @@ categories: blog
 
 그러나, ROW_NUMBER() 함수와 함께 PARTITION BY 구문을 사용하여 특정 열을 기준으로 그룹을 지정할 수 있습니다. 예를 들어, 다음과 같은 쿼리를 작성할 수 있습니다.
 
-```
+{% raw %}```
 SELECT prj_id, File_id, sql_id, table_id, col_id, ROW_NUMBER() OVER(PARTITION BY prj_id ORDER BY File_id) as row_num
 FROM DAT
-```
+```{% endraw %}
 
 위의 쿼리는 prj_id 열을 기준으로 파티션을 나눈 후, 각 파티션 내에서 File_id 열을 기준으로 순서를 매긴 결과를 출력합니다. 
 
@@ -31,10 +29,10 @@ FROM DAT
 
 다음은 prj_id, File_id, sql_id 세 개의 열을 기준으로 파티션을 나눈 후, 각 파티션 내에서 table_id 열을 기준으로 순서를 매긴 예시입니다.
 
-```
+{% raw %}```
 SELECT prj_id, File_id, sql_id, table_id, col_id, ROW_NUMBER() OVER(PARTITION BY prj_id, File_id, sql_id ORDER BY table_id) as row_num
 FROM DAT
-```
+```{% endraw %}
 
 위의 쿼리는 prj_id, File_id, sql_id 세 개의 열을 기준으로 파티션을 나눈 후, 각 파티션 내에서 table_id 열을 기준으로 순서를 매긴 결과를 출력합니다.
 
@@ -48,10 +46,10 @@ FROM DAT
 
 다음은 INSTR 함수를 사용하여 문자열에 특정 문자가 포함되어 있는지 확인하는 예시입니다.
 
-```
+{% raw %}```
 SELECT INSTR('hello world', 'l') as result
 FROM dual;
-```
+```{% endraw %}
 
 위의 쿼리는 'hello world' 문자열에 'l' 문자가 포함되어 있는지 확인하고, 'l' 문자가 위치한 인덱스를 반환합니다. 결과는 3입니다.
 
@@ -67,9 +65,9 @@ PostgreSQL에서는 문자열에서 특정 문자 또는 문자열의 위치를 
 
 다음은 PostgreSQL에서 strpos 함수를 사용하여 문자열에 특정 문자열이 포함되어 있는지 확인하는 예시입니다.
 
-```
+{% raw %}```
 SELECT strpos('hello world', 'l') as result;
-```
+```{% endraw %}
 
 위의 쿼리는 'hello world' 문자열에서 'l' 문자가 포함되어 있는지 확인하고, 'l' 문자가 위치한 인덱스를 반환합니다. 결과는 3입니다.
 
@@ -83,19 +81,19 @@ SELECT strpos('hello world', 'l') as result;
 
 먼저, REPLACE 함수를 사용한 예시를 살펴보겠습니다. REPLACE 함수는 문자열에서 특정 문자열을 다른 문자열로 대체합니다. 이를 활용하여 문자열 'V0S8P2|V0S8P4'에서 '|' 문자를 ',' 문자로 대체하고, 각각의 문자열을 홑따옴표로 감싸면 'V0S8P2','V0S8P4'와 같은 문자열을 얻을 수 있습니다. 다음은 REPLACE 함수를 사용한 예시입니다.
 
-```
+{% raw %}```
 SELECT REPLACE('V0S8P2|V0S8P4', '|', ''',''') as result
 FROM dual;
-```
+```{% endraw %}
 
 위의 쿼리는 'V0S8P2|V0S8P4' 문자열에서 '|' 문자를 ',' 문자로 대체하고, 각각의 문자열을 홑따옴표로 감싸는 결과를 출력합니다. 결과는 'V0S8P2','V0S8P4'입니다.
 
 다음으로, REGEXP_REPLACE 함수를 사용한 예시를 살펴보겠습니다. REGEXP_REPLACE 함수는 정규 표현식을 사용하여 문자열에서 특정 문자열을 대체합니다. 이를 활용하여 '|' 문자를 구분자로 사용하여 문자열을 분리하고, 각각의 문자열을 홑따옴표로 감싸면 'V0S8P2','V0S8P4'와 같은 문자열을 얻을 수 있습니다. 다음은 REGEXP_REPLACE 함수를 사용한 예시입니다.
 
-```
+{% raw %}```
 SELECT REGEXP_REPLACE('V0S8P2|V0S8P4', '([^|]+)', '''\1''') as result
 FROM dual;
-```
+```{% endraw %}
 
 위의 쿼리는 'V0S8P2|V0S8P4' 문자열에서 '|' 문자를 구분자로 사용하여 문자열을 분리하고, 각각의 문자열을 홑따옴표로 감싸는 결과를 출력합니다. 결과는 'V0S8P2','V0S8P4'입니다.
 
@@ -122,11 +120,11 @@ FROM dual;을 실행시키면,  'V0S8P2','V0S8P4' 이렇게 1 row로 결과가 �
 ## ChatGPT 응답:
 > 위의 쿼리에서는 REPLACE와 REGEXP_REPLACE 함수를 사용하여 'V0S8P2|V0S8P4' 문자열을 'V0S8P2', 'V0S8P4'로 변환하고, 이를 result 열로 출력합니다. 하지만, 이러한 변환이 아닌 'V0S8P2'와 'V0S8P4'를 각각 별도의 행으로 출력하려면 다음과 같이 쿼리를 작성할 수 있습니다.
 
-```
+{% raw %}```
 SELECT TRIM(REGEXP_SUBSTR(REPLACE(REGEXP_REPLACE('V0S8P2|V0S8P4', '([^|]+)', '''''\1'''''),'|',','), '[^,]+', 1, level)) as result
 FROM dual
 CONNECT BY LEVEL <= REGEXP_COUNT(REPLACE(REGEXP_REPLACE('V0S8P2|V0S8P4', '([^|]+)', '''''\1'''''),'|',','), ',') + 1;
-```
+```{% endraw %}
 
 위의 쿼리에서는 CONNECT BY 절을 사용하여 쿼리 결과를 여러 행으로 확장합니다. LEVEL을 이용하여 1부터 분리된 문자열의 개수까지 반복합니다. REGEXP_SUBSTR 함수를 사용하여 분리된 문자열을 선택하고, TRIM 함수를 사용하여 양쪽 공백을 제거합니다.
 

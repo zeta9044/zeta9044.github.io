@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "C/C++ 전처리 Eclipse Gradle"
-date: 2024-02-07
-tags: [Eclipse, Gradle, C, 처리]
-categories: blog
+tags: [C, 처리, Gradle, Eclipse]
 ---
 
 ## 사용자 입력:
@@ -22,23 +20,23 @@ categories: blog
 
 ### 3. 전처리 설정
 
-- 프로젝트 설정에서 C/C++ 빌드 설정을 수정하여 전처리만 수행하도록 설정할 수 있습니다. 이는 주로 컴파일러 설정에서 전처리 관련 옵션을 지정함으로써 이루어집니다. 예를 들어, GCC 컴파일러를 사용하는 경우 `-E` 옵션을 사용하여 컴파일 대신 전처리를 수행하도록 지시할 수 있습니다.
+- 프로젝트 설정에서 C/C++ 빌드 설정을 수정하여 전처리만 수행하도록 설정할 수 있습니다. 이는 주로 컴파일러 설정에서 전처리 관련 옵션을 지정함으로써 이루어집니다. 예를 들어, GCC 컴파일러를 사용하는 경우 {% raw %}`-E`{% endraw %} 옵션을 사용하여 컴파일 대신 전처리를 수행하도록 지시할 수 있습니다.
 
 ### 4. Java/Gradle을 사용한 자동화
 
 - Java 또는 Gradle 스크립트를 사용하여 Eclipse CDT 환경을 제어하고 빌드 프로세스를 자동화하는 것은 직접적으로 지원되지 않을 수 있습니다. 그러나 명령줄 도구를 사용하여 Eclipse CDT에서 프로젝트를 빌드하고 전처리 결과를 추출하는 과정을 자동화할 수 있습니다.
-- Gradle에서는 `Exec` 태스크를 사용하여 외부 프로세스를 실행할 수 있습니다. 이를 통해 Eclipse CDT 빌드 명령을 실행하고 전처리된 코드를 추출할 수 있습니다.
+- Gradle에서는 {% raw %}`Exec`{% endraw %} 태스크를 사용하여 외부 프로세스를 실행할 수 있습니다. 이를 통해 Eclipse CDT 빌드 명령을 실행하고 전처리된 코드를 추출할 수 있습니다.
 
 ### 예시: Gradle에서 외부 명령 실행
 
-```gradle
+{% raw %}```gradle
 task preprocessCCode(type: Exec) {
     commandLine 'eclipse', '-nosplash', '-application', 'org.eclipse.cdt.managedbuilder.core.headlessbuild', '-import', '[프로젝트 경로]', '-build', '[프로젝트명/빌드 설정]'
     // 여기서 'eclipse'는 Eclipse 실행 파일의 경로를 지정해야 할 수 있습니다.
 }
-```
+```{% endraw %}
 
-이 예시에서는 Eclipse의 헤드리스 빌드 기능을 사용하여 C/C++ 프로젝트를 빌드하고 전처리합니다. `[프로젝트 경로]`와 `[프로젝트명/빌드 설정]`은 실제 경로와 프로젝트 설정에 맞게 수정해야 합니다.
+이 예시에서는 Eclipse의 헤드리스 빌드 기능을 사용하여 C/C++ 프로젝트를 빌드하고 전처리합니다. {% raw %}`[프로젝트 경로]`{% endraw %}와 {% raw %}`[프로젝트명/빌드 설정]`{% endraw %}은 실제 경로와 프로젝트 설정에 맞게 수정해야 합니다.
 
 ### 5. 전처리된 코드 추출
 
@@ -54,13 +52,13 @@ task preprocessCCode(type: Exec) {
 
 ### 1. Eclipse CDT Core Model API 사용 준비
 
-- Eclipse CDT 프로젝트에 Java 프로젝트를 추가하고, CDT Core Model API를 사용할 수 있도록 필요한 라이브러리를 포함시킵니다. 이는 `org.eclipse.cdt.core`와 같은 CDT 관련 플러그인을 포함시키는 것을 의미합니다.
+- Eclipse CDT 프로젝트에 Java 프로젝트를 추가하고, CDT Core Model API를 사용할 수 있도록 필요한 라이브러리를 포함시킵니다. 이는 {% raw %}`org.eclipse.cdt.core`{% endraw %}와 같은 CDT 관련 플러그인을 포함시키는 것을 의미합니다.
 
 ### 2. 전처리를 위한 유틸리티 함수 구현
 
 Java에서 CDT Core Model API를 사용하여 C/C++ 파일을 전처리하고 그 결과를 추출하는 유틸리티 함수의 기본적인 구조는 다음과 같을 수 있습니다:
 
-```java
+{% raw %}```java
 import org.eclipse.cdt.core.model.ICProject;
 import org.eclipse.cdt.core.dom.ast.IASTTranslationUnit;
 import org.eclipse.cdt.core.parser.ParserUtil;
@@ -84,9 +82,9 @@ public class PreprocessUtil {
         return null;
     }
 }
-```
+```{% endraw %}
 
-이 코드는 Eclipse CDT의 Core Model API를 사용하여 특정 C/C++ 파일의 전처리된 코드를 문자열로 추출하는 기본적인 방법을 보여줍니다. `IResource`는 전처리하려는 파일을 나타내며, `ICProject`는 해당 파일이 포함된 CDT 프로젝트를 나타냅니다. `ParserUtil.getTranslationUnit` 메소드는 파일을 파싱하고 전처리된 AST(추상 구문 트리)를 반환합니다. 그런 다음 `getRawSignature` 메소드를 사용하여 전처리된 코드를 문자열로 추출할 수 있습니다.
+이 코드는 Eclipse CDT의 Core Model API를 사용하여 특정 C/C++ 파일의 전처리된 코드를 문자열로 추출하는 기본적인 방법을 보여줍니다. {% raw %}`IResource`{% endraw %}는 전처리하려는 파일을 나타내며, {% raw %}`ICProject`{% endraw %}는 해당 파일이 포함된 CDT 프로젝트를 나타냅니다. {% raw %}`ParserUtil.getTranslationUnit`{% endraw %} 메소드는 파일을 파싱하고 전처리된 AST(추상 구문 트리)를 반환합니다. 그런 다음 {% raw %}`getRawSignature`{% endraw %} 메소드를 사용하여 전처리된 코드를 문자열로 추출할 수 있습니다.
 
 ### 3. 유틸리티 함수 사용
 
@@ -109,21 +107,21 @@ public class PreprocessUtil {
 
 1. **Maven Central 또는 다른 저장소에서 CDT 라이브러리 찾기**: Eclipse CDT Core와 같은 필요한 라이브러리가 Maven Central이나 다른 자바 라이브러리 저장소에 게시되어 있는지 확인합니다. 이런 라이브러리들은 직접적으로 Maven이나 Gradle 프로젝트의 의존성으로 추가될 수 있습니다.
 
-2. **직접 라이브러리를 프로젝트에 추가**: Maven Central이나 다른 저장소에서 필요한 라이브러리를 찾을 수 없는 경우, Eclipse CDT 플러그인에서 라이브러리 파일(.jar)을 직접 추출하여 프로젝트의 `libs` 폴더 같은 곳에 추가할 수 있습니다. 이후, 이 라이브러리들을 프로젝트의 클래스패스에 포함시켜야 합니다.
+2. **직접 라이브러리를 프로젝트에 추가**: Maven Central이나 다른 저장소에서 필요한 라이브러리를 찾을 수 없는 경우, Eclipse CDT 플러그인에서 라이브러리 파일(.jar)을 직접 추출하여 프로젝트의 {% raw %}`libs`{% endraw %} 폴더 같은 곳에 추가할 수 있습니다. 이후, 이 라이브러리들을 프로젝트의 클래스패스에 포함시켜야 합니다.
 
 ### Gradle에서 CDT 라이브러리를 의존성으로 추가하는 예
 
 Gradle 프로젝트에 Eclipse CDT Core 라이브러리를 추가하는 방법은 아래와 같습니다. 이 예제는 CDT 라이브러리가 Maven Central이나 다른 저장소에 게시되어 있다고 가정합니다:
 
-```gradle
+{% raw %}```gradle
 dependencies {
     // Eclipse CDT Core 라이브러리를 의존성으로 추가
     implementation 'org.eclipse.cdt:core:버전'
     // 기타 필요한 의존성 추가
 }
-```
+```{% endraw %}
 
-**참고**: 위 예제에서 `'org.eclipse.cdt:core:버전'`은 예시일 뿐이며, 실제로 사용하려는 CDT 라이브러리의 정확한 그룹 ID, 아티팩트 ID, 버전을 확인해야 합니다.
+**참고**: 위 예제에서 {% raw %}`'org.eclipse.cdt:core:버전'`{% endraw %}은 예시일 뿐이며, 실제로 사용하려는 CDT 라이브러리의 정확한 그룹 ID, 아티팩트 ID, 버전을 확인해야 합니다.
 
 ### 직접 라이브러리를 추가할 때 주의 사항
 
@@ -146,12 +144,12 @@ Eclipse CDT Core 라이브러리와 그 의존성들을 포함하는 JAR 파일�
 
 2. **Fat JAR 또는 Uber JAR 생성**: 프로젝트의 실행 가능한 JAR 파일(일명 Fat JAR 또는 Uber JAR)을 생성할 때, 모든 의존성이 포함되도록 설정합니다. 이렇게 하면, Eclipse CDT Core 라이브러리와 필요한 모든 의존성이 최종 JAR 파일 내에 포함됩니다.
 
-   - **Maven에서**: `maven-assembly-plugin` 또는 `maven-shade-plugin`을 사용하여 모든 의존성이 포함된 JAR 파일을 생성할 수 있습니다.
-   - **Gradle에서**: `jar` 태스크를 구성하여 `from` 메소드를 사용함으로써 의존성을 포함시키거나, `shadowJar` 플러그인을 사용하여 Fat JAR를 생성할 수 있습니다.
+   - **Maven에서**: {% raw %}`maven-assembly-plugin`{% endraw %} 또는 {% raw %}`maven-shade-plugin`{% endraw %}을 사용하여 모든 의존성이 포함된 JAR 파일을 생성할 수 있습니다.
+   - **Gradle에서**: {% raw %}`jar`{% endraw %} 태스크를 구성하여 {% raw %}`from`{% endraw %} 메소드를 사용함으로써 의존성을 포함시키거나, {% raw %}`shadowJar`{% endraw %} 플러그인을 사용하여 Fat JAR를 생성할 수 있습니다.
 
 ### 예제: Gradle에서 ShadowJar 플러그인 사용
 
-```groovy
+{% raw %}```groovy
 plugins {
     id 'java'
     id 'com.github.johnrengelman.shadow' version '7.0.0'
@@ -171,9 +169,9 @@ shadowJar {
     archiveVersion.set('1.0.0')
     archiveClassifier.set('')
 }
-```
+```{% endraw %}
 
-이 구성을 사용하면 `shadowJar` 태스크를 실행할 때 모든 의존성이 포함된 실행 가능한 JAR 파일이 생성됩니다. 이 파일은 Eclipse CDT Core 라이브러리를 포함하므로, 어디서든지 필요한 전처리 기능을 사용할 수 있습니다.
+이 구성을 사용하면 {% raw %}`shadowJar`{% endraw %} 태스크를 실행할 때 모든 의존성이 포함된 실행 가능한 JAR 파일이 생성됩니다. 이 파일은 Eclipse CDT Core 라이브러리를 포함하므로, 어디서든지 필요한 전처리 기능을 사용할 수 있습니다.
 
 ### 주의사항
 

@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "교집합 명령어: INTERSECT"
-date: 2023-05-22
-tags: [명령어, INTERSECT, 교집합]
-categories: blog
+title: "교집합 명령어 - INTERSECT"
+tags: [교집합, INTERSECT, 명령어]
 ---
 
 ## 사용자 입력:
@@ -11,23 +9,23 @@ categories: blog
 postgresql에서  union명령어는 알겠는데, 교집합을 구하는 명령어는?
 
 ## ChatGPT 응답:
-> PostgreSQL에서 교집합을 구하기 위해서는 `INTERSECT` 명령어를 사용할 수 있습니다. `INTERSECT` 명령어는 두 개 이상의 SELECT 문의 결과 집합에서 공통으로 포함된 레코드들을 반환합니다.
+> PostgreSQL에서 교집합을 구하기 위해서는 {% raw %}`INTERSECT`{% endraw %} 명령어를 사용할 수 있습니다. {% raw %}`INTERSECT`{% endraw %} 명령어는 두 개 이상의 SELECT 문의 결과 집합에서 공통으로 포함된 레코드들을 반환합니다.
 
-다음은 `INTERSECT` 명령어의 기본 구문입니다:
+다음은 {% raw %}`INTERSECT`{% endraw %} 명령어의 기본 구문입니다:
 
-```sql
+{% raw %}```sql
 SELECT column1, column2, ...
 FROM table1
 INTERSECT
 SELECT column1, column2, ...
 FROM table2;
-```
+```{% endraw %}
 
-위의 예제에서 `table1`과 `table2`는 동일한 열 구조를 가진 두 개의 테이블이거나, 하나의 테이블에서 두 개의 서로 다른 조건으로 SELECT 문을 실행한 것입니다. `INTERSECT` 명령어는 SELECT 문의 결과에서 열의 수와 데이터 유형이 일치하는 경우에만 작동합니다.
+위의 예제에서 {% raw %}`table1`{% endraw %}과 {% raw %}`table2`{% endraw %}는 동일한 열 구조를 가진 두 개의 테이블이거나, 하나의 테이블에서 두 개의 서로 다른 조건으로 SELECT 문을 실행한 것입니다. {% raw %}`INTERSECT`{% endraw %} 명령어는 SELECT 문의 결과에서 열의 수와 데이터 유형이 일치하는 경우에만 작동합니다.
 
-`INTERSECT` 명령어를 사용하면 두 SELECT 문의 결과에서 중복되는 레코드만을 반환합니다. 결과로 반환되는 레코드는 모든 열에서 동일한 값을 갖고 있어야 합니다. 중복된 레코드가 없거나, 열의 값이 서로 다른 경우 해당 레코드는 결과에서 제외됩니다.
+{% raw %}`INTERSECT`{% endraw %} 명령어를 사용하면 두 SELECT 문의 결과에서 중복되는 레코드만을 반환합니다. 결과로 반환되는 레코드는 모든 열에서 동일한 값을 갖고 있어야 합니다. 중복된 레코드가 없거나, 열의 값이 서로 다른 경우 해당 레코드는 결과에서 제외됩니다.
 
-참고: PostgreSQL에서 `INTERSECT` 명령어를 사용하려면, 비교할 열의 순서와 데이터 유형이 일치해야 합니다. 열의 순서가 다르거나 데이터 유형이 호환되지 않으면 오류가 발생할 수 있습니다.
+참고: PostgreSQL에서 {% raw %}`INTERSECT`{% endraw %} 명령어를 사용하려면, 비교할 열의 순서와 데이터 유형이 일치해야 합니다. 열의 순서가 다르거나 데이터 유형이 호환되지 않으면 오류가 발생할 수 있습니다.
 
 ## 사용자 입력:
 > case when dat.col_order_no is null then (ROW_NUMBER() OVER(
@@ -39,22 +37,22 @@ FROM table2;
         DAT.col_id) else case(dat.col_order_no as numeric) end as col_order_no 여기서 잘못된게 뭐지?
 
 ## ChatGPT 응답:
-> 주어진 쿼리에서 `CASE` 문이 잘못 사용되었습니다. `CASE` 문의 구문은 다음과 같아야 합니다:
+> 주어진 쿼리에서 {% raw %}`CASE`{% endraw %} 문이 잘못 사용되었습니다. {% raw %}`CASE`{% endraw %} 문의 구문은 다음과 같아야 합니다:
 
-```sql
+{% raw %}```sql
 CASE
    WHEN condition1 THEN result1
    WHEN condition2 THEN result2
    ...
    ELSE result
 END
-```
+```{% endraw %}
 
-주어진 쿼리에서는 `CASE` 문이 두 번 사용되었으며, 각각의 `CASE` 문에는 `THEN` 절이 빠져있습니다. 또한, 두 번째 `CASE` 문의 구문이 잘못되었습니다. `CASE` 문에서 `AS` 절을 사용하여 결과 열의 별칭을 지정할 수 없습니다. 대신에 `CASE` 문은 열의 값에 대한 조건에 따라 결과 값을 반환하는 조건식으로 사용됩니다.
+주어진 쿼리에서는 {% raw %}`CASE`{% endraw %} 문이 두 번 사용되었으며, 각각의 {% raw %}`CASE`{% endraw %} 문에는 {% raw %}`THEN`{% endraw %} 절이 빠져있습니다. 또한, 두 번째 {% raw %}`CASE`{% endraw %} 문의 구문이 잘못되었습니다. {% raw %}`CASE`{% endraw %} 문에서 {% raw %}`AS`{% endraw %} 절을 사용하여 결과 열의 별칭을 지정할 수 없습니다. 대신에 {% raw %}`CASE`{% endraw %} 문은 열의 값에 대한 조건에 따라 결과 값을 반환하는 조건식으로 사용됩니다.
 
 주어진 코드를 수정하여 올바른 구문을 사용하면 다음과 같습니다:
 
-```sql
+{% raw %}```sql
 CASE
    WHEN dat.col_order_no IS NULL THEN ROW_NUMBER() OVER (
         PARTITION BY DAT.prj_id, DAT.File_id, DAT.sql_id, DAT.table_id
@@ -62,9 +60,9 @@ CASE
    )
    ELSE CAST(dat.col_order_no AS numeric)
 END AS col_order_no
-```
+```{% endraw %}
 
-위의 수정된 코드는 `dat.col_order_no`가 `NULL`인 경우 `ROW_NUMBER()` 함수를 사용하여 순번을 할당하고, 그렇지 않은 경우 `dat.col_order_no` 값을 숫자로 변환하여 `col_order_no` 열로 반환합니다.
+위의 수정된 코드는 {% raw %}`dat.col_order_no`{% endraw %}가 {% raw %}`NULL`{% endraw %}인 경우 {% raw %}`ROW_NUMBER()`{% endraw %} 함수를 사용하여 순번을 할당하고, 그렇지 않은 경우 {% raw %}`dat.col_order_no`{% endraw %} 값을 숫자로 변환하여 {% raw %}`col_order_no`{% endraw %} 열로 반환합니다.
 
 ## 사용자 입력:
 > ibm datastage 11이상에서 stageType이 PxPeek인 경우에 대해서 자세히 설명해줘. 용도, 물리적 동작내용등.

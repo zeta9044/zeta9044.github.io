@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "JavaCC의 pushMode, popMode 대응: 방법"
-date: 2023-07-04
-tags: [방법, 의, 대응, pushMode, popMode]
-categories: blog
+title: "JavaCC의 pushMode, popMode 대응 - 방법"
+tags: [의, 대응, pushMode, popMode, 방법]
 ---
 
 ## 사용자 입력:
@@ -14,7 +12,7 @@ categories: blog
 
 1. TokenManager의 상태 변경: JavaCC에서는 TokenManager를 사용하여 토큰을 생성하고 관리합니다. 특정 상태로 전환하여 다른 토큰 규칙을 적용할 수 있습니다. 이를 통해 pushMode와 popMode의 개념과 유사한 동작을 구현할 수 있습니다. 예를 들어, 다음과 같이 TokenManager의 상태를 변경할 수 있습니다.
 
-```java
+{% raw %}```java
 // TokenManager의 상태를 변경하는 메소드
 void setMode(int mode) {
     this.mode = mode;
@@ -34,11 +32,11 @@ Token getNextToken() {
             // ...
     }
 }
-```
+```{% endraw %}
 
 2. 상태 변수와 조건문: 또 다른 방법은 상태 변수를 사용하고 특정 조건을 검사하여 토큰 규칙을 선택하는 것입니다. 예를 들어, 다음과 같이 상태 변수와 조건문을 사용할 수 있습니다.
 
-```java
+{% raw %}```java
 // 상태 변수 정의
 int mode = 0;
 
@@ -54,7 +52,7 @@ Token Token() :
     // 기본 토큰 규칙 처리
     { <DEFAULT_TOKEN> : return token; }
 }
-```
+```{% endraw %}
 
 위의 두 가지 방법은 pushMode와 popMode와 유사한 동작을 구현할 수 있지만, JavaCC의 문법 구조와 동작 방식에 따라 미묘한 차이가 있을 수 있습니다. 이러한 방법을 사용하여 ANTLR4의 pushMode와 popMode의 대응되는 동작을 구현할 수 있습니다.
 
@@ -128,7 +126,7 @@ IGNORE      :   .                       -> more ;
 ## ChatGPT 응답:
 > 네, ANTLR4의 lexer 정의를 JavaCC의 JJ 구문으로 변환할 수 있습니다. 다음은 주어진 코드를 JavaCC의 JJ 구문으로 변경한 예시입니다.
 
-```java
+{% raw %}```java
 options {
     STATIC = false; // ANTLR4와 동일한 동작을 위해 false로 설정
 }
@@ -173,7 +171,7 @@ TOKEN :
     <PI : "?>" > : POP_MODE
     | <IGNORE : ~[] > : MORE
 }
-```
+```{% endraw %}
 
 이것은 ANTLR4 lexer 정의를 JavaCC의 JJ 구문으로 변환한 예시입니다. JavaCC와 ANTLR4은 문법 구조와 동작 방식이 약간 다르기 때문에 변환 과정에서 세부적인 조정이 필요할 수 있습니다. 따라서 실제 사용 시에는 정확한 동작을 확인하고 필요한 수정을 수행해야 합니다.
 
@@ -181,13 +179,13 @@ TOKEN :
 > javacc에서  PUSH_MODE(INSIDE) 이런 문법이 있나?
 
 ## ChatGPT 응답:
-> 저는 실수를 범했습니다. 죄송합니다. JavaCC에는 `PUSH_MODE`라는 내장된 키워드가 없습니다. 이 키워드는 ANTLR에서 제공되는 기능입니다. JavaCC에서는 직접 토큰 관리를 통해 유사한 동작을 구현해야 합니다.
+> 저는 실수를 범했습니다. 죄송합니다. JavaCC에는 {% raw %}`PUSH_MODE`{% endraw %}라는 내장된 키워드가 없습니다. 이 키워드는 ANTLR에서 제공되는 기능입니다. JavaCC에서는 직접 토큰 관리를 통해 유사한 동작을 구현해야 합니다.
 
-JavaCC에서는 특정 상태를 표시하기 위해 `jjstate` 변수를 사용할 수 있습니다. 이 변수를 통해 상태를 추적하고 조건문을 사용하여 동작을 선택할 수 있습니다.
+JavaCC에서는 특정 상태를 표시하기 위해 {% raw %}`jjstate`{% endraw %} 변수를 사용할 수 있습니다. 이 변수를 통해 상태를 추적하고 조건문을 사용하여 동작을 선택할 수 있습니다.
 
 예를 들어, 다음과 같이 JavaCC에서 상태를 관리하는 방법을 사용할 수 있습니다:
 
-```java
+{% raw %}```java
 // 상태 변수 정의
 int state = 0;
 
@@ -226,11 +224,11 @@ void popMode()
 {
     state = 0; // OUTSIDE mode로 복귀
 }
-```
+```{% endraw %}
 
-위의 예시에서는 `state` 변수를 사용하여 상태를 추적하고, `pushMode()` 메소드로 상태를 변경하며, `popMode()` 메소드로 이전 상태로 돌아갑니다. 이를 활용하여 상태에 따라 다른 토큰 규칙을 선택할 수 있습니다.
+위의 예시에서는 {% raw %}`state`{% endraw %} 변수를 사용하여 상태를 추적하고, {% raw %}`pushMode()`{% endraw %} 메소드로 상태를 변경하며, {% raw %}`popMode()`{% endraw %} 메소드로 이전 상태로 돌아갑니다. 이를 활용하여 상태에 따라 다른 토큰 규칙을 선택할 수 있습니다.
 
-JavaCC에서는 `PUSH_MODE`와 `POP_MODE`과 같은 내장 기능은 제공되지 않으므로, 직접 상태 변수를 관리하여 유사한 동작을 구현해야 합니다.
+JavaCC에서는 {% raw %}`PUSH_MODE`{% endraw %}와 {% raw %}`POP_MODE`{% endraw %}과 같은 내장 기능은 제공되지 않으므로, 직접 상태 변수를 관리하여 유사한 동작을 구현해야 합니다.
 
 ## 사용자 입력:
 > 나는 skip과 token만 정의해달라고 했어.
@@ -238,7 +236,7 @@ JavaCC에서는 `PUSH_MODE`와 `POP_MODE`과 같은 내장 기능은 제공되�
 ## ChatGPT 응답:
 > 알겠습니다. 주어진 ANTLR4 lexer 정의에서 skip과 token에 해당하는 부분을 JavaCC의 JJ 구문으로 변경해보겠습니다.
 
-```java
+{% raw %}```java
 SKIP :
 {
     " " | "\t" | "\r" | "\n"
@@ -265,7 +263,7 @@ TOKEN :
     | <Name : (<NameStartChar>)+ (<NameChar>)* >
     | <S : [" " "\t" "\r" "\n"] >
 }
-```
+```{% endraw %}
 
 위의 코드는 ANTLR4 lexer 정의에서 skip과 token 부분을 JavaCC의 JJ 구문으로 변환한 것입니다. 이제 JavaCC에서 사용할 수 있는 형태로 변경되었습니다. 사용하실 때 주의해주세요.
 
@@ -275,7 +273,7 @@ TOKEN :
 ## ChatGPT 응답:
 > 죄송합니다. 예기치 않은 오류가 있었습니다. 주어진 ANTLR4 lexer 정의를 보다 정확하게 JavaCC의 JJ 구문으로 변환해보겠습니다.
 
-```java
+{% raw %}```java
 TOKEN :
 {
     <COMMENT : "<!--" (~["-"] | "-" ~["-"])* "-->">
@@ -307,7 +305,7 @@ SKIP :
 {
     <DEFAULT_SKIP>
 }
-```
+```{% endraw %}
 
 위의 코드는 ANTLR4 lexer 정의의 토큰과 skip을 정확하게 JavaCC의 JJ 구문으로 변환한 것입니다. 이제 정상적으로 동작할 수 있도록 수정되었습니다. 사용하실 때 참고해주세요.
 

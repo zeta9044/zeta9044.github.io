@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 to JavaCC Conversion"
-date: 2023-07-03
-tags: [JavaCC, Conversion, to]
-categories: blog
+tags: [Conversion, to, JavaCC]
 ---
 
 ## 사용자 입력:
@@ -93,7 +91,7 @@ reference   :   EntityRef | CharRef ;
 
 attribute   :   Name '=' STRING ; // Our STRING is AttValue in spec
 
-/** ``All text that is not markup constitutes the character data of
+/** {% raw %}``{% endraw %}All text that is not markup constitutes the character data of
  *  the document.''
  */
 chardata    :   TEXT | SEA_WS ;
@@ -103,7 +101,7 @@ misc        :   COMMENT | PI | SEA_WS ;    이것은 antlr4의 grammar이다. �
 ## ChatGPT 응답:
 > 아래는 ANTLR v4의 XMLLexer와 XMLParser의 grammar를 JavaCC의 grammar로 변환한 예입니다.
 
-```java
+{% raw %}```java
 options {
   STATIC = true;
   JAVA_UNICODE_ESCAPE = true;
@@ -322,7 +320,7 @@ void misc() :
 | < PI >
 | < SEA_WS >
 }
-```
+```{% endraw %}
 
 이것은 ANTLR v4 XML grammar를 JavaCC grammar로 변환한 예시입니다. 변환된 grammar는 JavaCC에서 사용할 수 있습니다.
 
@@ -332,7 +330,7 @@ void misc() :
 ## ChatGPT 응답:
 > 아래는 주어진 JavaCC grammar를 JJTree(JJT)를 사용하여 변환한 예시입니다. root를 반환하는 JJT 노드를 추가하였습니다.
 
-```java
+{% raw %}```java
 options {
   STATIC = true;
   JAVA_UNICODE_ESCAPE = true;
@@ -509,9 +507,9 @@ void misc() #Misc :
 | < PI >
 | < SEA_WS >
 }
-```
+```{% endraw %}
 
-이렇게 변환된 JJTree(JJT) grammar는 `ASTRoot`, `ASTContent`, `ASTElement`, `ASTReference`, `ASTAttribute`, `ASTCharData`, `ASTMisc`와 같은 노드 클래스를 생성합니다. 이러한 노드 클래스를 활용하여 XML 문서 구문을 파싱하고 분석할 수 있습니다.
+이렇게 변환된 JJTree(JJT) grammar는 {% raw %}`ASTRoot`{% endraw %}, {% raw %}`ASTContent`{% endraw %}, {% raw %}`ASTElement`{% endraw %}, {% raw %}`ASTReference`{% endraw %}, {% raw %}`ASTAttribute`{% endraw %}, {% raw %}`ASTCharData`{% endraw %}, {% raw %}`ASTMisc`{% endraw %}와 같은 노드 클래스를 생성합니다. 이러한 노드 클래스를 활용하여 XML 문서 구문을 파싱하고 분석할 수 있습니다.
 
 ## 사용자 입력:
 > 위 코드에서 토큰 정의 오류가 보인다.
@@ -519,7 +517,7 @@ void misc() #Misc :
 ## ChatGPT 응답:
 > 죄송합니다. 오류를 수정한 예시 코드를 제공드리겠습니다. 아래는 수정된 JavaCC grammar입니다.
 
-```java
+{% raw %}```java
 options {
   STATIC = true;
   JAVA_UNICODE_ESCAPE = true;
@@ -696,7 +694,7 @@ void misc() #Misc :
 | < PI >
 | < SEA_WS >
 }
-```
+```{% endraw %}
 
 이제 수정된 JavaCC grammar를 사용하여 코드를 빌드하고 실행할 수 있습니다. 오류가 수정되어 정상적으로 토큰을 정의할 수 있게 되었습니다.
 
@@ -894,14 +892,14 @@ Caused by: java.lang.IllegalStateException: JJTree failed with error code: [1]
 2. 아래 명령을 실행하여 빌드 로그를 출력합니다.
 
    - Windows:
-     ```
+     {% raw %}```
      gradlew :pentaho-parser:compileJjtree --stacktrace
-     ```
+     ```{% endraw %}
 
    - macOS/Linux:
-     ```
+     {% raw %}```
      ./gradlew :pentaho-parser:compileJjtree --stacktrace
-     ```
+     ```{% endraw %}
 
 3. 출력된 로그에서 오류 메시지와 스택 트레이스를 찾습니다. 오류 메시지의 내용과 스택 트레이스를 살펴보면 문제의 원인을 파악할 수 있습니다. 가능한 원인은 JavaCC 및 JJTree 설정, 문법 파일의 오류 등이 있습니다.
 4. 오류 메시지 및 스택 트레이스를 기반으로 문제를 해결합니다. 문법 파일, 의존성 설정, JavaCC 및 JJTree 버전 등을 확인하고 필요한 수정을 수행합니다.

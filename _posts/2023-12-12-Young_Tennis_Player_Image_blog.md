@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Young Tennis Player Image"
-date: 2023-12-12
-tags: [Young, Tennis, Player, Image]
-categories: blog
+tags: [Player, Tennis, Young, Image]
 ---
 
 ## 사용자 입력:

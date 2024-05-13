@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Ignite Query Error Fix."
-date: 2023-03-09
-tags: [Query, Fix, Ignite, Error]
-categories: blog
+tags: [Fix, Ignite, Error, Query]
 ---
 
 ## 사용자 입력:
@@ -18,9 +16,9 @@ To resolve this issue, you have two options:
 
    You can download the 'ignite-indexing' module from the Apache Ignite website (https://ignite.apache.org/download.cgi#binaries) and add it to the classpath of all the Ignite nodes. This can be done by adding the following line to the 'IGNITE_HOME/config/default-config.xml' file:
 
-   ```xml
+   {% raw %}```xml
    <property name="peerClassLoadingEnabled" value="true"/>
-   ```
+   ```{% endraw %}
    
    This enables peer class loading, which allows nodes to share classes and resources with each other.
 
@@ -30,7 +28,7 @@ To resolve this issue, you have two options:
 
    To configure a query engine, you need to add the corresponding dependency to your project's classpath and configure the query engine in the 'IGNITE_HOME/config/default-config.xml' file. Here's an example configuration for the SQL engine:
 
-   ```xml
+   {% raw %}```xml
    <property name="cacheConfiguration">
        <list>
            <bean class="org.apache.ignite.configuration.CacheConfiguration">
@@ -59,7 +57,7 @@ To resolve this issue, you have two options:
            </bean>
        </list>
    </property>
-   ```
+   ```{% endraw %}
    
    This configuration defines a cache named 'myCache' with a single query entity that maps keys of type 'java.lang.Integer' to values of type 'com.example.MyValue'. The query entity has two fields ('id' and 'name') and one index ('name'). Once you have defined the cache configuration, you can use the Ignite SQL API to execute SQL queries on the cache.
 
@@ -90,9 +88,9 @@ To resolve this issue, you have two options:
             ignite.close();  위 코드에서 sql query를 쓰지 않고 EdgeSeriable을 graph에 add하는 프로그램으로 바꿔줘
 
 ## ChatGPT 응답:
-> Sure, here's an updated code snippet that avoids using SQL queries and instead adds `EdgeSerializable` objects to a graph:
+> Sure, here's an updated code snippet that avoids using SQL queries and instead adds {% raw %}`EdgeSerializable`{% endraw %} objects to a graph:
 
-```
+{% raw %}```
 IgniteConfiguration igniteCfg = new IgniteConfiguration();
 igniteCfg.setClientMode(true);
 Ignite ignite = Ignition.start(igniteCfg);
@@ -113,9 +111,9 @@ for (Cache.Entry<String, EdgeSerializable> entry : edgeCache) {
 }
 
 ignite.close();
-```
+```{% endraw %}
 
-This code retrieves all entries from the `edgeCache` cache and adds each `EdgeSerializable` object to the `graph`. Note that this code assumes that the `graph` object has already been initialized and that the `EdgeSerializable` class has a constructor that takes a `Cache.Entry<String, EdgeSerializable>` object as its argument. You may need to modify this code to fit your specific use case.
+This code retrieves all entries from the {% raw %}`edgeCache`{% endraw %} cache and adds each {% raw %}`EdgeSerializable`{% endraw %} object to the {% raw %}`graph`{% endraw %}. Note that this code assumes that the {% raw %}`graph`{% endraw %} object has already been initialized and that the {% raw %}`EdgeSerializable`{% endraw %} class has a constructor that takes a {% raw %}`Cache.Entry<String, EdgeSerializable>`{% endraw %} object as its argument. You may need to modify this code to fit your specific use case.
 
 ## 사용자 입력:
 > 2023-03-09 10:49:25.305 ERROR 10428 --- [ taskExecutor-1] .a.i.SimpleAsyncUncaughtExceptionHandler : Unexpected error occurred invoking async method: public void com.datastreams.qtrack.common.HashInitializer.initializeHash(org.springframework.context.event.ContextRefreshedEvent)
@@ -145,13 +143,13 @@ Possible solutions: addEdge(com.datastreams.qtrack.graph.bean.Edge), addEdge(com
 	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_202]
 
 ## ChatGPT 응답:
-> The error message is indicating that the `addEdge` method in the `com.datastreams.qtrack.graph.bean.Graph` class is not applicable for the argument type `com.datastreams.qtrack.graph.bean.EdgeSerializable`. 
+> The error message is indicating that the {% raw %}`addEdge`{% endraw %} method in the {% raw %}`com.datastreams.qtrack.graph.bean.Graph`{% endraw %} class is not applicable for the argument type {% raw %}`com.datastreams.qtrack.graph.bean.EdgeSerializable`{% endraw %}. 
 
-One possible solution is to modify the `Graph` class to accept `EdgeSerializable` objects instead of `Edge` objects. Alternatively, you could create a new `Edge` object based on the `EdgeSerializable` object and then pass that to the `addEdge` method.
+One possible solution is to modify the {% raw %}`Graph`{% endraw %} class to accept {% raw %}`EdgeSerializable`{% endraw %} objects instead of {% raw %}`Edge`{% endraw %} objects. Alternatively, you could create a new {% raw %}`Edge`{% endraw %} object based on the {% raw %}`EdgeSerializable`{% endraw %} object and then pass that to the {% raw %}`addEdge`{% endraw %} method.
 
-Here's an example of how you could modify the `Graph` class to accept `EdgeSerializable` objects:
+Here's an example of how you could modify the {% raw %}`Graph`{% endraw %} class to accept {% raw %}`EdgeSerializable`{% endraw %} objects:
 
-```groovy
+{% raw %}```groovy
 class Graph {
     List<EdgeSerializable> edges = []
 
@@ -161,7 +159,7 @@ class Graph {
 
     // Other methods...
 }
-```
+```{% endraw %}
 
-Once you have made this modification, you should be able to pass `EdgeSerializable` objects to the `addEdge` method without any issues.
+Once you have made this modification, you should be able to pass {% raw %}`EdgeSerializable`{% endraw %} objects to the {% raw %}`addEdge`{% endraw %} method without any issues.
 

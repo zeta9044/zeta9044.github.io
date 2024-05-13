@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "비교: USDT vs USDC"
-date: 2023-12-21
-tags: [USDT, 비교, USDC, vs]
-categories: blog
+title: "비교 - USDT vs USDC"
+tags: [USDT, USDC, 비교, vs]
 ---
 
 ## 사용자 입력:

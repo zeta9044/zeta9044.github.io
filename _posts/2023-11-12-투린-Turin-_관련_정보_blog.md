@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "투린(Turin) 관련 정보"
-date: 2023-11-12
-tags: [정보, 투린, 관련, Turin]
-categories: blog
+tags: [Turin, 관련, 투린, 정보]
 ---
 
 ## 사용자 입력:

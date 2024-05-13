@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "VSCode 파일 비교"
-date: 2023-03-31
 tags: [VSCode, 파일, 비교]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -32,78 +30,78 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 
 ## ChatGPT 응답:
-> 이 메시지는 현재 `release/4.0.0` 브랜치에서 커밋되지 않은 변경 사항이 있다는 것을 나타냅니다. 그리고 `jgraphx` 디렉토리에서 변경 사항이 있음을 알려주고 있습니다. 
+> 이 메시지는 현재 {% raw %}`release/4.0.0`{% endraw %} 브랜치에서 커밋되지 않은 변경 사항이 있다는 것을 나타냅니다. 그리고 {% raw %}`jgraphx`{% endraw %} 디렉토리에서 변경 사항이 있음을 알려주고 있습니다. 
 
-`jgraphx` 디렉토리에서 수정된 파일을 `git add` 명령어를 사용하여 스테이징해야 합니다. 예를 들어, `jgraphx` 디렉토리에 있는 모든 파일을 스테이징하려면 다음 명령어를 사용할 수 있습니다: 
+{% raw %}`jgraphx`{% endraw %} 디렉토리에서 수정된 파일을 {% raw %}`git add`{% endraw %} 명령어를 사용하여 스테이징해야 합니다. 예를 들어, {% raw %}`jgraphx`{% endraw %} 디렉토리에 있는 모든 파일을 스테이징하려면 다음 명령어를 사용할 수 있습니다: 
 
-```
+{% raw %}```
 git add jgraphx
-```
+```{% endraw %}
 
-그리고 변경 사항을 커밋하려면, `git commit` 명령어를 사용합니다. 
+그리고 변경 사항을 커밋하려면, {% raw %}`git commit`{% endraw %} 명령어를 사용합니다. 
 
-```
+{% raw %}```
 git commit -m "Commit message"
-```
+```{% endraw %}
 
 커밋 메시지에는 변경한 내용을 요약하는 메시지를 작성해야 합니다. 
 
-또는 변경 사항을 버리고 원래 상태로 되돌리려면 `git restore` 명령어를 사용할 수 있습니다. 
+또는 변경 사항을 버리고 원래 상태로 되돌리려면 {% raw %}`git restore`{% endraw %} 명령어를 사용할 수 있습니다. 
 
-```
+{% raw %}```
 git restore jgraphx
-```
+```{% endraw %}
 
-위의 명령어는 `jgraphx` 디렉토리에 있는 변경 사항을 버리고 이전 버전으로 되돌립니다.
+위의 명령어는 {% raw %}`jgraphx`{% endraw %} 디렉토리에 있는 변경 사항을 버리고 이전 버전으로 되돌립니다.
 
 ## 사용자 입력:
 > git restore jgraphx 을 했는데도  여전히 똑같은 메세지가 나온다.
 
 ## ChatGPT 응답:
-> `git restore jgraphx` 명령어는 `jgraphx` 디렉토리에서 수정된 파일을 이전 버전으로 되돌립니다. 그러나 여전히 "Changes not staged for commit" 메시지가 나타난다면, 아마도 `jgraphx` 디렉토리에 스테이징되지 않은 변경 사항이 남아있을 가능성이 높습니다.
+> {% raw %}`git restore jgraphx`{% endraw %} 명령어는 {% raw %}`jgraphx`{% endraw %} 디렉토리에서 수정된 파일을 이전 버전으로 되돌립니다. 그러나 여전히 "Changes not staged for commit" 메시지가 나타난다면, 아마도 {% raw %}`jgraphx`{% endraw %} 디렉토리에 스테이징되지 않은 변경 사항이 남아있을 가능성이 높습니다.
 
-이 경우, `git status` 명령어를 실행하여 변경된 파일을 확인하고 스테이징하거나 커밋할 수 있습니다. 다음과 같은 메시지가 나타날 것입니다:
+이 경우, {% raw %}`git status`{% endraw %} 명령어를 실행하여 변경된 파일을 확인하고 스테이징하거나 커밋할 수 있습니다. 다음과 같은 메시지가 나타날 것입니다:
 
-```
+{% raw %}```
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
         modified:   jgraphx/somefile.txt
-```
+```{% endraw %}
 
-여기서 `somefile.txt` 파일이 변경된 파일이라고 가정해 봅시다. 이 파일을 스테이징하려면 다음 명령어를 실행합니다:
+여기서 {% raw %}`somefile.txt`{% endraw %} 파일이 변경된 파일이라고 가정해 봅시다. 이 파일을 스테이징하려면 다음 명령어를 실행합니다:
 
-```
+{% raw %}```
 git add jgraphx/somefile.txt
-```
+```{% endraw %}
 
-그러면 파일이 스테이징되고, `git status` 명령어는 다음과 같이 변경 사항이 스테이징된 것을 보여줍니다:
+그러면 파일이 스테이징되고, {% raw %}`git status`{% endraw %} 명령어는 다음과 같이 변경 사항이 스테이징된 것을 보여줍니다:
 
-```
+{% raw %}```
 Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
         modified:   jgraphx/somefile.txt
-```
+```{% endraw %}
 
-이제 변경 사항을 커밋하려면 `git commit` 명령어를 사용합니다.
+이제 변경 사항을 커밋하려면 {% raw %}`git commit`{% endraw %} 명령어를 사용합니다.
 
 ## 사용자 입력:
 > jgraphx는 submodule이야.
 
 ## ChatGPT 응답:
-> 알겠습니다. `jgraphx`가 서브모듈인 경우, `git restore` 명령어로 변경 사항을 버리는 것은 서브모듈의 변경 사항을 복원하는 것이 아니라, 해당 서브모듈의 소스 코드 저장소에 있는 변경 사항을 복원하는 것입니다. 
+> 알겠습니다. {% raw %}`jgraphx`{% endraw %}가 서브모듈인 경우, {% raw %}`git restore`{% endraw %} 명령어로 변경 사항을 버리는 것은 서브모듈의 변경 사항을 복원하는 것이 아니라, 해당 서브모듈의 소스 코드 저장소에 있는 변경 사항을 복원하는 것입니다. 
 
-따라서 서브모듈의 변경 사항을 되돌리려면, 해당 서브모듈 디렉토리로 이동한 후 `git status` 명령어를 실행합니다. 그러면 서브모듈의 변경 사항이 표시됩니다. 
+따라서 서브모듈의 변경 사항을 되돌리려면, 해당 서브모듈 디렉토리로 이동한 후 {% raw %}`git status`{% endraw %} 명령어를 실행합니다. 그러면 서브모듈의 변경 사항이 표시됩니다. 
 
-```
+{% raw %}```
 cd jgraphx
 git status
-```
+```{% endraw %}
 
-그런 다음 변경 사항을 버리려면 `git restore` 명령어를 사용합니다.
+그런 다음 변경 사항을 버리려면 {% raw %}`git restore`{% endraw %} 명령어를 사용합니다.
 
-```
+{% raw %}```
 git restore .
-```
+```{% endraw %}
 
-이제 `jgraphx` 서브모듈에서 변경된 내용이 모두 버려졌으므로, `git status` 명령어를 실행하여 다시 상위 저장소의 상태를 확인할 수 있습니다.
+이제 {% raw %}`jgraphx`{% endraw %} 서브모듈에서 변경된 내용이 모두 버려졌으므로, {% raw %}`git status`{% endraw %} 명령어를 실행하여 다시 상위 저장소의 상태를 확인할 수 있습니다.
 

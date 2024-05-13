@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "IBM DataStage stageType Explanation"
-date: 2023-04-21
-tags: [stageType, IBM, DataStage, Explanation]
-categories: blog
+tags: [Explanation, stageType, DataStage, IBM]
 ---
 
 ## 사용자 입력:
@@ -14,27 +12,27 @@ categories: blog
 
 1. PxAggregator (Aggregator stage)
 기능: 입력 데이터에서 집계, 요약, 그룹화 수행
-stageTypeClassName: `com.ibm.is.cc.stages.Aggregator`
+stageTypeClassName: {% raw %}`com.ibm.is.cc.stages.Aggregator`{% endraw %}
 
 2. PxCopy (Copy stage)
 기능: 입력 데이터를 그대로 복사해 하나 이상의 출력 링크로 전달
-stageTypeClassName: `com.ibm.is.cc.stages.Copy`
+stageTypeClassName: {% raw %}`com.ibm.is.cc.stages.Copy`{% endraw %}
 
 3. PxFunnel (Funnel stage)
 기능: 여러 입력 링크로부터 데이터를 병합해 하나의 출력 링크로 전달, 입력 데이터가 무작위 순서로 전달됨
-stageTypeClassName: `com.ibm.is.cc.stages.Funnel`
+stageTypeClassName: {% raw %}`com.ibm.is.cc.stages.Funnel`{% endraw %}
 
 4. PxJoin (Join stage)
 기능: 두 개 이상의 입력 데이터셋을 특정 키 또는 조건에 따라 결합
-stageTypeClassName: `com.ibm.is.cc.stages.Join`
+stageTypeClassName: {% raw %}`com.ibm.is.cc.stages.Join`{% endraw %}
 
 5. PxPeek (Peek stage)
 기능: 디버깅 및 테스트를 위해 데이터를 볼 수 있는 스테이지, 데이터를 수정하지 않고 출력으로 전달
-stageTypeClassName: `com.ibm.is.cc.stages.Peek`
+stageTypeClassName: {% raw %}`com.ibm.is.cc.stages.Peek`{% endraw %}
 
 6. PxSequentialFile (Sequential File stage)
 기능: 텍스트 또는 이진 파일과의 데이터 교환을 위한 스테이지, 파일을 읽거나 쓰는 데 사용
-stageTypeClassName: `com.ibm.is.cc.stages.SequentialFile`
+stageTypeClassName: {% raw %}`com.ibm.is.cc.stages.SequentialFile`{% endraw %}
 
 이러한 stageTypeClassName들은 DataStage에서 각 스테이지의 기능을 구현하는 클래스를 나타냅니다. 이들은 DataStage 내부에서 사용되며, 사용자는 작업 개발 시 해당 스테이지를 사용함으로써 이들 클래스의 기능을 활용할 수 있습니다.
 
@@ -52,41 +50,41 @@ stageType이 CustomStage인 경우, stageTypeClassName은 해당 사용자 정�
 > postgresql에서 숫자를 문자열로 바꾸는 쿼리는?
 
 ## ChatGPT 응답:
-> PostgreSQL에서 숫자를 문자열로 변환하려면 `CAST` 함수 또는 `::` 연산자를 사용할 수 있습니다. 다음은 두 가지 방법을 사용하여 숫자를 문자열로 변환하는 예입니다.
+> PostgreSQL에서 숫자를 문자열로 변환하려면 {% raw %}`CAST`{% endraw %} 함수 또는 {% raw %}`::`{% endraw %} 연산자를 사용할 수 있습니다. 다음은 두 가지 방법을 사용하여 숫자를 문자열로 변환하는 예입니다.
 
-1. `CAST` 함수 사용:
+1. {% raw %}`CAST`{% endraw %} 함수 사용:
 
-```sql
+{% raw %}```sql
 SELECT CAST(42 AS VARCHAR);
-```
+```{% endraw %}
 
 또는
 
-```sql
+{% raw %}```sql
 SELECT CAST(42 AS TEXT);
-```
+```{% endraw %}
 
-2. `::` 연산자 사용:
+2. {% raw %}`::`{% endraw %} 연산자 사용:
 
-```sql
+{% raw %}```sql
 SELECT 42::VARCHAR;
-```
+```{% endraw %}
 
 또는
 
-```sql
+{% raw %}```sql
 SELECT 42::TEXT;
-```
+```{% endraw %}
 
-이러한 쿼리는 숫자 42를 문자열로 변환한 값을 반환합니다. 이 방법을 테이블의 컬럼에 적용하려면, 컬럼 이름을 숫자 대신 사용하면 됩니다. 예를 들어, `id` 컬럼의 값을 문자열로 변환하려면 다음과 같이 쿼리를 작성할 수 있습니다:
+이러한 쿼리는 숫자 42를 문자열로 변환한 값을 반환합니다. 이 방법을 테이블의 컬럼에 적용하려면, 컬럼 이름을 숫자 대신 사용하면 됩니다. 예를 들어, {% raw %}`id`{% endraw %} 컬럼의 값을 문자열로 변환하려면 다음과 같이 쿼리를 작성할 수 있습니다:
 
-```sql
+{% raw %}```sql
 SELECT CAST(id AS VARCHAR) FROM your_table;
-```
+```{% endraw %}
 
 또는
 
-```sql
+{% raw %}```sql
 SELECT id::VARCHAR FROM your_table;
-```
+```{% endraw %}
 

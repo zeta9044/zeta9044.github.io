@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Flutter 체크인앱 시작"
-date: 2023-06-05
-tags: [체크, Flutter, 시작, 앱]
-categories: blog
+tags: [체크, 시작, Flutter, 앱]
 ---
 
 ## 사용자 입력:
@@ -18,9 +16,9 @@ categories: blog
 
 3. 프로젝트 생성: Flutter SDK가 설치되고 개발 환경이 구성되면 Flutter 앱 프로젝트를 생성해야 합니다. 터미널 또는 명령 프롬프트를 열고 다음 명령을 실행하세요.
 
-   ```
+   {% raw %}```
    flutter create 체크인앱
-   ```
+   ```{% endraw %}
 
    위 명령은 "체크인앱"이라는 이름의 Flutter 앱 프로젝트를 생성합니다. 프로젝트 디렉토리로 이동한 후 작업을 진행하세요.
 
@@ -37,9 +35,9 @@ categories: blog
 
 8. 앱 빌드: 개발이 완료되면 Flutter로 Android 앱을 빌드해야 합니다. 터미널에서 다음 명령을 실행하여 앱을 빌드할 수 있습니다.
 
-   ```
+   {% raw %}```
    flutter build apk
-   ```
+   ```{% endraw %}
 
    위 명령은 APK 파일을 생성합니다. 이 파일을 Android 기기에 설치하여 앱을 실행할 수 있습니다.
 

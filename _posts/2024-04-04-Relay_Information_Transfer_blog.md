@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Relay Information Transfer"
-date: 2024-04-04
-tags: [Information, Relay, Transfer]
-categories: blog
+tags: [Relay, Transfer, Information]
 ---
 
 ## 사용자 입력:

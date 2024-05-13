@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Oracle 쿼리 변환"
-date: 2023-03-28
-tags: [변환, Oracle, 쿼리]
-categories: blog
+tags: [쿼리, Oracle, 변환]
 ---
 
 ## 사용자 입력:
@@ -55,7 +53,7 @@ categories: blog
 
 아래는 Oracle에서 동작하는 쿼리로 변환한 결과입니다.
 
-```xml
+{% raw %}```xml
 <select id="findSystemClass" resultMap="findSystemClassMap">
   select rownum as no,
          (
@@ -90,9 +88,9 @@ categories: blog
          </foreach>
        ) z
 </select>
-```
+```{% endraw %}
 
-Oracle에서는 `row_number()` 함수 대신 `rownum`을 사용할 수 있습니다. 또한 Oracle에서는 `with recursive` 구문을 지원하지 않으므로, `with` 구문 안에 재귀적인 쿼리를 구현해야합니다. 마지막으로, Oracle에서는 `)` 문자를 사용하기 전에 `with` 구문의 이름을 반드시 명시해주어야합니다.
+Oracle에서는 {% raw %}`row_number()`{% endraw %} 함수 대신 {% raw %}`rownum`{% endraw %}을 사용할 수 있습니다. 또한 Oracle에서는 {% raw %}`with recursive`{% endraw %} 구문을 지원하지 않으므로, {% raw %}`with`{% endraw %} 구문 안에 재귀적인 쿼리를 구현해야합니다. 마지막으로, Oracle에서는 {% raw %}`)`{% endraw %} 문자를 사용하기 전에 {% raw %}`with`{% endraw %} 구문의 이름을 반드시 명시해주어야합니다.
 
 위의 변환된 쿼리는 Oracle에서 실행될 수 있도록 수정되었습니다.
 
@@ -100,11 +98,11 @@ Oracle에서는 `row_number()` 함수 대신 `rownum`을 사용할 수 있습니
 > 위 쿼리는 계층형 쿼리가 아니어서 데이터가 안 나오는데.
 
 ## ChatGPT 응답:
-> 저의 답변이 부적절하여 죄송합니다. 위 쿼리는 계층형 쿼리이기 때문에 Oracle에서 실행할 수 없습니다. Oracle에서는 `WITH RECURSIVE` 구문을 지원하지 않기 때문입니다.
+> 저의 답변이 부적절하여 죄송합니다. 위 쿼리는 계층형 쿼리이기 때문에 Oracle에서 실행할 수 없습니다. Oracle에서는 {% raw %}`WITH RECURSIVE`{% endraw %} 구문을 지원하지 않기 때문입니다.
 
 그러나 Oracle에서도 계층형 쿼리를 작성할 수 있습니다. 아래는 Oracle에서 실행 가능한 계층형 쿼리 예시입니다.
 
-```xml
+{% raw %}```xml
 <select id="findSystemClass" resultMap="findSystemClassMap">
   SELECT LEVEL AS no,
          a.biz_eng_name AS id,
@@ -118,9 +116,9 @@ Oracle에서는 `row_number()` 함수 대신 `rownum`을 사용할 수 있습니
   </foreach>
   CONNECT BY PRIOR a.biz_id = a.upper_biz_id;
 </select>
-```
+```{% endraw %}
 
-위 쿼리는 Oracle의 `START WITH`와 `CONNECT BY PRIOR` 구문을 사용하여 계층형 쿼리를 작성했습니다. 또한, `LEFT OUTER JOIN`을 사용하여 부모 이름을 가져오도록 했습니다.
+위 쿼리는 Oracle의 {% raw %}`START WITH`{% endraw %}와 {% raw %}`CONNECT BY PRIOR`{% endraw %} 구문을 사용하여 계층형 쿼리를 작성했습니다. 또한, {% raw %}`LEFT OUTER JOIN`{% endraw %}을 사용하여 부모 이름을 가져오도록 했습니다.
 
-쿼리 실행 시 `systems` 파라미터에는 찾고자 하는 `biz_eng_name` 값을 배열 형태로 전달하면 됩니다.
+쿼리 실행 시 {% raw %}`systems`{% endraw %} 파라미터에는 찾고자 하는 {% raw %}`biz_eng_name`{% endraw %} 값을 배열 형태로 전달하면 됩니다.
 

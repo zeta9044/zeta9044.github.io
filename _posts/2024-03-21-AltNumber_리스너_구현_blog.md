@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "AltNumber 리스너 구현"
-date: 2024-03-21
-tags: [리스너, 구현, AltNumber]
-categories: blog
+tags: [AltNumber, 리스너, 구현]
 ---
 
 ## 사용자 입력:
@@ -14,7 +12,7 @@ categories: blog
 
 여기에 간단한 Java 코드 예시가 있습니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
@@ -32,19 +30,19 @@ public class MyListener extends YourBaseListener { // YourBaseListener는 생성
         System.out.println("Exited rule with AltNumber: " + altNumber);
     }
 }
-```
+```{% endraw %}
 
-이 코드에서 `YourParser`는 생성된 파서 클래스명이며, `YourRuleContext`는 규칙에 해당하는 컨텍스트 클래스명입니다. 이 예제에서는 `YourRule`이라는 규칙에 들어가거나 빠져나올 때마다 해당 AltNumber를 출력합니다.
+이 코드에서 {% raw %}`YourParser`{% endraw %}는 생성된 파서 클래스명이며, {% raw %}`YourRuleContext`{% endraw %}는 규칙에 해당하는 컨텍스트 클래스명입니다. 이 예제에서는 {% raw %}`YourRule`{% endraw %}이라는 규칙에 들어가거나 빠져나올 때마다 해당 AltNumber를 출력합니다.
 
 그런 다음, 파서를 생성하고 리스너를 사용하여 파싱하면 됩니다. 예를 들어:
 
-```java
+{% raw %}```java
 YourLexer lexer = new YourLexer(new ANTLRInputStream(input));
 YourParser parser = new YourParser(new CommonTokenStream(lexer));
 ParseTreeWalker walker = new ParseTreeWalker();
 MyListener listener = new MyListener();
 walker.walk(listener, parser.yourStartRule()); // yourStartRule은 파서의 시작 규칙입니다.
-```
+```{% endraw %}
 
 이렇게 하면 ANTLR4에서 생성된 파서를 사용하여 입력을 파싱하고, 정의한 리스너를 통해 AltNumber를 얻을 수 있습니다.
 
@@ -58,7 +56,7 @@ walker.walk(listener, parser.yourStartRule()); // yourStartRule은 파서의 시
 
 예를 들어:
 
-```antlr
+{% raw %}```antlr
 grammar YourGrammar;
 
 options {
@@ -66,7 +64,7 @@ options {
 }
 
 yourRule : alternative1 | alternative2 | alternative3;
-```
+```{% endraw %}
 
 위와 같이 'output=AST'를 설정하면 ANTLR가 대체 규칙의 순서를 AltNumber로 출력합니다. 그러나 이러한 설정은 일반적으로 디버깅이나 문제 해결을 위해 사용되며, 실제 파서 코드에는 영향을 주지 않습니다.
 
@@ -80,7 +78,7 @@ ANTLR4에서 직접 AltNumber를 출력하기 위해서는 대체 규칙의 시�
 
 예를 들어:
 
-```antlr
+{% raw %}```antlr
 grammar YourGrammar;
 
 yourRule : 
@@ -93,9 +91,9 @@ alternative1 : // 대체 규칙 1 내용 정의
 alternative2 : // 대체 규칙 2 내용 정의
 alternative3 : // 대체 규칙 3 내용 정의
 ;
-```
+```{% endraw %}
 
-위 예시에서는 각 대체 규칙의 시작 부분에 `System.out.println()`을 사용하여 AltNumber를 출력하도록 설정했습니다. 이렇게 하면 파싱 중에 각 대체 규칙이 어떤 순서로 진행되는지 확인할 수 있습니다. 
+위 예시에서는 각 대체 규칙의 시작 부분에 {% raw %}`System.out.println()`{% endraw %}을 사용하여 AltNumber를 출력하도록 설정했습니다. 이렇게 하면 파싱 중에 각 대체 규칙이 어떤 순서로 진행되는지 확인할 수 있습니다. 
 
 AltNumber 출력을 원하는 대체 규칙들에 대해 이러한 코드를 추가하면 됩니다.
 
@@ -109,7 +107,7 @@ AltNumber를 출력하려면 각 대체 규칙에 진입할 때 해당 순서를
 
 리스너를 사용하는 경우, 각 대체 규칙에 진입하는 경우에 해당 순서를 출력할 수 있습니다. 예를 들어:
 
-```java
+{% raw %}```java
 public class YourListener extends YourGrammarParserBaseListener {
 
     int altNumber = 0;
@@ -120,7 +118,7 @@ public class YourListener extends YourGrammarParserBaseListener {
         System.out.println("Entering alternative " + altNumber);
     }
 }
-```
+```{% endraw %}
 
 위 코드는 각 대체 규칙에 진입할 때마다 altNumber를 증가시키고, 그 값을 출력합니다.
 

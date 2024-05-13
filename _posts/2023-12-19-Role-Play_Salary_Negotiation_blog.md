@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Role-Play Salary Negotiation"
-date: 2023-12-19
-tags: [Play, Negotiation, Salary, Role]
-categories: blog
+tags: [Role, Negotiation, Salary, Play]
 ---
 
 ## 사용자 입력:

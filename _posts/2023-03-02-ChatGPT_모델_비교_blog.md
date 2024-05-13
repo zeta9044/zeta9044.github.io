@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ChatGPT 모델 비교"
-date: 2023-03-02
-tags: [ChatGPT, 비교, 모델]
-categories: blog
+tags: [모델, ChatGPT, 비교]
 ---
 
 ## 사용자 입력:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "AI Pro 구독 품의"
-date: 2024-02-05
-tags: [품, AI, 구독, Pro]
-categories: blog
+tags: [Pro, AI, 품, 구독]
 ---
 
 ## 사용자 입력:

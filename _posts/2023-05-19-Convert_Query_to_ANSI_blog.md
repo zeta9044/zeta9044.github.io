@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Convert Query to ANSI"
-date: 2023-05-19
-tags: [ANSI, Query, to, Convert]
-categories: blog
+tags: [Convert, to, ANSI, Query]
 ---
 
 ## 사용자 입력:
@@ -259,7 +257,7 @@ WHERE
 ## ChatGPT 응답:
 > ANSI 표준에 따라서, 지정된 쿼리를 JOIN 문으로 바꿀 수 있습니다. PostgreSQL도 ANSI SQL을 지원하므로, 아래와 같이 쿼리를 수정했습니다.
 
-```
+{% raw %}```
 CREATE TEMPORARY TABLE T_AIS0113_$${{prj_id}} AS
 /* ibm.datastage-source#1 */
 SELECT
@@ -657,7 +655,7 @@ WHERE
 ## ChatGPT 응답:
 > Sure, here's your query in ANSI standard JOIN syntax:
 
-```sql
+```{% endraw %}sql
 CREATE TEMPORARY TABLE T_AIS0113_$${{prj_id}} AS
 /* ibm.datastage-source-file#1 */
 SELECT
@@ -1061,7 +1059,7 @@ WHERE
 ## ChatGPT 응답:
 > 네, 이 쿼리를 ANSI 표준 조인으로 변환해보겠습니다.
 
-```sql
+{% raw %}```sql
 CREATE TEMPORARY TABLE T_AIS0113_$${{prj_id}} AS    
 SELECT
     A.*
@@ -1312,15 +1310,15 @@ WHERE
 
 ## ChatGPT 응답:
 > ;
-```
+```{% endraw %}
 참고로 위의 SQL은 아래의 조건에 대한 데이터를 가져오는데 사용되었습니다:
 
-1. `ais0038_$${{prj_id}}`와 `ais0039_$${{prj_id}}`에 대한 조인을 사용하여 여러 특성을 추출합니다.
+1. {% raw %}`ais0038_$${{prj_id}}`{% endraw %}와 {% raw %}`ais0039_$${{prj_id}}`{% endraw %}에 대한 조인을 사용하여 여러 특성을 추출합니다.
 2. 일부 중첩된 SELECT문은 복잡한 문자열 처리를 위해 사용되었습니다.
 3. 몇 가지 중첩된 SELECT문은 다른 테이블과의 조인을 수행하여 특정 특성 값을 추출합니다.
-4. `NOT EXISTS` 조건은 중복 데이터를 필터링하기 위해 사용되었습니다. 
+4. {% raw %}`NOT EXISTS`{% endraw %} 조건은 중복 데이터를 필터링하기 위해 사용되었습니다. 
 
-이 SQL 문은 여러 테이블에서 데이터를 추출하고 가공하여 새로운 임시 테이블 `T_AIS0113_$${{prj_id}}`을 생성합니다. 이 테이블은 프로젝트 아이디를 기준으로 각각 다른 데이터를 포함합니다.
+이 SQL 문은 여러 테이블에서 데이터를 추출하고 가공하여 새로운 임시 테이블 {% raw %}`T_AIS0113_$${{prj_id}}`{% endraw %}을 생성합니다. 이 테이블은 프로젝트 아이디를 기준으로 각각 다른 데이터를 포함합니다.
 
 문의 사항이 있으면 언제든지 말씀해주세요.
 
@@ -1499,7 +1497,7 @@ WHERE
 ## ChatGPT 응답:
 > ANSI 표준 JOIN 형식으로 변경한 쿼리는 다음과 같습니다:
 
-```sql
+{% raw %}```sql
 CREATE TEMPORARY TABLE T_AIS0113_$${{prj_id}} AS    
 /* ibm.datastage-target-file#2 */
 SELECT
@@ -1675,7 +1673,7 @@ I've replaced all instances of the old join syntax with the ANSI standard JOIN s
 ## ChatGPT 응답:
 > Sure, I've rearranged and formatted the query to improve readability:
 
-```SQL
+```{% endraw %}SQL
 CREATE TEMPORARY TABLE T_AIS0113_$${{prj_id}} AS    
 
 SELECT

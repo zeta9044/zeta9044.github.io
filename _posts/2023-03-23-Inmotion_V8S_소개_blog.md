@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Inmotion V8S 소개"
-date: 2023-03-23
-tags: [소개, Inmotion]
-categories: blog
+tags: [Inmotion, 소개]
 ---
 
 ## 사용자 입력:

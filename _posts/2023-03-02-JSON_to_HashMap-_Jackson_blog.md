@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "JSON to HashMap: Jackson"
-date: 2023-03-02
-tags: [JSON, Jackson, to, HashMap]
-categories: blog
+title: "JSON to HashMap - Jackson"
+tags: [JSON, to, HashMap, Jackson]
 ---
 
 ## 사용자 입력:
@@ -16,7 +14,7 @@ Jackson은 JSON과 Java 객체 간의 데이터 변환을 지원하는 라이브
 
 아래는 Jackson을 사용하여 JSON 배열 파일을 HashMap으로 변환하는 예시 코드입니다.
 
-```java
+{% raw %}```java
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
@@ -36,7 +34,7 @@ public class JsonToHashMapExample {
         }
     }
 }
-```
+```{% endraw %}
 
 위의 예시 코드에서 ObjectMapper 클래스는 JSON 데이터를 Java 객체로 변환하는 데 사용됩니다. objectMapper.readValue() 메서드는 JSON 파일을 읽어들이고, HashMap[].class를 지정하여 JSON 배열을 Java의 해시맵 배열로 변환합니다. 이렇게 해시맵 배열을 얻은 후에는 데이터를 처리할 수 있습니다.
 
@@ -130,7 +128,7 @@ Memcached는 인메모리 키-값 캐시 스토어로, 메모리 기반 데이�
 
 아래는 Jackson을 사용하여 JSON 배열을 HashMap으로 변환하는 예시 코드입니다.
 
-```java
+{% raw %}```java
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
@@ -150,7 +148,7 @@ public class JsonToHashMapExample {
         }
     }
 }
-```
+```{% endraw %}
 
 위의 예시 코드에서 ObjectMapper 클래스는 JSON 데이터를 Java 객체로 변환하는 데 사용됩니다. objectMapper.readValue() 메서드는 JSON 파일을 읽어들이고, HashMap[].class를 지정하여 JSON 배열을 Java의 해시맵 배열로 변환합니다. 이렇게 해시맵 배열을 얻은 후에는 데이터를 처리할 수 있습니다.
 
@@ -218,9 +216,9 @@ Redis와 Memcached는 모두 간단한 설정으로 이중화를 구성할 수 �
 
 PostgreSQL에서의 정규식은 POSIX 확장 정규식을 따릅니다. ~ 기호는 '매치' 연산자로 사용되며, WHERE 조건절에서 사용할 수 있습니다. 다음은 예시입니다.
 
-```sql
+{% raw %}```sql
 SELECT * FROM mytable WHERE mycolumn ~ '^[a-z]*$';
-```
+```{% endraw %}
 
 위의 예시에서는 mycolumn 컬럼의 값이 알파벳 소문자로만 이루어져 있는 레코드를 검색합니다. ~ 연산자 오른쪽에는 정규식 패턴을 지정하며, ^는 문자열의 시작을 나타내고, $는 문자열의 끝을 나타냅니다.
 
@@ -243,15 +241,15 @@ Oracle에서는 정규식 연산자로 다음과 같은 연산자를 제공합�
 
 예를 들어, PostgreSQL에서 다음과 같은 쿼리를 실행하였다고 가정합니다.
 
-```sql
+{% raw %}```sql
 SELECT * FROM mytable WHERE mycolumn ~ '^[a-z]*$';
-```
+```{% endraw %}
 
 위의 쿼리를 Oracle로 변환하면 다음과 같이 REGEXP_LIKE() 함수를 사용합니다.
 
-```sql
+{% raw %}```sql
 SELECT * FROM mytable WHERE REGEXP_LIKE(mycolumn, '^[a-z]*$');
-```
+```{% endraw %}
 
 REGEXP_LIKE() 함수는 첫 번째 인수로 검색할 문자열을, 두 번째 인수로 정규식 패턴을 전달합니다. 따라서 PostgreSQL에서 사용한 정규식 패턴은 Oracle에서도 동일하게 사용할 수 있습니다.
 
@@ -265,9 +263,9 @@ CASE WHEN 절은 조건에 따라 다른 값을 반환하는 데 사용됩니다
 
 다음은 PostgreSQL에서 CASE WHEN 절에서 정규식을 사용하는 예시입니다.
 
-```sql
+{% raw %}```sql
 SELECT CASE WHEN mycolumn ~ '^[0-9]*$' THEN '숫자입니다' ELSE '숫자가 아닙니다' END AS result FROM mytable;
-```
+```{% endraw %}
 
 위의 쿼리는 mycolumn 컬럼이 숫자로만 이루어져 있는지 여부를 확인하고, 숫자로만 이루어져 있다면 '숫자입니다'를 반환하고, 그렇지 않으면 '숫자가 아닙니다'를 반환합니다.
 
@@ -279,9 +277,9 @@ CASE WHEN 절에서도 정규식 연산자인 ~ 연산자를 사용할 수 있�
 ## ChatGPT 응답:
 > 위의 PostgreSQL 쿼리를 Oracle로 변환하면 다음과 같이 작성할 수 있습니다.
 
-```sql
+{% raw %}```sql
 SELECT CASE WHEN REGEXP_LIKE(mycolumn, '^[0-9]*$') THEN '숫자입니다' ELSE '숫자가 아닙니다' END AS result FROM mytable;
-```
+```{% endraw %}
 
 PostgreSQL에서 사용한 ~ 연산자 대신 Oracle에서는 REGEXP_LIKE() 함수를 사용합니다. 위의 쿼리에서는 CASE WHEN 절 내부에서 REGEXP_LIKE() 함수를 사용하여 mycolumn 컬럼이 숫자로만 이루어져 있는지 여부를 확인하고, 숫자로만 이루어져 있다면 '숫자입니다'를 반환하고, 그렇지 않으면 '숫자가 아닙니다'를 반환합니다.
 
@@ -458,7 +456,7 @@ networkX는 파이썬으로 작성된 네트워크 분석 라이브러리로, �
 ## ChatGPT 응답:
 > Apache Ignite에서 너비 우선 탐색(Breadth-First Search, BFS) 알고리즘을 구현하는 방법에는 여러 가지가 있습니다. 다음은 간단한 예제 코드입니다.
 
-```java
+{% raw %}```java
 import org.apache.ignite.Ignite;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.lang.IgniteRunnable;
@@ -565,7 +563,7 @@ public class BFSExample {
     }
 
 }
-```
+```{% endraw %}
 
 이 예제 코드는 BFS 알고리즘을 사용하여 그래프를 탐색하며, Ignite Compute Grid를 사용하여 분산 처리를 수행합니다. 먼저, 그래프 데이터를 준비하고, BFS 탐색을 시작합니다. BFS 탐색은 큐를 사용하여 구현되며, 큐에서 노드를 꺼내 BFSJob 클래스를 사용하여 해당 노드를 처리합니다.
 
@@ -581,7 +579,7 @@ BFS 알고리즘에서는 각 노드를 한 번씩만 방문하므로, 방문한
 
 예를 들어, 다음과 같은 코드를 사용하여 분산 맵을 생성하고 데이터를 저장할 수 있습니다.
 
-```java
+{% raw %}```java
 // Ignite 노드를 시작합니다.
 IgniteConfiguration cfg = new IgniteConfiguration();
 Ignite ignite = Ignition.start(cfg);
@@ -593,13 +591,13 @@ IgniteCache<Integer, String> myDistributedMap = ignite.getOrCreateCache("my_dist
 myDistributedMap.put(1, "value1");
 myDistributedMap.put(2, "value2");
 myDistributedMap.put(3, "value3");
-```
+```{% endraw %}
 
 위 코드에서는 Ignite 노드를 시작하고, IgniteCache 인터페이스를 사용하여 분산 맵을 생성합니다. my_distributed_map이라는 이름의 분산 맵이 없으면 새로 생성하고, 이미 존재하는 경우에는 해당 맵을 반환합니다. 이후, put() 메소드를 사용하여 데이터를 저장합니다.
 
 그리고, 분산 맵에 저장된 데이터를 검색하려면 다음과 같이 코드를 작성할 수 있습니다.
 
-```java
+{% raw %}```java
 // 분산 맵에서 데이터를 검색합니다.
 QueryCursor<Entry<Integer, String>> cursor = myDistributedMap.query(new ScanQuery<>());
 
@@ -607,7 +605,7 @@ QueryCursor<Entry<Integer, String>> cursor = myDistributedMap.query(new ScanQuer
 for (Entry<Integer, String> entry : cursor) {
     System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
 }
-```
+```{% endraw %}
 
 위 코드에서는 분산 맵에 저장된 모든 데이터를 검색하기 위해 ScanQuery 객체를 생성하고, query() 메소드를 사용하여 분산 맵에서 검색 결과를 반환합니다. 검색 결과는 QueryCursor 인터페이스를 사용하여 반환되며, Entry<Integer, String> 형태의 데이터를 포함합니다. 이후, 반환된 검색 결과를 반복문을 사용하여 출력합니다.
 
@@ -623,7 +621,7 @@ Ignite에서는 분산 SQL 쿼리를 지원하며, SQL 쿼리를 실행하기 �
 
 예를 들어, 다음과 같은 코드를 사용하여 분산 맵에 데이터를 저장하고, SQL 쿼리를 실행할 수 있습니다.
 
-```java
+{% raw %}```java
 // Ignite 노드를 시작합니다.
 IgniteConfiguration cfg = new IgniteConfiguration();
 Ignite ignite = Ignition.start(cfg);
@@ -644,7 +642,7 @@ QueryCursor<List<?>> cursor = myDistributedMap.query(sql);
 for (List<?> row : cursor) {
     System.out.println("Key: " + row.get(0) + ", Value: " + row.get(1));
 }
-```
+```{% endraw %}
 
 위 코드에서는 IgniteCache 인터페이스를 사용하여 분산 맵을 생성하고, put() 메소드를 사용하여 데이터를 저장합니다. 그리고, SqlFieldsQuery 객체를 사용하여 SQL 쿼리를 생성하고, query() 메소드를 사용하여 SQL 쿼리를 실행합니다. 반환된 검색 결과는 QueryCursor 인터페이스를 사용하여 반환되며, 각각의 결과는 List<?> 형태로 반환됩니다.
 
@@ -660,7 +658,7 @@ for (List<?> row : cursor) {
 
 예를 들어, 다음과 같은 테이블과 데이터가 있다고 가정합니다.
 
-```
+{% raw %}```
 CREATE TABLE employee (
     id INT PRIMARY KEY,
     name VARCHAR(50),
@@ -672,13 +670,13 @@ INSERT INTO employee (id, name, manager_id) VALUES (2, 'Bob', 1);
 INSERT INTO employee (id, name, manager_id) VALUES (3, 'Charlie', 2);
 INSERT INTO employee (id, name, manager_id) VALUES (4, 'David', 2);
 INSERT INTO employee (id, name, manager_id) VALUES (5, 'Eve', 1);
-```
+```{% endraw %}
 
 위 테이블은 계층적인 구조를 가지고 있습니다. 여기서는 employee 테이블에서 manager_id가 NULL인 레코드가 루트 노드이고, manager_id가 루트 노드의 id와 같은 레코드가 해당 루트 노드의 자식 노드가 됩니다.
 
 이제, WITH 구문을 사용하여 employee 테이블에서 계층적인 데이터를 검색하는 쿼리를 작성해보겠습니다.
 
-```sql
+{% raw %}```sql
 WITH RECURSIVE cte AS (
   SELECT id, name, manager_id, 1 AS level
   FROM employee
@@ -689,7 +687,7 @@ WITH RECURSIVE cte AS (
   JOIN cte c ON e.manager_id = c.id
 )
 SELECT * FROM cte ORDER BY level;
-```
+```{% endraw %}
 
 위 쿼리는 RECURSIVE WITH 구문을 사용하여 계층적인 데이터를 검색합니다. cte라는 이름의 임시 테이블을 생성하고, 첫 번째 쿼리에서는 루트 노드를 검색합니다. 이후, UNION ALL 연산자를 사용하여 자식 노드를 재귀적으로 검색합니다. 마지막으로, WITH 구문의 결과인 임시 테이블에서 SELECT 문을 사용하여 검색 결과를 출력합니다.
 

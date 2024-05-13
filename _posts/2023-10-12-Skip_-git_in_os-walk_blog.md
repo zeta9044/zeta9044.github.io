@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Skip .git in os.walk"
-date: 2023-10-12
-tags: [walk, in, git, Skip, os]
-categories: blog
+tags: [git, walk, Skip, os, in]
 ---
 
 ## 사용자 입력:
@@ -22,9 +20,9 @@ categories: blog
     return return_list  이 함수에서 .git디렉토리는 skip하도록 처리
 
 ## ChatGPT 응답:
-> To skip the `.git` directory when walking through the directories, you can check if `.git` is part of the current root during each iteration of the `os.walk()` and continue to the next iteration if it is. Here's how you can modify your function to skip `.git`:
+> To skip the {% raw %}`.git`{% endraw %} directory when walking through the directories, you can check if {% raw %}`.git`{% endraw %} is part of the current root during each iteration of the {% raw %}`os.walk()`{% endraw %} and continue to the next iteration if it is. Here's how you can modify your function to skip {% raw %}`.git`{% endraw %}:
 
-```python
+{% raw %}```python
 import os
 
 def get_extension_list(dir:str, extension:str = None) -> list:
@@ -46,7 +44,7 @@ def get_extension_list(dir:str, extension:str = None) -> list:
             return_list.extend(row)
 
     return return_list
-```
+```{% endraw %}
 
-Note: By modifying `dirs` directly during the loop, you're influencing the directories that `os.walk()` will visit next. By removing `.git` from `dirs`, you're effectively skipping it and all of its subdirectories.
+Note: By modifying {% raw %}`dirs`{% endraw %} directly during the loop, you're influencing the directories that {% raw %}`os.walk()`{% endraw %} will visit next. By removing {% raw %}`.git`{% endraw %} from {% raw %}`dirs`{% endraw %}, you're effectively skipping it and all of its subdirectories.
 

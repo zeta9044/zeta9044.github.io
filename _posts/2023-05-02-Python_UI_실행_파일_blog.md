@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Python UI 실행 파일"
-date: 2023-05-02
-tags: [파일, Python, 실행, UI]
-categories: blog
+tags: [파일, 실행, Python, UI]
 ---
 
 ## 사용자 입력:
@@ -20,17 +18,17 @@ categories: blog
 
 먼저 PyInstaller를 설치해야 합니다. 명령 프롬프트(Windows + R, "cmd" 입력 후 Enter)에서 다음 명령어를 실행하여 설치합니다.
 
-```
+{% raw %}```
 pip install pyinstaller
-```
+```{% endraw %}
 
 2. 실행 파일 생성
 
 다음으로 PyInstaller를 사용하여 실행 파일을 생성합니다. 명령 프롬프트에서 프로그램이 있는 디렉토리로 이동한 후 다음 명령어를 실행합니다.
 
-```
+{% raw %}```
 pyinstaller --onefile yourprogram.py
-```
+```{% endraw %}
 
 위 명령어에서 "yourprogram.py"는 변환할 Python 파일의 이름으로 바꿔주세요.
 
@@ -40,9 +38,9 @@ pyinstaller --onefile yourprogram.py
 
 만약 프로그램에서 사용하는 이미지, 데이터 파일, 기타 파일이 있다면 실행 파일과 함께 포함시켜야 합니다. 이 경우에는 다음과 같은 방법으로 실행 파일을 생성합니다.
 
-```
+{% raw %}```
 pyinstaller --onefile --add-data "images;images" yourprogram.py
-```
+```{% endraw %}
 
 위 명령어에서 "--add-data" 옵션으로 추가할 파일이 있는 디렉토리와 실행 파일 안에 어떤 위치에 포함시킬 것인지를 지정합니다. 위 예제에서는 "images" 디렉토리의 파일을 "images" 폴더에 포함시켜 실행 파일 안에 포함시킵니다.
 
@@ -58,21 +56,21 @@ pyinstaller --onefile --add-data "images;images" yourprogram.py
 
 PyInstaller 명령어 실행 시 "--noconsole" 옵션을 추가하면 cmd 창이 나오지 않습니다. 따라서 다음과 같이 명령어를 수정합니다.
 
-```
+{% raw %}```
 pyinstaller --onefile --noconsole yourprogram.py
-```
+```{% endraw %}
 
 2. spec 파일 수정
 
 PyInstaller로 실행 파일을 만들 때 자동으로 생성되는 spec 파일에서 console 속성을 False로 설정하면 cmd 창을 없앨 수 있습니다. 다음과 같이 명령어를 입력하여 spec 파일을 생성합니다.
 
-```
+{% raw %}```
 pyinstaller yourprogram.py --name yourprogramname --onedir
-```
+```{% endraw %}
 
 위 명령어를 실행하면, "yourprogram.spec" 파일이 생성됩니다. 이 파일을 에디터로 열어서 다음과 같이 수정합니다.
 
-```
+{% raw %}```
 a = Analysis(['yourprogram.py'],
              pathex=['C:\\path\\to\\your\\program'],
              binaries=[],
@@ -85,15 +83,15 @@ a = Analysis(['yourprogram.py'],
              win_private_assemblies=False,
              cipher=block_cipher,
              console=False)  # 이 부분을 False로 수정
-```
+```{% endraw %}
 
 위와 같이 console 속성을 False로 설정하면 cmd 창이 나오지 않습니다.
 
 수정이 끝나면 다음과 같은 명령어로 실행 파일을 생성합니다.
 
-```
+{% raw %}```
 pyinstaller yourprogram.spec
-```
+```{% endraw %}
 
 이렇게 수정하면 PyInstaller로 생성한 실행 파일에서 cmd 창이 나오지 않습니다.
 

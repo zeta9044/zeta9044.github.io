@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Eclipse CDT Preprocessor Util"
-date: 2024-02-08
-tags: [Util, Eclipse, Preprocessor, CDT]
-categories: blog
+tags: [Util, CDT, Preprocessor, Eclipse]
 ---
 
 ## 사용자 입력:
@@ -22,7 +20,7 @@ categories: blog
 
 다음은 이러한 단계를 구현하는 대략적인 코드 예시입니다. 실제 구현시 Eclipse CDT API의 최신 문서를 참고하여 필요한 변경 사항을 적용해야 합니다.
 
-```java
+{% raw %}```java
 // 이 코드는 구체적인 구현 예시를 제공하지 않고, 개념적인 흐름을 설명하기 위한 것입니다.
 // 실제로 Eclipse CDT 라이브러리와 API를 사용한 구현은 Eclipse CDT 문서와 API 가이드를 참조하세요.
 
@@ -52,7 +50,7 @@ public class CPreprocessorUtil {
         return "소스 코드";
     }
 }
-```
+```{% endraw %}
 
 위의 예시는 개념적인 설명을 위한 것이며, 실제로 Eclipse CDT 프리프로세서 기능을 사용하는 데에는 Eclipse CDT 프로젝트의 API 문서를 참조하여 상세한 구현 방법을 파악해야 합니다. Eclipse CDT 라이브러리를 자바 프로젝트에 통합하고, 필요한 설정을 정의하는 방법에 대한 구체적인 정보는 Eclipse CDT 공식 문서 및 API 가이드에서 찾을 수 있습니다.
 

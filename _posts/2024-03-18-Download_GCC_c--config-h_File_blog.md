@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Download GCC c++config.h File"
-date: 2024-03-18
-tags: [Download, c, File, GCC, h, config]
-categories: blog
+tags: [Download, GCC, File, config, h, c]
 ---
 
 ## 사용자 입력:
@@ -20,19 +18,19 @@ categories: blog
 > 리눅스 find명령으로 현재 디렉토리아래 c++config.h 파일 찾는 방법 알려줘
 
 ## ChatGPT 응답:
-> 리눅스에서 `find` 명령어를 사용하여 현재 디렉토리 아래의 `c++config.h` 파일을 찾는 방법은 다음과 같습니다:
+> 리눅스에서 {% raw %}`find`{% endraw %} 명령어를 사용하여 현재 디렉토리 아래의 {% raw %}`c++config.h`{% endraw %} 파일을 찾는 방법은 다음과 같습니다:
 
-```
+{% raw %}```
 find . -name c++config.h
-```
+```{% endraw %}
 
-위 명령어는 현재 디렉토리(`.`)부터 시작하여 모든 하위 디렉토리를 순회하면서 이름이 `c++config.h`인 파일을 찾습니다. 결과로 해당 파일의 경로를 출력합니다.
+위 명령어는 현재 디렉토리({% raw %}`.`{% endraw %})부터 시작하여 모든 하위 디렉토리를 순회하면서 이름이 {% raw %}`c++config.h`{% endraw %}인 파일을 찾습니다. 결과로 해당 파일의 경로를 출력합니다.
 
-만약 현재 디렉토리 아래에서만 찾고 싶다면 `-maxdepth` 옵션을 사용하여 깊이를 제한할 수 있습니다. 예를 들어, 다음과 같이 사용할 수 있습니다:
+만약 현재 디렉토리 아래에서만 찾고 싶다면 {% raw %}`-maxdepth`{% endraw %} 옵션을 사용하여 깊이를 제한할 수 있습니다. 예를 들어, 다음과 같이 사용할 수 있습니다:
 
-```
+{% raw %}```
 find . -maxdepth 1 -name c++config.h
-```
+```{% endraw %}
 
-이 명령은 현재 디렉토리 아래에서만(`-maxdepth 1`) `c++config.h` 파일을 찾습니다.
+이 명령은 현재 디렉토리 아래에서만({% raw %}`-maxdepth 1`{% endraw %}) {% raw %}`c++config.h`{% endraw %} 파일을 찾습니다.
 

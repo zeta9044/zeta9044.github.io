@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Pets for autistic children"
-date: 2023-11-29
-tags: [children, Pets, for, autistic]
-categories: blog
+tags: [autistic, for, Pets, children]
 ---
 
 ## 사용자 입력:
@@ -987,17 +985,17 @@ categories: blog
 }  이 자바 클래스에서 null_return_std,null_return,resource_leak, dangerous downcast 가 있으면 해결한 소스를 만들어줘. 함수이름은 바꾸면 안돼.
 
 ## ChatGPT 응답:
-> 이 자바 클래스의 코드를 분석하고, 지적된 문제들인 `null_return_std`, `null_return`, `resource_leak`, `dangerous downcast` 문제들을 해결하기 위해 코드를 수정하겠습니다. 각 문제에 대한 해결 방안은 다음과 같습니다:
+> 이 자바 클래스의 코드를 분석하고, 지적된 문제들인 {% raw %}`null_return_std`{% endraw %}, {% raw %}`null_return`{% endraw %}, {% raw %}`resource_leak`{% endraw %}, {% raw %}`dangerous downcast`{% endraw %} 문제들을 해결하기 위해 코드를 수정하겠습니다. 각 문제에 대한 해결 방안은 다음과 같습니다:
 
-1. **null_return_std & null_return**: 이 문제는 메서드가 예상치 못한 상황에서 `null`을 반환할 때 발생합니다. 이를 해결하기 위해, 해당 메서드들이 `null`을 반환하는 대신 적절한 예외를 던지도록 하거나, 상황에 따라 기본값을 반환하도록 변경해야 합니다.
+1. **null_return_std & null_return**: 이 문제는 메서드가 예상치 못한 상황에서 {% raw %}`null`{% endraw %}을 반환할 때 발생합니다. 이를 해결하기 위해, 해당 메서드들이 {% raw %}`null`{% endraw %}을 반환하는 대신 적절한 예외를 던지도록 하거나, 상황에 따라 기본값을 반환하도록 변경해야 합니다.
 
-2. **resource_leak**: 자원 누수는 주로 `close()` 메서드 호출이 누락되었을 때 발생합니다. 이를 해결하기 위해, 모든 파일 I/O 작업에 대해 `try-with-resources` 구문을 사용하여 자원이 제대로 해제되도록 해야 합니다.
+2. **resource_leak**: 자원 누수는 주로 {% raw %}`close()`{% endraw %} 메서드 호출이 누락되었을 때 발생합니다. 이를 해결하기 위해, 모든 파일 I/O 작업에 대해 {% raw %}`try-with-resources`{% endraw %} 구문을 사용하여 자원이 제대로 해제되도록 해야 합니다.
 
-3. **dangerous downcast**: 이 문제는 객체를 하위 클래스 타입으로 캐스팅할 때 발생할 수 있습니다. 이를 방지하기 위해, 캐스팅 전에 객체의 타입을 체크하거나 `ClassCastException`을 적절히 처리해야 합니다.
+3. **dangerous downcast**: 이 문제는 객체를 하위 클래스 타입으로 캐스팅할 때 발생할 수 있습니다. 이를 방지하기 위해, 캐스팅 전에 객체의 타입을 체크하거나 {% raw %}`ClassCastException`{% endraw %}을 적절히 처리해야 합니다.
 
 아래는 이러한 수정 사항을 반영한 코드 일부입니다. 전체 코드를 수정하기에는 너무 길기 때문에, 주요 부분에 대한 수정만 제시하겠습니다.
 
-```java
+{% raw %}```java
 public class FileUtil {
 
     // ... 기존 코드 ...
@@ -1049,10 +1047,10 @@ public class FileUtil {
     // ... 기존 코드 ...
 
 }
-```
+```{% endraw %}
 
-- `getFileList`: `null` 반환을 피하기 위해 파일이나 디렉토리가 존재하지 않는 경우 빈 벡터를 반환합니다.
-- `checkerChecksum`: `try-with-resources` 구문을 사용하여 자원 누수 문제를 해결합니다.
+- {% raw %}`getFileList`{% endraw %}: {% raw %}`null`{% endraw %} 반환을 피하기 위해 파일이나 디렉토리가 존재하지 않는 경우 빈 벡터를 반환합니다.
+- {% raw %}`checkerChecksum`{% endraw %}: {% raw %}`try-with-resources`{% endraw %} 구문을 사용하여 자원 누수 문제를 해결합니다.
 
 다른 메서드들도 이러한 원칙에 따라 수정할 수 있습니다. 전체 코드를 검토하고 위의 원칙에 따라 필요한 부분을 수정해야 합니다.
 
@@ -1062,17 +1060,17 @@ public class FileUtil {
 ## ChatGPT 응답:
 > 제공된 Java 클래스 코드를 살펴본 결과, 몇 가지 취약점을 발견했습니다. 이러한 취약점은 보안 및 안정성과 관련이 있으며, 다음과 같이 요약될 수 있습니다:
 
-1. **경로 조작 (Path Traversal) 가능성**: `sanitizeFilePath` 메서드에서 파일 경로를 정규화하는 과정이 있지만, 사용자 입력을 기반으로 파일 시스템에 접근하는 것은 여전히 위험할 수 있습니다. 특히, `home` 디렉토리 외부의 경로에 대한 접근을 막고 있지만, 사용자 입력이 여전히 공격에 사용될 수 있습니다.
+1. **경로 조작 (Path Traversal) 가능성**: {% raw %}`sanitizeFilePath`{% endraw %} 메서드에서 파일 경로를 정규화하는 과정이 있지만, 사용자 입력을 기반으로 파일 시스템에 접근하는 것은 여전히 위험할 수 있습니다. 특히, {% raw %}`home`{% endraw %} 디렉토리 외부의 경로에 대한 접근을 막고 있지만, 사용자 입력이 여전히 공격에 사용될 수 있습니다.
 
-2. **리소스 누수 (Resource Leak)**: 여러 메서드에서 파일이나 스트림을 열고 있지만, 항상 제대로 닫히는지 확인하는 코드가 없습니다. 예를 들어, `checkerEnc` 메서드에서 `FileInputStream`과 `BufferedInputStream`이 제대로 닫히지 않을 수 있습니다.
+2. **리소스 누수 (Resource Leak)**: 여러 메서드에서 파일이나 스트림을 열고 있지만, 항상 제대로 닫히는지 확인하는 코드가 없습니다. 예를 들어, {% raw %}`checkerEnc`{% endraw %} 메서드에서 {% raw %}`FileInputStream`{% endraw %}과 {% raw %}`BufferedInputStream`{% endraw %}이 제대로 닫히지 않을 수 있습니다.
 
 3. **예외 처리 부족**: 많은 메서드에서 발생할 수 있는 예외를 적절히 처리하지 않고 있습니다. 예외를 무시하거나 간단히 출력만 하고 있는 경우가 있으며, 이는 예기치 못한 동작이나 시스템의 취약점을 초래할 수 있습니다.
 
-4. **일관성 없는 반환 값**: 몇몇 메서드는 실패 시 `null`을 반환할 수 있으며, 이는 `NullPointerException`을 일으킬 수 있는 위험 요소입니다. 반환 값에 대한 일관된 처리가 필요합니다.
+4. **일관성 없는 반환 값**: 몇몇 메서드는 실패 시 {% raw %}`null`{% endraw %}을 반환할 수 있으며, 이는 {% raw %}`NullPointerException`{% endraw %}을 일으킬 수 있는 위험 요소입니다. 반환 값에 대한 일관된 처리가 필요합니다.
 
-5. **코드 중복**: 예를 들어 `DeleteDirectory` 메서드가 두 번 정의되어 있으며, 이러한 중복은 유지 보수의 어려움을 증가시킬 수 있습니다.
+5. **코드 중복**: 예를 들어 {% raw %}`DeleteDirectory`{% endraw %} 메서드가 두 번 정의되어 있으며, 이러한 중복은 유지 보수의 어려움을 증가시킬 수 있습니다.
 
-6. **타입 안전성 부족**: `Vector`와 같은 일반 컬렉션을 사용하는 경우, 타입 안전성이 보장되지 않습니다. Java 5 이상에서는 제네릭을 사용하여 타입 안전성을 높일 수 있습니다.
+6. **타입 안전성 부족**: {% raw %}`Vector`{% endraw %}와 같은 일반 컬렉션을 사용하는 경우, 타입 안전성이 보장되지 않습니다. Java 5 이상에서는 제네릭을 사용하여 타입 안전성을 높일 수 있습니다.
 
 7. **명확하지 않은 변수명과 주석**: 코드에는 몇몇 변수명이 명확하지 않으며, 주석이 한국어로 되어 있어 코드의 가독성을 저하시킬 수 있습니다.
 
@@ -1092,11 +1090,11 @@ public class FileUtil {
     }
 
 ## ChatGPT 응답:
-> 이 `getFileList` 메서드를 분석하고 보안을 강화하기 위해 다음과 같은 수정을 제안합니다:
+> 이 {% raw %}`getFileList`{% endraw %} 메서드를 분석하고 보안을 강화하기 위해 다음과 같은 수정을 제안합니다:
 
-1. **제네릭 사용**: `Vector`를 사용할 때 제네릭을 사용하지 않으면 타입 안전성이 보장되지 않습니다. `File` 객체를 저장하는 `Vector<File>`를 사용해야 합니다.
+1. **제네릭 사용**: {% raw %}`Vector`{% endraw %}를 사용할 때 제네릭을 사용하지 않으면 타입 안전성이 보장되지 않습니다. {% raw %}`File`{% endraw %} 객체를 저장하는 {% raw %}`Vector<File>`{% endraw %}를 사용해야 합니다.
 
-2. **예외 처리**: `listFiles()`는 null을 반환할 수 있으며, 이는 디렉토리가 존재하지 않거나 I/O 오류가 발생했을 때입니다. 이러한 상황을 적절히 처리해야 합니다.
+2. **예외 처리**: {% raw %}`listFiles()`{% endraw %}는 null을 반환할 수 있으며, 이는 디렉토리가 존재하지 않거나 I/O 오류가 발생했을 때입니다. 이러한 상황을 적절히 처리해야 합니다.
 
 3. **경로 유효성 검증**: 입력으로 제공된 경로가 실제 디렉토리인지 확인해야 합니다.
 
@@ -1104,7 +1102,7 @@ public class FileUtil {
 
 아래는 이러한 수정 사항을 반영한 코드입니다:
 
-```java
+{% raw %}```java
 public static Vector<File> getFileList(String iPathName) {
     Vector<File> vOut = new Vector<>();
 
@@ -1127,13 +1125,13 @@ public static Vector<File> getFileList(String iPathName) {
 
     return vOut;
 }
-```
+```{% endraw %}
 
 변경 사항:
 
-- `Vector`에 제네릭 `File`을 사용하여 타입 안전성을 높였습니다.
-- `directory`가 실제로 존재하며 디렉토리인지 확인하는 코드를 추가했습니다.
-- `sDir`이 `null`인 경우에 대한 처리를 추가했습니다.
+- {% raw %}`Vector`{% endraw %}에 제네릭 {% raw %}`File`{% endraw %}을 사용하여 타입 안전성을 높였습니다.
+- {% raw %}`directory`{% endraw %}가 실제로 존재하며 디렉토리인지 확인하는 코드를 추가했습니다.
+- {% raw %}`sDir`{% endraw %}이 {% raw %}`null`{% endraw %}인 경우에 대한 처리를 추가했습니다.
 
 이러한 변경을 통해 코드의 안정성과 보안성을 높일 수 있습니다.
 
@@ -1141,9 +1139,9 @@ public static Vector<File> getFileList(String iPathName) {
 > 위 함수가 1depth의 디렉토리 또는 파일리스트를 가져오는 건가?
 
 ## ChatGPT 응답:
-> 네, 제공된 `getFileList` 함수는 지정된 경로(`iPathName`)에 있는 1단계 깊이(depth)의 파일과 디렉토리 목록을 가져옵니다. 이 함수는 지정된 경로를 나타내는 `File` 객체를 생성하고, 그 객체의 `listFiles()` 메서드를 호출하여 해당 경로에 있는 모든 파일과 디렉토리를 `File` 객체 배열로 반환합니다. 
+> 네, 제공된 {% raw %}`getFileList`{% endraw %} 함수는 지정된 경로({% raw %}`iPathName`{% endraw %})에 있는 1단계 깊이(depth)의 파일과 디렉토리 목록을 가져옵니다. 이 함수는 지정된 경로를 나타내는 {% raw %}`File`{% endraw %} 객체를 생성하고, 그 객체의 {% raw %}`listFiles()`{% endraw %} 메서드를 호출하여 해당 경로에 있는 모든 파일과 디렉토리를 {% raw %}`File`{% endraw %} 객체 배열로 반환합니다. 
 
-이 배열을 순회하면서 각 요소를 `Vector<File>`에 추가합니다. 그 결과, 이 `Vector`에는 지정된 경로의 하위에 있는 모든 파일과 디렉토리가 포함됩니다. 그러나 이 함수는 하위 디렉토리의 내용을 재귀적으로 탐색하지는 않으며, 오로지 주어진 경로의 바로 아래에 있는 파일과 디렉토리만을 포함합니다.
+이 배열을 순회하면서 각 요소를 {% raw %}`Vector<File>`{% endraw %}에 추가합니다. 그 결과, 이 {% raw %}`Vector`{% endraw %}에는 지정된 경로의 하위에 있는 모든 파일과 디렉토리가 포함됩니다. 그러나 이 함수는 하위 디렉토리의 내용을 재귀적으로 탐색하지는 않으며, 오로지 주어진 경로의 바로 아래에 있는 파일과 디렉토리만을 포함합니다.
 
 ## 사용자 입력:
 >     public static boolean makeDir(String path) {
@@ -1157,17 +1155,17 @@ public static Vector<File> getFileList(String iPathName) {
     } 이 함수도 취약점을 제거한 함수로 만들어줘.
 
 ## ChatGPT 응답:
-> 제공된 `makeDir` 함수는 새로운 디렉토리를 생성하는 기능을 수행하지만, 몇 가지 취약점을 개선할 필요가 있습니다. 주요 개선 사항은 다음과 같습니다:
+> 제공된 {% raw %}`makeDir`{% endraw %} 함수는 새로운 디렉토리를 생성하는 기능을 수행하지만, 몇 가지 취약점을 개선할 필요가 있습니다. 주요 개선 사항은 다음과 같습니다:
 
-1. **예외 처리의 개선**: 현재 구현에서는 모든 예외를 잡고 단순히 `false`를 반환합니다. 구체적인 예외 유형을 명시하고, 필요한 경우 오류 메시지를 로깅하는 것이 좋습니다.
+1. **예외 처리의 개선**: 현재 구현에서는 모든 예외를 잡고 단순히 {% raw %}`false`{% endraw %}를 반환합니다. 구체적인 예외 유형을 명시하고, 필요한 경우 오류 메시지를 로깅하는 것이 좋습니다.
 
-2. **결과 확인**: `mkdir()` 메서드는 디렉토리 생성이 성공했는지 여부를 boolean 값으로 반환합니다. 이 값을 검사하여 디렉토리 생성 성공 여부를 정확히 판단해야 합니다.
+2. **결과 확인**: {% raw %}`mkdir()`{% endraw %} 메서드는 디렉토리 생성이 성공했는지 여부를 boolean 값으로 반환합니다. 이 값을 검사하여 디렉토리 생성 성공 여부를 정확히 판단해야 합니다.
 
 3. **경로 검증**: 외부에서 입력된 경로를 검증하지 않으면 경로 조작(Path Traversal) 공격에 취약할 수 있습니다. 따라서 안전한 경로인지 확인하는 절차가 필요합니다.
 
 아래는 이러한 개선 사항을 반영한 코드입니다:
 
-```java
+{% raw %}```java
 public static boolean makeDir(String path) {
     if (path == null || path.trim().isEmpty()) {
         // 경로가 비어있는 경우 false 반환
@@ -1190,13 +1188,13 @@ public static boolean makeDir(String path) {
         return false;
     }
 }
-```
+```{% endraw %}
 
 변경 사항:
 
-- `path`가 `null`이거나 비어 있는 경우를 검사합니다.
-- 예외 처리를 구체화하여 `SecurityException`을 별도로 처리합니다.
-- `mkdir()`의 반환값을 직접 반환하여 디렉토리 생성 성공 여부를 보다 정확히 반영합니다.
+- {% raw %}`path`{% endraw %}가 {% raw %}`null`{% endraw %}이거나 비어 있는 경우를 검사합니다.
+- 예외 처리를 구체화하여 {% raw %}`SecurityException`{% endraw %}을 별도로 처리합니다.
+- {% raw %}`mkdir()`{% endraw %}의 반환값을 직접 반환하여 디렉토리 생성 성공 여부를 보다 정확히 반영합니다.
 
 이러한 변경을 통해 함수의 안정성과 정확성을 개선할 수 있습니다.
 
@@ -1204,9 +1202,9 @@ public static boolean makeDir(String path) {
 > 위 내용에서 이미  존재하는 디렉토리면 false를 반환해줘.
 
 ## ChatGPT 응답:
-> 이미 존재하는 디렉토리인 경우 `false`를 반환하도록 함수를 수정하면 다음과 같습니다:
+> 이미 존재하는 디렉토리인 경우 {% raw %}`false`{% endraw %}를 반환하도록 함수를 수정하면 다음과 같습니다:
 
-```java
+{% raw %}```java
 public static boolean makeDir(String path) {
     if (path == null || path.trim().isEmpty()) {
         // 경로가 비어있는 경우 false 반환
@@ -1234,14 +1232,14 @@ public static boolean makeDir(String path) {
         return false;
     }
 }
-```
+```{% endraw %}
 
 변경 사항:
 
-- `newDirectory.exists()`를 사용하여 해당 경로에 디렉토리가 이미 존재하는지 확인합니다.
-- 이미 존재하는 경우 `false`를 반환합니다.
+- {% raw %}`newDirectory.exists()`{% endraw %}를 사용하여 해당 경로에 디렉토리가 이미 존재하는지 확인합니다.
+- 이미 존재하는 경우 {% raw %}`false`{% endraw %}를 반환합니다.
 
-이러한 변경을 통해 함수는 주어진 경로에 디렉토리가 이미 존재하면 `false`를 반환하고, 그렇지 않은 경우에만 새로운 디렉토리를 생성하려고 시도합니다.
+이러한 변경을 통해 함수는 주어진 경로에 디렉토리가 이미 존재하면 {% raw %}`false`{% endraw %}를 반환하고, 그렇지 않은 경우에만 새로운 디렉토리를 생성하려고 시도합니다.
 
 ## 사용자 입력:
 > 	public static String sanitizeFilePath(String filePath) throws IOException,SecurityException {
@@ -1263,13 +1261,13 @@ public static boolean makeDir(String path) {
 	}  위 함수는 path traversal을 방지하기 위해서 ais.home 에 정의된 디렉토리 하위에만 존재하는 디렉토리만 허용할거야. 그런데, 상대경로 방지하는 것까지 추가해봐.
 
 ## ChatGPT 응답:
-> 상대 경로를 사용하는 것을 방지하기 위해, 입력된 파일 경로가 절대 경로인지 확인하는 로직을 추가해야 합니다. 상대 경로는 `..`를 사용하여 상위 디렉토리로 이동할 수 있기 때문에 보안상 문제가 될 수 있습니다. `File` 객체의 `getCanonicalPath` 메서드는 상대 경로를 절대 경로로 변환해 줍니다. 따라서 이 메서드를 사용하여 상대 경로를 제거할 수 있습니다. 
+> 상대 경로를 사용하는 것을 방지하기 위해, 입력된 파일 경로가 절대 경로인지 확인하는 로직을 추가해야 합니다. 상대 경로는 {% raw %}`..`{% endraw %}를 사용하여 상위 디렉토리로 이동할 수 있기 때문에 보안상 문제가 될 수 있습니다. {% raw %}`File`{% endraw %} 객체의 {% raw %}`getCanonicalPath`{% endraw %} 메서드는 상대 경로를 절대 경로로 변환해 줍니다. 따라서 이 메서드를 사용하여 상대 경로를 제거할 수 있습니다. 
 
-이미 제공된 코드에 `getCanonicalPath`를 사용하고 있기 때문에, 상대 경로의 사용 자체는 이미 방지하고 있습니다. 그러나 추가적으로 입력 경로가 절대 경로인지 확인하고, 아닌 경우 예외를 발생시키는 로직을 추가할 수 있습니다.
+이미 제공된 코드에 {% raw %}`getCanonicalPath`{% endraw %}를 사용하고 있기 때문에, 상대 경로의 사용 자체는 이미 방지하고 있습니다. 그러나 추가적으로 입력 경로가 절대 경로인지 확인하고, 아닌 경우 예외를 발생시키는 로직을 추가할 수 있습니다.
 
 다음은 이러한 변경 사항을 반영한 코드입니다:
 
-```java
+{% raw %}```java
 public static String sanitizeFilePath(String filePath) throws IOException, SecurityException {
     if (filePath == null || filePath.trim().isEmpty()) {
         throw new IllegalArgumentException("File path is null or empty");
@@ -1297,15 +1295,15 @@ public static String sanitizeFilePath(String filePath) throws IOException, Secur
 
     return canonicalPath;
 }
-```
+```{% endraw %}
 
 변경 사항:
 
-- 입력된 파일 경로가 `null`이거나 비어 있는 경우를 검사합니다.
-- `File.isAbsolute()`를 사용하여 입력된 파일 경로가 절대 경로인지 확인합니다. 상대 경로인 경우 `SecurityException`을 발생시킵니다.
-- 나머지 부분은 기존 로직을 유지하여, `ais.home` 시스템 속성 아래에 있는 경로만을 허용합니다.
+- 입력된 파일 경로가 {% raw %}`null`{% endraw %}이거나 비어 있는 경우를 검사합니다.
+- {% raw %}`File.isAbsolute()`{% endraw %}를 사용하여 입력된 파일 경로가 절대 경로인지 확인합니다. 상대 경로인 경우 {% raw %}`SecurityException`{% endraw %}을 발생시킵니다.
+- 나머지 부분은 기존 로직을 유지하여, {% raw %}`ais.home`{% endraw %} 시스템 속성 아래에 있는 경로만을 허용합니다.
 
-이러한 변경을 통해 함수는 상대 경로의 사용을 방지하고, 지정된 `ais.home` 디렉토리 내의 경로만을 허용합니다.
+이러한 변경을 통해 함수는 상대 경로의 사용을 방지하고, 지정된 {% raw %}`ais.home`{% endraw %} 디렉토리 내의 경로만을 허용합니다.
 
 ## 사용자 입력:
 >     public static boolean isFileExist(String fileName) {
@@ -1314,14 +1312,14 @@ public static String sanitizeFilePath(String filePath) throws IOException, Secur
     }  취약점 없는 함수로 만들어 줘.
 
 ## ChatGPT 응답:
-> `isFileExist` 함수는 주어진 파일 이름에 대한 파일의 존재 여부를 확인합니다. 이 함수는 상대적으로 단순하며, 주된 취약점은 주어진 파일 이름이 유효하지 않거나 부적절하게 처리될 때 발생할 수 있습니다. 이를 개선하기 위해 다음과 같은 점을 고려할 수 있습니다:
+> {% raw %}`isFileExist`{% endraw %} 함수는 주어진 파일 이름에 대한 파일의 존재 여부를 확인합니다. 이 함수는 상대적으로 단순하며, 주된 취약점은 주어진 파일 이름이 유효하지 않거나 부적절하게 처리될 때 발생할 수 있습니다. 이를 개선하기 위해 다음과 같은 점을 고려할 수 있습니다:
 
-1. **입력 검증**: 입력된 파일 이름이 `null`이거나 공백인지 검사합니다.
+1. **입력 검증**: 입력된 파일 이름이 {% raw %}`null`{% endraw %}이거나 공백인지 검사합니다.
 2. **보안적 검증**: 파일 경로가 안전한지, 예를 들어 경로 조작 공격에 취약한 상대 경로를 사용하지 않도록 검증합니다.
 
 아래는 이러한 개선 사항을 반영한 코드입니다:
 
-```java
+{% raw %}```java
 public static boolean isFileExist(String fileName) {
     if (fileName == null || fileName.trim().isEmpty()) {
         // 파일 이름이 비어있는 경우 즉시 false 반환
@@ -1338,11 +1336,11 @@ public static boolean isFileExist(String fileName) {
 
     return file.exists();
 }
-```
+```{% endraw %}
 
 변경 사항:
 
-- 파일 이름이 `null`이거나 공백인 경우를 검사하여, 이 경우 `false`를 반환합니다.
+- 파일 이름이 {% raw %}`null`{% endraw %}이거나 공백인 경우를 검사하여, 이 경우 {% raw %}`false`{% endraw %}를 반환합니다.
 - 파일 경로가 절대 경로인지 확인하는 로직을 추가할 수 있습니다 (이는 선택적입니다. 상황에 따라 상대 경로를 허용할 수도 있습니다).
 
 이러한 변경을 통해 함수는 더 안전하고 견고해집니다.
@@ -1351,11 +1349,11 @@ public static boolean isFileExist(String fileName) {
 > 파일 또는 디렉토리를 삭제하는 함수를 만들어줘. 디렉토리 삭제는 deleteDirectory(Path directory) 이 함수를 호출하면돼.
 
 ## ChatGPT 응답:
-> 파일 또는 디렉토리를 삭제하는 함수를 만들 때, 주요 고려사항은 파일인지 디렉토리인지 구분하고, 디렉토리인 경우 `deleteDirectory(Path directory)` 함수를 호출하는 것입니다. 이 함수는 파일 또는 디렉토리의 경로를 입력받아 해당 경로에 있는 파일이나 디렉토리를 삭제합니다. 
+> 파일 또는 디렉토리를 삭제하는 함수를 만들 때, 주요 고려사항은 파일인지 디렉토리인지 구분하고, 디렉토리인 경우 {% raw %}`deleteDirectory(Path directory)`{% endraw %} 함수를 호출하는 것입니다. 이 함수는 파일 또는 디렉토리의 경로를 입력받아 해당 경로에 있는 파일이나 디렉토리를 삭제합니다. 
 
 다음은 요청하신 대로 파일 또는 디렉토리를 삭제하는 함수의 구현 예시입니다:
 
-```java
+{% raw %}```java
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -1380,34 +1378,34 @@ public class FileUtils {
         // 디렉토리 내의 파일 및 하위 디렉토리를 재귀적으로 삭제
     }
 }
-```
+```{% endraw %}
 
-위 코드에서 `delete` 함수는 다음과 같이 작동합니다:
+위 코드에서 {% raw %}`delete`{% endraw %} 함수는 다음과 같이 작동합니다:
 
-1. 주어진 경로를 `Path` 객체로 변환합니다.
+1. 주어진 경로를 {% raw %}`Path`{% endraw %} 객체로 변환합니다.
 2. 해당 경로가 존재하는지 확인합니다.
-3. 경로가 디렉토리인 경우 `deleteDirectory` 함수를 호출하여 디렉토리를 삭제합니다.
-4. 경로가 파일인 경우, `Files.delete` 메서드를 사용하여 파일을 삭제합니다.
+3. 경로가 디렉토리인 경우 {% raw %}`deleteDirectory`{% endraw %} 함수를 호출하여 디렉토리를 삭제합니다.
+4. 경로가 파일인 경우, {% raw %}`Files.delete`{% endraw %} 메서드를 사용하여 파일을 삭제합니다.
 
-`deleteDirectory` 함수는 디렉토리를 삭제하는 로직을 구현해야 합니다. 여기서는 이 함수가 이미 정의되어 있다고 가정하고, 그 내용을 구체적으로 제시하지 않았습니다. 
+{% raw %}`deleteDirectory`{% endraw %} 함수는 디렉토리를 삭제하는 로직을 구현해야 합니다. 여기서는 이 함수가 이미 정의되어 있다고 가정하고, 그 내용을 구체적으로 제시하지 않았습니다. 
 
-이 함수를 사용할 때는 해당 경로에 접근 권한이 있는지, 삭제하려는 파일 또는 디렉토리가 실제로 존재하는지 등을 고려해야 합니다. 또한, `IOException`을 처리할 준비가 되어 있어야 합니다.
+이 함수를 사용할 때는 해당 경로에 접근 권한이 있는지, 삭제하려는 파일 또는 디렉토리가 실제로 존재하는지 등을 고려해야 합니다. 또한, {% raw %}`IOException`{% endraw %}을 처리할 준비가 되어 있어야 합니다.
 
 ## 사용자 입력:
 > 위 함수가 취약점이 없나?
 
 ## ChatGPT 응답:
-> 제공된 `delete` 함수는 파일 또는 디렉토리를 삭제하는 기본적인 기능을 수행합니다. 그러나 몇 가지 취약점 또는 개선 사항이 있을 수 있습니다:
+> 제공된 {% raw %}`delete`{% endraw %} 함수는 파일 또는 디렉토리를 삭제하는 기본적인 기능을 수행합니다. 그러나 몇 가지 취약점 또는 개선 사항이 있을 수 있습니다:
 
-1. **예외 처리**: 현재 함수는 `IOException`을 던집니다. 이는 호출하는 측에서 적절히 처리해야 할 것을 의미합니다. 더 구체적인 예외 처리 로직이 필요할 수도 있습니다. 예를 들어, 접근 권한이 없거나 파일이 사용 중인 경우 등을 처리할 수 있습니다.
+1. **예외 처리**: 현재 함수는 {% raw %}`IOException`{% endraw %}을 던집니다. 이는 호출하는 측에서 적절히 처리해야 할 것을 의미합니다. 더 구체적인 예외 처리 로직이 필요할 수도 있습니다. 예를 들어, 접근 권한이 없거나 파일이 사용 중인 경우 등을 처리할 수 있습니다.
 
 2. **경로 검증**: 함수는 입력받은 경로의 유효성을 검증하지 않습니다. 예를 들어, 상대 경로 또는 잘못된 형식의 경로가 전달될 수 있습니다. 이를 위해 입력 경로에 대한 추가적인 검증 로직을 포함시킬 수 있습니다.
 
 3. **보안 문제**: 파일 경로를 직접 다루는 경우, 보안상의 취약점이 발생할 수 있습니다. 예를 들어, 경로 조작(Path Traversal) 공격에 대한 방어 로직이 필요할 수 있습니다.
 
-4. **경로 존재 여부 검사**: `Files.exists(path)`는 필요한 경우에만 사용하는 것이 좋습니다. 이는 파일 시스템에서 두 번의 접근을 필요로 하기 때문입니다. `Files.isDirectory(path)`나 `Files.delete(path)`를 호출할 때 자체적으로 존재 여부를 확인합니다.
+4. **경로 존재 여부 검사**: {% raw %}`Files.exists(path)`{% endraw %}는 필요한 경우에만 사용하는 것이 좋습니다. 이는 파일 시스템에서 두 번의 접근을 필요로 하기 때문입니다. {% raw %}`Files.isDirectory(path)`{% endraw %}나 {% raw %}`Files.delete(path)`{% endraw %}를 호출할 때 자체적으로 존재 여부를 확인합니다.
 
-5. **심볼릭 링크 처리**: `Files.isDirectory(path)`는 심볼릭 링크의 경우 그 링크가 가리키는 대상의 유형에 따라 결과가 달라질 수 있습니다. 심볼릭 링크를 특별히 다루는 로직이 필요할 수 있습니다.
+5. **심볼릭 링크 처리**: {% raw %}`Files.isDirectory(path)`{% endraw %}는 심볼릭 링크의 경우 그 링크가 가리키는 대상의 유형에 따라 결과가 달라질 수 있습니다. 심볼릭 링크를 특별히 다루는 로직이 필요할 수 있습니다.
 
 이러한 점을 고려하여 함수를 수정하면 더 견고하고 안전한 코드를 작성할 수 있습니다.
 
@@ -1415,9 +1413,9 @@ public class FileUtils {
 > deleteDirectory(Path directory)  함수는 이미 취약점이 고려된거야. 그러니 완성해봐.
 
 ## ChatGPT 응답:
-> 이해했습니다. `deleteDirectory(Path directory)` 함수가 이미 취약점을 고려하여 구현되었다고 가정하고, `delete` 함수를 완성해보겠습니다. 이 함수는 주어진 경로가 디렉토리일 경우 `deleteDirectory`를 호출하고, 파일일 경우 파일을 삭제합니다.
+> 이해했습니다. {% raw %}`deleteDirectory(Path directory)`{% endraw %} 함수가 이미 취약점을 고려하여 구현되었다고 가정하고, {% raw %}`delete`{% endraw %} 함수를 완성해보겠습니다. 이 함수는 주어진 경로가 디렉토리일 경우 {% raw %}`deleteDirectory`{% endraw %}를 호출하고, 파일일 경우 파일을 삭제합니다.
 
-```java
+{% raw %}```java
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -1456,16 +1454,16 @@ public class FileUtils {
         // 여기에 디렉토리 삭제 로직 구현
     }
 }
-```
+```{% endraw %}
 
-위의 `delete` 함수는 다음과 같이 작동합니다:
+위의 {% raw %}`delete`{% endraw %} 함수는 다음과 같이 작동합니다:
 
-1. 주어진 경로를 `Path` 객체로 변환합니다.
+1. 주어진 경로를 {% raw %}`Path`{% endraw %} 객체로 변환합니다.
 2. 해당 경로가 존재하는지 확인합니다.
-3. 경로가 디렉토리인 경우 `deleteDirectory` 함수를 호출합니다.
-4. 경로가 파일인 경우, `Files.delete`를 사용하여 파일을 삭제합니다.
+3. 경로가 디렉토리인 경우 {% raw %}`deleteDirectory`{% endraw %} 함수를 호출합니다.
+4. 경로가 파일인 경우, {% raw %}`Files.delete`{% endraw %}를 사용하여 파일을 삭제합니다.
 
-`deleteDirectory` 함수는 이미 취약점을 고려하여 구현되었다고 가정하므로, 해당 부분은 비워두었습니다. 필요에 따라 해당 함수 내부에 디렉토리 삭제 로직을 구현해야 합니다.
+{% raw %}`deleteDirectory`{% endraw %} 함수는 이미 취약점을 고려하여 구현되었다고 가정하므로, 해당 부분은 비워두었습니다. 필요에 따라 해당 함수 내부에 디렉토리 삭제 로직을 구현해야 합니다.
 
 ## 사용자 입력:
 > 	private static Hashtable<String, Vector<String>> gettingHFilters(Connection aConn, String filter)
@@ -1625,21 +1623,21 @@ public class FileUtils {
 	}  이 함수를 취약점이 없는 함수로 만들어줘.
 
 ## ChatGPT 응답:
-> `gettingHFilters` 함수는 주어진 필터 문자열을 파싱하여 폴더별 확장자 목록을 생성합니다. 이 함수의 개선을 위해 다음과 같은 취약점을 고려하고 수정할 수 있습니다:
+> {% raw %}`gettingHFilters`{% endraw %} 함수는 주어진 필터 문자열을 파싱하여 폴더별 확장자 목록을 생성합니다. 이 함수의 개선을 위해 다음과 같은 취약점을 고려하고 수정할 수 있습니다:
 
-1. **입력 검증**: 함수의 입력인 `filter`가 `null`이거나 비어 있는 경우를 처리합니다.
+1. **입력 검증**: 함수의 입력인 {% raw %}`filter`{% endraw %}가 {% raw %}`null`{% endraw %}이거나 비어 있는 경우를 처리합니다.
 
-2. **예외 처리 개선**: 모든 예외를 잡고 `vFilter`를 `null`로 설정하는 대신, 예외의 종류에 따라 적절한 처리를 하는 것이 좋습니다.
+2. **예외 처리 개선**: 모든 예외를 잡고 {% raw %}`vFilter`{% endraw %}를 {% raw %}`null`{% endraw %}로 설정하는 대신, 예외의 종류에 따라 적절한 처리를 하는 것이 좋습니다.
 
 3. **코드 최적화 및 가독성 향상**: 함수의 길이와 복잡성을 줄이고, 가독성을 향상시키기 위해 코드를 정리합니다.
 
-4. **제네릭 사용**: `Vector`와 `Hashtable`과 같은 컬렉션에 제네릭을 사용하여 타입 안전성을 보장합니다.
+4. **제네릭 사용**: {% raw %}`Vector`{% endraw %}와 {% raw %}`Hashtable`{% endraw %}과 같은 컬렉션에 제네릭을 사용하여 타입 안전성을 보장합니다.
 
 5. **코드 중복 제거**: 가능한 코드 중복을 최소화합니다.
 
 아래는 개선된 함수의 예시입니다:
 
-```java
+{% raw %}```java
 import java.sql.Connection;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
@@ -1695,12 +1693,12 @@ public class FileUtil {
         return "";
     }
 }
-```
+```{% endraw %}
 
 변경 사항:
 
-- 입력이 `null`이거나 비어 있을 경우를 처리합니다.
-- 복잡한 로직을 별도의 메서드(`processSubFilter`, `processComplexFilter`, `getExtensionsList`)로 분리하여 가독성을 높입니다.
+- 입력이 {% raw %}`null`{% endraw %}이거나 비어 있을 경우를 처리합니다.
+- 복잡한 로직을 별도의 메서드({% raw %}`processSubFilter`{% endraw %}, {% raw %}`processComplexFilter`{% endraw %}, {% raw %}`getExtensionsList`{% endraw %})로 분리하여 가독성을 높입니다.
 - 예외 처리를 개선합니다.
 - 제네릭을 사용하여 타입 안전성을 강화합니다.
 
@@ -1711,15 +1709,15 @@ public class FileUtil {
 							if(License.getLiaPgm().equals("N")) {   취약점이 없게 바꿔줘.
 
 ## ChatGPT 응답:
-> 제시된 코드 조각에서 `regx.equals("*") || regx.equals("")` 부분은 확장자 문자열이 `"*"` 또는 비어 있는 경우를 검사합니다. 이 조건문은 주로 모든 유형의 파일을 포함하려는 의도로 사용됩니다. 하지만, 이 부분에서의 취약점을 고려하고 개선하기 위해 다음 사항들을 고려할 수 있습니다:
+> 제시된 코드 조각에서 {% raw %}`regx.equals("*") || regx.equals("")`{% endraw %} 부분은 확장자 문자열이 {% raw %}`"*"`{% endraw %} 또는 비어 있는 경우를 검사합니다. 이 조건문은 주로 모든 유형의 파일을 포함하려는 의도로 사용됩니다. 하지만, 이 부분에서의 취약점을 고려하고 개선하기 위해 다음 사항들을 고려할 수 있습니다:
 
-1. **명확한 조건 검사**: `regx`가 `null`인 경우를 처리하고, 조건을 더 명확하게 표현합니다.
-2. **불필요한 조건 중복 제거**: `regx.equals("*")` 조건과 `regx.equals("")` 조건이 중복되는 부분을 최소화합니다.
+1. **명확한 조건 검사**: {% raw %}`regx`{% endraw %}가 {% raw %}`null`{% endraw %}인 경우를 처리하고, 조건을 더 명확하게 표현합니다.
+2. **불필요한 조건 중복 제거**: {% raw %}`regx.equals("*")`{% endraw %} 조건과 {% raw %}`regx.equals("")`{% endraw %} 조건이 중복되는 부분을 최소화합니다.
 3. **코드 가독성 개선**: 조건문을 더 가독성 있게 만듭니다.
 
 이러한 사항들을 고려하여 코드를 개선하면 다음과 같습니다:
 
-```java
+{% raw %}```java
 // 확장자가 "*"이거나 비어 있는 경우를 체크합니다. 여기서 "*"는 모든 확장자를 의미합니다.
 boolean isAllExtensions = "*".equals(regx) || regx.isEmpty();
 
@@ -1730,13 +1728,13 @@ if (isAllExtensions) {
         // "N"이 아니면 다른 로직 수행
     }
 }
-```
+```{% endraw %}
 
 변경 사항:
 
-- `regx.equals("*") || regx.equals("")`를 `isAllExtensions`라는 boolean 변수로 치환하여 코드의 가독성을 향상시켰습니다.
-- `License.getLiaPgm().equals("N")` 대신 `"N".equals(License.getLiaPgm())`을 사용하여 `NullPointerException`의 위험을 줄였습니다.
-- `regx`가 `null`일 가능성을 고려하여 `isEmpty()` 메서드를 사용합니다. 이는 `null`이 아닌 문자열에 대해서만 호출됩니다. 
+- {% raw %}`regx.equals("*") || regx.equals("")`{% endraw %}를 {% raw %}`isAllExtensions`{% endraw %}라는 boolean 변수로 치환하여 코드의 가독성을 향상시켰습니다.
+- {% raw %}`License.getLiaPgm().equals("N")`{% endraw %} 대신 {% raw %}`"N".equals(License.getLiaPgm())`{% endraw %}을 사용하여 {% raw %}`NullPointerException`{% endraw %}의 위험을 줄였습니다.
+- {% raw %}`regx`{% endraw %}가 {% raw %}`null`{% endraw %}일 가능성을 고려하여 {% raw %}`isEmpty()`{% endraw %} 메서드를 사용합니다. 이는 {% raw %}`null`{% endraw %}이 아닌 문자열에 대해서만 호출됩니다. 
 
 이러한 변경을 통해 코드의 안전성과 가독성이 향상됩니다.
 
@@ -1760,17 +1758,17 @@ if (isAllExtensions) {
 	} 이 함수를 취약점이 없도록 만들어줘.
 
 ## ChatGPT 응답:
-> 제공된 `getTotalLine` 함수는 텍스트 파일의 총 라인 수를 계산하는 기능을 수행합니다. 현재 구현에서는 몇 가지 취약점이 있으며, 이를 개선하기 위해 다음과 같은 점들을 고려할 수 있습니다:
+> 제공된 {% raw %}`getTotalLine`{% endraw %} 함수는 텍스트 파일의 총 라인 수를 계산하는 기능을 수행합니다. 현재 구현에서는 몇 가지 취약점이 있으며, 이를 개선하기 위해 다음과 같은 점들을 고려할 수 있습니다:
 
-1. **리소스 누수 방지**: `BufferedReader`와 `FileReader`를 `try-with-resources` 구문 내에서 사용하여 자원이 제대로 해제되도록 합니다.
+1. **리소스 누수 방지**: {% raw %}`BufferedReader`{% endraw %}와 {% raw %}`FileReader`{% endraw %}를 {% raw %}`try-with-resources`{% endraw %} 구문 내에서 사용하여 자원이 제대로 해제되도록 합니다.
 
-2. **더 구체적인 예외 처리**: `Exception`을 일반적으로 잡는 대신, 더 구체적인 예외 유형(예: `IOException`)을 잡아 처리합니다.
+2. **더 구체적인 예외 처리**: {% raw %}`Exception`{% endraw %}을 일반적으로 잡는 대신, 더 구체적인 예외 유형(예: {% raw %}`IOException`{% endraw %})을 잡아 처리합니다.
 
-3. **오류 발생 시 적절한 대응**: 파일 읽기 중 오류가 발생했을 때, 단순히 `0`을 반환하는 대신 적절한 오류 처리를 고려합니다.
+3. **오류 발생 시 적절한 대응**: 파일 읽기 중 오류가 발생했을 때, 단순히 {% raw %}`0`{% endraw %}을 반환하는 대신 적절한 오류 처리를 고려합니다.
 
 아래는 개선된 함수의 예시입니다:
 
-```java
+{% raw %}```java
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -1797,14 +1795,14 @@ public class FileUtil {
         return iTotCnt;
     }
 }
-```
+```{% endraw %}
 
 변경 사항:
 
-- `try-with-resources` 구문을 사용하여 `BufferedReader`와 `FileReader`가 항상 제대로 닫히도록 합니다.
-- `IOException`을 잡아 처리하여 더 구체적인 예외 처리를 합니다.
-- 파일 이름이 `null`이거나 비어 있을 경우를 처리합니다.
-- 예외 발생 시 `0` 대신 `-1`을 반환하거나, 필요에 따라 예외를 던질 수 있습니다. 이는 실패한 상태를 더 명확히 나타내는 방법입니다.
+- {% raw %}`try-with-resources`{% endraw %} 구문을 사용하여 {% raw %}`BufferedReader`{% endraw %}와 {% raw %}`FileReader`{% endraw %}가 항상 제대로 닫히도록 합니다.
+- {% raw %}`IOException`{% endraw %}을 잡아 처리하여 더 구체적인 예외 처리를 합니다.
+- 파일 이름이 {% raw %}`null`{% endraw %}이거나 비어 있을 경우를 처리합니다.
+- 예외 발생 시 {% raw %}`0`{% endraw %} 대신 {% raw %}`-1`{% endraw %}을 반환하거나, 필요에 따라 예외를 던질 수 있습니다. 이는 실패한 상태를 더 명확히 나타내는 방법입니다.
 
 이러한 변경을 통해 함수의 안정성과 견고성을 향상시킬 수 있습니다.
 
@@ -1812,11 +1810,11 @@ public class FileUtil {
 > 일단, 어떤 오류가 나면, iTotCnt는 0을 반환하도록 놔두지.
 
 ## ChatGPT 응답:
-> 알겠습니다. 오류가 발생했을 때 `iTotCnt`가 `0`을 반환하도록 하는 요구사항을 유지하면서, 리소스 누수 방지와 입력 검증을 포함하여 `getTotalLine` 함수를 개선하겠습니다. 여기서 주요 개선 사항은 `try-with-resources` 구문을 사용하여 자원이 제대로 해제되도록 하는 것입니다.
+> 알겠습니다. 오류가 발생했을 때 {% raw %}`iTotCnt`{% endraw %}가 {% raw %}`0`{% endraw %}을 반환하도록 하는 요구사항을 유지하면서, 리소스 누수 방지와 입력 검증을 포함하여 {% raw %}`getTotalLine`{% endraw %} 함수를 개선하겠습니다. 여기서 주요 개선 사항은 {% raw %}`try-with-resources`{% endraw %} 구문을 사용하여 자원이 제대로 해제되도록 하는 것입니다.
 
 개선된 함수는 다음과 같습니다:
 
-```java
+{% raw %}```java
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -1843,13 +1841,13 @@ public class FileUtil {
         return iTotCnt;
     }
 }
-```
+```{% endraw %}
 
 변경 사항:
 
-- `try-with-resources` 구문을 사용하여 `BufferedReader`가 항상 제대로 닫히도록 합니다.
-- 파일 이름이 `null`이거나 비어 있는 경우 `0`을 반환합니다.
-- 파일 읽기 중 발생한 예외가 있을 경우 `0`을 반환합니다.
+- {% raw %}`try-with-resources`{% endraw %} 구문을 사용하여 {% raw %}`BufferedReader`{% endraw %}가 항상 제대로 닫히도록 합니다.
+- 파일 이름이 {% raw %}`null`{% endraw %}이거나 비어 있는 경우 {% raw %}`0`{% endraw %}을 반환합니다.
+- 파일 읽기 중 발생한 예외가 있을 경우 {% raw %}`0`{% endraw %}을 반환합니다.
 
 이 변경을 통해 파일 읽기 중에 발생할 수 있는 리소스 누수 문제를 해결하고, 입력 검증을 추가하여 함수의 견고성을 향상시켰습니다.
 
@@ -1857,9 +1855,9 @@ public class FileUtil {
 > 함수 주석도 만들어줘.
 
 ## ChatGPT 응답:
-> 물론입니다. `getTotalLine` 함수에 대한 자세한 주석을 추가하겠습니다. 주석은 함수의 목적, 파라미터, 반환 값, 그리고 중요한 동작에 대한 설명을 포함합니다.
+> 물론입니다. {% raw %}`getTotalLine`{% endraw %} 함수에 대한 자세한 주석을 추가하겠습니다. 주석은 함수의 목적, 파라미터, 반환 값, 그리고 중요한 동작에 대한 설명을 포함합니다.
 
-```java
+{% raw %}```java
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -1895,7 +1893,7 @@ public class FileUtil {
         return iTotCnt;
     }
 }
-```
+```{% endraw %}
 
 이 주석은 함수의 사용 방법과 기대할 수 있는 동작을 명확히 설명합니다. 이를 통해 다른 개발자들이 함수를 쉽게 이해하고 사용할 수 있도록 도와줍니다.
 
@@ -2015,15 +2013,15 @@ public class FileUtil {
  이 함수의 결과는 return 0 = ANSI, 1 = UTF8, 2 = Unicode LE, 3 = Unicode BE, -1 = File Error 이렇게 돼.. 위 함수를 취약점이 없는 함수로 만들어 주고 주석도 달아줘.
 
 ## ChatGPT 응답:
-> 제공된 `checkerEnc` 함수는 파일의 인코딩 타입을 확인하는 역할을 수행합니다. 현재의 구현에서는 몇 가지 개선 사항을 고려할 수 있습니다:
+> 제공된 {% raw %}`checkerEnc`{% endraw %} 함수는 파일의 인코딩 타입을 확인하는 역할을 수행합니다. 현재의 구현에서는 몇 가지 개선 사항을 고려할 수 있습니다:
 
-1. **리소스 누수 방지**: `BufferedInputStream`을 `try-with-resources` 구문 내에서 사용하여 자원이 제대로 해제되도록 합니다.
-2. **구체적인 예외 처리**: 모든 예외를 포괄하는 `Exception` 대신, 구체적인 예외 타입을 사용하고 적절하게 처리합니다.
+1. **리소스 누수 방지**: {% raw %}`BufferedInputStream`{% endraw %}을 {% raw %}`try-with-resources`{% endraw %} 구문 내에서 사용하여 자원이 제대로 해제되도록 합니다.
+2. **구체적인 예외 처리**: 모든 예외를 포괄하는 {% raw %}`Exception`{% endraw %} 대신, 구체적인 예외 타입을 사용하고 적절하게 처리합니다.
 3. **코드 정리**: 가독성을 높이기 위해 코드를 정리하고 필요한 주석을 추가합니다.
 
 아래는 이러한 개선 사항을 반영한 함수와 주석입니다:
 
-```java
+{% raw %}```java
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -2097,13 +2095,13 @@ public class FileUtil {
         // 기존의 isFileExist 함수 구현을 여기에 포함
     }
 }
-```
+```{% endraw %}
 
 변경 사항:
 
-- `try-with-resources` 구문을 사용하여 `BufferedInputStream`이 항상 제대로 닫히도록 합니다.
-- BOM 확인 로직을 별도의 `isBOMMatch` 메서드로 분리하여 가독성을 높입니다.
-- 파일 이름이 유효하지 않거나 파일이 존재하지 않는 경우에 `-
+- {% raw %}`try-with-resources`{% endraw %} 구문을 사용하여 {% raw %}`BufferedInputStream`{% endraw %}이 항상 제대로 닫히도록 합니다.
+- BOM 확인 로직을 별도의 {% raw %}`isBOMMatch`{% endraw %} 메서드로 분리하여 가독성을 높입니다.
+- 파일 이름이 유효하지 않거나 파일이 존재하지 않는 경우에 {% raw %}`-
 
 ## 사용자 입력:
 > 	public static String checkerEnc(String strFileName, String defEnc) throws Exception {
@@ -2123,15 +2121,15 @@ public class FileUtil {
 	}  이 함수를 취약점이 없는 함수 만들어줘. checkerEnc는 위에서 네가 만든거야.
 
 ## ChatGPT 응답:
-> `checkerEnc` 함수를 수정하여 취약점을 최소화하고, 이전에 제시한 `checkerEnc(String strFileName)` 함수를 사용하겠습니다. 수정할 주요 사항은 다음과 같습니다:
+> `{% endraw %}checkerEnc{% raw %}` 함수를 수정하여 취약점을 최소화하고, 이전에 제시한 `{% endraw %}checkerEnc(String strFileName){% raw %}` 함수를 사용하겠습니다. 수정할 주요 사항은 다음과 같습니다:
 
-1. **입력 검증**: 입력 파라미터 `strFileName`과 `defEnc`에 대한 검증을 수행합니다.
-2. **예외 처리 개선**: `Exception`을 잡는 대신, 더 구체적인 예외 타입을 사용하고 적절히 처리합니다.
-3. **리소스 누수 방지**: 이전에 수정한 `checkerEnc` 함수가 이미 `try-with-resources`를 사용하므로, 여기에서는 추가적인 리소스 관리가 필요하지 않습니다.
+1. **입력 검증**: 입력 파라미터 `{% endraw %}strFileName{% raw %}`과 `{% endraw %}defEnc{% raw %}`에 대한 검증을 수행합니다.
+2. **예외 처리 개선**: `{% endraw %}Exception{% raw %}`을 잡는 대신, 더 구체적인 예외 타입을 사용하고 적절히 처리합니다.
+3. **리소스 누수 방지**: 이전에 수정한 `{% endraw %}checkerEnc{% raw %}` 함수가 이미 `{% endraw %}try-with-resources{% raw %}`를 사용하므로, 여기에서는 추가적인 리소스 관리가 필요하지 않습니다.
 
-아래는 개선된 `checkerEnc` 함수의 구현입니다:
+아래는 개선된 `{% endraw %}checkerEnc{% raw %}` 함수의 구현입니다:
 
-```java
+`{% endraw %}{% raw %}``{% endraw %}java
 public class FileUtil {
 
     // 이전에 수정한 checkerEnc(String strFileName) 함수를 여기에 포함
@@ -2164,7 +2162,7 @@ public class FileUtil {
         }
     }
 }
-```
+{% raw %}```
 
 변경 사항:
 
@@ -2199,7 +2197,7 @@ public class FileUtil {
 
 아래는 이러한 사항들을 고려한 개선된 `writeLine` 메서드의 예시입니다. 이 예시는 `randomaccessfile`의 초기화 및 관리 방법을 알 수 없기 때문에 일부 가정을 포함하고 있습니다:
 
-```java
+```{% endraw %}java
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
@@ -2248,7 +2246,7 @@ public class FileHandler {
 
     // FileException 정의 필요
 }
-```
+{% raw %}```
 
 변경 사항:
 
@@ -2621,7 +2619,7 @@ public class JsonFileIO
 
 다음은 개선된 `JsonFileIO` 클래스의 구현 예시입니다:
 
-```java
+```{% endraw %}java
 package com.ids.file.io;
 
 import java.io.File;
@@ -2669,7 +2667,7 @@ public class JsonFileIO {
 
     // 주석과 예외 처리, 리소스 관리를 개선한 나머지 메서드들
 }
-```
+{% raw %}```
 
 개선 사항:
 
@@ -2686,7 +2684,7 @@ public class JsonFileIO {
 ## ChatGPT 응답:
 > 알겠습니다. 제공된 `JsonFileIO` 클래스의 주요 메서드들에 대해 취약점을 해결하고, 각 메서드에 주석을 추가하여 완성된 클래스 구현을 제공하겠습니다. 이 구현에서는 `PreparedStatement`와 `ResultSet`의 자원 관리를 개선하고, 일관된 예외 처리를 적용합니다.
 
-```java
+```{% endraw %}java
 package com.ids.file.io;
 
 import java.io.File;
@@ -2773,12 +2771,12 @@ public class JsonFileIO {
 
     // 기타 필요한 메서드들
 }
-```
+{% raw %}``{% endraw %}{% raw %}`
 
 개선된 부분:
 
 - 각 메서드에 주석을 추가하여 기능, 파라미터, 반환값을 명확히 설명했습니다.
 - 리소스 관리와 예외 처리를 개선하여 견고성을 높였습니다.
 
-위 코드는 `JsonFileIO` 클래스의 주요 메서드들을 포함하고 있습니다. 각 메서드의 구체적인 구현은 데이터베이스 쿼리, 파일 처리 로직, 프로젝트의 특정 요구 사항 등에 따라 달라질 수 있습니다. 따라서 `isOnlyDeleteJsonFile`, `clearJsonFile`, `settingClearJsonFile` 메서드의 내부 구현은 해당 프로젝트의 특정 로직에 맞춰 작성해야 합니다.
+위 코드는 `{% endraw %}JsonFileIO{% raw %}` 클래스의 주요 메서드들을 포함하고 있습니다. 각 메서드의 구체적인 구현은 데이터베이스 쿼리, 파일 처리 로직, 프로젝트의 특정 요구 사항 등에 따라 달라질 수 있습니다. 따라서 `{% endraw %}isOnlyDeleteJsonFile{% raw %}`, `{% endraw %}clearJsonFile{% raw %}`, `{% endraw %}settingClearJsonFile` 메서드의 내부 구현은 해당 프로젝트의 특정 로직에 맞춰 작성해야 합니다.
 

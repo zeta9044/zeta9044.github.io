@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "한글용어 "StorageClassSpecifier" 번역"
-date: 2023-09-13
-tags: [StorageClassSpecifier, 용어, 번역, 한글]
-categories: blog
+title: "한글용어 'StorageClassSpecifier' 번역"
+tags: [용어, 한글, 번역, StorageClassSpecifier]
 ---
 
 ## 사용자 입력:

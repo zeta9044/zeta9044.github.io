@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Oracle JDBC JAR 파일."
-date: 2023-04-05
-tags: [JDBC, 파일, Oracle, JAR]
-categories: blog
+tags: [파일, JDBC, Oracle, JAR]
 ---
 
 ## 사용자 입력:
@@ -51,15 +49,15 @@ ojdbc8.jar는 Java 8에서, ojdbc10.jar는 Java 10 이상에서 사용됩니다.
 
 예를 들어, JDBC URL을 작성할 때 다음과 같이 지정할 수 있습니다:
 
-```
+{% raw %}```
 jdbc:oracle:thin:@//localhost:1521/orclpdb1
-```
+```{% endraw %}
 
 그리고 드라이버 클래스 이름은 다음과 같이 지정할 수 있습니다:
 
-```
+{% raw %}```
 oracle.jdbc.driver.OracleDriver
-```
+```{% endraw %}
 
 JDBC 드라이버 JAR 파일을 클래스패스에 추가하여 프로그램에서 사용할 수 있도록 설정해야 합니다. 이 JAR 파일은 오라클 공식 웹사이트에서 다운로드할 수 있습니다.
 
@@ -87,15 +85,15 @@ JDBC 드라이버 JAR 파일을 클래스패스에 추가하여 프로그램에�
 
 예를 들어, JDBC URL을 작성할 때 다음과 같이 지정할 수 있습니다:
 
-```
+{% raw %}```
 jdbc:oracle:thin:@//localhost:1521/xe
-```
+```{% endraw %}
 
 그리고 드라이버 클래스 이름은 다음과 같이 지정할 수 있습니다:
 
-```
+{% raw %}```
 oracle.jdbc.driver.OracleDriver
-```
+```{% endraw %}
 
 JDBC 드라이버 JAR 파일을 클래스패스에 추가하여 프로그램에서 사용할 수 있도록 설정해야 합니다. 이 JAR 파일은 오라클 공식 웹사이트에서 다운로드할 수 있습니다.
 
@@ -120,15 +118,15 @@ JDBC 드라이버 JAR 파일을 클래스패스에 추가하여 프로그램에�
 
 따라서, JDBC URL을 작성할 때 다음과 같이 지정할 수 있습니다:
 
-```
+{% raw %}```
 jdbc:oracle:thin:@//localhost:1521/xe
-```
+```{% endraw %}
 
 그리고 드라이버 클래스 이름은 다음과 같이 지정할 수 있습니다:
 
-```
+{% raw %}```
 oracle.jdbc.driver.OracleDriver
-```
+```{% endraw %}
 
 만약 Java 8 이하의 버전을 사용한다면, ojdbc6.jar를 사용해야 합니다. 이 경우에도 드라이버 클래스 이름은 oracle.jdbc.driver.OracleDriver로 동일합니다.
 

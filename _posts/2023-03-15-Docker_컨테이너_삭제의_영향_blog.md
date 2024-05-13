@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Docker 컨테이너 삭제의 영향"
-date: 2023-03-15
-tags: [삭제, 컨테이너, Docker, 영향]
-categories: blog
+tags: [영향, 삭제, 컨테이너, Docker]
 ---
 
 ## 사용자 입력:
@@ -257,11 +255,11 @@ Declarative Pipeline은 Jenkins 2.0 이후에 추가된 새로운 파이프라�
 
 그러나, Jenkins에서 호스트 시스템의 명령을 실행해야 하는 경우에는 Docker Volume 기능을 사용하여 호스트 시스템의 디렉토리를 컨테이너 내부에 마운트하고, 그 디렉토리에 필요한 명령 파일이나 스크립트를 저장하여 Jenkins Job에서 이를 실행할 수 있습니다.
 
-예를 들어, 호스트 시스템의 `/usr/local/bin` 디렉토리를 컨테이너 내부의 `/host/usr/local/bin` 디렉토리에 마운트하고, `my-script.sh` 파일을 `/host/usr/local/bin` 디렉토리에 저장하였다면, Jenkins Job에서는 다음과 같이 해당 스크립트를 실행할 수 있습니다.
+예를 들어, 호스트 시스템의 {% raw %}`/usr/local/bin`{% endraw %} 디렉토리를 컨테이너 내부의 {% raw %}`/host/usr/local/bin`{% endraw %} 디렉토리에 마운트하고, {% raw %}`my-script.sh`{% endraw %} 파일을 {% raw %}`/host/usr/local/bin`{% endraw %} 디렉토리에 저장하였다면, Jenkins Job에서는 다음과 같이 해당 스크립트를 실행할 수 있습니다.
 
-```
+{% raw %}```
 sh '/host/usr/local/bin/my-script.sh'
-```
+```{% endraw %}
 
 하지만, 이러한 방식은 보안상의 이유로 권장되지 않습니다. 대신, Jenkins 컨테이너 내에서 필요한 명령이나 작업을 수행할 수 있는 적절한 도구를 설치하고 사용하는 것이 좋습니다.
 
@@ -279,15 +277,15 @@ sh '/host/usr/local/bin/my-script.sh'
 
 2. Jenkins 컨테이너를 실행할 때 호스트 시스템의 Docker 소켓을 마운트합니다.
 
-   ```
+   {% raw %}```
    docker run -d -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins
-   ```
+   ```{% endraw %}
 
-3. Jenkins Job에서 `sh` 스크립트를 사용하여 Docker CLI를 사용하여 호스트 시스템에서 Docker 명령을 실행합니다.
+3. Jenkins Job에서 {% raw %}`sh`{% endraw %} 스크립트를 사용하여 Docker CLI를 사용하여 호스트 시스템에서 Docker 명령을 실행합니다.
 
-   ```
+   {% raw %}```
    sh 'docker ps'
-   ```
+   ```{% endraw %}
 
 그러나, 이러한 방식은 보안상의 이유로 권장되지 않습니다. 대신, Jenkins 컨테이너 내에서 필요한 명령이나 작업을 수행할 수 있는 적절한 도구를 설치하고 사용하는 것이 좋습니다.
 
@@ -295,11 +293,11 @@ sh '/host/usr/local/bin/my-script.sh'
 > centos에서 service 설정을 하는 위치는?
 
 ## ChatGPT 응답:
-> CentOS에서 서비스(service) 설정 파일은 `/etc/init.d` 디렉토리에 위치합니다. 이 디렉토리에는 시스템 부팅 시 자동으로 시작되는 서비스들의 스크립트 파일이 위치합니다. 서비스 설정 파일은 일반적으로 해당 서비스의 이름으로 생성되며, 스크립트 파일은 `/etc/init.d/<service_name>` 형식으로 구성됩니다.
+> CentOS에서 서비스(service) 설정 파일은 {% raw %}`/etc/init.d`{% endraw %} 디렉토리에 위치합니다. 이 디렉토리에는 시스템 부팅 시 자동으로 시작되는 서비스들의 스크립트 파일이 위치합니다. 서비스 설정 파일은 일반적으로 해당 서비스의 이름으로 생성되며, 스크립트 파일은 {% raw %}`/etc/init.d/<service_name>`{% endraw %} 형식으로 구성됩니다.
 
-서비스 설정 파일은 `chkconfig` 명령을 사용하여 시스템 부팅 시 자동으로 시작되도록 설정할 수 있습니다. `chkconfig` 명령을 사용하여 서비스를 켜거나 끄는 것도 가능합니다. 또한, 서비스의 상태를 확인하거나 실행 중인 서비스를 중지하거나 다시 시작하는 등의 작업도 가능합니다.
+서비스 설정 파일은 {% raw %}`chkconfig`{% endraw %} 명령을 사용하여 시스템 부팅 시 자동으로 시작되도록 설정할 수 있습니다. {% raw %}`chkconfig`{% endraw %} 명령을 사용하여 서비스를 켜거나 끄는 것도 가능합니다. 또한, 서비스의 상태를 확인하거나 실행 중인 서비스를 중지하거나 다시 시작하는 등의 작업도 가능합니다.
 
-CentOS 7 이상에서는 `systemd` 서비스 매니저를 사용하여 서비스를 관리합니다. `systemctl` 명령을 사용하여 서비스의 상태를 확인하거나 시작, 중지, 다시 시작 등의 작업을 수행할 수 있습니다. `systemctl` 명령을 사용하여 시스템 부팅 시 자동으로 시작되도록 설정할 수도 있습니다. CentOS 7 이상에서는 `/etc/systemd/system` 디렉토리에 서비스 설정 파일을 생성합니다.
+CentOS 7 이상에서는 {% raw %}`systemd`{% endraw %} 서비스 매니저를 사용하여 서비스를 관리합니다. {% raw %}`systemctl`{% endraw %} 명령을 사용하여 서비스의 상태를 확인하거나 시작, 중지, 다시 시작 등의 작업을 수행할 수 있습니다. {% raw %}`systemctl`{% endraw %} 명령을 사용하여 시스템 부팅 시 자동으로 시작되도록 설정할 수도 있습니다. CentOS 7 이상에서는 {% raw %}`/etc/systemd/system`{% endraw %} 디렉토리에 서비스 설정 파일을 생성합니다.
 
 ## 사용자 입력:
 > ● jenkins.service - Jenkins Continuous Integration Server
@@ -321,21 +319,21 @@ CentOS 7 이상에서는 `systemd` 서비스 매니저를 사용하여 서비스
 
 
 ## ChatGPT 응답:
-> 이 로그는 Jenkins 서비스가 시작에 실패하고, `start-limit`으로 인해 재시작을 중단한 것을 나타냅니다. 이 에러 메시지는 일반적으로 Jenkins 서비스 구성 문제와 관련이 있습니다.
+> 이 로그는 Jenkins 서비스가 시작에 실패하고, {% raw %}`start-limit`{% endraw %}으로 인해 재시작을 중단한 것을 나타냅니다. 이 에러 메시지는 일반적으로 Jenkins 서비스 구성 문제와 관련이 있습니다.
 
 문제를 해결하려면 다음 단계를 따라야 합니다.
 
-1. Jenkins 서비스 구성 파일인 `/usr/lib/systemd/system/jenkins.service`를 엽니다.
+1. Jenkins 서비스 구성 파일인 {% raw %}`/usr/lib/systemd/system/jenkins.service`{% endraw %}를 엽니다.
 
-2. 구성 파일의 `ExecStart` 줄을 확인하여 Jenkins 실행 파일이 올바른 경로에 있는지 확인합니다.
+2. 구성 파일의 {% raw %}`ExecStart`{% endraw %} 줄을 확인하여 Jenkins 실행 파일이 올바른 경로에 있는지 확인합니다.
 
-3. Jenkins 실행 파일이 올바른 위치에 있으면, 구성 파일에서 `ExecStart` 줄을 확인하여 Jenkins 실행 명령이 올바른지 확인합니다.
+3. Jenkins 실행 파일이 올바른 위치에 있으면, 구성 파일에서 {% raw %}`ExecStart`{% endraw %} 줄을 확인하여 Jenkins 실행 명령이 올바른지 확인합니다.
 
-4. Jenkins 실행 명령이 올바르면, 로그 파일을 확인하여 Jenkins 서비스 시작 시 발생한 다른 오류를 찾습니다. 일반적으로 로그 파일은 `/var/log/jenkins/jenkins.log`에 위치합니다.
+4. Jenkins 실행 명령이 올바르면, 로그 파일을 확인하여 Jenkins 서비스 시작 시 발생한 다른 오류를 찾습니다. 일반적으로 로그 파일은 {% raw %}`/var/log/jenkins/jenkins.log`{% endraw %}에 위치합니다.
 
-5. 오류를 수정한 후에는 `systemctl daemon-reload` 명령을 사용하여 시스템 데몬을 다시 로드합니다.
+5. 오류를 수정한 후에는 {% raw %}`systemctl daemon-reload`{% endraw %} 명령을 사용하여 시스템 데몬을 다시 로드합니다.
 
-6. 마지막으로, `systemctl restart jenkins` 명령을 사용하여 Jenkins 서비스를 다시 시작합니다.
+6. 마지막으로, {% raw %}`systemctl restart jenkins`{% endraw %} 명령을 사용하여 Jenkins 서비스를 다시 시작합니다.
 
 이 단계를 수행한 후에도 문제가 해결되지 않으면, 추가적인 문제 해결을 위해 Jenkins 공식 문서나 커뮤니티 포럼을 참조하는 것이 좋습니다.
 
@@ -343,17 +341,17 @@ CentOS 7 이상에서는 `systemd` 서비스 매니저를 사용하여 서비스
 > centos에서 group 위치
 
 ## ChatGPT 응답:
-> CentOS에서 그룹(group) 설정 파일은 `/etc/group` 파일에 위치합니다. 이 파일은 시스템에 등록된 모든 그룹의 정보를 포함하고 있습니다. 그룹 이름, 그룹 ID(GID), 그룹에 속한 사용자 등의 정보가 기록되어 있습니다.
+> CentOS에서 그룹(group) 설정 파일은 {% raw %}`/etc/group`{% endraw %} 파일에 위치합니다. 이 파일은 시스템에 등록된 모든 그룹의 정보를 포함하고 있습니다. 그룹 이름, 그룹 ID(GID), 그룹에 속한 사용자 등의 정보가 기록되어 있습니다.
 
 각 줄은 다음과 같은 형식으로 구성됩니다.
 
-```
+{% raw %}```
 <group_name>:<password>:<GID>:<user_list>
-```
+```{% endraw %}
 
-여기서 `<group_name>`은 그룹 이름, `<password>`는 그룹의 비밀번호(사용하지 않을 경우 비어 있음), `<GID>`는 그룹 ID, `<user_list>`는 그룹에 속한 사용자의 목록입니다.
+여기서 {% raw %}`<group_name>`{% endraw %}은 그룹 이름, {% raw %}`<password>`{% endraw %}는 그룹의 비밀번호(사용하지 않을 경우 비어 있음), {% raw %}`<GID>`{% endraw %}는 그룹 ID, {% raw %}`<user_list>`{% endraw %}는 그룹에 속한 사용자의 목록입니다.
 
-그룹 설정 파일은 일반적으로 시스템 관리자가 직접 편집하여 그룹을 추가하거나 삭제하고, 그룹의 속성을 수정합니다. 사용자를 그룹에 추가하거나 제거하는 등의 작업은 `usermod` 또는 `groupmod` 명령을 사용하여 수행할 수 있습니다.
+그룹 설정 파일은 일반적으로 시스템 관리자가 직접 편집하여 그룹을 추가하거나 삭제하고, 그룹의 속성을 수정합니다. 사용자를 그룹에 추가하거나 제거하는 등의 작업은 {% raw %}`usermod`{% endraw %} 또는 {% raw %}`groupmod`{% endraw %} 명령을 사용하여 수행할 수 있습니다.
 
 ## 사용자 입력:
 > lia:x:500:jenkins
@@ -361,34 +359,34 @@ jenkins:x:499:lia
 무슨 의미
 
 ## ChatGPT 응답:
-> 이것은 `/etc/passwd` 파일에서 사용자 정보를 표시하는 행과 `/etc/group` 파일에서 그룹 정보를 표시하는 행을 나타냅니다. 
+> 이것은 {% raw %}`/etc/passwd`{% endraw %} 파일에서 사용자 정보를 표시하는 행과 {% raw %}`/etc/group`{% endraw %} 파일에서 그룹 정보를 표시하는 행을 나타냅니다. 
 
-첫 번째 행에서 `lia` 사용자는 `jenkins` 그룹에 속하며, 두 번째 행에서 `jenkins` 그룹은 `lia` 사용자를 포함합니다.
+첫 번째 행에서 {% raw %}`lia`{% endraw %} 사용자는 {% raw %}`jenkins`{% endraw %} 그룹에 속하며, 두 번째 행에서 {% raw %}`jenkins`{% endraw %} 그룹은 {% raw %}`lia`{% endraw %} 사용자를 포함합니다.
 
-각 행은 콜론(`:`)으로 구분된 여러 필드를 포함합니다. 각 필드는 다음과 같은 의미를 가집니다.
+각 행은 콜론({% raw %}`:`{% endraw %})으로 구분된 여러 필드를 포함합니다. 각 필드는 다음과 같은 의미를 가집니다.
 
-- `/etc/passwd` 파일에서 사용자 정보를 나타내는 행:
+- {% raw %}`/etc/passwd`{% endraw %} 파일에서 사용자 정보를 나타내는 행:
   - 첫 번째 필드: 사용자 이름
-  - 두 번째 필드: 사용자 비밀번호(보안상의 이유로 실제 비밀번호는 이 파일에 저장되지 않습니다. 대신 비밀번호는 `/etc/shadow` 파일에 저장됩니다.)
+  - 두 번째 필드: 사용자 비밀번호(보안상의 이유로 실제 비밀번호는 이 파일에 저장되지 않습니다. 대신 비밀번호는 {% raw %}`/etc/shadow`{% endraw %} 파일에 저장됩니다.)
   - 세 번째 필드: 사용자 ID (UID)
   - 네 번째 필드: 기본 그룹 ID (GID)
   - 다섯 번째 필드: 사용자의 전체 이름 또는 기타 정보
   - 여섯 번째 필드: 사용자의 홈 디렉토리 경로
   - 일곱 번째 필드: 사용자의 로그인 셸 경로
 
-- `/etc/group` 파일에서 그룹 정보를 나타내는 행:
+- {% raw %}`/etc/group`{% endraw %} 파일에서 그룹 정보를 나타내는 행:
   - 첫 번째 필드: 그룹 이름
-  - 두 번째 필드: 그룹 비밀번호(보안상의 이유로 실제 비밀번호는 이 파일에 저장되지 않습니다. 대신 비밀번호는 `/etc/gshadow` 파일에 저장됩니다.)
+  - 두 번째 필드: 그룹 비밀번호(보안상의 이유로 실제 비밀번호는 이 파일에 저장되지 않습니다. 대신 비밀번호는 {% raw %}`/etc/gshadow`{% endraw %} 파일에 저장됩니다.)
   - 세 번째 필드: 그룹 ID (GID)
   - 네 번째 필드: 그룹에 속한 사용자 목록
 
-따라서 위의 예시에서 `lia` 사용자의 기본 그룹은 `jenkins` 그룹이며, `jenkins` 그룹에는 `lia` 사용자가 포함됩니다. 이것은 사용자와 그룹 간의 관계를 나타내는 것입니다.
+따라서 위의 예시에서 {% raw %}`lia`{% endraw %} 사용자의 기본 그룹은 {% raw %}`jenkins`{% endraw %} 그룹이며, {% raw %}`jenkins`{% endraw %} 그룹에는 {% raw %}`lia`{% endraw %} 사용자가 포함됩니다. 이것은 사용자와 그룹 간의 관계를 나타내는 것입니다.
 
 ## 사용자 입력:
 > 그러면, 잘못된건 아니지?
 
 ## ChatGPT 응답:
-> 일반적으로 사용자는 기본적으로 자신이 속한 기본 그룹에 대한 권한을 가지게 됩니다. 위 예시에서는 `lia` 사용자가 `jenkins` 그룹의 멤버이며, `jenkins` 그룹이 `lia` 사용자의 기본 그룹으로 설정되어 있으므로 `lia` 사용자는 `jenkins` 그룹에 대한 권한을 가지게 됩니다.
+> 일반적으로 사용자는 기본적으로 자신이 속한 기본 그룹에 대한 권한을 가지게 됩니다. 위 예시에서는 {% raw %}`lia`{% endraw %} 사용자가 {% raw %}`jenkins`{% endraw %} 그룹의 멤버이며, {% raw %}`jenkins`{% endraw %} 그룹이 {% raw %}`lia`{% endraw %} 사용자의 기본 그룹으로 설정되어 있으므로 {% raw %}`lia`{% endraw %} 사용자는 {% raw %}`jenkins`{% endraw %} 그룹에 대한 권한을 가지게 됩니다.
 
 따라서 위 설정이 잘못된 것은 아닙니다. 하지만 그룹의 역할과 사용자의 역할이 혼동될 수 있으므로, 시스템을 관리하는 사람들은 이러한 설정을 변경해야 할 수도 있습니다.
 

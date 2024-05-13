@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Gradle 최신 버전과 Java 8"
-date: 2023-03-07
-tags: [버전, Gradle, Java, 최신]
-categories: blog
+tags: [버전, 최신, Gradle, Java]
 ---
 
 ## 사용자 입력:

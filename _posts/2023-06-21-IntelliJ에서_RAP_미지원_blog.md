@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "IntelliJ에서 RAP 미지원"
-date: 2023-06-21
-tags: [RAP, 미지]
-categories: blog
+tags: [미지, RAP]
 ---
 
 ## 사용자 입력:
@@ -98,21 +96,21 @@ IntelliJ IDEA에서는 JavaFX와 Swing과 같은 Java 기반의 GUI 라이브러
 > antlr4에서 ->  이 표시는 뭐지?
 
 ## ChatGPT 응답:
-> ANTLR4에서 `->` 표시는 "ARROW" 연산자로 알려져 있습니다. 이 연산자는 ANTLR4 문법 파일에서 사용되는 구문 규칙의 정의를 나타내는 데 사용됩니다.
+> ANTLR4에서 {% raw %}`->`{% endraw %} 표시는 "ARROW" 연산자로 알려져 있습니다. 이 연산자는 ANTLR4 문법 파일에서 사용되는 구문 규칙의 정의를 나타내는 데 사용됩니다.
 
 ANTLR4은 파서 생성기로서, 문법 파일을 입력으로 받아 파서를 생성하는 도구입니다. 문법 파일은 입력 언어의 구문을 정의하는데 사용되며, 이 파일은 ANTLR4의 특정 문법 형식을 따릅니다.
 
-문법 파일에서 `->` 연산자는 구문 규칙의 정의를 구성합니다. 일반적으로 구문 규칙은 왼쪽에 규칙 이름이 오고, `->` 연산자를 통해 구문 정의가 오른쪽에 위치합니다. 이 구문 정의는 ANTLR4 파서가 입력을 분석할 때 사용되는 규칙입니다.
+문법 파일에서 {% raw %}`->`{% endraw %} 연산자는 구문 규칙의 정의를 구성합니다. 일반적으로 구문 규칙은 왼쪽에 규칙 이름이 오고, {% raw %}`->`{% endraw %} 연산자를 통해 구문 정의가 오른쪽에 위치합니다. 이 구문 정의는 ANTLR4 파서가 입력을 분석할 때 사용되는 규칙입니다.
 
 예를 들어, 다음은 ANTLR4 문법 파일에서 구문 규칙을 정의하는 예입니다:
 
-```
+{% raw %}```
 expression -> term (PLUS | MINUS) term;
 term -> factor (MULTIPLY | DIVIDE) factor;
 factor -> NUMBER | LPAREN expression RPAREN;
-```
+```{% endraw %}
 
-위 예제에서 `->` 연산자는 구문 규칙의 정의를 나타내며, 구문 규칙은 해당 규칙이 표현하는 구문 패턴을 나타냅니다. `expression`, `term`, `factor`는 구문 규칙의 이름이며, `PLUS`, `MINUS`, `MULTIPLY`, `DIVIDE`, `NUMBER`, `LPAREN`, `RPAREN`은 토큰을 나타냅니다.
+위 예제에서 {% raw %}`->`{% endraw %} 연산자는 구문 규칙의 정의를 나타내며, 구문 규칙은 해당 규칙이 표현하는 구문 패턴을 나타냅니다. {% raw %}`expression`{% endraw %}, {% raw %}`term`{% endraw %}, {% raw %}`factor`{% endraw %}는 구문 규칙의 이름이며, {% raw %}`PLUS`{% endraw %}, {% raw %}`MINUS`{% endraw %}, {% raw %}`MULTIPLY`{% endraw %}, {% raw %}`DIVIDE`{% endraw %}, {% raw %}`NUMBER`{% endraw %}, {% raw %}`LPAREN`{% endraw %}, {% raw %}`RPAREN`{% endraw %}은 토큰을 나타냅니다.
 
 이러한 구문 규칙을 기반으로 ANTLR4 파서는 입력을 분석하여 구문을 해석하고, 트리 형태로 파싱 결과를 생성합니다.
 
@@ -120,65 +118,65 @@ factor -> NUMBER | LPAREN expression RPAREN;
 > Antlr4의 lexer grammar에서 -> 는 뭐지?
 
 ## ChatGPT 응답:
-> 앞서 말씀드린 것과 같이, ANTLR4의 Lexer Grammar에서 `->`는 규칙의 정의를 구성하는 연산자가 아닙니다. 대신, `->`는 ANTLR4의 Lexer 규칙에서 토큰의 정의를 구성하는 용도로 사용됩니다.
+> 앞서 말씀드린 것과 같이, ANTLR4의 Lexer Grammar에서 {% raw %}`->`{% endraw %}는 규칙의 정의를 구성하는 연산자가 아닙니다. 대신, {% raw %}`->`{% endraw %}는 ANTLR4의 Lexer 규칙에서 토큰의 정의를 구성하는 용도로 사용됩니다.
 
-ANTLR4의 Lexer Grammar에서 `->`는 "방향 지정자(directed assignment operator)"로 알려져 있습니다. 이 연산자는 Lexer 규칙에서 토큰을 정의할 때 사용되며, 토큰의 패턴과 토큰 유형 간의 관계를 나타냅니다.
+ANTLR4의 Lexer Grammar에서 {% raw %}`->`{% endraw %}는 "방향 지정자(directed assignment operator)"로 알려져 있습니다. 이 연산자는 Lexer 규칙에서 토큰을 정의할 때 사용되며, 토큰의 패턴과 토큰 유형 간의 관계를 나타냅니다.
 
-일반적으로 Lexer Grammar에서 토큰은 대문자로 작성된 규칙 이름으로 정의됩니다. `->` 연산자를 사용하여 토큰의 패턴과 토큰 유형을 연결합니다. `->` 왼쪽에는 토큰 유형이 오고, 오른쪽에는 해당 토큰을 일치시키기 위한 패턴이 위치합니다.
+일반적으로 Lexer Grammar에서 토큰은 대문자로 작성된 규칙 이름으로 정의됩니다. {% raw %}`->`{% endraw %} 연산자를 사용하여 토큰의 패턴과 토큰 유형을 연결합니다. {% raw %}`->`{% endraw %} 왼쪽에는 토큰 유형이 오고, 오른쪽에는 해당 토큰을 일치시키기 위한 패턴이 위치합니다.
 
-다음은 ANTLR4 Lexer Grammar에서 `->` 연산자를 사용하여 토큰을 정의하는 예입니다:
+다음은 ANTLR4 Lexer Grammar에서 {% raw %}`->`{% endraw %} 연산자를 사용하여 토큰을 정의하는 예입니다:
 
-```
+{% raw %}```
 NUMBER: DIGIT+;
 IDENTIFIER: LETTER (LETTER | DIGIT)*;
-```
+```{% endraw %}
 
-위 예제에서 `NUMBER`와 `IDENTIFIER`는 토큰의 이름이며, `->` 연산자를 사용하여 각각의 토큰 유형과 패턴을 정의합니다. `NUMBER` 토큰은 하나 이상의 숫자(`DIGIT`)로 구성되고, `IDENTIFIER` 토큰은 문자(`LETTER`)로 시작하고 문자와 숫자의 조합으로 이루어집니다.
+위 예제에서 {% raw %}`NUMBER`{% endraw %}와 {% raw %}`IDENTIFIER`{% endraw %}는 토큰의 이름이며, {% raw %}`->`{% endraw %} 연산자를 사용하여 각각의 토큰 유형과 패턴을 정의합니다. {% raw %}`NUMBER`{% endraw %} 토큰은 하나 이상의 숫자({% raw %}`DIGIT`{% endraw %})로 구성되고, {% raw %}`IDENTIFIER`{% endraw %} 토큰은 문자({% raw %}`LETTER`{% endraw %})로 시작하고 문자와 숫자의 조합으로 이루어집니다.
 
-따라서 ANTLR4의 Lexer Grammar에서 `->`는 토큰 유형과 토큰 패턴을 연결하여 토큰을 정의하는 데 사용되는 방향 지정자입니다.
+따라서 ANTLR4의 Lexer Grammar에서 {% raw %}`->`{% endraw %}는 토큰 유형과 토큰 패턴을 연결하여 토큰을 정의하는 데 사용되는 방향 지정자입니다.
 
 ## 사용자 입력:
 > Antlr4의 lexer grammar에서 skip,more,pushMode,popMode에 대해서 설명해줘.
 
 ## ChatGPT 응답:
-> ANTLR4의 Lexer Grammar에서 `skip`, `more`, `pushMode`, `popMode`는 Lexer 규칙에서 사용되는 특수한 동작을 나타내는 명령어입니다. 이 명령어들은 Lexer의 동작을 제어하고 토큰화 과정에서 특정 규칙을 적용하기 위해 사용됩니다.
+> ANTLR4의 Lexer Grammar에서 {% raw %}`skip`{% endraw %}, {% raw %}`more`{% endraw %}, {% raw %}`pushMode`{% endraw %}, {% raw %}`popMode`{% endraw %}는 Lexer 규칙에서 사용되는 특수한 동작을 나타내는 명령어입니다. 이 명령어들은 Lexer의 동작을 제어하고 토큰화 과정에서 특정 규칙을 적용하기 위해 사용됩니다.
 
-1. `skip`: `skip` 명령어는 특정 규칙에서 일치하는 토큰을 무시하도록 지시합니다. Lexer가 토큰화 과정에서 해당 규칙에 일치하는 입력을 만나면 토큰을 생성하지 않고 건너뜁니다.
+1. {% raw %}`skip`{% endraw %}: {% raw %}`skip`{% endraw %} 명령어는 특정 규칙에서 일치하는 토큰을 무시하도록 지시합니다. Lexer가 토큰화 과정에서 해당 규칙에 일치하는 입력을 만나면 토큰을 생성하지 않고 건너뜁니다.
 
-예를 들어, 다음은 `COMMENT` 규칙에서 `skip`을 사용한 예입니다:
+예를 들어, 다음은 {% raw %}`COMMENT`{% endraw %} 규칙에서 {% raw %}`skip`{% endraw %}을 사용한 예입니다:
 
-```
+{% raw %}```
 COMMENT: '/*' .*? '*/' -> skip;
-```
+```{% endraw %}
 
-위 예제에서 `COMMENT` 규칙은 `/*`로 시작하고 `*/`로 끝나는 주석을 나타냅니다. `-> skip`은 해당 규칙에 일치하는 토큰을 무시하도록 지시합니다. 즉, 주석 내용은 토큰으로 생성되지 않고 무시됩니다.
+위 예제에서 {% raw %}`COMMENT`{% endraw %} 규칙은 {% raw %}`/*`{% endraw %}로 시작하고 {% raw %}`*/`{% endraw %}로 끝나는 주석을 나타냅니다. {% raw %}`-> skip`{% endraw %}은 해당 규칙에 일치하는 토큰을 무시하도록 지시합니다. 즉, 주석 내용은 토큰으로 생성되지 않고 무시됩니다.
 
-2. `more`: `more` 명령어는 특정 규칙에서 일치하는 토큰 이후에 추가적인 규칙을 계속 적용하도록 지시합니다. 즉, 해당 규칙이 일치하는 토큰 이후에 다른 규칙도 일치시킬 수 있습니다.
+2. {% raw %}`more`{% endraw %}: {% raw %}`more`{% endraw %} 명령어는 특정 규칙에서 일치하는 토큰 이후에 추가적인 규칙을 계속 적용하도록 지시합니다. 즉, 해당 규칙이 일치하는 토큰 이후에 다른 규칙도 일치시킬 수 있습니다.
 
-예를 들어, 다음은 `STRING` 규칙에서 `more`를 사용한 예입니다:
+예를 들어, 다음은 {% raw %}`STRING`{% endraw %} 규칙에서 {% raw %}`more`{% endraw %}를 사용한 예입니다:
 
-```
+{% raw %}```
 STRING: '"' (~["\r\n] | '""')* '"' -> more;
-```
+```{% endraw %}
 
-위 예제에서 `STRING` 규칙은 `"..."`으로 둘러싸인 문자열을 나타냅니다. `-> more`는 해당 규칙에 일치하는 토큰 이후에 추가적인 규칙을 계속 적용하도록 지시합니다. 이 경우, `STRING` 규칙에서는 `"` 문자나 `""` 문자열을 포함하는 문자열을 일치시킬 수 있습니다.
+위 예제에서 {% raw %}`STRING`{% endraw %} 규칙은 {% raw %}`"..."`{% endraw %}으로 둘러싸인 문자열을 나타냅니다. {% raw %}`-> more`{% endraw %}는 해당 규칙에 일치하는 토큰 이후에 추가적인 규칙을 계속 적용하도록 지시합니다. 이 경우, {% raw %}`STRING`{% endraw %} 규칙에서는 {% raw %}`"`{% endraw %} 문자나 {% raw %}`""`{% endraw %} 문자열을 포함하는 문자열을 일치시킬 수 있습니다.
 
-3. `pushMode` 및 `popMode`: `pushMode`와 `popMode`는 Lexer에서 다른 Lexing 모드로의 전환을 지시하는 명령어입니다. Lexer는 여러 개의 Lexing 모드를 가질 수 있으며, `pushMode`는 현재 모드를 스택에 저장하고 새로운 모드로 전환하라는 것을 의미합니다. `popMode`은 스택에서 이전 모드를 복원하라는 것을 의미합니다.
+3. {% raw %}`pushMode`{% endraw %} 및 {% raw %}`popMode`{% endraw %}: {% raw %}`pushMode`{% endraw %}와 {% raw %}`popMode`{% endraw %}는 Lexer에서 다른 Lexing 모드로의 전환을 지시하는 명령어입니다. Lexer는 여러 개의 Lexing 모드를 가질 수 있으며, {% raw %}`pushMode`{% endraw %}는 현재 모드를 스택에 저장하고 새로운 모드로 전환하라는 것을 의미합니다. {% raw %}`popMode`{% endraw %}은 스택에서 이전 모드를 복원하라는 것을 의미합니다.
 
-예를 들어, 다음은 `STRING` 규칙에서 `pushMode`와 `popMode`를 사용한 예입니다:
+예를 들어, 다음은 {% raw %}`STRING`{% endraw %} 규칙에서 {% raw %}`pushMode`{% endraw %}와 {% raw %}`popMode`{% endraw %}를 사용한 예입니다:
 
-```
+{% raw %}```
 mode(
 
 ## ChatGPT 응답:
 > STRING_MODE);
 
 STRING: '"' (~["\r\n] | '""')* '"' -> popMode;
-```
+```{% endraw %}
 
-위 예제에서 `STRING` 규칙은 `"..."`으로 둘러싸인 문자열을 나타내는데, `mode(STRING_MODE)`은 `STRING_MODE`라는 새로운 Lexing 모드를 생성하고 해당 모드로 전환하는 것을 의미합니다. `-> popMode`는 `STRING` 규칙에 일치하는 토큰을 생성한 후 이전 모드로 전환하라는 것을 의미합니다.
+위 예제에서 {% raw %}`STRING`{% endraw %} 규칙은 {% raw %}`"..."`{% endraw %}으로 둘러싸인 문자열을 나타내는데, {% raw %}`mode(STRING_MODE)`{% endraw %}은 {% raw %}`STRING_MODE`{% endraw %}라는 새로운 Lexing 모드를 생성하고 해당 모드로 전환하는 것을 의미합니다. {% raw %}`-> popMode`{% endraw %}는 {% raw %}`STRING`{% endraw %} 규칙에 일치하는 토큰을 생성한 후 이전 모드로 전환하라는 것을 의미합니다.
 
-이러한 `skip`, `more`, `pushMode`, `popMode` 명령어를 사용하여 Lexer 규칙을 정의하면 토큰화 과정을 세밀하게 제어하고 원하는 동작을 구현할 수 있습니다.
+이러한 {% raw %}`skip`{% endraw %}, {% raw %}`more`{% endraw %}, {% raw %}`pushMode`{% endraw %}, {% raw %}`popMode`{% endraw %} 명령어를 사용하여 Lexer 규칙을 정의하면 토큰화 과정을 세밀하게 제어하고 원하는 동작을 구현할 수 있습니다.
 
 ## 사용자 입력:
 > /*
@@ -197,7 +195,7 @@ STRING: '"' (~["\r\n] | '""')* '"' -> popMode;
  3. The name of the author may not be used to endorse or promote products
     derived from this software without specific prior written permission.
 
- THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR {% raw %}``{% endraw %}AS IS'' AND ANY EXPRESS OR
  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
@@ -280,7 +278,7 @@ IGNORE      :   .                       -> more ;
 > 위의 ANTLR4 grammar는 XML 파일을 파싱하는 Lexer Grammar입니다. 각 줄을 한 줄씩 해석해 드리겠습니다.
 
 1. 주석 부분:
-   ```
+   {% raw %}```
    /*
     [The "BSD licence"]
     Copyright (c) 2013 Terence Parr
@@ -308,14 +306,14 @@ IGNORE      :   .                       -> more ;
     (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
     THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    */
-   ```
+   ```{% endraw %}
    위의 주석은 BSD 라이선스에 따라 소스 코드를 재배포 및 사용할 수 있다는 내용입니다. 주석 부분은 코드에 대한 저작권 정보와 조건을 설명하고 있습니다.
 
-2. `lexer grammar XMLLexer;`:
-   이 줄은 `XMLLexer`라는 이름의 Lexer Grammar를 정의하는 것을 나타냅니다.
+2. {% raw %}`lexer grammar XMLLexer;`{% endraw %}:
+   이 줄은 {% raw %}`XMLLexer`{% endraw %}라는 이름의 Lexer Grammar를 정의하는 것을 나타냅니다.
 
 3. 토큰 정의:
-   ```
+   {% raw %}```
    COMMENT     :   '<!--' .*? '-->' ;
    CDATA       :   '<![CDATA[' .*? ']]>' ;
    DTD         :   '<!' .*? '>'            -> skip ;
@@ -328,11 +326,11 @@ IGNORE      :   .                       -> more ;
    XMLDeclOpen :   '<?xml' S               -> pushMode(INSIDE) ;
    SPECIAL_OPEN:   '<?' Name               -> more, pushMode(PROC_INSTR) ;
    TEXT        :   ~[<&]+ ;
-   ```
+   ```{% endraw %}
    위의 부분은 토큰 정의를 나타냅니다. 각 토큰은 특정한 패턴을 가지고 있으며, 해당 패턴에 매치되는 입력을 토큰으로 인식합니다.
 
-4. `mode` 선언:
-   ```
+4. {% raw %}`mode`{% endraw %} 선언:
+   {% raw %}```
    mode INSIDE;
    CLOSE       :   '>'                     -> popMode ;
    SPECIAL_CLOSE:  '?>'                    -> popMode ;
@@ -347,16 +345,16 @@ IGNORE      :   .                       -> more ;
                ;
    Name        :   NameStartChar NameChar* ;
    S           :   [ \t\r\n]               -> skip ;
-   ```
-   `mode INSIDE;`는 INSIDE 모드를 선언하며, INSIDE 모드에서 정의된 토큰들은 태그 안에 있는 내용에 해당합니다.
+   ```{% endraw %}
+   {% raw %}`mode INSIDE;`{% endraw %}는 INSIDE 모드를 선언하며, INSIDE 모드에서 정의된 토큰들은 태그 안에 있는 내용에 해당합니다.
 
-5. `mode` 선언과 토큰 정의:
-   ```
+5. {% raw %}`mode`{% endraw %} 선언과 토큰 정의:
+   {% raw %}```
    mode PROC_INSTR;
    PI          :   '?>'                    -> popMode ;
    IGNORE      :   .                       -> more ;
-   ```
-   `mode PROC_INSTR;`는 PROC_INSTR 모드를 선언하며, PROC_INSTR 모드에서 정의된 토큰들은 <? ... ?> 형식의 처리 명령어에 해당합니다.
+   ```{% endraw %}
+   {% raw %}`mode PROC_INSTR;`{% endraw %}는 PROC_INSTR 모드를 선언하며, PROC_INSTR 모드에서 정의된 토큰들은 <? ... ?> 형식의 처리 명령어에 해당합니다.
 
 이렇게 정의된 Lexer Grammar를 사용하여 XML 파일을 토큰화할 수 있으며, 토큰화된 토큰들을 이후의 파싱 단계에서 활용할 수 있습니다.
 
@@ -366,7 +364,7 @@ IGNORE      :   .                       -> more ;
 ## ChatGPT 응답:
 > Sure! I'll provide a detailed explanation of each line in the given program.
 
-```antlr
+{% raw %}```antlr
 /*
  [The "BSD licence"]
  Copyright (c) 2013 Terence Parr
@@ -397,11 +395,11 @@ IGNORE      :   .                       -> more ;
 
 /** XML lexer derived from ANTLR v4 ref guide book example */
 lexer grammar XMLLexer;
-```
+```{% endraw %}
 
-The above section is a block comment that provides information about the BSD license and the author of the software. It states the conditions under which the software can be used and distributed. Following that, there's a documentation comment that mentions that this lexer grammar is derived from an example in the ANTLR v4 reference guide. Finally, the line `lexer grammar XMLLexer;` declares the name of the lexer grammar as "XMLLexer".
+The above section is a block comment that provides information about the BSD license and the author of the software. It states the conditions under which the software can be used and distributed. Following that, there's a documentation comment that mentions that this lexer grammar is derived from an example in the ANTLR v4 reference guide. Finally, the line {% raw %}`lexer grammar XMLLexer;`{% endraw %} declares the name of the lexer grammar as "XMLLexer".
 
-```antlr
+{% raw %}```antlr
 COMMENT     :   '<!--' .*? '-->' ;
 CDATA       :   '<![CDATA[' .*? ']]>' ;
 DTD         :   '<!' .*? '>'            -> skip ;
@@ -414,25 +412,25 @@ OPEN        :   '<'                     -> pushMode(INSIDE) ;
 XMLDeclOpen :   '<?xml' S               -> pushMode(INSIDE) ;
 SPECIAL_OPEN:   '<?' Name               -> more, pushMode(PROC_INSTR) ;
 TEXT        :   ~[<&]+ ;
-```
+```{% endraw %}
 
 This section defines various lexer rules (tokens) for the XML language. Let's go through each rule:
 
-- `COMMENT` matches a comment in the form `<!-- ... -->`.
-- `CDATA` matches a CDATA section in the form `<![CDATA[ ... ]]>`.
-- `DTD` matches a Document Type Definition (DTD) declaration, enclosed between `<!` and `>`. The `-> skip` command indicates that the matched tokens should be skipped and not returned as tokens.
-- `EntityRef` matches an entity reference in the form `&Name;`.
-- `CharRef` matches a character reference in either decimal (`&#DIGIT+;`) or hexadecimal (`&#xHEXDIGIT+;`) form.
-- `SEA_WS` matches whitespace characters (space, tab, newline) sequences.
-- `OPEN` matches an opening angle bracket `<` and pushes the lexer into the INSIDE mode.
-- `XMLDeclOpen` matches an XML declaration `
+- {% raw %}`COMMENT`{% endraw %} matches a comment in the form {% raw %}`<!-- ... -->`{% endraw %}.
+- {% raw %}`CDATA`{% endraw %} matches a CDATA section in the form {% raw %}`<![CDATA[ ... ]]>`{% endraw %}.
+- {% raw %}`DTD`{% endraw %} matches a Document Type Definition (DTD) declaration, enclosed between {% raw %}`<!`{% endraw %} and {% raw %}`>`{% endraw %}. The {% raw %}`-> skip`{% endraw %} command indicates that the matched tokens should be skipped and not returned as tokens.
+- {% raw %}`EntityRef`{% endraw %} matches an entity reference in the form {% raw %}`&Name;`{% endraw %}.
+- {% raw %}`CharRef`{% endraw %} matches a character reference in either decimal ({% raw %}`&#DIGIT+;`{% endraw %}) or hexadecimal ({% raw %}`&#xHEXDIGIT+;`{% endraw %}) form.
+- {% raw %}`SEA_WS`{% endraw %} matches whitespace characters (space, tab, newline) sequences.
+- {% raw %}`OPEN`{% endraw %} matches an opening angle bracket {% raw %}`<`{% endraw %} and pushes the lexer into the INSIDE mode.
+- {% raw %}`XMLDeclOpen`{% endraw %} matches an XML declaration {% raw %}`
 
 ## ChatGPT 응답:
-> <?xml` followed by whitespace (`S`) and pushes the lexer into the INSIDE mode.
-- `SPECIAL_OPEN` matches a processing instruction `<?` followed by `Name` and pushes the lexer into the PROC_INSTR mode. The `more` command indicates that additional tokens can follow.
-- `TEXT` matches any characters that are not `<` or `&`.
+> <?xml`{% endraw %} followed by whitespace ({% raw %}`S`{% endraw %}) and pushes the lexer into the INSIDE mode.
+- {% raw %}`SPECIAL_OPEN`{% endraw %} matches a processing instruction {% raw %}`<?`{% endraw %} followed by {% raw %}`Name`{% endraw %} and pushes the lexer into the PROC_INSTR mode. The {% raw %}`more`{% endraw %} command indicates that additional tokens can follow.
+- {% raw %}`TEXT`{% endraw %} matches any characters that are not {% raw %}`<`{% endraw %} or {% raw %}`&`{% endraw %}.
 
-```antlr
+{% raw %}```antlr
 mode INSIDE;
 
 CLOSE       :   '>'                     -> popMode ;
@@ -445,30 +443,30 @@ STRING      :   '"' ~[<"]* '"'
             ;
 Name        :   NameStartChar NameChar* ;
 S           :   [ \t\r\n]               -> skip ;
-```
+```{% endraw %}
 
-The `mode INSIDE;` line declares that the following lexer rules belong to the INSIDE mode, which represents content within XML tags.
+The {% raw %}`mode INSIDE;`{% endraw %} line declares that the following lexer rules belong to the INSIDE mode, which represents content within XML tags.
 
-- `CLOSE` matches a closing angle bracket `>`. The `-> popMode` command pops the lexer out of the INSIDE mode.
-- `SPECIAL_CLOSE` matches the end of an XML declaration `?>` and pops the lexer out of the INSIDE mode.
-- `SLASH_CLOSE` matches a self-closing tag `/>` and pops the lexer out of the INSIDE mode.
-- `SLASH` matches a forward slash `/`.
-- `EQUALS` matches an equals sign `=`.
-- `STRING` matches a string enclosed in double quotes (`"..."`) or single quotes (`'...'`).
-- `Name` matches a valid XML name, starting with `NameStartChar` and followed by zero or more `NameChar` characters.
-- `S` matches whitespace characters and is skipped (ignored).
+- {% raw %}`CLOSE`{% endraw %} matches a closing angle bracket {% raw %}`>`{% endraw %}. The {% raw %}`-> popMode`{% endraw %} command pops the lexer out of the INSIDE mode.
+- {% raw %}`SPECIAL_CLOSE`{% endraw %} matches the end of an XML declaration {% raw %}`?>`{% endraw %} and pops the lexer out of the INSIDE mode.
+- {% raw %}`SLASH_CLOSE`{% endraw %} matches a self-closing tag {% raw %}`/>`{% endraw %} and pops the lexer out of the INSIDE mode.
+- {% raw %}`SLASH`{% endraw %} matches a forward slash {% raw %}`/`{% endraw %}.
+- {% raw %}`EQUALS`{% endraw %} matches an equals sign {% raw %}`=`{% endraw %}.
+- {% raw %}`STRING`{% endraw %} matches a string enclosed in double quotes ({% raw %}`"..."`{% endraw %}) or single quotes ({% raw %}`'...'`{% endraw %}).
+- {% raw %}`Name`{% endraw %} matches a valid XML name, starting with {% raw %}`NameStartChar`{% endraw %} and followed by zero or more {% raw %}`NameChar`{% endraw %} characters.
+- {% raw %}`S`{% endraw %} matches whitespace characters and is skipped (ignored).
 
-```antlr
+{% raw %}```antlr
 mode PROC_INSTR;
 
 PI          :   '?>'                    -> popMode ;
 IGNORE      :   .                       -> more ;
-```
+```{% endraw %}
 
-The `mode PROC_INSTR;` line declares that the following lexer rules belong to the PROC_INSTR mode, which represents processing instructions.
+The {% raw %}`mode PROC_INSTR;`{% endraw %} line declares that the following lexer rules belong to the PROC_INSTR mode, which represents processing instructions.
 
-- `PI` matches the end of a processing instruction `?>` and pops the lexer out of the PROC_INSTR mode.
-- `IGNORE` matches any character (`.`) and allows the lexer to consume and ignore it. The `more` command indicates that additional tokens can follow.
+- {% raw %}`PI`{% endraw %} matches the end of a processing instruction {% raw %}`?>`{% endraw %} and pops the lexer out of the PROC_INSTR mode.
+- {% raw %}`IGNORE`{% endraw %} matches any character ({% raw %}`.`{% endraw %}) and allows the lexer to consume and ignore it. The {% raw %}`more`{% endraw %} command indicates that additional tokens can follow.
 
 These lexer rules define the tokenization process for the XML language, allowing the lexer to recognize and tokenize different elements such as comments, CDATA sections, tags, attributes, strings, etc. The tokens generated by the lexer can then be used by a parser to build a structured representation of an XML document.
 
@@ -478,7 +476,7 @@ These lexer rules define the tokenization process for the XML language, allowing
 ## ChatGPT 응답:
 > 안녕하세요! 주어진 프로그램의 각 줄에 대해 자세한 설명을 해드리겠습니다.
 
-```antlr
+{% raw %}```antlr
 /*
  [The "BSD licence"]
  Copyright (c) 2013 Terence Parr
@@ -509,11 +507,11 @@ These lexer rules define the tokenization process for the XML language, allowing
 
 /** XML lexer derived from ANTLR v4 ref guide book example */
 lexer grammar XMLLexer;
-```
+```{% endraw %}
 
-위의 부분은 BSD 라이선스에 관한 정보와 소프트웨어의 저작권 정보를 담고 있는 블록 주석입니다. 이 소프트웨어의 사용 및 배포 조건을 명시하고 있습니다. 그 아래에는 이 Lexer Grammar가 ANTLR v4 참조 가이드의 예제를 기반으로 한 것임을 언급하는 문서 주석이 있습니다. 마지막으로 `lexer grammar XMLLexer;`는 이 Lexer Grammar의 이름을 "XMLLexer"로 선언합니다.
+위의 부분은 BSD 라이선스에 관한 정보와 소프트웨어의 저작권 정보를 담고 있는 블록 주석입니다. 이 소프트웨어의 사용 및 배포 조건을 명시하고 있습니다. 그 아래에는 이 Lexer Grammar가 ANTLR v4 참조 가이드의 예제를 기반으로 한 것임을 언급하는 문서 주석이 있습니다. 마지막으로 {% raw %}`lexer grammar XMLLexer;`{% endraw %}는 이 Lexer Grammar의 이름을 "XMLLexer"로 선언합니다.
 
-```antlr
+{% raw %}```antlr
 COMMENT     :   '<!--' .*? '-->' ;
 CDATA       :   '<![CDATA[' .*? ']]>' ;
 DTD         :   '<!' .*? '>'            -> skip ;
@@ -526,25 +524,25 @@ OPEN        :   '<'                     -> pushMode(INSIDE) ;
 XMLDeclOpen :   '<?xml' S               -> pushMode(INSIDE) ;
 SPECIAL_OPEN:   '<?' Name               -> more, pushMode(PROC_INSTR) ;
 TEXT        :   ~[<&]+ ;
-```
+```{% endraw %}
 
 이 부분은 XML 언어의 여러 개의 Lexer Rule(토큰)을 정의합니다. 각 Rule에 대해 설명해보겠습니다:
 
-- `COMMENT`는 `<!-- ... -->` 형식의 주석을 매칭합니다.
-- `CDATA`는 `<![CDATA[ ... ]]>` 형식의 CDATA 섹션을 매칭합니다.
-- `DTD`는 `<!`와 `>` 사이에 있는 Document Type Definition (DTD)
+- {% raw %}`COMMENT`{% endraw %}는 {% raw %}`<!-- ... -->`{% endraw %} 형식의 주석을 매칭합니다.
+- {% raw %}`CDATA`{% endraw %}는 {% raw %}`<![CDATA[ ... ]]>`{% endraw %} 형식의 CDATA 섹션을 매칭합니다.
+- {% raw %}`DTD`{% endraw %}는 {% raw %}`<!`{% endraw %}와 {% raw %}`>`{% endraw %} 사이에 있는 Document Type Definition (DTD)
 
 ## ChatGPT 응답:
-> 을 매칭합니다. `-> skip`은 이 토큰이 무시되도록 지정합니다.
-- `EntityRef`는 `&`로 시작하고 `;`로 끝나는 엔티티 참조를 매칭합니다.
-- `CharRef`는 `&#`로 시작하고 숫자로 구성된 엔티티 참조를 매칭합니다. 예를 들어, `&#65;`는 'A'를 나타냅니다. `|`는 두 가지 형식 중 하나를 선택할 수 있음을 나타냅니다.
-- `SEA_WS`는 공백 문자들을 매칭합니다.
-- `OPEN`은 `<`를 매칭하고, `-> pushMode(INSIDE)`은 INSIDE 모드로 전환합니다. INSIDE 모드는 태그 안의 내용을 처리하는 모드입니다.
-- `XMLDeclOpen`은 `<?xml`을 매칭하고, `S`는 공백 문자를 매칭합니다. `-> pushMode(INSIDE)`은 INSIDE 모드로 전환합니다.
-- `SPECIAL_OPEN`은 `<?`와 `Name`을 매칭하고, `more`는 추가적인 토큰이 뒤에 올 수 있음을 나타내며, `pushMode(PROC_INSTR)`은 PROC_INSTR 모드로 전환합니다. PROC_INSTR 모드는 처리 명령어를 처리하는 모드입니다.
-- `TEXT`는 `<`나 `&`가 아닌 모든 문자를 매칭합니다.
+> 을 매칭합니다. {% raw %}`-> skip`{% endraw %}은 이 토큰이 무시되도록 지정합니다.
+- {% raw %}`EntityRef`{% endraw %}는 {% raw %}`&`{% endraw %}로 시작하고 {% raw %}`;`{% endraw %}로 끝나는 엔티티 참조를 매칭합니다.
+- {% raw %}`CharRef`{% endraw %}는 {% raw %}`&#`{% endraw %}로 시작하고 숫자로 구성된 엔티티 참조를 매칭합니다. 예를 들어, {% raw %}`&#65;`{% endraw %}는 'A'를 나타냅니다. {% raw %}`|`{% endraw %}는 두 가지 형식 중 하나를 선택할 수 있음을 나타냅니다.
+- {% raw %}`SEA_WS`{% endraw %}는 공백 문자들을 매칭합니다.
+- {% raw %}`OPEN`{% endraw %}은 {% raw %}`<`{% endraw %}를 매칭하고, {% raw %}`-> pushMode(INSIDE)`{% endraw %}은 INSIDE 모드로 전환합니다. INSIDE 모드는 태그 안의 내용을 처리하는 모드입니다.
+- {% raw %}`XMLDeclOpen`{% endraw %}은 {% raw %}`<?xml`{% endraw %}을 매칭하고, {% raw %}`S`{% endraw %}는 공백 문자를 매칭합니다. {% raw %}`-> pushMode(INSIDE)`{% endraw %}은 INSIDE 모드로 전환합니다.
+- {% raw %}`SPECIAL_OPEN`{% endraw %}은 {% raw %}`<?`{% endraw %}와 {% raw %}`Name`{% endraw %}을 매칭하고, {% raw %}`more`{% endraw %}는 추가적인 토큰이 뒤에 올 수 있음을 나타내며, {% raw %}`pushMode(PROC_INSTR)`{% endraw %}은 PROC_INSTR 모드로 전환합니다. PROC_INSTR 모드는 처리 명령어를 처리하는 모드입니다.
+- {% raw %}`TEXT`{% endraw %}는 {% raw %}`<`{% endraw %}나 {% raw %}`&`{% endraw %}가 아닌 모든 문자를 매칭합니다.
 
-```antlr
+{% raw %}```antlr
 mode INSIDE;
 
 CLOSE       :   '>'                     -> popMode ;
@@ -557,33 +555,33 @@ STRING      :   '"' ~[<"]* '"'
             ;
 Name        :   NameStartChar NameChar* ;
 S           :   [ \t\r\n]               -> skip ;
-```
+```{% endraw %}
 
 위 부분은 INSIDE 모드에서의 Lexer Rule들을 정의합니다:
 
-- `CLOSE`는 `>`를 매칭하고, `-> popMode`은 INSIDE 모드에서 벗어나기 위해 모드를 전환합니다.
-- `SPECIAL_CLOSE`는 `?>`를 매칭하고, `-> popMode`은 INSIDE 모드에서 벗어나기 위해 모드를 전환합니다.
-- `SLASH_CLOSE`는 `/>`를 매칭하고, `-> popMode`은 INSIDE 모드에서 벗어나기 위해 모드를 전환합니다.
-- `SLASH`는 `/`를 매칭합니다.
-- `EQUALS`는 `=`를 매칭합니다.
-- `STRING`은 큰따옴표(`"..."`) 또는 작은따옴표(`'...'`)로 둘러싸인 문자열을 매칭합니다.
-- `Name`은 올바른 XML 이름을 매칭합니다. `NameStartChar`로 시작하고, 그 뒤에는 0개 이
+- {% raw %}`CLOSE`{% endraw %}는 {% raw %}`>`{% endraw %}를 매칭하고, {% raw %}`-> popMode`{% endraw %}은 INSIDE 모드에서 벗어나기 위해 모드를 전환합니다.
+- {% raw %}`SPECIAL_CLOSE`{% endraw %}는 {% raw %}`?>`{% endraw %}를 매칭하고, {% raw %}`-> popMode`{% endraw %}은 INSIDE 모드에서 벗어나기 위해 모드를 전환합니다.
+- {% raw %}`SLASH_CLOSE`{% endraw %}는 {% raw %}`/>`{% endraw %}를 매칭하고, {% raw %}`-> popMode`{% endraw %}은 INSIDE 모드에서 벗어나기 위해 모드를 전환합니다.
+- {% raw %}`SLASH`{% endraw %}는 {% raw %}`/`{% endraw %}를 매칭합니다.
+- {% raw %}`EQUALS`{% endraw %}는 {% raw %}`=`{% endraw %}를 매칭합니다.
+- {% raw %}`STRING`{% endraw %}은 큰따옴표({% raw %}`"..."`{% endraw %}) 또는 작은따옴표({% raw %}`'...'`{% endraw %})로 둘러싸인 문자열을 매칭합니다.
+- {% raw %}`Name`{% endraw %}은 올바른 XML 이름을 매칭합니다. {% raw %}`NameStartChar`{% endraw %}로 시작하고, 그 뒤에는 0개 이
 
 ## ChatGPT 응답:
-> 상의 `NameChar`가 올 수 있습니다.
-- `S`는 공백 문자들을 매칭하고, `-> skip`은 이 토큰들이 무시되도록 지정합니다.
+> 상의 {% raw %}`NameChar`{% endraw %}가 올 수 있습니다.
+- {% raw %}`S`{% endraw %}는 공백 문자들을 매칭하고, {% raw %}`-> skip`{% endraw %}은 이 토큰들이 무시되도록 지정합니다.
 
-```antlr
+{% raw %}```antlr
 mode PROC_INSTR;
 
 PI          :   '?>'                    -> popMode ;
 IGNORE      :   .                       -> more ;
-```
+```{% endraw %}
 
 마지막으로, PROC_INSTR 모드에서의 Lexer Rule들을 정의합니다:
 
-- `PI`는 `?>`를 매칭하고, `-> popMode`은 PROC_INSTR 모드에서 벗어나기 위해 모드를 전환합니다.
-- `IGNORE`는 모든 문자(`.`)를 매칭하고, `-> more`는 더 많은 토큰이 이어질 수 있음을 나타냅니다.
+- {% raw %}`PI`{% endraw %}는 {% raw %}`?>`{% endraw %}를 매칭하고, {% raw %}`-> popMode`{% endraw %}은 PROC_INSTR 모드에서 벗어나기 위해 모드를 전환합니다.
+- {% raw %}`IGNORE`{% endraw %}는 모든 문자({% raw %}`.`{% endraw %})를 매칭하고, {% raw %}`-> more`{% endraw %}는 더 많은 토큰이 이어질 수 있음을 나타냅니다.
 
 이것들은 주어진 ANTLR4 Lexer Grammar의 구성 요소들입니다. 이 Grammar를 사용하면 XML 문서를 토큰으로 분석할 수 있습니다.
 
@@ -591,67 +589,67 @@ IGNORE      :   .                       -> more ;
 > 위 문법에서 more는 어떤 때 쓰는 건지 여러가지 예를 들어 설명해줘.
 
 ## ChatGPT 응답:
-> `more`는 ANTLR4 문법에서 사용되는 특수한 키워드로, 현재 매칭된 토큰 뒤에 더 많은 토큰이 이어질 수 있다는 것을 나타냅니다. `more`는 주로 Lexer Rule에서 사용되며, 해당 토큰의 매칭이 완료되지 않았음에도 다음 토큰을 매칭할 수 있도록 합니다.
+> {% raw %}`more`{% endraw %}는 ANTLR4 문법에서 사용되는 특수한 키워드로, 현재 매칭된 토큰 뒤에 더 많은 토큰이 이어질 수 있다는 것을 나타냅니다. {% raw %}`more`{% endraw %}는 주로 Lexer Rule에서 사용되며, 해당 토큰의 매칭이 완료되지 않았음에도 다음 토큰을 매칭할 수 있도록 합니다.
 
 아래는 몇 가지 예시입니다:
 
-```antlr
+{% raw %}```antlr
 SPECIAL_OPEN: '<?' Name -> more, pushMode(PROC_INSTR) ;
-```
+```{% endraw %}
 
-위 예시에서는 `SPECIAL_OPEN`이 `<?`와 `Name`을 매칭합니다. 그리고 `,` 다음에 `more`를 사용하여 추가적인 토큰이 올 수 있음을 나타냅니다. 즉, `<?`와 `Name` 이후에 다른 토큰이 올 경우에도 계속 매칭을 진행할 수 있습니다.
+위 예시에서는 {% raw %}`SPECIAL_OPEN`{% endraw %}이 {% raw %}`<?`{% endraw %}와 {% raw %}`Name`{% endraw %}을 매칭합니다. 그리고 {% raw %}`,`{% endraw %} 다음에 {% raw %}`more`{% endraw %}를 사용하여 추가적인 토큰이 올 수 있음을 나타냅니다. 즉, {% raw %}`<?`{% endraw %}와 {% raw %}`Name`{% endraw %} 이후에 다른 토큰이 올 경우에도 계속 매칭을 진행할 수 있습니다.
 
-```antlr
+{% raw %}```antlr
 STRING: '"' ~[<"]* '"' ;
-```
+```{% endraw %}
 
-위 예시에서는 `STRING`이 `"`로 시작하고, `"`로 끝나는 문자열을 매칭합니다. `~[<"]*`는 `<`와 `"`를 제외한 모든 문자가 0개 이상 포함될 수 있음을 나타냅니다. 여기서 `more`는 추가적인 문자열이 이어질 수 있다는 것을 나타냅니다. 즉, 문자열 안에 다른 문자가 계속해서 나올 수 있습니다.
+위 예시에서는 {% raw %}`STRING`{% endraw %}이 {% raw %}`"`{% endraw %}로 시작하고, {% raw %}`"`{% endraw %}로 끝나는 문자열을 매칭합니다. {% raw %}`~[<"]*`{% endraw %}는 {% raw %}`<`{% endraw %}와 {% raw %}`"`{% endraw %}를 제외한 모든 문자가 0개 이상 포함될 수 있음을 나타냅니다. 여기서 {% raw %}`more`{% endraw %}는 추가적인 문자열이 이어질 수 있다는 것을 나타냅니다. 즉, 문자열 안에 다른 문자가 계속해서 나올 수 있습니다.
 
-```antlr
+{% raw %}```antlr
 IGNORE: . -> more ;
-```
+```{% endraw %}
 
-위 예시에서는 `IGNORE`가 어떤 문자(`.`)든지 매칭하고, `,` 다음에 `more`를 사용하여 계속해서 추가적인 토큰을 매칭할 수 있음을 나타냅니다. 이 경우, 모든 문자가 `IGNORE` 토큰으로 인식되며, 계속해서 다른 문자가 나오는 한 계속 매칭이 이루어집니다.
+위 예시에서는 {% raw %}`IGNORE`{% endraw %}가 어떤 문자({% raw %}`.`{% endraw %})든지 매칭하고, {% raw %}`,`{% endraw %} 다음에 {% raw %}`more`{% endraw %}를 사용하여 계속해서 추가적인 토큰을 매칭할 수 있음을 나타냅니다. 이 경우, 모든 문자가 {% raw %}`IGNORE`{% endraw %} 토큰으로 인식되며, 계속해서 다른 문자가 나오는 한 계속 매칭이 이루어집니다.
 
-이와 같이 `more` 키워드를 사용하여 Lexer Rule에서 추가적인 토큰을 처리할 수 있습니다. `more`는 현재 토큰의 매칭을 종료하지 않고 계속 진행함을 의미합니다.
+이와 같이 {% raw %}`more`{% endraw %} 키워드를 사용하여 Lexer Rule에서 추가적인 토큰을 처리할 수 있습니다. {% raw %}`more`{% endraw %}는 현재 토큰의 매칭을 종료하지 않고 계속 진행함을 의미합니다.
 
 ## 사용자 입력:
 > antlr4에서 fragment는 뭐야?
 
 ## ChatGPT 응답:
-> ANTLR4에서 `fragment`은 Lexer Rule 내에서 사용되는 특별한 키워드입니다. `fragment`로 표시된 Lexer Rule은 다른 Lexer Rule 내에서 재사용되는 하위 규칙입니다. 이러한 규칙은 단독으로 매칭되는 토큰이 아니라 다른 Lexer Rule의 일부로 사용됩니다.
+> ANTLR4에서 {% raw %}`fragment`{% endraw %}은 Lexer Rule 내에서 사용되는 특별한 키워드입니다. {% raw %}`fragment`{% endraw %}로 표시된 Lexer Rule은 다른 Lexer Rule 내에서 재사용되는 하위 규칙입니다. 이러한 규칙은 단독으로 매칭되는 토큰이 아니라 다른 Lexer Rule의 일부로 사용됩니다.
 
-`fragment`으로 표시된 Lexer Rule은 주로 공통적인 패턴을 나타내는 작은 하위 규칙으로 사용됩니다. 이를 통해 반복되는 코드를 줄이고, 가독성을 향상시키며, 유지보수를 용이하게 할 수 있습니다.
+{% raw %}`fragment`{% endraw %}으로 표시된 Lexer Rule은 주로 공통적인 패턴을 나타내는 작은 하위 규칙으로 사용됩니다. 이를 통해 반복되는 코드를 줄이고, 가독성을 향상시키며, 유지보수를 용이하게 할 수 있습니다.
 
-다음은 `fragment` 예시입니다:
+다음은 {% raw %}`fragment`{% endraw %} 예시입니다:
 
-```antlr
+{% raw %}```antlr
 fragment DIGIT : [0-9] ;
 fragment LETTER : [a-zA-Z] ;
 fragment SPECIAL_CHAR : [!@#$%^&*()] ;
-```
+```{% endraw %}
 
-위 예시에서는 `DIGIT`, `LETTER`, `SPECIAL_CHAR`이라는 세 개의 `fragment`가 정의되어 있습니다. 이러한 `fragment` 규칙들은 다른 Lexer Rule에서 재사용될 수 있습니다.
+위 예시에서는 {% raw %}`DIGIT`{% endraw %}, {% raw %}`LETTER`{% endraw %}, {% raw %}`SPECIAL_CHAR`{% endraw %}이라는 세 개의 {% raw %}`fragment`{% endraw %}가 정의되어 있습니다. 이러한 {% raw %}`fragment`{% endraw %} 규칙들은 다른 Lexer Rule에서 재사용될 수 있습니다.
 
-예를 들어, 다음은 `DIGIT`과 `LETTER`를 사용하여 식별자를 매칭하는 Lexer Rule의 예입니다:
+예를 들어, 다음은 {% raw %}`DIGIT`{% endraw %}과 {% raw %}`LETTER`{% endraw %}를 사용하여 식별자를 매칭하는 Lexer Rule의 예입니다:
 
-```antlr
+{% raw %}```antlr
 Identifier : LETTER (LETTER | DIGIT)* ;
-```
+```{% endraw %}
 
-위 예시에서 `Identifier`는 `LETTER`로 시작하고, 그 뒤에 `LETTER` 또는 `DIGIT`이 0회 이상 반복되는 패턴을 매칭합니다. 여기서 `LETTER`와 `DIGIT`은 `fragment` 규칙으로 정의되어 있습니다.
+위 예시에서 {% raw %}`Identifier`{% endraw %}는 {% raw %}`LETTER`{% endraw %}로 시작하고, 그 뒤에 {% raw %}`LETTER`{% endraw %} 또는 {% raw %}`DIGIT`{% endraw %}이 0회 이상 반복되는 패턴을 매칭합니다. 여기서 {% raw %}`LETTER`{% endraw %}와 {% raw %}`DIGIT`{% endraw %}은 {% raw %}`fragment`{% endraw %} 규칙으로 정의되어 있습니다.
 
-`fragment`는 Lexer Rule 내에서만 사용되기 때문에 토큰으로 직접 매칭되지 않습니다. 그래서 `fragment` 규칙 이름을 직접 참조하는 것은 의미가 없습니다. 대신, `fragment` 규칙을 다른 Lexer Rule에서 재사용하여 Lexer Rule의 정의를 더 간결하고 모듈화된 형태로 작성할 수 있습니다.
+{% raw %}`fragment`{% endraw %}는 Lexer Rule 내에서만 사용되기 때문에 토큰으로 직접 매칭되지 않습니다. 그래서 {% raw %}`fragment`{% endraw %} 규칙 이름을 직접 참조하는 것은 의미가 없습니다. 대신, {% raw %}`fragment`{% endraw %} 규칙을 다른 Lexer Rule에서 재사용하여 Lexer Rule의 정의를 더 간결하고 모듈화된 형태로 작성할 수 있습니다.
 
 ## 사용자 입력:
 > g4파일내에서 토큰명은 유일한가?
 
 ## ChatGPT 응답:
-> ANTLR4의 `.g4` 파일 내에서 토큰명은 유일해야 합니다. 각 토큰은 고유한 이름을 가져야 하며, 중복된 토큰명을 사용할 수 없습니다.
+> ANTLR4의 {% raw %}`.g4`{% endraw %} 파일 내에서 토큰명은 유일해야 합니다. 각 토큰은 고유한 이름을 가져야 하며, 중복된 토큰명을 사용할 수 없습니다.
 
-ANTLR4에서 토큰은 Lexer Rule을 정의할 때 사용되는 식별자입니다. 토큰 이름은 대문자로 작성되는 것이 일반적이며, `_` (밑줄)을 사용하여 여러 단어를 연결하는 스네이크 케이스 형식을 따릅니다. 예를 들어, `IDENTIFIER`, `NUMBER`, `STRING_LITERAL` 등의 토큰명은 유일하게 정의되어야 합니다.
+ANTLR4에서 토큰은 Lexer Rule을 정의할 때 사용되는 식별자입니다. 토큰 이름은 대문자로 작성되는 것이 일반적이며, {% raw %}`_`{% endraw %} (밑줄)을 사용하여 여러 단어를 연결하는 스네이크 케이스 형식을 따릅니다. 예를 들어, {% raw %}`IDENTIFIER`{% endraw %}, {% raw %}`NUMBER`{% endraw %}, {% raw %}`STRING_LITERAL`{% endraw %} 등의 토큰명은 유일하게 정의되어야 합니다.
 
-토큰 이름의 고유성은 Lexer의 정확한 동작과 토큰의 구분을 위해 중요합니다. 중복된 토큰명을 사용하면 ANTLR4는 어떤 토큰을 매칭해야 할지 결정할 수 없으며, 예기치 않은 동작이 발생할 수 있습니다. 따라서 `.g4` 파일에서 토큰명의 유일성을 유지하는 것이 중요합니다.
+토큰 이름의 고유성은 Lexer의 정확한 동작과 토큰의 구분을 위해 중요합니다. 중복된 토큰명을 사용하면 ANTLR4는 어떤 토큰을 매칭해야 할지 결정할 수 없으며, 예기치 않은 동작이 발생할 수 있습니다. 따라서 {% raw %}`.g4`{% endraw %} 파일에서 토큰명의 유일성을 유지하는 것이 중요합니다.
 
 ## 사용자 입력:
 > 토큰의 선언 순서는 모드의 순서와 관계없지?
@@ -669,13 +667,13 @@ ANTLR4에서 토큰은 Lexer Rule로 정의되며, 토큰 간의 매칭은 선�
 > popMode도 전환하는 모드명을 적어주나?
 
 ## ChatGPT 응답:
-> `popMode`은 ANTLR4에서 현재 모드를 전환하는 데 사용되는 특수한 동작입니다. `popMode`은 현재 모드를 스택에서 제거하고 이전 모드로 돌아가는 역할을 합니다. 따라서 `popMode`은 전환하는 모드명을 명시적으로 지정하지 않습니다. 
+> {% raw %}`popMode`{% endraw %}은 ANTLR4에서 현재 모드를 전환하는 데 사용되는 특수한 동작입니다. {% raw %}`popMode`{% endraw %}은 현재 모드를 스택에서 제거하고 이전 모드로 돌아가는 역할을 합니다. 따라서 {% raw %}`popMode`{% endraw %}은 전환하는 모드명을 명시적으로 지정하지 않습니다. 
 
-`popMode`은 현재 모드를 스택에서 제거하고 이전 모드로 돌아가기 때문에 이전 모드는 자동적으로 활성화됩니다. ANTLR4는 모드 스택을 관리하며, `pushMode`를 사용하여 새로운 모드를 스택에 추가하고 `popMode`를 사용하여 현재 모드를 스택에서 제거합니다.
+{% raw %}`popMode`{% endraw %}은 현재 모드를 스택에서 제거하고 이전 모드로 돌아가기 때문에 이전 모드는 자동적으로 활성화됩니다. ANTLR4는 모드 스택을 관리하며, {% raw %}`pushMode`{% endraw %}를 사용하여 새로운 모드를 스택에 추가하고 {% raw %}`popMode`{% endraw %}를 사용하여 현재 모드를 스택에서 제거합니다.
 
 간단한 예를 통해 설명하자면, 다음과 같은 두 모드를 갖는 ANTLR4 Grammar를 고려해 봅시다:
 
-```
+{% raw %}```
 lexer grammar MyLexer;
 
 MODE1 : 'mode1' -> pushMode(MODE2);
@@ -683,39 +681,39 @@ MODE2 : 'mode2' -> pushMode(MODE1);
 POP   : 'pop'   -> popMode;
 
 // 다른 토큰 정의...
-```
+```{% endraw %}
 
-위 예시에서는 `MODE1`과 `MODE2`라는 두 개의 모드를 정의하고 있습니다. `MODE1`에서 'mode1' 키워드가 매칭되면 `pushMode(MODE2)`를 사용하여 `MODE2`로 모드를 전환합니다. 마찬가지로, `MODE2`에서 'mode2' 키워드가 매칭되면 `pushMode(MODE1)`를 사용하여 `MODE1`로 모드를 전환합니다. 또한, 'pop' 키워드가 매칭되면 `popMode`를 사용하여 현재 모드를 스택에서 제거하고 이전 모드로 돌아갑니다.
+위 예시에서는 {% raw %}`MODE1`{% endraw %}과 {% raw %}`MODE2`{% endraw %}라는 두 개의 모드를 정의하고 있습니다. {% raw %}`MODE1`{% endraw %}에서 'mode1' 키워드가 매칭되면 {% raw %}`pushMode(MODE2)`{% endraw %}를 사용하여 {% raw %}`MODE2`{% endraw %}로 모드를 전환합니다. 마찬가지로, {% raw %}`MODE2`{% endraw %}에서 'mode2' 키워드가 매칭되면 {% raw %}`pushMode(MODE1)`{% endraw %}를 사용하여 {% raw %}`MODE1`{% endraw %}로 모드를 전환합니다. 또한, 'pop' 키워드가 매칭되면 {% raw %}`popMode`{% endraw %}를 사용하여 현재 모드를 스택에서 제거하고 이전 모드로 돌아갑니다.
 
-이러한 모드 전환은 모드 스택에 의해 관리되며, `popMode`은 현재 모드를 스택에서 제거하여 이전 모드로 돌아가게 됩니다. 따라서 `popMode`을 사용할 때는 전환하고자 하는 모드를 직접 지정하지 않습니다.
+이러한 모드 전환은 모드 스택에 의해 관리되며, {% raw %}`popMode`{% endraw %}은 현재 모드를 스택에서 제거하여 이전 모드로 돌아가게 됩니다. 따라서 {% raw %}`popMode`{% endraw %}을 사용할 때는 전환하고자 하는 모드를 직접 지정하지 않습니다.
 
 ## 사용자 입력:
 > pushMode는 반드시 모드명이 있어야지?
 
 ## ChatGPT 응답:
-> `pushMode`는 모드를 전환할 때 사용하는 ANTLR4의 동작 중 하나입니다. `pushMode`는 전환하려는 모드의 이름을 지정해야 합니다. 따라서 `pushMode`를 사용할 때는 반드시 모드명을 지정해야 합니다.
+> {% raw %}`pushMode`{% endraw %}는 모드를 전환할 때 사용하는 ANTLR4의 동작 중 하나입니다. {% raw %}`pushMode`{% endraw %}는 전환하려는 모드의 이름을 지정해야 합니다. 따라서 {% raw %}`pushMode`{% endraw %}를 사용할 때는 반드시 모드명을 지정해야 합니다.
 
 올바른 사용 예시:
-```
+{% raw %}```
 pushMode(MODE_NAME)
-```
+```{% endraw %}
 
-여기서 `MODE_NAME`은 전환하고자 하는 모드의 식별자입니다. 모드명은 문자열이어야 하며, 모드를 구분하는 데 사용되는 유일한 식별자입니다.
+여기서 {% raw %}`MODE_NAME`{% endraw %}은 전환하고자 하는 모드의 식별자입니다. 모드명은 문자열이어야 하며, 모드를 구분하는 데 사용되는 유일한 식별자입니다.
 
 예를 들어, 다음과 같이 모드를 정의하는 ANTLR4 Grammar가 있다고 가정해 봅시다:
 
-```antlr
+{% raw %}```antlr
 lexer grammar MyLexer;
 
 MODE1 : 'mode1' -> pushMode(MODE2);
 MODE2 : 'mode2' -> pushMode(MODE1);
 
 // 다른 토큰 정의...
-```
+```{% endraw %}
 
-위 예시에서 `MODE1`에서 'mode1' 키워드가 매칭되면 `pushMode(MODE2)`를 사용하여 `MODE2`로 모드를 전환합니다. 마찬가지로, `MODE2`에서 'mode2' 키워드가 매칭되면 `pushMode(MODE1)`를 사용하여 `MODE1`로 모드를 전환합니다. 여기서 `MODE1`과 `MODE2`는 모드의 이름이며, 이들을 `pushMode`로 전환할 때 사용합니다.
+위 예시에서 {% raw %}`MODE1`{% endraw %}에서 'mode1' 키워드가 매칭되면 {% raw %}`pushMode(MODE2)`{% endraw %}를 사용하여 {% raw %}`MODE2`{% endraw %}로 모드를 전환합니다. 마찬가지로, {% raw %}`MODE2`{% endraw %}에서 'mode2' 키워드가 매칭되면 {% raw %}`pushMode(MODE1)`{% endraw %}를 사용하여 {% raw %}`MODE1`{% endraw %}로 모드를 전환합니다. 여기서 {% raw %}`MODE1`{% endraw %}과 {% raw %}`MODE2`{% endraw %}는 모드의 이름이며, 이들을 {% raw %}`pushMode`{% endraw %}로 전환할 때 사용합니다.
 
-따라서 `pushMode`를 사용할 때는 모드명을 명시적으로 지정해야 하며, 이를 통해 원하는 모드로 전환할 수 있습니다.
+따라서 {% raw %}`pushMode`{% endraw %}를 사용할 때는 모드명을 명시적으로 지정해야 하며, 이를 통해 원하는 모드로 전환할 수 있습니다.
 
 ## 사용자 입력:
 > parser grammar XMLParser;
@@ -724,15 +722,15 @@ options { tokenVocab=XMLLexer; }
 여기서, error(114): XMLParser.g4:32:21: cannot find tokens file .\XMLLexer.tokens 이런 오류가 나오있는 이유는?
 
 ## ChatGPT 응답:
-> XMLParser.g4 파일의 `options` 섹션에서 `tokenVocab=XMLLexer;`을 사용하고 있습니다. 이 옵션은 XMLParser.g4 파일에서 사용하는 토큰을 정의하는 XMLLexer.tokens 파일을 참조한다는 것을 나타냅니다.
+> XMLParser.g4 파일의 {% raw %}`options`{% endraw %} 섹션에서 {% raw %}`tokenVocab=XMLLexer;`{% endraw %}을 사용하고 있습니다. 이 옵션은 XMLParser.g4 파일에서 사용하는 토큰을 정의하는 XMLLexer.tokens 파일을 참조한다는 것을 나타냅니다.
 
 오류 메시지 "error(114): XMLParser.g4:32:21: cannot find tokens file .\XMLLexer.tokens"는 XMLLexer.tokens 파일을 찾을 수 없다는 것을 의미합니다. 오류가 발생하는 이유는 XMLLexer.tokens 파일이 현재 작업 디렉토리(working directory)에 없거나 잘못된 경로로 지정되어 있기 때문입니다.
 
 XMLLexer.tokens 파일이 있는지 확인하고, 해당 파일이 정확한 경로에 위치해 있는지 확인해야 합니다. 경로를 확인할 때는 상대 경로 또는 절대 경로를 사용할 수 있으며, 파일이 올바른 위치에 있는지 확인해야 합니다.
 
-XMLLexer.tokens 파일이 현재 작업 디렉토리에 있지 않은 경우, 올바른 경로로 파일을 이동하거나 `tokenVocab` 옵션의 경로를 수정하여 정확한 위치를 참조하도록 수정해야 합니다.
+XMLLexer.tokens 파일이 현재 작업 디렉토리에 있지 않은 경우, 올바른 경로로 파일을 이동하거나 {% raw %}`tokenVocab`{% endraw %} 옵션의 경로를 수정하여 정확한 위치를 참조하도록 수정해야 합니다.
 
-또한, 작업 중인 개발 환경에 따라 파일 경로의 구분자가 달라질 수 있으므로, 파일 경로 구분자를 올바르게 사용하는지 확인해야 합니다. 일반적으로 Windows 운영체제에서는 `\`를, macOS 또는 Linux에서는 `/`를 파일 경로 구분자로 사용합니다.
+또한, 작업 중인 개발 환경에 따라 파일 경로의 구분자가 달라질 수 있으므로, 파일 경로 구분자를 올바르게 사용하는지 확인해야 합니다. 일반적으로 Windows 운영체제에서는 {% raw %}`\`{% endraw %}를, macOS 또는 Linux에서는 {% raw %}`/`{% endraw %}를 파일 경로 구분자로 사용합니다.
 
 위의 조치를 취한 후에도 문제가 지속된다면, 해당 오류가 발생하는 정확한 코드와 파일 구조를 공유해 주시면 추가적인 도움을 드릴 수 있습니다.
 
@@ -778,9 +776,9 @@ ANTLR4에서는 Parse Tree를 확장하고 사용자 지정 동작을 구현하�
 ## ChatGPT 응답:
 > ANTLR4은 트리 비지터가 자동으로 생성되는 경우에는 반환 타입을 개발자가 정의한 AST 클래스로 매칭시킬 수 있도록 유연성을 제공합니다. 이를 위해 개발자는 ANTLR4의 코드 생성 옵션을 활용하여 반환 타입을 원하는 AST 클래스로 설정할 수 있습니다.
 
-ANTLR4 코드 생성 옵션 중에는 `-visitor`와 `-listener`가 있습니다. 이 중 `-visitor`를 사용하여 트리 비지터를 생성하는 경우, 개발자는 `visit` 메소드의 반환 타입을 직접 지정할 수 있습니다. 따라서 개발자가 원하는 대로 AST 클래스를 반환 타입으로 사용할 수 있습니다.
+ANTLR4 코드 생성 옵션 중에는 {% raw %}`-visitor`{% endraw %}와 {% raw %}`-listener`{% endraw %}가 있습니다. 이 중 {% raw %}`-visitor`{% endraw %}를 사용하여 트리 비지터를 생성하는 경우, 개발자는 {% raw %}`visit`{% endraw %} 메소드의 반환 타입을 직접 지정할 수 있습니다. 따라서 개발자가 원하는 대로 AST 클래스를 반환 타입으로 사용할 수 있습니다.
 
-예를 들어, 자바 코드를 분석하는 ANTLR4 파서를 생성한다고 가정해봅시다. 개발자는 AST 클래스를 정의하고, 해당 클래스를 트리 비지터의 반환 타입으로 사용하고자 할 때, `-visitor` 옵션을 사용하여 트리 비지터를 생성하면 됩니다. 그리고 생성된 트리 비지터에서 `visit` 메소드의 반환 타입을 개발자가 정의한 AST 클래스로 설정할 수 있습니다.
+예를 들어, 자바 코드를 분석하는 ANTLR4 파서를 생성한다고 가정해봅시다. 개발자는 AST 클래스를 정의하고, 해당 클래스를 트리 비지터의 반환 타입으로 사용하고자 할 때, {% raw %}`-visitor`{% endraw %} 옵션을 사용하여 트리 비지터를 생성하면 됩니다. 그리고 생성된 트리 비지터에서 {% raw %}`visit`{% endraw %} 메소드의 반환 타입을 개발자가 정의한 AST 클래스로 설정할 수 있습니다.
 
 자동으로 생성되는 트리 비지터는 개발자가 지정한 반환 타입에 맞게 생성됩니다. 이를 통해 개발자는 원하는 AST 클래스를 반환 타입으로 사용할 수 있으며, 추상 구문 트리의 표현을 자유롭게 제어할 수 있습니다.
 
@@ -788,11 +786,11 @@ ANTLR4 코드 생성 옵션 중에는 `-visitor`와 `-listener`가 있습니다.
 > 예를 보여줘
 
 ## ChatGPT 응답:
-> 물론입니다. 아래는 ANTLR4를 사용하여 자바 코드를 분석하기 위한 간단한 예제입니다. AST 클래스로는 `JavaAST`를 정의하고, 이를 반환 타입으로 사용하도록 트리 비지터를 생성합니다.
+> 물론입니다. 아래는 ANTLR4를 사용하여 자바 코드를 분석하기 위한 간단한 예제입니다. AST 클래스로는 {% raw %}`JavaAST`{% endraw %}를 정의하고, 이를 반환 타입으로 사용하도록 트리 비지터를 생성합니다.
 
 Java.g4 (자바 문법 파일):
 
-```antlr
+{% raw %}```antlr
 grammar Java;
 
 options {
@@ -851,20 +849,20 @@ type : 'int'
        | 'float'
        | 'char'
        | Identifier;
-```
+```{% endraw %}
 
 JavaAST.java (AST 클래스 파일):
 
-```java
+{% raw %}```java
 public class JavaAST {
     // AST 클래스 구현 내용 생략
     // 필요한 필드와 메소드를 추가하여 추상 구문 트리를 표현
 }
-```
+```{% endraw %}
 
 그리고 코드에서 ANTLR4를 사용하여 트리 비지터를 생성하는 부분은 다음과 같이 설정합니다:
 
-```java
+{% raw %}```java
 ANTLRInputStream input = new ANTLRInputStream(code);
 JavaLexer lexer = new JavaLexer(input);
 CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -874,11 +872,11 @@ ParseTree tree = parser.compilationUnit();
 // 트리 비지터 생성 시 반환 타입을 JavaAST로 설정
 JavaVisitor<JavaAST> visitor = new JavaVisitor<>();
 JavaAST ast = visitor.visit(tree);
-```
+```{% endraw %}
 
-위 예제에서 `JavaVisitor`는 개발자가 직접 구현한 트리 비지터 클래스입니다. 이 클래스는 `visit` 메소드를 오버라이드하여 추상 구문 트리를 분석하고 필요한 정보를 수집하여 `JavaAST` 클래스의 인스턴스를 생성하도록 구현되어 있습니다. 이렇게 생성된 `JavaAST` 인스턴스는 추상 구문 트리의 표현을 담고 있으며, 개발자는 이를 활용하여 자바 코드를 분석하고 처리할 수 있습니다.
+위 예제에서 {% raw %}`JavaVisitor`{% endraw %}는 개발자가 직접 구현한 트리 비지터 클래스입니다. 이 클래스는 {% raw %}`visit`{% endraw %} 메소드를 오버라이드하여 추상 구문 트리를 분석하고 필요한 정보를 수집하여 {% raw %}`JavaAST`{% endraw %} 클래스의 인스턴스를 생성하도록 구현되어 있습니다. 이렇게 생성된 {% raw %}`JavaAST`{% endraw %} 인스턴스는 추상 구문 트리의 표현을 담고 있으며, 개발자는 이를 활용하여 자바 코드를 분석하고 처리할 수 있습니다.
 
-위 예제에서는 반환 타입을 `JavaAST`로 설정했지만, 개발자는 원하는 AST 클래스
+위 예제에서는 반환 타입을 {% raw %}`JavaAST`{% endraw %}로 설정했지만, 개발자는 원하는 AST 클래스
 
 ## ChatGPT 응답:
 > 를 정의하고 해당 클래스로 반환 타입을 설정할 수 있습니다. 이를 통해 추상 구문 트리의 표현을 자유롭게 제어할 수 있습니다.
@@ -887,11 +885,11 @@ JavaAST ast = visitor.visit(tree);
 > 비지터메소드의 반환클래스가 각각 다를 때는 어떻게 하나?
 
 ## ChatGPT 응답:
-> 비지터 메소드의 반환 클래스가 각각 다른 경우, ANTLR4에서는 `ParseTreeVisitor<원하는_반환_클래스>` 인터페이스를 사용하여 개별적으로 반환 타입을 처리할 수 있습니다. 이 인터페이스를 구현하고 각각의 비지터 메소드를 오버라이드하여 원하는 반환 타입을 지정할 수 있습니다.
+> 비지터 메소드의 반환 클래스가 각각 다른 경우, ANTLR4에서는 {% raw %}`ParseTreeVisitor<원하는_반환_클래스>`{% endraw %} 인터페이스를 사용하여 개별적으로 반환 타입을 처리할 수 있습니다. 이 인터페이스를 구현하고 각각의 비지터 메소드를 오버라이드하여 원하는 반환 타입을 지정할 수 있습니다.
 
 아래는 예시입니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -918,11 +916,11 @@ public class MyVisitor implements MyGrammarVisitor<Object>, ParseTreeVisitor<Obj
         return super.visit(tree);
     }
 }
-```
+```{% endraw %}
 
-위 예시에서 `MyVisitor`는 `MyGrammarVisitor<Object>`와 `ParseTreeVisitor<Object>` 인터페이스를 모두 구현하고 있습니다. `MyGrammarVisitor<Object>`는 ANTLR4가 자동으로 생성한 비지터 인터페이스로, `Object` 타입을 반환합니다. 그러나 `visitMyRule2` 메소드에서는 `Integer`를 반환하도록 오버라이드되어 있습니다.
+위 예시에서 {% raw %}`MyVisitor`{% endraw %}는 {% raw %}`MyGrammarVisitor<Object>`{% endraw %}와 {% raw %}`ParseTreeVisitor<Object>`{% endraw %} 인터페이스를 모두 구현하고 있습니다. {% raw %}`MyGrammarVisitor<Object>`{% endraw %}는 ANTLR4가 자동으로 생성한 비지터 인터페이스로, {% raw %}`Object`{% endraw %} 타입을 반환합니다. 그러나 {% raw %}`visitMyRule2`{% endraw %} 메소드에서는 {% raw %}`Integer`{% endraw %}를 반환하도록 오버라이드되어 있습니다.
 
-또한, `ParseTreeVisitor`의 `visit` 메소드를 오버라이드하여 트리의 루트를 방문할 때 반환 타입을 처리할 수 있습니다. 기본적으로 `visit` 메소드는 `null`을 반환하도록 구현되어 있지만, 원하는 반환 타입으로 오버라이드하여 사용할 수 있습니다.
+또한, {% raw %}`ParseTreeVisitor`{% endraw %}의 {% raw %}`visit`{% endraw %} 메소드를 오버라이드하여 트리의 루트를 방문할 때 반환 타입을 처리할 수 있습니다. 기본적으로 {% raw %}`visit`{% endraw %} 메소드는 {% raw %}`null`{% endraw %}을 반환하도록 구현되어 있지만, 원하는 반환 타입으로 오버라이드하여 사용할 수 있습니다.
 
 이렇게 하면 각각의 비지터 메소드에 대해 다른 반환 타입을 처리할 수 있습니다.
 
@@ -947,18 +945,18 @@ public class MyVisitor implements MyGrammarVisitor<Object>, ParseTreeVisitor<Obj
 > antlr4의 options에 대해서 상세히 알려줘.
 
 ## ChatGPT 응답:
-> ANTLR4에서 `options` 섹션은 파서 또는 렉서 그램 파일에서 사용되는 옵션들을 정의하는 데 사용됩니다. 이 옵션들은 ANTLR4 코드 생성 도구에 대한 지시사항을 제공하고, 코드 생성 동작을 변경하거나 사용자 정의할 수 있는 유연성을 제공합니다.
+> ANTLR4에서 {% raw %}`options`{% endraw %} 섹션은 파서 또는 렉서 그램 파일에서 사용되는 옵션들을 정의하는 데 사용됩니다. 이 옵션들은 ANTLR4 코드 생성 도구에 대한 지시사항을 제공하고, 코드 생성 동작을 변경하거나 사용자 정의할 수 있는 유연성을 제공합니다.
 
-`options` 섹션은 ANTLR 그램 파일의 맨 위에 위치하며, 중괄호 `{}`로 둘러싸여 있습니다. 각 옵션은 `key = value` 형식으로 작성되며, 여러 개의 옵션은 세미콜론(`;`)으로 구분됩니다. 여러 줄에 걸쳐 작성할 수도 있습니다.
+{% raw %}`options`{% endraw %} 섹션은 ANTLR 그램 파일의 맨 위에 위치하며, 중괄호 {% raw %}`{}`{% endraw %}로 둘러싸여 있습니다. 각 옵션은 {% raw %}`key = value`{% endraw %} 형식으로 작성되며, 여러 개의 옵션은 세미콜론({% raw %}`;`{% endraw %})으로 구분됩니다. 여러 줄에 걸쳐 작성할 수도 있습니다.
 
 가장 일반적인 옵션 중 일부는 다음과 같습니다:
 
-- `language`: 생성될 코드의 대상 언어를 지정합니다. 예를 들어, `language = Java;`는 Java 코드를 생성하도록 합니다.
-- `tokenVocab`: 토큰 파일이 위치한 파일 경로를 지정합니다. 이를 통해 렉서 그램과 파서 그램이 동일한 토큰 집합을 공유할 수 있습니다.
-- `superClass`: 생성된 파서 클래스의 상위 클래스를 지정합니다. 일반적으로 사용자 지정 기반 클래스를 지정하여 추가 동작을 구현할 수 있습니다.
-- `outputDirectory`: 생성된 코드가 저장될 디렉토리를 지정합니다. 기본적으로는 그램 파일과 동일한 디렉토리에 저장됩니다.
-- `listener`: 파서에 대한 리스너 클래스를 생성할지 여부를 지정합니다. `true`로 설정하면 리스너 클래스가 생성됩니다.
-- `visitor`: 파서에 대한 비지터 클래스를 생성할지 여부를 지정합니다. `true`로 설정하면 비지터 클래스가 생성됩니다.
+- {% raw %}`language`{% endraw %}: 생성될 코드의 대상 언어를 지정합니다. 예를 들어, {% raw %}`language = Java;`{% endraw %}는 Java 코드를 생성하도록 합니다.
+- {% raw %}`tokenVocab`{% endraw %}: 토큰 파일이 위치한 파일 경로를 지정합니다. 이를 통해 렉서 그램과 파서 그램이 동일한 토큰 집합을 공유할 수 있습니다.
+- {% raw %}`superClass`{% endraw %}: 생성된 파서 클래스의 상위 클래스를 지정합니다. 일반적으로 사용자 지정 기반 클래스를 지정하여 추가 동작을 구현할 수 있습니다.
+- {% raw %}`outputDirectory`{% endraw %}: 생성된 코드가 저장될 디렉토리를 지정합니다. 기본적으로는 그램 파일과 동일한 디렉토리에 저장됩니다.
+- {% raw %}`listener`{% endraw %}: 파서에 대한 리스너 클래스를 생성할지 여부를 지정합니다. {% raw %}`true`{% endraw %}로 설정하면 리스너 클래스가 생성됩니다.
+- {% raw %}`visitor`{% endraw %}: 파서에 대한 비지터 클래스를 생성할지 여부를 지정합니다. {% raw %}`true`{% endraw %}로 설정하면 비지터 클래스가 생성됩니다.
 
 이 외에도 다양한 옵션을 사용할 수 있으며, 세부적인 동작을 커스터마이즈하거나 코드 생성 동작을 변경하는 데 사용할 수 있습니다. 사용 가능한 옵션 및 그 구체적인 사용법은 ANTLR4 공식 문서를 참조하는 것이 가장 좋습니다.
 
@@ -968,13 +966,13 @@ public class MyVisitor implements MyGrammarVisitor<Object>, ParseTreeVisitor<Obj
 ## ChatGPT 응답:
 > ANTLR4에서 유니코드와 관련된 옵션은 다음과 같습니다:
 
-1. `encoding`: 그램 파일의 인코딩을 지정합니다. 예를 들어, `encoding = "UTF-8";`은 그램 파일이 UTF-8로 인코딩되었음을 명시적으로 지정합니다.
+1. {% raw %}`encoding`{% endraw %}: 그램 파일의 인코딩을 지정합니다. 예를 들어, {% raw %}`encoding = "UTF-8";`{% endraw %}은 그램 파일이 UTF-8로 인코딩되었음을 명시적으로 지정합니다.
 
-2. `charVocabulary`: 유니코드 문자 범위를 지정하여 특정 문자 집합을 토큰으로 정의할 수 있습니다. 예를 들어, `charVocabulary = 'a'..'z' | 'A'..'Z';`는 알파벳 대소문자를 포함한 문자 집합을 토큰으로 정의합니다.
+2. {% raw %}`charVocabulary`{% endraw %}: 유니코드 문자 범위를 지정하여 특정 문자 집합을 토큰으로 정의할 수 있습니다. 예를 들어, {% raw %}`charVocabulary = 'a'..'z' | 'A'..'Z';`{% endraw %}는 알파벳 대소문자를 포함한 문자 집합을 토큰으로 정의합니다.
 
-3. `unicodeEscapes`: 유니코드 이스케이프 시퀀스를 허용할지 여부를 지정합니다. 기본적으로는 `true`로 설정되어 있으며, 유니코드 이스케이프를 사용하여 특수 문자를 표현할 수 있습니다. 예를 들어, `\u003C`는 '<' 문자를 나타냅니다.
+3. {% raw %}`unicodeEscapes`{% endraw %}: 유니코드 이스케이프 시퀀스를 허용할지 여부를 지정합니다. 기본적으로는 {% raw %}`true`{% endraw %}로 설정되어 있으며, 유니코드 이스케이프를 사용하여 특수 문자를 표현할 수 있습니다. 예를 들어, {% raw %}`\u003C`{% endraw %}는 '<' 문자를 나타냅니다.
 
-4. `escapeNonAscii`: 비 ASCII 문자를 이스케이프할지 여부를 지정합니다. 기본적으로는 `false`로 설정되어 있으며, 비 ASCII 문자는 그대로 유지됩니다. `true`로 설정하면 비 ASCII 문자가 이스케이프되어 유니코드 이스케이프 시퀀스로 표현됩니다.
+4. {% raw %}`escapeNonAscii`{% endraw %}: 비 ASCII 문자를 이스케이프할지 여부를 지정합니다. 기본적으로는 {% raw %}`false`{% endraw %}로 설정되어 있으며, 비 ASCII 문자는 그대로 유지됩니다. {% raw %}`true`{% endraw %}로 설정하면 비 ASCII 문자가 이스케이프되어 유니코드 이스케이프 시퀀스로 표현됩니다.
 
 이러한 옵션을 사용하여 ANTLR4 그램 파일에서 유니코드 관련 동작을 지정할 수 있습니다. 각 옵션의 사용법과 세부 사항은 ANTLR4 공식 문서를 참조하는 것이 가장 좋습니다.
 
@@ -982,7 +980,7 @@ public class MyVisitor implements MyGrammarVisitor<Object>, ParseTreeVisitor<Obj
 >  위에서 말하는 그램 파일이 뭐야?
 
 ## ChatGPT 응답:
-> "그램 파일"은 ANTLR(ANother Tool for Language Recognition)에서 사용되는 문법 정의 파일을 의미합니다. ANTLR은 언어 인식과 변환을 위한 강력한 도구로, 문법을 정의하고 이를 기반으로 파서 및 렉서 코드를 자동으로 생성하는 기능을 제공합니다. 이러한 문법 정의 파일은 보통 `.g4` 확장자를 가지며, ANTLR 문법을 기반으로 작성됩니다.
+> "그램 파일"은 ANTLR(ANother Tool for Language Recognition)에서 사용되는 문법 정의 파일을 의미합니다. ANTLR은 언어 인식과 변환을 위한 강력한 도구로, 문법을 정의하고 이를 기반으로 파서 및 렉서 코드를 자동으로 생성하는 기능을 제공합니다. 이러한 문법 정의 파일은 보통 {% raw %}`.g4`{% endraw %} 확장자를 가지며, ANTLR 문법을 기반으로 작성됩니다.
 
 그램 파일은 언어의 문법을 형식적으로 정의하고, 구문 분석 및 토큰화를 위한 규칙을 포함합니다. 이 파일에서 정의된 문법은 ANTLR 코드 생성 도구에 의해 사용되어 파서 및 렉서 클래스를 생성하는 데 사용됩니다. 이렇게 생성된 클래스를 통해 입력된 텍스트를 분석하고, 토큰화하고, 문법 규칙에 따라 해석하거나 변환하는 작업을 수행할 수 있습니다.
 
@@ -998,15 +996,15 @@ public class MyVisitor implements MyGrammarVisitor<Object>, ParseTreeVisitor<Obj
 
 일반적으로 그램 파일의 첫 번째 줄에 패키지 선언을 추가하여 생성되는 코드의 패키지를 지정할 수 있습니다. 예를 들어, Java를 대상으로 하는 경우 다음과 같이 작성할 수 있습니다:
 
-```
+{% raw %}```
 grammar MyGrammar;
 
 package com.example.mygrammar;
 
 // 그램 파일의 내용...
-```
+```{% endraw %}
 
-위의 예시에서 `package com.example.mygrammar;`은 생성되는 Java 코드의 패키지를 `com.example.mygrammar`로 지정합니다.
+위의 예시에서 {% raw %}`package com.example.mygrammar;`{% endraw %}은 생성되는 Java 코드의 패키지를 {% raw %}`com.example.mygrammar`{% endraw %}로 지정합니다.
 
 마찬가지로, 다른 언어를 대상으로 하는 경우에도 해당 언어의 패키지 선언 규칙에 따라 그램 파일의 첫 번째 줄에 패키지를 작성하면 됩니다. 이를 통해 생성되는 코드의 패키지를 원하는 대로 지정할 수 있습니다.
 
@@ -1016,11 +1014,11 @@ package com.example.mygrammar;
 > encoding옵션의 디폴트값은 뭐야?
 
 ## ChatGPT 응답:
-> ANTLR4에서 `encoding` 옵션의 기본값은 `UTF-8`입니다. 이는 ANTLR4 그램 파일이 UTF-8로 인코딩되었음을 가정하고, 해당 인코딩으로 파일을 읽어들이는 기본 동작을 수행합니다.
+> ANTLR4에서 {% raw %}`encoding`{% endraw %} 옵션의 기본값은 {% raw %}`UTF-8`{% endraw %}입니다. 이는 ANTLR4 그램 파일이 UTF-8로 인코딩되었음을 가정하고, 해당 인코딩으로 파일을 읽어들이는 기본 동작을 수행합니다.
 
-그러나 ANTLR4의 `encoding` 옵션은 선택적으로 지정할 수 있으며, 필요에 따라 다른 인코딩을 사용할 수도 있습니다. 그램 파일의 첫 번째 줄에 `options` 섹션을 사용하여 `encoding` 옵션을 지정할 수 있습니다. 예를 들어, 다음과 같이 작성할 수 있습니다:
+그러나 ANTLR4의 {% raw %}`encoding`{% endraw %} 옵션은 선택적으로 지정할 수 있으며, 필요에 따라 다른 인코딩을 사용할 수도 있습니다. 그램 파일의 첫 번째 줄에 {% raw %}`options`{% endraw %} 섹션을 사용하여 {% raw %}`encoding`{% endraw %} 옵션을 지정할 수 있습니다. 예를 들어, 다음과 같이 작성할 수 있습니다:
 
-```
+{% raw %}```
 grammar MyGrammar;
 
 options {
@@ -1028,23 +1026,23 @@ options {
 }
 
 // 그램 파일의 내용...
-```
+```{% endraw %}
 
-위의 예시에서는 `encoding` 옵션을 `ISO-8859-1`로 설정하였습니다. 따라서 ANTLR4은 그램 파일을 `ISO-8859-1` 인코딩으로 읽어들이게 됩니다.
+위의 예시에서는 {% raw %}`encoding`{% endraw %} 옵션을 {% raw %}`ISO-8859-1`{% endraw %}로 설정하였습니다. 따라서 ANTLR4은 그램 파일을 {% raw %}`ISO-8859-1`{% endraw %} 인코딩으로 읽어들이게 됩니다.
 
-기본적으로 `encoding` 옵션을 명시적으로 설정하지 않은 경우, ANTLR4은 `UTF-8` 인코딩을 사용하여 그램 파일을 처리합니다.
+기본적으로 {% raw %}`encoding`{% endraw %} 옵션을 명시적으로 설정하지 않은 경우, ANTLR4은 {% raw %}`UTF-8`{% endraw %} 인코딩을 사용하여 그램 파일을 처리합니다.
 
 ## 사용자 입력:
 > encoding옵션을 UTF-8로 하면, parser에서 읽어들이는게 자동으로 UTF-8로 encoding한다는 거지?
 
 ## ChatGPT 응답:
-> 아니요, `encoding` 옵션은 ANTLR4 코드 생성 도구가 그램 파일을 읽어들일 때 사용되는 인코딩을 지정하는 것입니다. `encoding` 옵션은 ANTLR4 코드 생성 도구에게 그램 파일의 인코딩 정보를 제공하여 파일을 올바르게 읽을 수 있도록 도와줍니다.
+> 아니요, {% raw %}`encoding`{% endraw %} 옵션은 ANTLR4 코드 생성 도구가 그램 파일을 읽어들일 때 사용되는 인코딩을 지정하는 것입니다. {% raw %}`encoding`{% endraw %} 옵션은 ANTLR4 코드 생성 도구에게 그램 파일의 인코딩 정보를 제공하여 파일을 올바르게 읽을 수 있도록 도와줍니다.
 
-ANTLR4은 그램 파일을 읽어들일 때 `encoding` 옵션에 지정된 인코딩을 사용하여 파일을 읽습니다. 그램 파일의 인코딩이 `UTF-8`로 설정되어 있다면, `encoding = "UTF-8";`과 같이 옵션을 명시적으로 지정하여 ANTLR4에게 해당 인코딩을 사용하도록 알려줄 수 있습니다.
+ANTLR4은 그램 파일을 읽어들일 때 {% raw %}`encoding`{% endraw %} 옵션에 지정된 인코딩을 사용하여 파일을 읽습니다. 그램 파일의 인코딩이 {% raw %}`UTF-8`{% endraw %}로 설정되어 있다면, {% raw %}`encoding = "UTF-8";`{% endraw %}과 같이 옵션을 명시적으로 지정하여 ANTLR4에게 해당 인코딩을 사용하도록 알려줄 수 있습니다.
 
-하지만 `encoding` 옵션은 코드를 실행하는 파서나 렉서의 동작과는 직접적인 연관이 없습니다. 즉, `encoding` 옵션은 코드 생성 도구의 파일 읽기 과정에만 영향을 미치며, 실제로 파서나 렉서에서 문자열을 처리할 때 인코딩이 자동으로 변환되지는 않습니다.
+하지만 {% raw %}`encoding`{% endraw %} 옵션은 코드를 실행하는 파서나 렉서의 동작과는 직접적인 연관이 없습니다. 즉, {% raw %}`encoding`{% endraw %} 옵션은 코드 생성 도구의 파일 읽기 과정에만 영향을 미치며, 실제로 파서나 렉서에서 문자열을 처리할 때 인코딩이 자동으로 변환되지는 않습니다.
 
-따라서, 만약 입력 텍스트의 인코딩이 `UTF-8`인 경우, 코드 생성 후에도 파서나 렉서에서 해당 인코딩으로 문자열을 처리해야 합니다. 적절한 인코딩을 사용하여 입력 텍스트를 파서나 렉서로 전달하는 것은 개발자의 책임이며, 코드 생성 도구의 `encoding` 옵션과는 별개의 문제입니다.
+따라서, 만약 입력 텍스트의 인코딩이 {% raw %}`UTF-8`{% endraw %}인 경우, 코드 생성 후에도 파서나 렉서에서 해당 인코딩으로 문자열을 처리해야 합니다. 적절한 인코딩을 사용하여 입력 텍스트를 파서나 렉서로 전달하는 것은 개발자의 책임이며, 코드 생성 도구의 {% raw %}`encoding`{% endraw %} 옵션과는 별개의 문제입니다.
 
 ## 사용자 입력:
 > 인텔리제이에서 열고 있는 파일의 encoding을 변경하려면
@@ -1082,9 +1080,9 @@ ANTLR4은 그램 파일을 읽어들일 때 `encoding` 옵션에 지정된 인�
 ## ChatGPT 응답:
 > 알겠습니다. ANTLR4 그램 파일에서 패키지를 정의하는 방법을 알려드리겠습니다.
 
-ANTLR4 그램 파일에서 패키지를 정의하려면 다음과 같이 파일 상단에 `package` 문을 추가하면 됩니다:
+ANTLR4 그램 파일에서 패키지를 정의하려면 다음과 같이 파일 상단에 {% raw %}`package`{% endraw %} 문을 추가하면 됩니다:
 
-```antlr
+{% raw %}```antlr
 grammar YourGrammarName;
 
 // 패키지 정의
@@ -1092,9 +1090,9 @@ package com.example.yourpackage;
 
 // 그램 파일의 내용과 규칙들...
 // ...
-```
+```{% endraw %}
 
-위의 예시에서 `com.example.yourpackage`는 원하는 패키지 이름으로 대체되어야 합니다. 패키지 이름은 일반적인 Java 패키지 명명 규칙을 따라야 하며, 소문자로 시작하고 점으로 구분된 패키지 계층을 나타냅니다.
+위의 예시에서 {% raw %}`com.example.yourpackage`{% endraw %}는 원하는 패키지 이름으로 대체되어야 합니다. 패키지 이름은 일반적인 Java 패키지 명명 규칙을 따라야 하며, 소문자로 시작하고 점으로 구분된 패키지 계층을 나타냅니다.
 
 패키지를 정의한 후에는 해당 패키지의 경로에 그램 파일이 생성되거나 위치하도록 소스 파일을 저장하면 됩니다. 이렇게 하면 ANTLR4가 해당 패키지의 컨텍스트에서 생성된 코드를 생성하고 관련 파일을 생성하게 됩니다.
 
@@ -1104,15 +1102,15 @@ package com.example.yourpackage;
 > package com.datastreams.grammar; 이렇게 했는데 오류나.
 
 ## ChatGPT 응답:
-> `package com.datastreams.grammar;`로 패키지를 정의했는데도 오류가 발생한다면 몇 가지 가능한 원인이 있을 수 있습니다. 다음 사항을 확인해보세요:
+> {% raw %}`package com.datastreams.grammar;`{% endraw %}로 패키지를 정의했는데도 오류가 발생한다면 몇 가지 가능한 원인이 있을 수 있습니다. 다음 사항을 확인해보세요:
 
 1. 패키지 정의가 그램 파일의 가장 첫 줄에 위치해 있는지 확인하세요. 패키지 정의는 그램 파일의 가장 처음에 위치해야 합니다.
 
-2. 패키지 이름이 유효한 Java 패키지 이름인지 확인하세요. 패키지 이름은 영숫자, 점(`.`), 밑줄(`_`)로 구성되며, 소문자로 시작해야 합니다. 대소문자를 정확히 구분해야 합니다. 예를 들어, `com.datastreams.grammar`와 같은 형식을 따라야 합니다.
+2. 패키지 이름이 유효한 Java 패키지 이름인지 확인하세요. 패키지 이름은 영숫자, 점({% raw %}`.`{% endraw %}), 밑줄({% raw %}`_`{% endraw %})로 구성되며, 소문자로 시작해야 합니다. 대소문자를 정확히 구분해야 합니다. 예를 들어, {% raw %}`com.datastreams.grammar`{% endraw %}와 같은 형식을 따라야 합니다.
 
-3. 그램 파일이 올바른 디렉토리에 위치해 있는지 확인하세요. 패키지 정의에 지정한 패키지 이름과 일치하는 디렉토리 구조를 유지해야 합니다. 예를 들어, `com.datastreams.grammar` 패키지를 정의한 경우, 그램 파일은 `com/datastreams/grammar` 디렉토리에 위치해야 합니다.
+3. 그램 파일이 올바른 디렉토리에 위치해 있는지 확인하세요. 패키지 정의에 지정한 패키지 이름과 일치하는 디렉토리 구조를 유지해야 합니다. 예를 들어, {% raw %}`com.datastreams.grammar`{% endraw %} 패키지를 정의한 경우, 그램 파일은 {% raw %}`com/datastreams/grammar`{% endraw %} 디렉토리에 위치해야 합니다.
 
-4. 패키지 정의 문장 뒤에는 세미콜론(`;`)이 있어야 합니다. 예를 들어, `package com.datastreams.grammar;`와 같이 세미콜론을 포함해야 합니다.
+4. 패키지 정의 문장 뒤에는 세미콜론({% raw %}`;`{% endraw %})이 있어야 합니다. 예를 들어, {% raw %}`package com.datastreams.grammar;`{% endraw %}와 같이 세미콜론을 포함해야 합니다.
 
 위의 사항을 확인하고 여전히 오류가 발생한다면, 정확한 오류 메시지와 함께 추가 정보를 제공해주시면 더 자세한 도움을 드릴 수 있습니다.
 
@@ -1120,7 +1118,7 @@ package com.example.yourpackage;
 > error(50): XMLLexer.g4:32:8: syntax error: missing COLON at 'com' while matching a rule
 
 ## ChatGPT 응답:
-> `error(50): XMLLexer.g4:32:8: syntax error: missing COLON at 'com' while matching a rule` 오류는 `XMLLexer.g4` 파일의 32번째 줄에서 발생한 구문 오류입니다. 해당 오류는 규칙을 일치시키는 동안 `com` 부분에서 콜론(`:`)이 누락되었다는 의미입니다.
+> {% raw %}`error(50): XMLLexer.g4:32:8: syntax error: missing COLON at 'com' while matching a rule`{% endraw %} 오류는 {% raw %}`XMLLexer.g4`{% endraw %} 파일의 32번째 줄에서 발생한 구문 오류입니다. 해당 오류는 규칙을 일치시키는 동안 {% raw %}`com`{% endraw %} 부분에서 콜론({% raw %}`:`{% endraw %})이 누락되었다는 의미입니다.
 
 패키지 정의는 ANTLR4 그램 파일의 가장 첫 줄에 위치해야 합니다. 패키지 정의를 수정하여 오류를 해결할 수 있습니다. 정확한 오류 원인과 함께 해당 줄의 코드를 보여주시면 더 자세한 도움을 드릴 수 있습니다.
 
@@ -1128,20 +1126,20 @@ package com.example.yourpackage;
 > 맨 위에 놓으니 mismatched input 'package' expecting {DOC_COMMENT, 'lexer', 'parser', 'grammar'} 이렇게 되는데.
 
 ## ChatGPT 응답:
-> `mismatched input 'package' expecting {DOC_COMMENT, 'lexer', 'parser', 'grammar'}` 오류는 ANTLR4 그램 파일의 맨 위에 `package` 키워드를 사용하여 패키지를 정의할 때 발생하는 구문 오류입니다. 이 오류는 ANTLR4 그램 파일에서 패키지 정의 위치가 올바르지 않거나, 다른 키워드가 필요한 위치에 `package` 키워드가 사용되었을 때 발생할 수 있습니다.
+> {% raw %}`mismatched input 'package' expecting {DOC_COMMENT, 'lexer', 'parser', 'grammar'}`{% endraw %} 오류는 ANTLR4 그램 파일의 맨 위에 {% raw %}`package`{% endraw %} 키워드를 사용하여 패키지를 정의할 때 발생하는 구문 오류입니다. 이 오류는 ANTLR4 그램 파일에서 패키지 정의 위치가 올바르지 않거나, 다른 키워드가 필요한 위치에 {% raw %}`package`{% endraw %} 키워드가 사용되었을 때 발생할 수 있습니다.
 
 패키지 정의는 ANTLR4 그램 파일의 가장 첫 줄에 위치해야 합니다. 예를 들어, 다음과 같이 파일의 가장 첫 줄에 패키지 정의를 작성해야 합니다:
 
-```antlr
+{% raw %}```antlr
 grammar YourGrammarName;
 
 package com.datastreams.grammar;
 
 // 그램 파일의 내용과 규칙들...
 // ...
-```
+```{% endraw %}
 
-위의 예시에서 `com.datastreams.grammar`은 원하는 패키지 이름으로 대체되어야 합니다. 패키지 이름은 일반적인 Java 패키지 명명 규칙을 따라야 하며, 소문자로 시작하고 점으로 구분된 패키지 계층을 나타냅니다.
+위의 예시에서 {% raw %}`com.datastreams.grammar`{% endraw %}은 원하는 패키지 이름으로 대체되어야 합니다. 패키지 이름은 일반적인 Java 패키지 명명 규칙을 따라야 하며, 소문자로 시작하고 점으로 구분된 패키지 계층을 나타냅니다.
 
 패키지를 올바르게 정의하고 파일을 저장한 후에는 에러가 더 이상 발생하지 않아야 합니다. 만약 계속해서 오류가 발생한다면, 정확한 오류 메시지와 함께 해당 줄의 코드를 보여주시면 더 자세한 도움을 드릴 수 있습니다.
 
@@ -1149,9 +1147,9 @@ package com.datastreams.grammar;
 > xml에 대한 XMLLexer.g4와 XMLParser.g4를 정의해서 자바코드를 생성했어. 어떤 xml을 파일을 읽어 들여서 파싱하는 걸 해보고 싶은데, 만들어줘.
 
 ## ChatGPT 응답:
-> 아래는 XML 파일을 읽어들여 파싱하는 Java 코드 예시입니다. 이 코드는 ANTLR4로 생성된 `XMLLexer` 및 `XMLParser`를 사용하여 XML 파일을 파싱합니다.
+> 아래는 XML 파일을 읽어들여 파싱하는 Java 코드 예시입니다. 이 코드는 ANTLR4로 생성된 {% raw %}`XMLLexer`{% endraw %} 및 {% raw %}`XMLParser`{% endraw %}를 사용하여 XML 파일을 파싱합니다.
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -1182,11 +1180,11 @@ public class XMLParserExample {
         }
     }
 }
-```
+```{% endraw %}
 
-위의 코드에서 `XMLCustomListener`는 사용자가 정의한 리스너 클래스로, XML의 각 요소에 대한 처리 로직을 구현할 수 있습니다. 이 리스너 클래스는 ANTLR4가 자동으로 생성한 `XMLBaseListener`를 상속받아 구현할 수 있습니다. 예를 들어, `enterElement` 메소드를 재정의하여 XML 요소에 진입할 때 수행할 동작을 구현할 수 있습니다.
+위의 코드에서 {% raw %}`XMLCustomListener`{% endraw %}는 사용자가 정의한 리스너 클래스로, XML의 각 요소에 대한 처리 로직을 구현할 수 있습니다. 이 리스너 클래스는 ANTLR4가 자동으로 생성한 {% raw %}`XMLBaseListener`{% endraw %}를 상속받아 구현할 수 있습니다. 예를 들어, {% raw %}`enterElement`{% endraw %} 메소드를 재정의하여 XML 요소에 진입할 때 수행할 동작을 구현할 수 있습니다.
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import YourPackageName.XMLParser;
@@ -1199,11 +1197,11 @@ public class XMLCustomListener extends XMLParserBaseListener {
         System.out.println("Enter element: " + elementName);
     }
 }
-```
+```{% endraw %}
 
-위의 예시는 간단히 XML 요소 이름을 출력하는 동작을 구현한 것입니다. 원하는 동작에 따라 `XMLCustomListener` 클래스를 수정하고, 필요한 이벤트 메소드를 재정의하여 원하는 동작을 수행할 수 있습니다.
+위의 예시는 간단히 XML 요소 이름을 출력하는 동작을 구현한 것입니다. 원하는 동작에 따라 {% raw %}`XMLCustomListener`{% endraw %} 클래스를 수정하고, 필요한 이벤트 메소드를 재정의하여 원하는 동작을 수행할 수 있습니다.
 
-참고로, 코드 예시에서 `YourPackageName`은 패키지 이름을 나타내는 자리이며, 실제 사용하시는 패키지 이름으로 대체해야 합니다.
+참고로, 코드 예시에서 {% raw %}`YourPackageName`{% endraw %}은 패키지 이름을 나타내는 자리이며, 실제 사용하시는 패키지 이름으로 대체해야 합니다.
 
 위의 코드 예시를 참고하여 원하는 XML 파일을 파싱하고 원하는 동작을 구현해보세요.
 
@@ -1211,9 +1209,9 @@ public class XMLCustomListener extends XMLParserBaseListener {
 > build.gradle에 들어갈 antlr4 디펜던시 알려줘.
 
 ## ChatGPT 응답:
-> 아래는 Gradle 프로젝트의 `build.gradle` 파일에 추가하여 ANTLR4를 사용할 수 있는 디펜던시 설정 예시입니다.
+> 아래는 Gradle 프로젝트의 {% raw %}`build.gradle`{% endraw %} 파일에 추가하여 ANTLR4를 사용할 수 있는 디펜던시 설정 예시입니다.
 
-```groovy
+{% raw %}```groovy
 plugins {
     id 'java'
 }
@@ -1236,11 +1234,11 @@ task generateGrammarSource(type: JavaExec) {
 
 // 컴파일 태스크가 코드 생성 태스크 이후에 실행되도록 의존성 설정
 compileJava.dependsOn generateGrammarSource
-```
+```{% endraw %}
 
-위의 예시에서 `YourPackageName`은 사용자의 패키지 이름으로 대체해야 합니다. 또한, `YourGrammar.g4`은 사용자가 작성한 ANTLR4 그램 파일의 이름으로 대체해야 합니다.
+위의 예시에서 {% raw %}`YourPackageName`{% endraw %}은 사용자의 패키지 이름으로 대체해야 합니다. 또한, {% raw %}`YourGrammar.g4`{% endraw %}은 사용자가 작성한 ANTLR4 그램 파일의 이름으로 대체해야 합니다.
 
-위의 `build.gradle` 파일을 참고하여 프로젝트의 `build.gradle` 파일에 디펜던시와 ANTLR4 코드 생성 태스크를 추가한 후, ANTLR4 그램 파일을 작성하여 코드를 생성할 수 있습니다. `generateGrammarSource` 태스크를 실행하면 ANTLR4가 설정한 출력 디렉토리와 패키지 이름에 따라 자바 코드가 생성됩니다.
+위의 {% raw %}`build.gradle`{% endraw %} 파일을 참고하여 프로젝트의 {% raw %}`build.gradle`{% endraw %} 파일에 디펜던시와 ANTLR4 코드 생성 태스크를 추가한 후, ANTLR4 그램 파일을 작성하여 코드를 생성할 수 있습니다. {% raw %}`generateGrammarSource`{% endraw %} 태스크를 실행하면 ANTLR4가 설정한 출력 디렉토리와 패키지 이름에 따라 자바 코드가 생성됩니다.
 
 ## 사용자 입력:
 > org.junit:junit-bom:5.9.1 이걸로 만들수 있는 예제 테스트 케이스 만들어줘.
@@ -1248,7 +1246,7 @@ compileJava.dependsOn generateGrammarSource
 ## ChatGPT 응답:
 > 아래는 JUnit 5.9.1을 사용하여 작성된 간단한 예제 테스트 케이스입니다.
 
-```java
+{% raw %}```java
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -1260,11 +1258,11 @@ public class ExampleTest {
         assertEquals(5, result);
     }
 }
-```
+```{% endraw %}
 
-위의 예제는 `ExampleTest`라는 테스트 클래스를 정의하고, `testAddition`이라는 테스트 메소드를 작성한 것입니다. `Calculator.add` 메소드의 결과와 5를 비교하여 예상 결과와 일치하는지 확인하는 단언문(`assertEquals`)을 사용하였습니다.
+위의 예제는 {% raw %}`ExampleTest`{% endraw %}라는 테스트 클래스를 정의하고, {% raw %}`testAddition`{% endraw %}이라는 테스트 메소드를 작성한 것입니다. {% raw %}`Calculator.add`{% endraw %} 메소드의 결과와 5를 비교하여 예상 결과와 일치하는지 확인하는 단언문({% raw %}`assertEquals`{% endraw %})을 사용하였습니다.
 
-위의 테스트 케이스를 사용하여 JUnit 5.9.1을 기반으로 테스트를 수행할 수 있습니다. 이 예제는 두 개의 정수를 더하는 `Calculator` 클래스의 `add` 메소드를 테스트하는 예제입니다. 사용자는 필요에 따라 `Calculator` 클래스를 작성하고, `add` 메소드를 구현하여 테스트 케이스를 실행할 수 있습니다.
+위의 테스트 케이스를 사용하여 JUnit 5.9.1을 기반으로 테스트를 수행할 수 있습니다. 이 예제는 두 개의 정수를 더하는 {% raw %}`Calculator`{% endraw %} 클래스의 {% raw %}`add`{% endraw %} 메소드를 테스트하는 예제입니다. 사용자는 필요에 따라 {% raw %}`Calculator`{% endraw %} 클래스를 작성하고, {% raw %}`add`{% endraw %} 메소드를 구현하여 테스트 케이스를 실행할 수 있습니다.
 
 ## 사용자 입력:
 >     @Test
@@ -1274,20 +1272,20 @@ public class ExampleTest {
  테스트 코드의 일부 인데, src/main/resource 디렉토리 밑에 있는 파일을 지정할려면 어떻게 하나?
 
 ## ChatGPT 응답:
-> JUnit 테스트 코드에서 `src/main/resources` 디렉토리에 있는 파일을 참조하려면 다음과 같이 경로를 지정할 수 있습니다.
+> JUnit 테스트 코드에서 {% raw %}`src/main/resources`{% endraw %} 디렉토리에 있는 파일을 참조하려면 다음과 같이 경로를 지정할 수 있습니다.
 
-```java
+{% raw %}```java
 @Test
 public void parseTest() {
     // 읽어들일 XML 파일 경로
     String filePath = getClass().getResource("/your/xml/file.xml").getPath();
     // 나머지 테스트 코드
 }
-```
+```{% endraw %}
 
-위의 코드에서 `getResource()` 메소드를 사용하여 클래스 경로 상의 파일을 가져옵니다. `/your/xml/file.xml`는 `src/main/resources` 디렉토리를 기준으로 한 상대 경로입니다. `/`로 시작하는 경로는 클래스 경로의 루트를 나타냅니다. `getPath()` 메소드를 호출하여 파일의 절대 경로를 얻을 수 있습니다.
+위의 코드에서 {% raw %}`getResource()`{% endraw %} 메소드를 사용하여 클래스 경로 상의 파일을 가져옵니다. {% raw %}`/your/xml/file.xml`{% endraw %}는 {% raw %}`src/main/resources`{% endraw %} 디렉토리를 기준으로 한 상대 경로입니다. {% raw %}`/`{% endraw %}로 시작하는 경로는 클래스 경로의 루트를 나타냅니다. {% raw %}`getPath()`{% endraw %} 메소드를 호출하여 파일의 절대 경로를 얻을 수 있습니다.
 
-따라서, `getClass().getResource("/your/xml/file.xml").getPath()`를 사용하여 `src/main/resources` 디렉토리에 있는 XML 파일의 절대 경로를 가져올 수 있습니다. 이 경로를 테스트 코드에서 사용할 수 있습니다.
+따라서, {% raw %}`getClass().getResource("/your/xml/file.xml").getPath()`{% endraw %}를 사용하여 {% raw %}`src/main/resources`{% endraw %} 디렉토리에 있는 XML 파일의 절대 경로를 가져올 수 있습니다. 이 경로를 테스트 코드에서 사용할 수 있습니다.
 
 ## 사용자 입력:
 > antlr4가 생성한 자바코드에 SerializedATN 이름이 있는데...ATN이 뭐야?
@@ -1339,7 +1337,7 @@ ParserRuleContext 클래스는 ANTLR4 파서에서 매우 중요한 역할을 �
 
 아래는 예시 코드입니다:
 
-```java
+{% raw %}```java
 import com.datastreams.grammar.XMLParser;
 
 public class XMLCustomListener extends XMLBaseListener {
@@ -1360,9 +1358,9 @@ public class XMLCustomListener extends XMLBaseListener {
         printStartElement = true;
     }
 }
-```
+```{% endraw %}
 
-위 코드에서 `printStartElement` 변수는 시작 태그를 출력할지 여부를 나타내는 상태 변수입니다. `enterElement` 메서드에서 `printStartElement`이 `true`인 경우에만 시작 태그를 출력하고, `exitElement` 메서드에서는 종료 태그를 출력한 후 `printStartElement`을 다시 `true`로 설정합니다. 이렇게 함으로써 시작 태그와 종료 태그가 함께 있는 경우에는 시작 태그만 한 번만 출력됩니다.
+위 코드에서 {% raw %}`printStartElement`{% endraw %} 변수는 시작 태그를 출력할지 여부를 나타내는 상태 변수입니다. {% raw %}`enterElement`{% endraw %} 메서드에서 {% raw %}`printStartElement`{% endraw %}이 {% raw %}`true`{% endraw %}인 경우에만 시작 태그를 출력하고, {% raw %}`exitElement`{% endraw %} 메서드에서는 종료 태그를 출력한 후 {% raw %}`printStartElement`{% endraw %}을 다시 {% raw %}`true`{% endraw %}로 설정합니다. 이렇게 함으로써 시작 태그와 종료 태그가 함께 있는 경우에는 시작 태그만 한 번만 출력됩니다.
 
 이렇게 수정된 XMLCustomListener를 사용하면, 원하는 대로 시작 태그만 출력할 수 있습니다.
 
@@ -1370,9 +1368,9 @@ public class XMLCustomListener extends XMLBaseListener {
 > 아..답답하다..그게 아니고, NAME만 출력하고 싶다고.
 
 ## ChatGPT 응답:
-> 죄송합니다, 오해가 있었습니다. NAME만 출력하고 싶다면 `ctx.Name()`을 사용하면 됩니다. `ctx.start` 대신 `ctx.Name()`을 사용하여 현재 요소의 이름을 가져올 수 있습니다. 아래는 수정된 코드 예시입니다:
+> 죄송합니다, 오해가 있었습니다. NAME만 출력하고 싶다면 {% raw %}`ctx.Name()`{% endraw %}을 사용하면 됩니다. {% raw %}`ctx.start`{% endraw %} 대신 {% raw %}`ctx.Name()`{% endraw %}을 사용하여 현재 요소의 이름을 가져올 수 있습니다. 아래는 수정된 코드 예시입니다:
 
-```java
+{% raw %}```java
 import com.datastreams.grammar.XMLParser;
 
 public class XMLCustomListener extends XMLBaseListener {
@@ -1383,9 +1381,9 @@ public class XMLCustomListener extends XMLBaseListener {
         System.out.println("Element Name: " + elementName);
     }
 }
-```
+```{% endraw %}
 
-위 코드에서 `ctx.Name()`은 현재 요소의 이름을 나타내는 토큰입니다. `getText()`를 호출하여 해당 토큰의 텍스트 값을 가져올 수 있습니다. 위 코드는 `enterElement` 메서드에서 각 요소의 이름을 출력합니다.
+위 코드에서 {% raw %}`ctx.Name()`{% endraw %}은 현재 요소의 이름을 나타내는 토큰입니다. {% raw %}`getText()`{% endraw %}를 호출하여 해당 토큰의 텍스트 값을 가져올 수 있습니다. 위 코드는 {% raw %}`enterElement`{% endraw %} 메서드에서 각 요소의 이름을 출력합니다.
 
 이렇게 수정된 XMLCustomListener를 사용하면, 시작 태그의 이름만 출력됩니다.
 
@@ -1393,53 +1391,53 @@ public class XMLCustomListener extends XMLBaseListener {
 > XMLParser.ElementContext ctx에서 ctx.getToken에서  getToken(int ttype, int) 여기서 ttype이 뭐야?
 
 ## ChatGPT 응답:
-> `ctx.getToken(int ttype, int)` 메서드는 특정 유형(`ttype`)의 토큰을 가져오는 데 사용됩니다. `ttype`은 토큰의 유형을 나타내는 정수값입니다.
+> {% raw %}`ctx.getToken(int ttype, int)`{% endraw %} 메서드는 특정 유형({% raw %}`ttype`{% endraw %})의 토큰을 가져오는 데 사용됩니다. {% raw %}`ttype`{% endraw %}은 토큰의 유형을 나타내는 정수값입니다.
 
 ANTLR에서 각 토큰은 고유한 유형을 가지며, 이 유형은 해당 토큰을 식별하는 데 사용됩니다. 유형은 ANTLR 문법 파일에서 정의되며, 주로 대문자로 표시됩니다.
 
-예를 들어, XMLParser.g4 파일에서 `<Name>` 규칙에 대한 토큰 유형이 `XMLParser.NAME`으로 정의되어 있다면, `ctx.getToken(XMLParser.NAME, 0)`은 `<Name>` 규칙에 해당하는 첫 번째 토큰을 가져올 것입니다.
+예를 들어, XMLParser.g4 파일에서 {% raw %}`<Name>`{% endraw %} 규칙에 대한 토큰 유형이 {% raw %}`XMLParser.NAME`{% endraw %}으로 정의되어 있다면, {% raw %}`ctx.getToken(XMLParser.NAME, 0)`{% endraw %}은 {% raw %}`<Name>`{% endraw %} 규칙에 해당하는 첫 번째 토큰을 가져올 것입니다.
 
-따라서 `ttype` 매개변수에는 해당 토큰 유형의 상수값을 전달해야 합니다. ANTLR 자동 생성 코드에는 해당 토큰 유형을 정의하는 상수들이 포함되어 있으므로, 해당 상수를 사용하여 `ttype`을 설정할 수 있습니다.
+따라서 {% raw %}`ttype`{% endraw %} 매개변수에는 해당 토큰 유형의 상수값을 전달해야 합니다. ANTLR 자동 생성 코드에는 해당 토큰 유형을 정의하는 상수들이 포함되어 있으므로, 해당 상수를 사용하여 {% raw %}`ttype`{% endraw %}을 설정할 수 있습니다.
 
 ## 사용자 입력:
 > XMLParser.ElementContext ctx 여기서, ctx.depth()는 무엇을 말하나?
 
 ## ChatGPT 응답:
-> `ctx.depth()`는 ANTLR에서 생성된 파서 트리의 특정 컨텍스트(`ctx`)의 깊이를 반환하는 메서드입니다.
+> {% raw %}`ctx.depth()`{% endraw %}는 ANTLR에서 생성된 파서 트리의 특정 컨텍스트({% raw %}`ctx`{% endraw %})의 깊이를 반환하는 메서드입니다.
 
-파서 트리는 구문 분석 중에 생성되는 트리 구조로, 문장 구조를 표현합니다. 각 컨텍스트는 문법 규칙에 대응하며, 문장의 구조를 나타내는 노드입니다. `XMLParser.ElementContext`는 XML 요소에 대한 컨텍스트이며, XML 요소의 시작 태그와 종료 태그 사이의 내용을 포함합니다.
+파서 트리는 구문 분석 중에 생성되는 트리 구조로, 문장 구조를 표현합니다. 각 컨텍스트는 문법 규칙에 대응하며, 문장의 구조를 나타내는 노드입니다. {% raw %}`XMLParser.ElementContext`{% endraw %}는 XML 요소에 대한 컨텍스트이며, XML 요소의 시작 태그와 종료 태그 사이의 내용을 포함합니다.
 
-`ctx.depth()`는 해당 컨텍스트의 깊이를 반환합니다. 깊이는 루트 컨텍스트로부터 해당 컨텍스트까지의 경로의 길이를 나타냅니다. 루트 컨텍스트의 깊이는 0이며, 하위 컨텍스트로 내려갈수록 깊이가 증가합니다.
+{% raw %}`ctx.depth()`{% endraw %}는 해당 컨텍스트의 깊이를 반환합니다. 깊이는 루트 컨텍스트로부터 해당 컨텍스트까지의 경로의 길이를 나타냅니다. 루트 컨텍스트의 깊이는 0이며, 하위 컨텍스트로 내려갈수록 깊이가 증가합니다.
 
-따라서 `ctx.depth()`를 사용하여 특정 컨텍스트의 깊이를 얻을 수 있으며, 트리 내에서 해당 컨텍스트의 위치를 파악하는 데 도움이 됩니다.
+따라서 {% raw %}`ctx.depth()`{% endraw %}를 사용하여 특정 컨텍스트의 깊이를 얻을 수 있으며, 트리 내에서 해당 컨텍스트의 위치를 파악하는 데 도움이 됩니다.
 
 ## 사용자 입력:
 > 절대 깊이인가?
 
 ## ChatGPT 응답:
-> 컨텍스트의 `ctx.depth()`는 절대적인 깊이를 나타내지 않습니다. 깊이는 해당 컨텍스트가 트리 내에서 얼마나 깊은 위치에 있는지를 상대적으로 나타냅니다. 즉, 루트 컨텍스트로부터의 상대적인 거리입니다.
+> 컨텍스트의 {% raw %}`ctx.depth()`{% endraw %}는 절대적인 깊이를 나타내지 않습니다. 깊이는 해당 컨텍스트가 트리 내에서 얼마나 깊은 위치에 있는지를 상대적으로 나타냅니다. 즉, 루트 컨텍스트로부터의 상대적인 거리입니다.
 
-`ctx.depth()`는 루트 컨텍스트의 깊이를 0으로 간주하고, 하위 컨텍스트로 내려갈수록 깊이가 증가합니다. 예를 들어, 루트 컨텍스트의 깊이는 0이고, 루트 컨텍스트의 하위 컨텍스트의 깊이는 1입니다. 또한, 하위 컨텍스트의 하위 컨텍스트의 깊이는 2, 그 하위 컨텍스트의 깊이는 3이 됩니다.
+{% raw %}`ctx.depth()`{% endraw %}는 루트 컨텍스트의 깊이를 0으로 간주하고, 하위 컨텍스트로 내려갈수록 깊이가 증가합니다. 예를 들어, 루트 컨텍스트의 깊이는 0이고, 루트 컨텍스트의 하위 컨텍스트의 깊이는 1입니다. 또한, 하위 컨텍스트의 하위 컨텍스트의 깊이는 2, 그 하위 컨텍스트의 깊이는 3이 됩니다.
 
-따라서 `ctx.depth()`는 해당 컨텍스트가 트리 내에서 얼마나 깊은 위치에 있는지를 상대적으로 나타내며, 절대적인 깊이를 나타내지 않습니다.
+따라서 {% raw %}`ctx.depth()`{% endraw %}는 해당 컨텍스트가 트리 내에서 얼마나 깊은 위치에 있는지를 상대적으로 나타내며, 절대적인 깊이를 나타내지 않습니다.
 
 ## 사용자 입력:
 > 그러면 루트컨텍스트는 어떻게 찾나?
 
 ## ChatGPT 응답:
-> ANTLR에서 생성된 파서에서 루트 컨텍스트를 찾는 방법은 일반적으로 `Parser` 클래스의 진입점 규칙을 호출하여 얻을 수 있습니다. 루트 컨텍스트는 이 진입점 규칙을 호출하면 파싱 과정에서 생성됩니다.
+> ANTLR에서 생성된 파서에서 루트 컨텍스트를 찾는 방법은 일반적으로 {% raw %}`Parser`{% endraw %} 클래스의 진입점 규칙을 호출하여 얻을 수 있습니다. 루트 컨텍스트는 이 진입점 규칙을 호출하면 파싱 과정에서 생성됩니다.
 
-예를 들어, `XMLParser` 클래스의 진입점 규칙이 `document`라고 가정해봅시다. 이 규칙을 호출하면 루트 컨텍스트인 `DocumentContext`가 생성됩니다. 따라서 다음과 같이 파서 인스턴스를 생성하고 진입점 규칙을 호출하여 루트 컨텍스트를 얻을 수 있습니다:
+예를 들어, {% raw %}`XMLParser`{% endraw %} 클래스의 진입점 규칙이 {% raw %}`document`{% endraw %}라고 가정해봅시다. 이 규칙을 호출하면 루트 컨텍스트인 {% raw %}`DocumentContext`{% endraw %}가 생성됩니다. 따라서 다음과 같이 파서 인스턴스를 생성하고 진입점 규칙을 호출하여 루트 컨텍스트를 얻을 수 있습니다:
 
-```java
+{% raw %}```java
 XMLLexer lexer = new XMLLexer(inputStream);
 CommonTokenStream tokens = new CommonTokenStream(lexer);
 XMLParser parser = new XMLParser(tokens);
 
 XMLParser.DocumentContext rootContext = parser.document();
-```
+```{% endraw %}
 
-위의 코드에서 `parser.document()`는 진입점 규칙인 `document`를 호출하고, 이를 통해 루트 컨텍스트인 `DocumentContext`를 반환합니다. 이제 `rootContext`를 통해 루트 컨텍스트에 접근할 수 있습니다.
+위의 코드에서 {% raw %}`parser.document()`{% endraw %}는 진입점 규칙인 {% raw %}`document`{% endraw %}를 호출하고, 이를 통해 루트 컨텍스트인 {% raw %}`DocumentContext`{% endraw %}를 반환합니다. 이제 {% raw %}`rootContext`{% endraw %}를 통해 루트 컨텍스트에 접근할 수 있습니다.
 
 만약 다른 진입점 규칙을 사용하고 있다면 해당 규칙을 호출하여 루트 컨텍스트를 얻을 수 있습니다. 자신이 사용하고 있는 진입점 규칙의 이름을 확인하고 해당 규칙을 호출하여 루트 컨텍스트를 얻으실 수 있습니다.
 
@@ -1450,23 +1448,23 @@ XMLParser.DocumentContext rootContext = parser.document();
 > 
 
 ## ChatGPT 응답:
-> ANTLR에서의 `depth()` 메서드는 컨텍스트의 상위 컨텍스트로부터의 깊이를 반환합니다. `depth()` 메서드는 해당 컨텍스트의 상위 컨텍스트가 있을 때마다 1씩 증가합니다.
+> ANTLR에서의 {% raw %}`depth()`{% endraw %} 메서드는 컨텍스트의 상위 컨텍스트로부터의 깊이를 반환합니다. {% raw %}`depth()`{% endraw %} 메서드는 해당 컨텍스트의 상위 컨텍스트가 있을 때마다 1씩 증가합니다.
 
-루트 컨텍스트의 `depth()`는 보통 0입니다. 하지만 이 값이 항상 0인 것은 아닙니다. `depth()`는 해당 컨텍스트가 파서 트리에서 얼마나 깊이에 있는지를 나타내는 상대적인 값입니다. 따라서 루트 컨텍스트가 아니더라도 `depth()`가 0일 수 있습니다. 예를 들어, 루트 컨텍스트의 자식 컨텍스트의 `depth()`는 1일 것입니다.
+루트 컨텍스트의 {% raw %}`depth()`{% endraw %}는 보통 0입니다. 하지만 이 값이 항상 0인 것은 아닙니다. {% raw %}`depth()`{% endraw %}는 해당 컨텍스트가 파서 트리에서 얼마나 깊이에 있는지를 나타내는 상대적인 값입니다. 따라서 루트 컨텍스트가 아니더라도 {% raw %}`depth()`{% endraw %}가 0일 수 있습니다. 예를 들어, 루트 컨텍스트의 자식 컨텍스트의 {% raw %}`depth()`{% endraw %}는 1일 것입니다.
 
-따라서 컨텍스트의 `depth()` 값이 0인 경우에만 해당 컨텍스트가 루트인 것은 아닙니다. 루트 여부를 확인하기 위해서는 해당 컨텍스트의 부모 컨텍스트가 있는지 여부를 확인하거나, 더 정확한 방법으로는 컨텍스트의 타입을 비교하여 루트 컨텍스트인지 확인해야 합니다.
+따라서 컨텍스트의 {% raw %}`depth()`{% endraw %} 값이 0인 경우에만 해당 컨텍스트가 루트인 것은 아닙니다. 루트 여부를 확인하기 위해서는 해당 컨텍스트의 부모 컨텍스트가 있는지 여부를 확인하거나, 더 정확한 방법으로는 컨텍스트의 타입을 비교하여 루트 컨텍스트인지 확인해야 합니다.
 
 ## 사용자 입력:
 > 현재 ElementContext의 깊이를 1로 산정하고 깊이를 구할려면?
 
 ## ChatGPT 응답:
-> ElementContext의 깊이를 1로 산정하고 깊이를 구하려면 다음과 같이 `depth()` 메서드를 호출하면 됩니다:
+> ElementContext의 깊이를 1로 산정하고 깊이를 구하려면 다음과 같이 {% raw %}`depth()`{% endraw %} 메서드를 호출하면 됩니다:
 
-```java
+{% raw %}```java
 int depth = ctx.depth() - 1;
-```
+```{% endraw %}
 
-ElementContext의 `depth()` 메서드는 해당 컨텍스트의 상위 컨텍스트로부터의 깊이를 반환하므로, 현재 컨텍스트의 깊이를 알기 위해서는 1을 빼주면 됩니다. 이렇게 하면 현재 ElementContext의 깊이가 1로 산정됩니다.
+ElementContext의 {% raw %}`depth()`{% endraw %} 메서드는 해당 컨텍스트의 상위 컨텍스트로부터의 깊이를 반환하므로, 현재 컨텍스트의 깊이를 알기 위해서는 1을 빼주면 됩니다. 이렇게 하면 현재 ElementContext의 깊이가 1로 산정됩니다.
 
 ## 사용자 입력:
 > content     :   chardata?
@@ -1475,11 +1473,11 @@ ElementContext의 `depth()` 메서드는 해당 컨텍스트의 상위 컨텍스
 ## ChatGPT 응답:
 > 위의 코드는 ANTLR4의 구문으로, content라는 규칙을 정의하는 부분입니다. 해당 규칙은 XML 문서의 내용을 표현하는데 사용될 수 있습니다. 각각의 토큰과 규칙에 대한 설명은 다음과 같습니다:
 
-- `content`: XML 문서의 내용을 표현하는 규칙입니다.
-- `chardata?`: `chardata` 규칙이 0 또는 1번 발생할 수 있음을 나타냅니다. `chardata`는 XML 요소 내의 문자 데이터를 나타내는 규칙입니다.
-- `((element | reference | CDATA | PI | COMMENT) chardata?)*`: `(element | reference | CDATA | PI | COMMENT) chardata?`가 0번 이상 반복될 수 있음을 나타냅니다. 이 부분은 요소(element), 엔티티 참조(reference), CDATA, 처리 명령(PI), 주석(COMMENT)과 문자 데이터(chardata)의 조합을 허용합니다.
+- {% raw %}`content`{% endraw %}: XML 문서의 내용을 표현하는 규칙입니다.
+- {% raw %}`chardata?`{% endraw %}: {% raw %}`chardata`{% endraw %} 규칙이 0 또는 1번 발생할 수 있음을 나타냅니다. {% raw %}`chardata`{% endraw %}는 XML 요소 내의 문자 데이터를 나타내는 규칙입니다.
+- {% raw %}`((element | reference | CDATA | PI | COMMENT) chardata?)*`{% endraw %}: {% raw %}`(element | reference | CDATA | PI | COMMENT) chardata?`{% endraw %}가 0번 이상 반복될 수 있음을 나타냅니다. 이 부분은 요소(element), 엔티티 참조(reference), CDATA, 처리 명령(PI), 주석(COMMENT)과 문자 데이터(chardata)의 조합을 허용합니다.
 
-즉, `content`는 다양한 유형의 XML 요소들과 문자 데이터가 반복적으로 나타날 수 있는 구조를 정의하고 있습니다.
+즉, {% raw %}`content`{% endraw %}는 다양한 유형의 XML 요소들과 문자 데이터가 반복적으로 나타날 수 있는 구조를 정의하고 있습니다.
 
 ## 사용자 입력:
 > element간의 깊이를 찾아내려면?
@@ -1489,16 +1487,16 @@ ElementContext의 `depth()` 메서드는 해당 컨텍스트의 상위 컨텍스
 
 예를 들어, XML 문서를 파싱하는 ANTLR4의 파서 그램에서 다음과 같은 규칙이 있다고 가정해봅시다:
 
-```antlr
+{% raw %}```antlr
 element : OPEN_TAG content CLOSE_TAG ;
 content : (element | TEXT)* ;
-```
+```{% endraw %}
 
-위의 규칙에서 `element`는 XML 요소를 표현하고, `content`는 요소 내의 내용을 표현합니다. 각 요소의 깊이를 찾아내려면, 이러한 규칙을 기반으로 커스텀한 리스너나 비지터를 작성하여 요소를 순회하면서 깊이를 계산할 수 있습니다.
+위의 규칙에서 {% raw %}`element`{% endraw %}는 XML 요소를 표현하고, {% raw %}`content`{% endraw %}는 요소 내의 내용을 표현합니다. 각 요소의 깊이를 찾아내려면, 이러한 규칙을 기반으로 커스텀한 리스너나 비지터를 작성하여 요소를 순회하면서 깊이를 계산할 수 있습니다.
 
-예를 들어, 커스텀한 리스너를 작성하고 `enterElement` 메서드에서 요소의 깊이를 추적해보겠습니다:
+예를 들어, 커스텀한 리스너를 작성하고 {% raw %}`enterElement`{% endraw %} 메서드에서 요소의 깊이를 추적해보겠습니다:
 
-```java
+{% raw %}```java
 public class CustomListener extends XMLBaseListener {
     private int depth = 0;
 
@@ -1513,9 +1511,9 @@ public class CustomListener extends XMLBaseListener {
         depth--; // 요소 탈출 시 깊이 감소
     }
 }
-```
+```{% endraw %}
 
-위의 예시에서 `enterElement` 메서드에서는 요소 진입 시 `depth`를 증가시키고, 요소를 출력하고 해당 깊이를 출력합니다. `exitElement` 메서드에서는 요소 탈출 시 `depth`를 감소시킵니다.
+위의 예시에서 {% raw %}`enterElement`{% endraw %} 메서드에서는 요소 진입 시 {% raw %}`depth`{% endraw %}를 증가시키고, 요소를 출력하고 해당 깊이를 출력합니다. {% raw %}`exitElement`{% endraw %} 메서드에서는 요소 탈출 시 {% raw %}`depth`{% endraw %}를 감소시킵니다.
 
 이러한 방식으로 커스텀한 리스너나 비지터를 작성하여 XML 문서의 요소 간의 깊이를 찾아낼 수 있습니다.
 

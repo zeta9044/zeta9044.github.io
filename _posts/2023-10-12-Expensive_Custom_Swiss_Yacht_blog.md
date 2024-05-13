@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Expensive Custom Swiss Yacht"
-date: 2023-10-12
-tags: [Yacht, Swiss, Custom, Expensive]
-categories: blog
+tags: [Yacht, Expensive, Swiss, Custom]
 ---
 
 ## 사용자 입력:

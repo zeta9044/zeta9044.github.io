@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Oracle 다중 행 삽입"
-date: 2023-03-20
-tags: [삽입, 다중, 행, Oracle]
-categories: blog
+tags: [다중, Oracle, 삽입, 행]
 ---
 
 ## 사용자 입력:
@@ -14,12 +12,12 @@ categories: blog
 
 아래는 Oracle에서 다중 행 삽입을 수행하는 방법 중 하나인 INSERT ALL 문의 예입니다.
 
-```
+{% raw %}```
 INSERT ALL
    INTO table_name (column1, column2, column3) VALUES ('value1', 'value2', 'value3')
    INTO table_name (column1, column2, column3) VALUES ('value4', 'value5', 'value6')
 SELECT * FROM dual;
-```
+```{% endraw %}
 
 위 예제에서는 두 개의 행을 삽입하고 있습니다. 첫 번째 INTO 절은 첫 번째 행을 삽입하고, 두 번째 INTO 절은 두 번째 행을 삽입합니다. SELECT 절은 모든 INTO 절의 결과를 반환하기 때문에 필요합니다.
 

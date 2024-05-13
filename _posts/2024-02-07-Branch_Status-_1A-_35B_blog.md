@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Branch Status: 1A, 35B"
-date: 2024-02-07
+title: "Branch Status - 1A, 35B"
 tags: [Status, Branch]
-categories: blog
 ---
 
 ## 사용자 입력:

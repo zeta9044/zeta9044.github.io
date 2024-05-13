@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "DataStage 출력 핀 속성."
-date: 2023-04-07
-tags: [속성, 핀, 출력, DataStage]
-categories: blog
+tags: [속성, 출력, 핀, DataStage]
 ---
 
 ## 사용자 입력:
@@ -12,22 +10,22 @@ categories: blog
 ## ChatGPT 응답:
 > 위의 XML 코드는 IBM DataStage 11 이상에서 사용하는 .pjb 파일의 일부 내용입니다. 이 코드는 데이터 스테이지 작업의 출력 핀을 나타내며, 해당 핀의 다양한 속성을 정의합니다. 아래는 각 속성에 대한 설명입니다.
 
-- `xsi:type`: 해당 요소의 XML 스키마 유형을 지정합니다.
-- `xmi:id`: 해당 요소의 고유 식별자를 지정합니다.
-- `sDOVersion`: 해당 요소의 SDO 버전을 지정합니다.
-- `objectID`: 해당 요소의 객체 식별자를 지정합니다.
-- `lastModificationTimestamp`: 해당 요소가 마지막으로 수정된 시간을 지정합니다.
-- `optimisticLockID`: 해당 요소의 낙관적 잠금 ID를 지정합니다.
-- `createdByUser`: 해당 요소를 생성한 사용자를 지정합니다.
-- `creationTimestamp`: 해당 요소가 생성된 시간을 지정합니다.
-- `modifiedByUser`: 해당 요소를 수정한 사용자를 지정합니다.
-- `isSourceOf_Link`: 해당 출력 핀이 다른 핀과 연결된 경우 해당 연결을 식별하는 ID를 지정합니다.
-- `internalID`: 해당 요소의 내부 식별자를 지정합니다.
-- `pinType`: 해당 출력 핀의 유형을 지정합니다.
-- `partner`: 해당 출력 핀에 연결된 입력 핀의 ID를 지정합니다.
-- `leftTextPos`: 해당 요소의 왼쪽 텍스트 위치를 지정합니다.
-- `topTextPos`: 해당 요소의 상단 텍스트 위치를 지정합니다.
-- `xmetaLockingRoot`: 해당 요소가 속한 XMeta 잠금 루트를 지정합니다.
+- {% raw %}`xsi:type`{% endraw %}: 해당 요소의 XML 스키마 유형을 지정합니다.
+- {% raw %}`xmi:id`{% endraw %}: 해당 요소의 고유 식별자를 지정합니다.
+- {% raw %}`sDOVersion`{% endraw %}: 해당 요소의 SDO 버전을 지정합니다.
+- {% raw %}`objectID`{% endraw %}: 해당 요소의 객체 식별자를 지정합니다.
+- {% raw %}`lastModificationTimestamp`{% endraw %}: 해당 요소가 마지막으로 수정된 시간을 지정합니다.
+- {% raw %}`optimisticLockID`{% endraw %}: 해당 요소의 낙관적 잠금 ID를 지정합니다.
+- {% raw %}`createdByUser`{% endraw %}: 해당 요소를 생성한 사용자를 지정합니다.
+- {% raw %}`creationTimestamp`{% endraw %}: 해당 요소가 생성된 시간을 지정합니다.
+- {% raw %}`modifiedByUser`{% endraw %}: 해당 요소를 수정한 사용자를 지정합니다.
+- {% raw %}`isSourceOf_Link`{% endraw %}: 해당 출력 핀이 다른 핀과 연결된 경우 해당 연결을 식별하는 ID를 지정합니다.
+- {% raw %}`internalID`{% endraw %}: 해당 요소의 내부 식별자를 지정합니다.
+- {% raw %}`pinType`{% endraw %}: 해당 출력 핀의 유형을 지정합니다.
+- {% raw %}`partner`{% endraw %}: 해당 출력 핀에 연결된 입력 핀의 ID를 지정합니다.
+- {% raw %}`leftTextPos`{% endraw %}: 해당 요소의 왼쪽 텍스트 위치를 지정합니다.
+- {% raw %}`topTextPos`{% endraw %}: 해당 요소의 상단 텍스트 위치를 지정합니다.
+- {% raw %}`xmetaLockingRoot`{% endraw %}: 해당 요소가 속한 XMeta 잠금 루트를 지정합니다.
 
 이러한 속성들은 데이터 스테이지 작업의 출력 핀을 정의하고, 해당 핀이 다른 핀들과 연결되는 방식을 지정합니다. 이 정보는 작업이 실행될 때 데이터 흐름을 정의하는 데 사용됩니다.
 
@@ -37,10 +35,10 @@ categories: blog
 ## ChatGPT 응답:
 > 이 부분은 데이터 스테이지 작업의 출력 핀에 대한 구체적인 정보를 나타내고 있습니다. 각 속성에 대한 자세한 설명은 다음과 같습니다.
 
-- `isSourceOf_Link="193"`: 해당 출력 핀이 다른 핀과 연결된 경우 해당 연결을 식별하는 ID를 지정합니다. 여기서 193은 연결 ID를 나타냅니다. 이 ID는 작업 실행 중에 데이터 흐름을 결정하는 데 사용됩니다.
-- `internalID="V0S2P2"`: 해당 출력 핀의 내부 식별자를 지정합니다. 이 식별자는 데이터 스테이지 작업 내에서 고유합니다.
-- `pinType="TrxOutput"`: 해당 출력 핀의 유형을 지정합니다. 여기서 "TrxOutput"은 트랜스포메이션의 출력 핀임을 나타냅니다.
-- `partner="V0S7|V0S7P1"`: 해당 출력 핀에 연결된 입력 핀의 ID를 지정합니다. 여기서 "V0S7|V0S7P1"은 해당 출력 핀과 연결된 입력 핀의 ID와 내부 식별자를 나타냅니다. "|" 기호는 ID와 내부 식별자를 구분하는 데 사용됩니다.
+- {% raw %}`isSourceOf_Link="193"`{% endraw %}: 해당 출력 핀이 다른 핀과 연결된 경우 해당 연결을 식별하는 ID를 지정합니다. 여기서 193은 연결 ID를 나타냅니다. 이 ID는 작업 실행 중에 데이터 흐름을 결정하는 데 사용됩니다.
+- {% raw %}`internalID="V0S2P2"`{% endraw %}: 해당 출력 핀의 내부 식별자를 지정합니다. 이 식별자는 데이터 스테이지 작업 내에서 고유합니다.
+- {% raw %}`pinType="TrxOutput"`{% endraw %}: 해당 출력 핀의 유형을 지정합니다. 여기서 "TrxOutput"은 트랜스포메이션의 출력 핀임을 나타냅니다.
+- {% raw %}`partner="V0S7|V0S7P1"`{% endraw %}: 해당 출력 핀에 연결된 입력 핀의 ID를 지정합니다. 여기서 "V0S7|V0S7P1"은 해당 출력 핀과 연결된 입력 핀의 ID와 내부 식별자를 나타냅니다. "|" 기호는 ID와 내부 식별자를 구분하는 데 사용됩니다.
 
 이러한 정보는 데이터 스테이지 작업의 출력 핀이 어떻게 작동하는지 이해하는 데 중요합니다. 출력 핀은 작업에서 생성된 데이터를 다른 작업으로 전달하는 데 사용되며, 연결된 입력 핀은 전달된 데이터를 수신합니다. 이를 통해 작업 간에 데이터가 흐르며, 작업의 입력과 출력이 서로 연결됩니다.
 
@@ -50,26 +48,26 @@ categories: blog
 ## ChatGPT 응답:
 > 이 XML 코드는 데이터 스테이지 작업의 출력 핀을 정의하는 부분으로, 각 속성은 다음과 같은 의미를 가집니다.
 
-- `xsi:type="com.ibm.datastage.ai.dtm.ds:DSOutputPinSDO"`: 해당 요소의 XML 스키마 유형을 지정합니다.
-- `xmi:id="107"`: 해당 요소의 고유 식별자를 지정합니다.
-- `sDOVersion="2.0.0"`: 해당 요소의 SDO 버전을 지정합니다.
-- `objectID="c2e76d84.b9af3d05.qqpoan34v.a9pmlog.1kkp7d.dbcvrv4rinnsss54afls9"`: 해당 요소의 객체 식별자를 지정합니다.
-- `lastModificationTimestamp="2022-12-29T14:39:59.771+0900"`: 해당 요소가 마지막으로 수정된 시간을 지정합니다.
-- `optimisticLockID="1"`: 해당 요소의 낙관적 잠금 ID를 지정합니다.
-- `createdByUser="migdev"`: 해당 요소를 생성한 사용자를 지정합니다.
-- `creationTimestamp="2022-12-29T14:39:59.771+0900"`: 해당 요소가 생성된 시간을 지정합니다.
-- `modifiedByUser="migdev"`: 해당 요소를 수정한 사용자를 지정합니다.
-- `isSourceOf_Link="8"`: 해당 출력 핀이 다른 핀과 연결된 경우 해당 연결을 식별하는 ID를 지정합니다.
-- `internalID="V8S0P2"`: 해당 출력 핀의 내부 식별자를 지정합니다.
-- `pinType="CustomOutput"`: 해당 출력 핀의 유형을 지정합니다. 여기서 "CustomOutput"은 사용자 지정 출력 핀임을 나타냅니다.
-- `partner="V0S2|V0S2P1"`: 해당 출력 핀에 연결된 입력 핀의 ID를 지정합니다. 여기서 "V0S2|V0S2P1"은 해당 출력 핀과 연결된 입력 핀의 ID와 내부 식별자를 나타냅니다. "|" 기호는 ID와 내부 식별자를 구분하는 데 사용됩니다.
-- `leftTextPos="219"`: 해당 요소의 왼쪽 텍스트 위치를 지정합니다.
-- `topTextPos="342"`: 해당 요소의 상단 텍스트 위치를 지정합니다.
-- `xmetaLockingRoot="c2e76d84.43058877.qqpo9uat8.6lemca9.sr3gev.hub38uffjqtdhjhipmha7"`: 해당 요소가 속한 XMeta 잠금 루트를 지정합니다.
+- {% raw %}`xsi:type="com.ibm.datastage.ai.dtm.ds:DSOutputPinSDO"`{% endraw %}: 해당 요소의 XML 스키마 유형을 지정합니다.
+- {% raw %}`xmi:id="107"`{% endraw %}: 해당 요소의 고유 식별자를 지정합니다.
+- {% raw %}`sDOVersion="2.0.0"`{% endraw %}: 해당 요소의 SDO 버전을 지정합니다.
+- {% raw %}`objectID="c2e76d84.b9af3d05.qqpoan34v.a9pmlog.1kkp7d.dbcvrv4rinnsss54afls9"`{% endraw %}: 해당 요소의 객체 식별자를 지정합니다.
+- {% raw %}`lastModificationTimestamp="2022-12-29T14:39:59.771+0900"`{% endraw %}: 해당 요소가 마지막으로 수정된 시간을 지정합니다.
+- {% raw %}`optimisticLockID="1"`{% endraw %}: 해당 요소의 낙관적 잠금 ID를 지정합니다.
+- {% raw %}`createdByUser="migdev"`{% endraw %}: 해당 요소를 생성한 사용자를 지정합니다.
+- {% raw %}`creationTimestamp="2022-12-29T14:39:59.771+0900"`{% endraw %}: 해당 요소가 생성된 시간을 지정합니다.
+- {% raw %}`modifiedByUser="migdev"`{% endraw %}: 해당 요소를 수정한 사용자를 지정합니다.
+- {% raw %}`isSourceOf_Link="8"`{% endraw %}: 해당 출력 핀이 다른 핀과 연결된 경우 해당 연결을 식별하는 ID를 지정합니다.
+- {% raw %}`internalID="V8S0P2"`{% endraw %}: 해당 출력 핀의 내부 식별자를 지정합니다.
+- {% raw %}`pinType="CustomOutput"`{% endraw %}: 해당 출력 핀의 유형을 지정합니다. 여기서 "CustomOutput"은 사용자 지정 출력 핀임을 나타냅니다.
+- {% raw %}`partner="V0S2|V0S2P1"`{% endraw %}: 해당 출력 핀에 연결된 입력 핀의 ID를 지정합니다. 여기서 "V0S2|V0S2P1"은 해당 출력 핀과 연결된 입력 핀의 ID와 내부 식별자를 나타냅니다. "|" 기호는 ID와 내부 식별자를 구분하는 데 사용됩니다.
+- {% raw %}`leftTextPos="219"`{% endraw %}: 해당 요소의 왼쪽 텍스트 위치를 지정합니다.
+- {% raw %}`topTextPos="342"`{% endraw %}: 해당 요소의 상단 텍스트 위치를 지정합니다.
+- {% raw %}`xmetaLockingRoot="c2e76d84.43058877.qqpo9uat8.6lemca9.sr3gev.hub38uffjqtdhjhipmha7"`{% endraw %}: 해당 요소가 속한 XMeta 잠금 루트를 지정합니다.
 
-이 중에서 `isSourceOf_Link="8"`, `internalID="V8S0P2"`, `pinType="CustomOutput"`, `partner="V0S2|V0S2P1"`에 대해 자세히 설명하겠습니다.
+이 중에서 {% raw %}`isSourceOf_Link="8"`{% endraw %}, {% raw %}`internalID="V8S0P2"`{% endraw %}, {% raw %}`pinType="CustomOutput"`{% endraw %}, {% raw %}`partner="V0S2|V0S2P1"`{% endraw %}에 대해 자세히 설명하겠습니다.
 
-- `isSourceOf
+- {% raw %}`isSourceOf
 
 ## 사용자 입력:
 > 끊긴 부분부터 이어서 계속 설명해.
@@ -77,10 +75,10 @@ categories: blog
 ## ChatGPT 응답:
 > 죄송합니다, 갑작스러운 오류로 인해 일부 내용이 누락되었습니다. 이어서 설명하겠습니다.
 
-- `isSourceOf_Link="8"`: 해당 출력 핀이 다른 핀과 연결된 경우 해당 연결을 식별하는 ID를 지정합니다. 여기서 8은 연결 ID를 나타냅니다. 이 ID는 작업 실행 중에 데이터 흐름을 결정하는 데 사용됩니다.
-- `internalID="V8S0P2"`: 해당 출력 핀의 내부 식별자를 지정합니다. 이 식별자는 데이터 스테이지 작업 내에서 고유합니다.
-- `pinType="CustomOutput"`: 해당 출력 핀의 유형을 지정합니다. 여기서 "CustomOutput"은 사용자 지정 출력 핀임을 나타냅니다.
-- `partner="V0S2|V0S2P1"`: 해당 출력 핀에 연결된 입력 핀의 ID를 지정합니다. 여기서 "V0S2|V0S2P1"은 해당 출력 핀과 연결된 입력 핀의 ID와 내부 식별자를 나타냅니다. "|" 기호는 ID와 내부 식별자를 구분하는 데 사용됩니다.
+- `{% endraw %}isSourceOf_Link="8"{% raw %}`: 해당 출력 핀이 다른 핀과 연결된 경우 해당 연결을 식별하는 ID를 지정합니다. 여기서 8은 연결 ID를 나타냅니다. 이 ID는 작업 실행 중에 데이터 흐름을 결정하는 데 사용됩니다.
+- `{% endraw %}internalID="V8S0P2"{% raw %}`: 해당 출력 핀의 내부 식별자를 지정합니다. 이 식별자는 데이터 스테이지 작업 내에서 고유합니다.
+- `{% endraw %}pinType="CustomOutput"{% raw %}`: 해당 출력 핀의 유형을 지정합니다. 여기서 "CustomOutput"은 사용자 지정 출력 핀임을 나타냅니다.
+- `{% endraw %}partner="V0S2|V0S2P1"{% raw %}`: 해당 출력 핀에 연결된 입력 핀의 ID를 지정합니다. 여기서 "V0S2|V0S2P1"은 해당 출력 핀과 연결된 입력 핀의 ID와 내부 식별자를 나타냅니다. "|" 기호는 ID와 내부 식별자를 구분하는 데 사용됩니다.
 
 이러한 정보는 데이터 스테이지 작업의 출력 핀이 어떻게 작동하는지 이해하는 데 중요합니다. 출력 핀은 작업에서 생성된 데이터를 다른 작업으로 전달하는 데 사용되며, 연결된 입력 핀은 전달된 데이터를 수신합니다. 이를 통해 작업 간에 데이터가 흐르며, 작업의 입력과 출력이 서로 연결됩니다. 사용자 지정 출력 핀은 일반적인 출력 핀과는 달리 사용자가 직접 정의한 출력 형식을 사용하여 데이터를 전달하는 데 사용됩니다.
 
@@ -90,65 +88,65 @@ categories: blog
 ## ChatGPT 응답:
 > 이 파라미터 값은 "XMLProperties"라는 이름의 파라미터에 대한 설정을 포함하는 XML 문자열입니다. 이 문자열은 작업에서 사용하는 데이터베이스 연결의 속성을 나타내며, 해당 데이터베이스와의 연결을 설정하는 데 필요한 정보를 포함합니다. 
 
-- `&lt;Properties version='1.1'>`: XML의 루트 요소로, 해당 문자열이 데이터베이스 연결 속성을 포함하는 것임을 나타냅니다. "version" 속성은 해당 XML의 버전을 지정합니다.
-- `&lt;Common>`: 데이터베이스 연결의 공통 속성을 나타내는 요소입니다.
-- `&lt;Context type='int'>2&lt;/Context>`: 데이터베이스 연결에 사용되는 컨텍스트를 나타내는 요소입니다. 여기서 "2"는 컨텍스트의 정수값을 나타냅니다.
-- `&lt;Variant type='string'>12c&lt;/Variant>`: 데이터베이스 연결의 변형을 나타내는 요소입니다. 여기서 "12c"는 해당 데이터베이스 연결의 버전을 나타냅니다.
-- `&lt;DescriptorVersion type='string'>1.0&lt;/DescriptorVersion>`: 해당 데이터베이스 연결 설명서의 버전을 나타내는 요소입니다. 여기서 "1.0"은 해당 연결의 설명서 버전을 나타냅니다.
-- `&lt;Connection>`: 데이터베이스 연결에 대한 정보를 포함하는 요소입니다.
-- `&lt;Server modified='1' type='string'>&lt;![CDATA[#NBIS.TNS#]]>&lt;/Server>`: 데이터베이스 서버의 이름을 나타내는 요소입니다. "#NBIS.TNS#"는 서버 이름을 나타내는 변수의 값을 나타냅니다.
-- `&lt;Username modified='1' type='string'>&lt;![CDATA[#NBIS.UID#]]>&lt;/Username>`: 데이터베이스 연결에 사용되는 사용자 이름을 나타내는 요소입니다. "#NBIS.UID#"는 사용자 이름을 나타내는 변수의 값을 나타냅니다.
-- `&lt;Password modified='1' type='string'>&lt;![CDATA[#NBIS.PWD#]]>&lt;/Password>`: 데이터베이스 연결에 사용되는 비밀번호를 나타내는 요소입니다. "#NBIS.PWD#"는 비밀번호를 나타내는 변수의 값을 나타냅니다.
-- `&lt;EnableQuotedIDs type='bool'>&lt;![CDATA[0]]>&lt;/EnableQuotedIDs>`: 인용 부호로 식별자를 사용할지 여부를 나타내는 요소입니다. 여기서 "0"은 인용 부호를 사용하지 않음을 나타냅니다.
-- `&lt;TableName modified='1' type='string'>&lt;![CDATA[BIL
+- `{% endraw %}&lt;Properties version='1.1'>{% raw %}`: XML의 루트 요소로, 해당 문자열이 데이터베이스 연결 속성을 포함하는 것임을 나타냅니다. "version" 속성은 해당 XML의 버전을 지정합니다.
+- `{% endraw %}&lt;Common>{% raw %}`: 데이터베이스 연결의 공통 속성을 나타내는 요소입니다.
+- `{% endraw %}&lt;Context type='int'>2&lt;/Context>{% raw %}`: 데이터베이스 연결에 사용되는 컨텍스트를 나타내는 요소입니다. 여기서 "2"는 컨텍스트의 정수값을 나타냅니다.
+- `{% endraw %}&lt;Variant type='string'>12c&lt;/Variant>{% raw %}`: 데이터베이스 연결의 변형을 나타내는 요소입니다. 여기서 "12c"는 해당 데이터베이스 연결의 버전을 나타냅니다.
+- `{% endraw %}&lt;DescriptorVersion type='string'>1.0&lt;/DescriptorVersion>{% raw %}`: 해당 데이터베이스 연결 설명서의 버전을 나타내는 요소입니다. 여기서 "1.0"은 해당 연결의 설명서 버전을 나타냅니다.
+- `{% endraw %}&lt;Connection>{% raw %}`: 데이터베이스 연결에 대한 정보를 포함하는 요소입니다.
+- `{% endraw %}&lt;Server modified='1' type='string'>&lt;![CDATA[#NBIS.TNS#]]>&lt;/Server>{% raw %}`: 데이터베이스 서버의 이름을 나타내는 요소입니다. "#NBIS.TNS#"는 서버 이름을 나타내는 변수의 값을 나타냅니다.
+- `{% endraw %}&lt;Username modified='1' type='string'>&lt;![CDATA[#NBIS.UID#]]>&lt;/Username>{% raw %}`: 데이터베이스 연결에 사용되는 사용자 이름을 나타내는 요소입니다. "#NBIS.UID#"는 사용자 이름을 나타내는 변수의 값을 나타냅니다.
+- `{% endraw %}&lt;Password modified='1' type='string'>&lt;![CDATA[#NBIS.PWD#]]>&lt;/Password>{% raw %}`: 데이터베이스 연결에 사용되는 비밀번호를 나타내는 요소입니다. "#NBIS.PWD#"는 비밀번호를 나타내는 변수의 값을 나타냅니다.
+- `{% endraw %}&lt;EnableQuotedIDs type='bool'>&lt;![CDATA[0]]>&lt;/EnableQuotedIDs>{% raw %}`: 인용 부호로 식별자를 사용할지 여부를 나타내는 요소입니다. 여기서 "0"은 인용 부호를 사용하지 않음을 나타냅니다.
+- `{% endraw %}&lt;TableName modified='1' type='string'>&lt;![CDATA[BIL
 
 ## 사용자 입력:
 > 끊긴 부분부터 이어서 계속 설명해.
 
 ## ChatGPT 응답:
-> - `&lt;TableName modified='1' type='string'>&lt;![CDATA[BIL0ADM.L0NUCA_TB_CMCA_CUST_INFO_INQ_L]]>&lt;TableScope type='int'>&lt;![CDATA[0]]>&lt;/TableScope>&lt;/TableName>`: 연결된 데이터베이스에서 작업하는 테이블의 이름을 나타내는 요소입니다. "BIL0ADM.L0NUCA_TB_CMCA_CUST_INFO_INQ_L"은 해당 테이블의 이름을 나타냅니다.
-- `&lt;SQL>&lt;/SQL>`: 작업할 SQL 문을 나타내는 요소입니다.
-- `&lt;Session>`: 세션 옵션을 나타내는 요소입니다.
-- `&lt;ArraySize modified='1' type='int'>&lt;![CDATA[10000]]>&lt;/ArraySize>`: 작업할 데이터의 배열 크기를 지정하는 요소입니다. 여기서 "10000"은 배열 크기를 나타냅니다.
-- `&lt;DropUnmatchedFields type='bool'>&lt;![CDATA[0]]>&lt;/DropUnmatchedFields>`: 일치하지 않는 필드를 삭제할지 여부를 나타내는 요소입니다. 여기서 "0"은 일치하지 않는 필드를 삭제하지 않음을 나타냅니다.
-- `&lt;TreatWarningsAsErrors type='bool'>&lt;![CDATA[0]]>&lt;/TreatWarningsAsErrors>`: 경고를 오류로 처리할지 여부를 나타내는 요소입니다. 여기서 "0"은 경고를 오류로 처리하지 않음을 나타냅니다.
-- `&lt;PreserveTrailingBlanks type='bool'>&lt;![CDATA[1]]>&lt;/PreserveTrailingBlanks>`: 작업하는 데이터의 끝에 공백을 유지할지 여부를 나타내는 요소입니다. 여기서 "1"은 공백을 유지함을 나타냅니다.
-- `&lt;FailOnRowErrorPX type='bool'>&lt;![CDATA[1]]>&lt;/FailOnRowErrorPX>`: 행 오류 발생 시 작업을 실패로 처리할지 여부를 나타내는 요소입니다. 여기서 "1"은 작업을 실패로 처리함을 나타냅니다.
-- `&lt;BeforeAfter modified='1' type='bool'>&lt;![CDATA[1]]>&lt;BeforeSQL modified='1' type='string'>&lt;![CDATA[CALL DBAADM.TRUNCATE_TABLE('BIL0ADM', 'L0NUCA_TB_CMCA_CUST_INFO_INQ_L');]]>&lt;ReadFromFileBeforeSQL type='bool'>&lt;![CDATA[0]]>&lt;/ReadFromFileBeforeSQL>&lt;FailOnError type='bool'>&lt;![CDATA[1]]>&lt;/FailOnError>&lt;/BeforeSQL>`: 작업을 시작하기 전에 실행할 SQL 문을 지정하는 요소입니다. 이 경우 "CALL DBAADM.TRUNCATE_TABLE('BIL0ADM', 'L0NUCA_TB_CMCA_CUST_INFO_IN
+> - {% raw %}`&lt;TableName modified='1' type='string'>&lt;![CDATA[BIL0ADM.L0NUCA_TB_CMCA_CUST_INFO_INQ_L]]>&lt;TableScope type='int'>&lt;![CDATA[0]]>&lt;/TableScope>&lt;/TableName>`{% endraw %}: 연결된 데이터베이스에서 작업하는 테이블의 이름을 나타내는 요소입니다. "BIL0ADM.L0NUCA_TB_CMCA_CUST_INFO_INQ_L"은 해당 테이블의 이름을 나타냅니다.
+- {% raw %}`&lt;SQL>&lt;/SQL>`{% endraw %}: 작업할 SQL 문을 나타내는 요소입니다.
+- {% raw %}`&lt;Session>`{% endraw %}: 세션 옵션을 나타내는 요소입니다.
+- {% raw %}`&lt;ArraySize modified='1' type='int'>&lt;![CDATA[10000]]>&lt;/ArraySize>`{% endraw %}: 작업할 데이터의 배열 크기를 지정하는 요소입니다. 여기서 "10000"은 배열 크기를 나타냅니다.
+- {% raw %}`&lt;DropUnmatchedFields type='bool'>&lt;![CDATA[0]]>&lt;/DropUnmatchedFields>`{% endraw %}: 일치하지 않는 필드를 삭제할지 여부를 나타내는 요소입니다. 여기서 "0"은 일치하지 않는 필드를 삭제하지 않음을 나타냅니다.
+- {% raw %}`&lt;TreatWarningsAsErrors type='bool'>&lt;![CDATA[0]]>&lt;/TreatWarningsAsErrors>`{% endraw %}: 경고를 오류로 처리할지 여부를 나타내는 요소입니다. 여기서 "0"은 경고를 오류로 처리하지 않음을 나타냅니다.
+- {% raw %}`&lt;PreserveTrailingBlanks type='bool'>&lt;![CDATA[1]]>&lt;/PreserveTrailingBlanks>`{% endraw %}: 작업하는 데이터의 끝에 공백을 유지할지 여부를 나타내는 요소입니다. 여기서 "1"은 공백을 유지함을 나타냅니다.
+- {% raw %}`&lt;FailOnRowErrorPX type='bool'>&lt;![CDATA[1]]>&lt;/FailOnRowErrorPX>`{% endraw %}: 행 오류 발생 시 작업을 실패로 처리할지 여부를 나타내는 요소입니다. 여기서 "1"은 작업을 실패로 처리함을 나타냅니다.
+- {% raw %}`&lt;BeforeAfter modified='1' type='bool'>&lt;![CDATA[1]]>&lt;BeforeSQL modified='1' type='string'>&lt;![CDATA[CALL DBAADM.TRUNCATE_TABLE('BIL0ADM', 'L0NUCA_TB_CMCA_CUST_INFO_INQ_L');]]>&lt;ReadFromFileBeforeSQL type='bool'>&lt;![CDATA[0]]>&lt;/ReadFromFileBeforeSQL>&lt;FailOnError type='bool'>&lt;![CDATA[1]]>&lt;/FailOnError>&lt;/BeforeSQL>`{% endraw %}: 작업을 시작하기 전에 실행할 SQL 문을 지정하는 요소입니다. 이 경우 "CALL DBAADM.TRUNCATE_TABLE('BIL0ADM', 'L0NUCA_TB_CMCA_CUST_INFO_IN
 
 ## 사용자 입력:
 > 끊긴 부분부터 이어서 설명해.
 
 ## ChatGPT 응답:
-> - `_L');]]>`은 BIL0ADM 스키마의 L0NUCA_TB_CMCA_CUST_INFO_INQ_L 테이블을 잘라내는 SQL 문입니다.
-- `&lt;AfterSQL collapsed='1' type='string'>&lt;![CDATA[]]>&lt;ReadFromFileAfterSQL type='bool'>&lt;![CDATA[0]]>&lt;/ReadFromFileAfterSQL>&lt;FailOnError type='bool'>&lt;![CDATA[1]]>&lt;/FailOnError>&lt;/AfterSQL>`: 작업을 마친 후 실행할 SQL 문을 지정하는 요소입니다. 이 경우 아무것도 실행하지 않습니다.
-- `&lt;BeforeSQLNode collapsed='1' type='string'>&lt;![CDATA[]]>&lt;ReadFromFileBeforeSQLNode type='bool'>&lt;![CDATA[0]]>&lt;/ReadFromFileBeforeSQLNode>&lt;FailOnError type='bool'>&lt;![CDATA[1]]>&lt;/FailOnError>&lt;/BeforeSQLNode>`: 노드에서 작업을 시작하기 전에 실행할 SQL 문을 지정하는 요소입니다. 이 경우 아무것도 실행하지 않습니다.
-- `&lt;AfterSQLNode collapsed='1' type='string'>&lt;![CDATA[]]>&lt;ReadFromFileAfterSQLNode type='bool'>&lt;![CDATA[0]]>&lt;/ReadFromFileAfterSQLNode>&lt;FailOnError type='bool'>&lt;![CDATA[1]]>&lt;/FailOnError>&lt;/AfterSQLNode>`: 노드에서 작업을 마친 후 실행할 SQL 문을 지정하는 요소입니다. 이 경우 아무것도 실행하지 않습니다.
-- `&lt;ManualMode collapsed='1' type='bool'>&lt;![CDATA[0]]>&lt;/ManualMode>&lt;EnableParallelLoadSessions type='bool'>&lt;![CDATA[1]]>&lt;/EnableParallelLoadSessions>&lt;Buffersizeinkilobytes type='int'>&lt;![CDATA[1024]]>&lt;/Buffersizeinkilobytes>&lt;UseDateCache collapsed='1' type='bool'>&lt;![CDATA[0]]>&lt;/UseDateCache>&lt;SkipIndexes modified='1' type='int'>&lt;![CDATA[2]]>&lt;/SkipIndexes>&lt;DisableRedoLog modified='1' type='bool'>&lt;![CDATA[1]]>&lt;/DisableRedoLog>&lt;BeforeLoad collapsed='1' modified='1' type='bool'>&lt;![CDATA[0]]>&lt;/BeforeLoad>&lt;AfterLoad modified='1' type='bool'>&lt;![CDATA[1]]>&lt;RebuildIndexes modified='1' type='bool'>&lt;![CDATA[1]]>&lt;ParallelClause modified='1' type='int'>&lt;![CDATA[2]]>&lt;DegreeOfParallelism modified='1' type='int'>&lt;![CDATA[6]]>&lt;/DegreeOfParallelism>&lt;/ParallelClause>&lt;LoggingClause modified='1' type='int'>&lt;![CDATA[1]]>&lt;/LoggingClause>&lt;FailOnRebuildIndex type='bool'>&lt;![CDATA[0]]>&lt;/FailOnRebuildIndex>&lt;/RebuildIndexes>&lt;EnableConstraints modified='1' type='bool'>&lt;
+> - {% raw %}`_L');]]>`{% endraw %}은 BIL0ADM 스키마의 L0NUCA_TB_CMCA_CUST_INFO_INQ_L 테이블을 잘라내는 SQL 문입니다.
+- {% raw %}`&lt;AfterSQL collapsed='1' type='string'>&lt;![CDATA[]]>&lt;ReadFromFileAfterSQL type='bool'>&lt;![CDATA[0]]>&lt;/ReadFromFileAfterSQL>&lt;FailOnError type='bool'>&lt;![CDATA[1]]>&lt;/FailOnError>&lt;/AfterSQL>`{% endraw %}: 작업을 마친 후 실행할 SQL 문을 지정하는 요소입니다. 이 경우 아무것도 실행하지 않습니다.
+- {% raw %}`&lt;BeforeSQLNode collapsed='1' type='string'>&lt;![CDATA[]]>&lt;ReadFromFileBeforeSQLNode type='bool'>&lt;![CDATA[0]]>&lt;/ReadFromFileBeforeSQLNode>&lt;FailOnError type='bool'>&lt;![CDATA[1]]>&lt;/FailOnError>&lt;/BeforeSQLNode>`{% endraw %}: 노드에서 작업을 시작하기 전에 실행할 SQL 문을 지정하는 요소입니다. 이 경우 아무것도 실행하지 않습니다.
+- {% raw %}`&lt;AfterSQLNode collapsed='1' type='string'>&lt;![CDATA[]]>&lt;ReadFromFileAfterSQLNode type='bool'>&lt;![CDATA[0]]>&lt;/ReadFromFileAfterSQLNode>&lt;FailOnError type='bool'>&lt;![CDATA[1]]>&lt;/FailOnError>&lt;/AfterSQLNode>`{% endraw %}: 노드에서 작업을 마친 후 실행할 SQL 문을 지정하는 요소입니다. 이 경우 아무것도 실행하지 않습니다.
+- {% raw %}`&lt;ManualMode collapsed='1' type='bool'>&lt;![CDATA[0]]>&lt;/ManualMode>&lt;EnableParallelLoadSessions type='bool'>&lt;![CDATA[1]]>&lt;/EnableParallelLoadSessions>&lt;Buffersizeinkilobytes type='int'>&lt;![CDATA[1024]]>&lt;/Buffersizeinkilobytes>&lt;UseDateCache collapsed='1' type='bool'>&lt;![CDATA[0]]>&lt;/UseDateCache>&lt;SkipIndexes modified='1' type='int'>&lt;![CDATA[2]]>&lt;/SkipIndexes>&lt;DisableRedoLog modified='1' type='bool'>&lt;![CDATA[1]]>&lt;/DisableRedoLog>&lt;BeforeLoad collapsed='1' modified='1' type='bool'>&lt;![CDATA[0]]>&lt;/BeforeLoad>&lt;AfterLoad modified='1' type='bool'>&lt;![CDATA[1]]>&lt;RebuildIndexes modified='1' type='bool'>&lt;![CDATA[1]]>&lt;ParallelClause modified='1' type='int'>&lt;![CDATA[2]]>&lt;DegreeOfParallelism modified='1' type='int'>&lt;![CDATA[6]]>&lt;/DegreeOfParallelism>&lt;/ParallelClause>&lt;LoggingClause modified='1' type='int'>&lt;![CDATA[1]]>&lt;/LoggingClause>&lt;FailOnRebuildIndex type='bool'>&lt;![CDATA[0]]>&lt;/FailOnRebuildIndex>&lt;/RebuildIndexes>&lt;EnableConstraints modified='1' type='bool'>&lt;
 
 ## 사용자 입력:
 > 끊긴 부분부터 이어서 설명해.
 
 ## ChatGPT 응답:
-> - `&lt;ManualMode collapsed='1' type='bool'>&lt;![CDATA[0]]>&lt;/ManualMode>`: 수동 모드가 활성화되었는지 여부를 나타내는 요소입니다. 이 경우 비활성화됩니다.
-- `&lt;EnableParallelLoadSessions type='bool'>&lt;![CDATA[1]]>&lt;/EnableParallelLoadSessions>`: 병렬 로드 세션이 활성화되었는지 여부를 나타내는 요소입니다. 이 경우 활성화됩니다.
-- `&lt;Buffersizeinkilobytes type='int'>&lt;![CDATA[1024]]>&lt;/Buffersizeinkilobytes>`: 로드할 데이터를 버퍼링하는 데 사용할 버퍼의 크기입니다. 이 경우 1024 킬로바이트로 설정됩니다.
-- `&lt;UseDateCache collapsed='1' type='bool'>&lt;![CDATA[0]]>&lt;/UseDateCache>`: 사용 가능한 경우 데이터 캐시를 사용할지 여부를 나타내는 요소입니다. 이 경우 비활성화됩니다.
-- `&lt;SkipIndexes modified='1' type='int'>&lt;![CDATA[2]]>&lt;/SkipIndexes>`: 로드 시 건너뛸 인덱스의 수를 나타내는 요소입니다. 이 경우 2개의 인덱스를 건너뜁니다.
-- `&lt;DisableRedoLog modified='1' type='bool'>&lt;![CDATA[1]]>&lt;/DisableRedoLog>`: 리두 로그 기록을 비활성화할지 여부를 나타내는 요소입니다. 이 경우 활성화됩니다.
-- `&lt;BeforeLoad collapsed='1' modified='1' type='bool'>&lt;![CDATA[0]]>&lt;/BeforeLoad>`: 로드 작업을 시작하기 전에 실행할 추가 작업이 있는지 여부를 나타내는 요소입니다. 이 경우 아무런 추가 작업이 없습니다.
-- `&lt;AfterLoad modified='1' type='bool'>&lt;![CDATA[1]]>&lt;RebuildIndexes modified='1' type='bool'>&lt;![CDATA[1]]>&lt;ParallelClause modified='1' type='int'>&lt;![CDATA[2]]>&lt;DegreeOfParallelism modified='1' type='int'>&lt;![CDATA[6]]>&lt;/DegreeOfParallelism>&lt;/ParallelClause>&lt;LoggingClause modified='1' type='int'>&lt;![CDATA[1]]>&lt;/LoggingClause>&lt;FailOnRebuildIndex type='bool'>&lt;![CDATA[0]]>&lt;/FailOnRebuildIndex>&lt;/RebuildIndexes>&lt;EnableConstraints modified='1' type='bool'>&lt;
+> - `{% endraw %}&lt;ManualMode collapsed='1' type='bool'>&lt;![CDATA[0]]>&lt;/ManualMode>{% raw %}`: 수동 모드가 활성화되었는지 여부를 나타내는 요소입니다. 이 경우 비활성화됩니다.
+- `{% endraw %}&lt;EnableParallelLoadSessions type='bool'>&lt;![CDATA[1]]>&lt;/EnableParallelLoadSessions>{% raw %}`: 병렬 로드 세션이 활성화되었는지 여부를 나타내는 요소입니다. 이 경우 활성화됩니다.
+- `{% endraw %}&lt;Buffersizeinkilobytes type='int'>&lt;![CDATA[1024]]>&lt;/Buffersizeinkilobytes>{% raw %}`: 로드할 데이터를 버퍼링하는 데 사용할 버퍼의 크기입니다. 이 경우 1024 킬로바이트로 설정됩니다.
+- `{% endraw %}&lt;UseDateCache collapsed='1' type='bool'>&lt;![CDATA[0]]>&lt;/UseDateCache>{% raw %}`: 사용 가능한 경우 데이터 캐시를 사용할지 여부를 나타내는 요소입니다. 이 경우 비활성화됩니다.
+- `{% endraw %}&lt;SkipIndexes modified='1' type='int'>&lt;![CDATA[2]]>&lt;/SkipIndexes>{% raw %}`: 로드 시 건너뛸 인덱스의 수를 나타내는 요소입니다. 이 경우 2개의 인덱스를 건너뜁니다.
+- `{% endraw %}&lt;DisableRedoLog modified='1' type='bool'>&lt;![CDATA[1]]>&lt;/DisableRedoLog>{% raw %}`: 리두 로그 기록을 비활성화할지 여부를 나타내는 요소입니다. 이 경우 활성화됩니다.
+- `{% endraw %}&lt;BeforeLoad collapsed='1' modified='1' type='bool'>&lt;![CDATA[0]]>&lt;/BeforeLoad>{% raw %}`: 로드 작업을 시작하기 전에 실행할 추가 작업이 있는지 여부를 나타내는 요소입니다. 이 경우 아무런 추가 작업이 없습니다.
+- `{% endraw %}&lt;AfterLoad modified='1' type='bool'>&lt;![CDATA[1]]>&lt;RebuildIndexes modified='1' type='bool'>&lt;![CDATA[1]]>&lt;ParallelClause modified='1' type='int'>&lt;![CDATA[2]]>&lt;DegreeOfParallelism modified='1' type='int'>&lt;![CDATA[6]]>&lt;/DegreeOfParallelism>&lt;/ParallelClause>&lt;LoggingClause modified='1' type='int'>&lt;![CDATA[1]]>&lt;/LoggingClause>&lt;FailOnRebuildIndex type='bool'>&lt;![CDATA[0]]>&lt;/FailOnRebuildIndex>&lt;/RebuildIndexes>&lt;EnableConstraints modified='1' type='bool'>&lt;
 
 ## 사용자 입력:
 > 끊긴 부분부터 이어서 설명해.
 
 ## ChatGPT 응답:
-> - `&lt;AfterLoad modified='1' type='bool'>&lt;![CDATA[1]]>`: 로드 작업 후 추가 작업이 있는지 여부를 나타내는 요소입니다. 이 경우 추가 작업이 있습니다.
-- `&lt;RebuildIndexes modified='1' type='bool'>&lt;![CDATA[1]]>`: 로드 작업 후 인덱스를 다시 빌드할지 여부를 나타내는 요소입니다. 이 경우 다시 빌드합니다.
-- `&lt;ParallelClause modified='1' type='int'>&lt;![CDATA[2]]>&lt;DegreeOfParallelism modified='1' type='int'>&lt;![CDATA[6]]>&lt;/DegreeOfParallelism>&lt;/ParallelClause>`: 병렬 처리를 사용하여 인덱스를 다시 빌드할지 여부를 나타내는 요소입니다. 이 경우 6개의 스레드를 사용하여 인덱스를 다시 빌드합니다.
-- `&lt;LoggingClause modified='1' type='int'>&lt;![CDATA[1]]>&lt;/LoggingClause>`: 로그 기록 방법을 나타내는 요소입니다. 이 경우 변경 사항을 기록합니다.
-- `&lt;FailOnRebuildIndex type='bool'>&lt;![CDATA[0]]>&lt;/FailOnRebuildIndex>`: 인덱스 다시 빌드 중 오류가 발생하면 실패할지 여부를 나타내는 요소입니다. 이 경우 실패하지 않습니다.
-- `&lt;EnableConstraints modified='1' type='bool'>&lt;![CDATA[1]]>&lt;/EnableConstraints>`: 인덱스를 다시 빌드한 후 제약 조건을 다시 활성화할지 여부를 나타내는 요소입니다. 이 경우 활성화합니다.
+> - {% raw %}`&lt;AfterLoad modified='1' type='bool'>&lt;![CDATA[1]]>`{% endraw %}: 로드 작업 후 추가 작업이 있는지 여부를 나타내는 요소입니다. 이 경우 추가 작업이 있습니다.
+- {% raw %}`&lt;RebuildIndexes modified='1' type='bool'>&lt;![CDATA[1]]>`{% endraw %}: 로드 작업 후 인덱스를 다시 빌드할지 여부를 나타내는 요소입니다. 이 경우 다시 빌드합니다.
+- {% raw %}`&lt;ParallelClause modified='1' type='int'>&lt;![CDATA[2]]>&lt;DegreeOfParallelism modified='1' type='int'>&lt;![CDATA[6]]>&lt;/DegreeOfParallelism>&lt;/ParallelClause>`{% endraw %}: 병렬 처리를 사용하여 인덱스를 다시 빌드할지 여부를 나타내는 요소입니다. 이 경우 6개의 스레드를 사용하여 인덱스를 다시 빌드합니다.
+- {% raw %}`&lt;LoggingClause modified='1' type='int'>&lt;![CDATA[1]]>&lt;/LoggingClause>`{% endraw %}: 로그 기록 방법을 나타내는 요소입니다. 이 경우 변경 사항을 기록합니다.
+- {% raw %}`&lt;FailOnRebuildIndex type='bool'>&lt;![CDATA[0]]>&lt;/FailOnRebuildIndex>`{% endraw %}: 인덱스 다시 빌드 중 오류가 발생하면 실패할지 여부를 나타내는 요소입니다. 이 경우 실패하지 않습니다.
+- {% raw %}`&lt;EnableConstraints modified='1' type='bool'>&lt;![CDATA[1]]>&lt;/EnableConstraints>`{% endraw %}: 인덱스를 다시 빌드한 후 제약 조건을 다시 활성화할지 여부를 나타내는 요소입니다. 이 경우 활성화합니다.
 
 ## 사용자 입력:
 > 한국에서 방학이 있는 회사는?
@@ -296,7 +294,7 @@ Transformer Stage는 입력 데이터를 변환하여 출력 데이터를 생성
 >         <contains_FlowVariable xsi:type="com.ibm.datastage.ai.dtm.ds:DSFlowVariableSDO" xmi:id="201" sDOVersion="2.0.0" objectID="c2e76d84.cf7a27f9.qqpoan34v.a9pnal4.380426.27akrbbsv80p82bvjpu45" lastModificationTimestamp="2023-01-09T11:04:04.475+0900" optimisticLockID="2" createdByUser="migdev" creationTimestamp="2022-12-29T14:39:59.771+0900" modifiedByUser="migdev" name="CUST_ID" shortDescription="고객ID" minimumLength="0" fractionDigits="0" typeCode="String" levelNumber="0" maximumLength="36" isSigned="false" isNullable="false" displaySize="36" oDBCType="Varchar" isSourceOf_FlowVariable="36" allowCRLF="0" arrayHandling="0" columnReference="CUST_ID" group="0" padNulls="0" pKeyIsCaseless="0" sortingOrder="0" sortKey="0" sortType="0" tableDef="PlugIn\\DSDB2\\MNL0.L0NUCA_TB_CMCA_CUST_INFO_INQ_L" sourceColumnID="" isKey="true" xmetaLockingRoot="c2e76d84.43058877.qqpo9uat8.6lemca9.sr3gev.hub38uffjqtdhjhipmha7" isUString="false"/> 여기서 tableDef로 알 수 있는 것은?
 
 ## ChatGPT 응답:
-> 해당 정보에서는 `tableDef`로 "PlugIn\\DSDB2\\MNL0.L0NUCA_TB_CMCA_CUST_INFO_INQ_L"가 나타나는데, 이는 이 FlowVariable이 사용되는 테이블이 "MNL0.L0NUCA_TB_CMCA_CUST_INFO_INQ_L"임을 나타냅니다.
+> 해당 정보에서는 {% raw %}`tableDef`{% endraw %}로 "PlugIn\\DSDB2\\MNL0.L0NUCA_TB_CMCA_CUST_INFO_INQ_L"가 나타나는데, 이는 이 FlowVariable이 사용되는 테이블이 "MNL0.L0NUCA_TB_CMCA_CUST_INFO_INQ_L"임을 나타냅니다.
 
 ## 사용자 입력:
 > 위에 DSDB2는 무슨의미야?
@@ -320,9 +318,9 @@ Transformer Stage는 입력 데이터를 변환하여 출력 데이터를 생성
 > params.par에는 특정 .pjb에서 사용하는 파라미터라는 걸 구분할 수 있나?
 
 ## ChatGPT 응답:
-> `params.par` 파일에는 일반적으로 DataStage 프로젝트에서 사용되는 모든 파라미터가 저장됩니다. 따라서 이 파일만으로는 특정 `.pjb`에서 사용하는 파라미터를 직접적으로 구분할 수는 없습니다.
+> {% raw %}`params.par`{% endraw %} 파일에는 일반적으로 DataStage 프로젝트에서 사용되는 모든 파라미터가 저장됩니다. 따라서 이 파일만으로는 특정 {% raw %}`.pjb`{% endraw %}에서 사용하는 파라미터를 직접적으로 구분할 수는 없습니다.
 
-보다 구체적으로 말하자면, `params.par` 파일은 DataStage 프로젝트의 모든 파라미터가 이름, 데이터 타입 및 값으로 나열된 텍스트 파일입니다. 이 파일의 내용을 수정하여 프로젝트 전체에서 파라미터 값을 변경할 수 있습니다. 각 `.pjb` 파일에서 사용하는 파라미터는 해당 `.pjb` 파일에 직접 정의됩니다. 일반적으로 `.pjb` 파일의 정의에는 해당 파라미터의 이름, 데이터 타입, 기본값 등이 포함됩니다. 따라서 특정 `.pjb` 파일에서 사용하는 파라미터를 식별하려면 해당 `.pjb` 파일을 직접 열어서 내용을 확인해야 합니다.
+보다 구체적으로 말하자면, {% raw %}`params.par`{% endraw %} 파일은 DataStage 프로젝트의 모든 파라미터가 이름, 데이터 타입 및 값으로 나열된 텍스트 파일입니다. 이 파일의 내용을 수정하여 프로젝트 전체에서 파라미터 값을 변경할 수 있습니다. 각 {% raw %}`.pjb`{% endraw %} 파일에서 사용하는 파라미터는 해당 {% raw %}`.pjb`{% endraw %} 파일에 직접 정의됩니다. 일반적으로 {% raw %}`.pjb`{% endraw %} 파일의 정의에는 해당 파라미터의 이름, 데이터 타입, 기본값 등이 포함됩니다. 따라서 특정 {% raw %}`.pjb`{% endraw %} 파일에서 사용하는 파라미터를 식별하려면 해당 {% raw %}`.pjb`{% endraw %} 파일을 직접 열어서 내용을 확인해야 합니다.
 
 ## 사용자 입력:
 > params.par에는 연결된 objectId가 없다는 얘기지?

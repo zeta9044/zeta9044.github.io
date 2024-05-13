@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Java Version for MaxGraph 4"
-date: 2023-12-15
-tags: [MaxGraph, Java, Version, for]
-categories: blog
+tags: [Version, for, MaxGraph, Java]
 ---
 
 ## 사용자 입력:

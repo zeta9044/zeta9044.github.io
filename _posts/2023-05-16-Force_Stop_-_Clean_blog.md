@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Force Stop & Clean"
-date: 2023-05-16
-tags: [Force, Clean, Stop]
-categories: blog
+tags: [Clean, Stop, Force]
 ---
 
 ## 사용자 입력:
@@ -85,14 +83,14 @@ Bamboo 7.0 이전 버전까지는 빌드 타임아웃 설정이 Bamboo 관리자
 
 예를 들어, 빌드 스크립트에서 Bash 셸을 사용하는 경우, 다음과 같은 명령을 사용하여 빌드 타임아웃을 설정할 수 있습니다:
 
-```bash
+{% raw %}```bash
 #!/bin/bash
 
 # 빌드 타임아웃 설정
 timeout 30m ./build_script.sh
-```
+```{% endraw %}
 
-위의 예시에서는 `timeout` 명령을 사용하여 `build_script.sh` 스크립트를 최대 30분 동안 실행하도록 설정하였습니다. 이렇게 하면 스크립트가 30분을 초과하면 자동으로 중지됩니다. 
+위의 예시에서는 {% raw %}`timeout`{% endraw %} 명령을 사용하여 {% raw %}`build_script.sh`{% endraw %} 스크립트를 최대 30분 동안 실행하도록 설정하였습니다. 이렇게 하면 스크립트가 30분을 초과하면 자동으로 중지됩니다. 
 
 빌드 타임아웃을 구성할 때는 주의해야 합니다. 충분한 시간을 설정하여 빌드가 완료될 수 있도록 해야하며, 동시에 너무 긴 시간을 설정하면 다른 빌드를 차단할 수 있습니다.
 

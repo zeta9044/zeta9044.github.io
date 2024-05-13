@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Filtrar commits Git por autor"
-date: 2023-12-22
-tags: [por, commits, Git, Filtrar, autor]
-categories: blog
+tags: [Filtrar, commits, autor, por, Git]
 ---
 
 ## 사용자 입력:
@@ -18,7 +16,7 @@ categories: blog
 ## ChatGPT 응답:
 > In IntelliJ IDEA, you can filter the Git log by user using the User filter option in the Log tab of the Version Control tool window. Here's how you can do it:
 
-1. Open the Git Log tool window by hovering over the quick access button in the bottom left of the IntelliJ IDEA window and selecting Git, or by using `Alt+9` (Windows/Linux) or `⌘9` (macOS).
+1. Open the Git Log tool window by hovering over the quick access button in the bottom left of the IntelliJ IDEA window and selecting Git, or by using {% raw %}`Alt+9`{% endraw %} (Windows/Linux) or {% raw %}`⌘9`{% endraw %} (macOS).
 2. In the Git Log tool window, you will see various filtering options including User. 
 3. To filter commits by a specific author, click on "Select" under the User filter section and start typing the author's name. The interface allows you to specify the author's name, and if necessary, handle usernames with special characters like commas. Just ensure to specify each username on a new line if there are special characters involved.
 4. After selecting the author, the log will update to show only commits made by that author.
@@ -33,7 +31,7 @@ For more detailed information and instructions, you can refer to the [IntelliJ I
 ## ChatGPT 응답:
 > IntelliJ IDEA에서 Git 로그를 사용자별로 필터링하는 방법은 다음과 같습니다:
 
-1. IntelliJ IDEA의 왼쪽 하단에 있는 빠른 접근 버튼을 마우스로 가리키고 Git을 선택하거나 `Alt+9`(Windows/Linux) 또는 `⌘9`(macOS)를 사용하여 Git 로그 도구 창을 엽니다.
+1. IntelliJ IDEA의 왼쪽 하단에 있는 빠른 접근 버튼을 마우스로 가리키고 Git을 선택하거나 {% raw %}`Alt+9`{% endraw %}(Windows/Linux) 또는 {% raw %}`⌘9`{% endraw %}(macOS)를 사용하여 Git 로그 도구 창을 엽니다.
 2. Git 로그 도구 창에서 여러 필터링 옵션이 표시됩니다. 여기에서 "User" 필터 옵션을 찾습니다.
 3. 특정 사용자의 커밋을 필터링하려면 User 필터 섹션에서 "Select"를 클릭하고 사용자 이름을 입력합니다. 인터페이스에서는 필요한 경우 특수 문자(예: 쉼표)가 포함된 사용자 이름을 처리할 수 있습니다. 특수 문자가 포함된 경우 각 사용자 이름을 새 줄에 지정해야 합니다.
 4. 사용자를 선택한 후 로그는 해당 사용자가 만든 커밋만 표시하도록 업데이트됩니다.

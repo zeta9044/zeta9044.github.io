@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "IntelliJ IDEA 파일 크기 문제"
-date: 2023-11-28
-tags: [IntelliJ, 크기, 파일, 문제, IDEA]
-categories: blog
+tags: [문제, 크기, IntelliJ, IDEA, 파일]
 ---
 
 ## 사용자 입력:
@@ -32,19 +30,19 @@ categories: blog
 
 1. IntelliJ IDEA를 종료하세요.
 
-2. IntelliJ IDEA가 설치된 디렉토리에서 `bin` 폴더로 이동합니다.
+2. IntelliJ IDEA가 설치된 디렉토리에서 {% raw %}`bin`{% endraw %} 폴더로 이동합니다.
 
-3. `bin` 폴더에서 IntelliJ IDEA를 실행할 스크립트 파일을 찾습니다. Windows에서는 `idea64.exe.vmoptions` 또는 `idea.exe.vmoptions`, macOS 또는 Linux에서는 `idea64.vmoptions` 또는 `idea.vmoptions` 파일일 수 있습니다.
+3. {% raw %}`bin`{% endraw %} 폴더에서 IntelliJ IDEA를 실행할 스크립트 파일을 찾습니다. Windows에서는 {% raw %}`idea64.exe.vmoptions`{% endraw %} 또는 {% raw %}`idea.exe.vmoptions`{% endraw %}, macOS 또는 Linux에서는 {% raw %}`idea64.vmoptions`{% endraw %} 또는 {% raw %}`idea.vmoptions`{% endraw %} 파일일 수 있습니다.
 
 4. 해당 파일을 텍스트 편집기로 엽니다.
 
-5. 파일 내에서 `-Xmx`와 `-Xms` 옵션을 찾아야 합니다. `-Xmx`는 최대 힙 크기를 설정하고 `-Xms`는 최소 힙 크기를 설정합니다.
+5. 파일 내에서 {% raw %}`-Xmx`{% endraw %}와 {% raw %}`-Xms`{% endraw %} 옵션을 찾아야 합니다. {% raw %}`-Xmx`{% endraw %}는 최대 힙 크기를 설정하고 {% raw %}`-Xms`{% endraw %}는 최소 힙 크기를 설정합니다.
 
    예를 들어, 다음과 같이 설정할 수 있습니다:
-   ```
+   {% raw %}```
    -Xmx1024m
    -Xms512m
-   ```
+   ```{% endraw %}
 
    이렇게 설정하면 IntelliJ IDEA가 최대 1024MB(1GB)의 힙 메모리와 최소 512MB(0.5GB)의 힙 메모리를 사용하게 됩니다.
 
@@ -63,8 +61,8 @@ categories: blog
 1. **코드 분석 실행:** 코드를 작성하거나 프로젝트를 열었을 때 IntelliJ IDEA는 자동으로 코드 분석을 실행합니다. 코드 에디터 내에서 잠재적인 오류, 경고 및 코드 스타일 문제를 강조 표시해 줍니다.
 
 2. **검사결과 뷰어:** 코드 분석 결과를 보려면 아래와 같이 "검사결과" 패널을 열 수 있습니다.
-   - `View` 또는 `Tools` 메뉴에서 "Inspection Results"를 선택합니다.
-   - 단축키 `Alt + 6` (Windows/Linux) 또는 `Cmd + 6` (macOS)을 사용합니다.
+   - {% raw %}`View`{% endraw %} 또는 {% raw %}`Tools`{% endraw %} 메뉴에서 "Inspection Results"를 선택합니다.
+   - 단축키 {% raw %}`Alt + 6`{% endraw %} (Windows/Linux) 또는 {% raw %}`Cmd + 6`{% endraw %} (macOS)을 사용합니다.
 
 3. **검사 설정 구성:** IntelliJ IDEA는 다양한 코드 검사 옵션을 제공하며, 프로젝트 또는 파일별로 설정을 구성할 수 있습니다. 이를 통해 코드 분석의 범위와 규칙을 사용자 정의할 수 있습니다.
 

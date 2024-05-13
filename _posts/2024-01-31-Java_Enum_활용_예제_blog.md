@@ -1,20 +1,18 @@
 ---
 layout: post
 title: "Java Enum 활용 예제"
-date: 2024-01-31
-tags: [예제, 활용, Java, Enum]
-categories: blog
+tags: [Enum, 예제, 활용, Java]
 ---
 
 ## 사용자 입력:
 > 자바에서 enum 활용 예제 여러가지.
 
 ## ChatGPT 응답:
-> 자바(Java)에서 `enum` (열거형)을 사용하는 다양한 예제를 소개하겠습니다. `enum`은 고정된 상수들의 집합을 표현할 때 사용되며, 유지 보수와 코드 가독성 향상에 유용합니다.
+> 자바(Java)에서 {% raw %}`enum`{% endraw %} (열거형)을 사용하는 다양한 예제를 소개하겠습니다. {% raw %}`enum`{% endraw %}은 고정된 상수들의 집합을 표현할 때 사용되며, 유지 보수와 코드 가독성 향상에 유용합니다.
 
 ### 기본 Enum 사용
 
-```java
+{% raw %}```java
 public enum Day {
     MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
 }
@@ -56,11 +54,11 @@ public class EnumTest {
         seventhDay.tellItLikeItIs();
     }
 }
-```
+```{% endraw %}
 
 ### Enum에 메소드 추가
 
-```java
+{% raw %}```java
 public enum Planet {
     MERCURY (3.303e+23, 2.4397e6),
     VENUS   (4.869e+24, 6.0518e6),
@@ -92,11 +90,11 @@ public enum Planet {
         return otherMass * surfaceGravity();
     }
 }
-```
+```{% endraw %}
 
 ### Enum과 Singleton 패턴
 
-```java
+{% raw %}```java
 public enum Singleton {
     INSTANCE;
 
@@ -115,11 +113,11 @@ public class SingletonTest {
         singleton.doSomething();
     }
 }
-```
+```{% endraw %}
 
 ### Enum에서 값 가져오기
 
-```java
+{% raw %}```java
 public enum Level {
     LOW, MEDIUM, HIGH;
 
@@ -139,7 +137,7 @@ public class LevelTest {
         System.out.println(level); // 출력: HIGH
     }
 }
-```
+```{% endraw %}
 
-이러한 예제들은 `enum`을 다양한 방법으로 활용하는 방법을 보여줍니다. `enum`은 코드를 더욱 체계적이고 관리하기 쉽게 만들어 줍니다.
+이러한 예제들은 {% raw %}`enum`{% endraw %}을 다양한 방법으로 활용하는 방법을 보여줍니다. {% raw %}`enum`{% endraw %}은 코드를 더욱 체계적이고 관리하기 쉽게 만들어 줍니다.
 

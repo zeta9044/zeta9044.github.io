@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "WAS에서 JCahceManager 없음."
-date: 2023-04-14
 tags: [JCahceManager]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -34,9 +32,9 @@ categories: blog
 2. "conf" 폴더 내의 "setenv.sh" 파일을 엽니다. (Windows에서는 "setenv.bat" 파일입니다.)
 3. "setenv.sh" 파일 내의 "CLASSPATH" 환경 변수를 설정합니다. 이때, 필요한 라이브러리 파일들이 포함된 디렉토리를 지정합니다. 예를 들어, 다음과 같이 지정할 수 있습니다.
 
-   ```
+   {% raw %}```
    export CLASSPATH=/path/to/lib1:/path/to/lib2:/path/to/lib3
-   ```
+   ```{% endraw %}
 
 4. "setenv.sh" 파일을 저장하고 종료합니다.
 
@@ -54,10 +52,10 @@ categories: blog
 2. "bin" 폴더 내의 "start_zeus.sh" 파일을 엽니다. (Windows에서는 "start_zeus.bat" 파일입니다.)
 3. "start_zeus.sh" 파일 내의 "CLASSPATH" 환경 변수를 설정합니다. 이때, 필요한 라이브러리 파일들이 포함된 디렉토리를 지정합니다. 예를 들어, 다음과 같이 지정할 수 있습니다.
 
-   ```
+   {% raw %}```
    CLASSPATH=/path/to/lib1:/path/to/lib2:/path/to/lib3
    export CLASSPATH
-   ```
+   ```{% endraw %}
 
 4. "start_zeus.sh" 파일을 저장하고 종료합니다.
 

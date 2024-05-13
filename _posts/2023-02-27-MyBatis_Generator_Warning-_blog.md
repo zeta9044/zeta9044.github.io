@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "MyBatis Generator Warning."
-date: 2023-02-27
 tags: [Generator, Warning, MyBatis]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -62,9 +60,9 @@ If none of these steps work, you may want to consult the MyBatis Generator docum
 ## ChatGPT 응답:
 > MyBatis Generator에서는 이미 생성된 소스 코드를 변경된 부분만 업데이트하는 옵션은 제공하지 않습니다. 그러나 MyBatis Generator는 생성된 소스 코드를 덮어쓰지 않고, 새로운 디렉토리에 생성하도록 설정할 수 있습니다.
 
-이 방법을 사용하면 이전에 생성된 소스 코드와 새로 생성된 소스 코드를 쉽게 비교할 수 있으며, 필요한 경우 수동으로 수정할 수 있습니다. 이를 위해서는 `javaClientGenerator`, `sqlMapGenerator`, `javaModelGenerator` 섹션의 `targetPackage` 또는 `targetProject` 속성 값을 변경하여 다른 디렉토리에 소스 코드를 생성하면 됩니다.
+이 방법을 사용하면 이전에 생성된 소스 코드와 새로 생성된 소스 코드를 쉽게 비교할 수 있으며, 필요한 경우 수동으로 수정할 수 있습니다. 이를 위해서는 {% raw %}`javaClientGenerator`{% endraw %}, {% raw %}`sqlMapGenerator`{% endraw %}, {% raw %}`javaModelGenerator`{% endraw %} 섹션의 {% raw %}`targetPackage`{% endraw %} 또는 {% raw %}`targetProject`{% endraw %} 속성 값을 변경하여 다른 디렉토리에 소스 코드를 생성하면 됩니다.
 
-예를 들어, `javaClientGenerator` 섹션에서 `targetPackage` 속성 값을 변경하여 새로운 DAO 클래스를 생성할 수 있습니다. 이렇게 하면 이전에 생성된 DAO 클래스와 새로 생성된 DAO 클래스를 쉽게 비교할 수 있으며, 변경된 부분만 복사하여 이전의 DAO 클래스에 추가할 수 있습니다. 이와 비슷한 방법으로 SQL 매퍼와 모델 클래스도 새로운 디렉토리에 생성할 수 있습니다.
+예를 들어, {% raw %}`javaClientGenerator`{% endraw %} 섹션에서 {% raw %}`targetPackage`{% endraw %} 속성 값을 변경하여 새로운 DAO 클래스를 생성할 수 있습니다. 이렇게 하면 이전에 생성된 DAO 클래스와 새로 생성된 DAO 클래스를 쉽게 비교할 수 있으며, 변경된 부분만 복사하여 이전의 DAO 클래스에 추가할 수 있습니다. 이와 비슷한 방법으로 SQL 매퍼와 모델 클래스도 새로운 디렉토리에 생성할 수 있습니다.
 
 ## 사용자 입력:
 > postgresql에서 primary key 생성 구문 알려줘
@@ -72,42 +70,42 @@ If none of these steps work, you may want to consult the MyBatis Generator docum
 ## ChatGPT 응답:
 > PostgreSQL에서 Primary Key를 생성하는 구문은 다음과 같습니다.
 
-```sql
+{% raw %}```sql
 ALTER TABLE table_name ADD CONSTRAINT constraint_name PRIMARY KEY (column_name);
-```
+```{% endraw %}
 
-위 구문에서 `table_name`은 Primary Key를 추가할 테이블의 이름이며, `constraint_name`은 Primary Key 제약 조건의 이름입니다. `column_name`은 Primary Key를 구성하는 열(컬럼)의 이름입니다. 
+위 구문에서 {% raw %}`table_name`{% endraw %}은 Primary Key를 추가할 테이블의 이름이며, {% raw %}`constraint_name`{% endraw %}은 Primary Key 제약 조건의 이름입니다. {% raw %}`column_name`{% endraw %}은 Primary Key를 구성하는 열(컬럼)의 이름입니다. 
 
-예를 들어, `customers` 테이블에서 `customer_id` 열을 Primary Key로 지정하는 구문은 다음과 같이 작성할 수 있습니다.
+예를 들어, {% raw %}`customers`{% endraw %} 테이블에서 {% raw %}`customer_id`{% endraw %} 열을 Primary Key로 지정하는 구문은 다음과 같이 작성할 수 있습니다.
 
-```sql
+{% raw %}```sql
 ALTER TABLE customers ADD CONSTRAINT pk_customers PRIMARY KEY (customer_id);
-```
+```{% endraw %}
 
-이 구문은 `customers` 테이블에 `pk_customers`라는 이름의 Primary Key 제약 조건을 추가하며, 이 제약 조건은 `customer_id` 열을 기반으로 합니다. 
+이 구문은 {% raw %}`customers`{% endraw %} 테이블에 {% raw %}`pk_customers`{% endraw %}라는 이름의 Primary Key 제약 조건을 추가하며, 이 제약 조건은 {% raw %}`customer_id`{% endraw %} 열을 기반으로 합니다. 
 
 또 다른 방법은 CREATE TABLE 문에서 Primary Key를 정의하는 것입니다. 이 경우에는 다음과 같이 작성합니다.
 
-```sql
+{% raw %}```sql
 CREATE TABLE table_name (
    column1 datatype1 constraint_name PRIMARY KEY,
    column2 datatype2,
    ...
 );
-```
+```{% endraw %}
 
-위 구문에서 `table_name`은 새로 생성할 테이블의 이름이며, `constraint_name`은 Primary Key 제약 조건의 이름입니다. `column1`은 Primary Key를 구성하는 열(컬럼)의 이름이며, `datatype1`은 해당 열의 데이터 유형을 나타냅니다. 
+위 구문에서 {% raw %}`table_name`{% endraw %}은 새로 생성할 테이블의 이름이며, {% raw %}`constraint_name`{% endraw %}은 Primary Key 제약 조건의 이름입니다. {% raw %}`column1`{% endraw %}은 Primary Key를 구성하는 열(컬럼)의 이름이며, {% raw %}`datatype1`{% endraw %}은 해당 열의 데이터 유형을 나타냅니다. 
 
-예를 들어, `customers` 테이블에서 `customer_id` 열을 Primary Key로 지정하는 CREATE TABLE 문은 다음과 같이 작성할 수 있습니다.
+예를 들어, {% raw %}`customers`{% endraw %} 테이블에서 {% raw %}`customer_id`{% endraw %} 열을 Primary Key로 지정하는 CREATE TABLE 문은 다음과 같이 작성할 수 있습니다.
 
-```sql
+{% raw %}```sql
 CREATE TABLE customers (
    customer_id int PRIMARY KEY,
    first_name varchar(50),
    last_name varchar(50),
    ...
 );
-```
+```{% endraw %}
 
-위 구문은 `customers` 테이블을 생성하며, `customer_id` 열을 Primary Key로 지정합니다. Primary Key를 지정하는 두 가지 방법 중 어느 것을 선택하더라도 Primary Key가 생성됩니다.
+위 구문은 {% raw %}`customers`{% endraw %} 테이블을 생성하며, {% raw %}`customer_id`{% endraw %} 열을 Primary Key로 지정합니다. Primary Key를 지정하는 두 가지 방법 중 어느 것을 선택하더라도 Primary Key가 생성됩니다.
 

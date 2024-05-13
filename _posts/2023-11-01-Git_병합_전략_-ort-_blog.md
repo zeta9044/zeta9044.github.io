@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Git 병합 전략 'ort'"
-date: 2023-11-01
-tags: [ort, 병합, 전략, Git]
-categories: blog
+tags: [전략, 병합, ort, Git]
 ---
 
 ## 사용자 입력:

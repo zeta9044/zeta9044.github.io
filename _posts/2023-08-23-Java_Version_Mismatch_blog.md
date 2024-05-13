@@ -1,41 +1,39 @@
 ---
 layout: post
 title: "Java Version Mismatch"
-date: 2023-08-23
-tags: [Java, Version, Mismatch]
-categories: blog
+tags: [Version, Mismatch, Java]
 ---
 
 ## 사용자 입력:
 >  org/antlr/v4/Tool has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 52.0
 
 ## ChatGPT 응답:
-> The error message you're seeing indicates a mismatch between the version of Java the `org/antlr/v4/Tool` class was compiled with and the version of Java you're trying to run it on.
+> The error message you're seeing indicates a mismatch between the version of Java the {% raw %}`org/antlr/v4/Tool`{% endraw %} class was compiled with and the version of Java you're trying to run it on.
 
 To break down the error:
 
-1. `class file version 55.0` corresponds to Java 11.
-2. `class file versions up to 52.0` corresponds to Java 8.
+1. {% raw %}`class file version 55.0`{% endraw %} corresponds to Java 11.
+2. {% raw %}`class file versions up to 52.0`{% endraw %} corresponds to Java 8.
 
-So, the `org/antlr/v4/Tool` was compiled using Java 11 (or a later version), and you're trying to use it with Java 8.
+So, the {% raw %}`org/antlr/v4/Tool`{% endraw %} was compiled using Java 11 (or a later version), and you're trying to use it with Java 8.
 
 To resolve this:
 
 1. **Upgrade Your Java Version**: The most straightforward solution is to upgrade your Java Runtime Environment (JRE) and Java Development Kit (JDK) to at least Java 11. This will allow you to run the class without issues.
     
     - To check your current Java version, run:
-      ```bash
+      {% raw %}```bash
       java -version
-      ```
+      ```{% endraw %}
 
-    - If you're on a package-managed system like Ubuntu, you can typically install a newer Java version with `apt-get` (or a similar command for your package manager). For example:
-      ```bash
+    - If you're on a package-managed system like Ubuntu, you can typically install a newer Java version with {% raw %}`apt-get`{% endraw %} (or a similar command for your package manager). For example:
+      {% raw %}```bash
       sudo apt-get install openjdk-11-jdk
-      ```
+      ```{% endraw %}
 
-    - After installing, you may need to update your `$JAVA_HOME` environment variable and `PATH` to point to the new Java version.
+    - After installing, you may need to update your {% raw %}`$JAVA_HOME`{% endraw %} environment variable and {% raw %}`PATH`{% endraw %} to point to the new Java version.
 
-2. **Recompile the Tool**: If you have the source code and for some reason, you don't want to or can't upgrade your Java version, you can recompile `org/antlr/v4/Tool` using Java 8. However, this might not be a viable solution if the source code uses features or APIs that are only available in Java 11 or later.
+2. **Recompile the Tool**: If you have the source code and for some reason, you don't want to or can't upgrade your Java version, you can recompile {% raw %}`org/antlr/v4/Tool`{% endraw %} using Java 8. However, this might not be a viable solution if the source code uses features or APIs that are only available in Java 11 or later.
 
 3. **Use a Different Version of the Tool**: It's possible that there's an older version of the ANTLR tool that was compiled with Java 8. You can check the official releases or repository to see if a compatible version exists.
 
@@ -47,32 +45,32 @@ The first solution (upgrading your Java version) is typically the most straightf
 > 한글로 설명해
 
 ## ChatGPT 응답:
-> 당신이 받은 오류 메시지는 `org/antlr/v4/Tool` 클래스가 컴파일된 Java 버전과 실행하려는 Java 버전 간의 불일치를 나타냅니다.
+> 당신이 받은 오류 메시지는 {% raw %}`org/antlr/v4/Tool`{% endraw %} 클래스가 컴파일된 Java 버전과 실행하려는 Java 버전 간의 불일치를 나타냅니다.
 
 오류 메시지를 분석해보면:
 
-1. `class file version 55.0`은 Java 11에 해당합니다.
-2. `class file versions up to 52.0`은 Java 8에 해당합니다.
+1. {% raw %}`class file version 55.0`{% endraw %}은 Java 11에 해당합니다.
+2. {% raw %}`class file versions up to 52.0`{% endraw %}은 Java 8에 해당합니다.
 
-따라서 `org/antlr/v4/Tool`은 Java 11 (또는 그 이후 버전)을 사용하여 컴파일되었으나 Java 8에서 실행하려고 합니다.
+따라서 {% raw %}`org/antlr/v4/Tool`{% endraw %}은 Java 11 (또는 그 이후 버전)을 사용하여 컴파일되었으나 Java 8에서 실행하려고 합니다.
 
 이 문제를 해결하기 위해서:
 
 1. **Java 버전 업그레이드**: 가장 간단한 해결책은 Java 런타임 환경 (JRE) 및 Java 개발 키트 (JDK)를 최소한 Java 11로 업그레이드하는 것입니다.
     
     - 현재 Java 버전을 확인하려면 다음을 실행하세요:
-      ```bash
+      {% raw %}```bash
       java -version
-      ```
+      ```{% endraw %}
 
-    - Ubuntu와 같은 패키지 관리 시스템에서는 `apt-get` (또는 해당 패키지 매니저의 유사한 명령)을 사용하여 새로운 Java 버전을 설치할 수 있습니다:
-      ```bash
+    - Ubuntu와 같은 패키지 관리 시스템에서는 {% raw %}`apt-get`{% endraw %} (또는 해당 패키지 매니저의 유사한 명령)을 사용하여 새로운 Java 버전을 설치할 수 있습니다:
+      {% raw %}```bash
       sudo apt-get install openjdk-11-jdk
-      ```
+      ```{% endraw %}
 
-    - 설치 후 `$JAVA_HOME` 환경 변수와 `PATH`를 새 Java 버전을 가리키도록 업데이트할 필요가 있을 수 있습니다.
+    - 설치 후 {% raw %}`$JAVA_HOME`{% endraw %} 환경 변수와 {% raw %}`PATH`{% endraw %}를 새 Java 버전을 가리키도록 업데이트할 필요가 있을 수 있습니다.
 
-2. **Tool 재컴파일**: 소스 코드가 있고 어떤 이유로 Java 버전을 업그레이드하고 싶지 않거나 할 수 없는 경우, Java 8을 사용하여 `org/antlr/v4/Tool`을 재컴파일 할 수 있습니다. 그러나 소스 코드가 Java 11 이후에만 사용 가능한 기능이나 API를 사용하는 경우 이것은 실행 가능한 해결책이 아닐 수 있습니다.
+2. **Tool 재컴파일**: 소스 코드가 있고 어떤 이유로 Java 버전을 업그레이드하고 싶지 않거나 할 수 없는 경우, Java 8을 사용하여 {% raw %}`org/antlr/v4/Tool`{% endraw %}을 재컴파일 할 수 있습니다. 그러나 소스 코드가 Java 11 이후에만 사용 가능한 기능이나 API를 사용하는 경우 이것은 실행 가능한 해결책이 아닐 수 있습니다.
 
 3. **Tool의 다른 버전 사용**: Java 8로 컴파일된 ANTLR tool의 이전 버전이 있을 수 있습니다. 호환 가능한 버전이 있는지 공식 릴리스나 저장소를 확인해보세요.
 
@@ -84,11 +82,11 @@ The first solution (upgrading your Java version) is typically the most straightf
 > gradle java의 test resource dir set
 
 ## ChatGPT 응답:
-> Gradle을 사용하여 Java 프로젝트에서 테스트 리소스 디렉토리를 설정하려면 `build.gradle` 파일에서 `sourceSets` 블록을 사용할 수 있습니다.
+> Gradle을 사용하여 Java 프로젝트에서 테스트 리소스 디렉토리를 설정하려면 {% raw %}`build.gradle`{% endraw %} 파일에서 {% raw %}`sourceSets`{% endraw %} 블록을 사용할 수 있습니다.
 
-기본적으로 Gradle은 `src/test/resources`를 테스트 리소스 디렉토리로 인식합니다. 그러나 다른 디렉토리를 사용하려는 경우 다음과 같이 설정할 수 있습니다:
+기본적으로 Gradle은 {% raw %}`src/test/resources`{% endraw %}를 테스트 리소스 디렉토리로 인식합니다. 그러나 다른 디렉토리를 사용하려는 경우 다음과 같이 설정할 수 있습니다:
 
-```gradle
+{% raw %}```gradle
 sourceSets {
     test {
         resources {
@@ -96,13 +94,13 @@ sourceSets {
         }
     }
 }
-```
+```{% endraw %}
 
-여기서 `'path/to/your/test/resources'`는 원하는 테스트 리소스 디렉토리 경로로 바꿔야 합니다.
+여기서 {% raw %}`'path/to/your/test/resources'`{% endraw %}는 원하는 테스트 리소스 디렉토리 경로로 바꿔야 합니다.
 
-예를 들어, 테스트 리소스를 `src/testData/resources` 디렉토리에서 불러오려면 다음과 같이 설정합니다:
+예를 들어, 테스트 리소스를 {% raw %}`src/testData/resources`{% endraw %} 디렉토리에서 불러오려면 다음과 같이 설정합니다:
 
-```gradle
+{% raw %}```gradle
 sourceSets {
     test {
         resources {
@@ -110,7 +108,7 @@ sourceSets {
         }
     }
 }
-```
+```{% endraw %}
 
 이렇게 설정하면 Gradle은 테스트를 실행할 때 지정된 디렉토리에서 리소스를 불러옵니다.
 

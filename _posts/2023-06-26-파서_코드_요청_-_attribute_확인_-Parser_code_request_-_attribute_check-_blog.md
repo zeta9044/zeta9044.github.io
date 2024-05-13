@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "파서 코드 요청 - attribute 확인 (Parser code request - attribute check)"
-date: 2023-06-26
-tags: [code, attribute, check, 확인, 코드, Parser, request, 요청, 파서]
-categories: blog
+tags: [Parser, attribute, 요청, 확인, check, code, request, 코드, 파서]
 ---
 
 ## 사용자 입력:
@@ -14,7 +12,7 @@ categories: blog
 ## ChatGPT 응답:
 > 다음은 ANTLR4와 Java를 사용하여 주어진 문법에서 element 안에 attribute가 존재하는지 확인하는 리스너 코드 예시입니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import YourGrammarParser;
@@ -56,9 +54,9 @@ public class YourListener extends YourGrammarBaseListener {
         }
     }
 }
-```
+```{% endraw %}
 
-이 코드는 ANTLR4의 리스너 클래스를 상속하고 `enterElement` 메서드를 오버라이드하여 attribute의 존재 여부를 확인합니다. `enterElement` 메서드에서는 `attribute` 규칙에 해당하는 ParseTree를 가져와 null 여부로 attribute의 존재 여부를 판단합니다. 그리고 `hasAttribute`라는 `ParseTreeProperty`를 사용하여 현재 element에 대한 attribute 존재 여부를 저장합니다.
+이 코드는 ANTLR4의 리스너 클래스를 상속하고 {% raw %}`enterElement`{% endraw %} 메서드를 오버라이드하여 attribute의 존재 여부를 확인합니다. {% raw %}`enterElement`{% endraw %} 메서드에서는 {% raw %}`attribute`{% endraw %} 규칙에 해당하는 ParseTree를 가져와 null 여부로 attribute의 존재 여부를 판단합니다. 그리고 {% raw %}`hasAttribute`{% endraw %}라는 {% raw %}`ParseTreeProperty`{% endraw %}를 사용하여 현재 element에 대한 attribute 존재 여부를 저장합니다.
 
-그리고 `exitElement` 메서드에서는 attribute 존재 여부에 따라 적절한 동작을 수행하도록 작성되었습니다. 이 예시에서는 attribute 존재 여부에 따라 간단한 출력문을 통해 결과를 알려줍니다. 이 코드를 사용하면 element 안에 attribute가 존재하는지 확인할 수 있습니다.
+그리고 {% raw %}`exitElement`{% endraw %} 메서드에서는 attribute 존재 여부에 따라 적절한 동작을 수행하도록 작성되었습니다. 이 예시에서는 attribute 존재 여부에 따라 간단한 출력문을 통해 결과를 알려줍니다. 이 코드를 사용하면 element 안에 attribute가 존재하는지 확인할 수 있습니다.
 

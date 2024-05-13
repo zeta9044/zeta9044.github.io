@@ -1,20 +1,18 @@
 ---
 layout: post
-title: "Ignite: XML, JSON, JAR."
-date: 2023-03-07
-tags: [JSON, JAR, Ignite, XML]
-categories: blog
+title: "Ignite - XML, JSON, JAR."
+tags: [JSON, XML, Ignite, JAR]
 ---
 
 ## 사용자 입력:
 > apache ignite 실행할 때, config.xml로 json을 로드하는 jar를 실행하는 방법 알려줘
 
 ## ChatGPT 응답:
-> Apache Ignite를 실행할 때, `config.xml` 파일을 사용하여 JSON 파일을 로드하는 JAR 파일을 실행하려면 다음 단계를 따를 수 있습니다.
+> Apache Ignite를 실행할 때, {% raw %}`config.xml`{% endraw %} 파일을 사용하여 JSON 파일을 로드하는 JAR 파일을 실행하려면 다음 단계를 따를 수 있습니다.
 
-1. 먼저 `config.xml` 파일에서 JSON 파일을 로드하도록 `CacheConfiguration`을 구성해야합니다. 예를 들어, 다음과 같은 구성을 사용할 수 있습니다.
+1. 먼저 {% raw %}`config.xml`{% endraw %} 파일에서 JSON 파일을 로드하도록 {% raw %}`CacheConfiguration`{% endraw %}을 구성해야합니다. 예를 들어, 다음과 같은 구성을 사용할 수 있습니다.
 
-```xml
+{% raw %}```xml
 <bean id="myCache" class="org.apache.ignite.configuration.CacheConfiguration">
     <property name="name" value="myCache"/>
     <property name="cacheStoreFactory">
@@ -62,11 +60,11 @@ categories: blog
         </bean>
     </property>
 </bean>
-```
+```{% endraw %}
 
-2. 그 다음으로, `config.xml` 파일에서 `JarDeployer` 클래스를 사용하여 JSON 파일을 로드하는 JAR 파일을 실행하도록 설정해야합니다. 다음과 같은 예를 들 수 있습니다.
+2. 그 다음으로, {% raw %}`config.xml`{% endraw %} 파일에서 {% raw %}`JarDeployer`{% endraw %} 클래스를 사용하여 JSON 파일을 로드하는 JAR 파일을 실행하도록 설정해야합니다. 다음과 같은 예를 들 수 있습니다.
 
-```xml
+{% raw %}```xml
 <bean class="org.apache.ignite.configuration.IgniteConfiguration">
     <property name="deploymentSpi">
         <bean class="org.apache.ignite.spi.deployment.uri.UriDeploymentSpi">
@@ -79,19 +77,19 @@ categories: blog
         </bean>
     </property>
 </bean>
-```
+```{% endraw %}
 
-3. JSON 파일을 로드하는 JAR 파일을 작성해야합니다. 이 JAR 파일은 Ignite 노드의 클래스 경로에 있어야하며, `CacheStoreAdapter`를 구현하여 JSON 파일을
+3. JSON 파일을 로드하는 JAR 파일을 작성해야합니다. 이 JAR 파일은 Ignite 노드의 클래스 경로에 있어야하며, {% raw %}`CacheStoreAdapter`{% endraw %}를 구현하여 JSON 파일을
 
 ## 사용자 입력:
 > 계속
 
 ## ChatGPT 응답:
-> 불러오도록 해야합니다. `CacheStoreAdapter` 클래스는 `CacheStore` 인터페이스를 구현하며, 데이터를 저장하고 검색하는 메서드를 제공합니다.
+> 불러오도록 해야합니다. {% raw %}`CacheStoreAdapter`{% endraw %} 클래스는 {% raw %}`CacheStore`{% endraw %} 인터페이스를 구현하며, 데이터를 저장하고 검색하는 메서드를 제공합니다.
 
-다음은 `CacheStoreAdapter`를 상속하여 JSON 파일을 로드하는 예시 코드입니다.
+다음은 {% raw %}`CacheStoreAdapter`{% endraw %}를 상속하여 JSON 파일을 로드하는 예시 코드입니다.
 
-```java
+{% raw %}```java
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.ignite.cache.store.CacheStoreAdapter;
 import org.apache.ignite.lang.IgniteBiInClosure;
@@ -159,13 +157,13 @@ public class JsonCacheStore extends CacheStoreAdapter<Integer, String> {
         }
     }
 }
-```
+```{% endraw %}
 
-위의 코드에서 `JsonData`는 JSON 파일에 저장된 개체를 나타내는 Java 클래스입니다. `JsonCacheStore` 클래스는 Ignite가 `loadCache` 메서드를 호출할 때 JSON 파일을 읽고 각 데이터 항목을 캐시에 추가합니다.
+위의 코드에서 {% raw %}`JsonData`{% endraw %}는 JSON 파일에 저장된 개체를 나타내는 Java 클래스입니다. {% raw %}`JsonCacheStore`{% endraw %} 클래스는 Ignite가 {% raw %}`loadCache`{% endraw %} 메서드를 호출할 때 JSON 파일을 읽고 각 데이터 항목을 캐시에 추가합니다.
 
-4. 마지막으로, `config.xml` 파일에서 캐시 구성을 설정하고 `JsonCacheStore` 클래스를 캐시에 연결해야합니다. 이를 위해 다음과 같은 구성을 사용할 수 있습니다.
+4. 마지막으로, {% raw %}`config.xml`{% endraw %} 파일에서 캐시 구성을 설정하고 {% raw %}`JsonCacheStore`{% endraw %} 클래스를 캐시에 연결해야합니다. 이를 위해 다음과 같은 구성을 사용할 수 있습니다.
 
-```xml
+{% raw %}```xml
 <bean id="myCache" class="org.apache.ignite.configuration.CacheConfiguration">
     <property name="name" value="myCache"/>
     <property name="cacheStoreFactory">
@@ -229,9 +227,9 @@ Note! You may use 'USER_LIBS' environment variable to specify your classpath.
 
 일반적으로 Ignite를 실행하는 데 필요한 라이브러리는 `libs/` 디렉토리에 포함되어 있습니다. Ignite 라이브러리 파일이 있는 디렉토리를 확인한 후, 다음 명령어를 사용하여 Ignite를 실행해보세요.
 
-```
+```{% endraw %}
 java -cp "/path/to/ignite/libs/*:/path/to/your/app.jar" org.apache.ignite.examples.Example
-```
+{% raw %}```
 
 위 명령어에서 `/path/to/ignite/libs/*`는 Ignite 라이브러리 파일이 있는 디렉토리를 나타냅니다. `/path/to/your/app.jar`는 애플리케이션 JAR 파일을 나타냅니다.
 
@@ -253,9 +251,9 @@ Ignite를 실행할 때 클래스 경로를 지정하는 가장 간단한 방법
 
 예를 들어, 다음과 같은 명령어를 사용하여 Ignite를 실행할 수 있습니다.
 
-```
+```{% endraw %}
 java -cp "c:/apache-ignite/libs/*;c:/path/to/your/app.jar" org.apache.ignite.examples.Example
-```
+{% raw %}```
 
 위 명령어에서 `c:/apache-ignite/libs/*`는 Ignite 라이브러리 파일이 있는 디렉토리를 나타냅니다. `c:/path/to/your/app.jar`는 애플리케이션 JAR 파일을 나타냅니다.
 
@@ -320,9 +318,9 @@ java -cp "c:/apache-ignite/libs/*;c:/path/to/your/app.jar" org.apache.ignite.exa
 
 또한 `USER_LIBS` 환경 변수를 사용하여 클래스 경로를 지정할 수도 있습니다. `USER_LIBS` 환경 변수를 사용하면 Ignite 라이브러리 파일이 있는 디렉토리를 지정할 수 있습니다. 예를 들어, 다음과 같은 명령어를 사용하여 `USER_LIBS` 환경 변수를 설정할 수 있습니다.
 
-```
+```{% endraw %}
 set USER_LIBS=c:/apache-ignite/libs/*;c:/path/to/your/app.jar
-```
+{% raw %}```
 
 이후에는 `config.xml` 파일에서 `UriDeploymentSpi` 클래스를 사용하여 `qtrack-img.jar` 파일을 로드하고 Ignite를 시작할 수 있습니다.
 
@@ -562,7 +560,7 @@ Failed to start grid: Failed to start manager: GridManagerAdapter [enabled=true,
 
 해결 방법으로는 URI에 프로토콜을 추가하거나, 절대 경로를 사용하는 것입니다. 예를 들어, 파일 시스템에서 파일을 읽어들이는 경우 'file://' 프로토콜을 사용하여 절대 경로를 지정할 수 있습니다. 다음은 uriList를 수정한 구성 파일의 예입니다.
 
-```
+```{% endraw %}
 <property name="deploymentSpi">
   <bean class="org.apache.ignite.spi.deployment.uri.UriDeploymentSpi">
     <property name="uriList">
@@ -572,7 +570,7 @@ Failed to start grid: Failed to start manager: GridManagerAdapter [enabled=true,
     </property>
   </bean>
 </property>
-``` 
+{% raw %}``` 
 
 위의 예에서 'C:/path/to/qtrack-img.jar'는 qtrack-img.jar 파일의 절대 경로를 나타냅니다. 이러한 방식으로 UriDeploymentSpi를 구성하면 문제가 해결될 것입니다.
 
@@ -590,7 +588,7 @@ class org.apache.ignite.spi.IgniteSpiException: URI is either not provided or is
 
 해결책으로는 Ignite 설정 파일에서 `uriList` 속성에 지정된 `qtrack-img.jar` 파일의 경로를 수정해야 합니다. 파일 경로를 `C:\apache-ignite\libs\qtrack-img.jar`로 수정하면 문제가 해결될 것입니다. 
 
-```
+```{% endraw %}
 <bean class="org.apache.ignite.spi.deployment.uri.UriDeploymentSpi">
     <property name="uriList">
         <list>
@@ -598,7 +596,7 @@ class org.apache.ignite.spi.IgniteSpiException: URI is either not provided or is
         </list>
     </property>
 </bean>
-```
+{% raw %}```
 
 ## 사용자 입력:
 > Caused by: class org.apache.ignite.spi.IgniteSpiException: Unsupported URI (please configure appropriate scanner): C:/apache-ignite/libs/qtrack-img.jar
@@ -611,7 +609,7 @@ Failed to start grid: Failed to start manager: GridManagerAdapter [enabled=true,
 ## ChatGPT 응답:
 > 이 오류는 URI 스캐너가 해당 경로를 지원하지 않는다는 것을 의미합니다. 구성 파일에서 URI 스캐너를 구성해야 합니다. qtrack-img.jar 파일이 위치한 디렉토리에서 스캔을 수행할 수 있는 스캐너를 구성해야 합니다. 예를 들어, `org.apache.ignite.spi.deployment.uri.scanners.file.UriDeploymentFileScanner` 스캐너를 사용하여 파일 시스템에서 스캔할 수 있습니다. 스캐너를 구성하려면 Ignite XML 구성 파일에 `uriList` 속성을 추가해야 합니다. 예를 들어, 다음과 같이 설정할 수 있습니다.
 
-```xml
+```{% endraw %}xml
 <bean class="org.apache.ignite.configuration.IgniteConfiguration" id="ignite.cfg">
     <!-- ... -->
     <property name="deploymentSpi">
@@ -633,7 +631,7 @@ Failed to start grid: Failed to start manager: GridManagerAdapter [enabled=true,
         </bean>
     </property>
 </bean>
-``` 
+{% raw %}``` 
 
 위 예제에서 `file:///C:/apache-ignite/libs/qtrack-img.jar`는 URI를 나타내며, `UriDeploymentFileScanner`는 파일 시스템에서 스캔합니다. `ignoredFiles` 속성은 무시할 파일을 지정하는 데 사용됩니다.
 
@@ -657,7 +655,7 @@ Failed to start grid: Failed to instantiate Spring XML application context [spri
 
 따라서, `deploymentSpi` 속성을 아래와 같이 수정하면 오류를 해결할 수 있습니다.
 
-```
+```{% endraw %}
 <property name="deploymentSpi">
     <bean class="org.apache.ignite.spi.deployment.uri.UriDeploymentSpi">
         <property name="uriList">
@@ -683,7 +681,7 @@ Failed to start grid: Failed to instantiate Spring XML application context [spri
         </property>
     </bean>
 </property>
-```
+{% raw %}```
 
 위 구성 파일에서는 `scanners` 속성을 추가하여, `HttpDeploymentUriScanner`와 `FileDeploymentUriScanner` 두 개의 스캐너를 구성하도록 하였습니다.
 
@@ -719,7 +717,7 @@ Ignite Web Deploy를 사용하면, 웹 어플리케이션 배포를 위한 편�
 
 우선 간단한 스프링 부트 애플리케이션을 만들어야 합니다. 이 예제에서는 Hello, World!를 출력하는 간단한 REST API를 만듭니다. 다음과 같이 `HelloController` 클래스를 만듭니다.
 
-```java
+```{% endraw %}java
 @RestController
 public class HelloController {
     @GetMapping("/hello")
@@ -727,7 +725,7 @@ public class HelloController {
         return "Hello, World!";
     }
 }
-```
+{% raw %}```
 
 이제 이 애플리케이션을 실행하면 `http://localhost:8080/hello` URL로 접속할 때 "Hello, World!"라는 응답이 반환됩니다.
 
@@ -735,13 +733,13 @@ public class HelloController {
 
 이제 이 애플리케이션을 패키징하고, URI 기반 배포를 설정해야 합니다. 스프링 부트에서는 애플리케이션을 jar 파일로 패키징하는 것이 일반적입니다. 따라서 `mvn package` 명령을 이용해 애플리케이션을 패키징합니다.
 
-```
+```{% endraw %}
 mvn package
-```
+{% raw %}```
 
 이 명령을 실행하면 `target` 폴더 아래에 `hello-world-0.0.1-SNAPSHOT.jar` 파일이 생성됩니다. 이 파일을 Ignite에서 배포하려면 다음과 같이 `ignite.xml` 설정 파일을 작성합니다.
 
-```xml
+```{% endraw %}xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -770,22 +768,22 @@ mvn package
 
 3. 프로젝트를 빌드합니다.
 
-```
+{% raw %}```
 mvn clean package
-```
+```{% endraw %}
 
 4. 예제를 실행합니다.
 
-```
+{% raw %}```
 cd target
 java -jar ignite-deployment-example-1.0-SNAPSHOT.jar
-```
+```{% endraw %}
 
 5. 예제가 실행되면, Ignite의 웹 콘솔에 접속하여 배포된 클래스를 확인할 수 있습니다. 기본 URL은 http://localhost:8080 입니다.
 
 예제 코드:
 
-```java
+{% raw %}```java
 import org.apache.ignite.Ignite;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.configuration.DeploymentMode;
@@ -816,7 +814,7 @@ public class Main {
     }
 
 }
-```
+```{% endraw %}
 
 위 예제에서는 UriDeploymentSpi를 사용하여 JAR 파일을 배포하고 있습니다. UriDeploymentSpi는 파일 시스템이나 HTTP URL을 통해 JAR 파일을 다운로드하고 Ignite 노드에서 실행할 수 있는 클래스로 로드합니다. 배포된 클래스는 Ignite Service로 등록되어 있으며, 서비스 프록시를 사용하여 호출할 수 있습니다.
 
@@ -830,7 +828,7 @@ class org.apache.ignite.spi.IgniteSpiException: URI is either not provided or is
 
 
 ## ChatGPT 응답:
-> 이 오류는 `qtrack-img.jar` 파일이 위치한 경로에 문제가 있어 발생하는 것 같습니다. `file://C://apache-ignite//libs//qtrack-img.jar` 경로가 올바른 경로인지 다시 확인해보세요. 만약 `qtrack-img.jar` 파일이 `C:\apache-ignite\libs` 경로에 있다면, `file://C:/apache-ignite/libs` 경로로 변경해보세요. URI는 일반적으로 슬래시(`/`)를 사용하는 것이 좋습니다.
+> 이 오류는 {% raw %}`qtrack-img.jar`{% endraw %} 파일이 위치한 경로에 문제가 있어 발생하는 것 같습니다. {% raw %}`file://C://apache-ignite//libs//qtrack-img.jar`{% endraw %} 경로가 올바른 경로인지 다시 확인해보세요. 만약 {% raw %}`qtrack-img.jar`{% endraw %} 파일이 {% raw %}`C:\apache-ignite\libs`{% endraw %} 경로에 있다면, {% raw %}`file://C:/apache-ignite/libs`{% endraw %} 경로로 변경해보세요. URI는 일반적으로 슬래시({% raw %}`/`{% endraw %})를 사용하는 것이 좋습니다.
 
 ## 사용자 입력:
 > <?xml version="1.0" encoding="UTF-8"?>
@@ -882,9 +880,9 @@ class org.apache.ignite.spi.IgniteSpiException: URI is either not provided or is
 
 
 ## ChatGPT 응답:
-> 설정 파일에 배포할 jar 파일의 경로가 잘못되어 있습니다. 현재 설정 파일에서 `uriList`의 값을 `file://C:/apache-ignite/libs/qtrack-img.jar`로 설정하고 있지만, 실제 파일 경로는 `C:\apache-ignite\libs\qtrack-img.jar`입니다. 따라서, 아래와 같이 설정 파일의 `uriList` 값을 수정하면 됩니다.
+> 설정 파일에 배포할 jar 파일의 경로가 잘못되어 있습니다. 현재 설정 파일에서 {% raw %}`uriList`{% endraw %}의 값을 {% raw %}`file://C:/apache-ignite/libs/qtrack-img.jar`{% endraw %}로 설정하고 있지만, 실제 파일 경로는 {% raw %}`C:\apache-ignite\libs\qtrack-img.jar`{% endraw %}입니다. 따라서, 아래와 같이 설정 파일의 {% raw %}`uriList`{% endraw %} 값을 수정하면 됩니다.
 
-```
+{% raw %}```
 <property name="deploymentSpi">
 	<bean class="org.apache.ignite.spi.deployment.uri.UriDeploymentSpi">
 		<property name="uriList">
@@ -894,7 +892,7 @@ class org.apache.ignite.spi.IgniteSpiException: URI is either not provided or is
 		</property>
 	</bean>
 </property>
-```
+```{% endraw %}
 
 ## 사용자 입력:
 > 네가 말한 설정대로 했는데, 아래와 같은 에러가 생겨. Caused by: class org.apache.ignite.IgniteCheckedException: Failed to start SPI: UriDeploymentSpi [tmpDirPath=C:\Users\DATAST~1\AppData\Local\Temp\, deployTmpDirPath=C:\Users\DATAST~1\AppData\Local\Temp\gg.uri.deployment.tmp\4109557b-4769-4952-84ef-5d0ff40fc741, uriList=ArrayList [C:\apache-ignite\libs\qtrack-img.jar], checkMd5=false, encodeUri=true, firstScanCntr=0, delayOnNewOrUpdatedFile=false]
@@ -915,7 +913,7 @@ Caused by: class org.apache.ignite.spi.IgniteSpiException: Unsupported URI (plea
 
 기존에는 scanner를 지정하고 있지 않았기 때문에 기본 스캐너가 사용되었고, 이는 file://로 시작하는 URI만 지원합니다. 따라서 scanner를 직접 설정하거나 scanners에 여러 스캐너를 지정하여 문제를 해결할 수 있습니다. 아래는 scanner를 설정하는 예시입니다.
 
-```xml
+{% raw %}```xml
 <property name="deploymentSpi">
     <bean class="org.apache.ignite.spi.deployment.uri.UriDeploymentSpi">
         <property name="scanner">
@@ -930,7 +928,7 @@ Caused by: class org.apache.ignite.spi.IgniteSpiException: Unsupported URI (plea
         </property>
     </bean>
 </property>
-```
+```{% endraw %}
 
 위 설정에서는 FileDeploymentUriScanner를 scanner로 사용하도록 설정하였습니다. path 속성을 사용하여 검색할 디렉토리를 지정할 수 있습니다. 이 경우 C:/apache-ignite/libs/ 디렉토리에서 jar 파일을 검색합니다.
 
@@ -956,11 +954,11 @@ Note! You may use 'USER_LIBS' environment variable to specify your classpath.
 
 
 ## ChatGPT 응답:
-> 이 오류는 `org.apache.ignite.spi.deployment.uri.scanners.file.FileDeploymentUriScanner` 클래스를 찾을 수 없다는 것을 알려주고 있습니다. 이 클래스는 `ignite-spring` 모듈에 포함되어 있으므로, `apache-ignite` 디렉토리의 `libs` 폴더에 `ignite-spring-{version}.jar` 파일이 있는지 확인해주세요. 이 파일이 없다면, `ignite-spring` 모듈을 추가로 다운로드해야 합니다.
+> 이 오류는 {% raw %}`org.apache.ignite.spi.deployment.uri.scanners.file.FileDeploymentUriScanner`{% endraw %} 클래스를 찾을 수 없다는 것을 알려주고 있습니다. 이 클래스는 {% raw %}`ignite-spring`{% endraw %} 모듈에 포함되어 있으므로, {% raw %}`apache-ignite`{% endraw %} 디렉토리의 {% raw %}`libs`{% endraw %} 폴더에 {% raw %}`ignite-spring-{version}.jar`{% endraw %} 파일이 있는지 확인해주세요. 이 파일이 없다면, {% raw %}`ignite-spring`{% endraw %} 모듈을 추가로 다운로드해야 합니다.
 
-또한, `default-config.xml` 파일에 다음과 같이 `file-deployment-spi` 엘리먼트를 추가해주셔야 합니다:
+또한, {% raw %}`default-config.xml`{% endraw %} 파일에 다음과 같이 {% raw %}`file-deployment-spi`{% endraw %} 엘리먼트를 추가해주셔야 합니다:
 
-```xml
+{% raw %}```xml
 <bean id="file-deployment-spi" class="org.apache.ignite.spi.deployment.uri.UriDeploymentSpi">
     <property name="scanner">
         <bean class="org.apache.ignite.spi.deployment.uri.scanners.file.FileDeploymentUriScanner">
@@ -972,16 +970,16 @@ Note! You may use 'USER_LIBS' environment variable to specify your classpath.
         </bean>
     </property>
 </bean>
-```
+```{% endraw %}
 
-`uri-deployment-spi` 엘리먼트는 삭제하고, `deploymentSpi` 프로퍼티는 위에서 추가한 `file-deployment-spi` 빈을 참조하도록 수정해야 합니다:
+{% raw %}`uri-deployment-spi`{% endraw %} 엘리먼트는 삭제하고, {% raw %}`deploymentSpi`{% endraw %} 프로퍼티는 위에서 추가한 {% raw %}`file-deployment-spi`{% endraw %} 빈을 참조하도록 수정해야 합니다:
 
-```xml
+{% raw %}```xml
 <bean class="org.apache.ignite.configuration.IgniteConfiguration" id="ignite.cfg">
     <!-- ... -->
     <property name="deploymentSpi" ref="file-deployment-spi"/>
 </bean>
-```
+```{% endraw %}
 
 위 변경사항을 적용하시고 다시 시도해보세요.
 
@@ -1033,11 +1031,11 @@ class org.apache.ignite.spi.IgniteSpiException: URI is either not provided or is
 ## ChatGPT 응답:
 > 이 예제는 URI 기반 배포를 사용하여 리모트 노드에서 실행될 라이브러리를 등록하는 방법을 보여줍니다.
 
-여기서는 Ignite 설정 파일에 있는 `UriDeploymentSpi`를 사용하여 `uriList`에 등록된 라이브러리를 배포합니다. 이 경우 `file://freq=2000@localhost/home/username/user_libs` URI가 등록되어 있습니다.
+여기서는 Ignite 설정 파일에 있는 {% raw %}`UriDeploymentSpi`{% endraw %}를 사용하여 {% raw %}`uriList`{% endraw %}에 등록된 라이브러리를 배포합니다. 이 경우 {% raw %}`file://freq=2000@localhost/home/username/user_libs`{% endraw %} URI가 등록되어 있습니다.
 
-`temporaryDirectoryPath` 프로퍼티는 Ignite 노드에서 사용할 임시 폴더를 지정합니다. 이 폴더에는 `uriList`에 등록된 라이브러리의 복사본이 생성됩니다.
+{% raw %}`temporaryDirectoryPath`{% endraw %} 프로퍼티는 Ignite 노드에서 사용할 임시 폴더를 지정합니다. 이 폴더에는 {% raw %}`uriList`{% endraw %}에 등록된 라이브러리의 복사본이 생성됩니다.
 
-위 설정 파일을 사용하여 Ignite 인스턴스를 시작하면 `uriList`에 등록된 라이브러리가 배포됩니다.
+위 설정 파일을 사용하여 Ignite 인스턴스를 시작하면 {% raw %}`uriList`{% endraw %}에 등록된 라이브러리가 배포됩니다.
 
 ## 사용자 입력:
 > META-INF/ entry may contain ignite.xml file which is a task descriptor file.  예제 알려줘
@@ -1045,7 +1043,7 @@ class org.apache.ignite.spi.IgniteSpiException: URI is either not provided or is
 ## ChatGPT 응답:
 > 아래는 META-INF/ignite.xml 파일을 사용하는 간단한 예제입니다.
 
-```java
+{% raw %}```java
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteException;
 import org.apache.ignite.Ignition;
@@ -1082,18 +1080,18 @@ public class IgniteMetaInfExample {
         }
     }
 }
-```
+```{% endraw %}
 
 META-INF/ignite.xml 파일은 다음과 같이 작성할 수 있습니다.
 
-```xml
+{% raw %}```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <tasks>
     <task name="my-task">
         <class>com.example.MyTask</class>
     </task>
 </tasks>
-```
+```{% endraw %}
 
 위의 예제에서는 META-INF/ignite.xml 파일이 Ignite 구성 파일 대신 작업 파일로 사용되었습니다. 이 파일에는 "my-task" 라는 이름의 작업이 정의되어 있으며, 이 작업을 실행하는 데 사용되는 클래스는 "com.example.MyTask"입니다.
 
@@ -1107,17 +1105,17 @@ Ignite를 시작하면 작업이 자동으로 로드되고 실행됩니다.
 
 먼저, Maven 프로젝트에서 Hazelcast IMDG 종속성을 추가합니다.
 
-```xml
+{% raw %}```xml
 <dependency>
     <groupId>com.hazelcast</groupId>
     <artifactId>hazelcast-all</artifactId>
     <version>${hazelcast.version}</version>
 </dependency>
-```
+```{% endraw %}
 
 다음은 Hazelcast IMDG를 사용하여 이미지 파일을 캐시하는 예제 코드입니다.
 
-```java
+{% raw %}```java
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -1161,9 +1159,9 @@ public class HazelcastImageExample {
         hazelcastInstance.shutdown();
     }
 }
-```
+```{% endraw %}
 
-위의 예제 코드에서는 Hazelcast IMDG 인스턴스를 생성하고 `IMap` 객체를 사용하여 이미지 파일을 캐시에 저장합니다. 이미지 파일은 `BufferedImage` 객체로 변환되어 Hazelcast IMDG 캐시에 저장됩니다. 캐시에서 이미지를 가져올 때도 `byte[]` 배열로 반환되며, 다시 `BufferedImage`로 변환하여 필요한 처리를 수행할 수 있습니다. 마지막으로 Hazelcast IMDG 인스턴스를 종료합니다.
+위의 예제 코드에서는 Hazelcast IMDG 인스턴스를 생성하고 {% raw %}`IMap`{% endraw %} 객체를 사용하여 이미지 파일을 캐시에 저장합니다. 이미지 파일은 {% raw %}`BufferedImage`{% endraw %} 객체로 변환되어 Hazelcast IMDG 캐시에 저장됩니다. 캐시에서 이미지를 가져올 때도 {% raw %}`byte[]`{% endraw %} 배열로 반환되며, 다시 {% raw %}`BufferedImage`{% endraw %}로 변환하여 필요한 처리를 수행할 수 있습니다. 마지막으로 Hazelcast IMDG 인스턴스를 종료합니다.
 
 ## 사용자 입력:
 > package com.datastreams.qtrack.img;
@@ -1379,7 +1377,7 @@ public class EdgeToIgnite {
 
 아래는 예시 코드입니다.
 
-```
+{% raw %}```
 #!/bin/sh
 
 # Ignite 데몬 실행
@@ -1387,7 +1385,7 @@ $IGNITE_HOME/bin/ignite.sh $IGNITE_HOME/config/default-config.xml &
 
 # 데이터 로딩
 java -cp <path_to_ignite_jar>:<path_to_application_classes> com.datastreams.qtrack.img.EdgeToIgnite.loadCache
-``` 
+```{% endraw %} 
 
 위 코드에서 <path_to_ignite_jar>는 Ignite의 jar 파일 경로, <path_to_application_classes>는 위 코드가 포함된 클래스 파일의 경로를 나타냅니다. 또한, 해당 클래스 파일은 Ignite가 실행되는 머신에서 컴파일된 상태여야 합니다.
 
@@ -1403,9 +1401,9 @@ java -cp <path_to_ignite_jar>:<path_to_application_classes> com.datastreams.qtra
 
 예를 들어, 만약 jar 파일명이 example.jar이라면, 명령어는 다음과 같습니다.
 
-```
+{% raw %}```
 java -jar example.jar
-```
+```{% endraw %}
 
 ## 사용자 입력:
 > ignite client mode와 server mode의 차이는?
@@ -1422,15 +1420,15 @@ java -jar example.jar
 > apache ignite rest api로 shutdown 가능한가?
 
 ## ChatGPT 응답:
-> 네, Apache Ignite는 REST API를 통해 클러스터를 종료할 수 있습니다. `/ignite` 경로에 `GET` 요청을 보내면 클러스터 상태를 확인할 수 있으며, `POST` 요청을 보내면 클러스터를 종료할 수 있습니다.
+> 네, Apache Ignite는 REST API를 통해 클러스터를 종료할 수 있습니다. {% raw %}`/ignite`{% endraw %} 경로에 {% raw %}`GET`{% endraw %} 요청을 보내면 클러스터 상태를 확인할 수 있으며, {% raw %}`POST`{% endraw %} 요청을 보내면 클러스터를 종료할 수 있습니다.
 
 클러스터 종료를 위한 예시 curl 명령어는 다음과 같습니다.
 
-```
+{% raw %}```
 curl -X POST http://<ignite_host>:<ignite_port>/ignite?cmd=shutdown
-```
+```{% endraw %}
 
-위 명령어에서 `<ignite_host>`와 `<ignite_port>`는 Ignite 노드가 실행되고 있는 호스트와 포트 번호를 나타냅니다. 이를 각각 적절한 값으로 바꾸어 사용하시면 됩니다.
+위 명령어에서 {% raw %}`<ignite_host>`{% endraw %}와 {% raw %}`<ignite_port>`{% endraw %}는 Ignite 노드가 실행되고 있는 호스트와 포트 번호를 나타냅니다. 이를 각각 적절한 값으로 바꾸어 사용하시면 됩니다.
 
 ## 사용자 입력:
 > 틀린것 같은데
@@ -1438,21 +1436,21 @@ curl -X POST http://<ignite_host>:<ignite_port>/ignite?cmd=shutdown
 ## ChatGPT 응답:
 > 죄송합니다. 제가 제공한 답변이 부적절했습니다. Apache Ignite는 REST API를 통해 클러스터 노드를 중지할 수 있습니다. 클러스터 노드를 중지하는 데 사용할 수 있는 REST API에는 다음과 같은 것들이 있습니다.
 
-- `POST /ignite?cmd=shutdown` : 클러스터 노드를 완전히 중지합니다.
-- `POST /ignite?cmd=stop` : 클러스터 노드를 정지합니다. (완전 중지는 아닙니다.)
-- `POST /ignite?cmd=kill` : 클러스터 노드를 강제 종료합니다.
+- {% raw %}`POST /ignite?cmd=shutdown`{% endraw %} : 클러스터 노드를 완전히 중지합니다.
+- {% raw %}`POST /ignite?cmd=stop`{% endraw %} : 클러스터 노드를 정지합니다. (완전 중지는 아닙니다.)
+- {% raw %}`POST /ignite?cmd=kill`{% endraw %} : 클러스터 노드를 강제 종료합니다.
 
-이러한 REST API를 사용하려면, 노드에서 REST API 서버를 활성화해야 합니다. 이를 위해 `IgniteConfiguration` 객체를 사용하여 REST API 서버를 활성화할 수 있습니다. 예를 들어 다음과 같은 설정으로 REST API 서버를 활성화할 수 있습니다.
+이러한 REST API를 사용하려면, 노드에서 REST API 서버를 활성화해야 합니다. 이를 위해 {% raw %}`IgniteConfiguration`{% endraw %} 객체를 사용하여 REST API 서버를 활성화할 수 있습니다. 예를 들어 다음과 같은 설정으로 REST API 서버를 활성화할 수 있습니다.
 
-```java
+{% raw %}```java
 IgniteConfiguration cfg = new IgniteConfiguration();
 ...
 // REST API 서버 활성화
 cfg.setRestEnabled(true);
 cfg.setRestPort(8080);
-```
+```{% endraw %}
 
-REST API를 사용하여 클러스터 노드를 중지하려면, 클러스터 노드의 REST API 엔드포인트 URL을 호출하면 됩니다. 예를 들어, `http://localhost:8080/ignite?cmd=shutdown` URL을 호출하면 클러스터 노드를 완전히 중지할 수 있습니다.
+REST API를 사용하여 클러스터 노드를 중지하려면, 클러스터 노드의 REST API 엔드포인트 URL을 호출하면 됩니다. 예를 들어, {% raw %}`http://localhost:8080/ignite?cmd=shutdown`{% endraw %} URL을 호출하면 클러스터 노드를 완전히 중지할 수 있습니다.
 
 ## 사용자 입력:
 > xml configuration 알려줘
@@ -1460,7 +1458,7 @@ REST API를 사용하여 클러스터 노드를 중지하려면, 클러스터 �
 ## ChatGPT 응답:
 > Apache Ignite에서 XML configuration 파일을 사용하여 Ignite instance를 설정할 수 있습니다. 아래는 간단한 예제입니다.
 
-```xml
+{% raw %}```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1488,9 +1486,9 @@ REST API를 사용하여 클러스터 노드를 중지하려면, 클러스터 �
    </bean>
 
 </beans>
-```
+```{% endraw %}
 
-이 XML configuration 파일은 두 개의 cache configuration인 `cache1`과 `cache2`를 정의하고, `Ignite` instance를 생성합니다. 이 예제는 Spring Framework를 사용하여 구성하였습니다. Ignite를 사용하려면 Ignite configuration 객체를 만들고 이를 사용하여 Ignite instance를 시작해야 합니다.
+이 XML configuration 파일은 두 개의 cache configuration인 {% raw %}`cache1`{% endraw %}과 {% raw %}`cache2`{% endraw %}를 정의하고, {% raw %}`Ignite`{% endraw %} instance를 생성합니다. 이 예제는 Spring Framework를 사용하여 구성하였습니다. Ignite를 사용하려면 Ignite configuration 객체를 만들고 이를 사용하여 Ignite instance를 시작해야 합니다.
 
 ## 사용자 입력:
 > 아니....IgniteConfiguration cfg = new IgniteConfiguration();
@@ -1502,12 +1500,12 @@ cfg.setRestPort(8080); 이 코드의 xml
 ## ChatGPT 응답:
 > 해당 코드를 XML 설정으로 변환하면 다음과 같습니다.
 
-```
+{% raw %}```
 <bean class="org.apache.ignite.configuration.IgniteConfiguration">
     <property name="restEnabled" value="true"/>
     <property name="restPort" value="8080"/>
 </bean>
-```
+```{% endraw %}
 
 위 설정을 XML 파일에 추가하면 REST API 서버가 활성화되며, 8080 포트에서 대기하게 됩니다.
 
@@ -1515,11 +1513,11 @@ cfg.setRestPort(8080); 이 코드의 xml
 > restEnabled라는 메소드는 없어
 
 ## ChatGPT 응답:
-> 제가 이전에 설명해드린 대로, IgniteConfiguration 객체를 사용하여 REST API를 활성화하려면 `org.apache.ignite.configuration.rest.RestApiConfiguration` 객체를 추가해야합니다. 
+> 제가 이전에 설명해드린 대로, IgniteConfiguration 객체를 사용하여 REST API를 활성화하려면 {% raw %}`org.apache.ignite.configuration.rest.RestApiConfiguration`{% endraw %} 객체를 추가해야합니다. 
 
-따라서, 아래와 같이 IgniteConfiguration XML 파일에서 `org.apache.ignite.configuration.rest.RestApiConfiguration` 빈(bean)을 추가하여 REST API를 활성화할 수 있습니다.
+따라서, 아래와 같이 IgniteConfiguration XML 파일에서 {% raw %}`org.apache.ignite.configuration.rest.RestApiConfiguration`{% endraw %} 빈(bean)을 추가하여 REST API를 활성화할 수 있습니다.
 
-```xml
+{% raw %}```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1545,9 +1543,9 @@ cfg.setRestPort(8080); 이 코드의 xml
   </bean>
 
 </beans>
-```
+```{% endraw %}
 
-위의 XML 구성에서는 `org.apache.ignite.configuration.rest.RestApiConfiguration` 객체를 `ignite.cfg`의 속성으로 정의하고, `enabled` 및 `port` 속성을 구성합니다. 
+위의 XML 구성에서는 {% raw %}`org.apache.ignite.configuration.rest.RestApiConfiguration`{% endraw %} 객체를 {% raw %}`ignite.cfg`{% endraw %}의 속성으로 정의하고, {% raw %}`enabled`{% endraw %} 및 {% raw %}`port`{% endraw %} 속성을 구성합니다. 
 
 위 구성 파일은 REST API를 8080 포트로 활성화합니다. 이 XML 파일을 사용하여 Ignite 인스턴스를 시작하면 REST API가 활성화됩니다.
 
@@ -1569,7 +1567,7 @@ Caused by: java.lang.ClassNotFoundException: org.apache.ignite.configuration.res
         at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1478)
 
 ## ChatGPT 응답:
-> 이 오류는 `org.apache.ignite.configuration.rest.RestApiConfiguration` 클래스를 찾을 수 없기 때문에 발생한 것입니다. 
+> 이 오류는 {% raw %}`org.apache.ignite.configuration.rest.RestApiConfiguration`{% endraw %} 클래스를 찾을 수 없기 때문에 발생한 것입니다. 
 
 이 클래스는 Apache Ignite REST API의 설정을 제어하는 데 사용됩니다. 
 
@@ -1577,7 +1575,7 @@ Caused by: java.lang.ClassNotFoundException: org.apache.ignite.configuration.res
 
 따라서 다음과 같은 작업을 수행할 수 있습니다.
 
-1. Apache Ignite의 릴리스에서 `ignite-rest-http` jar 파일이 있는지 확인하십시오. 
+1. Apache Ignite의 릴리스에서 {% raw %}`ignite-rest-http`{% endraw %} jar 파일이 있는지 확인하십시오. 
 2. 클래스 패스를 확인하고, 해당 jar 파일이 클래스 패스에 포함되어 있는지 확인하십시오.
 3. XML 파일에 올바른 패키지 및 클래스 이름을 입력했는지 확인하십시오.
 
@@ -1587,11 +1585,11 @@ Caused by: java.lang.ClassNotFoundException: org.apache.ignite.configuration.res
 > ignite shutdown 방법
 
 ## ChatGPT 응답:
-> Apache Ignite를 종료하기 위해서는 Ignite 객체를 생성한 후 `Ignition.stop(true, true)` 메소드를 호출하면 됩니다. 이 때 첫 번째 인자 `true`는 모든 클러스터 노드가 종료될 때까지 대기할 지 여부를 나타내며, 두 번째 인자 `true`는 모든 Ignite 캐시와 데이터를 지웁니다.
+> Apache Ignite를 종료하기 위해서는 Ignite 객체를 생성한 후 {% raw %}`Ignition.stop(true, true)`{% endraw %} 메소드를 호출하면 됩니다. 이 때 첫 번째 인자 {% raw %}`true`{% endraw %}는 모든 클러스터 노드가 종료될 때까지 대기할 지 여부를 나타내며, 두 번째 인자 {% raw %}`true`{% endraw %}는 모든 Ignite 캐시와 데이터를 지웁니다.
 
 다음은 예시 코드입니다.
 
-```java
+{% raw %}```java
 public static void main(String[] args) {
     Ignite ignite = Ignition.start(); // Ignite 객체 생성
 
@@ -1599,7 +1597,7 @@ public static void main(String[] args) {
 
     Ignition.stop(true, true); // Ignite 종료
 }
-```
+```{% endraw %}
 
 ## 사용자 입력:
 > 서버에 있는 모든 서버노드 종료하는 방법
@@ -1609,17 +1607,17 @@ public static void main(String[] args) {
 
 1. 클러스터 전체를 종료합니다. 이렇게하면 클러스터 내의 모든 노드가 종료됩니다.
 
-    ```
+    {% raw %}```
     Ignition.stopAll(true);
-    ```
+    ```{% endraw %}
 
-2. 클러스터 내의 모든 노드에서 `Ignition.stop()`을 호출합니다.
+2. 클러스터 내의 모든 노드에서 {% raw %}`Ignition.stop()`{% endraw %}을 호출합니다.
 
-    ```
+    {% raw %}```
     for (Ignite ignite : Ignition.allGrids()) {
         ignite.close();
     }
-    ```
+    ```{% endraw %}
 
 이러한 방법으로 클러스터를 종료하면 모든 노드에서 실행중인 Ignite 인스턴스가 종료되므로 모든 서버 노드가 종료됩니다.
 
@@ -1631,11 +1629,11 @@ public static void main(String[] args) {
 
 REST API를 사용하여 Ignite 노드를 종료하려면 다음과 같은 HTTP POST 요청을 보내면 됩니다.
 
-```
+{% raw %}```
 POST http://<ignite_host>:<ignite_rest_port>/ignite?cmd=shutdown
-```
+```{% endraw %}
 
-여기서 `<ignite_host>`는 Ignite 노드가 실행 중인 호스트 주소이며, `<ignite_rest_port>`는 Ignite REST API가 실행 중인 포트 번호입니다. 예를 들어, `http://localhost:8080/ignite?cmd=shutdown`와 같은 요청을 보내면 Ignite 노드가 종료됩니다. 
+여기서 {% raw %}`<ignite_host>`{% endraw %}는 Ignite 노드가 실행 중인 호스트 주소이며, {% raw %}`<ignite_rest_port>`{% endraw %}는 Ignite REST API가 실행 중인 포트 번호입니다. 예를 들어, {% raw %}`http://localhost:8080/ignite?cmd=shutdown`{% endraw %}와 같은 요청을 보내면 Ignite 노드가 종료됩니다. 
 
 단, 이러한 요청을 보내기 전에 REST API가 활성화되어 있어야 하며, 클러스터 전체를 종료하려면 해당 클러스터의 모든 노드에서 이러한 요청을 전송해야합니다. 또한, 이 요청을 보내기 전에 보안을 위해 인증 및 인가 메커니즘을 구성해야 합니다.
 
@@ -1643,9 +1641,9 @@ POST http://<ignite_host>:<ignite_rest_port>/ignite?cmd=shutdown
 > hazelcast imdg에 json을 set형태로 올리려면?
 
 ## ChatGPT 응답:
-> Hazelcast IMDG에서 JSON을 set 형태로 올리려면 `JsonArray` 객체를 생성하고 `set.addAll()` 메서드를 사용하여 `JsonArray` 객체를 `Set`에 추가하면 됩니다. 예를 들어 다음과 같이 할 수 있습니다.
+> Hazelcast IMDG에서 JSON을 set 형태로 올리려면 {% raw %}`JsonArray`{% endraw %} 객체를 생성하고 {% raw %}`set.addAll()`{% endraw %} 메서드를 사용하여 {% raw %}`JsonArray`{% endraw %} 객체를 {% raw %}`Set`{% endraw %}에 추가하면 됩니다. 예를 들어 다음과 같이 할 수 있습니다.
 
-```java
+{% raw %}```java
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
@@ -1687,9 +1685,9 @@ public class HazelcastJsonSetExample {
         hazelcastInstance.shutdown();
     }
 }
-```
+```{% endraw %}
 
-위 예제에서는 `JSONObject` 객체를 생성하고 `Set`에 추가한 후, `Set`을 `JSONArray`로 변환하여 Hazelcast map에 추가하였습니다. `JSONArray`는 Hazelcast map에서 `get()` 메서드를 사용하여 가져올 수 있습니다.
+위 예제에서는 {% raw %}`JSONObject`{% endraw %} 객체를 생성하고 {% raw %}`Set`{% endraw %}에 추가한 후, {% raw %}`Set`{% endraw %}을 {% raw %}`JSONArray`{% endraw %}로 변환하여 Hazelcast map에 추가하였습니다. {% raw %}`JSONArray`{% endraw %}는 Hazelcast map에서 {% raw %}`get()`{% endraw %} 메서드를 사용하여 가져올 수 있습니다.
 
 ## 사용자 입력:
 >  package client;
@@ -1729,11 +1727,11 @@ public class SetSample {
 > 위 코드로 넣은 set이 서버에서 보이지 않는 건 무슨 현상?
 
 ## ChatGPT 응답:
-> 위 코드는 Hazelcast Client를 통해 클러스터에 접속하고, `my-distributed-set`이라는 분산 Set에 데이터를 추가한 후, 데이터를 출력하고 클라이언트를 종료하는 코드입니다.
+> 위 코드는 Hazelcast Client를 통해 클러스터에 접속하고, {% raw %}`my-distributed-set`{% endraw %}이라는 분산 Set에 데이터를 추가한 후, 데이터를 출력하고 클라이언트를 종료하는 코드입니다.
 
-즉, 클러스터 내부에 존재하는 분산 Set에 데이터를 추가하고 있으므로, 클러스터의 다른 멤버 노드에서는 이 데이터를 확인할 수 있어야 합니다. 하지만 만약 클러스터의 멤버 노드 중에서 `my-distributed-set`을 호스팅하는 노드가 없다면, 다른 멤버 노드에서는 이 데이터를 확인할 수 없을 것입니다.
+즉, 클러스터 내부에 존재하는 분산 Set에 데이터를 추가하고 있으므로, 클러스터의 다른 멤버 노드에서는 이 데이터를 확인할 수 있어야 합니다. 하지만 만약 클러스터의 멤버 노드 중에서 {% raw %}`my-distributed-set`{% endraw %}을 호스팅하는 노드가 없다면, 다른 멤버 노드에서는 이 데이터를 확인할 수 없을 것입니다.
 
-따라서, 이 문제를 해결하기 위해서는 `my-distributed-set`이라는 분산 Set을 모든 멤버 노드에서 호스팅하도록 구성해야 합니다. 이를 위해서는 Hazelcast의 분산 데이터 구조에 대한 이해와 클러스터 구성 방법 등에 대한 추가적인 설정이 필요합니다.
+따라서, 이 문제를 해결하기 위해서는 {% raw %}`my-distributed-set`{% endraw %}이라는 분산 Set을 모든 멤버 노드에서 호스팅하도록 구성해야 합니다. 이를 위해서는 Hazelcast의 분산 데이터 구조에 대한 이해와 클러스터 구성 방법 등에 대한 추가적인 설정이 필요합니다.
 
 ## 사용자 입력:
 > 2023-03-07 17:04:12.578  WARN 20384 --- [  restartedMain] c.h.c.i.c.tcp.TcpClientConnection        : hz.client_1 [dev] [5.2.2] ClientConnection{alive=false, connectionId=3, channel=NioChannel{/192.168.2.61:13402->/192.168.2.61:5704}, remoteAddress=null, lastReadTime=1970-01-01 08:59:59.999, lastWriteTime=2023-03-07 17:03:12.555, closedTime=2023-03-07 17:04:12.562, connected server version=null} closed. Reason: Failed to authenticate connection
@@ -1746,11 +1744,11 @@ public class SetSample {
 > 서버 측에서 클라이언트의 접속을 허용하는 설정을 알려줘
 
 ## ChatGPT 응답:
-> Hazelcast IMDG에서 클라이언트 접속을 허용하려면 서버 측의 `hazelcast.xml` 파일에서 `network` 설정 부분에 `client` 항목을 추가해야 합니다. 
+> Hazelcast IMDG에서 클라이언트 접속을 허용하려면 서버 측의 {% raw %}`hazelcast.xml`{% endraw %} 파일에서 {% raw %}`network`{% endraw %} 설정 부분에 {% raw %}`client`{% endraw %} 항목을 추가해야 합니다. 
 
-예를 들어, 다음과 같이 `hazelcast.xml` 파일에서 `network` 설정 부분에 `client` 항목을 추가할 수 있습니다:
+예를 들어, 다음과 같이 {% raw %}`hazelcast.xml`{% endraw %} 파일에서 {% raw %}`network`{% endraw %} 설정 부분에 {% raw %}`client`{% endraw %} 항목을 추가할 수 있습니다:
 
-```xml
+{% raw %}```xml
 <hazelcast>
   <network>
     <port auto-increment="true" port-count="100">5701</port>
@@ -1778,13 +1776,13 @@ public class SetSample {
     </client>
   </network>
 </hazelcast>
-```
+```{% endraw %}
 
-위의 예제에서 `client` 항목은 클라이언트 접속을 허용하도록 설정되어 있습니다. `authentication` 요소는 클라이언트 인증을 활성화하는 데 사용됩니다. 
+위의 예제에서 {% raw %}`client`{% endraw %} 항목은 클라이언트 접속을 허용하도록 설정되어 있습니다. {% raw %}`authentication`{% endraw %} 요소는 클라이언트 인증을 활성화하는 데 사용됩니다. 
 
-위 예제에서는 클라이언트가 서버에 접속할 때 `my-username`과 `my-password`를 사용하여 인증해야 합니다. 따라서 클라이언트에서도 이 인증 정보를 사용하여 접속해야 합니다. 
+위 예제에서는 클라이언트가 서버에 접속할 때 {% raw %}`my-username`{% endraw %}과 {% raw %}`my-password`{% endraw %}를 사용하여 인증해야 합니다. 따라서 클라이언트에서도 이 인증 정보를 사용하여 접속해야 합니다. 
 
-또한, `outbound-ports` 요소는 클라이언트가 접속할 수 있는 포트 범위를 지정합니다. 이 예제에서는 `0-65535`로 지정되어 있으므로 클라이언트는 서버의 모든 포트에 접속할 수 있습니다. 이 값을 적절히 수정하여 클라이언트가 접속할 수 있는 포트 범위를 제한할 수 있습니다.
+또한, {% raw %}`outbound-ports`{% endraw %} 요소는 클라이언트가 접속할 수 있는 포트 범위를 지정합니다. 이 예제에서는 {% raw %}`0-65535`{% endraw %}로 지정되어 있으므로 클라이언트는 서버의 모든 포트에 접속할 수 있습니다. 이 값을 적절히 수정하여 클라이언트가 접속할 수 있는 포트 범위를 제한할 수 있습니다.
 
 ## 사용자 입력:
 > hazelcast imdg 설정에서     <security>
@@ -1792,7 +1790,7 @@ public class SetSample {
     </security>무슨의미야?
 
 ## ChatGPT 응답:
-> `<security>` 태그 아래의 `<client-block-unmapped-actions>`는 Hazelcast의 보안 설정 중 하나입니다. 이 설정이 true로 설정되어 있으면, 클라이언트가 사용하지 않는(매핑되지 않은) 작업을 수행하려고 할 때 차단됩니다.
+> {% raw %}`<security>`{% endraw %} 태그 아래의 {% raw %}`<client-block-unmapped-actions>`{% endraw %}는 Hazelcast의 보안 설정 중 하나입니다. 이 설정이 true로 설정되어 있으면, 클라이언트가 사용하지 않는(매핑되지 않은) 작업을 수행하려고 할 때 차단됩니다.
 
 Hazelcast의 매핑 기능은 클라이언트가 Hazelcast에 대한 요청을 수행할 때 필요합니다. 매핑 기능이 작동하지 않으면, 클라이언트가 Hazelcast에 대한 요청을 보낼 때마다 매핑되지 않은 작업으로 처리되어 이를 차단하게 됩니다. 이는 보안 취약점을 방지하는 데 도움이 됩니다.
 
@@ -1800,11 +1798,11 @@ Hazelcast의 매핑 기능은 클라이언트가 Hazelcast에 대한 요청을 �
 > 클라이언트 매핑은 어디서 설정하며 , 예제를 보여줘
 
 ## ChatGPT 응답:
-> Hazelcast IMDG에서 클라이언트 매핑은 `hazelcast-client.xml` 파일에서 설정할 수 있습니다. 해당 파일에서 `map` 요소를 추가하고 필요한 속성을 설정하여 클라이언트 매핑을 구성할 수 있습니다.
+> Hazelcast IMDG에서 클라이언트 매핑은 {% raw %}`hazelcast-client.xml`{% endraw %} 파일에서 설정할 수 있습니다. 해당 파일에서 {% raw %}`map`{% endraw %} 요소를 추가하고 필요한 속성을 설정하여 클라이언트 매핑을 구성할 수 있습니다.
 
-예를 들어, 다음은 클라이언트에서 "employees"라는 맵에 접근하는 방법을 정의하는 간단한 `hazelcast-client.xml` 파일입니다.
+예를 들어, 다음은 클라이언트에서 "employees"라는 맵에 접근하는 방법을 정의하는 간단한 {% raw %}`hazelcast-client.xml`{% endraw %} 파일입니다.
 
-```xml
+{% raw %}```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <hazelcast-client xmlns="http://www.hazelcast.com/schema/client-config"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -1835,9 +1833,9 @@ Hazelcast의 매핑 기능은 클라이언트가 Hazelcast에 대한 요청을 �
         </event-journal>
     </map>
 </hazelcast-client>
-```
+```{% endraw %}
 
-위 예제에서는 `map` 요소를 사용하여 "employees" 맵을 정의하고 필요한 속성을 설정합니다. 이를 통해 클라이언트에서 해당 맵에 액세스할 수 있습니다.
+위 예제에서는 {% raw %}`map`{% endraw %} 요소를 사용하여 "employees" 맵을 정의하고 필요한 속성을 설정합니다. 이를 통해 클라이언트에서 해당 맵에 액세스할 수 있습니다.
 
 ## 사용자 입력:
 > hazelcast imdg의 설정은 어떻게 하나?
@@ -1848,45 +1846,45 @@ Hazelcast의 매핑 기능은 클라이언트가 Hazelcast에 대한 요청을 �
 1. XML 설정
 XML을 사용하여 Hazelcast IMDG를 구성하려면 다음과 같은 단계를 따릅니다.
 
-- Hazelcast IMDG를 다운로드하고 압축을 푼 후 `hazelcast.xml` 파일을 편집합니다.
-- 편집된 `hazelcast.xml` 파일을 Hazelcast IMDG가 실행되는 디렉토리에 복사합니다.
+- Hazelcast IMDG를 다운로드하고 압축을 푼 후 {% raw %}`hazelcast.xml`{% endraw %} 파일을 편집합니다.
+- 편집된 {% raw %}`hazelcast.xml`{% endraw %} 파일을 Hazelcast IMDG가 실행되는 디렉토리에 복사합니다.
 
-예를 들어, 클러스터에서 사용할 Hazelcast IMDG의 포트를 변경하려면 다음과 같이 `hazelcast.xml` 파일을 수정할 수 있습니다.
+예를 들어, 클러스터에서 사용할 Hazelcast IMDG의 포트를 변경하려면 다음과 같이 {% raw %}`hazelcast.xml`{% endraw %} 파일을 수정할 수 있습니다.
 
-```xml
+{% raw %}```xml
 <hazelcast>
     <network>
         <port auto-increment="true">5701</port>
     </network>
 </hazelcast>
-```
+```{% endraw %}
 
 2. YAML 설정
 YAML을 사용하여 Hazelcast IMDG를 구성하려면 다음과 같은 단계를 따릅니다.
 
-- Hazelcast IMDG를 다운로드하고 압축을 푼 후 `hazelcast.yml` 파일을 편집합니다.
-- 편집된 `hazelcast.yml` 파일을 Hazelcast IMDG가 실행되는 디렉토리에 복사합니다.
+- Hazelcast IMDG를 다운로드하고 압축을 푼 후 {% raw %}`hazelcast.yml`{% endraw %} 파일을 편집합니다.
+- 편집된 {% raw %}`hazelcast.yml`{% endraw %} 파일을 Hazelcast IMDG가 실행되는 디렉토리에 복사합니다.
 
-예를 들어, 클러스터에서 사용할 Hazelcast IMDG의 포트를 변경하려면 다음과 같이 `hazelcast.yml` 파일을 수정할 수 있습니다.
+예를 들어, 클러스터에서 사용할 Hazelcast IMDG의 포트를 변경하려면 다음과 같이 {% raw %}`hazelcast.yml`{% endraw %} 파일을 수정할 수 있습니다.
 
-```yaml
+{% raw %}```yaml
 hazelcast:
   network:
     port:
       auto-increment: true
       port-count: 100
-```
+```{% endraw %}
 
 3. 프로그래밍 방식 설정
-프로그래밍 방식으로 Hazelcast IMDG를 구성하려면 `Config` 객체를 만들고 필요한 설정을 지정한 다음 Hazelcast 클러스터를 생성할 때 이 객체를 사용합니다. 
+프로그래밍 방식으로 Hazelcast IMDG를 구성하려면 {% raw %}`Config`{% endraw %} 객체를 만들고 필요한 설정을 지정한 다음 Hazelcast 클러스터를 생성할 때 이 객체를 사용합니다. 
 
-```java
+{% raw %}```java
 Config config = new Config();
 config.getNetworkConfig().setPort(5701);
 HazelcastInstance hazelcastInstance = Hazelcast.newHazelcastInstance(config);
-```
+```{% endraw %}
 
-위의 예에서는 `Config` 객체를 만들어 Hazelcast 클러스터에서 사용할 포트를 설정하고, 해당 `Config` 객체를 사용하여 `HazelcastInstance`를 생성합니다.
+위의 예에서는 {% raw %}`Config`{% endraw %} 객체를 만들어 Hazelcast 클러스터에서 사용할 포트를 설정하고, 해당 {% raw %}`Config`{% endraw %} 객체를 사용하여 {% raw %}`HazelcastInstance`{% endraw %}를 생성합니다.
 
 Hazelcast IMDG의 설정에 대한 자세한 내용은 공식 문서를 참조하세요.
 
@@ -1900,7 +1898,7 @@ Hazelcast IMDG의 설정에 대한 자세한 내용은 공식 문서를 참조�
 
 2. hazelcast.xml 파일에 SQL 서비스를 활성화하는 구성을 추가합니다.
 
-```xml
+{% raw %}```xml
 <hazelcast>
   ...
   <license-key>YOUR_LICENSE_KEY</license-key>
@@ -1927,19 +1925,19 @@ Hazelcast IMDG의 설정에 대한 자세한 내용은 공식 문서를 참조�
   </sql>
   ...
 </hazelcast>
-```
+```{% endraw %}
 
 3. Hazelcast 인스턴스를 생성할 때 SQL 서비스를 활성화합니다.
 
-```java
+{% raw %}```java
 Config config = new Config();
 config.getSqlConfig().setEnabled(true);
 HazelcastInstance instance = Hazelcast.newHazelcastInstance(config);
-```
+```{% endraw %}
 
 이제 Hazelcast 인스턴스를 시작하고 SQL 쿼리를 실행할 준비가 되었습니다. SQL 서비스를 사용하여 데이터를 저장하고 쿼리할 수 있습니다. 다음은 간단한 SQL 쿼리의 예입니다.
 
-```java
+{% raw %}```java
 // Create a map
 IMap<Integer, String> map = hazelcastInstance.getMap("my-map");
 
@@ -1951,7 +1949,7 @@ map.put(3, "Value 3");
 // Query the data using SQL
 SqlPredicate predicate = new SqlPredicate("this == 'Value 2'");
 Collection<String> values = map.values(predicate);
-```
+```{% endraw %}
 
 위 코드는 "my-map"이라는 이름의 맵을 만들고, 값을 삽입한 후 SQL 프리디케이트를 사용하여 값을 쿼리하는 예입니다. 이제 Hazelcast IMDG를 사용하여 SQL을 사용할 수 있습니다.
 
@@ -1984,7 +1982,7 @@ apache ignite를 위한 builld.gradle 만들어줘
 ## ChatGPT 응답:
 > 아래는 Apache Ignite를 위한 build.gradle 예시입니다.
 
-```
+{% raw %}```
 plugins {
     id 'java'
     id 'idea'
@@ -2009,18 +2007,18 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-```
+```{% endraw %}
 
 위 설정에 대해서는 다음을 설명 드릴 수 있습니다.
 
-- `plugins` 블록에서는 Java, IntelliJ IDEA 플러그인을 설정합니다.
-- `group`과 `version`에서는 프로젝트의 정보를 설정합니다.
-- `sourceCompatibility`에서는 Java 소스 코드의 호환성 버전을 설정합니다.
-- `repositories`에서는 프로젝트에서 사용하는 라이브러리를 다운로드 받을 저장소를 설정합니다.
-- `dependencies`에서는 Apache Ignite 라이브러리를 설정합니다.
-- `test` 블록에서는 테스트를 위한 설정을 추가합니다.
+- {% raw %}`plugins`{% endraw %} 블록에서는 Java, IntelliJ IDEA 플러그인을 설정합니다.
+- {% raw %}`group`{% endraw %}과 {% raw %}`version`{% endraw %}에서는 프로젝트의 정보를 설정합니다.
+- {% raw %}`sourceCompatibility`{% endraw %}에서는 Java 소스 코드의 호환성 버전을 설정합니다.
+- {% raw %}`repositories`{% endraw %}에서는 프로젝트에서 사용하는 라이브러리를 다운로드 받을 저장소를 설정합니다.
+- {% raw %}`dependencies`{% endraw %}에서는 Apache Ignite 라이브러리를 설정합니다.
+- {% raw %}`test`{% endraw %} 블록에서는 테스트를 위한 설정을 추가합니다.
 
-이렇게 설정된 build.gradle 파일을 프로젝트 루트 디렉터리에 생성하고 `gradle build` 명령을 실행하면, 프로젝트를 빌드할 수 있습니다.
+이렇게 설정된 build.gradle 파일을 프로젝트 루트 디렉터리에 생성하고 {% raw %}`gradle build`{% endraw %} 명령을 실행하면, 프로젝트를 빌드할 수 있습니다.
 
 ## 사용자 입력:
 > springboot와 ignite를 코딩할 build.gralde 만들어줘
@@ -2028,7 +2026,7 @@ test {
 ## ChatGPT 응답:
 > 아래는 Spring Boot와 Apache Ignite를 사용하는 애플리케이션을 빌드하기 위한 build.gradle 파일입니다.
 
-```
+{% raw %}```
 plugins {
     id 'org.springframework.boot' version '2.6.3'
     id 'io.spring.dependency-management' version '1.1.0'
@@ -2051,7 +2049,7 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-```
+```{% endraw %}
 
 위의 build.gradle 파일에는 Spring Boot와 Apache Ignite의 의존성이 추가되어 있습니다. 또한 JUnit 5를 사용하도록 테스트 구성이 되어 있습니다. 이 파일을 사용하여 gradle 프로젝트를 생성하고 의존성을 다운로드하면 Spring Boot와 Apache Ignite를 사용하는 애플리케이션을 빌드할 수 있습니다.
 
@@ -2061,7 +2059,7 @@ test {
 ## ChatGPT 응답:
 > 웹이 필요 없다면, Spring Boot 프로젝트를 생성하고, 필요한 라이브러리를 추가한 후, Ignite를 사용하는 것이 가능합니다. 다음은 Spring Boot와 Ignite를 사용하는 예제 build.gradle 파일입니다.
 
-```
+{% raw %}```
 plugins {
     id 'java'
 }
@@ -2093,9 +2091,9 @@ jar {
         )
     }
 }
-```
+```{% endraw %}
 
-위 예제에서는 Java 언어를 사용하여 Spring Boot와 Ignite를 연동합니다. 필요한 라이브러리는 `spring-boot-starter`, `ignite-core`, `ignite-spring-boot-starter`입니다. 또한, `testImplementation`으로 `spring-boot-starter-test`를 추가하였습니다.
+위 예제에서는 Java 언어를 사용하여 Spring Boot와 Ignite를 연동합니다. 필요한 라이브러리는 {% raw %}`spring-boot-starter`{% endraw %}, {% raw %}`ignite-core`{% endraw %}, {% raw %}`ignite-spring-boot-starter`{% endraw %}입니다. 또한, {% raw %}`testImplementation`{% endraw %}으로 {% raw %}`spring-boot-starter-test`{% endraw %}를 추가하였습니다.
 
 build.gradle 파일에 다음과 같이 작성하신 후, Spring Boot 애플리케이션을 실행하시면 됩니다.
 
@@ -2105,12 +2103,12 @@ build.gradle 파일에 다음과 같이 작성하신 후, Spring Boot 애플리�
 ## ChatGPT 응답:
 > Spring Boot에서 Jackson을 사용하기 위해서는 다음과 같은 Gradle 종속성을 추가해야 합니다.
 
-```groovy
+{% raw %}```groovy
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.fasterxml.jackson.core:jackson-databind'
 }
-```
+```{% endraw %}
 
 위의 Gradle 종속성에는 Spring Boot와 Jackson 모듈이 모두 포함되어 있습니다. 이제 Jackson 라이브러리를 사용할 수 있습니다.
 
@@ -2137,7 +2135,7 @@ dependencies {
 
 아래는 Ignite client API를 사용하여 IgniteSet 객체를 생성하는 예제 코드입니다.
 
-```java
+{% raw %}```java
 import org.apache.ignite.Ignite;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.client.ClientConfiguration;
@@ -2183,7 +2181,7 @@ public class IgniteSetExample {
         }
     }
 }
-```
+```{% endraw %}
 
 위의 예제 코드에서는 클라이언트 설정을 위해 ClientConfiguration 객체를 사용하며, IgniteClient를 사용하여 Ignite 클러스터에 접속합니다. 그리고 IgniteSet을 생성하고 값을 추가, 삭제하는 등의 작업을 수행하고 있습니다. 
 
@@ -2239,9 +2237,9 @@ public class QtrackIgniteApplication implements CommandLineRunner {
     } } 이 코드를 igniteSet을 지원하는 형태로 바꿔줘
 
 ## ChatGPT 응답:
-> Ignite에서는 `IgniteSet` 대신 `IgniteCache`를 사용합니다. 따라서, `IgniteSet`을 `IgniteCache`로 대체한 코드는 다음과 같습니다.
+> Ignite에서는 {% raw %}`IgniteSet`{% endraw %} 대신 {% raw %}`IgniteCache`{% endraw %}를 사용합니다. 따라서, {% raw %}`IgniteSet`{% endraw %}을 {% raw %}`IgniteCache`{% endraw %}로 대체한 코드는 다음과 같습니다.
 
-```java
+{% raw %}```java
 package com.datastreams.qtrack.ignite;
 
 import com.datastreams.qtrack.graph.bean.EdgeSerializable;
@@ -2310,9 +2308,9 @@ public class QtrackIgniteApplication implements CommandLineRunner {
         jsonParser.close();
     }
 }
-```
+```{% endraw %}
 
-위 코드는 `IgniteCache`를 생성하고, `loadJsonOfFlow` 메소드를 통해 `EdgeSerializable` 객체를 `cache`에 저장합니다. 저장된 데이터는 `cache.get(key)` 메소드를 통해 조회할 수 있습니다.
+위 코드는 {% raw %}`IgniteCache`{% endraw %}를 생성하고, {% raw %}`loadJsonOfFlow`{% endraw %} 메소드를 통해 {% raw %}`EdgeSerializable`{% endraw %} 객체를 {% raw %}`cache`{% endraw %}에 저장합니다. 저장된 데이터는 {% raw %}`cache.get(key)`{% endraw %} 메소드를 통해 조회할 수 있습니다.
 
 ## 사용자 입력:
 > IgniteCache를 IgniteSet으로 바꿔달라고
@@ -2320,7 +2318,7 @@ public class QtrackIgniteApplication implements CommandLineRunner {
 ## ChatGPT 응답:
 > 해당 예제 코드에서는 IgniteCache를 사용하고 있습니다. IgniteSet으로 변경하는 방법은 다음과 같습니다.
 
-```java
+{% raw %}```java
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteSet;
 import org.apache.ignite.configuration.CacheConfiguration;
@@ -2404,9 +2402,9 @@ public class IgniteSetExample {
         return new EdgeSerializable(sNode, tNode, weight);
     }
 }
-```
+```{% endraw %}
 
-위 코드에서 `IgniteCache<String, EdgeSerializable> cache = ignite.getOrCreateCache(cacheCfg);` 라인을 `IgniteSet<EdgeSerializable> set = ignite.set(CACHE_NAME, cacheCfg);`으로 변경하면 IgniteSet을 사용할 수 있습니다. 추가로 `set.addAll(edges);`를 사용하여 데이터를 추가할 수 있습니다.
+위 코드에서 {% raw %}`IgniteCache<String, EdgeSerializable> cache = ignite.getOrCreateCache(cacheCfg);`{% endraw %} 라인을 {% raw %}`IgniteSet<EdgeSerializable> set = ignite.set(CACHE_NAME, cacheCfg);`{% endraw %}으로 변경하면 IgniteSet을 사용할 수 있습니다. 추가로 {% raw %}`set.addAll(edges);`{% endraw %}를 사용하여 데이터를 추가할 수 있습니다.
 
 ## 사용자 입력:
 > commons-beanutils-1.9.4 을 그래들로
@@ -2414,13 +2412,13 @@ public class IgniteSetExample {
 ## ChatGPT 응답:
 > Apache Commons BeanUtils 라이브러리 1.9.4의 Gradle 의존성을 추가하는 방법은 다음과 같습니다.
 
-```
+{% raw %}```
 dependencies {
     implementation 'commons-beanutils:commons-beanutils:1.9.4'
 }
-```
+```{% endraw %}
 
-위의 코드를 프로젝트의 `build.gradle` 파일의 `dependencies` 섹션에 추가하면 됩니다.
+위의 코드를 프로젝트의 {% raw %}`build.gradle`{% endraw %} 파일의 {% raw %}`dependencies`{% endraw %} 섹션에 추가하면 됩니다.
 
 ## 사용자 입력:
 > hibernate-validator-7.0.5.Final을 그래들로
@@ -2428,31 +2426,31 @@ dependencies {
 ## ChatGPT 응답:
 > Hibernate Validator 7.0.5.Final의 그래들 의존성 설정은 다음과 같습니다.
 
-```
+{% raw %}```
 dependencies {
     implementation 'org.hibernate.validator:hibernate-validator:7.0.5.Final'
 }
-``` 
+```{% endraw %} 
 
 추가로, Hibernate Validator를 사용할 경우 필요한 Bean Validation API도 의존성에 추가해주어야 합니다.
 
-```
+{% raw %}```
 dependencies {
     implementation 'javax.validation:validation-api:2.0.1.Final'
     implementation 'org.hibernate.validator:hibernate-validator:7.0.5.Final'
 }
-``` 
+```{% endraw %} 
 
 또한, Hibernate Validator의 메시지 소스로 메시지를 다국어 처리를 위한 기능을 사용할 경우, 다음과 같은 의존성도 추가해주어야 합니다.
 
-```
+{% raw %}```
 dependencies {
     implementation 'org.hibernate.validator:hibernate-validator:7.0.5.Final'
     implementation 'org.hibernate.validator:hibernate-validator-messages:7.0.5.Final'
 }
-``` 
+```{% endraw %} 
 
-참고로 위 코드들은 Gradle 7.x 버전을 기준으로 작성되었습니다. Gradle 6.x나 이전 버전을 사용하는 경우, `implementation` 대신 `compile` 키워드를 사용해야 합니다.
+참고로 위 코드들은 Gradle 7.x 버전을 기준으로 작성되었습니다. Gradle 6.x나 이전 버전을 사용하는 경우, {% raw %}`implementation`{% endraw %} 대신 {% raw %}`compile`{% endraw %} 키워드를 사용해야 합니다.
 
 ## 사용자 입력:
 > springboot starter 의 h2 db를 사용하지 못하게 하려면?
@@ -2460,22 +2458,22 @@ dependencies {
 ## ChatGPT 응답:
 > Spring Boot의 H2 DB를 사용하지 못하게 하는 방법은 다음과 같습니다.
 
-1. 의존성 제거: `pom.xml` 또는 `build.gradle` 파일에서 H2 DB 관련 의존성을 제거합니다.
+1. 의존성 제거: {% raw %}`pom.xml`{% endraw %} 또는 {% raw %}`build.gradle`{% endraw %} 파일에서 H2 DB 관련 의존성을 제거합니다.
 
 2. application.properties에서 spring.datasource.url 값을 다른 DB로 변경합니다.
 
-   ```
+   {% raw %}```
    spring.datasource.url=jdbc:mysql://localhost/mydb
-   ```
+   ```{% endraw %}
 
-3. `@EnableAutoConfiguration` 어노테이션에 `exclude` 속성을 사용하여 H2 DB 자동 구성을 제외합니다.
+3. {% raw %}`@EnableAutoConfiguration`{% endraw %} 어노테이션에 {% raw %}`exclude`{% endraw %} 속성을 사용하여 H2 DB 자동 구성을 제외합니다.
 
-   ```
+   {% raw %}```
    @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
    public class MyApp {
        // ...
    }
-   ```
+   ```{% endraw %}
 
 이렇게 하면 Spring Boot 애플리케이션에서 H2 DB를 사용하지 못하게 됩니다.
 
@@ -2485,9 +2483,9 @@ dependencies {
 ## ChatGPT 응답:
 > H2 DB 관련 의존성을 제거하는 방법은 프로젝트의 빌드 도구에 따라서 다소 차이가 있을 수 있습니다. 여기서는 Maven과 Gradle 빌드 도구의 경우에 대해서 간단히 설명해드리겠습니다.
 
-Maven을 사용하는 경우, `pom.xml` 파일에서 아래와 같이 H2 DB 관련 의존성을 제거할 수 있습니다.
+Maven을 사용하는 경우, {% raw %}`pom.xml`{% endraw %} 파일에서 아래와 같이 H2 DB 관련 의존성을 제거할 수 있습니다.
 
-```xml
+{% raw %}```xml
 <dependencies>
     <!-- 다른 의존성들... -->
     <dependency>
@@ -2496,20 +2494,20 @@ Maven을 사용하는 경우, `pom.xml` 파일에서 아래와 같이 H2 DB 관�
         <scope>test</scope>
     </dependency>
 </dependencies>
-```
+```{% endraw %}
 
-여기서 `h2` 라이브러리의 `scope`를 `test`로 지정해주면, 테스트 코드에서만 H2 DB를 사용할 수 있습니다. 만약에 `h2` 라이브러리를 프로덕션 코드에서도 사용하고 있다면, `scope`를 `compile` 또는 `runtime`으로 지정되어 있을 것이므로 해당 부분을 삭제해주면 됩니다.
+여기서 {% raw %}`h2`{% endraw %} 라이브러리의 {% raw %}`scope`{% endraw %}를 {% raw %}`test`{% endraw %}로 지정해주면, 테스트 코드에서만 H2 DB를 사용할 수 있습니다. 만약에 {% raw %}`h2`{% endraw %} 라이브러리를 프로덕션 코드에서도 사용하고 있다면, {% raw %}`scope`{% endraw %}를 {% raw %}`compile`{% endraw %} 또는 {% raw %}`runtime`{% endraw %}으로 지정되어 있을 것이므로 해당 부분을 삭제해주면 됩니다.
 
-Gradle을 사용하는 경우, `build.gradle` 파일에서 아래와 같이 H2 DB 관련 의존성을 제거할 수 있습니다.
+Gradle을 사용하는 경우, {% raw %}`build.gradle`{% endraw %} 파일에서 아래와 같이 H2 DB 관련 의존성을 제거할 수 있습니다.
 
-```groovy
+{% raw %}```groovy
 dependencies {
     // 다른 의존성들...
     testImplementation('com.h2database:h2')
 }
-```
+```{% endraw %}
 
-여기서 `h2` 라이브러리를 `testImplementation`으로 지정해주면, 테스트 코드에서만 H2 DB를 사용할 수 있습니다. 만약에 `h2` 라이브러리를 프로덕션 코드에서도 사용하고 있다면, `implementation` 또는 `runtimeOnly`으로 지정되어 있을 것이므로 해당 부분을 삭제해주면 됩니다.
+여기서 {% raw %}`h2`{% endraw %} 라이브러리를 {% raw %}`testImplementation`{% endraw %}으로 지정해주면, 테스트 코드에서만 H2 DB를 사용할 수 있습니다. 만약에 {% raw %}`h2`{% endraw %} 라이브러리를 프로덕션 코드에서도 사용하고 있다면, {% raw %}`implementation`{% endraw %} 또는 {% raw %}`runtimeOnly`{% endraw %}으로 지정되어 있을 것이므로 해당 부분을 삭제해주면 됩니다.
 
 ## 사용자 입력:
 > spring-boot-starter에서 h2 db삭제 방법
@@ -2519,21 +2517,21 @@ dependencies {
 
 Maven을 사용하는 경우, pom.xml 파일에서 아래와 같이 H2 DB 관련 의존성을 제거합니다.
 
-```xml
+{% raw %}```xml
 <!-- h2 db 의존성 삭제 -->
 <dependency>
     <groupId>com.h2database</groupId>
     <artifactId>h2</artifactId>
     <scope>test</scope>
 </dependency>
-```
+```{% endraw %}
 
 Gradle을 사용하는 경우, build.gradle 파일에서 아래와 같이 H2 DB 관련 의존성을 제거합니다.
 
-```gradle
+{% raw %}```gradle
 // h2 db 의존성 삭제
 testImplementation('com.h2database:h2')
-```
+```{% endraw %}
 
 위와 같이 H2 DB 관련 의존성을 삭제하면 Spring Boot가 기본적으로 제공하는 H2 DB를 사용하지 못하게 됩니다.
 
@@ -2541,9 +2539,9 @@ testImplementation('com.h2database:h2')
 > gradle에서 아예 제외시켜버리는 방법..h2
 
 ## ChatGPT 응답:
-> Gradle에서 H2 DB 관련 의존성을 완전히 제외하려면 `build.gradle` 파일에서 다음과 같이 해당 의존성을 제외하도록 설정하면 됩니다.
+> Gradle에서 H2 DB 관련 의존성을 완전히 제외하려면 {% raw %}`build.gradle`{% endraw %} 파일에서 다음과 같이 해당 의존성을 제외하도록 설정하면 됩니다.
 
-```gradle
+{% raw %}```gradle
 dependencies {
     // ...
     implementation('org.springframework.boot:spring-boot-starter-web') {
@@ -2551,19 +2549,19 @@ dependencies {
     }
     // ...
 }
-```
+```{% endraw %}
 
-위 예제에서는 `spring-boot-starter-web` 의존성에서 H2 DB 모듈을 제외하도록 설정하였습니다. 만약 다른 모듈에서 H2 DB 모듈을 사용하고 있다면 해당 모듈에서도 같은 방식으로 제외하도록 설정해주어야 합니다.
+위 예제에서는 {% raw %}`spring-boot-starter-web`{% endraw %} 의존성에서 H2 DB 모듈을 제외하도록 설정하였습니다. 만약 다른 모듈에서 H2 DB 모듈을 사용하고 있다면 해당 모듈에서도 같은 방식으로 제외하도록 설정해주어야 합니다.
 
 ## 사용자 입력:
 > springboot의 DB autoconfiguration을 못하게 하려면
 
 ## ChatGPT 응답:
-> Spring Boot의 자동 구성 기능을 특정 라이브러리에 대해 비활성화하려면 `@EnableAutoConfiguration` 어노테이션의 `exclude` 속성을 사용할 수 있습니다. 이 속성을 사용하여 특정 클래스 또는 패키지를 지정하면 Spring Boot는 해당 클래스 또는 패키지에 대한 자동 구성을 수행하지 않습니다.
+> Spring Boot의 자동 구성 기능을 특정 라이브러리에 대해 비활성화하려면 {% raw %}`@EnableAutoConfiguration`{% endraw %} 어노테이션의 {% raw %}`exclude`{% endraw %} 속성을 사용할 수 있습니다. 이 속성을 사용하여 특정 클래스 또는 패키지를 지정하면 Spring Boot는 해당 클래스 또는 패키지에 대한 자동 구성을 수행하지 않습니다.
 
-H2 데이터베이스의 자동 구성을 비활성화하려면 `@EnableAutoConfiguration` 어노테이션의 `exclude` 속성에 `H2ConsoleAutoConfiguration` 클래스를 추가하면 됩니다. 다음은 Gradle 기반의 Spring Boot 프로젝트에서 이를 수행하는 방법입니다.
+H2 데이터베이스의 자동 구성을 비활성화하려면 {% raw %}`@EnableAutoConfiguration`{% endraw %} 어노테이션의 {% raw %}`exclude`{% endraw %} 속성에 {% raw %}`H2ConsoleAutoConfiguration`{% endraw %} 클래스를 추가하면 됩니다. 다음은 Gradle 기반의 Spring Boot 프로젝트에서 이를 수행하는 방법입니다.
 
-```gradle
+{% raw %}```gradle
 dependencies {
     // ... 다른 의존성들
 
@@ -2583,9 +2581,9 @@ dependencies {
 public class MyConfiguration {
     // ... configuration
 }
-```
+```{% endraw %}
 
-이 예제에서는 `@EnableAutoConfiguration` 어노테이션의 `exclude` 속성에 `H2ConsoleAutoConfiguration` 클래스를 추가하여 H2 데이터베이스의 자동 구성을 비활성화합니다. 이 설정은 Spring Boot 프로젝트의 어떤 클래스에도 추가될 수 있습니다.
+이 예제에서는 {% raw %}`@EnableAutoConfiguration`{% endraw %} 어노테이션의 {% raw %}`exclude`{% endraw %} 속성에 {% raw %}`H2ConsoleAutoConfiguration`{% endraw %} 클래스를 추가하여 H2 데이터베이스의 자동 구성을 비활성화합니다. 이 설정은 Spring Boot 프로젝트의 어떤 클래스에도 추가될 수 있습니다.
 
 ## 사용자 입력:
 > public class EdgeToIgnite {
@@ -2722,12 +2720,12 @@ public class QtrackIgniteApplication {
 
 이 에러가 발생하는 경우에는 Ignite SQL 기능이 필요하지 않은 경우, Ignite 구성 파일에서 해당 기능을 비활성화할 수 있습니다. 예를 들어, 아래와 같이 Ignite 구성 파일에서 SQL 기능을 비활성화할 수 있습니다.
 
-```xml
+{% raw %}```xml
 <bean id="ignite.cfg" class="org.apache.ignite.configuration.IgniteConfiguration">
     <property name="sqlEnabled" value="false"/>
     ...
 </bean>
-```
+```{% endraw %}
 
 이렇게 설정하면 Ignite가 H2 데이터베이스를 사용하는 SQL 기능을 사용하지 않으므로, 위와 같은 에러가 발생하지 않습니다.
 
@@ -2745,9 +2743,9 @@ public class QtrackIgniteApplication {
 ## ChatGPT 응답:
 > 아니요, Ignite에서 cache를 만들 때 만료기간을 설정하지 않아도 됩니다. 기본적으로, cache의 entry는 영구적이며 만료되지 않습니다. 
 
-하지만 만료기간을 설정하고 싶다면, `CacheConfiguration`의 `setExpiryPolicyFactory()` 메서드를 사용하여 만료 정책을 설정할 수 있습니다. 만료 정책은 `ExpiryPolicyFactory` 인터페이스를 구현하는 클래스를 사용하여 정의됩니다. 예를 들어, 다음과 같이 `create()` 메서드를 구현하는 `ExpiryPolicyFactory` 클래스를 만들어 만료 정책을 정의할 수 있습니다.
+하지만 만료기간을 설정하고 싶다면, {% raw %}`CacheConfiguration`{% endraw %}의 {% raw %}`setExpiryPolicyFactory()`{% endraw %} 메서드를 사용하여 만료 정책을 설정할 수 있습니다. 만료 정책은 {% raw %}`ExpiryPolicyFactory`{% endraw %} 인터페이스를 구현하는 클래스를 사용하여 정의됩니다. 예를 들어, 다음과 같이 {% raw %}`create()`{% endraw %} 메서드를 구현하는 {% raw %}`ExpiryPolicyFactory`{% endraw %} 클래스를 만들어 만료 정책을 정의할 수 있습니다.
 
-```java
+{% raw %}```java
 public class MyExpiryPolicyFactory implements ExpiryPolicyFactory<K, V> {
     @Override
     public ExpiryPolicy create() {
@@ -2755,16 +2753,16 @@ public class MyExpiryPolicyFactory implements ExpiryPolicyFactory<K, V> {
         return new CreatedExpiryPolicy(new Duration(TimeUnit.HOURS, 1));
     }
 }
-```
+```{% endraw %}
 
-그리고 이를 `CacheConfiguration`에 적용합니다.
+그리고 이를 {% raw %}`CacheConfiguration`{% endraw %}에 적용합니다.
 
-```java
+{% raw %}```java
 CacheConfiguration<K, V> cacheCfg = new CacheConfiguration<>();
 cacheCfg.setExpiryPolicyFactory(new MyExpiryPolicyFactory());
 // ...
 IgniteCache<K, V> cache = ignite.getOrCreateCache(cacheCfg);
-```
+```{% endraw %}
 
 이렇게 하면, cache entry가 만료되는 시간을 설정할 수 있습니다.
 
@@ -2792,7 +2790,7 @@ IgniteCache<K, V> cache = ignite.getOrCreateCache(cacheCfg);
 ## ChatGPT 응답:
 > 비동기적으로 EdgeSerializable을 가져오기 위해서는 IgniteCache의 Async API를 사용해야 합니다. 아래는 비동기 방식으로 IgniteCache에서 EdgeSerializable을 가져오는 예시 코드입니다.
 
-```
+{% raw %}```
 List<CompletableFuture<EdgeSerializable>> futures = new ArrayList<>();
 Query<Cache.Entry<String, EdgeSerializable>> query = new ScanQuery<>();
 
@@ -2831,7 +2829,7 @@ futures.forEach(future -> {
         // 예외 처리
     }
 });
-```
+```{% endraw %}
 
 위 코드에서는 ScanQuery()를 사용하여 IgniteCache의 모든 항목을 가져온 후 CompletionListener에서 CompletableFuture에 EdgeSerializable을 저장하도록 하였습니다. 이후 CompletableFuture에서 EdgeSerializable을 가져와서 필요한 작업을 수행합니다. 이렇게 비동기적으로 EdgeSerializable을 가져오면서 병렬 처리를 할 수 있어 성능 향상에 도움이 됩니다.
 
@@ -2839,9 +2837,9 @@ futures.forEach(future -> {
 > 동기적으로 가져오는 방식으로 바꿔봐.
 
 ## ChatGPT 응답:
-> 아래는 Ignite의 `SqlFieldsQuery`를 사용하여 동기적으로 데이터를 가져오는 예시입니다.
+> 아래는 Ignite의 {% raw %}`SqlFieldsQuery`{% endraw %}를 사용하여 동기적으로 데이터를 가져오는 예시입니다.
 
-```java
+{% raw %}```java
 int rNum = 0;
 
 while (true) {
@@ -2873,9 +2871,9 @@ while (true) {
         // Exception 처리
     }
 }
-```
+```{% endraw %}
 
-해당 예시는 `pageSize` 만큼의 데이터를 가져와 `Edge` 객체를 생성하고, `Graph` 객체에 추가하는 작업을 반복적으로 수행합니다. 페이징 처리는 `SqlFieldsQuery`의 `setArgs()` 메소드를 사용하여 구현되었습니다. 가져온 결과셋은 `QueryCursor`를 사용하여 처리하며, `getAll()` 메소드를 사용하여 모든 결과를 가져옵니다.
+해당 예시는 {% raw %}`pageSize`{% endraw %} 만큼의 데이터를 가져와 {% raw %}`Edge`{% endraw %} 객체를 생성하고, {% raw %}`Graph`{% endraw %} 객체에 추가하는 작업을 반복적으로 수행합니다. 페이징 처리는 {% raw %}`SqlFieldsQuery`{% endraw %}의 {% raw %}`setArgs()`{% endraw %} 메소드를 사용하여 구현되었습니다. 가져온 결과셋은 {% raw %}`QueryCursor`{% endraw %}를 사용하여 처리하며, {% raw %}`getAll()`{% endraw %} 메소드를 사용하여 모든 결과를 가져옵니다.
 
-주의할 점은, 이 예시에서는 결과셋의 크기를 미리 예측할 수 없는 경우를 가정하고, `while` 루프를 무한 반복하도록 되어 있습니다. 예측 가능한 크기의 결과셋인 경우 `for` 루프와 함께 사용하는 것이 더욱 안전합니다.
+주의할 점은, 이 예시에서는 결과셋의 크기를 미리 예측할 수 없는 경우를 가정하고, {% raw %}`while`{% endraw %} 루프를 무한 반복하도록 되어 있습니다. 예측 가능한 크기의 결과셋인 경우 {% raw %}`for`{% endraw %} 루프와 함께 사용하는 것이 더욱 안전합니다.
 

@@ -1,31 +1,29 @@
 ---
 layout: post
 title: "Gradle에 javax.cache 추가하기"
-date: 2023-04-11
-tags: [cache, 추가, javax]
-categories: blog
+tags: [추가, cache, javax]
 ---
 
 ## 사용자 입력:
 > implementation 'javax.cache:cache-api:1.0.0'  이렇게 build.gradle에 선언하면, war 만들어질때, WEB-INF/lib에 라이브러리가 안들어가나?
 
 ## ChatGPT 응답:
-> `javax.cache:cache-api:1.0.0` 라이브러리를 build.gradle 파일에 선언한다고 하여도, 해당 라이브러리가 WAR 파일의 WEB-INF/lib 폴더에 포함될지 여부는 다른 요소들에 달려 있습니다. 
+> {% raw %}`javax.cache:cache-api:1.0.0`{% endraw %} 라이브러리를 build.gradle 파일에 선언한다고 하여도, 해당 라이브러리가 WAR 파일의 WEB-INF/lib 폴더에 포함될지 여부는 다른 요소들에 달려 있습니다. 
 
-일반적으로 Gradle은 `compile` 또는 `implementation` 의존성으로 선언된 라이브러리를 자동으로 WAR 파일에 추가합니다. 그러나 다른 요인들이 영향을 미칠 수 있습니다. 예를 들어, Gradle 설정 파일에 다음과 같은 코드가 포함되어 있다면:
+일반적으로 Gradle은 {% raw %}`compile`{% endraw %} 또는 {% raw %}`implementation`{% endraw %} 의존성으로 선언된 라이브러리를 자동으로 WAR 파일에 추가합니다. 그러나 다른 요인들이 영향을 미칠 수 있습니다. 예를 들어, Gradle 설정 파일에 다음과 같은 코드가 포함되어 있다면:
 
-```gradle
+{% raw %}```gradle
 war {
    classpath fileTree('lib') // WAR 파일에 추가할 외부 라이브러리 디렉토리 경로
    webInf {
       from 'src/main/resources/web-inf' // 추가로 포함할 파일 및 디렉터리 경로
    }
 }
-```
+```{% endraw %}
 
-이 설정이 있다면 `javax.cache:cache-api:1.0.0` 라이브러리는 WAR 파일에 추가되지 않을 수 있습니다. 따라서 해당 설정 파일을 분석해야 할 것입니다.
+이 설정이 있다면 {% raw %}`javax.cache:cache-api:1.0.0`{% endraw %} 라이브러리는 WAR 파일에 추가되지 않을 수 있습니다. 따라서 해당 설정 파일을 분석해야 할 것입니다.
 
-그러나 보통 Gradle에서는 라이브러리를 제대로 추가하기 위해 `compile` 또는 `implementation` 의존성으로 선언되면 라이브러리가 WAR 파일에 추가됩니다.
+그러나 보통 Gradle에서는 라이브러리를 제대로 추가하기 위해 {% raw %}`compile`{% endraw %} 또는 {% raw %}`implementation`{% endraw %} 의존성으로 선언되면 라이브러리가 WAR 파일에 추가됩니다.
 
 ## 사용자 입력:
 > javax.cache:cache-api:1.0.0 라이브러리가 WEB-INF/lib에 있는데도 불구하고, WAS서버에서 못찾는다는 메세지가 나올때는 어떻게 해야 하나?
@@ -50,19 +48,19 @@ war {
 > 한국의 제우스 서버에서 JNDI 데이터 소스를 가져올 때 "encoding" 속성을 UTF-8로 설정하려면 다음과 같이 하면 됩니다.
 
 1. JNDI 데이터 소스를 정의하는 XML 파일을 엽니다. 보통은 server.xml 또는 context.xml 파일입니다.
-2. JNDI 데이터 소스의 `<Resource>` 요소에서 `URLEncoding` 속성을 UTF-8로 설정합니다.
+2. JNDI 데이터 소스의 {% raw %}`<Resource>`{% endraw %} 요소에서 {% raw %}`URLEncoding`{% endraw %} 속성을 UTF-8로 설정합니다.
 
-예를 들어, 다음과 같이 `<Resource>` 요소를 정의했다고 가정합니다.
+예를 들어, 다음과 같이 {% raw %}`<Resource>`{% endraw %} 요소를 정의했다고 가정합니다.
 
-```xml
+{% raw %}```xml
 <Resource name="jdbc/myDataSource" auth="Container" type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/mydb" username="myuser" password="mypassword" />
-```
+```{% endraw %}
 
-이 경우, `URLEncoding` 속성을 추가하여 다음과 같이 설정합니다.
+이 경우, {% raw %}`URLEncoding`{% endraw %} 속성을 추가하여 다음과 같이 설정합니다.
 
-```xml
+{% raw %}```xml
 <Resource name="jdbc/myDataSource" auth="Container" type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/mydb" username="myuser" password="mypassword" URLEncoding="UTF-8" />
-```
+```{% endraw %}
 
 위와 같이 설정하면 JNDI 데이터 소스에서 UTF-8 인코딩을 사용할 수 있습니다.
 
@@ -73,20 +71,20 @@ war {
 > 톰캣 서버에서 JNDI 데이터 소스를 가져올 때 "encoding" 속성을 UTF-8로 설정하려면 다음과 같이 하면 됩니다.
 
 1. JNDI 데이터 소스를 정의하는 XML 파일을 엽니다. 보통은 server.xml 또는 context.xml 파일입니다.
-2. JNDI 데이터 소스의 `<Resource>` 요소에서 `connectionProperties` 속성을 추가합니다. 
-3. `connectionProperties` 속성에 `useUnicode=true&characterEncoding=UTF-8` 값을 설정합니다.
+2. JNDI 데이터 소스의 {% raw %}`<Resource>`{% endraw %} 요소에서 {% raw %}`connectionProperties`{% endraw %} 속성을 추가합니다. 
+3. {% raw %}`connectionProperties`{% endraw %} 속성에 {% raw %}`useUnicode=true&characterEncoding=UTF-8`{% endraw %} 값을 설정합니다.
 
-예를 들어, 다음과 같이 `<Resource>` 요소를 정의했다고 가정합니다.
+예를 들어, 다음과 같이 {% raw %}`<Resource>`{% endraw %} 요소를 정의했다고 가정합니다.
 
-```xml
+{% raw %}```xml
 <Resource name="jdbc/myDataSource" auth="Container" type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/mydb" username="myuser" password="mypassword" />
-```
+```{% endraw %}
 
-이 경우, `connectionProperties` 속성을 추가하여 다음과 같이 설정합니다.
+이 경우, {% raw %}`connectionProperties`{% endraw %} 속성을 추가하여 다음과 같이 설정합니다.
 
-```xml
+{% raw %}```xml
 <Resource name="jdbc/myDataSource" auth="Container" type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/mydb" username="myuser" password="mypassword" connectionProperties="useUnicode=true&amp;characterEncoding=UTF-8" />
-```
+```{% endraw %}
 
 위와 같이 설정하면 JNDI 데이터 소스에서 UTF-8 인코딩을 사용할 수 있습니다.
 

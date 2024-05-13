@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Debugging Eclipse CDT Classes"
-date: 2024-02-08
-tags: [CDT, Eclipse, Classes, Debugging]
-categories: blog
+tags: [CDT, Classes, Debugging, Eclipse]
 ---
 
 ## 사용자 입력:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Regenerate SqlSessionFactory Bean."
-date: 2023-03-02
 tags: [Bean, Regenerate, SqlSessionFactory]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -20,23 +18,23 @@ categories: blog
 
 1. Cast the bean factory to DefaultSingletonBeanRegistry: 
 
-```
+{% raw %}```
 DefaultSingletonBeanRegistry registry = (DefaultSingletonBeanRegistry) applicationContext.getAutowireCapableBeanFactory();
-```
+```{% endraw %}
 
 2. Destroy the "sqlSessionFactory" bean: 
 
-```
+{% raw %}```
 registry.destroySingleton("sqlSessionFactory");
-```
+```{% endraw %}
 
 3. Check if the "sqlSessionFactory" bean is currently being created, and if not, set it to "currently in creation" status:
 
-```
+{% raw %}```
 if (!registry.isCurrentlyInCreation("sqlSessionFactory")) {
     registry.setCurrentlyInCreation("sqlSessionFactory",true);
 }
-```
+```{% endraw %}
 
 It's hard to determine the exact purpose of this code without additional context, but it appears to be related to managing the lifecycle of the "sqlSessionFactory" bean. Destroying and recreating the bean can be useful in certain cases, such as when you need to reconfigure the bean with different settings. However, it can also be risky as it can cause unintended consequences and potential side effects. Therefore, it's important to carefully consider the implications of such actions before implementing them in your code.
 
@@ -48,23 +46,23 @@ It's hard to determine the exact purpose of this code without additional context
 
 1. 빈 팩토리를 DefaultSingletonBeanRegistry로 캐스팅합니다.
 
-```
+{% raw %}```
 DefaultSingletonBeanRegistry registry = (DefaultSingletonBeanRegistry) applicationContext.getAutowireCapableBeanFactory();
-```
+```{% endraw %}
 
 2. "sqlSessionFactory" 빈을 제거합니다.
 
-```
+{% raw %}```
 registry.destroySingleton("sqlSessionFactory");
-```
+```{% endraw %}
 
 3. "sqlSessionFactory" 빈이 현재 생성 중인지 확인하고, 생성 중이 아닌 경우 "현재 생성 중" 상태로 설정합니다.
 
-```
+{% raw %}```
 if (!registry.isCurrentlyInCreation("sqlSessionFactory")) {
     registry.setCurrentlyInCreation("sqlSessionFactory",true);
 }
-```
+```{% endraw %}
 
 이 코드의 정확한 목적을 추가적인 문맥 없이는 파악하기 어렵지만, "sqlSessionFactory" 빈의 라이프사이클을 관리하는 것과 관련이 있는 것으로 보입니다. 빈을 제거하고 다시 생성하는 것은 빈을 다른 설정으로 다시 구성해야 하는 경우와 같이 특정 상황에서 유용할 수 있지만, 부작용이 발생할 수 있으므로 신중하게 고려해야 합니다.
 

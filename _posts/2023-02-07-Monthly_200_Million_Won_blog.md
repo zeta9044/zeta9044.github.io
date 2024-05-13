@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Monthly 200 Million Won"
-date: 2023-02-07
-tags: [Million, Monthly, Won]
-categories: blog
+tags: [Won, Monthly, Million]
 ---
 
 ## 사용자 입력:

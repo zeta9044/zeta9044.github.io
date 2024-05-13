@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "QR Code Generator GUI"
-date: 2023-04-03
 tags: [Generator, QR, GUI, Code]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -57,7 +55,7 @@ while text:
 
 아래는 Python tkinter 라이브러리를 사용하여 구현한 예시 코드입니다. 사용자가 파일과 저장 위치를 선택하면, 선택한 파일에서 데이터를 읽어와 QR 코드 이미지를 생성하고 지정된 위치에 저장합니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import filedialog
 from PIL import Image
@@ -130,7 +128,7 @@ class QRCodeGenerator:
 if __name__ == "__main__":
     app = QRCodeGenerator()
     app.start()
-```
+```{% endraw %}
 
 위 코드를 실행하면 파일 선택 버튼과 저장 위치 선택 버튼이 표시됩니다. 각 버튼을 클릭하면 파일 선택 창과 폴더 선택 창이 열리고, 사용자가 파일과 저장 위치를 선택할 수 있습니다. 그 다음 Generate QR Codes 버튼을 클릭하면 선택한 파일에서 데이터를 읽어와 QR 코드 이미지를 생성하고 지정된 위치에 저장합니다. 마지막으로, QR 코드가 몇 개 생성되었는지와 저장 위치가 메시지 박스로
 
@@ -140,7 +138,7 @@ if __name__ == "__main__":
 ## ChatGPT 응답:
 > 아래는 파일명으로 디렉토리를 만들고, 생성된 QR 코드를 해당 디렉토리에 저장하고, 처리 내용을 보여주는 로그창을 추가한 코드입니다. 로그창에는 QR 코드 생성 과정에서 발생한 오류 메시지도 표시됩니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -230,7 +228,7 @@ class QRCodeGenerator:
 ## ChatGPT 응답:
 > 죄송합니다. 코드 작성 중간에 누락된 부분이 있었습니다. 아래는 해당 부분을 추가한 코드입니다.
 
-```python
+```{% endraw %}python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -320,7 +318,7 @@ class QRCodeGenerator:
 if __name__ == "__main__":
     app = QRCodeGenerator()
     app.start()
-``` 
+{% raw %}``` 
 
 위 코드
 
@@ -330,7 +328,7 @@ if __name__ == "__main__":
 ## ChatGPT 응답:
 > 아래는 생성된 QR 코드 이미지를 선택한 디렉토리에 파일명으로 된 디렉토리를 만들고, 해당 디렉토리에 QR 코드 이미지를 저장하는 기능을 추가한 코드입니다.
 
-```python
+```{% endraw %}python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -423,7 +421,7 @@ class QRCodeGenerator:
 ## ChatGPT 응답:
 > 죄송합니다. 다시 코드를 작성 중간에 누락된 부분이 있었습니다. 아래는 해당 부분을 추가한 코드입니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -517,7 +515,7 @@ class QRCodeGenerator:
 ## ChatGPT 응답:
 > 죄송합니다. 코드 작성 중간에 누락된 부분이 있었습니다. 아래는 해당 부분을 추가한 코드입니다.
 
-```python
+```{% endraw %}python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -611,7 +609,7 @@ class QRCodeGenerator:
 ## ChatGPT 응답:
 > 죄송합니다. 코드 작성 중간에 누락된 부분이 있었습니다. 아래는 해당 부분을 추가한 코드입니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -705,7 +703,7 @@ class QRCodeGenerator:
 ## ChatGPT 응답:
 > 이어서 완성된 코드입니다.
 
-```python
+```{% endraw %}python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -802,7 +800,7 @@ class QRCodeGenerator:
 ## ChatGPT 응답:
 > 이어서 완성된 코드입니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -899,7 +897,7 @@ class QRCodeGenerator:
 ## ChatGPT 응답:
 > 죄송합니다. 아래는 해당 부분을 추가한 코드입니다.
 
-```python
+```{% endraw %}python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -992,7 +990,7 @@ class QRCodeGenerator:
 ## ChatGPT 응답:
 > 죄송합니다. 코드 작성 중간에 누락된 부분이 있었습니다. 아래는 해당 부분을 추가한 코드입니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -1083,7 +1081,7 @@ class QRCodeGenerator:
 ## ChatGPT 응답:
 > 이어서 완성된 코드입니다.
 
-```python
+```{% endraw %}python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -1183,7 +1181,7 @@ class QRCodeGenerator:
 ## ChatGPT 응답:
 > 네, 이어서 완성된 코드입니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -1291,7 +1289,7 @@ with open("restored.txt", "w", encoding="utf-8") as f:
 ## ChatGPT 응답:
 > 이어서 완성된 코드입니다.
 
-```python
+```{% endraw %}python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -1381,7 +1379,7 @@ class QRCodeDecoder:
 ## ChatGPT 응답:
 > 죄송합니다. 코드가 중간에 자동으로 잘리는 문제가 있어, 한 번에 긴 코드를 보내지 못했습니다. 이어서 코드를 보내드리겠습니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -1469,7 +1467,7 @@ class QRCodeDecoder:
 ## ChatGPT 응답:
 > 이어서 코드를 보내드리겠습니다.
 
-```python
+```{% endraw %}python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image
@@ -1559,7 +1557,7 @@ class QRCodeDecoder:
 ## ChatGPT 응답:
 > 죄송합니다. 코드가 중간에 잘린 것 같습니다. 이어서 코드를 보내드리겠습니다.
 
-```python
+{% raw %}```python
         # 추출된 텍스트 리스트를 하나의 텍스트 파일로 합치기
         filename_without_ext = os.path.basename(self.qr_dir)
         file_path = os.path.join(self.save_dir, f"{filename_without_ext}.txt")
@@ -1585,7 +1583,7 @@ class QRCodeDecoder:
 if __name__ == "__main__":
     decoder = QRCodeDecoder()
     decoder.run()
-```
+```{% endraw %}
 
 위 코드는 특정 디렉토리 내에 있는 QR 코드 이미지 파일들을 읽어들여, 디코딩하여 추출된 텍스트들을 하나의 텍스트 파일로 저장하고, QR 코드 이미지 파일들을 선택한 위치에 디렉토리 이름으로 저장하는 GUI 프로그램입니다. 코드를 실행하면, "Select QR Code Directory" 버튼과 "Select Save Directory" 버튼이 있는 창이 나타납니다. 각각의 버튼을 눌러서 QR 코드 이미지 파일들이 있는 디렉토리와 추출된 텍스트 파일을 저장할 디렉토리를 선택해줍니다. "Decode QR Codes" 버튼을 누르면, QR 코드 디코딩과 추출된 텍스트 파일 저장, 그리고 QR 코드 이미지 파일 디렉토리 저장이 시작됩니다. 각각의 작업이 완료되면 로그 창에 결과가 표시됩니다.
 
@@ -1597,24 +1595,24 @@ if __name__ == "__main__":
 
 아래는 예시 코드입니다.
 
-```python
+{% raw %}```python
 idx = 1
 file_name = f"{idx:03d}_qr_code.png"
 print(file_name) # 출력 결과: "001_qr_code.png"
-```
+```{% endraw %}
 
-위 코드에서 `:03d`는 문자열 포맷을 지정하기 위한 구문입니다. 여기서 `0`은 숫자를 0으로 채우고, `3`은 총 3자리 숫자를 표시하도록 하며, `d`는 정수형 숫자를 나타냅니다. 따라서 `1`을 `001`로 표시하기 위해서는 `:03d`을 사용하면 됩니다. 이를 활용하여 `f"{idx:03d}_qr_code.png"`와 같이 코딩하면 됩니다.
+위 코드에서 {% raw %}`:03d`{% endraw %}는 문자열 포맷을 지정하기 위한 구문입니다. 여기서 {% raw %}`0`{% endraw %}은 숫자를 0으로 채우고, {% raw %}`3`{% endraw %}은 총 3자리 숫자를 표시하도록 하며, {% raw %}`d`{% endraw %}는 정수형 숫자를 나타냅니다. 따라서 {% raw %}`1`{% endraw %}을 {% raw %}`001`{% endraw %}로 표시하기 위해서는 {% raw %}`:03d`{% endraw %}을 사용하면 됩니다. 이를 활용하여 {% raw %}`f"{idx:03d}_qr_code.png"`{% endraw %}와 같이 코딩하면 됩니다.
 
 ## 사용자 입력:
 > 파이썬에서 스크롤이 되는 log창을 만들고 싶어... 아래와 같은 코드를 어떻게 바꿔야 돼?         self.log_text = tk.Text(self.window, width=60, height=10)
         self.log_text.pack(padx=10, pady=10)
 
 ## ChatGPT 응답:
-> Tkinter에서 스크롤이 가능한 로그창을 만들기 위해서는 `tkinter.scrolledtext` 모듈을 사용할 수 있습니다. 이 모듈을 사용하면 일반적인 텍스트 위젯과 동일한 방식으로 사용할 수 있지만 스크롤바가 자동으로 추가됩니다.
+> Tkinter에서 스크롤이 가능한 로그창을 만들기 위해서는 {% raw %}`tkinter.scrolledtext`{% endraw %} 모듈을 사용할 수 있습니다. 이 모듈을 사용하면 일반적인 텍스트 위젯과 동일한 방식으로 사용할 수 있지만 스크롤바가 자동으로 추가됩니다.
 
 아래는 예시 코드입니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import scrolledtext
 
@@ -1640,9 +1638,9 @@ class MyApplication:
 if __name__ == "__main__":
     app = MyApplication()
     app.run()
-```
+```{% endraw %}
 
-위 코드에서 `scrolledtext.ScrolledText`를 이용하여 스크롤이 가능한 로그창을 만들고, `self.log_text.see(tk.END)`를 이용하여 로그창이 자동으로 스크롤 되도록 했습니다.
+위 코드에서 {% raw %}`scrolledtext.ScrolledText`{% endraw %}를 이용하여 스크롤이 가능한 로그창을 만들고, {% raw %}`self.log_text.see(tk.END)`{% endraw %}를 이용하여 로그창이 자동으로 스크롤 되도록 했습니다.
 
 ## 사용자 입력:
 > 진행되는 로그를 스크롤창에서 보고 싶으면?
@@ -1652,7 +1650,7 @@ if __name__ == "__main__":
 
 스크롤바를 사용하여 로그를 스크롤해서 보려면 스크롤바가 포함된 프레임 위젯과 그 프레임 위젯에 스크롤이 가능한 로그창을 생성하면 됩니다. 아래는 예시 코드입니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import ttk
 
@@ -1685,20 +1683,20 @@ class MyApplication:
 if __name__ == "__main__":
     app = MyApplication()
     app.run()
-```
+```{% endraw %}
 
-위 코드에서 `ttk.Scrollbar`와 `self.log_text` 위젯을 각각 생성하여 스크롤이 가능한 로그창을 만들었습니다. `yscrollcommand`와 `config`를 이용하여 스크롤바를 로그창과 연동시켜서 스크롤바를 사용하여 로그를 스크롤해서 볼 수 있도록 했습니다.
+위 코드에서 {% raw %}`ttk.Scrollbar`{% endraw %}와 {% raw %}`self.log_text`{% endraw %} 위젯을 각각 생성하여 스크롤이 가능한 로그창을 만들었습니다. {% raw %}`yscrollcommand`{% endraw %}와 {% raw %}`config`{% endraw %}를 이용하여 스크롤바를 로그창과 연동시켜서 스크롤바를 사용하여 로그를 스크롤해서 볼 수 있도록 했습니다.
 
 ## 사용자 입력:
 >             self.log_text.insert(tk.END, f"QR code saved to {file_path}\n")
 실시간으로 로그를 보려면
 
 ## ChatGPT 응답:
-> 실시간으로 로그를 보려면, 로그 메시지를 추가할 때마다 `self.log_text.see(tk.END)`를 호출하면 됩니다. 이 함수는 로그창을 자동으로 스크롤하여 가장 마지막 로그를 보여주게 됩니다.
+> 실시간으로 로그를 보려면, 로그 메시지를 추가할 때마다 {% raw %}`self.log_text.see(tk.END)`{% endraw %}를 호출하면 됩니다. 이 함수는 로그창을 자동으로 스크롤하여 가장 마지막 로그를 보여주게 됩니다.
 
 아래는 예시 코드입니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import qrcode
@@ -1772,9 +1770,9 @@ class QRCodeConverter:
 if __name__ == "__main__":
     app = QRCodeConverter()
     app.run()
-```
+```{% endraw %}
 
-위 코드에서 `self.log_text.see(tk.END)`를 호출하여 로그창을 스크롤하게 만들었습니다. 각각의 로그 메시지가 추가될 때마다 자동으로 스크롤되어 마지막 로그를 보여줍니다.
+위 코드에서 {% raw %}`self.log_text.see(tk.END)`{% endraw %}를 호출하여 로그창을 스크롤하게 만들었습니다. 각각의 로그 메시지가 추가될 때마다 자동으로 스크롤되어 마지막 로그를 보여줍니다.
 
 ## 사용자 입력:
 > import tkinter as tk
@@ -1877,13 +1875,13 @@ if __name__ == "__main__":
 이 프로그램은 로그창에 실시간으로 보여주는게 아니라 QR코드 생성이 다 끝나면 보여주게 되어 있어. QR코드 생성할때 마다 로그창에 실시간으로 보여주길 원해. 그리고 프로그램바도 추가해줘.
 
 ## ChatGPT 응답:
-> 로그창에 실시간으로 로그를 보여주기 위해서는 `self.log_text.see(tk.END)`를 호출하여 스크롤을 맨 아래로 이동시켜야 합니다. 이전에 제공한 코드에서 이 부분은 이미 구현되어 있습니다.
+> 로그창에 실시간으로 로그를 보여주기 위해서는 {% raw %}`self.log_text.see(tk.END)`{% endraw %}를 호출하여 스크롤을 맨 아래로 이동시켜야 합니다. 이전에 제공한 코드에서 이 부분은 이미 구현되어 있습니다.
 
-프로그레스바를 추가하기 위해서는 `tkinter.ttk.Progressbar` 위젯을 사용하면 됩니다. `maximum` 속성을 설정하여 프로그레스바의 전체 범위를 설정하고, `value` 속성을 조절하여 현재 진행 상황에 맞게 프로그레스바를 업데이트하면 됩니다.
+프로그레스바를 추가하기 위해서는 {% raw %}`tkinter.ttk.Progressbar`{% endraw %} 위젯을 사용하면 됩니다. {% raw %}`maximum`{% endraw %} 속성을 설정하여 프로그레스바의 전체 범위를 설정하고, {% raw %}`value`{% endraw %} 속성을 조절하여 현재 진행 상황에 맞게 프로그레스바를 업데이트하면 됩니다.
 
 아래는 수정된 코드입니다.
 
-```python
+{% raw %}```python
 import tkinter as tk
 from tkinter import filedialog, scrolledtext, ttk
 import qrcode
@@ -1960,7 +1958,7 @@ class QRCodeGenerator:
 ## ChatGPT 응답:
 > 코드를 완성해 드리겠습니다. 중간에 끊기는 것을 방지하기 위해 코드를 여러 개의 메서드로 나누어 작성하였습니다. 추가로 프로그레스바도 추가하였습니다.
 
-```python
+```{% endraw %}python
 import tkinter as tk
 from tkinter import filedialog, scrolledtext
 import qrcode
@@ -2049,7 +2047,7 @@ class QRCodeGenerator:
 > 끊긴 부분부터 이어서 완성해줘.
 
 ## ChatGPT 응답:
-> ```
+> {% raw %}``{% endraw %}`
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk, scrolledtext
 import qrcode

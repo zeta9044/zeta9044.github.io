@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Bybit 계약 차이"
-date: 2023-12-21
-tags: [차이, 계약, Bybit]
-categories: blog
+tags: [계약, Bybit, 차이]
 ---
 
 ## 사용자 입력:

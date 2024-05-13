@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "프로그래밍 범위와 메소드(resolveMethod)"
-date: 2024-01-31
-tags: [resolveMethod, 메, 프로그래밍, 소드, 범위]
-categories: blog
+tags: [소드, 메, resolveMethod, 범위, 프로그래밍]
 ---
 
 ## 사용자 입력:

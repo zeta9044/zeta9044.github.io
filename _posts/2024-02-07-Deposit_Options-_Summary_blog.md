@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Deposit Options: Summary"
-date: 2024-02-07
+title: "Deposit Options - Summary"
 tags: [Deposit, Options, Summary]
-categories: blog
 ---
 
 ## 사용자 입력:

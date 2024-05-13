@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Refactor and Enhance Java Code"
-date: 2023-12-05
-tags: [and, Enhance, Refactor, Java, Code]
-categories: blog
+tags: [Refactor, Enhance, Code, and, Java]
 ---
 
 ## 사용자 입력:
@@ -96,7 +94,7 @@ categories: blog
 
 1. **코드 중복 최소화:** 유사한 코드 블록이 여러 번 반복되고 있습니다. 예를 들어, 파일 시스템의 특정 디렉토리를 순회하면서 CLASSPATH에 항목을 추가하는 코드가 여러 번 나타납니다. 이런 작업을 수행하는 공통 메서드를 만들어 코드 중복을 줄일 수 있습니다.
 
-2. **보안 취약점:** 현재 코드는 외부에서 입력된 값(`prjId`, `jobId`, `jobType`, `rcvType`, `scheduleId`)을 검증하지 않고 직접 사용하고 있습니다. 이는 코드 인젝션 공격에 취약할 수 있습니다. 입력값에 대한 적절한 검증이 필요합니다.
+2. **보안 취약점:** 현재 코드는 외부에서 입력된 값({% raw %}`prjId`{% endraw %}, {% raw %}`jobId`{% endraw %}, {% raw %}`jobType`{% endraw %}, {% raw %}`rcvType`{% endraw %}, {% raw %}`scheduleId`{% endraw %})을 검증하지 않고 직접 사용하고 있습니다. 이는 코드 인젝션 공격에 취약할 수 있습니다. 입력값에 대한 적절한 검증이 필요합니다.
 
 3. **가독성 향상:** 현재 코드는 매우 길고 가독성이 떨어집니다. 변수와 메서드 이름을 명확하게 하고, 주석을 추가하여 코드의 목적을 더 명확히 할 수 있습니다.
 
@@ -104,7 +102,7 @@ categories: blog
 
 리팩터링된 코드는 다음과 같습니다:
 
-```java
+{% raw %}```java
 public String getFileInfoToWindow(String prjId, String jobId, String jobType, String rcvType, String scheduleId){
     // 입력값 검증
     validateInput(prjId, jobId, jobType, rcvType, scheduleId);
@@ -150,7 +148,7 @@ private void appendClassPath(StringBuffer sb, File directory) {
         }
     }
 }
-```
+```{% endraw %}
 
 이 리팩터링은 코드의 중복을 줄이고, 가독성을 향상시키며, 입력값에 대한 검증을 추가하여 보안을 강화합니다. 또한, 파일과 디렉토리의 존재 여부
 
@@ -173,11 +171,11 @@ TOCTOU 레이스 조건은 파일이나 디렉토리의 존재 여부를 확인�
 
 1. **TOCTOU 경쟁 조건 해결:** 파일이나 디렉토리의 존재 여부를 검사하고 사용하는 사이에 상태가 변경될 수 있습니다. 이를 방지하기 위해 파일 시스템에 접근하는 코드를 최소화하고, 예외 처리를 추가하여 파일이나 디렉토리에 접근할 수 없는 경우에도 코드가 안전하게 실행되도록 합니다.
 
-2. **자원 누수 해결:** 파일 시스템에 대한 접근은 자원을 사용하므로, 이 자원들이 올바르게 해제되도록 관리해야 합니다. `File.listFiles()` 메서드는 내부적으로 시스템 자원을 사용하므로, 해당 자원을 올바르게 관리해야 합니다.
+2. **자원 누수 해결:** 파일 시스템에 대한 접근은 자원을 사용하므로, 이 자원들이 올바르게 해제되도록 관리해야 합니다. {% raw %}`File.listFiles()`{% endraw %} 메서드는 내부적으로 시스템 자원을 사용하므로, 해당 자원을 올바르게 관리해야 합니다.
 
 리팩터링된 코드는 다음과 같습니다:
 
-```java
+{% raw %}```java
 public String getFileInfoToWindow(String prjId, String jobId, String jobType, String rcvType, String scheduleId){
     // 입력값 검증
     validateInput(prjId, jobId, jobType, rcvType, scheduleId);
@@ -219,9 +217,9 @@ private void appendClassPathSafely(StringBuffer sb, File directory) {
 }
 
 // 기타 메서드들...
-```
+```{% endraw %}
 
-이 변경 사항은 파일 시스템에 대한 접근을 최소화하고, `File.listFiles()` 메서드가 null을 반환하는 경우를 안전하게 처리하여 자원 누수를 방지합니다. 파일이나 디렉토리의 존재 여부를 확인한 후 사용하는 사이에 상태가 변경될 수 있는 문제는 코드에서 직접적으로 해결하기 어려울 수 있으나, 위 코드는 예외적인 상황에서도 안정적으로 동작하도록 설계되어 있습니다.
+이 변경 사항은 파일 시스템에 대한 접근을 최소화하고, {% raw %}`File.listFiles()`{% endraw %} 메서드가 null을 반환하는 경우를 안전하게 처리하여 자원 누수를 방지합니다. 파일이나 디렉토리의 존재 여부를 확인한 후 사용하는 사이에 상태가 변경될 수 있는 문제는 코드에서 직접적으로 해결하기 어려울 수 있으나, 위 코드는 예외적인 상황에서도 안정적으로 동작하도록 설계되어 있습니다.
 
 ## 사용자 입력:
 > 	public String getFileInfoToUnix(String prjId, String jobId, String jobType, String rcvType, String scheduleId){
@@ -320,7 +318,7 @@ private void appendClassPathSafely(StringBuffer sb, File directory) {
 
 리팩터링된 코드는 다음과 같습니다:
 
-```java
+{% raw %}```java
 public String getFileInfoToUnix(String prjId, String jobId, String jobType, String rcvType, String scheduleId){
     StringBuffer sb = new StringBuffer();
     if (isFlag) {
@@ -362,11 +360,11 @@ private void appendClassPathForUnix(StringBuffer sb, File directory) {
 }
 
 // 기타 메서드들...
-```
+```{% endraw %}
 
 변경 사항:
-- 중복 코드를 `appendClassPathForUnix` 메서드로 추출했습니다. 이 메서드는 주어진 디렉토리의 파일들을 CLASSPATH에 추가합니다.
-- 초기 쉘 스크립트 설정을 `initializeShellScript` 메서드로 추출했습니다.
+- 중복 코드를 {% raw %}`appendClassPathForUnix`{% endraw %} 메서드로 추출했습니다. 이 메서드는 주어진 디렉토리의 파일들을 CLASSPATH에 추가합니다.
+- 초기 쉘 스크립트 설정을 {% raw %}`initializeShellScript`{% endraw %} 메서드로 추출했습니다.
 - 파일 목록을 가져올 때 발생할 수 있는 자원 누수 문제를 예방하기 위해 null 체크를 추가했습니다.
 
 이러한 변경을 통해 코드의 중복을 줄이고, 가독성과 유지 보수성을 향상시켰으며, TOCTOU 경쟁 조건과 자원 누수 문제를 방지하는 데 도움이 됩니다.

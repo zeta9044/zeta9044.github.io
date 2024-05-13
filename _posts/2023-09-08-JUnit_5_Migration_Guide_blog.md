@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "JUnit 5 Migration Guide"
-date: 2023-09-08
-tags: [Guide, JUnit, Migration]
-categories: blog
+tags: [Migration, Guide, JUnit]
 ---
 
 ## 사용자 입력:
@@ -114,13 +112,13 @@ public class CppMgrTest {
 > To migrate the given JUnit 4 test code to JUnit 5, there are some changes you need to make. Here's a step-by-step guide on how to do it:
 
 1. **Imports**: Replace the JUnit 4 import statements with JUnit 5 equivalents.
-2. **Annotations**: Replace `@Test` from JUnit 4 with `@Test` from JUnit 5 (`org.junit.jupiter.api.Test`).
-3. **Exception handling**: JUnit 5 does not support the expected exception mechanism. If you're using it, you'll need to use `assertThrows`.
-4. **Other annotations**: If you're using other JUnit 4 annotations, such as `@Before` or `@After`, replace them with `@BeforeEach` and `@AfterEach` respectively from JUnit 5.
+2. **Annotations**: Replace {% raw %}`@Test`{% endraw %} from JUnit 4 with {% raw %}`@Test`{% endraw %} from JUnit 5 ({% raw %}`org.junit.jupiter.api.Test`{% endraw %}).
+3. **Exception handling**: JUnit 5 does not support the expected exception mechanism. If you're using it, you'll need to use {% raw %}`assertThrows`{% endraw %}.
+4. **Other annotations**: If you're using other JUnit 4 annotations, such as {% raw %}`@Before`{% endraw %} or {% raw %}`@After`{% endraw %}, replace them with {% raw %}`@BeforeEach`{% endraw %} and {% raw %}`@AfterEach`{% endraw %} respectively from JUnit 5.
 
 Let's make these changes to your code:
 
-```java
+{% raw %}```java
 package com.ids.parser.test;
 
 import com.ids.core.Context;
@@ -152,18 +150,18 @@ public class CppMgrTest {
     // ... [rest of your methods]
 
 }
-```
+```{% endraw %}
 
 Note:
-- In the above code, only the `@Test` annotation import was replaced as it was the only JUnit 4 specific element present.
+- In the above code, only the {% raw %}`@Test`{% endraw %} annotation import was replaced as it was the only JUnit 4 specific element present.
 - If you have other JUnit 4 specific elements, you'll need to adjust them accordingly.
 
 Finally, ensure that you have the correct JUnit 5 dependencies in your build.gradle:
 
-```gradle
+{% raw %}```gradle
 testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
 testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
-```
+```{% endraw %}
 
 After making these changes, your test should now be compatible with JUnit 5.
 
@@ -174,13 +172,13 @@ After making these changes, your test should now be compatible with JUnit 5.
 > 죄송합니다. JUnit 4에서 JUnit 5로 마이그레이션하는 방법에 대해 한글로 설명드리겠습니다.
 
 1. **Imports**: JUnit 4의 import 문을 JUnit 5에 해당하는 것으로 교체합니다.
-2. **Annotations**: JUnit 4의 `@Test`를 JUnit 5의 `@Test`로 교체합니다 (`org.junit.jupiter.api.Test` 사용).
-3. **예외 처리**: JUnit 5는 예상 예외 메커니즘을 지원하지 않습니다. 사용하고 있다면, `assertThrows`를 사용해야 합니다.
-4. **기타 주석**: JUnit 4의 다른 주석들, 예를 들면 `@Before`나 `@After`, 이런 것들을 JUnit 5의 `@BeforeEach`와 `@AfterEach`로 각각 교체해야 합니다.
+2. **Annotations**: JUnit 4의 {% raw %}`@Test`{% endraw %}를 JUnit 5의 {% raw %}`@Test`{% endraw %}로 교체합니다 ({% raw %}`org.junit.jupiter.api.Test`{% endraw %} 사용).
+3. **예외 처리**: JUnit 5는 예상 예외 메커니즘을 지원하지 않습니다. 사용하고 있다면, {% raw %}`assertThrows`{% endraw %}를 사용해야 합니다.
+4. **기타 주석**: JUnit 4의 다른 주석들, 예를 들면 {% raw %}`@Before`{% endraw %}나 {% raw %}`@After`{% endraw %}, 이런 것들을 JUnit 5의 {% raw %}`@BeforeEach`{% endraw %}와 {% raw %}`@AfterEach`{% endraw %}로 각각 교체해야 합니다.
 
 이러한 변경을 코드에 적용하면 다음과 같습니다:
 
-```java
+{% raw %}```java
 package com.ids.parser.test;
 
 import com.ids.core.Context;
@@ -212,18 +210,18 @@ public class CppMgrTest {
     // ... [다른 메서드들]
 
 }
-```
+```{% endraw %}
 
 참고:
-- 위의 코드에서 JUnit 4 특정 요소로만 `@Test` 주석 import가 교체되었습니다.
+- 위의 코드에서 JUnit 4 특정 요소로만 {% raw %}`@Test`{% endraw %} 주석 import가 교체되었습니다.
 - JUnit 4 특정 요소가 더 있다면 그에 따라 조정해야 합니다.
 
 마지막으로, build.gradle에 올바른 JUnit 5 종속성이 있는지 확인하세요:
 
-```gradle
+{% raw %}```gradle
 testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
 testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
-```
+```{% endraw %}
 
 이러한 변경을 한 후, 테스트는 이제 JUnit 5와 호환되어야 합니다.
 
@@ -249,20 +247,20 @@ Caused by: org.junit.platform.commons.JUnitException: Failed to parse version of
 	... 8 more 이런 에러가 나네.
 
 ## ChatGPT 응답:
-> JUnit 5에서는 두 개의 주요 엔진이 있습니다: `junit-jupiter`와 `junit-vintage`. `junit-jupiter`는 JUnit 5 테스트를 위한 것이며, `junit-vintage`는 JUnit 4 테스트를 위한 것입니다. 
+> JUnit 5에서는 두 개의 주요 엔진이 있습니다: {% raw %}`junit-jupiter`{% endraw %}와 {% raw %}`junit-vintage`{% endraw %}. {% raw %}`junit-jupiter`{% endraw %}는 JUnit 5 테스트를 위한 것이며, {% raw %}`junit-vintage`{% endraw %}는 JUnit 4 테스트를 위한 것입니다. 
 
-에러 로그를 보면 `junit-vintage` 엔진이 실패했다고 나오는데, 주요 원인은 `junit-vintage` 엔진이 JUnit 4.13.2 버전을 파싱하는 데 실패했다는 것입니다.
+에러 로그를 보면 {% raw %}`junit-vintage`{% endraw %} 엔진이 실패했다고 나오는데, 주요 원인은 {% raw %}`junit-vintage`{% endraw %} 엔진이 JUnit 4.13.2 버전을 파싱하는 데 실패했다는 것입니다.
 
 해결 방안은 다음과 같습니다:
 
-1. **JUnit 4 의존성 제거**: 테스트를 JUnit 5로 완전히 마이그레이션 한 경우 JUnit 4 의존성을 제거해야 합니다. 이 경우 `junit-vintage` 엔진도 필요하지 않습니다.
-2. **JUnit 4와 5 동시 사용**: 만약 JUnit 4 테스트와 JUnit 5 테스트를 동시에 사용해야 한다면, 둘 다 올바른 버전의 의존성이 있는지 확인해야 합니다. `junit-vintage-engine`의 버전도 JUnit 5 버전과 일치해야 합니다.
+1. **JUnit 4 의존성 제거**: 테스트를 JUnit 5로 완전히 마이그레이션 한 경우 JUnit 4 의존성을 제거해야 합니다. 이 경우 {% raw %}`junit-vintage`{% endraw %} 엔진도 필요하지 않습니다.
+2. **JUnit 4와 5 동시 사용**: 만약 JUnit 4 테스트와 JUnit 5 테스트를 동시에 사용해야 한다면, 둘 다 올바른 버전의 의존성이 있는지 확인해야 합니다. {% raw %}`junit-vintage-engine`{% endraw %}의 버전도 JUnit 5 버전과 일치해야 합니다.
 
 위의 문제를 해결하기 위해 다음 단계를 시도해 보십시오:
 
-1. `build.gradle` 또는 `pom.xml`에서 JUnit 4 의존성을 확인하십시오. 
-2. JUnit 4 테스트가 더 이상 필요하지 않으면 JUnit 4 의존성과 `junit-vintage-engine` 의존성을 제거하십시오.
-3. JUnit 4 테스트를 계속 사용하려면 `junit-vintage-engine`의 버전을 최신 버전으로 업데이트하십시오.
+1. {% raw %}`build.gradle`{% endraw %} 또는 {% raw %}`pom.xml`{% endraw %}에서 JUnit 4 의존성을 확인하십시오. 
+2. JUnit 4 테스트가 더 이상 필요하지 않으면 JUnit 4 의존성과 {% raw %}`junit-vintage-engine`{% endraw %} 의존성을 제거하십시오.
+3. JUnit 4 테스트를 계속 사용하려면 {% raw %}`junit-vintage-engine`{% endraw %}의 버전을 최신 버전으로 업데이트하십시오.
 
 이러한 변경 후에 다시 테스트를 실행하십시오. 문제가 지속되면 추가적인 조사와 디버깅이 필요할 수 있습니다.
 
@@ -270,31 +268,31 @@ Caused by: org.junit.platform.commons.JUnitException: Failed to parse version of
 > JUnit 4 테스트가 더 이상 필요하지 않으면 JUnit 4 의존성과 junit-vintage-engine 의존성을 제거방법
 
 ## ChatGPT 응답:
-> JUnit 4 테스트와 `junit-vintage-engine` 의존성이 더 이상 필요하지 않다면, 프로젝트에서 이를 제거하는 것이 좋습니다. 
+> JUnit 4 테스트와 {% raw %}`junit-vintage-engine`{% endraw %} 의존성이 더 이상 필요하지 않다면, 프로젝트에서 이를 제거하는 것이 좋습니다. 
 
 여기서는 Gradle과 Maven 프로젝트에 대한 지침을 제공하겠습니다:
 
 ### Gradle 프로젝트의 경우:
 
-1. `build.gradle` 파일을 열고 `dependencies` 섹션에서 JUnit 4와 `junit-vintage-engine`에 관한 의존성 라인을 찾습니다.
+1. {% raw %}`build.gradle`{% endraw %} 파일을 열고 {% raw %}`dependencies`{% endraw %} 섹션에서 JUnit 4와 {% raw %}`junit-vintage-engine`{% endraw %}에 관한 의존성 라인을 찾습니다.
 
-```gradle
+{% raw %}```gradle
 dependencies {
     // ... 다른 의존성들 ...
 
     testImplementation 'junit:junit:4.13.2'  // 이 라인 제거
     testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.6.0'  // 이 라인 제거
 }
-```
+```{% endraw %}
 
 2. 위의 두 라인을 제거하고 저장합니다.
 3. 프로젝트를 clean 후 rebuild 합니다.
 
 ### Maven 프로젝트의 경우:
 
-1. `pom.xml` 파일을 열고 `<dependencies>` 섹션에서 JUnit 4와 `junit-vintage-engine`에 관한 의존성 블록을 찾습니다.
+1. {% raw %}`pom.xml`{% endraw %} 파일을 열고 {% raw %}`<dependencies>`{% endraw %} 섹션에서 JUnit 4와 {% raw %}`junit-vintage-engine`{% endraw %}에 관한 의존성 블록을 찾습니다.
 
-```xml
+{% raw %}```xml
 <dependencies>
     <!-- ... 다른 의존성들 ... -->
 
@@ -312,10 +310,10 @@ dependencies {
         <scope>test</scope>
     </dependency>  <!-- 이 블록 제거 -->
 </dependencies>
-```
+```{% endraw %}
 
 2. 위의 두 의존성 블록을 제거하고 저장합니다.
 3. 프로젝트를 clean 후 rebuild 합니다.
 
-이렇게 하면 JUnit 4와 `junit-vintage-engine` 의존성이 프로젝트에서 제거됩니다.
+이렇게 하면 JUnit 4와 {% raw %}`junit-vintage-engine`{% endraw %} 의존성이 프로젝트에서 제거됩니다.
 

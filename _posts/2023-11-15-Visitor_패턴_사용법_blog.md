@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Visitor 패턴 사용법"
-date: 2023-11-15
 tags: [Visitor, 용법, 패턴]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -16,24 +14,24 @@ categories: blog
 
 1. 방문자(Visitor) 인터페이스 정의:
 
-```java
+{% raw %}```java
 public interface Visitor {
     void visit(SomePojo pojo);
     // 다른 POJO 타입에 대한 visit 메서드를 추가할 수 있음
 }
-```
+```{% endraw %}
 
 2. POJO 클래스 정의:
 
-```java
+{% raw %}```java
 public class SomePojo {
     // POJO의 필드와 메서드 정의
 }
-```
+```{% endraw %}
 
 3. POJO 클래스에서 accept 메서드 구현:
 
-```java
+{% raw %}```java
 public class SomePojo {
     // POJO의 필드와 메서드 정의
 
@@ -41,11 +39,11 @@ public class SomePojo {
         visitor.visit(this);
     }
 }
-```
+```{% endraw %}
 
 4. Visitor 패턴을 사용하는 클라이언트 코드에서 방문자 객체를 생성하고 방문 메서드 호출:
 
-```java
+{% raw %}```java
 public class Main {
     public static void main(String[] args) {
         SomePojo pojo = new SomePojo();
@@ -57,9 +55,9 @@ public class Main {
         pojo.accept(visitor);
     }
 }
-```
+```{% endraw %}
 
-위 코드에서 `ConcreteVisitor` 클래스는 `Visitor` 인터페이스를 구현하고, `visit` 메서드에서 POJO를 처리하는 로직을 구현합니다. 이렇게 하면 방문자 패턴을 사용하여 POJO를 방문하고 원하는 처리를 할 수 있습니다. 방문자 패턴을 사용하면 POJO의 구조를 변경하지 않고도 다양한 동작을 추가할 수 있습니다.
+위 코드에서 {% raw %}`ConcreteVisitor`{% endraw %} 클래스는 {% raw %}`Visitor`{% endraw %} 인터페이스를 구현하고, {% raw %}`visit`{% endraw %} 메서드에서 POJO를 처리하는 로직을 구현합니다. 이렇게 하면 방문자 패턴을 사용하여 POJO를 방문하고 원하는 처리를 할 수 있습니다. 방문자 패턴을 사용하면 POJO의 구조를 변경하지 않고도 다양한 동작을 추가할 수 있습니다.
 
 ## 사용자 입력:
 > Antlr4의 어떤 파서를 정의해서, 리스너를 사용하는데,   리스너의 특정함수를 방문할 때, 상태가 담긴 클래스를 주입하고 싶어.
@@ -81,7 +79,7 @@ ANTLR 4로 언어 문법을 정의하고 파서 및 리스너를 생성합니다
 
 예를 들어, 다음과 같이 구현할 수 있습니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
@@ -98,15 +96,15 @@ public class MyListener extends YourGrammarBaseListener {
         state.doSomething();
     }
 }
-```
+```{% endraw %}
 
-위 코드에서 `MyState` 클래스는 상태를 관리하기 위한 클래스로, `MyListener` 클래스의 생성자를 통해 주입됩니다.
+위 코드에서 {% raw %}`MyState`{% endraw %} 클래스는 상태를 관리하기 위한 클래스로, {% raw %}`MyListener`{% endraw %} 클래스의 생성자를 통해 주입됩니다.
 
 4. 파서와 리스너 사용:
 
 파서와 리스너를 사용하여 ANTLR 4를 실행하고, 필요한 상태 클래스를 생성하고 주입합니다.
 
-```java
+{% raw %}```java
 CharStream input = CharStreams.fromFileName("input.txt");
 YourGrammarLexer lexer = new YourGrammarLexer(input);
 CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -117,9 +115,9 @@ MyListener listener = new MyListener(state);
 
 ParseTreeWalker walker = new ParseTreeWalker();
 walker.walk(listener, parser.startRule()); // 리스너에 파서의 시작 규칙을 전달하여 실행
-```
+```{% endraw %}
 
-위 코드에서 `YourGrammarLexer`와 `YourGrammarParser`는 ANTLR 4로 생성된 파서와 렉서 클래스이며, `MyState` 클래스는 상태를 담고 있는 클래스입니다. 이렇게 하면 리스너 함수에서 상태 클래스를 사용할 수 있습니다.
+위 코드에서 {% raw %}`YourGrammarLexer`{% endraw %}와 {% raw %}`YourGrammarParser`{% endraw %}는 ANTLR 4로 생성된 파서와 렉서 클래스이며, {% raw %}`MyState`{% endraw %} 클래스는 상태를 담고 있는 클래스입니다. 이렇게 하면 리스너 함수에서 상태 클래스를 사용할 수 있습니다.
 
 ## 사용자 입력:
 > 위 내용이 아니라, import org.antlr.v4.runtime.*;
@@ -150,11 +148,11 @@ public class MyListener extends YourGrammarBaseListener {
 } 이런 코드에서, b.doSomething2(ctx);에 x의 값을 주입하는 애노테이션이 있는지..
 
 ## ChatGPT 응답:
-> ANTLR 4에서는 리스너 클래스의 메서드에 애노테이션을 직접 사용하여 메서드의 파라미터를 정의하는 것은 기본적으로 지원되지 않습니다. 따라서 `b.doSomething2(ctx);`에 `x`의 값을 주입하는 애노테이션이 기본적으로 내장되어 있는 것은 아닙니다.
+> ANTLR 4에서는 리스너 클래스의 메서드에 애노테이션을 직접 사용하여 메서드의 파라미터를 정의하는 것은 기본적으로 지원되지 않습니다. 따라서 {% raw %}`b.doSomething2(ctx);`{% endraw %}에 {% raw %}`x`{% endraw %}의 값을 주입하는 애노테이션이 기본적으로 내장되어 있는 것은 아닙니다.
 
-일반적으로 리스너 함수에 파라미터를 추가하려면 ANTLR 4에서 제공하는 특별한 애노테이션이나 메커니즘이 없습니다. 대신 리스너 내부에서 클래스 멤버 변수를 활용하여 상태를 공유하거나, 별도의 클래스를 사용하여 상태를 관리하는 방식을 사용해야 합니다. 코드에서 보이듯이 `x`와 `y`는 `MyListener` 클래스의 멤버 변수로 선언되어 있고, `doSomething` 및 `doSomething2` 메서드에서 상태를 조작하고 사용하고 있습니다.
+일반적으로 리스너 함수에 파라미터를 추가하려면 ANTLR 4에서 제공하는 특별한 애노테이션이나 메커니즘이 없습니다. 대신 리스너 내부에서 클래스 멤버 변수를 활용하여 상태를 공유하거나, 별도의 클래스를 사용하여 상태를 관리하는 방식을 사용해야 합니다. 코드에서 보이듯이 {% raw %}`x`{% endraw %}와 {% raw %}`y`{% endraw %}는 {% raw %}`MyListener`{% endraw %} 클래스의 멤버 변수로 선언되어 있고, {% raw %}`doSomething`{% endraw %} 및 {% raw %}`doSomething2`{% endraw %} 메서드에서 상태를 조작하고 사용하고 있습니다.
 
-따라서 `x`의 값을 `doSomething2(ctx)` 메서드에 주입하는 특별한 애노테이션은 ANTLR 4에서 기본적으로 지원되지 않으며, 상태를 공유하거나 클래스 멤버 변수를 활용하여 값을 전달해야 합니다.
+따라서 {% raw %}`x`{% endraw %}의 값을 {% raw %}`doSomething2(ctx)`{% endraw %} 메서드에 주입하는 특별한 애노테이션은 ANTLR 4에서 기본적으로 지원되지 않으며, 상태를 공유하거나 클래스 멤버 변수를 활용하여 값을 전달해야 합니다.
 
 ## 사용자 입력:
 > 그러면, 함수 내용에 특정부분에 로직을 작용하도록 하는 애노테이션은 없나?
@@ -166,7 +164,7 @@ public class MyListener extends YourGrammarBaseListener {
 
 예를 들어, 다음과 같이 조건문을 사용하여 특정 부분에 로직을 추가할 수 있습니다:
 
-```java
+{% raw %}```java
 @Override
 public void enterSomeRule(YourGrammarParser.SomeRuleContext ctx) {
     // 특정 조건을 만족할 때만 로직을 수행
@@ -174,17 +172,17 @@ public void enterSomeRule(YourGrammarParser.SomeRuleContext ctx) {
         // 원하는 로직 추가
     }
 }
-```
+```{% endraw %}
 
 또는 메서드 호출 전후에 추가적인 로직을 실행하려면, 해당 메서드를 오버라이드하고 로직을 추가할 수 있습니다.
 
-```java
+{% raw %}```java
 @Override
 public void enterSomeRule(YourGrammarParser.SomeRuleContext ctx) {
     // 원하는 로직 추가
     super.enterSomeRule(ctx); // 원래의 동작 호출
 }
-```
+```{% endraw %}
 
 이렇게 하면 ANTLR 4의 리스너를 활용하여 특정 부분에 로직을 추가할 수 있습니다.
 

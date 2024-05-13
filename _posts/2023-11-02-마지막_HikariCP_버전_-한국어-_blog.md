@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "마지막 HikariCP 버전 (한국어)"
-date: 2023-11-02
-tags: [마지막, HikariCP, 버전, 한국어]
-categories: blog
+tags: [마지막, 버전, 한국어, HikariCP]
 ---
 
 ## 사용자 입력:

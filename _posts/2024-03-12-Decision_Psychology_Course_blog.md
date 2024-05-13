@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Decision Psychology Course"
-date: 2024-03-12
-tags: [Course, Decision, Psychology]
-categories: blog
+tags: [Decision, Course, Psychology]
 ---
 
 ## 사용자 입력:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Apache Ignite JSON 로드"
-date: 2023-03-03
-tags: [로드, Ignite, Apache, JSON]
-categories: blog
+tags: [JSON, 로드, Ignite, Apache]
 ---
 
 ## 사용자 입력:
@@ -29,7 +27,7 @@ Apache Ignite는 분산 메모리 데이터 그리드 및 캐시 플랫폼으로
 2. Apache Ignite 캐시를 생성합니다.
 Apache Ignite 캐시를 생성하는 방법은 다음과 같습니다.
 
-```java
+{% raw %}```java
 IgniteConfiguration igniteConfig = new IgniteConfiguration();
 igniteConfig.setClientMode(true);
 
@@ -39,20 +37,20 @@ cacheConfig.setIndexedTypes(Integer.class, YourJavaObject.class);
 
 Ignite ignite = Ignition.start(igniteConfig);
 IgniteCache<Integer, YourJavaObject> cache = ignite.getOrCreateCache(cacheConfig);
-```
+```{% endraw %}
 
 위의 코드에서 YourJavaObject는 JSON 배열을 변환한 Java 객체의 클래스입니다. 
 
 3. Java 객체를 Apache Ignite 캐시에 저장합니다.
 Java 객체를 Apache Ignite 캐시에 저장하는 방법은 다음과 같습니다.
 
-```java
+{% raw %}```java
 YourJavaObject[] jsonArray = ... // JSON 배열을 Java 객체로 변환한 배열
 
 for (int i = 0; i < jsonArray.length; i++) {
     cache.put(i, jsonArray[i]);
 }
-```
+```{% endraw %}
 
 위의 코드에서 i는 데이터의 키값을 의미합니다. 키값은 중복되지 않아야 하며, 데이터를 검색하거나 수정할 때 사용됩니다.
 
@@ -65,7 +63,7 @@ Apache Ignite에서 데이터를 처리하는 방법은 다양합니다. 예를
 ## ChatGPT 응답:
 > 들어가, Apache Ignite에서 제공하는 SQL 쿼리, 인덱스, 분산 컴퓨팅 등을 사용하여 데이터를 처리할 수 있습니다.
 
-```java
+{% raw %}```java
 SqlFieldsQuery query = new SqlFieldsQuery("SELECT * FROM yourCacheName WHERE field = ?");
 query.setArgs("value");
 
@@ -74,19 +72,19 @@ try (FieldsQueryCursor<List<?>> cursor = cache.query(query)) {
         // 데이터 처리
     }
 }
-```
+```{% endraw %}
 
 위의 코드에서는 SQL 쿼리를 사용하여 데이터를 검색하고, 검색된 데이터를 처리합니다. 
 
 또한, 분산 컴퓨팅을 사용하여 병렬 처리를 수행할 수도 있습니다.
 
-```java
+{% raw %}```java
 IgniteCompute compute = ignite.compute();
 
 compute.broadcast(() -> {
     // 데이터 처리
 });
-```
+```{% endraw %}
 
 위의 코드에서는 broadcast 메서드를 사용하여 모든 노드에서 데이터 처리를 수행합니다.
 
@@ -100,18 +98,18 @@ compute.broadcast(() -> {
 
 Apache Ignite를 기동시키는 방법은 다음과 같습니다.
 
-```java
+{% raw %}```java
 IgniteConfiguration igniteConfig = new IgniteConfiguration();
 igniteConfig.setClientMode(false);
 
 Ignite ignite = Ignition.start(igniteConfig);
-```
+```{% endraw %}
 
 Apache Ignite를 클라이언트 모드로 기동시키는 경우에는 setClientMode 메서드의 파라미터를 true로 설정합니다.
 
 그리고 JSON 배열을 Apache Ignite 캐시에 저장하는 코드는 다음과 같습니다.
 
-```java
+{% raw %}```java
 IgniteCache<Integer, YourJavaObject> cache = ignite.getOrCreateCache("yourCacheName");
 
 YourJavaObject[] jsonArray = ... // JSON 배열을 Java 객체로 변환한 배열
@@ -119,7 +117,7 @@ YourJavaObject[] jsonArray = ... // JSON 배열을 Java 객체로 변환한 배�
 for (int i = 0; i < jsonArray.length; i++) {
     cache.put(i, jsonArray[i]);
 }
-```
+```{% endraw %}
 
 위의 코드에서 YourJavaObject는 JSON 배열을 변환한 Java 객체의 클래스입니다. i는 데이터의 키값을 의미합니다. 키값은 중복되지 않아야 하며, 데이터를 검색하거나 수정할 때 사용됩니다.
 
@@ -133,19 +131,19 @@ Apache Ignite에서 제공하는 SQL 쿼리, 인덱스, 분산 컴퓨팅 등을 
 
 먼저, 로컬 모드에서 Apache Ignite를 실행하는 방법은 다음과 같습니다.
 
-```java
+{% raw %}```java
 IgniteConfiguration igniteConfig = new IgniteConfiguration();
 igniteConfig.setClientMode(false);
 igniteConfig.setIgniteInstanceName("myIgniteInstance");
 
 Ignite ignite = Ignition.start(igniteConfig);
-```
+```{% endraw %}
 
 위의 코드에서는 IgniteConfiguration 객체를 생성하고, 클라이언트 모드를 false로 설정하여 로컬 모드로 실행합니다. setIgniteInstanceName 메서드를 사용하여 인스턴스 이름을 설정할 수 있습니다.
 
 클러스터 모드에서는 먼저 네트워크 구성을 설정해야 합니다. 다음은 IP 노드 발견 방법 중 하나인 MulticastDiscovery 방법을 사용하는 예제입니다.
 
-```java
+{% raw %}```java
 TcpDiscoverySpi discoverySpi = new TcpDiscoverySpi();
 
 TcpDiscoveryVmIpFinder ipFinder = new TcpDiscoveryMulticastIpFinder();
@@ -160,13 +158,13 @@ igniteConfig.setIgniteInstanceName("myIgniteInstance");
 igniteConfig.setDiscoverySpi(discoverySpi);
 
 Ignite ignite = Ignition.start(igniteConfig);
-```
+```{% endraw %}
 
 위의 코드에서는 TcpDiscoverySpi 객체를 생성하고, TcpDiscoveryMulticastIpFinder 객체를 사용하여 IP 주소를 검색합니다. setMulticastGroup 메서드와 setMulticastPort 메서드를 사용하여 멀티캐스트 그룹과 포트를 설정합니다. setIpFinder 메서드를 사용하여 IP 노드 발견 방법을 설정합니다.
 
 클러스터 모드에서 노드 구성은 다음과 같이 설정할 수 있습니다.
 
-```java
+{% raw %}```java
 TcpDiscoverySpi discoverySpi = new TcpDiscoverySpi();
 
 TcpDiscoveryVmIpFinder ipFinder = new TcpDiscoveryMulticastIpFinder();
@@ -187,7 +185,7 @@ cacheConfig.setIndexedTypes(Integer.class, YourJavaObject.class);
 
 Ignite ignite = Ignition.start(igniteConfig);
 IgniteCache<Integer, YourJavaObject> cache = ignite.getOrCreateCache(cacheConfig);
-```
+```{% endraw %}
 
 위의 코드에서는 setPeerClassLoadingEnabled 메서드를 사용하여 노
 
@@ -199,23 +197,23 @@ IgniteCache<Integer, YourJavaObject> cache = ignite.getOrCreateCache(cacheConfig
 
 Java 소스 코드를 작성한 후에는 다음과 같은 명령어를 사용하여 컴파일할 수 있습니다.
 
-```
+{% raw %}```
 javac YourClass.java
-```
+```{% endraw %}
 
 위의 명령어에서 YourClass는 컴파일하려는 클래스의 이름입니다. 이 명령어를 실행하면 YourClass.class 파일이 생성됩니다. 이제 이 클래스를 Apache Ignite에서 실행할 수 있습니다.
 
 Apache Ignite에서 클래스를 실행하기 위해서는 먼저 클래스를 JAR 파일로 묶어야 합니다. JAR 파일을 만들기 위해서는 다음과 같은 명령어를 사용합니다.
 
-```
+{% raw %}```
 jar cvf YourJar.jar YourClass.class
-```
+```{% endraw %}
 
 위의 명령어에서 YourJar는 생성하려는 JAR 파일의 이름이며, YourClass.class는 JAR 파일에 포함시킬 클래스의 이름입니다. 이 명령어를 실행하면 YourJar.jar 파일이 생성됩니다.
 
 이제 생성된 JAR 파일을 Apache Ignite에서 실행할 때 사용하는 클래스 경로에 추가하면 됩니다. 클래스 경로를 추가하는 방법은 다음과 같습니다.
 
-```java
+{% raw %}```java
 IgniteConfiguration igniteConfig = new IgniteConfiguration();
 igniteConfig.setClientMode(false);
 igniteConfig.setIgniteInstanceName("myIgniteInstance");
@@ -227,19 +225,19 @@ igniteConfig.setUserAttributes(F.asMap("java.net.preferIPv4Stack", "true"));
 igniteConfig.setCacheConfiguration(cacheConfig);
 
 Ignition.start(igniteConfig);
-```
+```{% endraw %}
 
 위의 코드에서 setClassLoader 메서드를 사용하여 클래스 경로를 추가합니다. getContextClassLoader 메서드를 사용하여 현재 스레드의 클래스 로더를 가져옵니다. setUserAttributes 메서드를 사용하여 네트워크 설정을 지정할 수 있습니다.
 
 클래스를 실행하려면 Apache Ignite에서 제공하는 compute() 메서드를 사용합니다. compute() 메서드는 클러스터에서 코드를 실행할 수 있는 환경을 제공합니다. 예를 들어 다음과 같은 코드를 작성하여 클래스를 실행할 수 있습니다.
 
-```java
+{% raw %}```java
 IgniteCompute compute = ignite.compute();
 
 compute.broadcast(() -> {
     YourClass.run();
 });
-```
+```{% endraw %}
 
 위의 코드에서 YourClass는 실행할 클래스의 이름이며, run() 메서드는 실행할 메서드입니다. broadcast() 메서드를 사용하여 모든 노드에서 코드를 실행합니다.
 
@@ -251,15 +249,15 @@ compute.broadcast(() -> {
 ## ChatGPT 응답:
 > 클래스를 JAR 파일로 묶는 방법은 이전 답변에서 설명해드린 것과 같습니다. JAR 파일을 만들기 위해서는 다음과 같은 명령어를 사용합니다.
 
-```
+{% raw %}```
 jar cvf YourJar.jar YourClass.class
-```
+```{% endraw %}
 
 위의 명령어에서 YourJar는 생성하려는 JAR 파일의 이름이며, YourClass.class는 JAR 파일에 포함시킬 클래스의 이름입니다. 이 명령어를 실행하면 YourJar.jar 파일이 생성됩니다.
 
 클래스 경로를 설정하기 위해서는 IgniteConfiguration 객체의 setClassLoader() 메서드를 사용합니다. setClassLoader() 메서드는 현재 스레드의 클래스 로더를 가져와서 클래스 경로에 추가합니다. 다음은 클래스 경로를 설정하는 예제입니다.
 
-```java
+{% raw %}```java
 IgniteConfiguration igniteConfig = new IgniteConfiguration();
 igniteConfig.setClientMode(false);
 igniteConfig.setIgniteInstanceName("myIgniteInstance");
@@ -274,19 +272,19 @@ igniteConfig.setUserAttributes(F.asMap("java.net.preferIPv4Stack", "true"));
 igniteConfig.setCacheConfiguration(cacheConfig);
 
 Ignition.start(igniteConfig);
-```
+```{% endraw %}
 
 위의 코드에서는 setClassLoader() 메서드를 사용하여 클래스 경로를 설정합니다. URLClassLoader 클래스를 사용하여 JAR 파일의 경로를 추가합니다. Thread.currentThread().getContextClassLoader() 메서드를 사용하여 현재 스레드의 클래스 로더를 가져옵니다. setPeerClassLoadingEnabled() 메서드를 사용하여 피어 클래스 로딩을 활성화하고, setUserAttributes() 메서드를 사용하여 네트워크 설정을 지정합니다. setCacheConfiguration() 메서드를 사용하여 캐시 설정을 지정합니다.
 
 마지막으로 compute() 메서드를 사용하여 코드를 실행합니다. compute() 메서드는 클러스터에서 코드를 실행할 수 있는 환경을 제공합니다. 다음은 compute() 메서드를 사용하여 클래스를 실행하는 예제입니다.
 
-```java
+{% raw %}```java
 IgniteCompute compute = ignite.compute();
 
 compute.broadcast(() -> {
     YourClass.run();
 });
-```
+```{% endraw %}
 
 위의 코드에서 YourClass는 실행할 클래스의 이름이며, run() 메서드는 실행할 메서드입니다. broadcast() 메서드를 사용하여 모든 노드에서 코드를 실행합니다.
 
@@ -295,52 +293,52 @@ compute.broadcast(() -> {
 
 1. Java 소스 코드를 작성합니다.
 
-```java
+{% raw %}```java
 public class MyJavaClass {
     public static void run() {
         // 실행할 코드
     }
 }
-```
+```{% endraw %}
 
 2. Java 소스 코드를 컴파일합니다.
 
-```
+{% raw %}```
 javac MyJavaClass.java
-```
+```{% endraw %}
 
 위의 명령어를 실행하면 MyJavaClass.class 파일이 생성됩니다.
 
 3. MyJavaClass.class 파일을 JAR 파일로 묶습니다.
 
-```
+{% raw %}```
 jar cvf myjar.jar MyJavaClass.class
-```
+```{% endraw %}
 
 위의 명령어를 실행하면 myjar.jar 파일이 생성됩니다.
 
 4. Apache Ignite에서 클래스를 실행할 때 사용하는 클래스 경로에 JAR 파일을 추가합니다.
 
-```java
+{% raw %}```java
 IgniteConfiguration igniteConfig = new IgniteConfiguration();
 igniteConfig.setClientMode(false);
 igniteConfig.setIgniteInstanceName("myIgniteInstance");
 igniteConfig.setClassLoader(new URLClassLoader(new URL[]{new File("myjar.jar").toURI().toURL()}));
 
 Ignition.start(igniteConfig);
-```
+```{% endraw %}
 
 위의 코드에서 URLClassLoader 클래스를 사용하여 JAR 파일을 추가합니다. URLClassLoader 클래스의 생성자에 JAR 파일 경로를 지정합니다.
 
 5. compute() 메서드를 사용하여 클래스를 실행합니다.
 
-```java
+{% raw %}```java
 IgniteCompute compute = ignite.compute();
 
 compute.broadcast(() -> {
     MyJavaClass.run();
 });
-```
+```{% endraw %}
 
 위의 코드에서 MyJavaClass는 실행할 클래스의 이름이며, run() 메서드는 실행할 메서드입니다. broadcast() 메서드를 사용하여 모든 노드에서 코드를 실행합니다.
 
@@ -356,7 +354,7 @@ compute.broadcast(() -> {
 
 예를 들어, MyJavaClass.class 파일을 JAR 파일로 묶은 myjar.jar 파일을 사용한다면, 다음과 같은 디렉토리 구조를 갖게 됩니다.
 
-```
+{% raw %}```
 ignite/
 ├── bin/
 │   ├── ignite.sh
@@ -364,11 +362,11 @@ ignite/
 │   ├── ignite.xml
 ├── lib/
 │   ├── myjar.jar
-```
+```{% endraw %}
 
 이제 ignite.sh 스크립트를 실행하면 JAR 파일이 클래스 경로에 추가되어 클래스를 실행할 수 있습니다. 클래스를 실행하려면 다음과 같은 코드를 사용합니다.
 
-```java
+{% raw %}```java
 Ignite ignite = Ignition.start("ignite.xml");
 
 IgniteCompute compute = ignite.compute();
@@ -376,7 +374,7 @@ IgniteCompute compute = ignite.compute();
 compute.broadcast(() -> {
     MyJavaClass.run();
 });
-```
+```{% endraw %}
 
 위의 코드에서 ignite.xml은 Apache Ignite의 구성 파일이며, MyJavaClass는 실행할 클래스의 이름이고, run() 메서드는 실행할 메서드입니다. broadcast() 메서드를 사용하여 모든 노드에서 코드를 실행합니다.
 
@@ -406,17 +404,17 @@ PCL 기능을 사용하려면 IgniteConfiguration 객체에서 setPeerClassLoadi
 
 resetLostPartitions() 메서드는 노드가 중단되었을 때, 노드의 데이터를 다른 노드에 복제할 수 있는 메서드입니다. 이 메서드를 호출하면 데이터가 복제되면서 변경된 클래스가 다시 로드됩니다.
 
-```java
+{% raw %}```java
 Ignite ignite = Ignition.start("ignite.xml");
 
 ignite.resetLostPartitions();
-```
+```{% endraw %}
 
 2. Ignite#compute().broadcast() 메서드
 
 compute().broadcast() 메서드를 사용하여 모든 노드에서 클래스를 실행할 때, 클래스가 변경되었거나 추가되었을 때, 변경된 클래스를 다시 로드할 수 있습니다.
 
-```java
+{% raw %}```java
 Ignite ignite = Ignition.start("ignite.xml");
 
 IgniteCompute compute = ignite.compute();
@@ -426,7 +424,7 @@ compute.broadcast(() -> {
     Class<?> clazz = classLoader.loadClass("MyClass");
     // 클래스 실행
 });
-```
+```{% endraw %}
 
 위의 코드에서 Thread.currentThread().getContextClassLoader() 메서드를 사용하여 클래스 로더를 가져오고, loadClass() 메서드를 사용하여 변경된 클래스를 로드합니다. broadcast() 메서드를 사용하여 모든 노드에서 코드를 실행합니다.
 
@@ -444,17 +442,17 @@ Apache Ignite에서는 REST API를 사용하여 Ignite의 기능을 원격으로
 
 1. JAR 파일을 업로드합니다.
 
-```bash
+{% raw %}```bash
 curl -X POST -H "Content-Type: multipart/form-data" -F "file=@myjar.jar" http://localhost:8080/ignite?cmd=put-class
-```
+```{% endraw %}
 
 위의 명령어에서 myjar.jar는 업로드할 JAR 파일의 이름입니다. curl 명령어를 사용하여 REST API를 호출합니다. put-class 명령어를 사용하여 JAR 파일을 업로드합니다.
 
 2. 클래스를 실행합니다.
 
-```bash
+{% raw %}```bash
 curl -X POST http://localhost:8080/ignite?cmd=run-class&name=MyJavaClass&method=run
-```
+```{% endraw %}
 
 위의 명령어에서 MyJavaClass는 실행할 클래스의 이름이며, run은 실행할 메서드입니다. run-class 명령어를 사용하여 클래스를 실행합니다.
 

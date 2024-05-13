@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Preprocess C/C++ 코드"
-date: 2024-02-08
-tags: [코드, Preprocess, C]
-categories: blog
+tags: [코드, C, Preprocess]
 ---
 
 ## 사용자 입력:
@@ -12,13 +10,13 @@ categories: blog
 ## ChatGPT 응답:
 > C/C++ 소스 코드를 전처리하는 유틸리티 함수를 만들기 위해서는 몇 가지 기본적인 전처리 단계를 고려해야 합니다. 전처리 과정은 일반적으로 다음과 같은 작업을 포함합니다:
 
-1. **매크로 확장**: `#define` 지시어로 정의된 매크로를 코드 내에서 확장합니다.
-2. **파일 포함 처리**: `#include` 지시어를 사용하여 헤더 파일의 내용을 소스 파일에 포함시킵니다.
-3. **조건부 컴파일**: `#ifdef`, `#ifndef`, `#if`, `#elif`, `#else`, `#endif` 지시어를 사용하여 조건부로 코드를 포함하거나 제외합니다.
+1. **매크로 확장**: {% raw %}`#define`{% endraw %} 지시어로 정의된 매크로를 코드 내에서 확장합니다.
+2. **파일 포함 처리**: {% raw %}`#include`{% endraw %} 지시어를 사용하여 헤더 파일의 내용을 소스 파일에 포함시킵니다.
+3. **조건부 컴파일**: {% raw %}`#ifdef`{% endraw %}, {% raw %}`#ifndef`{% endraw %}, {% raw %}`#if`{% endraw %}, {% raw %}`#elif`{% endraw %}, {% raw %}`#else`{% endraw %}, {% raw %}`#endif`{% endraw %} 지시어를 사용하여 조건부로 코드를 포함하거나 제외합니다.
 
-여기서는 Python을 사용하여 기본적인 C/C++ 소스 코드 전처리 유틸리티 함수를 작성해 보겠습니다. 이 함수는 파일 포함 처리(`#include` 지시어)와 간단한 매크로 확장(`#define` 지시어)을 처리할 수 있도록 할 것입니다. 조건부 컴파일은 복잡성을 증가시키므로, 여기서는 생략합니다.
+여기서는 Python을 사용하여 기본적인 C/C++ 소스 코드 전처리 유틸리티 함수를 작성해 보겠습니다. 이 함수는 파일 포함 처리({% raw %}`#include`{% endraw %} 지시어)와 간단한 매크로 확장({% raw %}`#define`{% endraw %} 지시어)을 처리할 수 있도록 할 것입니다. 조건부 컴파일은 복잡성을 증가시키므로, 여기서는 생략합니다.
 
-```python
+{% raw %}```python
 import re
 import os
 
@@ -74,7 +72,7 @@ def preprocess_source_code(file_path, include_paths=None):
 # 사용 예시
 preprocessed_code = preprocess_source_code("example.c", include_paths=["/path/to/includes"])
 print(preprocessed_code)
-```
+```{% endraw %}
 
 이 코드는 매우 기본적인 전처리 기능만을 구현합니다. 실제 C/C++ 전처리기는 훨씬 더 복잡한 기능과 조건부 컴파일, 매크로 함수, 토큰 붙임 등을 지원합니다. 필요에 따라 더 고급 기능을 추가할 수 있지만, 그 과정은 훨씬 더 복잡하고 시간이 많이 소요될 것입니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Git submodule changes."
-date: 2023-03-06
 tags: [changes, submodule, Git]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -18,17 +16,17 @@ categories: blog
 
 To stage the changes, you can use the following command:
 
-```
+{% raw %}```
 git add jgraphx
-```
+```{% endraw %}
 
 This will stage all changes made to files in the "jgraphx" submodule. Once the changes have been staged, you can commit them using the "git commit" command.
 
 Alternatively, if you do not want to keep the changes made to the files in the "jgraphx" submodule, you can discard them using the "git restore" command. For example:
 
-```
+{% raw %}```
 git restore jgraphx
-```
+```{% endraw %}
 
 This will discard any changes made to files in the "jgraphx" submodule and revert them back to their previous state.
 

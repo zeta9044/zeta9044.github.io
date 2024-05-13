@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "PetaETL 개요"
-date: 2023-06-02
-tags: [개요, PetaETL]
-categories: blog
+tags: [PetaETL, 개요]
 ---
 
 ## 사용자 입력:

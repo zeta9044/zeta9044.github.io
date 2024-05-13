@@ -1,16 +1,14 @@
 ---
 layout: post
 title: "Cpp Parser Validation"
-date: 2023-08-09
 tags: [Parser, Validation, Cpp]
-categories: blog
 ---
 
 ## 사용자 입력:
 > javaCC로 cpp파서를 만들었는데, 검증해줘.
 
 ## ChatGPT 응답:
-> 물론 도와드리겠습니다. 우선 제가 확인할 수 있도록 `CppParser.jjt` 파일을 열어보고 내용을 검토하겠습니다.
+> 물론 도와드리겠습니다. 우선 제가 확인할 수 있도록 {% raw %}`CppParser.jjt`{% endraw %} 파일을 열어보고 내용을 검토하겠습니다.
 
 ## ChatGPT 응답:
 > # Let's read the content of the uploaded JavaCC file to understand the parser definition
@@ -70,7 +68,7 @@ Warning: Choice conflict in [...] construct at line 323, column 21.
 예를 들어, 첫 번째 경고에서는 다음과 같이 두 확장 간의 충돌이 발생했습니다:
 - 줄 274, 열 6에서 시작하는 확장
 - 줄 276, 열 6에서 시작하는 확장
-- 공통 접두사: `<Identifier> "<"`
+- 공통 접두사: {% raw %}`<Identifier> "<"`{% endraw %}
 
 이 경우, 경고에서 언급한 것처럼 해당 확장에 대한 lookahead를 3 이상으로 설정하여 문제를 해결할 수 있습니다.
 
@@ -92,16 +90,16 @@ conflict_lines = [cpp_parser_content.split("\n")[line - 1] for line in lines_to_
 conflict_lines
 
 ## ChatGPT 응답:
-> 첫 번째 충돌은 줄 274와 276에서 발생하며, 이 두 줄은 각각 `unqualifiedId()`와 `qualifiedId()`로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 `<Identifier> "<"`를 가지고 있기 때문에 발생합니다.
+> 첫 번째 충돌은 줄 274와 276에서 발생하며, 이 두 줄은 각각 {% raw %}`unqualifiedId()`{% endraw %}와 {% raw %}`qualifiedId()`{% endraw %}로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 {% raw %}`<Identifier> "<"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 lookahead를 사용하여 파서에 이러한 확장 사이에서 어떻게 선택해야 할지 지시하는 것입니다. 다음과 같이 수정하면 됩니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 unqualifiedId()
 |
 qualifiedId()
-```
+```{% endraw %}
 
 다음으로 두 번째 충돌에 대해 확인해 보겠습니다.
 
@@ -113,16 +111,16 @@ conflict_lines_2 = [cpp_parser_content.split("\n")[line - 1] for line in lines_t
 conflict_lines_2
 
 ## ChatGPT 응답:
-> 두 번째 충돌은 줄 283과 288에서 발생하며, 이 두 줄은 각각 `<Identifier>`와 `templateId()`로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 `<Identifier>`를 가지고 있기 때문에 발생합니다.
+> 두 번째 충돌은 줄 283과 288에서 발생하며, 이 두 줄은 각각 {% raw %}`<Identifier>`{% endraw %}와 {% raw %}`templateId()`{% endraw %}로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 {% raw %}`<Identifier>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 마찬가지로 lookahead를 사용하여 파서에 이러한 확장 사이에서 어떻게 선택해야 할지 지시하는 것입니다. 다음과 같이 수정하면 됩니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(2)
 <Identifier>
 |
 templateId()
-```
+```{% endraw %}
 
 나머지 충돌에 대해서도 동일한 방법으로 처리할 수 있습니다. 각 충돌에 대해 해당 줄을 찾아 lookahead 값을 지정하면 충돌을 해결할 수 있을 것입니다.
 
@@ -144,16 +142,16 @@ conflict_lines_3 = [cpp_parser_content.split("\n")[line - 1] for line in lines_t
 conflict_lines_3
 
 ## ChatGPT 응답:
-> 세 번째 충돌은 줄 284와 288에서 발생하며, 이 두 줄은 각각 `operatorFunctionId()`와 `templateId()`로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 `"operator" "new"`를 가지고 있기 때문에 발생합니다.
+> 세 번째 충돌은 줄 284와 288에서 발생하며, 이 두 줄은 각각 {% raw %}`operatorFunctionId()`{% endraw %}와 {% raw %}`templateId()`{% endraw %}로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 {% raw %}`"operator" "new"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 operatorFunctionId()
 |
 templateId()
-```
+```{% endraw %}
 
 다음으로 네 번째 충돌을 살펴보겠습니다.
 
@@ -165,16 +163,16 @@ conflict_lines_4 = [cpp_parser_content.split("\n")[line - 1] for line in lines_t
 conflict_lines_4
 
 ## ChatGPT 응답:
-> 네 번째 충돌은 줄 285와 286에서 발생하며, 이 두 줄은 각각 `conversionFunctionId()`와 `literalOperatorId()`로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 `"operator"`를 가지고 있기 때문에 발생합니다.
+> 네 번째 충돌은 줄 285와 286에서 발생하며, 이 두 줄은 각각 {% raw %}`conversionFunctionId()`{% endraw %}와 {% raw %}`literalOperatorId()`{% endraw %}로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 {% raw %}`"operator"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(2)
 conversionFunctionId()
 |
 literalOperatorId()
-```
+```{% endraw %}
 
 다섯 번째 충돌에 대해서도 확인해 보겠습니다.
 
@@ -186,16 +184,16 @@ conflict_lines_5 = [cpp_parser_content.split("\n")[line - 1] for line in lines_t
 conflict_lines_5
 
 ## ChatGPT 응답:
-> 다섯 번째 충돌은 줄 286과 288에서 발생하며, 이 두 줄은 각각 `literalOperatorId()`와 `templateId()`로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 `"operator" <StringLiteral>`를 가지고 있기 때문에 발생합니다.
+> 다섯 번째 충돌은 줄 286과 288에서 발생하며, 이 두 줄은 각각 {% raw %}`literalOperatorId()`{% endraw %}와 {% raw %}`templateId()`{% endraw %}로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 {% raw %}`"operator" <StringLiteral>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 literalOperatorId()
 |
 templateId()
-```
+```{% endraw %}
 
 여섯 번째 충돌에 대해 확인해 보겠습니다.
 
@@ -207,16 +205,16 @@ conflict_lines_6 = [cpp_parser_content.split("\n")[line - 1] for line in lines_t
 conflict_lines_6
 
 ## ChatGPT 응답:
-> 여섯 번째 충돌은 줄 311과 312에서 발생하며, 이 두 줄은 각각 `( theTypeName()`와 `namespaceName()`로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 `<Identifier>`를 가지고 있기 때문에 발생합니다.
+> 여섯 번째 충돌은 줄 311과 312에서 발생하며, 이 두 줄은 각각 {% raw %}`( theTypeName()`{% endraw %}와 {% raw %}`namespaceName()`{% endraw %}로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 {% raw %}`<Identifier>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(2)
 ( theTypeName()
 |
 namespaceName()
-```
+```{% endraw %}
 
 일곱 번째 충돌에 대해 확인해 보겠습니다.
 
@@ -228,18 +226,18 @@ conflict_lines_7 = [cpp_parser_content.split("\n")[line - 1] for line in lines_t
 conflict_lines_7
 
 ## ChatGPT 응답:
-> 일곱 번째 충돌은 줄 321과 322에서 발생하며, 이 두 줄은 각각 `<Identifier>`와 `(<Template>)? simpleTemplateId()`로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 `<Identifier>`를 가지고 있기 때문에 발생합니다.
+> 일곱 번째 충돌은 줄 321과 322에서 발생하며, 이 두 줄은 각각 {% raw %}`<Identifier>`{% endraw %}와 {% raw %}`(<Template>)? simpleTemplateId()`{% endraw %}로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 {% raw %}`<Identifier>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(2)
 <Identifier>
 |
 (<Template>)? simpleTemplateId()
-```
+```{% endraw %}
 
-마지막 충돌이 `[...]` 구조 내에서 발생했으므로, 코드의 해당 부분을 확인하고 해결 방안을 제안해 드리겠습니다.
+마지막 충돌이 {% raw %}`[...]`{% endraw %} 구조 내에서 발생했으므로, 코드의 해당 부분을 확인하고 해결 방안을 제안해 드리겠습니다.
 
 ## ChatGPT 응답:
 > # Extracting the lines around the conflict mentioned in the last warning (line 323) to understand the conflict
@@ -249,18 +247,18 @@ conflict_lines_8 = [cpp_parser_content.split("\n")[line - 1] for line in lines_t
 conflict_lines_8
 
 ## ChatGPT 응답:
-> 마지막 충돌은 줄 323 근처에서 발생한 것으로 보입니다. 이 충돌은 `[...]` 구조 내에서 발생하며, 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `<Identifier>`를 가지고 있기 때문에 발생합니다.
+> 마지막 충돌은 줄 323 근처에서 발생한 것으로 보입니다. 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 발생하며, 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`<Identifier>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 해당 부분의 lookahead를 수정하는 것입니다:
 
-```java
+{% raw %}```java
 (
     LOOKAHEAD(2)
     <Identifier>
     |
     (<Template>)? simpleTemplateId()
 ) <Doublecolon> [nestedNameSpecifierPrime()]
-```
+```{% endraw %}
 
 이제 모든 충돌에 대한 해결 방안을 제시했습니다. 각 충돌 부분을 찾아 위에서 제안한 대로 수정하면 경고 메시지 없이 파서를 생성할 수 있을 것입니다.
 
@@ -270,7 +268,7 @@ conflict_lines_8
 > javaCC로 cpp파서를 만들었는데, 검증해줘.
 
 ## ChatGPT 응답:
-> 새로 업로드한 `CppParser.jjt` 파일을 받았습니다. 이 파일을 분석하고 검증을 진행하겠습니다.
+> 새로 업로드한 {% raw %}`CppParser.jjt`{% endraw %} 파일을 받았습니다. 이 파일을 분석하고 검증을 진행하겠습니다.
 
 먼저, 파일의 내용을 확인해 보겠습니다.
 
@@ -351,18 +349,18 @@ conflict_lines_1 = [cpp_parser_content_new.split("\n")[line - 1] for line in lin
 conflict_lines_1
 
 ## ChatGPT 응답:
-> 첫 번째 충돌은 줄 326 근처에서 발생한 것으로 보이며, 이 충돌은 `[...]` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `<Identifier>`를 가지고 있기 때문에 발생합니다.
+> 첫 번째 충돌은 줄 326 근처에서 발생한 것으로 보이며, 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`<Identifier>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 해당 부분의 lookahead를 수정하는 것입니다:
 
-```java
+{% raw %}```java
 (
     LOOKAHEAD(2)
     <Identifier>
     |
     (<Template>)? simpleTemplateId()
 ) <Doublecolon> [nestedNameSpecifierPrime()]
-```
+```{% endraw %}
 
 두 번째 충돌에 대해 확인해 보겠습니다.
 
@@ -374,16 +372,16 @@ conflict_lines_2 = [cpp_parser_content_new.split("\n")[line - 1] for line in lin
 conflict_lines_2
 
 ## ChatGPT 응답:
-> 두 번째 충돌은 줄 347과 348에서 발생하며, 이 두 줄은 각각 `captureList()`와 `captureDefault() [<Comma> captureList()]`로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 `"&"`를 가지고 있기 때문에 발생합니다.
+> 두 번째 충돌은 줄 347과 348에서 발생하며, 이 두 줄은 각각 {% raw %}`captureList()`{% endraw %}와 {% raw %}`captureDefault() [<Comma> captureList()]`{% endraw %}로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 {% raw %}`"&"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(2)
 captureList()
 |
 captureDefault() [<Comma> captureList()]
-```
+```{% endraw %}
 
 세 번째 충돌에 대해서도 확인해 보겠습니다.
 
@@ -396,16 +394,16 @@ conflict_lines_3 = [cpp_parser_content_new.split("\n")[line - 1] for line in lin
 conflict_lines_3
 
 ## ChatGPT 응답:
-> 세 번째 충돌은 줄 369에서 발생하며, 이 줄은 `simpleCapture() | initcapture()`로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 `"&" <Identifier>`를 가지고 있기 때문에 발생합니다.
+> 세 번째 충돌은 줄 369에서 발생하며, 이 줄은 {% raw %}`simpleCapture() | initcapture()`{% endraw %}로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 {% raw %}`"&" <Identifier>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 simpleCapture()
 |
 initcapture()
-```
+```{% endraw %}
 
 네 번째 충돌에 대해 확인해 보겠습니다.
 
@@ -417,11 +415,11 @@ conflict_lines_4 = [cpp_parser_content_new.split("\n")[line - 1] for line in lin
 conflict_lines_4
 
 ## ChatGPT 응답:
-> 네 번째 충돌은 줄 405 근처에서 발생한 것으로 보이며, 이 충돌은 `[...]` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `"["`를 가지고 있기 때문에 발생합니다.
+> 네 번째 충돌은 줄 405 근처에서 발생한 것으로 보이며, 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`"["`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 해당 부분의 lookahead를 수정하는 것입니다:
 
-```java
+{% raw %}```java
 (
     LOOKAHEAD(2)
     <LeftBracket> (expression() | bracedInitList()) <RightBracket> postfixExpressionPrime()
@@ -430,7 +428,7 @@ conflict_lines_4
     |
     (simpleTypeSpecifier() | typeNameSpecifier())
 )
-```
+```{% endraw %}
 
 다음 충돌을 계속 확인하겠습니다. 현재의 방식으로 계속 진행하면 될까요?
 
@@ -448,16 +446,16 @@ conflict_lines_5 = [cpp_parser_content_new.split("\n")[line - 1] for line in lin
 conflict_lines_5
 
 ## ChatGPT 응답:
-> 다섯 번째 충돌은 줄 407과 413에서 발생하며, 이 두 줄은 각각 `(simpleTypeSpecifier() | typeNameSpecifier()) (`와 `pseudoDestructorName()`로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 `<Identifier> "<"`를 가지고 있기 때문에 발생합니다.
+> 다섯 번째 충돌은 줄 407과 413에서 발생하며, 이 두 줄은 각각 {% raw %}`(simpleTypeSpecifier() | typeNameSpecifier()) (`{% endraw %}와 {% raw %}`pseudoDestructorName()`{% endraw %}로 이루어져 있습니다. 이 충돌은 두 확장이 공통 접두사 {% raw %}`<Identifier> "<"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 (simpleTypeSpecifier() | typeNameSpecifier()) (
 |
 pseudoDestructorName()
-```
+```{% endraw %}
 
 여섯 번째 충돌에 대해 확인해 보겠습니다.
 
@@ -470,16 +468,16 @@ conflict_lines_6 = [cpp_parser_content_new.split("\n")[line - 1] for line in lin
 conflict_lines_6
 
 ## ChatGPT 응답:
-> 여섯 번째 충돌은 줄 422에서 발생한 것으로 보이며, 이 줄은 두 개의 확장을 포함하고 있습니다. 이 충돌은 두 확장이 공통 접두사 `<Identifier> "<"`를 가지고 있기 때문에 발생합니다.
+> 여섯 번째 충돌은 줄 422에서 발생한 것으로 보이며, 이 줄은 두 개의 확장을 포함하고 있습니다. 이 충돌은 두 확장이 공통 접두사 {% raw %}`<Identifier> "<"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 ) <Less> theTypeId() <Greater> <LeftParen> expression() <RightParen> postfixExpressionPrime()
 |
 typeIdOfTheTypeId() <LeftParen> (expression() | theTypeId()) <RightParen> postfixExpressionPrime()
-```
+```{% endraw %}
 
 일곱 번째 충돌에 대해 확인해 보겠습니다.
 
@@ -492,19 +490,19 @@ conflict_lines_7
 
 ## ChatGPT 응답:
 > 일곱 번째 충돌은 줄 449와 450에서 발생하며, 이 두 줄은 다음과 같이 구성되어 있습니다:
-- `[nestedNameSpecifier()] [theTypeName() <Doublecolon>] <Tilde> theTypeName()`
-- `nestedNameSpecifier() <Template> simpleTemplateId() <Doublecolon> <Tilde> theTypeName()`
+- {% raw %}`[nestedNameSpecifier()] [theTypeName() <Doublecolon>] <Tilde> theTypeName()`{% endraw %}
+- {% raw %}`nestedNameSpecifier() <Template> simpleTemplateId() <Doublecolon> <Tilde> theTypeName()`{% endraw %}
 
-이 충돌은 두 확장이 공통 접두사 `<Identifier> "<"`를 가지고 있기 때문에 발생합니다.
+이 충돌은 두 확장이 공통 접두사 {% raw %}`<Identifier> "<"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 [nestedNameSpecifier()] [theTypeName() <Doublecolon>] <Tilde> theTypeName()
 |
 nestedNameSpecifier() <Template> simpleTemplateId() <Doublecolon> <Tilde> theTypeName()
-```
+```{% endraw %}
 
 여덟 번째 충돌에 대해 확인해 보겠습니다.
 
@@ -516,11 +514,11 @@ conflict_lines_8 = [cpp_parser_content_new.split("\n")[line - 1] for line in lin
 conflict_lines_8
 
 ## ChatGPT 응답:
-> 여덟 번째 충돌은 줄 449 근처에서 발생한 것으로 보이며, 이 충돌은 `[...]` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `<Identifier>`를 가지고 있기 때문에 발생합니다.
+> 여덟 번째 충돌은 줄 449 근처에서 발생한 것으로 보이며, 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`<Identifier>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 해당 부분의 lookahead를 수정하는 것입니다:
 
-```java
+{% raw %}```java
 (
     LOOKAHEAD(2)
     [nestedNameSpecifier()] [theTypeName() <Doublecolon>] <Tilde> theTypeName()
@@ -529,7 +527,7 @@ conflict_lines_8
     |
     <Tilde> decltypeSpecifier()
 )
-```
+```{% endraw %}
 
 아홉 번째 충돌을 계속 확인하겠습니다.
 
@@ -542,19 +540,19 @@ conflict_lines_9
 
 ## ChatGPT 응답:
 > 아홉 번째 충돌은 줄 458과 459에서 발생하며, 이 두 줄은 다음과 같이 구성되어 있습니다:
-- `postfixExpression()`
-- `(<PlusPlus> | <MinusMinus> | unaryOperator() | <Sizeof>) unaryExpression()`
+- {% raw %}`postfixExpression()`{% endraw %}
+- {% raw %}`(<PlusPlus> | <MinusMinus> | unaryOperator() | <Sizeof>) unaryExpression()`{% endraw %}
 
-이 충돌은 두 확장이 공통 접두사 `"~" <Identifier>`를 가지고 있기 때문에 발생합니다.
+이 충돌은 두 확장이 공통 접두사 {% raw %}`"~" <Identifier>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 postfixExpression()
 |
 (<PlusPlus> | <MinusMinus> | unaryOperator() | <Sizeof>) unaryExpression()
-```
+```{% endraw %}
 
 열 번째 충돌에 대해 확인해 보겠습니다.
 
@@ -567,19 +565,19 @@ conflict_lines_10
 
 ## ChatGPT 응답:
 > 열 번째 충돌은 줄 459과 460에서 발생하며, 이 두 줄은 다음과 같이 구성되어 있습니다:
-- `(<PlusPlus> | <MinusMinus> | unaryOperator() | <Sizeof>) unaryExpression()`
-- `<Sizeof> (` 
+- {% raw %}`(<PlusPlus> | <MinusMinus> | unaryOperator() | <Sizeof>) unaryExpression()`{% endraw %}
+- {% raw %}`<Sizeof> (`{% endraw %} 
 
-이 충돌은 두 확장이 공통 접두사 `"sizeof" "("`를 가지고 있기 때문에 발생합니다.
+이 충돌은 두 확장이 공통 접두사 {% raw %}`"sizeof" "("`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 (<PlusPlus> | <MinusMinus> | unaryOperator() | <Sizeof>) unaryExpression()
 |
 <Sizeof> (
-```
+```{% endraw %}
 
 열한 번째 충돌에 대해 확인해 보겠습니다.
 
@@ -592,19 +590,19 @@ conflict_lines_11
 
 ## ChatGPT 응답:
 > 열한 번째 충돌은 줄 466과 467에서 발생하며, 이 두 줄은 다음과 같이 구성되어 있습니다:
-- `newExpression_()`
-- `deleteExpression()`
+- {% raw %}`newExpression_()`{% endraw %}
+- {% raw %}`deleteExpression()`{% endraw %}
 
-이 충돌은 두 확장이 공통 접두사 `"::"`를 가지고 있기 때문에 발생합니다.
+이 충돌은 두 확장이 공통 접두사 {% raw %}`"::"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(2)
 newExpression_()
 |
 deleteExpression()
-```
+```{% endraw %}
 
 마지막 충돌에 대해 확인해 보겠습니다.
 
@@ -616,18 +614,18 @@ conflict_lines_12 = [cpp_parser_content_new.split("\n")[line - 1] for line in li
 conflict_lines_12
 
 ## ChatGPT 응답:
-> 열두 번째 충돌은 줄 481 근처에서 발생한 것으로 보이며, 이 충돌은 `[...]` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `"("`를 가지고 있기 때문에 발생합니다.
+> 열두 번째 충돌은 줄 481 근처에서 발생한 것으로 보이며, 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`"("`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 해당 부분의 lookahead를 수정하는 것입니다:
 
-```java
+{% raw %}```java
 (
     LOOKAHEAD(2)
     newTypeId()
     |
     <LeftParen> theTypeId() <RightParen>
 )
-```
+```{% endraw %}
 
 이제 모든 충돌에 대한 해결 방안을 제시했습니다. 각 충돌 부분을 찾아 위에서 제안한 대로 수정하면 경고 메시지 없이 파서를 생성할 수 있을 것입니다.
 
@@ -741,9 +739,9 @@ conflict_lines_new_1 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_1
 
 ## ChatGPT 응답:
-> 첫 번째 새로운 충돌은 줄 498 근처에서 발생한 것으로 보입니다. 이 충돌은 `[...]` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `"&"`를 가지고 있기 때문에 발생합니다.
+> 첫 번째 새로운 충돌은 줄 498 근처에서 발생한 것으로 보입니다. 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`"&"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
-코드의 해당 부분을 더 자세히 살펴보기 위해 전체 문맥을 파악해야 할 것 같습니다. 충돌이 발생한 구조 내에서 어떤 문법 요소가 `"&"`를 사용하는지 확인해야 할 것 같습니다.
+코드의 해당 부분을 더 자세히 살펴보기 위해 전체 문맥을 파악해야 할 것 같습니다. 충돌이 발생한 구조 내에서 어떤 문법 요소가 {% raw %}`"&"`{% endraw %}를 사용하는지 확인해야 할 것 같습니다.
 
 해당 부분의 전체 문맥을 제공해 드리겠습니다.
 
@@ -755,15 +753,15 @@ conflict_lines_broad_new_1 = [cpp_parser_content_new.split("\n")[line - 1] for l
 conflict_lines_broad_new_1
 
 ## ChatGPT 응답:
-> 충돌이 발생한 부분은 `newTypeId()` 함수 정의와 관련된 것으로 보이며, 그 내부에는 `typeSpecifierSeq()`와 선택적인 `newDeclarator_()`가 있습니다. 이러한 문맥에서 `"&"`와 관련된 충돌이 발생하고 있습니다.
+> 충돌이 발생한 부분은 {% raw %}`newTypeId()`{% endraw %} 함수 정의와 관련된 것으로 보이며, 그 내부에는 {% raw %}`typeSpecifierSeq()`{% endraw %}와 선택적인 {% raw %}`newDeclarator_()`{% endraw %}가 있습니다. 이러한 문맥에서 {% raw %}`"&"`{% endraw %}와 관련된 충돌이 발생하고 있습니다.
 
-해당 부분의 문법 요소와 정의를 조사하여 문제를 해결해야 할 것 같습니다. 더 깊게 들어가기 전에, 해당 문맥에서 `"&"`와 관련된 어떤 문법 요소가 사용되고 있는지, 그리고 해당 부분을 수정하려는 의도가 무엇인지 알려주실 수 있으신가요?
+해당 부분의 문법 요소와 정의를 조사하여 문제를 해결해야 할 것 같습니다. 더 깊게 들어가기 전에, 해당 문맥에서 {% raw %}`"&"`{% endraw %}와 관련된 어떤 문법 요소가 사용되고 있는지, 그리고 해당 부분을 수정하려는 의도가 무엇인지 알려주실 수 있으신가요?
 
 ## 사용자 입력:
 > C++파서 내용이야.
 
 ## ChatGPT 응답:
-> 알겠습니다. C++ 파서의 문맥에서 `"&"`는 참조 연산자를 나타내거나 비트 AND 연산자로 사용될 수 있으며, C++의 여러 문법 구조와 연결될 수 있습니다.
+> 알겠습니다. C++ 파서의 문맥에서 {% raw %}`"&"`{% endraw %}는 참조 연산자를 나타내거나 비트 AND 연산자로 사용될 수 있으며, C++의 여러 문법 구조와 연결될 수 있습니다.
 
 해당 충돌을 처리하려면, 충돌이 발생하는 정확한 문법 요소를 파악해야 합니다. 이를 위해 충돌 부근의 전체 코드 블록을 확인해 보겠습니다.
 
@@ -775,13 +773,13 @@ conflict_lines_full_new_1 = [cpp_parser_content_new.split("\n")[line - 1] for li
 conflict_lines_full_new_1
 
 ## ChatGPT 응답:
-> 충돌이 발생한 부분은 `newDeclarator_()` 함수 내에서 발생한 것으로 보입니다. 이 함수는 `pointerOperator()`와 `newDeclarator_()`를 중첩하거나 `noPointerNewDeclarator()`를 선택할 수 있는 구조로 되어 있습니다.
+> 충돌이 발생한 부분은 {% raw %}`newDeclarator_()`{% endraw %} 함수 내에서 발생한 것으로 보입니다. 이 함수는 {% raw %}`pointerOperator()`{% endraw %}와 {% raw %}`newDeclarator_()`{% endraw %}를 중첩하거나 {% raw %}`noPointerNewDeclarator()`{% endraw %}를 선택할 수 있는 구조로 되어 있습니다.
 
-충돌이 발생한 원인은 `pointerOperator()` 내에서 `"&"`와 관련된 문법 요소가 있을 가능성이 높습니다. 이 부분에서 lookahead를 추가하면 충돌을 해결할 수 있을 것 같습니다.
+충돌이 발생한 원인은 {% raw %}`pointerOperator()`{% endraw %} 내에서 {% raw %}`"&"`{% endraw %}와 관련된 문법 요소가 있을 가능성이 높습니다. 이 부분에서 lookahead를 추가하면 충돌을 해결할 수 있을 것 같습니다.
 
 아래는 수정된 코드입니다:
 
-```java
+{% raw %}```java
 void newDeclarator_() :
 {
 }
@@ -791,7 +789,7 @@ void newDeclarator_() :
     |
     noPointerNewDeclarator()
 }
-```
+```{% endraw %}
 
 다음 충돌을 계속 살펴보겠습니다.
 
@@ -806,7 +804,7 @@ conflict_lines_new_2 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_2
 
 ## ChatGPT 응답:
-> 두 번째 새로운 충돌 역시 줄 505 근처에서 발생하며, 이 충돌은 동일한 `newDeclarator_()` 함수 내에서 발생한 것으로 보입니다. 따라서 이전에 제안한 수정 방안이 동일한 문제를 해결해야 합니다.
+> 두 번째 새로운 충돌 역시 줄 505 근처에서 발생하며, 이 충돌은 동일한 {% raw %}`newDeclarator_()`{% endraw %} 함수 내에서 발생한 것으로 보입니다. 따라서 이전에 제안한 수정 방안이 동일한 문제를 해결해야 합니다.
 
 먼저 제안한 수정을 적용한 후, 이후의 충돌에 대해 계속 분석하겠습니다.
 
@@ -820,18 +818,18 @@ conflict_lines_new_3 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_3
 
 ## ChatGPT 응답:
-> 세 번째 새로운 충돌은 `noPointerNewDeclarator()` 함수 내에서 발생하며, 이 충돌은 `[...]` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `"["`를 가지고 있기 때문에 발생합니다.
+> 세 번째 새로운 충돌은 {% raw %}`noPointerNewDeclarator()`{% endraw %} 함수 내에서 발생하며, 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`"["`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해당 부분의 lookahead를 수정하면 문제를 해결할 수 있습니다:
 
-```java
+{% raw %}```java
 void noPointerNewDeclarator() :
 {}
 {
     LOOKAHEAD(2)
     <LeftBracket> expression() <RightBracket> (attributeSpecifierSeq())? noPointerNewDeclaratorPrime()
 }
-```
+```{% endraw %}
 
 다음 충돌을 계속 살펴보겠습니다.
 
@@ -843,18 +841,18 @@ conflict_lines_new_4 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_4
 
 ## ChatGPT 응답:
-> 네 번째 새로운 충돌은 `noPointerNewDeclaratorPrime()` 함수 내에서 발생하며, 이 충돌은 `[...]` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `"["`를 가지고 있기 때문에 발생합니다.
+> 네 번째 새로운 충돌은 {% raw %}`noPointerNewDeclaratorPrime()`{% endraw %} 함수 내에서 발생하며, 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`"["`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해당 부분의 lookahead를 수정하면 문제를 해결할 수 있습니다:
 
-```java
+{% raw %}```java
 void noPointerNewDeclaratorPrime() :
 {}
 {
     LOOKAHEAD(2)
     ( <LeftBracket> constantExpression() <RightBracket> (attributeSpecifierSeq())? noPointerNewDeclaratorPrime() )?
 }
-```
+```{% endraw %}
 
 다음 충돌을 계속 살펴보겠습니다.
 
@@ -866,17 +864,17 @@ conflict_lines_new_5 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_5
 
 ## ChatGPT 응답:
-> 다섯 번째 새로운 충돌은 `deleteExpression()` 함수 내에서 발생하며, 이 충돌은 `[...]` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `"["`를 가지고 있기 때문에 발생합니다.
+> 다섯 번째 새로운 충돌은 {% raw %}`deleteExpression()`{% endraw %} 함수 내에서 발생하며, 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`"["`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해당 부분의 lookahead를 수정하면 문제를 해결할 수 있습니다:
 
-```java
+{% raw %}```java
 void deleteExpression() :
 {}
 {
     (<Doublecolon>)? <Delete> LOOKAHEAD(2) [<LeftBracket> <RightBracket>] castExpression()
 }
-```
+```{% endraw %}
 
 계속해서 다음 충돌을 살펴보겠습니다.
 
@@ -888,11 +886,11 @@ conflict_lines_new_6 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_6
 
 ## ChatGPT 응답:
-> 여섯 번째 새로운 충돌은 `castExpression()` 함수 내에서 발생하며, 이 충돌은 두 확장이 공통 접두사 `"(" <Identifier>`를 가지고 있기 때문에 발생합니다.
+> 여섯 번째 새로운 충돌은 {% raw %}`castExpression()`{% endraw %} 함수 내에서 발생하며, 이 충돌은 두 확장이 공통 접두사 {% raw %}`"(" <Identifier>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 void castExpression() :
 {}
 {
@@ -901,7 +899,7 @@ void castExpression() :
     |
     <LeftParen> theTypeId() <RightParen> castExpression()
 }
-```
+```{% endraw %}
 
 다음 충돌을 계속 살펴보겠습니다.
 
@@ -913,17 +911,17 @@ conflict_lines_new_7 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_7
 
 ## ChatGPT 응답:
-> 일곱 번째 새로운 충돌은 `shiftExpression()` 함수 내에서 발생하며, 이 충돌은 `(...)*` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `">"`를 가지고 있기 때문에 발생합니다.
+> 일곱 번째 새로운 충돌은 {% raw %}`shiftExpression()`{% endraw %} 함수 내에서 발생하며, 이 충돌은 {% raw %}`(...)*`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`">"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 void shiftExpression() :
 {}
 {
     additiveExpression() (LOOKAHEAD(2) shiftOperator() additiveExpression())*
 }
-```
+```{% endraw %}
 
 계속해서 다음 충돌을 살펴보겠습니다.
 
@@ -935,11 +933,11 @@ conflict_lines_new_8 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_8
 
 ## ChatGPT 응답:
-> 여덟 번째 새로운 충돌은 `relationalExpression()` 함수 내에서 발생하며, 이 충돌은 `(...)*` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `">"`를 가지고 있기 때문에 발생합니다.
+> 여덟 번째 새로운 충돌은 {% raw %}`relationalExpression()`{% endraw %} 함수 내에서 발생하며, 이 충돌은 {% raw %}`(...)*`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`">"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 void relationalExpression() :
 {}
 {
@@ -948,7 +946,7 @@ void relationalExpression() :
         (<Less> | <Greater> | <LessEqual> | <GreaterEqual>) shiftExpression()
     )*
 }
-```
+```{% endraw %}
 
 계속해서 다음 충돌을 살펴보겠습니다.
 
@@ -960,11 +958,11 @@ conflict_lines_new_9 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_9
 
 ## ChatGPT 응답:
-> 아홉 번째 새로운 충돌은 `assignmentExpression()` 함수 내에서 발생하며, 이 충돌은 두 확장이 공통 접두사 `<IntegerLiteral> <IntegerLiteral>`를 가지고 있기 때문에 발생합니다.
+> 아홉 번째 새로운 충돌은 {% raw %}`assignmentExpression()`{% endraw %} 함수 내에서 발생하며, 이 충돌은 두 확장이 공통 접두사 {% raw %}`<IntegerLiteral> <IntegerLiteral>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 void assignmentExpression() :
 {}
 {
@@ -973,7 +971,7 @@ void assignmentExpression() :
   | logicalOrExpression() assignmentOperator() initializerClause()
   | throwExpression()
 }
-```
+```{% endraw %}
 
 계속해서 다음 충돌을 살펴보겠습니다.
 
@@ -985,7 +983,7 @@ conflict_lines_new_10 = [cpp_parser_content_new.split("\n")[line - 1] for line i
 conflict_lines_new_10
 
 ## ChatGPT 응답:
-> 열 번째 새로운 충돌은 `statement()` 함수 내에서 발생하며, 이 충돌은 두 확장이 공통 접두사 `"[" "["`를 가지고 있기 때문에 발생합니다.
+> 열 번째 새로운 충돌은 {% raw %}`statement()`{% endraw %} 함수 내에서 발생하며, 이 충돌은 두 확장이 공통 접두사 {% raw %}`"[" "["`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 이 부분의 코드는 복잡한 구조를 가지고 있으므로, 충돌이 발생한 전체 문맥을 살펴보겠습니다.
 
@@ -997,7 +995,7 @@ conflict_lines_full_new_10 = [cpp_parser_content_new.split("\n")[line - 1] for l
 conflict_lines_full_new_10
 
 ## ChatGPT 응답:
-> 열 번째 새로운 충돌이 발생한 `statement()` 함수 내에서는 여러 가지 문장 유형 중 하나를 선택하는 구조로 되어 있습니다. 이 중에서 `[ attributeSpecifierSeq() ]` 부분은 선택적인 속성 지정자 시퀀스를 나타냅
+> 열 번째 새로운 충돌이 발생한 {% raw %}`statement()`{% endraw %} 함수 내에서는 여러 가지 문장 유형 중 하나를 선택하는 구조로 되어 있습니다. 이 중에서 {% raw %}`[ attributeSpecifierSeq() ]`{% endraw %} 부분은 선택적인 속성 지정자 시퀀스를 나타냅
 
 ## ChatGPT 응답:
 > 네, 계속 진행하겠습니다.
@@ -1012,7 +1010,7 @@ conflict_lines_new_2 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_2
 
 ## ChatGPT 응답:
-> 두 번째 새로운 충돌은 줄 505 근처에서 발생한 것으로 보입니다. 이전에 분석한 `newDeclarator_()` 함수와 동일한 부분에서 발생하였습니다.
+> 두 번째 새로운 충돌은 줄 505 근처에서 발생한 것으로 보입니다. 이전에 분석한 {% raw %}`newDeclarator_()`{% endraw %} 함수와 동일한 부분에서 발생하였습니다.
 
 이 문제는 이미 위에서 제안한 해결 방법으로 처리될 수 있습니다. 따라서 해당 부분에 대한 추가적인 수정은 필요하지 않습니다.
 
@@ -1026,16 +1024,16 @@ conflict_lines_new_3 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_3
 
 ## ChatGPT 응답:
-> 세 번째 새로운 충돌은 줄 519 근처에서 발생한 것으로 보입니다. 이 충돌은 `[...]` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `"["`를 가지고 있기 때문에 발생합니다.
+> 세 번째 새로운 충돌은 줄 519 근처에서 발생한 것으로 보입니다. 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`"["`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 해당 부분의 lookahead를 수정하는 것입니다:
 
-```java
+{% raw %}```java
 (
     LOOKAHEAD(2)
     <LeftBracket> expression() <RightBracket> (attributeSpecifierSeq())? noPointerNewDeclaratorPrime()
 )
-```
+```{% endraw %}
 
 네 번째 새로운 충돌을 살펴보겠습니다.
 
@@ -1047,16 +1045,16 @@ conflict_lines_new_4 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_4
 
 ## ChatGPT 응답:
-> 네 번째 새로운 충돌은 줄 525 근처에서 발생한 것으로 보입니다. 이 충돌은 `[...]` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `"["`를 가지고 있기 때문에 발생합니다.
+> 네 번째 새로운 충돌은 줄 525 근처에서 발생한 것으로 보입니다. 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`"["`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 해당 부분의 lookahead를 수정하는 것입니다:
 
-```java
+{% raw %}```java
 (
     LOOKAHEAD(2)
     ( <LeftBracket> constantExpression() <RightBracket> (attributeSpecifierSeq())? noPointerNewDeclaratorPrime() )?
 )
-```
+```{% endraw %}
 
 다섯 번째 새로운 충돌을 살펴보겠습니다.
 
@@ -1068,16 +1066,16 @@ conflict_lines_new_5 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_5
 
 ## ChatGPT 응답:
-> 다섯 번째 새로운 충돌은 줄 540 근처에서 발생한 것으로 보입니다. 이 충돌은 `[...]` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `"["`를 가지고 있기 때문에 발생합니다.
+> 다섯 번째 새로운 충돌은 줄 540 근처에서 발생한 것으로 보입니다. 이 충돌은 {% raw %}`[...]`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`"["`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 해당 부분의 lookahead를 수정하는 것입니다:
 
-```java
+{% raw %}```java
 (
     LOOKAHEAD(2)
     (<Doublecolon>)? <Delete> [<LeftBracket> <RightBracket>] castExpression()
 )
-```
+```{% endraw %}
 
 여섯 번째 새로운 충돌을 살펴보겠습니다.
 
@@ -1090,19 +1088,19 @@ conflict_lines_new_6
 
 ## ChatGPT 응답:
 > 여섯 번째 새로운 충돌은 줄 554와 555에서 발생하며, 이 두 줄은 다음과 같이 구성되어 있습니다:
-- `unaryExpression()`
-- `<LeftParen> theTypeId() <RightParen> castExpression()`
+- {% raw %}`unaryExpression()`{% endraw %}
+- {% raw %}`<LeftParen> theTypeId() <RightParen> castExpression()`{% endraw %}
 
-이 충돌은 두 확장이 공통 접두사 `"(" <Identifier>`를 가지고 있기 때문에 발생합니다.
+이 충돌은 두 확장이 공통 접두사 {% raw %}`"(" <Identifier>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 unaryExpression()
 |
 <LeftParen> theTypeId() <RightParen> castExpression()
-```
+```{% endraw %}
 
 일곱 번째 새로운 충돌에 대해 확인해 보겠습니다.
 
@@ -1114,18 +1112,18 @@ conflict_lines_new_7 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_7
 
 ## ChatGPT 응답:
-> 일곱 번째 새로운 충돌은 줄 587 근처에서 발생한 것으로 보입니다. 이 충돌은 `(...)*` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `">"`를 가지고 있기 때문에 발생합니다.
+> 일곱 번째 새로운 충돌은 줄 587 근처에서 발생한 것으로 보입니다. 이 충돌은 {% raw %}`(...)*`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`">"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 해당 부분의 lookahead를 수정하는 것입니다:
 
-```java
+{% raw %}```java
 (
     LOOKAHEAD(2)
     additiveExpression() (shiftOperator() additiveExpression())*
 )
-```
+```{% endraw %}
 
-여기서 `shiftOperator()`는 `">"`와 연관된 연산자를 나타낼 가능성이 있습니다.
+여기서 {% raw %}`shiftOperator()`{% endraw %}는 {% raw %}`">"`{% endraw %}와 연관된 연산자를 나타낼 가능성이 있습니다.
 
 다음, 여덟 번째 새로운 충돌을 살펴보겠습니다.
 
@@ -1137,18 +1135,18 @@ conflict_lines_new_8 = [cpp_parser_content_new.split("\n")[line - 1] for line in
 conflict_lines_new_8
 
 ## ChatGPT 응답:
-> 여덟 번째 새로운 충돌은 줄 601 근처에서 발생한 것으로 보입니다. 이 충돌은 `(...)*` 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 `">"`를 가지고 있기 때문에 발생합니다.
+> 여덟 번째 새로운 충돌은 줄 601 근처에서 발생한 것으로 보입니다. 이 충돌은 {% raw %}`(...)*`{% endraw %} 구조 내에서 중첩된 확장과 그 뒤에 오는 확장이 공통 접두사 {% raw %}`">"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 해당 부분의 lookahead를 수정하는 것입니다:
 
-```java
+{% raw %}```java
 (
     LOOKAHEAD(2)
     shiftExpression() (
         (<Less> | <Greater> | <LessEqual> | <GreaterEqual>) shiftExpression()
     )*
 )
-```
+```{% endraw %}
 
 다음, 아홉 번째 새로운 충돌을 살펴보겠습니다.
 
@@ -1161,19 +1159,19 @@ conflict_lines_new_9
 
 ## ChatGPT 응답:
 > 아홉 번째 새로운 충돌은 줄 655와 656에서 발생하며, 이 두 줄은 다음과 같이 구성되어 있습니다:
-- `conditionalExpression()`
-- `logicalOrExpression() assignmentOperator() initializerClause()`
+- {% raw %}`conditionalExpression()`{% endraw %}
+- {% raw %}`logicalOrExpression() assignmentOperator() initializerClause()`{% endraw %}
 
-이 충돌은 두 확장이 공통 접두사 `<IntegerLiteral> <IntegerLiteral>`를 가지고 있기 때문에 발생합니다.
+이 충돌은 두 확장이 공통 접두사 {% raw %}`<IntegerLiteral> <IntegerLiteral>`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 conditionalExpression()
 |
 logicalOrExpression() assignmentOperator() initializerClause()
-```
+```{% endraw %}
 
 다음, 열 번째 새로운 충돌을 살펴보겠습니다.
 
@@ -1186,19 +1184,19 @@ conflict_lines_new_10
 
 ## ChatGPT 응답:
 > 열 번째 새로운 충돌은 줄 692와 693에서 발생하며, 이 두 줄은 다음과 같이 구성되어 있습니다:
-- `labeledStatement()`
-- `declarationStatement()`
+- {% raw %}`labeledStatement()`{% endraw %}
+- {% raw %}`declarationStatement()`{% endraw %}
 
-이 충돌은 두 확장이 공통 접두사 `"[" "["`를 가지고 있기 때문에 발생합니다.
+이 충돌은 두 확장이 공통 접두사 {% raw %}`"[" "["`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 labeledStatement()
 |
 declarationStatement()
-```
+```{% endraw %}
 
 열한 번째 새로운 충돌을 살펴보겠습니다.
 
@@ -1211,19 +1209,19 @@ conflict_lines_new_11
 
 ## ChatGPT 응답:
 > 열한 번째 새로운 충돌은 줄 693와 694에서 발생하며, 이 두 줄은 다음과 같이 구성되어 있습니다:
-- `declarationStatement()`
-- `[ attributeSpecifierSeq() ]`
+- {% raw %}`declarationStatement()`{% endraw %}
+- {% raw %}`[ attributeSpecifierSeq() ]`{% endraw %}
 
-이 충돌은 두 확장이 공통 접두사 `<Identifier> "<"`를 가지고 있기 때문에 발생합니다.
+이 충돌은 두 확장이 공통 접두사 {% raw %}`<Identifier> "<"`{% endraw %}를 가지고 있기 때문에 발생합니다.
 
 해결 방법은 다음과 같이 수정하여 lookahead를 사용하는 것입니다:
 
-```java
+{% raw %}```java
 LOOKAHEAD(3)
 declarationStatement()
 |
 [ attributeSpecifierSeq() ]
-```
+```{% endraw %}
 
 열두 번째 새로운 충돌을 살
 

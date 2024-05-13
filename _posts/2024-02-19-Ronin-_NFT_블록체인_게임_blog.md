@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Ronin: NFT 블록체인 게임"
-date: 2024-02-19
-tags: [NFT, Ronin, 게임, 체인, 블록]
-categories: blog
+title: "Ronin - NFT 블록체인 게임"
+tags: [블록, Ronin, NFT, 체인, 게임]
 ---
 
 ## 사용자 입력:

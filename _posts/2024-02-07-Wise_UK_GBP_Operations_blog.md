@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Wise UK GBP Operations"
-date: 2024-02-07
-tags: [Wise, GBP, UK, Operations]
-categories: blog
+tags: [GBP, UK, Wise, Operations]
 ---
 
 ## 사용자 입력:

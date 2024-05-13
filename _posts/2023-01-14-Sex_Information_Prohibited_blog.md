@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Sex Information Prohibited"
-date: 2023-01-14
-tags: [Information, Sex, Prohibited]
-categories: blog
+tags: [Prohibited, Information, Sex]
 ---
 
 ## 사용자 입력:
@@ -247,15 +245,15 @@ XML 파서를 만들기 위해서는 XML 구문을 Pyparsing을 이용해 표현
 > XML 파서를 만들기 위해서는 Pyparsing을 이용해서 XML 구문을 표현하는 것이 필요합니다. 이를 위해서는 XML의 구조와 규칙, 태그, 속성, 값 등을 표현하는 규칙을 작성해야합니다. 그리고 이를 파싱 규칙으로 사용하여 XML 파서를 만들 수 있습니다.
 
 예를들어, 태그를 표현하는 규칙을 작성할 수 있습니다. 
-```python 
+{% raw %}```python 
 from pyparsing import *
 tag = Word(alphas) + "<" + Word(alphas) + ">" + restOfLine + "<" + "/" + Word(alphas) + ">"
-```
+```{% endraw %}
 
 또한, 속성과 값을 표현하는 규칙도 작성 가능 합니다.
-```python 
+{% raw %}```python 
 attr = Word(alphas) + "=" + QuotedString('"')
-```
+```{% endraw %}
 
 이렇게 작성된 규칙들을 조합하여 XML 파서를 만들 수 있습니다. 
 

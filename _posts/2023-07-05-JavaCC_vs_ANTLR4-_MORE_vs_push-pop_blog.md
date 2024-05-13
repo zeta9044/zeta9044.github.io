@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "JavaCC vs ANTLR4: MORE vs push/pop"
-date: 2023-07-05
-tags: [JavaCC, MORE, push, pop, vs]
-categories: blog
+title: "JavaCC vs ANTLR4 - MORE vs push/pop"
+tags: [push, JavaCC, vs, MORE, pop]
 ---
 
 ## 사용자 입력:
@@ -39,22 +37,22 @@ JavaCC의 "MORE"는 lexer가 토큰을 만드는 과정에서 이전에 인식�
 이를 구현하기 위한 간단한 단계는 다음과 같습니다:
 
 1. 먼저, 각각의 상태(또는 "mode")를 나타내는 lexical states를 정의합니다. 이를 통해 lexer가 다른 규칙을 적용할 수 있도록 합니다.
-   ```java
+   {% raw %}```java
    <DEFAULT, STATE1, STATE2>
-   ```
+   ```{% endraw %}
 
 2. 그 다음, 이러한 각 상태에 대해 토큰화 규칙을 정의합니다. ANTLR4에서 각 mode에 대한 lexer 규칙을 정의하는 것과 비슷합니다.
-   ```java
+   {% raw %}```java
    <DEFAULT> TOKEN : { <T1: ... > }
    <STATE1> TOKEN : { <T2: ... > }
    <STATE2> TOKEN : { <T3: ... > }
-   ```
+   ```{% endraw %}
 
 3. 마지막으로, lexer가 상태를 전환할 수 있도록 토큰화 규칙을 수정합니다. 이는 ANTLR4의 "pushMode"와 "popMode" 호출에 해당합니다.
-   ```java
+   {% raw %}```java
    <DEFAULT> TOKEN : { <T4: ... > : STATE1 }
    <STATE1> TOKEN : { <T5: ... > : DEFAULT }
-   ```
+   ```{% endraw %}
 
-이렇게 하면, lexer는 `DEFAULT` 상태에서 `STATE1`로 전환하고, 다시 `DEFAULT`로 돌아올 수 있습니다. 이것이 ANTLR4의 "pushMode"와 "popMode"에 해당하는 기능을 JavaCC에서 어떻게 구현하는지에 대한 간략한 설명입니다. JavaCC 문서에서 "lexical states"에 대한 더 자세한 정보를 찾을 수 있습니다.
+이렇게 하면, lexer는 {% raw %}`DEFAULT`{% endraw %} 상태에서 {% raw %}`STATE1`{% endraw %}로 전환하고, 다시 {% raw %}`DEFAULT`{% endraw %}로 돌아올 수 있습니다. 이것이 ANTLR4의 "pushMode"와 "popMode"에 해당하는 기능을 JavaCC에서 어떻게 구현하는지에 대한 간략한 설명입니다. JavaCC 문서에서 "lexical states"에 대한 더 자세한 정보를 찾을 수 있습니다.
 

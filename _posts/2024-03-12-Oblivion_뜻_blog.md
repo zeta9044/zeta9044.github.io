@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Oblivion 뜻"
-date: 2024-03-12
 tags: [Oblivion, 뜻]
-categories: blog
 ---
 
 ## 사용자 입력:

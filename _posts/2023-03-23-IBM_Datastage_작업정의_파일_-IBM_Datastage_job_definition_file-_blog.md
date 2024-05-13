@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "IBM Datastage 작업정의 파일 (IBM Datastage job definition file)"
-date: 2023-03-23
-tags: [job, definition, file, IBM, Datastage, 정의, 파일, 작업]
-categories: blog
+tags: [정의, file, definition, Datastage, 작업, 파일, job, IBM]
 ---
 
 ## 사용자 입력:

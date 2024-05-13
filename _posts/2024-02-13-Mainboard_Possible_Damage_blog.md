@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Mainboard Possible Damage"
-date: 2024-02-13
-tags: [Possible, Damage, Mainboard]
-categories: blog
+tags: [Mainboard, Damage, Possible]
 ---
 
 ## 사용자 입력:
@@ -14,7 +12,7 @@ categories: blog
 
 1. **열 문제**: 오래된 컴퓨터는 먼지가 쌓여 내부 온도가 올라갈 수 있습니다. 컴퓨터 내부를 청소하고, 특히 CPU와 GPU 주변의 먼지를 제거해 보세요. 또한, 쿨링 팬이 제대로 작동하는지 확인해 보세요.
 
-2. **하드 드라이브 문제**: 오래된 하드 드라이브는 손상되거나 오류가 발생할 수 있습니다. 디스크 검사 도구를 사용하여 하드 드라이브를 검사해 보세요. Windows에는 `chkdsk` 같은 내장 도구가 있습니다.
+2. **하드 드라이브 문제**: 오래된 하드 드라이브는 손상되거나 오류가 발생할 수 있습니다. 디스크 검사 도구를 사용하여 하드 드라이브를 검사해 보세요. Windows에는 {% raw %}`chkdsk`{% endraw %} 같은 내장 도구가 있습니다.
 
 3. **메모리(RAM) 문제**: 불안정한 RAM은 시스템이 멈추게 할 수 있습니다. 메모리 진단 도구를 사용하여 RAM을 검사해 보세요. Windows 메모리 진단 도구나 MemTest86 같은 프로그램을 사용할 수 있습니다.
 

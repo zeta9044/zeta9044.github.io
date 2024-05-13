@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Powermart XML 파일 설명 (Powermart XML file explanation)"
-date: 2023-03-22
-tags: [explanation, file, 파일, XML, 설명, Powermart]
-categories: blog
+tags: [XML, 설명, file, explanation, Powermart, 파일]
 ---
 
 ## 사용자 입력:

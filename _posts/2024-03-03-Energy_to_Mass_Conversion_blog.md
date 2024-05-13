@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Energy to Mass Conversion"
-date: 2024-03-03
-tags: [Energy, Mass, Conversion, to]
-categories: blog
+tags: [Conversion, Energy, Mass, to]
 ---
 
 ## 사용자 입력:

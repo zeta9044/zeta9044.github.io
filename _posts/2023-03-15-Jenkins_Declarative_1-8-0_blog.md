@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Jenkins Declarative 1.8.0"
-date: 2023-03-15
 tags: [Jenkins, Declarative]
-categories: blog
 ---
 
 ## 사용자 입력:

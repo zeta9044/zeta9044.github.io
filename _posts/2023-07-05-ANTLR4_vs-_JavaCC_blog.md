@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 vs. JavaCC"
-date: 2023-07-05
-tags: [JavaCC, vs]
-categories: blog
+tags: [vs, JavaCC]
 ---
 
 ## 사용자 입력:

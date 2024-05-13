@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Calculate Calendar Event Duration"
-date: 2024-02-27
-tags: [Event, Duration, Calculate, Calendar]
-categories: blog
+tags: [Calendar, Duration, Calculate, Event]
 ---
 
 ## 사용자 입력:

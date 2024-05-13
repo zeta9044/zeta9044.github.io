@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Tomcat Start Error."
-date: 2023-04-27
 tags: [Tomcat, Error, Start]
-categories: blog
 ---
 
 ## 사용자 입력:

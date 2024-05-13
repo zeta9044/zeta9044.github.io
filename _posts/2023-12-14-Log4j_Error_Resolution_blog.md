@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Log4j Error Resolution"
-date: 2023-12-14
 tags: [Resolution, Error]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -11,11 +9,11 @@ categories: blog
 
 
 ## ChatGPT 응답:
-> The error `java.lang.NoClassDefFoundError: org/apache/logging/log4j/LogManager` typically occurs in a Java application when the class `LogManager` from the Apache Log4j logging library is not found at runtime. This can happen due to several reasons:
+> The error {% raw %}`java.lang.NoClassDefFoundError: org/apache/logging/log4j/LogManager`{% endraw %} typically occurs in a Java application when the class {% raw %}`LogManager`{% endraw %} from the Apache Log4j logging library is not found at runtime. This can happen due to several reasons:
 
 1. **Missing Dependency**: The most common reason is that the Log4j library is not included in your application's classpath. Ensure that the Log4j jar file is correctly added to your project's build path.
 
-2. **Incorrect Version**: If you're using a build tool like Maven or Gradle, make sure you have specified the correct version of Log4j in your `pom.xml` or `build.gradle` file.
+2. **Incorrect Version**: If you're using a build tool like Maven or Gradle, make sure you have specified the correct version of Log4j in your {% raw %}`pom.xml`{% endraw %} or {% raw %}`build.gradle`{% endraw %} file.
 
 3. **Classpath Issues**: In some cases, classpath issues in your development environment or deployment setup might lead to this error. Double-check your classpath settings.
 
@@ -25,17 +23,17 @@ categories: blog
 
 To resolve the issue, you can follow these steps:
 
-1. **Add Dependency**: If you're using Maven, add this dependency to your `pom.xml`:
+1. **Add Dependency**: If you're using Maven, add this dependency to your {% raw %}`pom.xml`{% endraw %}:
 
-   ```xml
+   {% raw %}```xml
    <dependency>
        <groupId>org.apache.logging.log4j</groupId>
        <artifactId>log4j-core</artifactId>
        <version>2.x.x</version>
    </dependency>
-   ```
+   ```{% endraw %}
 
-   Replace `2.x.x` with the latest version of Log4j 2.
+   Replace {% raw %}`2.x.x`{% endraw %} with the latest version of Log4j 2.
 
    If you're not using a build tool, manually download the Log4j jar file and add it to your project's classpath.
 
@@ -57,17 +55,17 @@ classpath = os.path.join(current_dir, 'java-lib', 'log4j-core-2.18.0.jar')
 ## ChatGPT 응답:
 > When setting up the classpath for your Java application, especially when dealing with libraries like Log4j, the order in which you include the JAR files can be important. Generally, you want to ensure that dependencies are correctly prioritized and that there are no conflicts.
 
-In your case, you're setting up the classpath for three Log4j JAR files: `log4j-api`, `log4j-slf4j-impl`, and `log4j-core`. Here's the recommended order:
+In your case, you're setting up the classpath for three Log4j JAR files: {% raw %}`log4j-api`{% endraw %}, {% raw %}`log4j-slf4j-impl`{% endraw %}, and {% raw %}`log4j-core`{% endraw %}. Here's the recommended order:
 
-1. **Log4j API (`log4j-api-2.18.0.jar`):** This should come first as it provides the basic API that the other modules depend on.
+1. **Log4j API ({% raw %}`log4j-api-2.18.0.jar`{% endraw %}):** This should come first as it provides the basic API that the other modules depend on.
 
-2. **Log4j Core (`log4j-core-2.18.0.jar`):** This is the implementation of the Log4j API and should follow it. 
+2. **Log4j Core ({% raw %}`log4j-core-2.18.0.jar`{% endraw %}):** This is the implementation of the Log4j API and should follow it. 
 
-3. **Log4j SLF4J Binding (`log4j-slf4j-impl-2.18.0.jar`):** This is an adapter that allows SLF4J-based applications to use Log4j 2 as the implementation. It should come after the core Log4j libraries.
+3. **Log4j SLF4J Binding ({% raw %}`log4j-slf4j-impl-2.18.0.jar`{% endraw %}):** This is an adapter that allows SLF4J-based applications to use Log4j 2 as the implementation. It should come after the core Log4j libraries.
 
-However, in your current setup, each time you set `classpath`, you're overwriting the previous value. You need to concatenate them instead. In Python, you can do this by using the `os.pathsep` constant, which is the path separator character used on your operating system (`:` on Unix and `;` on Windows). Here's how you can do it:
+However, in your current setup, each time you set {% raw %}`classpath`{% endraw %}, you're overwriting the previous value. You need to concatenate them instead. In Python, you can do this by using the {% raw %}`os.pathsep`{% endraw %} constant, which is the path separator character used on your operating system ({% raw %}`:`{% endraw %} on Unix and {% raw %}`;`{% endraw %} on Windows). Here's how you can do it:
 
-```python
+{% raw %}```python
 import os
 
 current_dir = "/your/directory/path"  # Replace with the directory where your JARs are located
@@ -76,7 +74,7 @@ classpath = os.pathsep.join([
     os.path.join(current_dir, 'java-lib', 'log4j-core-2.18.0.jar'),
     os.path.join(current_dir, 'java-lib', 'log4j-slf4j-impl-2.18.0.jar')
 ])
-```
+```{% endraw %}
 
 This way, you combine all three JAR file paths into a single classpath string, with each path correctly separated by the system-specific path separator. This string can then be used to set the classpath for your Java application.
 

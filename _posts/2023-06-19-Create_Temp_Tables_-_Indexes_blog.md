@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Create Temp Tables & Indexes"
-date: 2023-06-19
-tags: [Indexes, Temp, Tables, Create]
-categories: blog
+tags: [Tables, Temp, Indexes, Create]
 ---
 
 ## 사용자 입력:
@@ -144,7 +142,7 @@ $$ LANGUAGE plpgsql
 ## ChatGPT 응답:
 > Certainly! Here's a Java program that can execute the multi-query statements individually:
 
-```java
+{% raw %}```java
 import java.sql.*;
 
 public class MultiQueryExecution {
@@ -307,11 +305,11 @@ public class MultiQueryExecution {
         }
     }
 }
-```
+```{% endraw %}
 
-Make sure to replace `"jdbc:postgresql://localhost:5432/your_database"`, `"your_username"`, and `"your_password"` with your actual database connection details. Additionally, ensure that you have the PostgreSQL JDBC driver added to your project's dependencies.
+Make sure to replace {% raw %}`"jdbc:postgresql://localhost:5432/your_database"`{% endraw %}, {% raw %}`"your_username"`{% endraw %}, and {% raw %}`"your_password"`{% endraw %} with your actual database connection details. Additionally, ensure that you have the PostgreSQL JDBC driver added to your project's dependencies.
 
-This Java program executes each query individually using the `Statement.execute()` method. You can run the program to execute the multi-query statements as separate queries.
+This Java program executes each query individually using the {% raw %}`Statement.execute()`{% endraw %} method. You can run the program to execute the multi-query statements as separate queries.
 
 ## 사용자 입력:
 > 위 프로그램은 네가 나눠서 실행하는 프로그램 만든 거잖아. 내가 원하는 건, 네가 멀티쿼리를 나눠서 실행하는 방식을 프로그램해달란 거야.
@@ -319,7 +317,7 @@ This Java program executes each query individually using the `Statement.execute(
 ## ChatGPT 응답:
 > I apologize for the confusion. To execute the multi-query statements as separate queries, you can modify the Java program as follows:
 
-```java
+{% raw %}```java
 import java.sql.*;
 
 public class MultiQueryExecution {
@@ -471,7 +469,7 @@ public class MultiQueryExecution {
         }
     }
 }
-```
+```{% endraw %}
 
 In this modified program, the multi-query statement is split into individual queries using the semicolon as a delimiter. Each query is then executed separately using a loop. This approach allows executing the multi-query statements as separate queries.
 
@@ -479,9 +477,9 @@ In this modified program, the multi-query statement is split into individual que
 > 위에서 하는 방식대로 하면, function생성이 제대로 안되잖아.
 
 ## ChatGPT 응답:
-> I apologize for the oversight. When executing multi-query statements with function creation, you need to use the `Statement.execute()` method instead of `Statement.execute()` to ensure that the entire function definition is executed as a single query. Here's the modified Java program to address the issue:
+> I apologize for the oversight. When executing multi-query statements with function creation, you need to use the {% raw %}`Statement.execute()`{% endraw %} method instead of {% raw %}`Statement.execute()`{% endraw %} to ensure that the entire function definition is executed as a single query. Here's the modified Java program to address the issue:
 
-```java
+{% raw %}```java
 import java.sql.*;
 
 public class MultiQueryExecution {
@@ -652,7 +650,7 @@ public class MultiQueryExecution {
         }
     }
 }
-```
+```{% endraw %}
 
 In this modified program, the multi-query statement is split into individual queries using a regex pattern that excludes semicolons preceded by a backslash. This ensures that semicolons within the function definition are not treated as query separators. Each query is then executed separately using a loop.
 

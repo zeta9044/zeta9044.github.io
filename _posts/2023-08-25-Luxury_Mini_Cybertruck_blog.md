@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Luxury Mini Cybertruck"
-date: 2023-08-25
-tags: [Luxury, Mini, Cybertruck]
-categories: blog
+tags: [Luxury, Cybertruck, Mini]
 ---
 
 ## 사용자 입력:

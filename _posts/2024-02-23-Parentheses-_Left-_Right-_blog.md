@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Parentheses: Left, Right."
-date: 2024-02-23
-tags: [Left, Parentheses, Right]
-categories: blog
+title: "Parentheses - Left, Right."
+tags: [Right, Parentheses, Left]
 ---
 
 ## 사용자 입력:

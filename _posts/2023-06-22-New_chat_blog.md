@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "New chat"
-date: 2023-06-22
-tags: [chat, New]
-categories: blog
+tags: [New, chat]
 ---
 
 ## 사용자 입력:
@@ -18,17 +16,17 @@ categories: blog
 
 3. LOB 업데이트: 문자열을 CLOB 변수로 처리하고 업데이트 문을 사용하여 VARCHAR2 컬럼에 할당하는 방식입니다. 이 방법은 자바에서 문자열을 처리하는 과정에서 CLOB과 VARCHAR2 간의 변환 작업이 필요하며, 성능에 영향을 미칠 수 있습니다.
 
-어떤 방식을 선택할지는 데이터의 특성과 성능 요구 사항에 따라 달라질 수 있습니다. 자바에서는 문자열을 처리하기 위해 `java.sql.CLOB` 데이터 유형을 사용하여 CLOB 컬럼에 데이터를 저장하거나, 위에서 설명한 방법 중 하나를 선택하여 VARCHAR2 컬럼에 저장할 수 있습니다.
+어떤 방식을 선택할지는 데이터의 특성과 성능 요구 사항에 따라 달라질 수 있습니다. 자바에서는 문자열을 처리하기 위해 {% raw %}`java.sql.CLOB`{% endraw %} 데이터 유형을 사용하여 CLOB 컬럼에 데이터를 저장하거나, 위에서 설명한 방법 중 하나를 선택하여 VARCHAR2 컬럼에 저장할 수 있습니다.
 
 ## 사용자 입력:
 > 내가 원하는 건 문자열을 어떤 방식으로 다이제스트할지 물어보는 거야
 
 ## ChatGPT 응답:
-> 죄송합니다, 오해가 있었네요. 문자열을 다이제스트화하는 방식은 다양하게 있습니다. 일반적으로 문자열을 다이제스트화하기 위해 해시 함수를 사용합니다. 자바에서 문자열을 다이제스트하는 방법 중 가장 일반적인 방법은 `java.security.MessageDigest` 클래스를 사용하는 것입니다.
+> 죄송합니다, 오해가 있었네요. 문자열을 다이제스트화하는 방식은 다양하게 있습니다. 일반적으로 문자열을 다이제스트화하기 위해 해시 함수를 사용합니다. 자바에서 문자열을 다이제스트하는 방법 중 가장 일반적인 방법은 {% raw %}`java.security.MessageDigest`{% endraw %} 클래스를 사용하는 것입니다.
 
 다음은 문자열을 다이제스트화하는 간단한 예제입니다:
 
-```java
+{% raw %}```java
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -57,9 +55,9 @@ public class StringDigestExample {
         return hexString.toString();
     }
 }
-```
+```{% endraw %}
 
-위 예제는 `input` 문자열을 SHA-256 알고리즘을 사용하여 다이제스트화합니다. `MessageDigest` 클래스를 사용하여 해당 알고리즘을 선택하고 `digest()` 메서드를 호출하여 다이제스트를 계산합니다. 그 후 `bytesToHexString()` 메서드를 사용하여 바이트 배열을 16진수 문자열로 변환합니다.
+위 예제는 {% raw %}`input`{% endraw %} 문자열을 SHA-256 알고리즘을 사용하여 다이제스트화합니다. {% raw %}`MessageDigest`{% endraw %} 클래스를 사용하여 해당 알고리즘을 선택하고 {% raw %}`digest()`{% endraw %} 메서드를 호출하여 다이제스트를 계산합니다. 그 후 {% raw %}`bytesToHexString()`{% endraw %} 메서드를 사용하여 바이트 배열을 16진수 문자열로 변환합니다.
 
 다이제스트 알고리즘은 SHA-256 외에도 MD5, SHA-1, SHA-512 등 다양한 알고리즘을 선택할 수 있습니다. 애플리케이션의 보안 요구 사항과 성능을 고려하여 적절한 알고리즘을 선택하시면 됩니다.
 
@@ -67,11 +65,11 @@ public class StringDigestExample {
 > 보안때문에 다이제스트할려는게 아니라 긴 문자열을 줄이고 싶어서 그래
 
 ## ChatGPT 응답:
-> 긴 문자열을 줄이는 방법으로는 다양한 데이터 압축 기법을 사용할 수 있습니다. 자바에서는 `java.util.zip` 패키지를 사용하여 데이터를 압축하고 해제할 수 있습니다.
+> 긴 문자열을 줄이는 방법으로는 다양한 데이터 압축 기법을 사용할 수 있습니다. 자바에서는 {% raw %}`java.util.zip`{% endraw %} 패키지를 사용하여 데이터를 압축하고 해제할 수 있습니다.
 
 다음은 문자열을 압축하고 해제하는 간단한 예제입니다:
 
-```java
+{% raw %}```java
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -116,9 +114,9 @@ public class StringCompressionExample {
         return outputStream.toString();
     }
 }
-```
+```{% endraw %}
 
-위 예제에서 `compressString()` 메서드는 입력 문자열을 압축하여 `byte[]` 형태로 반환합니다. `decompressData()` 메서드는 압축된 데이터를 해제하여 원래 문자열로 변환합니다.
+위 예제에서 {% raw %}`compressString()`{% endraw %} 메서드는 입력 문자열을 압축하여 {% raw %}`byte[]`{% endraw %} 형태로 반환합니다. {% raw %}`decompressData()`{% endraw %} 메서드는 압축된 데이터를 해제하여 원래 문자열로 변환합니다.
 
 이 방법은 문자열을 압축하여 저장하고 필요한 경우 해제하여 사용할 수 있습니다. 그러나 주의해야 할 점은 모든 문자열이 압축 후에도 줄어들지 않을 수 있으며, 압축 및 해제 작업에는 일정한 오버헤드가 발생할 수 있다는 점입니다. 따라서 데이터 압축을 사용하기 전에 애플리케이션의 요구 사항과 성능 특성을 고려해야 합니다.
 
@@ -148,7 +146,7 @@ QR 코드를 생성하기 위해 다양한 라이브러리와 도구가 있습�
 
 다음은 자바에서 Zxing 라이브러리를 사용하여 바이너리 파일을 QR 코드로 만드는 간단한 예제입니다:
 
-```java
+{% raw %}```java
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
@@ -186,11 +184,11 @@ public class QRCodeGeneratorExample {
         }
     }
 }
-```
+```{% endraw %}
 
-위 예제에서는 Zxing 라이브러리를 사용하여 QR 코드를 생성합니다. `QRCodeWriter` 클래스를 사용하여 바이너리 데이터를 QR 코드로 인코딩합니다. 그런 다음 `MatrixToImageWriter` 클래스를 사용하여 `BitMatrix`를 PNG 파일로 저장합니다.
+위 예제에서는 Zxing 라이브러리를 사용하여 QR 코드를 생성합니다. {% raw %}`QRCodeWriter`{% endraw %} 클래스를 사용하여 바이너리 데이터를 QR 코드로 인코딩합니다. 그런 다음 {% raw %}`MatrixToImageWriter`{% endraw %} 클래스를 사용하여 {% raw %}`BitMatrix`{% endraw %}를 PNG 파일로 저장합니다.
 
-실행 시, `filePath` 변수에 지정한 경로에 QR 코드 이미지 파일이 생성됩니다. QR 코드를 스캔하면 해당 바이너리 데이터를 복구할 수 있습니다.
+실행 시, {% raw %}`filePath`{% endraw %} 변수에 지정한 경로에 QR 코드 이미지 파일이 생성됩니다. QR 코드를 스캔하면 해당 바이너리 데이터를 복구할 수 있습니다.
 
 위 예제는 PNG 형식의 QR 코드 이미지를 생성하는 방법을 보여주었지만, 다른 이미지 형식으로 저장하거나 출력하는 방식을 선택할 수도 있습니다.
 
@@ -233,9 +231,9 @@ public class QRCodeGeneratorExample {
 ## ChatGPT 응답:
 > 물론입니다. 다음은 "위에 네가 적은 텍스트를 Base64로 인코딩한 문자열"입니다:
 
-```
+{% raw %}```
 7ZWY7J207J207ZmUIOyEsOyEsOyE=
-```
+```{% endraw %}
 
 위의 문자열은 "위에 네가 적은 텍스트를 Base64로 인코딩한 문자열"을 Base64 인코딩하여 얻은 결과입니다. 이 문자열을 QR 코드로 변환하면 긴 원래 문자열을 대신할 수 있습니다.
 
@@ -245,7 +243,7 @@ public class QRCodeGeneratorExample {
 ## ChatGPT 응답:
 > Base64로 인코딩된 문자열을 다시 원래의 문자열로 복원하기 위해서는 Base64 디코딩을 사용해야 합니다. 대부분의 프로그래밍 언어에는 Base64 디코딩을 수행하는 내장 함수 또는 라이브러리가 제공됩니다. 아래는 Java에서 Base64 디코딩을 수행하는 예제입니다:
 
-```java
+{% raw %}```java
 import java.util.Base64;
 
 public class Base64DecoderExample {
@@ -258,9 +256,9 @@ public class Base64DecoderExample {
         System.out.println("복원된 문자열: " + decodedString);
     }
 }
-```
+```{% endraw %}
 
-위의 예제에서는 Base64로 인코딩된 문자열인 `base64EncodedString`을 디코딩하여 원래의 문자열을 복원합니다. `Base64.getDecoder().decode()` 메서드를 사용하여 디코딩된 바이트 배열을 얻은 후, `new String()`을 사용하여 원본 문자열로 변환합니다.
+위의 예제에서는 Base64로 인코딩된 문자열인 {% raw %}`base64EncodedString`{% endraw %}을 디코딩하여 원래의 문자열을 복원합니다. {% raw %}`Base64.getDecoder().decode()`{% endraw %} 메서드를 사용하여 디코딩된 바이트 배열을 얻은 후, {% raw %}`new String()`{% endraw %}을 사용하여 원본 문자열로 변환합니다.
 
 실행 시, "복원된 문자열: 위에 네가 적은 텍스트를 Base64로 인코딩한 문자열"이 출력됩니다.
 

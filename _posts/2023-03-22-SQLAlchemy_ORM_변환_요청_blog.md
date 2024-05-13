@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "SQLAlchemy ORM 변환 요청"
-date: 2023-03-22
-tags: [SQLAlchemy, 변환, 요청, ORM]
-categories: blog
+tags: [SQLAlchemy, ORM, 요청, 변환]
 ---
 
 ## 사용자 입력:
@@ -12,7 +10,7 @@ categories: blog
 ## ChatGPT 응답:
 > 아래는 주어진 코드를 SQLAlchemy ORM을 사용하여 함수형 프로그래밍으로 변환한 예시입니다. 코드를 실행하기 위해서는 SQLAlchemy 패키지가 설치되어 있어야 합니다.
 
-```python
+{% raw %}```python
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -45,11 +43,11 @@ def db_to_xml(filename):
     xml += '</students>\n'
 
     return xml
-```
+```{% endraw %}
 
-위 코드에서 주요한 변경점은 함수형 프로그래밍 방식으로 코드를 구성하고, `session` 객체 대신 SQLAlchemy의 `with_session` 컨텍스트 매니저를 사용하여 데이터베이스 세션을 관리하는 것입니다. 또한, 함수 인자로 데이터베이스 연결 정보를 전달하도록 변경하였습니다.
+위 코드에서 주요한 변경점은 함수형 프로그래밍 방식으로 코드를 구성하고, {% raw %}`session`{% endraw %} 객체 대신 SQLAlchemy의 {% raw %}`with_session`{% endraw %} 컨텍스트 매니저를 사용하여 데이터베이스 세션을 관리하는 것입니다. 또한, 함수 인자로 데이터베이스 연결 정보를 전달하도록 변경하였습니다.
 
-```python
+{% raw %}```python
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import with_session
 from sqlalchemy.ext.declarative import declarative_base
@@ -84,17 +82,17 @@ def db_to_xml(filename):
         return xml
 
     return query_students()
-```
+```{% endraw %}
 
-변환된 코드에서는 `query_students` 함수가 `with_session` 데코레이터로 래핑되어 있으며, 이 함수는 데이터베이스 연결 정보를 받지 않고 `session` 객체를 인자로 받습니다. `with_session` 데코레이터는 이 함수 내에서 데이터베이스 세션을 자동으로 생성하고, `
+변환된 코드에서는 {% raw %}`query_students`{% endraw %} 함수가 {% raw %}`with_session`{% endraw %} 데코레이터로 래핑되어 있으며, 이 함수는 데이터베이스 연결 정보를 받지 않고 {% raw %}`session`{% endraw %} 객체를 인자로 받습니다. {% raw %}`with_session`{% endraw %} 데코레이터는 이 함수 내에서 데이터베이스 세션을 자동으로 생성하고, {% raw %}`
 
 ## 사용자 입력:
 > 계속
 
 ## ChatGPT 응답:
-> 함수 내에서 `session` 객체를 사용할 수 있도록 합니다. 이렇게 함으로써, 데이터베이스 연결 정보와 데이터베이스 세션을 관리하는 부분을 함수 내부에서 처리하므로, 코드의 가독성과 유지보수성이 높아집니다.
+> 함수 내에서 `{% endraw %}session{% raw %}` 객체를 사용할 수 있도록 합니다. 이렇게 함으로써, 데이터베이스 연결 정보와 데이터베이스 세션을 관리하는 부분을 함수 내부에서 처리하므로, 코드의 가독성과 유지보수성이 높아집니다.
 
-마지막으로, `query_students` 함수를 호출하여 XML 문자열을 반환합니다. 이 함수는 `with_session` 데코레이터로 래핑되어 있으므로, 함수 내에서 데이터베이스 세션을 관리하며, 반환값으로 XML 문자열을 생성합니다. `with_session` 데코레이터는 함수 호출 전에 데이터베이스 세션을 생성하고, 함수 종료 후에 세션을 종료합니다.
+마지막으로, `{% endraw %}query_students{% raw %}` 함수를 호출하여 XML 문자열을 반환합니다. 이 함수는 `{% endraw %}with_session{% raw %}` 데코레이터로 래핑되어 있으므로, 함수 내에서 데이터베이스 세션을 관리하며, 반환값으로 XML 문자열을 생성합니다. `{% endraw %}with_session{% raw %}` 데코레이터는 함수 호출 전에 데이터베이스 세션을 생성하고, 함수 종료 후에 세션을 종료합니다.
 
 위와 같이 함수형 프로그래밍으로 코드를 구성하면, 코드의 가독성과 유지보수성이 높아지며, 데이터베이스 세션을 자동으로 관리하기 때문에 코드에서 발생할 수 있는 오류가 줄어들게 됩니다.
 
@@ -102,9 +100,9 @@ def db_to_xml(filename):
 > https://github.com/zeta9044/python-edu/blob/main/db2xml.py 이 코드를 sqlalchemy의 orm을 프로그램으로 전체 변환해줘.
 
 ## ChatGPT 응답:
-> 아래는 `db2xml.py` 코드를 SQLAlchemy ORM을 사용하도록 변환한 코드입니다. 이 코드는 MySQL 데이터베이스에서 데이터를 가져와 XML 파일로 저장합니다.
+> 아래는 `{% endraw %}db2xml.py{% raw %}` 코드를 SQLAlchemy ORM을 사용하도록 변환한 코드입니다. 이 코드는 MySQL 데이터베이스에서 데이터를 가져와 XML 파일로 저장합니다.
 
-```python
+`{% endraw %}{% raw %}``{% endraw %}python
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -175,7 +173,7 @@ if __name__ == '__main__':
     posts = get_posts(session)
     post_xml = generate_post_xml(posts)
     save_xml_file('posts.xml', post_xml)
-```
+{% raw %}```
 
 `create_engine()` 함수의 매개변수로 자신의 MySQL 서버 주소, 사용자 이름, 암호 및 데이터베이스 이름을 입력해야 합니다. `Session` 클래스의 인스턴스를 만들 때 이 엔진을 사용하여 데이터베이스와 연결합니다.
 
@@ -191,19 +189,19 @@ if __name__ == '__main__':
 
 먼저, 코드에서는 다음과 같은 라이브러리를 import 합니다.
 
-```
+```{% endraw %}
 import sqlite3
 import xml.etree.ElementTree as ET
-```
+{% raw %}```
 
 `sqlite3` 라이브러리는 SQLite 데이터베이스에 접근하기 위한 라이브러리입니다. `xml.etree.ElementTree`는 XML 형식으로 데이터를 저장하기 위한 라이브러리입니다.
 
 이후에는 데이터베이스와의 연결을 설정합니다. 코드에서는 다음과 같이 작성되어 있습니다.
 
-```
+```{% endraw %}
 dbfile = './test.db'
 conn = sqlite3.connect(dbfile)
-```
+{% raw %}```
 
 위 코드는 `test.db` 파일에 저장된 SQLite 데이터베이스에 연결하는 코드입니다.
 
@@ -211,17 +209,17 @@ conn = sqlite3.connect(dbfile)
 
 다음으로, 데이터베이스에서 데이터를 추출하기 위한 쿼리를 작성하고 실행합니다. 코드에서는 다음과 같이 작성되어 있습니다.
 
-```
+```{% endraw %}
 cur = conn.cursor()
 cur.execute('SELECT * FROM test')
 rows = cur.fetchall()
-```
+{% raw %}```
 
 위 코드는 `test` 테이블에서 모든 데이터를 추출하는 쿼리를 실행한 후, 결과를 `rows` 변수에 저장합니다.
 
 그리고 데이터를 XML 형식으로 변환하여 파일로 저장합니다. 코드에서는 다음과 같이 작성되어 있습니다.
 
-```
+```{% endraw %}
 root = ET.Element('data')
 for row in rows:
     doc = ET.SubElement(root, 'doc')
@@ -229,7 +227,7 @@ for row in rows:
         ET.SubElement(doc, col[0]).text = str(row[i])
 tree = ET.ElementTree(root)
 tree.write('./test.xml', encoding='utf-8')
-```
+{% raw %}```
 
 위 코드는 XML 파일의 루트 엘리먼트인 `data`를 생성한 후, `rows`에서 추출된 데이터를 `doc` 엘리먼트의 하위 엘리먼트로 추가합니다. 이후, `ElementTree` 객체를 생성하고 `write` 메서드를 이용하여 XML 파일을 저장합니다.
 
@@ -237,9 +235,9 @@ tree.write('./test.xml', encoding='utf-8')
 
 마지막으로, 데이터베이스와의 연결을 종료합니다. 코드에서는 다음과 같이 작성되어 있습니다.
 
-```
+```{% endraw %}
 conn.close()
-```
+{% raw %}``{% endraw %}`
 
 위 코드는 데이터베이스와의 연결을 종료합니다.
 

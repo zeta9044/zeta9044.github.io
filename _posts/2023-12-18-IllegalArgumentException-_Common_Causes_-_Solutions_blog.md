@@ -1,22 +1,20 @@
 ---
 layout: post
-title: "IllegalArgumentException: Common Causes & Solutions"
-date: 2023-12-18
-tags: [Solutions, IllegalArgumentException, Causes, Common]
-categories: blog
+title: "IllegalArgumentException - Common Causes & Solutions"
+tags: [Solutions, Causes, Common, IllegalArgumentException]
 ---
 
 ## 사용자 입력:
 > java.lang.java.lang.IllegalArgumentException
 
 ## ChatGPT 응답:
-> The error message `java.lang.IllegalArgumentException` in Java typically indicates that a method has been passed an illegal or inappropriate argument. This exception is a runtime exception, which means it is unchecked and does not need to be declared in a method's `throws` clause.
+> The error message {% raw %}`java.lang.IllegalArgumentException`{% endraw %} in Java typically indicates that a method has been passed an illegal or inappropriate argument. This exception is a runtime exception, which means it is unchecked and does not need to be declared in a method's {% raw %}`throws`{% endraw %} clause.
 
 Here are some common causes and solutions for this exception:
 
 1. **Invalid Argument Value**: This is the most common cause. Check the values being passed to the method and ensure they are within the expected range or format.
 
-2. **Null Argument**: If a method does not accept `null` values and one is passed, this exception may be thrown. Ensure that all arguments are properly initialized before calling the method.
+2. **Null Argument**: If a method does not accept {% raw %}`null`{% endraw %} values and one is passed, this exception may be thrown. Ensure that all arguments are properly initialized before calling the method.
 
 3. **API Misuse**: Sometimes, the way a method is called may not align with its intended use as per the API documentation. Review the API documentation for the method in question to ensure correct usage.
 

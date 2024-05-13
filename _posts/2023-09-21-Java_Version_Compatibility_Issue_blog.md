@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Java Version Compatibility Issue"
-date: 2023-09-21
-tags: [Issue, Compatibility, Java, Version]
-categories: blog
+tags: [Version, Compatibility, Issue, Java]
 ---
 
 ## 사용자 입력:
@@ -15,11 +13,11 @@ categories: blog
 
 Here's a breakdown of the error:
 
-1. `java.lang.UnsupportedClassVersionError`: This is the type of error. It occurs when the JVM (Java Virtual Machine) tries to load a class file that was compiled with a newer version of the Java compiler than the JVM supports.
+1. {% raw %}`java.lang.UnsupportedClassVersionError`{% endraw %}: This is the type of error. It occurs when the JVM (Java Virtual Machine) tries to load a class file that was compiled with a newer version of the Java compiler than the JVM supports.
  
-2. `com/ids/startup/Bootstrap has been compiled by a more recent version of the Java Runtime (class file version 55.0)`: This tells you that the class `com.ids.startup.Bootstrap` was compiled using Java 11 (class file version 55.0 corresponds to Java 11).
+2. {% raw %}`com/ids/startup/Bootstrap has been compiled by a more recent version of the Java Runtime (class file version 55.0)`{% endraw %}: This tells you that the class {% raw %}`com.ids.startup.Bootstrap`{% endraw %} was compiled using Java 11 (class file version 55.0 corresponds to Java 11).
 
-3. `this version of the Java Runtime only recognizes class file versions up to 52.0`: This tells you that your current Java runtime supports class files up to version 52.0, which corresponds to Java 8.
+3. {% raw %}`this version of the Java Runtime only recognizes class file versions up to 52.0`{% endraw %}: This tells you that your current Java runtime supports class files up to version 52.0, which corresponds to Java 8.
 
 ### Solution:
 
@@ -42,11 +40,11 @@ In most cases, the simplest and most effective solution is to upgrade your Java 
 제시된 오류 메시지는 현재 사용 중인 Java Runtime Environment (JRE) 버전과 프로그램을 실행하려는 데 사용된 Java의 버전이 일치하지 않음을 나타냅니다.
 
 오류 메시지 해석:
-1. `java.lang.UnsupportedClassVersionError`: 이 오류는 JVM (Java Virtual Machine)이 JVM이 지원하는 버전보다 새로운 버전의 Java 컴파일러로 컴파일된 클래스 파일을 로드하려고 할 때 발생합니다.
+1. {% raw %}`java.lang.UnsupportedClassVersionError`{% endraw %}: 이 오류는 JVM (Java Virtual Machine)이 JVM이 지원하는 버전보다 새로운 버전의 Java 컴파일러로 컴파일된 클래스 파일을 로드하려고 할 때 발생합니다.
  
-2. `com/ids/startup/Bootstrap has been compiled by a more recent version of the Java Runtime (class file version 55.0)`: 이 메시지는 `com.ids.startup.Bootstrap` 클래스가 Java 11 (클래스 파일 버전 55.0은 Java 11에 해당)으로 컴파일되었음을 알려줍니다.
+2. {% raw %}`com/ids/startup/Bootstrap has been compiled by a more recent version of the Java Runtime (class file version 55.0)`{% endraw %}: 이 메시지는 {% raw %}`com.ids.startup.Bootstrap`{% endraw %} 클래스가 Java 11 (클래스 파일 버전 55.0은 Java 11에 해당)으로 컴파일되었음을 알려줍니다.
 
-3. `this version of the Java Runtime only recognizes class file versions up to 52.0`: 현재 Java 런타임은 버전 52.0까지의 클래스 파일만 지원한다는 것을 알려줍니다. 버전 52.0은 Java 8에 해당합니다.
+3. {% raw %}`this version of the Java Runtime only recognizes class file versions up to 52.0`{% endraw %}: 현재 Java 런타임은 버전 52.0까지의 클래스 파일만 지원한다는 것을 알려줍니다. 버전 52.0은 Java 8에 해당합니다.
 
 ### 해결 방법:
 

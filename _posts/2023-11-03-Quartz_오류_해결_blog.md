@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Quartz 오류 해결"
-date: 2023-11-03
-tags: [오류, 해결, Quartz]
-categories: blog
+tags: [Quartz, 해결, 오류]
 ---
 
 ## 사용자 입력:
@@ -30,22 +28,22 @@ Caused by: org.postgresql.util.PSQLException: Bad value for type long : \x
 
 오류 메시지를 통해 문제의 원인을 짚어보겠습니다:
 
-1. `ERROR org.quartz.impl.jdbcjobstore.JobStoreTX - MisfireHandler: Error handling misfires`:
+1. {% raw %}`ERROR org.quartz.impl.jdbcjobstore.JobStoreTX - MisfireHandler: Error handling misfires`{% endraw %}:
    이 부분은 잡의 실행에 실패("misfire")한 경우를 처리하는 동안에 문제가 발생했음을 나타냅니다.
 
-2. `Couldn't retrieve trigger: Bad value for type long : \x`:
-   이 메시지는 트리거 정보를 가져오는 과정에서 예상되는 `long` 타입의 값이 잘못되었음을 의미합니다. 여기서 `\x`는 데이터베이스에 잘못된 형식으로 저장된 값일 수 있습니다.
+2. {% raw %}`Couldn't retrieve trigger: Bad value for type long : \x`{% endraw %}:
+   이 메시지는 트리거 정보를 가져오는 과정에서 예상되는 {% raw %}`long`{% endraw %} 타입의 값이 잘못되었음을 의미합니다. 여기서 {% raw %}`\x`{% endraw %}는 데이터베이스에 잘못된 형식으로 저장된 값일 수 있습니다.
 
-3. `org.postgresql.util.PSQLException: Bad value for type long : \x`:
-   이는 PostgreSQL 데이터베이스 드라이버에서 발생한 예외로, `long` 타입으로 변환해야 할 값이 올바르지 않음을 나타냅니다.
+3. {% raw %}`org.postgresql.util.PSQLException: Bad value for type long : \x`{% endraw %}:
+   이는 PostgreSQL 데이터베이스 드라이버에서 발생한 예외로, {% raw %}`long`{% endraw %} 타입으로 변환해야 할 값이 올바르지 않음을 나타냅니다.
 
 문제 해결을 위한 몇 가지 조치 사항:
 
-- **데이터베이스 검사**: 관련 데이터베이스 테이블의 해당 컬럼 값을 확인하여 `\x`와 같은 잘못된 데이터가 없는지 확인해야 합니다.
+- **데이터베이스 검사**: 관련 데이터베이스 테이블의 해당 컬럼 값을 확인하여 {% raw %}`\x`{% endraw %}와 같은 잘못된 데이터가 없는지 확인해야 합니다.
 
-- **데이터 형식 검증**: Quartz가 `long` 타입으로 기대하는 컬럼에 문자열이나 다른 타입의 데이터가 들어가 있지 않은지 확인합니다.
+- **데이터 형식 검증**: Quartz가 {% raw %}`long`{% endraw %} 타입으로 기대하는 컬럼에 문자열이나 다른 타입의 데이터가 들어가 있지 않은지 확인합니다.
 
-- **데이터 형 변환 로직 검토**: 응용 프로그램 코드 내에서 데이터를 `long` 타입으로 변환하는 로직이 올바르게 구현되었는지 검토합니다.
+- **데이터 형 변환 로직 검토**: 응용 프로그램 코드 내에서 데이터를 {% raw %}`long`{% endraw %} 타입으로 변환하는 로직이 올바르게 구현되었는지 검토합니다.
 
 - **트리거 정의 확인**: Quartz 설정에서 트리거를 정의할 때 사용하는 데이터 타입이 올바른지 확인합니다.
 
@@ -65,7 +63,7 @@ Caused by: org.postgresql.util.PSQLException: Bad value for type long : \x
 
 1. **타입 캐스팅 및 변환**: PostgreSQL은 데이터 타입 캐스팅에 엄격하여, 잘못된 형식의 데이터가 있을 경우 즉시 오류를 반환할 수 있습니다. 반면, Oracle은 내부적으로 암묵적 타입 변환을 수행할 수 있어, 비슷한 상황에서 오류를 덜 엄격하게 처리할 수 있습니다.
 
-2. **데이터 형식**: `\x`는 보통 바이너리 데이터를 나타내는데 사용되는 접두사입니다. PostgreSQL에서는 이러한 데이터를 `bytea` 타입으로 처리합니다. Oracle에서는 `RAW`나 `BLOB` 타입으로 유사한 데이터를 처리하지만, 이러한 타입들의 내부 처리 방식이 PostgreSQL의 `bytea`와 다를 수 있습니다.
+2. **데이터 형식**: {% raw %}`\x`{% endraw %}는 보통 바이너리 데이터를 나타내는데 사용되는 접두사입니다. PostgreSQL에서는 이러한 데이터를 {% raw %}`bytea`{% endraw %} 타입으로 처리합니다. Oracle에서는 {% raw %}`RAW`{% endraw %}나 {% raw %}`BLOB`{% endraw %} 타입으로 유사한 데이터를 처리하지만, 이러한 타입들의 내부 처리 방식이 PostgreSQL의 {% raw %}`bytea`{% endraw %}와 다를 수 있습니다.
 
 3. **디폴트 값을 다루는 방식**: Oracle과 PostgreSQL은 테이블에 명시되지 않은 값을 다루는 방식이 다를 수 있습니다. 예를 들어, Oracle은 NULL이나 기본값으로 처리할 수 있는 상황에서 PostgreSQL은 오류를 발생시킬 수 있습니다.
 

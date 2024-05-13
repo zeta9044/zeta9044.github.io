@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "InMotion V8S 배터리 정보"
-date: 2024-01-21
-tags: [배터리, InMotion, 정보]
-categories: blog
+tags: [InMotion, 정보, 배터리]
 ---
 
 ## 사용자 입력:

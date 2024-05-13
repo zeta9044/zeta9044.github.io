@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Nosce Te Ipsum"
-date: 2024-03-08
-tags: [Nosce, Te, Ipsum]
-categories: blog
+tags: [Nosce, Ipsum, Te]
 ---
 
 ## 사용자 입력:

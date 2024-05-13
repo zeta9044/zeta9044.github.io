@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "CCleaner 악성코드 문제"
-date: 2023-03-02
-tags: [악성코드, CCleaner, 문제]
-categories: blog
+tags: [문제, CCleaner, 악성코드]
 ---
 
 ## 사용자 입력:

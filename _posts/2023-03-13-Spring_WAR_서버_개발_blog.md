@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Spring WAR 서버 개발"
-date: 2023-03-13
-tags: [개발, 서버, Spring, WAR]
-categories: blog
+tags: [WAR, 개발, Spring, 서버]
 ---
 
 ## 사용자 입력:

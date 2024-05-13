@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "DataStage Transformer 스테이지"
-date: 2023-04-19
-tags: [스테이지, DataStage, Transformer]
-categories: blog
+tags: [Transformer, DataStage, 스테이지]
 ---
 
 ## 사용자 입력:

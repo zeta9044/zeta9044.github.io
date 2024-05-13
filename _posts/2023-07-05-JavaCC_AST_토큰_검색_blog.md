@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "JavaCC AST 토큰 검색"
-date: 2023-07-05
-tags: [JavaCC, 토큰, 검색, AST]
-categories: blog
+tags: [토큰, 검색, AST, JavaCC]
 ---
 
 ## 사용자 입력:
@@ -16,7 +14,7 @@ AST 노드를 방문하는 방법은 대부분 JavaCC 구문 분석기에 따라
 
 아래는 jjtVisitor 클래스를 확장하여 AST 노드를 방문하고, 해당 노드에서 정의된 모든 토큰을 출력하는 예시 코드입니다:
 
-```java
+{% raw %}```java
 import mypackage.MyParserVisitor;
 import mypackage.SimpleNode;
 
@@ -40,21 +38,21 @@ public class MyVisitor implements MyParserVisitor {
         return null;
     }
 }
-```
+```{% endraw %}
 
-위의 코드에서 `SimpleNode`는 JavaCC 구문 분석기에서 생성된 AST 노드 클래스를 나타냅니다. `visit` 메서드는 각 노드를 방문하고, 해당 노드에서 정의된 토큰에 접근하여 작업을 수행합니다. 또한, `visit` 메서드는 자식 노드를 방문하기 위해 재귀적으로 호출됩니다.
+위의 코드에서 {% raw %}`SimpleNode`{% endraw %}는 JavaCC 구문 분석기에서 생성된 AST 노드 클래스를 나타냅니다. {% raw %}`visit`{% endraw %} 메서드는 각 노드를 방문하고, 해당 노드에서 정의된 토큰에 접근하여 작업을 수행합니다. 또한, {% raw %}`visit`{% endraw %} 메서드는 자식 노드를 방문하기 위해 재귀적으로 호출됩니다.
 
-이제 `MyVisitor` 클래스를 사용하여 구문 노드를 방문하고 토큰을 출력할 수 있습니다. 다음은 예시 사용법입니다:
+이제 {% raw %}`MyVisitor`{% endraw %} 클래스를 사용하여 구문 노드를 방문하고 토큰을 출력할 수 있습니다. 다음은 예시 사용법입니다:
 
-```java
+{% raw %}```java
 MyParser parser = new MyParser(new StringReader("your input string"));
 SimpleNode ast = parser.Start(); // 구문 분석 수행
 
 MyVisitor visitor = new MyVisitor();
 ast.jjtAccept(visitor, null); // 구문 노드 방문
-```
+```{% endraw %}
 
-위의 코드에서 `MyParser`는 JavaCC 구문 분석기에서 생성된 파서 클래스를 나타냅니다. `Start` 메서드를 호출하여 입력 문자열을 구문 분석하고, 생성된 AST를 얻은 후, `MyVisitor`를 사용하여 노드
+위의 코드에서 {% raw %}`MyParser`{% endraw %}는 JavaCC 구문 분석기에서 생성된 파서 클래스를 나타냅니다. {% raw %}`Start`{% endraw %} 메서드를 호출하여 입력 문자열을 구문 분석하고, 생성된 AST를 얻은 후, {% raw %}`MyVisitor`{% endraw %}를 사용하여 노드
 
 ## ChatGPT 응답:
 > 를 방문합니다. 방문 과정에서 토큰 정보가 출력됩니다.
@@ -67,9 +65,9 @@ ast.jjtAccept(visitor, null); // 구문 노드 방문
 ## ChatGPT 응답:
 > 자바CC(JaavCC)에서 AST 노드를 방문하고 해당 노드에서 정의된 모든 토큰과 토큰명을 출력하는 방법을 보여드리겠습니다. 이를 위해 토큰의 심볼명을 사용할 것입니다.
 
-아래 예시 코드에서는 토큰 심볼명을 얻기 위해 JavaCC의 `jjtGetFirstToken().kind`를 사용합니다. `kind`는 토큰의 심볼 식별자입니다. 이 식별자를 사용하여 토큰 심볼명을 찾을 수 있습니다.
+아래 예시 코드에서는 토큰 심볼명을 얻기 위해 JavaCC의 {% raw %}`jjtGetFirstToken().kind`{% endraw %}를 사용합니다. {% raw %}`kind`{% endraw %}는 토큰의 심볼 식별자입니다. 이 식별자를 사용하여 토큰 심볼명을 찾을 수 있습니다.
 
-```java
+{% raw %}```java
 import mypackage.MyParserVisitor;
 import mypackage.SimpleNode;
 import mypackage.TokenMgrError;
@@ -104,13 +102,13 @@ public class MyVisitor implements MyParserVisitor {
         return null;
     }
 }
-```
+```{% endraw %}
 
-위의 코드에서 `MyVisitor` 클래스는 생성자에서 토큰 심볼명 배열 `tokenImage`을 받습니다. `visit` 메서드에서 토큰의 `kind`를 사용하여 심볼명을 찾고, 출력에 사용됩니다.
+위의 코드에서 {% raw %}`MyVisitor`{% endraw %} 클래스는 생성자에서 토큰 심볼명 배열 {% raw %}`tokenImage`{% endraw %}을 받습니다. {% raw %}`visit`{% endraw %} 메서드에서 토큰의 {% raw %}`kind`{% endraw %}를 사용하여 심볼명을 찾고, 출력에 사용됩니다.
 
 사용 예시는 이전과 동일합니다:
 
-```java
+{% raw %}```java
 MyParser parser = new MyParser(new StringReader("your input string"));
 SimpleNode ast = parser.Start(); // 구문 분석 수행
 
@@ -118,9 +116,9 @@ String[] tokenImage = parser.tokenImage; // 토큰 심볼명 배열 가져오기
 
 MyVisitor visitor = new MyVisitor(tokenImage);
 ast.jjtAccept(visitor, null); // 구문 노드 방문
-```
+```{% endraw %}
 
-위의 코드를 실행하면 구문 노드를 방문하여 해당 노드에서 정의된 모든 토큰과 토큰명이 출력됩니다. 토큰 심볼명은 `tokenImage` 배열에서 찾아지며, 토큰 이미지는 `token.image`에서 얻어집니다.
+위의 코드를 실행하면 구문 노드를 방문하여 해당 노드에서 정의된 모든 토큰과 토큰명이 출력됩니다. 토큰 심볼명은 {% raw %}`tokenImage`{% endraw %} 배열에서 찾아지며, 토큰 이미지는 {% raw %}`token.image`{% endraw %}에서 얻어집니다.
 
 ## 사용자 입력:
 > void attribute() : {} {
@@ -128,16 +126,16 @@ ast.jjtAccept(visitor, null); // 구문 노드 방문
 } 이런 JavaCC 구문이 있는데,  attribute노드에서 child는 구체적으로 어떤 것인가?
 
 ## ChatGPT 응답:
-> 주어진 JavaCC 구문에서 `attribute` 노드는 `<NAME>`, `<EQULS>`, `<STRING>` 세 개의 자식 노드를 가지게 됩니다. 이 세 자식 노드는 `<NAME>`, `<EQULS>`, `<STRING>` 토큰에 해당하는 토큰 노드입니다.
+> 주어진 JavaCC 구문에서 {% raw %}`attribute`{% endraw %} 노드는 {% raw %}`<NAME>`{% endraw %}, {% raw %}`<EQULS>`{% endraw %}, {% raw %}`<STRING>`{% endraw %} 세 개의 자식 노드를 가지게 됩니다. 이 세 자식 노드는 {% raw %}`<NAME>`{% endraw %}, {% raw %}`<EQULS>`{% endraw %}, {% raw %}`<STRING>`{% endraw %} 토큰에 해당하는 토큰 노드입니다.
 
-아래는 `attribute` 노드를 나타내는 AST의 구조를 시각적으로 표현한 것입니다:
+아래는 {% raw %}`attribute`{% endraw %} 노드를 나타내는 AST의 구조를 시각적으로 표현한 것입니다:
 
-```
+{% raw %}```
 attribute
 ├── <NAME>
 ├── <EQULS>
 └── <STRING>
-```
+```{% endraw %}
 
-따라서, `attribute` 노드의 자식 노드는 순서대로 `<NAME>`, `<EQULS>`, `<STRING>` 토큰 노드입니다.
+따라서, {% raw %}`attribute`{% endraw %} 노드의 자식 노드는 순서대로 {% raw %}`<NAME>`{% endraw %}, {% raw %}`<EQULS>`{% endraw %}, {% raw %}`<STRING>`{% endraw %} 토큰 노드입니다.
 

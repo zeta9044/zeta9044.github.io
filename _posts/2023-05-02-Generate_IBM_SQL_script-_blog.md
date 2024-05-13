@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Generate IBM SQL script."
-date: 2023-05-02
-tags: [SQL, IBM, script, Generate]
-categories: blog
+tags: [Generate, SQL, script, IBM]
 ---
 
 ## 사용자 입력:
@@ -376,7 +374,7 @@ where
 ## ChatGPT 응답:
 > 최적화를 위해 다음과 같은 점을 고려하였습니다: 서브쿼리를 최소화하고, 중첩 된 서브쿼리를 제거하며, 필요하지 않은 연산을 제거하였습니다. 아래 최적화된 쿼리를 확인해주세요:
 
-```sql
+{% raw %}```sql
 WITH base_data AS (
     SELECT
         f.prj_id
@@ -422,7 +420,7 @@ WITH base_data AS (
 
 다음은 최적화된 쿼리입니다:
 
-```sql
+```{% endraw %}sql
 WITH data AS (
     SELECT
         f.prj_id,
@@ -520,7 +518,7 @@ WITH data AS (
 ## ChatGPT 응답:
 > 죄송합니다. 끊긴 부분을 포함하여 쿼리를 이어서 작성합니다.
 
-```sql
+{% raw %}```sql
     JOIN ais0039 s2 ON t1.PRJ_ID = s2.PRJ_ID AND t1.FILE_ID = s2.FILE_ID AND t1.PARENT_SEQ_ID = s2.TAG_SEQ_ID
     JOIN ais0039 s3 ON t1.PRJ_ID = s3.PRJ_ID AND t1.FILE_ID = s3.FILE_ID AND t1.PARENT_SEQ_ID = s3.TAG_SEQ_ID AND s3.ATTR_NAME = 'name'
     JOIN ais0039 s4 ON t1.PRJ_ID = s4.PRJ_ID AND t1.FILE_ID = s4.FILE_ID AND t1.PARENT_SEQ_ID = s4.TAG_SEQ_ID AND s4.ATTR_NAME = 'type'
@@ -545,14 +543,14 @@ ORDER BY
     sql_id,
     table_id,
     col_id;
-```
+```{% endraw %}
 
-위 쿼리는 CTE를 활용하여 서브쿼리를 정리하고, JOIN을 사용하여 관련된 테이블들을 연결하는 방식으로 작성되었습니다. 이렇게 하면 가독성이 향상되고 코드를 이해하기 쉬워집니다. 필요한 필터 조건들도 추가되었으며, 결과는 `sql_id`, `table_id`, `col_id` 순으로 정렬됩니다.
+위 쿼리는 CTE를 활용하여 서브쿼리를 정리하고, JOIN을 사용하여 관련된 테이블들을 연결하는 방식으로 작성되었습니다. 이렇게 하면 가독성이 향상되고 코드를 이해하기 쉬워집니다. 필요한 필터 조건들도 추가되었으며, 결과는 {% raw %}`sql_id`{% endraw %}, {% raw %}`table_id`{% endraw %}, {% raw %}`col_id`{% endraw %} 순으로 정렬됩니다.
 
 ## ChatGPT 응답:
 > 죄송합니다. 여기 끊긴 부분부터 이어서 쿼리를 작성해 드리겠습니다.
 
-```sql
+{% raw %}```sql
         JOIN ais0039 s2 ON f.PRJ_ID = s2.PRJ_ID AND f.FILE_ID = s2.FILE_ID AND t1.PARENT_SEQ_ID = s2.TAG_SEQ_ID AND s2.ATTR_NAME = 'xmi:id'
         JOIN ais0039 s3 ON f.PRJ_ID = s3.PRJ_ID AND f.FILE_ID = s3.FILE_ID AND t1.PARENT_SEQ_ID = s3.TAG_SEQ_ID AND s3.ATTR_NAME = 'name'
         JOIN ais0039 s4 ON f.PRJ_ID = s4.PRJ_ID AND f.FILE_ID = s4.FILE_ID AND t1.TAG_SEQ_ID = s4.TAG_SEQ_ID AND s4.ATTR_NAME = 'type'
@@ -580,7 +578,7 @@ WHERE
     AND call_sql_id IS NOT NULL
     AND call_table_id IS NOT NULL
     AND call_col_id IS NOT NULL;
-```
+```{% endraw %}
 
 이 최적화된 쿼리는 CTE를 사용하여 중복된 부분을 줄였고, 필요한 결과를 얻기 위해 필요한 조건들을 충족시키며 간결한 형태로 작성되었습니다. 이 쿼리를 실행하면, owner_name, table_name, col_name, call_table_name, call_col_name 값을 얻을 수 있습니다.
 
@@ -877,7 +875,7 @@ WHERE
 ## ChatGPT 응답:
 > 먼저, 일부 서브쿼리를 공통 테이블 표현식 (CTE)으로 변환하여 쿼리를 간소화하고 중복되는 부분을 제거하겠습니다. 그 후, 인덱스를 추가하여 성능 향상을 도모할 수 있는 테이블 및 컬럼을 확인하겠습니다. 다음은 수정된 쿼리입니다:
 
-```sql
+{% raw %}```sql
 WITH subquery_outputpin AS (
     SELECT x1.PRJ_ID, x1.FILE_ID, x1.PARENT_SEQ_ID, y1.ATTR_VALUE
     FROM ais0038 x1
@@ -912,7 +910,7 @@ FROM
             EXISTS (SELECT 1 FROM subquery_outputpin o WHERE f.PRJ_ID = o.PRJ_ID AND f.FILE_ID = o.FILE_ID AND s7.ATTR_VALUE = o.ATTR_VALUE) AND
             EXISTS (SELECT 1 FROM subquery_context c WHERE f.PRJ_ID = c.PRJ_ID AND f.FILE_ID = c.FILE_ID AND t1.PARENT_SEQ_ID = c.PARENT_SEQ_ID)
     ) DAT;
-```
+```{% endraw %}
 
 이제 성능 향상을 위해 인덱스를 추가하겠습니다. 인덱스를 추가하기 전에
 
@@ -945,11 +943,11 @@ FROM
 
 대신, 주어진 쿼리에서 조인 연산을 최적화하는 방법에 초점을 맞춰 설명하겠습니다. 이 쿼리는 다음과 같이 작성되어 있습니다.
 
-```
+{% raw %}```
 SELECT A.id, A.name, B.id, B.name
 FROM A
 LEFT JOIN B ON A.id = B.id;
-```
+```{% endraw %}
 
 이 쿼리는 A 테이블과 B 테이블을 조인하고, 각 테이블의 id와 name을 반환합니다. 쿼리의 최적화를 위해 다음과 같은 방법을 적용할 수 있습니다.
 
@@ -959,11 +957,11 @@ LEFT JOIN B ON A.id = B.id;
 
 최적화 방법을 적용한 후 쿼리는 다음과 같이 변경될 수 있습니다.
 
-```
+{% raw %}```
 SELECT A.id, A.name, B.id, B.name
 FROM A
 INNER JOIN B ON A.id = B.id;
-```
+```{% endraw %}
 
 이렇게 변경된 쿼리는 A 테이블과 B 테이블의 id가 일치하는 경우에만 해당하는 데이터를 반환합니다. 이러한 변경이 실제로 쿼리 성능을 향상시키는지 여부는 데이터베이스 구조와 인덱스 구성에 따라 달라집니다. 따라서 최적화된 쿼리를 테스트하고, 원하는 결과를 얻을 수 있는지 확인하세요.
 
@@ -979,18 +977,18 @@ INNER JOIN B ON A.id = B.id;
 
 예를 들어 다음과 같은 쿼리를 고려해봅시다.
 
-```sql
+{% raw %}```sql
 SELECT A.id, A.name, (SELECT B.name FROM B WHERE B.id = A.id) as B_name
 FROM A;
-```
+```{% endraw %}
 
 위 쿼리에서, A 테이블의 각 레코드에 대해 서브쿼리가 B 테이블에서 해당하는 이름을 찾아 반환합니다. 이를 조인 구문으로 변경하려면 다음과 같이 작성할 수 있습니다.
 
-```sql
+{% raw %}```sql
 SELECT A.id, A.name, B.name as B_name
 FROM A
 LEFT JOIN B ON A.id = B.id;
-```
+```{% endraw %}
 
 변경된 쿼리에서, A 테이블과 B 테이블이 LEFT JOIN을 사용하여 조인됩니다. A 테이블의 id와 B 테이블의 id가 일치하는 경우에만 B 테이블의 이름을 반환합니다.
 
@@ -1004,11 +1002,11 @@ LEFT JOIN B ON A.id = B.id;
 
 A 테이블과 B 테이블이 INNER JOIN을 사용하여 조인됩니다. A 테이블의 id와 B 테이블의 id가 일치하는 경우에만 B 테이블의 이름을 반환합니다. 변경된 쿼리는 다음과 같습니다.
 
-```sql
+{% raw %}```sql
 SELECT A.id, A.name, B.name as B_name
 FROM A
 INNER JOIN B ON A.id = B.id;
-```
+```{% endraw %}
 
 INNER JOIN은 두 테이블에서 조인 조건이 일치하는 행만 반환합니다. 따라서 위 쿼리에서는 A 테이블의 id와 B 테이블의 id가 일치하는 경우에만 B 테이블의 이름을 반환하게 됩니다. 이전에 제공한 예제에서는 LEFT JOIN을 사용했기 때문에 일치하지 않는 경우에도 A 테이블의 행이 반환되고, B 테이블의 이름은 NULL로 표시됩니다. 올바른 설명을 위해 죄송합니다.
 
@@ -1026,41 +1024,41 @@ INNER JOIN은 두 테이블에서 조인 조건이 일치하는 행만 반환합
 > 쿼리에서 exists 또는 not exists를 다른 걸로 바꾸면 성능이 좋아지나?
 
 ## ChatGPT 응답:
-> `EXISTS`와 `NOT EXISTS`를 사용한 서브쿼리는 특정 조건을 충족하는 행이 있는지 확인하는 데 사용되며, 이는 성능에 영향을 줄 수 있습니다. 성능을 개선하기 위해 이러한 서브쿼리를 다른 방식으로 재작성할 수 있지만, 개선 여부는 상황에 따라 다릅니다.
+> {% raw %}`EXISTS`{% endraw %}와 {% raw %}`NOT EXISTS`{% endraw %}를 사용한 서브쿼리는 특정 조건을 충족하는 행이 있는지 확인하는 데 사용되며, 이는 성능에 영향을 줄 수 있습니다. 성능을 개선하기 위해 이러한 서브쿼리를 다른 방식으로 재작성할 수 있지만, 개선 여부는 상황에 따라 다릅니다.
 
-예를 들어, `EXISTS`와 `NOT EXISTS`를 사용한 서브쿼리를 조인(JOIN)으로 변경하여 성능을 개선할 수 있습니다. 하지만 이렇게 변경할 때 성능이 항상 개선되는 것은 아닙니다. 쿼리의 구조와 데이터베이스 관리 시스템(DBMS)의 최적화 기능에 따라 결과가 다를 수 있습니다.
+예를 들어, {% raw %}`EXISTS`{% endraw %}와 {% raw %}`NOT EXISTS`{% endraw %}를 사용한 서브쿼리를 조인(JOIN)으로 변경하여 성능을 개선할 수 있습니다. 하지만 이렇게 변경할 때 성능이 항상 개선되는 것은 아닙니다. 쿼리의 구조와 데이터베이스 관리 시스템(DBMS)의 최적화 기능에 따라 결과가 다를 수 있습니다.
 
-`EXISTS`와 `NOT EXISTS`를 다른 방식으로 변경하기 전에 성능이 개선되는지 확인하기 위해 실행 계획을 검토하고, 변경된 쿼리의 결과가 기존 쿼리와 동일한지 확인해야 합니다. 이후 성능 비교를 통해 적절한 방식을 선택할 수 있습니다.
+{% raw %}`EXISTS`{% endraw %}와 {% raw %}`NOT EXISTS`{% endraw %}를 다른 방식으로 변경하기 전에 성능이 개선되는지 확인하기 위해 실행 계획을 검토하고, 변경된 쿼리의 결과가 기존 쿼리와 동일한지 확인해야 합니다. 이후 성능 비교를 통해 적절한 방식을 선택할 수 있습니다.
 
-성능 향상이 목표라면, 쿼리 최적화와 관련된 다양한 기법을 적용해 볼 수 있습니다. 인덱스 사용, 통계 정보 업데이트, 파티셔닝, 질의 작성 방법 변경 등이 그 예입니다. 이러한 최적화 기법을 적용하여 `EXISTS` 또는 `NOT EXISTS`를 사용한 서브쿼리의 성능을 개선할 수 있습니다.
+성능 향상이 목표라면, 쿼리 최적화와 관련된 다양한 기법을 적용해 볼 수 있습니다. 인덱스 사용, 통계 정보 업데이트, 파티셔닝, 질의 작성 방법 변경 등이 그 예입니다. 이러한 최적화 기법을 적용하여 {% raw %}`EXISTS`{% endraw %} 또는 {% raw %}`NOT EXISTS`{% endraw %}를 사용한 서브쿼리의 성능을 개선할 수 있습니다.
 
 ## 사용자 입력:
 > 위 내용에서 join으로 바꾸는 예제 알려줘
 
 ## ChatGPT 응답:
-> `EXISTS` 또는 `NOT EXISTS`를 사용하는 쿼리를 조인(JOIN)으로 변경하는 예제를 들어 설명하겠습니다.
+> {% raw %}`EXISTS`{% endraw %} 또는 {% raw %}`NOT EXISTS`{% endraw %}를 사용하는 쿼리를 조인(JOIN)으로 변경하는 예제를 들어 설명하겠습니다.
 
 예를 들어, 주문 테이블(orders)과 고객 테이블(customers)이 있다고 가정하겠습니다. 고객 중 최소 하나의 주문을 한 고객 목록을 반환하는 쿼리를 작성해야 합니다.
 
-`EXISTS`를 사용한 쿼리는 다음과 같습니다.
+{% raw %}`EXISTS`{% endraw %}를 사용한 쿼리는 다음과 같습니다.
 
-```sql
+{% raw %}```sql
 SELECT c.*
 FROM customers c
 WHERE EXISTS (SELECT 1
               FROM orders o
               WHERE o.customer_id = c.id);
-```
+```{% endraw %}
 
 위의 쿼리를 조인(JOIN)으로 변경하면 다음과 같습니다.
 
-```sql
+{% raw %}```sql
 SELECT DISTINCT c.*
 FROM customers c
 JOIN orders o ON c.id = o.customer_id;
-```
+```{% endraw %}
 
-이 경우 `JOIN`을 사용하여 주문 테이블(orders)과 고객 테이블(customers)을 조인하고, `DISTINCT`를 사용하여 고객 정보에 대한 중복을 제거합니다. 이렇게 변경함으로써 쿼리 성능이 개선될 수 있습니다. 하지만 성능 개선이 항상 보장되는 것은 아닙니다. 데이터베이스 관리 시스템(DBMS)의 최적화 기능, 테이블 크기 및 구조 등에 따라 결과가 달라질 수 있으므로 실행 계획을 검토하여 성능 비교를 해보는 것이 좋습니다.
+이 경우 {% raw %}`JOIN`{% endraw %}을 사용하여 주문 테이블(orders)과 고객 테이블(customers)을 조인하고, {% raw %}`DISTINCT`{% endraw %}를 사용하여 고객 정보에 대한 중복을 제거합니다. 이렇게 변경함으로써 쿼리 성능이 개선될 수 있습니다. 하지만 성능 개선이 항상 보장되는 것은 아닙니다. 데이터베이스 관리 시스템(DBMS)의 최적화 기능, 테이블 크기 및 구조 등에 따라 결과가 달라질 수 있으므로 실행 계획을 검토하여 성능 비교를 해보는 것이 좋습니다.
 
 ## 사용자 입력:
 > ansi 쿼리에서 left join , right join , inner join, out join에 대해서 설명해줘
@@ -1070,35 +1068,35 @@ JOIN orders o ON c.id = o.customer_id;
 
 1. INNER JOIN (내부 조인): 두 테이블 간에 일치하는 값이 있는 경우에만 결과를 반환합니다. 조건에 일치하지 않는 행은 결과 집합에 포함되지 않습니다.
 
-```sql
+{% raw %}```sql
 SELECT a.col1, b.col2
 FROM table1 a
 INNER JOIN table2 b ON a.id = b.id;
-```
+```{% endraw %}
 
 2. LEFT JOIN (왼쪽 외부 조인): 왼쪽 테이블의 모든 행을 반환하며, 오른쪽 테이블에서 일치하는 행이 없는 경우 NULL 값을 반환합니다.
 
-```sql
+{% raw %}```sql
 SELECT a.col1, b.col2
 FROM table1 a
 LEFT JOIN table2 b ON a.id = b.id;
-```
+```{% endraw %}
 
 3. RIGHT JOIN (오른쪽 외부 조인): 오른쪽 테이블의 모든 행을 반환하며, 왼쪽 테이블에서 일치하는 행이 없는 경우 NULL 값을 반환합니다.
 
-```sql
+{% raw %}```sql
 SELECT a.col1, b.col2
 FROM table1 a
 RIGHT JOIN table2 b ON a.id = b.id;
-```
+```{% endraw %}
 
 4. FULL OUTER JOIN (전체 외부 조인): 두 테이블의 모든 행을 반환하며, 일치하는 행이 없는 경우 NULL 값을 반환합니다.
 
-```sql
+{% raw %}```sql
 SELECT a.col1, b.col2
 FROM table1 a
 FULL OUTER JOIN table2 b ON a.id = b.id;
-```
+```{% endraw %}
 
 이러한 조인 유형을 사용하여 데이터베이스에서 여러 테이블의 데이터를 결합하고, 필요한 정보를 추출할 수 있습니다. 각 조인 유형은 특정 시나리오에 적합하며, 결과 집합에 표시되는 데이터에 따라 적절한 조인 유형을 선택해야 합니다.
 
@@ -1108,12 +1106,12 @@ FULL OUTER JOIN table2 b ON a.id = b.id;
 ## ChatGPT 응답:
 > 오라클과 PostgreSQL은 각각 다른 데이터베이스 관리 시스템(DBMS)이지만, ANSI SQL 표준에 따른 조인 기능을 모두 지원합니다. 따라서 위에서 설명한 조인 유형은 오라클과 PostgreSQL에서도 사용할 수 있습니다. 
 
-오라클과 PostgreSQL에서 조인 사용법은 거의 유사합니다. 다만, 각 DBMS의 특성에 따라 약간의 차이가 존재할 수 있습니다. 예를 들어, 오라클에서는 `+` 연산자를 사용하여 전통적인 외부 조인(non-ANSI join)을 구현할 수 있습니다. 그러나 이 방법은 권장되지 않으며, ANSI 표준에 따른 조인 구문을 사용하는 것이 좋습니다.
+오라클과 PostgreSQL에서 조인 사용법은 거의 유사합니다. 다만, 각 DBMS의 특성에 따라 약간의 차이가 존재할 수 있습니다. 예를 들어, 오라클에서는 {% raw %}`+`{% endraw %} 연산자를 사용하여 전통적인 외부 조인(non-ANSI join)을 구현할 수 있습니다. 그러나 이 방법은 권장되지 않으며, ANSI 표준에 따른 조인 구문을 사용하는 것이 좋습니다.
 
 아래에 오라클과 PostgreSQL에서 각각 조인을 사용하는 예제를 제공합니다.
 
 오라클:
-```sql
+{% raw %}```sql
 -- INNER JOIN
 SELECT a.col1, b.col2
 FROM table1 a
@@ -1133,10 +1131,10 @@ RIGHT JOIN table2 b ON a.id = b.id;
 SELECT a.col1, b.col2
 FROM table1 a
 FULL JOIN table2 b ON a.id = b.id;
-```
+```{% endraw %}
 
 PostgreSQL:
-```sql
+{% raw %}```sql
 -- INNER JOIN
 SELECT a.col1, b.col2
 FROM table1 a
@@ -1156,7 +1154,7 @@ RIGHT JOIN table2 b ON a.id = b.id;
 SELECT a.col1, b.col2
 FROM table1 a
 FULL JOIN table2 b ON a.id = b.id;
-```
+```{% endraw %}
 
 위 예제에서 볼 수 있듯이, 오라클과 PostgreSQL에서의 조인 구문은 크게 차이가 없습니다. ANSI SQL 표준에 따른 조인 구문을 사용하면, 대부분의 DBMS에서 호환성을 유지할 수 있습니다.
 
@@ -1164,11 +1162,11 @@ FULL JOIN table2 b ON a.id = b.id;
 > left outer join 과 left join은 동일한거야?
 
 ## ChatGPT 응답:
-> 네, 맞습니다. `LEFT OUTER JOIN`과 `LEFT JOIN`은 동일한 작업을 수행합니다. `OUTER` 키워드는 선택 사항이며, 기능적인 차이는 없습니다. 두 표현 모두 왼쪽 테이블의 모든 레코드를 반환하고, 오른쪽 테이블에서 일치하는 레코드를 결합합니다. 오른쪽 테이블에 일치하는 레코드가 없는 경우, NULL 값을 반환합니다.
+> 네, 맞습니다. {% raw %}`LEFT OUTER JOIN`{% endraw %}과 {% raw %}`LEFT JOIN`{% endraw %}은 동일한 작업을 수행합니다. {% raw %}`OUTER`{% endraw %} 키워드는 선택 사항이며, 기능적인 차이는 없습니다. 두 표현 모두 왼쪽 테이블의 모든 레코드를 반환하고, 오른쪽 테이블에서 일치하는 레코드를 결합합니다. 오른쪽 테이블에 일치하는 레코드가 없는 경우, NULL 값을 반환합니다.
 
 예를 들어, 다음 두 쿼리는 동일한 결과를 반환합니다.
 
-```sql
+{% raw %}```sql
 -- LEFT JOIN
 SELECT a.col1, b.col2
 FROM table1 a
@@ -1178,35 +1176,35 @@ LEFT JOIN table2 b ON a.id = b.id;
 SELECT a.col1, b.col2
 FROM table1 a
 LEFT OUTER JOIN table2 b ON a.id = b.id;
-```
+```{% endraw %}
 
-같은 방식으로, `RIGHT OUTER JOIN`과 `RIGHT JOIN`도 동일한 작업을 수행하며, `OUTER` 키워드는 선택 사항입니다.
+같은 방식으로, {% raw %}`RIGHT OUTER JOIN`{% endraw %}과 {% raw %}`RIGHT JOIN`{% endraw %}도 동일한 작업을 수행하며, {% raw %}`OUTER`{% endraw %} 키워드는 선택 사항입니다.
 
 ## 사용자 입력:
 > 그러면 full join할 경우 행의 수는 더 많은 행을 가진쪽기준으로 채워지나?
 
 ## ChatGPT 응답:
-> `FULL JOIN` (또는 `FULL OUTER JOIN`)을 사용하면, 두 테이블 간에 일치하는 행이 있는 경우 해당 행을 결합하고, 한쪽 테이블에만 있는 행의 경우 NULL 값을 채워서 결합합니다. 따라서 `FULL JOIN`의 결과 행의 수는 두 테이블 중 더 많은 행을 가진 쪽의 수를 기준으로 채워지는 것이 아니라, 두 테이블의 행의 수를 합친 것에서 중복된 행을 뺀 것과 같습니다.
+> {% raw %}`FULL JOIN`{% endraw %} (또는 {% raw %}`FULL OUTER JOIN`{% endraw %})을 사용하면, 두 테이블 간에 일치하는 행이 있는 경우 해당 행을 결합하고, 한쪽 테이블에만 있는 행의 경우 NULL 값을 채워서 결합합니다. 따라서 {% raw %}`FULL JOIN`{% endraw %}의 결과 행의 수는 두 테이블 중 더 많은 행을 가진 쪽의 수를 기준으로 채워지는 것이 아니라, 두 테이블의 행의 수를 합친 것에서 중복된 행을 뺀 것과 같습니다.
 
-예를 들어, `table1`에 10개의 행이 있고 `table2`에 15개의 행이 있다고 가정하겠습니다. 이 두 테이블 간에 5개의 공통 행이 있다면, `FULL JOIN`의 결과는 다음과 같습니다:
+예를 들어, {% raw %}`table1`{% endraw %}에 10개의 행이 있고 {% raw %}`table2`{% endraw %}에 15개의 행이 있다고 가정하겠습니다. 이 두 테이블 간에 5개의 공통 행이 있다면, {% raw %}`FULL JOIN`{% endraw %}의 결과는 다음과 같습니다:
 
 - 공통 행: 5개
-- `table1`에만 있는 행: 10 - 5 = 5개
-- `table2`에만 있는 행: 15 - 5 = 10개
+- {% raw %}`table1`{% endraw %}에만 있는 행: 10 - 5 = 5개
+- {% raw %}`table2`{% endraw %}에만 있는 행: 15 - 5 = 10개
 
-결과적으로 `FULL JOIN`을 사용하면 20개의 행이 반환됩니다.
+결과적으로 {% raw %}`FULL JOIN`{% endraw %}을 사용하면 20개의 행이 반환됩니다.
 
 ## 사용자 입력:
 > 위 내용에서 공통행이 없다면, 25개의 행인가?
 
 ## ChatGPT 응답:
-> 네, 맞습니다. 위 예제에서 두 테이블 간에 공통 행이 없다면, `FULL JOIN`의 결과는 다음과 같습니다:
+> 네, 맞습니다. 위 예제에서 두 테이블 간에 공통 행이 없다면, {% raw %}`FULL JOIN`{% endraw %}의 결과는 다음과 같습니다:
 
 - 공통 행: 0개
-- `table1`에만 있는 행: 10개
-- `table2`에만 있는 행: 15개
+- {% raw %}`table1`{% endraw %}에만 있는 행: 10개
+- {% raw %}`table2`{% endraw %}에만 있는 행: 15개
 
-결과적으로 `FULL JOIN`을 사용하면 25개의 행이 반환됩니다. 공통 행이 없는 경우에는 각 테이블의 행의 수를 그대로 합친 결과가 반환됩니다.
+결과적으로 {% raw %}`FULL JOIN`{% endraw %}을 사용하면 25개의 행이 반환됩니다. 공통 행이 없는 경우에는 각 테이블의 행의 수를 그대로 합친 결과가 반환됩니다.
 
 ## 사용자 입력:
 > insert
@@ -1578,7 +1576,7 @@ where
 ## ChatGPT 응답:
 > 아래는 위에서 제공된 쿼리를 ANSI 표준 SQL 쿼리로 변경한 버전입니다. 
 
-```sql
+{% raw %}```sql
 WITH dat AS (
     SELECT
         f.prj_id,
@@ -1648,7 +1646,7 @@ WITH dat AS (
 ## ChatGPT 응답:
 > 네, 끊긴 부분부터 이어서 ANSI 표준 SQL로 변환한 쿼리입니다.
 
-```sql
+```{% endraw %}sql
 INSERT INTO AIS0113 (
 	PRJ_ID, FILE_ID, SQL_ID, TABLE_ID, COL_ID, CALL_PRJ_ID, CALL_FILE_ID, CALL_SQL_ID,
 	CALL_TABLE_ID, CALL_COL_ID, OBJ_ID, FUNC_ID, OWNER_NAME, TABLE_NAME, CAPS_TABLE_NAME,
@@ -1686,7 +1684,7 @@ SELECT * FROM (
 ## ChatGPT 응답:
 > 죄송합니다. 이어서 계속 진행하겠습니다.
 
-```sql
+{% raw %}```sql
 		SELECT
 			DAT.prj_id, DAT.file_id, DAT.sql_id AS SQL_id, CAST(DAT.table_id AS NUMERIC), CAST(DAT.col_id AS NUMERIC),
 			DAT.prj_id AS call_prj_id, DAT.file_id AS call_file_id, DAT.call_sql_id AS call_SQL_id,
@@ -1706,7 +1704,7 @@ SELECT * FROM (
 ## ChatGPT 응답:
 > 죄송합니다. 이어서 계속 진행하겠습니다.
 
-```sql
+```{% endraw %}sql
 ROW_NUMBER() OVER (PARTITION BY DAT.prj_id, DAT.file_id, DAT.sql_id, CAST(DAT.table_id AS NUMERIC), CAST(DAT.col_id AS NUMERIC) ORDER BY DAT.prj_id, DAT.file_id, DAT.sql_id, CAST(DAT.table_id AS NUMERIC), CAST(DAT.col_id AS NUMERIC)) AS row_num
 FROM
 	(SELECT
@@ -1717,7 +1715,7 @@ WHERE
 ) AS A
 WHERE
 	A.row_num = 1;
-```
+{% raw %}```
 
 위 코드는 ROW_NUMBER() 함수를 사용하여, 각 파티션별로 정렬된 순서에 따라 row_num 값을 부여합니다. 이때, 파티션은 DAT.prj_id, DAT.file_id, DAT.sql_id, CAST(DAT.table_id AS NUMERIC), CAST(DAT.col_id AS NUMERIC)으로 구분되며, 동일한 파티션 내에서는 데이터가 정렬되어 row_num 값이 붙게 됩니다.
 
@@ -1726,7 +1724,7 @@ WHERE
 ## ChatGPT 응답:
 > 죄송합니다. 이어서 작성하겠습니다.
 
-```sql
+```{% endraw %}sql
 	ROW_NUMBER() OVER (PARTITION BY DAT.prj_id, DAT.file_id, DAT.sql_id, CAST(DAT.table_id AS NUMERIC), CAST(DAT.col_id AS NUMERIC) 
 	ORDER BY DAT.prj_id, DAT.file_id, DAT.sql_id) AS row_num
 FROM
@@ -1737,7 +1735,7 @@ WHERE
 	DAT.file_id = 5
 	AND DAT.prj_id = 1
 	AND x.ATTR_NAME = 'ATTR_OBJ_TYPE';
-```
+{% raw %}```
 
 위의 SQL 쿼리는 `data_table`과 `x_attr` 테이블을 조인하여 원하는 결과를 얻는 쿼리입니다. `ROW_NUMBER() OVER (PARTITION BY ... ORDER BY ...)` 구문을 사용해 각 파티션 내에서 행 번호를 할당하고 있습니다. 이 쿼리는 `file_id`가 5이고 `prj_id`가 1인 데이터를 찾는데 사용되며, `x_attr` 테이블의 `ATTR_NAME`이 'ATTR_OBJ_TYPE'인 것만 선택됩니다.
 
@@ -2034,7 +2032,7 @@ WHERE
 ## ChatGPT 응답:
 > ANSI 표준 SQL 쿼리로 변경해드리겠습니다. 다만, 유의할 점은 모든 데이터베이스 관리 시스템이 ANSI 표준 SQL을 동일하게 지원하지 않을 수 있으므로, 변경된 쿼리가 사용하시는 데이터베이스에서 문제없이 작동하는지 확인해보시기 바랍니다.
 
-```sql
+```{% endraw %}sql
 SELECT
     DAT.prj_id,
     DAT.file_id,
@@ -2102,7 +2100,7 @@ SELECT
 ## ChatGPT 응답:
 > Here is the continuation of the ANSI SQL query from the point where it was cut off:
 
-```
+{% raw %}```
       '[owner_undefined]' AS SYSTEM_BIZ_ID
       , '[owner_undefined]' AS CALL_SYSTEM_BIZ_ID
   FROM
@@ -2263,7 +2261,7 @@ SELECT
 ## ChatGPT 응답:
 > Here is the ANSI standard SQL query for the given code:
 
-```sql
+```{% endraw %}sql
 SELECT
     'x'
 FROM
@@ -2296,7 +2294,7 @@ WHERE
             AND z.PARENT_SEQ_ID = x1.PARENT_SEQ_ID
             AND z.TAG_ID = 'has_InputPin'
     )
-```
+{% raw %}```
 
 I've replaced the comma-separated join statements with ANSI-compliant explicit JOIN statements. The remaining code remains the same as the original query.
 
@@ -2454,7 +2452,7 @@ I've replaced the comma-separated join statements with ANSI-compliant explicit J
 ## ChatGPT 응답:
 > 해당 쿼리를 ANSI SQL 표준 쿼리로 변환하면 다음과 같습니다:
 
-```
+```{% endraw %}
 SELECT
     f.prj_id,
     f.FILE_ID,
@@ -2499,7 +2497,7 @@ INNER JOIN ais0039 s8
 ## ChatGPT 응답:
 > Here's the translated ANSI SQL query:
 
-```
+{% raw %}``{% endraw %}`
 SELECT
     f.prj_id,
     f.FILE_ID,

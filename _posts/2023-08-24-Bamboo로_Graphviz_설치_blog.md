@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Bamboo로 Graphviz 설치"
-date: 2023-08-24
-tags: [설치, 로, Graphviz]
-categories: blog
+tags: [Graphviz, 로, 설치]
 ---
 
 ## 사용자 입력:
@@ -23,10 +21,10 @@ Graphviz는 그래프 시각화 소프트웨어입니다. Bamboo의 빌드 기�
 3. **명령어 실행**: 작업 유형을 "Script"으로 선택하고, 서버에 Graphviz를 설치하기 위한 적절한 셸 명령어나 배치 파일 스크립트를 입력합니다.
 
     예를 들어, Ubuntu 또는 Debian 기반의 리눅스 시스템에서는:
-    ```bash
+    {% raw %}```bash
     sudo apt-get update
     sudo apt-get install -y graphviz
-    ```
+    ```{% endraw %}
 
 4. **플랜 실행**: 플랜을 저장하고 실행하여 Graphviz가 성공적으로 설치되었는지 확인합니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "IBM DataStage .pjb Files"
-date: 2023-04-04
-tags: [IBM, pjb, DataStage, Files]
-categories: blog
+tags: [Files, pjb, DataStage, IBM]
 ---
 
 ## 사용자 입력:
@@ -31,7 +29,7 @@ DataStage에서 .pjb 파일을 보려면 다음 단계를 수행하십시오.
 > 다음은 IBM DataStage에서 .pjb 파일의 예제와 설명입니다.
 
 예제:
-```
+{% raw %}```
 # This is a sample job parameter file
 # Input and Output files
 inputFile=/path/to/input/file.txt
@@ -41,7 +39,7 @@ dbServer=mydbserver.example.com
 dbName=mydatabase
 dbUser=myusername
 dbPassword=mypassword
-```
+```{% endraw %}
 
 설명:
 위의 예제 .pjb 파일은 작업에 대한 입력 파일, 출력 파일 및 데이터베이스 연결 매개 변수를 정의합니다.
@@ -72,7 +70,7 @@ IBM DataStage에서 작업을 설계하고 실행할 때, 일반적으로 작업
 > 죄송합니다, 이전 답변에서 예제를 적절히 보여드리지 못했습니다. 이제 예제를 보여드리겠습니다.
 
 예제:
-```
+{% raw %}```
 # This is a sample job parameter file
 # Input and Output files
 inputFile=/path/to/input/file.txt
@@ -82,7 +80,7 @@ dbServer=mydbserver.example.com
 dbName=mydatabase
 dbUser=myusername
 dbPassword=mypassword
-```
+```{% endraw %}
 
 위의 예제 .pjb 파일은 작업에 대한 입력 파일, 출력 파일 및 데이터베이스 연결 매개 변수를 정의합니다.
 
@@ -103,7 +101,7 @@ dbPassword=mypassword
 
 예를 들어, 다음은 IBM DataStage에서 .pjb 파일을 작성할 때 일반적으로 사용되는 XML 형식의 예제입니다.
 
-```
+{% raw %}```
 <?xml version="1.0" encoding="UTF-8"?>
 <PARAMETERS>
    <PARAMETER NAME="inputFile" VALUE="/path/to/input/file.txt"/>
@@ -113,7 +111,7 @@ dbPassword=mypassword
    <PARAMETER NAME="dbUser" VALUE="myusername"/>
    <PARAMETER NAME="dbPassword" VALUE="mypassword"/>
 </PARAMETERS>
-```
+```{% endraw %}
 
 위의 예제에서는 <PARAMETER> 태그를 사용하여 작업에 필요한 각 매개 변수를 정의합니다. NAME 속성은 매개 변수의 이름을, VALUE 속성은 매개 변수의 값을 지정합니다. 이러한 매개 변수는 작업 실행 시 동적으로 지정할 수 있으며, 작업 실행 중에 DataStage가 .pjb 파일의 내용을 읽어 매개 변수를 사용합니다.
 
@@ -145,7 +143,7 @@ dbPassword=mypassword
 다음은 .pjb 파일의 예제입니다.
 
 예제:
-```
+{% raw %}```
 <?xml version="1.0" encoding="UTF-8"?>
 <PARAMETERS>
    <PARAMETER NAME="inputFile" VALUE="/path/to/input/file.txt"/>
@@ -155,7 +153,7 @@ dbPassword=mypassword
    <PARAMETER NAME="dbUser" VALUE="myusername"/>
    <PARAMETER NAME="dbPassword" VALUE="mypassword"/>
 </PARAMETERS>
-```
+```{% endraw %}
 
 위의 예제에서는 각 매개 변수를 <PARAMETER> 태그를 사용하여 정의하고 있습니다. 이러한 매개 변수는 작업 실행 시 동적으로 지정할 수 있으며, DataStage가 .pjb 파일의 내용을 읽어 매개 변수를 사용합니다.
 
@@ -192,7 +190,7 @@ dbPassword=mypassword
 > 죄송합니다, 예제를 잘못 작성한 것 같습니다. 아래는 올바른 예제입니다.
 
 예제:
-```
+{% raw %}```
 # This is a sample job parameter file
 # Input and Output files
 inputFile=/path/to/input/file.txt
@@ -202,7 +200,7 @@ dbServer=mydbserver.example.com
 dbName=mydatabase
 dbUser=myusername
 dbPassword=mypassword
-```
+```{% endraw %}
 
 설명:
 위의 예제 .pjb 파일은 작업에 대한 입력 파일, 출력 파일 및 데이터베이스 연결 매개 변수를 정의합니다.
@@ -223,14 +221,14 @@ dbPassword=mypassword
 > IBM DataStage Designer에서 생성되는 .pjb 파일은 일반적으로 다음과 같은 구문을 가집니다.
 
 예제:
-```
+{% raw %}```
 inputFile=/path/to/input/file.txt
 outputFile=/path/to/output/file.txt
 dbServer=mydbserver.example.com
 dbName=mydatabase
 dbUser=myusername
 dbPassword=mypassword
-```
+```{% endraw %}
 
 위의 예제에서는 각 매개 변수를 이름과 값 쌍으로 정의하고 있습니다. 이러한 매개 변수는 작업 실행 시 동적으로 지정할 수 있으며, .pjb 파일을 작성하여 작업에 필요한 매개 변수를 미리 정의할 수 있습니다.
 

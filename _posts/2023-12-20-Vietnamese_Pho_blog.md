@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Vietnamese Pho"
-date: 2023-12-20
-tags: [Vietnamese, Pho]
-categories: blog
+tags: [Pho, Vietnamese]
 ---
 
 ## 사용자 입력:

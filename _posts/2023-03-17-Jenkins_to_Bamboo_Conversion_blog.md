@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Jenkins to Bamboo Conversion"
-date: 2023-03-17
-tags: [Conversion, Jenkins, Bamboo, to]
-categories: blog
+tags: [Jenkins, to, Bamboo, Conversion]
 ---
 
 ## 사용자 입력:
@@ -47,7 +45,7 @@ categories: blog
 > 네, Bamboo 서버와 배포 대상 서버가 서로 다른 서버여도 문제가 없습니다. 실제로 대부분의 경우, CI/CD 도구와 배포 대상 서버는 별도의 서버에 위치하게 됩니다. Bamboo에서 원격 서버에 빌드 아티팩트를 배포하는 방법은 다음과 같습니다.
 
 1. SSH 키 생성 및 배포 대상 서버에 등록:
-   배포 대상 서버에 접근하기 위해 SSH 키를 생성해야 합니다. 생성된 공개 키를 배포 대상 서버의 `authorized_keys` 파일에 추가하세요. 이렇게 하면 Bamboo 서버가 배포 대상 서버에 안전하게 접근할 수 있습니다.
+   배포 대상 서버에 접근하기 위해 SSH 키를 생성해야 합니다. 생성된 공개 키를 배포 대상 서버의 {% raw %}`authorized_keys`{% endraw %} 파일에 추가하세요. 이렇게 하면 Bamboo 서버가 배포 대상 서버에 안전하게 접근할 수 있습니다.
 
 2. Bamboo에서 배포 프로젝트 생성:
    Bamboo에서 배포 프로젝트를 생성하고 연관된 빌드 프로젝트를 선택하세요. 이렇게 하면 빌드 프로젝트의 결과물을 배포 프로젝트에서 사용할 수 있습니다.
@@ -302,25 +300,25 @@ node {
 
 - **스테이지 2: 환경 설정**
     - 작업 1: Script 작업 (아래 스크립트 사용)
-```bash
+{% raw %}```bash
 cp ./qtrack-web/config/application-server.yml ./qtrack-web/src/main/resources/application.yml
-```
+```{% endraw %}
 
 - **스테이지 3: UI 빌드**
     - 작업 1: Script 작업 (아래 스크립트 사용)
-```bash
+{% raw %}```bash
 cd ./qtrack-web/src/main/js
 yarn
 yarn build
 cd ../../../../
 ./gradlew uploadArchives
-```
+```{% endraw %}
 
 - **스테이지 4: WAR 빌드**
     - 작업 1: Script 작업 (아래 스크립트 사용)
-```bash
+{% raw %}```bash
 ./gradlew clean build -x test --refresh-dependencies
-```
+```{% endraw %}
 
 이제 배포 프로젝트를 생성하고 배포 작업을 분리하십시오.
 
@@ -336,15 +334,15 @@ cd ../../../../
 
 - **배포 작업 2: 서버 중지**
     - 작업 1: SSH 작업 (아래 스크립트 사용)
-```bash
+{% raw %}```bash
 ${TOMCAT_BIN_PATH}/shutdown.sh
-```
+```{% endraw %}
 
 - **배포 작업 3: 서버 시작**
     - 작업 1: SSH 작업 (아래 스크립트 사용)
-```bash
+{% raw %}```bash
 ${TOMCAT_BIN_PATH}/startup.sh
-```
+```{% endraw %}
 
 Jenkins 파이프라인 스크립트가 Bamboo로 전환되었습니다. 이제 Bamboo에서 빌드 계획을 실행하고 배포 프로젝트를 사용하여 원격
 
@@ -359,14 +357,14 @@ Jenkins 파이프라인 스크립트가 Bamboo로 전환되었습니다. 이제 
 
 1. Git 저장소 URL 확인: 저장소 URL이 정확한지 확인하십시오. Bamboo 설정에서 저장소 URL이 올바르게 구성되어 있는지 확인합니다. 저장소 URL은 일반적으로 다음 형식 중 하나를 사용합니다.
 
-   ```
+   {% raw %}```
    https://username@bitbucket.org/username/repository.git
    ssh://git@bitbucket.org/username/repository.git
-   ```
+   ```{% endraw %}
 
 2. 권한 확인: 현재 Bamboo 사용자 또는 Bamboo 서버가 Git 저장소에 대한 액세스 권한이 있는지 확인하십시오. Git 서비스 (예: GitHub, GitLab, Bitbucket 등)에서 해당 사용자 또는 서버에 대한 액세스 권한을 부여해야 할 수 있습니다.
 
-3. 인증 정보 확인: Bamboo 설정에서 올바른 인증 정보가 사용되고 있는지 확인하십시오. 사용자 이름과 암호 또는 SSH 키를 사용하여 인증 정보를 설정할 수 있습니다. 또한, 저장소 URL이 올바른 인증 방법을 사용하고 있는지 확인하십시오 (예: `https` 또는 `ssh`).
+3. 인증 정보 확인: Bamboo 설정에서 올바른 인증 정보가 사용되고 있는지 확인하십시오. 사용자 이름과 암호 또는 SSH 키를 사용하여 인증 정보를 설정할 수 있습니다. 또한, 저장소 URL이 올바른 인증 방법을 사용하고 있는지 확인하십시오 (예: {% raw %}`https`{% endraw %} 또는 {% raw %}`ssh`{% endraw %}).
 
 4. SSH 키 확인: SSH를 사용하여 저장소에 연결하는 경우, Bamboo 서버의 SSH 키가 저장소에 추가되어 있는지 확인하십시오. 또한, SSH 호스트 지문이 변경되지 않았는지 확인하십시오. 변경된 경우, SSH 호스트 지문을 새로운 지문으로 업데이트해야 합니다.
 
@@ -390,7 +388,7 @@ Jenkins 파이프라인 스크립트가 Bamboo로 전환되었습니다. 이제 
 > bamboo에서 yarn build하려면?
 
 ## ChatGPT 응답:
-> Bamboo에서 `yarn build`를 실행하려면 다음 단계를 수행해야 합니다.
+> Bamboo에서 {% raw %}`yarn build`{% endraw %}를 실행하려면 다음 단계를 수행해야 합니다.
 
 1. Node.js와 Yarn 설치: 먼저 Bamboo 서버에 Node.js와 Yarn이 설치되어 있는지 확인합니다. 설치되어 있지 않다면, [Node.js 공식 사이트](https://nodejs.org/)에서 Node.js를 다운로드 및 설치하고, [Yarn 공식 사이트](https://yarnpkg.com/)에서 Yarn을 다운로드 및 설치하세요.
 
@@ -400,14 +398,14 @@ Jenkins 파이프라인 스크립트가 Bamboo로 전환되었습니다. 이제 
 
 4. 스크립트 작성: 스크립트 작성 영역에 다음 명령을 입력합니다.
 
-   ```
+   {% raw %}```
    yarn install
    yarn build
-   ```
+   ```{% endraw %}
 
-   `yarn install` 명령은 프로젝트에 필요한 모든 종속성을 설치하는 데 사용되며, `yarn build` 명령은 프로젝트를 빌드하는 데 사용됩니다.
+   {% raw %}`yarn install`{% endraw %} 명령은 프로젝트에 필요한 모든 종속성을 설치하는 데 사용되며, {% raw %}`yarn build`{% endraw %} 명령은 프로젝트를 빌드하는 데 사용됩니다.
 
-5. 작업 저장 및 빌드 계획 실행: 작업을 저장한 후 빌드 계획을 실행하여 `yarn build`가 제대로 작동하는지 확인합니다.
+5. 작업 저장 및 빌드 계획 실행: 작업을 저장한 후 빌드 계획을 실행하여 {% raw %}`yarn build`{% endraw %}가 제대로 작동하는지 확인합니다.
 
-위의 단계를 완료하면 Bamboo에서 `yarn build`를 사용하여 프로젝트를 빌드할 수 있습니다.
+위의 단계를 완료하면 Bamboo에서 {% raw %}`yarn build`{% endraw %}를 사용하여 프로젝트를 빌드할 수 있습니다.
 

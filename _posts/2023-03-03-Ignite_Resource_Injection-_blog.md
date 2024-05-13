@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Ignite Resource Injection."
-date: 2023-03-03
 tags: [Injection, Ignite, Resource]
-categories: blog
 ---
 
 ## 사용자 입력:

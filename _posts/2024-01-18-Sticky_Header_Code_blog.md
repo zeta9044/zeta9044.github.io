@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Sticky Header Code"
-date: 2024-01-18
 tags: [Header, Sticky, Code]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -13,7 +11,7 @@ categories: blog
 > Certainly! Here's a simple code snippet for creating a sticky header using HTML, CSS, and JavaScript:
 
 HTML:
-```html
+{% raw %}```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,10 +31,10 @@ HTML:
     <script src="script.js"></script>
 </body>
 </html>
-```
+```{% endraw %}
 
 CSS (styles.css):
-```css
+{% raw %}```css
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -54,10 +52,10 @@ body {
 }
 
 /* Adjust the styling for the rest of your content as needed */
-```
+```{% endraw %}
 
 JavaScript (script.js):
-```javascript
+{% raw %}```javascript
 window.onscroll = function() {
     stickyHeader();
 };
@@ -72,7 +70,7 @@ function stickyHeader() {
         header.classList.remove("sticky");
     }
 }
-```
+```{% endraw %}
 
 This code creates a sticky header that becomes fixed at the top of the page when scrolling down. Customize the styles in the CSS section according to your design preferences.
 

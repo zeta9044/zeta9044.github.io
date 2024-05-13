@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Cholesterol: Explanation in English"
-date: 2023-01-31
-tags: [English, in, Cholesterol, Explanation]
-categories: blog
+title: "Cholesterol - Explanation in English"
+tags: [Explanation, Cholesterol, English, in]
 ---
 
 ## 사용자 입력:

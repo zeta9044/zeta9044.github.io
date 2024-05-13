@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "NumPy Wheel Build Error"
-date: 2023-06-20
-tags: [Build, Wheel, NumPy, Error]
-categories: blog
+tags: [Wheel, NumPy, Build, Error]
 ---
 
 ## 사용자 입력:
@@ -15,7 +13,7 @@ categories: blog
   Building wheel for pandas (pyproject.toml) ... -
 
 ## ChatGPT 응답:
-> It seems that you encountered an error while trying to build the wheel for the NumPy package. The specific error message you provided suggests that there was a problem with the compilation step for the `scalartypes.c` file in the NumPy source code.
+> It seems that you encountered an error while trying to build the wheel for the NumPy package. The specific error message you provided suggests that there was a problem with the compilation step for the {% raw %}`scalartypes.c`{% endraw %} file in the NumPy source code.
 
 Here are a few suggestions to help resolve this issue:
 
@@ -25,7 +23,7 @@ Here are a few suggestions to help resolve this issue:
 
 3. Check Python version compatibility: Ensure that your Python version is compatible with the version of NumPy you are trying to install. It's possible that there may be compatibility issues between the two.
 
-4. Upgrade or reinstall NumPy: Try upgrading your NumPy package to the latest version using the command `pip install --upgrade numpy`. If that doesn't work, you can try uninstalling and reinstalling NumPy using `pip uninstall numpy` followed by `pip install numpy`.
+4. Upgrade or reinstall NumPy: Try upgrading your NumPy package to the latest version using the command {% raw %}`pip install --upgrade numpy`{% endraw %}. If that doesn't work, you can try uninstalling and reinstalling NumPy using {% raw %}`pip uninstall numpy`{% endraw %} followed by {% raw %}`pip install numpy`{% endraw %}.
 
 If none of these suggestions resolve the issue, please provide more details about your operating system, Python version, and any other relevant information that could help identify the cause of the problem.
 
@@ -36,29 +34,29 @@ If none of these suggestions resolve the issue, please provide more details abou
 > Ubuntu에서 GCC를 설치하고 업그레이드하는 방법은 다음과 같습니다:
 
 1. 패키지 관리자를 업데이트합니다. 터미널을 열고 다음 명령을 실행합니다:
-   ```
+   {% raw %}```
    sudo apt update
-   ```
+   ```{% endraw %}
 
 2. GCC를 설치합니다. 다음 명령을 사용하여 GCC를 설치합니다:
-   ```
+   {% raw %}```
    sudo apt install gcc
-   ```
+   ```{% endraw %}
 
    이 명령은 시스템에서 GCC를 설치하고 관련된 의존성을 자동으로 해결합니다.
 
 3. GCC 버전 확인하기: 설치가 완료되면 다음 명령을 사용하여 설치된 GCC의 버전을 확인할 수 있습니다:
-   ```
+   {% raw %}```
    gcc --version
-   ```
+   ```{% endraw %}
 
    버전 정보가 출력됩니다.
 
 GCC를 업그레이드하는 경우, 패키지 관리자를 통해 시스템의 다른 패키지와 함께 GCC도 업그레이드됩니다. 따라서 패키지 관리자를 통해 시스템을 업데이트하고 업그레이드하는 것이 가장 좋습니다. 다음 명령을 사용하여 시스템의 모든 패키지를 최신 상태로 업그레이드할 수 있습니다:
-   ```
+   {% raw %}```
    sudo apt update
    sudo apt upgrade
-   ```
+   ```{% endraw %}
 
 이제 GCC가 설치되고 업그레이드되었는지 확인할 수 있습니다.
 
@@ -74,20 +72,20 @@ GCC를 업그레이드하는 경우, 패키지 관리자를 통해 시스템의 
 > ModuleNotFoundError: No module named 'jpype'
 
 ## ChatGPT 응답:
-> The error message you provided, `ModuleNotFoundError: No module named 'jpype'`, indicates that the 'jpype' module is not installed in your Python environment. 
+> The error message you provided, {% raw %}`ModuleNotFoundError: No module named 'jpype'`{% endraw %}, indicates that the 'jpype' module is not installed in your Python environment. 
 
 To resolve this issue, you can follow these steps to install the 'jpype' module:
 
 1. Make sure you have pip installed: Check if you have 'pip' installed by running the following command in your terminal:
-   ```
+   {% raw %}```
    pip --version
-   ```
+   ```{% endraw %}
    If pip is not installed, you can install it by following the official pip installation guide for your operating system.
 
 2. Install 'jpype' using pip: Once you have pip installed, run the following command to install the 'jpype' module:
-   ```
+   {% raw %}```
    pip install jpype
-   ```
+   ```{% endraw %}
    This will download and install the 'jpype' module from the Python Package Index (PyPI).
 
 After the installation is complete, you should be able to import and use the 'jpype' module in your Python scripts without encountering the "ModuleNotFoundError" exception.
@@ -98,20 +96,20 @@ If you still encounter any issues, please provide more details about your enviro
 > 한글로 알려줘
 
 ## ChatGPT 응답:
-> 'jpype' 모듈이 설치되어 있지 않아서 발생한 오류 메시지인 `ModuleNotFoundError: No module named 'jpype'` 입니다.
+> 'jpype' 모듈이 설치되어 있지 않아서 발생한 오류 메시지인 {% raw %}`ModuleNotFoundError: No module named 'jpype'`{% endraw %} 입니다.
 
 이 문제를 해결하기 위해서는 다음 단계를 따라 'jpype' 모듈을 설치해야 합니다:
 
 1. pip가 설치되어 있는지 확인: 터미널에서 다음 명령을 실행하여 'pip'가 설치되어 있는지 확인합니다:
-   ```
+   {% raw %}```
    pip --version
-   ```
+   ```{% endraw %}
    만약 pip가 설치되어 있지 않다면, 해당 운영 체제에 맞는 공식 pip 설치 가이드를 따라 설치합니다.
 
 2. pip를 사용하여 'jpype' 설치: pip가 설치되었다면, 다음 명령을 실행하여 'jpype' 모듈을 설치합니다:
-   ```
+   {% raw %}```
    pip install jpype
-   ```
+   ```{% endraw %}
    이 명령은 'jpype' 모듈을 Python Package Index (PyPI)에서 다운로드하여 설치합니다.
 
 설치가 완료되면, Python 스크립트에서 'jpype' 모듈을 가져와서 사용할 수 있으며, "ModuleNotFoundError" 예외가 발생하지 않아야 합니다.

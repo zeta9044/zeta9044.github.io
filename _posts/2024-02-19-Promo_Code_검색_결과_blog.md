@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Promo Code 검색 결과"
-date: 2024-02-19
-tags: [결과, Promo, Code, 검색]
-categories: blog
+tags: [검색, 결과, Code, Promo]
 ---
 
 ## 사용자 입력:

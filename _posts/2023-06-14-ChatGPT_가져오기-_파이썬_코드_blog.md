@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "ChatGPT 가져오기: 파이썬 코드"
-date: 2023-06-14
-tags: [ChatGPT, 코드, 파이썬]
-categories: blog
+title: "ChatGPT 가져오기 - 파이썬 코드"
+tags: [코드, ChatGPT, 파이썬]
 ---
 
 ## 사용자 입력:
@@ -14,13 +12,13 @@ categories: blog
 
 먼저, 필요한 라이브러리를 설치해야 합니다. 파이썬에서 requests 라이브러리를 설치하려면 다음 명령을 실행하세요:
 
-```
+{% raw %}```
 pip install requests
-```
+```{% endraw %}
 
 이제 다음은 ChatGPT 대화 기록을 가져오는 파이썬 프로그램의 예시입니다:
 
-```python
+{% raw %}```python
 import requests
 
 def get_chat_history(date):
@@ -46,9 +44,9 @@ print(yesterday_history)
 previous_7days_history = get_chat_history("previous_7days")
 print("Previous 7 Days' Chat History:")
 print(previous_7days_history)
-```
+```{% endraw %}
 
-위 코드에서 `https://example.com/chat_history?date={date}` 부분을 실제 ChatGPT 대화 기록이 있는 URL로 바꾸어야 합니다. 또한, 해당 URL에서 올바른 응답을 받을 수 있도록 인증이나 세션 관리 등이 필요한 경우 해당 로직을 추가해야 합니다.
+위 코드에서 {% raw %}`https://example.com/chat_history?date={date}`{% endraw %} 부분을 실제 ChatGPT 대화 기록이 있는 URL로 바꾸어야 합니다. 또한, 해당 URL에서 올바른 응답을 받을 수 있도록 인증이나 세션 관리 등이 필요한 경우 해당 로직을 추가해야 합니다.
 
 이 예시를 참고하여 웹에서 ChatGPT 대화 기록을 가져올 수 있는 파이썬 프로그램을 작성해보세요. 필요에 따라 코드를 수정하여 사용하시면 됩니다.
 

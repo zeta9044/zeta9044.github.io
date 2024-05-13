@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Flutter & Tableau 알려줘"
-date: 2023-05-24
-tags: [Flutter, Tableau]
-categories: blog
+tags: [Tableau, Flutter]
 ---
 
 ## 사용자 입력:

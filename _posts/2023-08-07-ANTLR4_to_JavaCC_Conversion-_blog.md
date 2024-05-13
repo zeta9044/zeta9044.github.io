@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 to JavaCC Conversion."
-date: 2023-08-07
-tags: [JavaCC, Conversion, to]
-categories: blog
+tags: [Conversion, to, JavaCC]
 ---
 
 ## 사용자 입력:

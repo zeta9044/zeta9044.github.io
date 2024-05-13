@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "해결: PostgreSQL 드라이버 로드"
-date: 2023-12-13
-tags: [로드, 드라이버, PostgreSQL, 해결]
-categories: blog
+title: "해결 - PostgreSQL 드라이버 로드"
+tags: [PostgreSQL, 로드, 해결, 드라이버]
 ---
 
 ## 사용자 입력:
@@ -13,23 +11,23 @@ categories: blog
 > The error message you're seeing, "Failed to load driver class org.postgresql.Driver from HikariConfig class classloader," typically occurs when your Java application is unable to find the PostgreSQL JDBC driver. This problem often arises due to issues with the classpath or missing dependencies. Here are some steps to resolve it:
 
 1. **Add the PostgreSQL JDBC Driver to Your Project:**
-   - If you are using Maven, add the following dependency in your `pom.xml` file:
+   - If you are using Maven, add the following dependency in your {% raw %}`pom.xml`{% endraw %} file:
 
-     ```xml
+     {% raw %}```xml
      <dependency>
          <groupId>org.postgresql</groupId>
          <artifactId>postgresql</artifactId>
          <version>LATEST_VERSION</version>
      </dependency>
-     ```
-   - If you're using Gradle, add this to your `build.gradle` file:
+     ```{% endraw %}
+   - If you're using Gradle, add this to your {% raw %}`build.gradle`{% endraw %} file:
 
-     ```gradle
+     {% raw %}```gradle
      dependencies {
          implementation 'org.postgresql:postgresql:LATEST_VERSION'
      }
-     ```
-   - Replace `LATEST_VERSION` with the latest version of the PostgreSQL JDBC driver. You can find this on the [Maven Central Repository](https://search.maven.org/).
+     ```{% endraw %}
+   - Replace {% raw %}`LATEST_VERSION`{% endraw %} with the latest version of the PostgreSQL JDBC driver. You can find this on the [Maven Central Repository](https://search.maven.org/).
 
 2. **Ensure Proper Classpath Configuration:**
    - If you're not using a build tool like Maven or Gradle, ensure that the PostgreSQL JDBC driver JAR is included in your application's classpath.
@@ -37,13 +35,13 @@ categories: blog
 3. **Check Your Code Configuration:**
    - Verify that your code correctly specifies the PostgreSQL driver. For HikariCP, the configuration typically looks something like this:
 
-     ```java
+     {% raw %}```java
      HikariConfig config = new HikariConfig();
      config.setJdbcUrl("jdbc:postgresql://localhost:5432/yourdatabase");
      config.setUsername("username");
      config.setPassword("password");
      config.setDriverClassName("org.postgresql.Driver");
-     ```
+     ```{% endraw %}
 
 4. **Check for Conflicts:**
    - If you have multiple versions of the JDBC driver, or if there are other conflicting libraries in your classpath, it might cause issues. Make sure there's only one version of the PostgreSQL driver.

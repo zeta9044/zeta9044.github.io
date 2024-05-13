@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Notepad++ Text Wrapping."
-date: 2023-03-28
-tags: [Text, Wrapping, Notepad]
-categories: blog
+tags: [Notepad, Text, Wrapping]
 ---
 
 ## 사용자 입력:

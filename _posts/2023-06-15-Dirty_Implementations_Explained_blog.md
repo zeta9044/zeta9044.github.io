@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Dirty Implementations Explained"
-date: 2023-06-15
-tags: [Explained, Dirty, Implementations]
-categories: blog
+tags: [Dirty, Explained, Implementations]
 ---
 
 ## 사용자 입력:

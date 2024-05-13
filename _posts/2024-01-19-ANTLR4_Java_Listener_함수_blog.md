@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 Java Listener 함수"
-date: 2024-01-19
-tags: [함수, Java, Listener]
-categories: blog
+tags: [함수, Listener, Java]
 ---
 
 ## 사용자 입력:
@@ -42,7 +40,7 @@ categories: blog
 ## ChatGPT 응답:
 > 아래는 동일한 depth 기준으로 targetContextClass를 찾는 새로운 함수의 구현입니다.
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -83,9 +81,9 @@ public class YourClassName {
         }
     }
 }
-```
+```{% endraw %}
 
-이 새로운 함수 `findAllAtSameDepth`는 rootContext와 동일한 depth에 있는 모든 `targetContextClass`를 찾아 리스트로 반환합니다. 함수 호출 시 depth는 0으로 시작하며, `targetContextClass`를 찾을 때 depth가 0인 경우에만 리스트에 추가됩니다.
+이 새로운 함수 {% raw %}`findAllAtSameDepth`{% endraw %}는 rootContext와 동일한 depth에 있는 모든 {% raw %}`targetContextClass`{% endraw %}를 찾아 리스트로 반환합니다. 함수 호출 시 depth는 0으로 시작하며, {% raw %}`targetContextClass`{% endraw %}를 찾을 때 depth가 0인 경우에만 리스트에 추가됩니다.
 
 ## 사용자 입력:
 > 동일 depth 기준은 이게 아니라, 첫번째 찾은 타겟의 depth 기준이야.
@@ -93,7 +91,7 @@ public class YourClassName {
 ## ChatGPT 응답:
 > Ah, 알겠습니다. 첫 번째 찾은 타겟의 depth를 기준으로 하는 함수를 만들어보겠습니다.
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -142,17 +140,17 @@ public class YourClassName {
         }
     }
 }
-```
+```{% endraw %}
 
-이 함수 `findAllAtFirstTargetDepth`는 rootContext에서 첫 번째로 발견된 `targetContextClass`의 depth를 기준으로 모든 해당 클래스를 찾아 리스트로 반환합니다. 첫 번째로 발견된 타겟의 depth를 기억하기 위해 `firstTargetDepth` 배열을 사용합니다.
+이 함수 {% raw %}`findAllAtFirstTargetDepth`{% endraw %}는 rootContext에서 첫 번째로 발견된 {% raw %}`targetContextClass`{% endraw %}의 depth를 기준으로 모든 해당 클래스를 찾아 리스트로 반환합니다. 첫 번째로 발견된 타겟의 depth를 기억하기 위해 {% raw %}`firstTargetDepth`{% endraw %} 배열을 사용합니다.
 
 ## 사용자 입력:
 > targetContextClass.cast(context)에서 targetContextClass.cast(context).depth() 하면 depth가 구해지는데, 왜 입력을 받아야 하냐.
 
 ## ChatGPT 응답:
-> 죄송합니다. 그 부분은 제가 실수한 것입니다. 입력으로 받는 대신에 `targetContextClass.cast(context).depth()`를 사용하여 바로 depth를 구할 수 있습니다. 아래는 수정된 함수입니다.
+> 죄송합니다. 그 부분은 제가 실수한 것입니다. 입력으로 받는 대신에 {% raw %}`targetContextClass.cast(context).depth()`{% endraw %}를 사용하여 바로 depth를 구할 수 있습니다. 아래는 수정된 함수입니다.
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -204,19 +202,19 @@ public class YourClassName {
         }
     }
 }
-```
+```{% endraw %}
 
-이제 `targetContextClass.cast(context).depth()`를 사용하여 바로 depth를 얻고 있습니다. 이렇게 수정하면 입력으로 받을 필요가 없어집니다.
+이제 {% raw %}`targetContextClass.cast(context).depth()`{% endraw %}를 사용하여 바로 depth를 얻고 있습니다. 이렇게 수정하면 입력으로 받을 필요가 없어집니다.
 
 ## 사용자 입력:
 >  firstTargetDepth[] 이 배열은 왜 쓰는 건데?
 
 ## ChatGPT 응답:
-> 죄송합니다. 내용을 다시 확인해보니, `firstTargetDepth` 배열을 사용하지 않아도 됩니다. 처음에는 첫 번째로 찾은 타겟의 depth를 저장하려고 했지만, 나중에 불필요한 복잡성을 추가했습니다.
+> 죄송합니다. 내용을 다시 확인해보니, {% raw %}`firstTargetDepth`{% endraw %} 배열을 사용하지 않아도 됩니다. 처음에는 첫 번째로 찾은 타겟의 depth를 저장하려고 했지만, 나중에 불필요한 복잡성을 추가했습니다.
 
 아래는 수정된 함수입니다.
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -268,9 +266,9 @@ public class YourClassName {
         }
     }
 }
-```
+```{% endraw %}
 
-이렇게 수정하면 `firstTargetDepth` 배열을 사용하지 않아도 됩니다. 간단하게 첫 번째로 발견된 타겟의 depth를 저장하지 않고, 바로 `depth` 값을 비교하여 처리합니다.
+이렇게 수정하면 {% raw %}`firstTargetDepth`{% endraw %} 배열을 사용하지 않아도 됩니다. 간단하게 첫 번째로 발견된 타겟의 depth를 저장하지 않고, 바로 {% raw %}`depth`{% endraw %} 값을 비교하여 처리합니다.
 
 ## 사용자 입력:
 > 고치지도 않고 고쳤다네.
@@ -278,7 +276,7 @@ public class YourClassName {
 ## ChatGPT 응답:
 > 정말 죄송합니다. 앞서 제가 제안한 방법은 실제로는 개선이 이루어지지 않았습니다. 여러분의 지적에 감사드리며, 수정된 함수를 제시하겠습니다.
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -327,7 +325,7 @@ public class YourClassName {
         }
     }
 }
-```
+```{% endraw %}
 
 이번에는 중복된 depth의 경우에도 기존에 찾은 타겟을 유지하는 방식으로 수정되었습니다. 감사합니다.
 
@@ -337,7 +335,7 @@ public class YourClassName {
 ## ChatGPT 응답:
 > 정말로 죄송합니다. 이해하고 수정을 하지 못한 것 같습니다. 여러분의 지적을 반영하여 함수를 수정하겠습니다.
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -389,7 +387,7 @@ public class YourClassName {
         }
     }
 }
-```
+```{% endraw %}
 
 이번에는 같은 depth에 있는 모든 타겟을 리스트에 추가하고, 첫 번째로 발견된 타겟의 depth만을 저장하도록 수정하였습니다. 불필요한 중복을 제거하였습니다. 다시 한 번 감사드립니다.
 

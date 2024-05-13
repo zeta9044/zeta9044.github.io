@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Gmail API File Download"
-date: 2023-04-21
-tags: [Gmail, API, Download, File]
-categories: blog
+tags: [Download, Gmail, API, File]
 ---
 
 ## 사용자 입력:
@@ -16,7 +14,7 @@ categories: blog
 
 인증키를 생성하고, 필요한 라이브러리를 설치한 후, 아래 코드를 실행해주세요. 이 코드는 Gmail API를 사용하여 이메일 메시지를 가져오고, 첨부 파일이 있는 메시지의 첨부 파일을 다운로드하고 저장합니다.
 
-```python
+{% raw %}```python
 import os
 import base64
 import re
@@ -58,15 +56,15 @@ if 'messages' in result:
             new_file_name = '{:0>3d}{}'.format(int(subject), file_ext)
             with open(new_file_name, 'wb') as f:
                 f.write(file_data)
-``` 
+```{% endraw %} 
 
-위 코드를 실행하기 전에, `credentials.json` 파일을 만들어야 합니다. 이 파일은 Google Cloud Console에서 생성한 인증키 파일이어야 합니다. 
+위 코드를 실행하기 전에, {% raw %}`credentials.json`{% endraw %} 파일을 만들어야 합니다. 이 파일은 Google Cloud Console에서 생성한 인증키 파일이어야 합니다. 
 
 또한, 이 코드를 실행하기 위해서는 Google API 클라이언트 라이브러리가 필요합니다. 아래와 같이 라이브러리를 설치해주세요.
 
-```
+{% raw %}```
 pip install --upgrade google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
-```
+```{% endraw %}
 
 이제 위 코드를 실행하면, 나의 Gmail 계정에 접속하여, 제목이 숫자로 시작하는 이메일을 검색합니다. 검색된 이메일 중 첨부 파일이 있는 경우, 첨부 파일을 다운로드하고, 파일 이름을 제목으로 변경하여 저장합니다
 
@@ -91,13 +89,13 @@ pip install --upgrade google-api-python-client google-auth google-auth-oauthlib 
 
 이제 다운로드한 인증키 파일을 사용하여 Gmail API에 접근할 수 있습니다. 다음과 같은 코드를 사용하여 인증키 파일을 로드할 수 있습니다.
 
-```python
+{% raw %}```python
 from google.oauth2.credentials import Credentials
 
 creds = Credentials.from_authorized_user_file('credentials.json', ['https://www.googleapis.com/auth/gmail.readonly'])
-```
+```{% endraw %}
 
-여기서 `credentials.json`은 다운로드한 인증키 파일의 이름입니다. 이 파일은 프로젝트 폴더에 저장되어 있어야 합니다. 인증키 파일을 다른 이름으로 저장하거나 다른 경로에 저장하려면, `from_authorized_user_file()` 메서드의 첫 번째 인자를 적절히 수정하면 됩니다.
+여기서 {% raw %}`credentials.json`{% endraw %}은 다운로드한 인증키 파일의 이름입니다. 이 파일은 프로젝트 폴더에 저장되어 있어야 합니다. 인증키 파일을 다른 이름으로 저장하거나 다른 경로에 저장하려면, {% raw %}`from_authorized_user_file()`{% endraw %} 메서드의 첫 번째 인자를 적절히 수정하면 됩니다.
 
 ## 사용자 입력:
 > 위 서비스 사용은 무료야?
@@ -131,7 +129,7 @@ OAuth 2.0 인증을 구성하는 방법과 OAuth 2.0 클라이언트 ID와 시�
 
 그러나, Gmail API를 사용하지 않고, Gmail 계정에 직접 로그인하는 방법으로 이메일 메시지를 가져오려면, 사용자의 이메일 주소와 비밀번호를 사용하여 Gmail 계정에 로그인해야 합니다. 이를 위해서는 다음과 같은 코드를 사용할 수 있습니다.
 
-```python
+{% raw %}```python
 import imaplib
 import email
 from email.header import decode_header
@@ -181,7 +179,7 @@ for msg in messages:
 # IMAP 서버 종료
 imap_server.close()
 imap_server.logout()
-```
+```{% endraw %}
 
 이 코드에서 "YOUR_EMAIL_ADDRESS"와 "YOUR_PASSWORD"에 대한 값을 사용자의 Gmail 이메일 주소와 Gmail 비밀번호로 바꿔주어야 합니다. 
 

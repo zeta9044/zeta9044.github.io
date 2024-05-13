@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "New chat"
-date: 2023-02-12
-tags: [chat, New]
-categories: blog
+tags: [New, chat]
 ---
 
 ## ChatGPT 응답:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR C++ Listener Issue"
-date: 2024-01-23
-tags: [C, Issue, Listener, ANTLR]
-categories: blog
+tags: [C, ANTLR, Issue, Listener]
 ---
 
 ## 사용자 입력:
@@ -16,29 +14,29 @@ categories: blog
 
 2. **antlr-4.9.3 이상 사용**: 최신 버전의 ANTLR를 사용하는 것이 좋습니다. 현재 버전 이상에서는 여러 문제가 해결되었을 수 있습니다.
 
-3. **리스너/방문자 생성 시 옵션 적용 확인**: `options {contextSuperClass=org.antlr.v4.runtime.RuleContextWithAltNum;}` 옵션이 리스너 또는 방문자 생성 시 정확하게 적용되고 있는지 확인하세요.
+3. **리스너/방문자 생성 시 옵션 적용 확인**: {% raw %}`options {contextSuperClass=org.antlr.v4.runtime.RuleContextWithAltNum;}`{% endraw %} 옵션이 리스너 또는 방문자 생성 시 정확하게 적용되고 있는지 확인하세요.
 
     예를 들어, Java에서는 다음과 같이 리스너를 생성할 수 있습니다:
 
-    ```bash
+    {% raw %}```bash
     antlr4 -Dlanguage=Java YourGrammar.g4
-    ```
+    ```{% endraw %}
 
     C++에서는 다음과 같이 사용합니다:
 
-    ```bash
+    {% raw %}```bash
     antlr4 -Dlanguage=Cpp YourGrammar.g4
-    ```
+    ```{% endraw %}
 
-4. **antlr 코드 자동 생성 후 확인**: ANTLR가 코드를 자동 생성한 후에 생성된 코드를 살펴보세요. 특히, `postfixExpression` 규칙에서 `AltNum` 관련 코드가 제대로 생성되었는지 확인합니다.
+4. **antlr 코드 자동 생성 후 확인**: ANTLR가 코드를 자동 생성한 후에 생성된 코드를 살펴보세요. 특히, {% raw %}`postfixExpression`{% endraw %} 규칙에서 {% raw %}`AltNum`{% endraw %} 관련 코드가 제대로 생성되었는지 확인합니다.
 
-5. **ANTLR 디버깅 옵션 사용**: ANTLR는 디버깅 옵션을 제공합니다. `-DANTLR_GEN_DEBUG` 옵션을 사용하여 ANTLR의 내부 동작을 디버깅하고 생성된 코드를 자세히 살펴볼 수 있습니다.
+5. **ANTLR 디버깅 옵션 사용**: ANTLR는 디버깅 옵션을 제공합니다. {% raw %}`-DANTLR_GEN_DEBUG`{% endraw %} 옵션을 사용하여 ANTLR의 내부 동작을 디버깅하고 생성된 코드를 자세히 살펴볼 수 있습니다.
 
     예를 들어:
 
-    ```bash
+    {% raw %}```bash
     antlr4 -Dlanguage=Java -DANTLR_GEN_DEBUG YourGrammar.g4
-    ```
+    ```{% endraw %}
 
     이 옵션을 사용하면 ANTLR가 생성하는 코드에 대한 디버그 정보를 확인할 수 있습니다.
 

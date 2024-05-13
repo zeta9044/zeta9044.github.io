@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Cancel my recent application."
-date: 2024-01-15
-tags: [Cancel, application, recent, my]
-categories: blog
+tags: [recent, application, Cancel, my]
 ---
 
 ## 사용자 입력:

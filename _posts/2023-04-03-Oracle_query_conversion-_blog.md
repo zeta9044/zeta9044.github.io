@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Oracle query conversion."
-date: 2023-04-03
-tags: [Oracle, query, conversion]
-categories: blog
+tags: [query, Oracle, conversion]
 ---
 
 ## 사용자 입력:
@@ -363,7 +361,7 @@ ORDER BY
 ## ChatGPT 응답:
 > 다음은 Oracle 19c에서 사용할 수 있는 쿼리입니다:
 
-```sql
+{% raw %}``{% endraw %}`sql
 SELECT
     /* ManagerEngineOps.xml.findOptionDatas */
     TO_CHAR(MM_CLASS_ID) AS MM_CLASS_ID,

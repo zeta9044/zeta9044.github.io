@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Column Model Request"
-date: 2023-04-07
 tags: [Request, Model, Column]
-categories: blog
 ---
 
 ## 사용자 입력:

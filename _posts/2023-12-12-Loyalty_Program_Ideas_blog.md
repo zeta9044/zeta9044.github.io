@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Loyalty Program Ideas"
-date: 2023-12-12
-tags: [Ideas, Loyalty, Program]
-categories: blog
+tags: [Program, Loyalty, Ideas]
 ---
 
 ## 사용자 입력:

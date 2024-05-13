@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Notepad++ 줄번호 없애기"
-date: 2023-03-30
-tags: [줄, Notepad, 번호]
-categories: blog
+tags: [Notepad, 번호, 줄]
 ---
 
 ## 사용자 입력:

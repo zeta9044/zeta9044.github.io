@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Custom 오류 처리 인터페이스"
-date: 2024-02-14
-tags: [인터페이스, 오류, Custom, 처리]
-categories: blog
+tags: [처리, Custom, 인터페이스, 오류]
 ---
 
 ## 사용자 입력:
@@ -15,9 +13,9 @@ public interface ErrorListener {
  주석 달아줘.
 
 ## ChatGPT 응답:
-> 이 Java 인터페이스 `ErrorListener`는 ANTLR 심볼 테이블 라이브러리의 일부입니다. ANTLR(Another Tool for Language Recognition)은 파서 생성기로, 언어 처리를 위한 강력한 도구를 제공합니다. 이 인터페이스는 심볼 테이블 작업 중 발생하는 오류를 처리하는 데 사용됩니다. `ErrorListener` 인터페이스는 오류 처리를 위한 하나의 메소드 `onError`를 정의합니다. 이 메소드는 오류가 발생할 때 호출되며, 오류 메시지와 발생한 예외에 대한 정보를 매개변수로 받습니다. 사용자는 이 인터페이스를 구현하여 커스텀 오류 처리 로직을 정의할 수 있습니다.
+> 이 Java 인터페이스 {% raw %}`ErrorListener`{% endraw %}는 ANTLR 심볼 테이블 라이브러리의 일부입니다. ANTLR(Another Tool for Language Recognition)은 파서 생성기로, 언어 처리를 위한 강력한 도구를 제공합니다. 이 인터페이스는 심볼 테이블 작업 중 발생하는 오류를 처리하는 데 사용됩니다. {% raw %}`ErrorListener`{% endraw %} 인터페이스는 오류 처리를 위한 하나의 메소드 {% raw %}`onError`{% endraw %}를 정의합니다. 이 메소드는 오류가 발생할 때 호출되며, 오류 메시지와 발생한 예외에 대한 정보를 매개변수로 받습니다. 사용자는 이 인터페이스를 구현하여 커스텀 오류 처리 로직을 정의할 수 있습니다.
 
-```java
+{% raw %}```java
 package org.antlr.symtab;
 
 /**
@@ -37,5 +35,5 @@ public interface ErrorListener {
      */
     void onError(String message, Exception e);
 }
-```
+```{% endraw %}
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "OBOK Info Request"
-date: 2023-02-12
-tags: [Info, OBOK, Request]
-categories: blog
+tags: [Request, OBOK, Info]
 ---
 
 ## 사용자 입력:

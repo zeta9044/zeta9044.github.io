@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "AstroPay로 바이낸스 입출금 가능"
-date: 2023-12-17
-tags: [가능, 로, 낸스, 입출금, 바이]
-categories: blog
+tags: [가능, 입출금, 낸스, 바이, 로]
 ---
 
 ## 사용자 입력:

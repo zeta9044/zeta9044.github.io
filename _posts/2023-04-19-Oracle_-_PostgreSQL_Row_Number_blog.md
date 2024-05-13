@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Oracle & PostgreSQL Row Number"
-date: 2023-04-19
-tags: [Row, PostgreSQL, Number, Oracle]
-categories: blog
+tags: [PostgreSQL, Row, Number, Oracle]
 ---
 
 ## 사용자 입력:
@@ -14,19 +12,19 @@ categories: blog
 
 Oracle에서의 예시:
 
-```sql
+{% raw %}```sql
 SELECT ROW_NUMBER() OVER (ORDER BY column_name) as row_num, column_name
 FROM table_name;
-```
+```{% endraw %}
 
 위의 쿼리에서 ROW_NUMBER() 함수는 ORDER BY 절에 지정된 열(column_name)에 따라 행 번호를 부여합니다.
 
 PostgreSQL에서의 예시:
 
-```sql
+{% raw %}```sql
 SELECT ROW_NUMBER() OVER (ORDER BY column_name) as row_num, column_name
 FROM table_name;
-```
+```{% endraw %}
 
 Oracle과 PostgreSQL에서 모두 유사한 문법으로 ROW_NUMBER() 함수를 사용할 수 있습니다. 다만, ORDER BY 절에서 정렬 순서를 지정하는 방식이 차이가 있을 수 있으니 이 점에 주의하시면 됩니다.
 

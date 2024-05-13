@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Skip Dot Files功能"
-date: 2023-10-12
-tags: [Dot, Skip]
-categories: blog
+tags: [Skip, Dot]
 ---
 
 ## 사용자 입력:
@@ -31,11 +29,11 @@ categories: blog
     return return_list 이 함수에서 .gitignore , .project 같이 .으로 시작하는 파일은 skip하도록 기능 추가.
 
 ## ChatGPT 응답:
-> To skip files that start with a period (like `.gitignore` or `.project`), you can add an additional condition in the list comprehension. 
+> To skip files that start with a period (like {% raw %}`.gitignore`{% endraw %} or {% raw %}`.project`{% endraw %}), you can add an additional condition in the list comprehension. 
 
-Here's the modified `get_extension_list` function with this feature:
+Here's the modified {% raw %}`get_extension_list`{% endraw %} function with this feature:
 
-```python
+{% raw %}```python
 import os
 
 def get_extension_list(dir:str, extension:str = None) -> list:
@@ -59,19 +57,19 @@ def get_extension_list(dir:str, extension:str = None) -> list:
             return_list.extend(row)
 
     return return_list
-```
+```{% endraw %}
 
-I've added the condition `and not file.startswith('.')` in the list comprehensions to ensure files starting with a dot are excluded.
+I've added the condition {% raw %}`and not file.startswith('.')`{% endraw %} in the list comprehensions to ensure files starting with a dot are excluded.
 
 ## 사용자 입력:
 > 위에서 바이너리 파일은 제외하도록 해줘.
 
 ## ChatGPT 응답:
-> To skip binary files, we need to read the content of each file and check if it contains any null bytes (`\x00`), which is a common indication of a binary file. 
+> To skip binary files, we need to read the content of each file and check if it contains any null bytes ({% raw %}`\x00`{% endraw %}), which is a common indication of a binary file. 
 
-Let's modify the `get_extension_list` function to skip binary files:
+Let's modify the {% raw %}`get_extension_list`{% endraw %} function to skip binary files:
 
-```python
+{% raw %}```python
 import os
 
 def is_binary(file_path: str) -> bool:
@@ -116,7 +114,7 @@ def get_extension_list(dir:str, extension:str = None) -> list:
                     return_list.append(file_path)
 
     return return_list
-```
+```{% endraw %}
 
-I added a helper function `is_binary` to check if a file is binary. Then, in the main function, I loop through files, check if they're binary using our helper function, and skip them accordingly.
+I added a helper function {% raw %}`is_binary`{% endraw %} to check if a file is binary. Then, in the main function, I loop through files, check if they're binary using our helper function, and skip them accordingly.
 

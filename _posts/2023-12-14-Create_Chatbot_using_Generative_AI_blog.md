@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Create Chatbot using Generative AI"
-date: 2023-12-14
-tags: [Generative, Chatbot, using, AI, Create]
-categories: blog
+tags: [Create, using, Chatbot, Generative, AI]
 ---
 
 ## 사용자 입력:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "XML 파서 jjt 작성."
-date: 2023-06-30
-tags: [파서, jjt, 작성, XML]
-categories: blog
+tags: [jjt, XML, 파서, 작성]
 ---
 
 ## 사용자 입력:
@@ -14,7 +12,7 @@ categories: blog
 
 아래의 코드는 매우 간단한 XML 문서의 형식을 다루는 JJT 파일입니다. 
 
-```java
+{% raw %}```java
 options {
   MULTI = true;
   VISITOR = true;
@@ -67,9 +65,9 @@ void Content():
 TOKEN: {
   <IDENTIFIER: (~[" ", "<", ">", "/"])+ >
 }
-```
+```{% endraw %}
 
-이 JJT 파일은 `<tag>Content</tag>` 형태의 간단한 XML 문서를 파싱합니다. `<IDENTIFIER>` 토큰은 공백, `<`, `>`, `/`를 제외한 모든 문자를 처리합니다.
+이 JJT 파일은 {% raw %}`<tag>Content</tag>`{% endraw %} 형태의 간단한 XML 문서를 파싱합니다. {% raw %}`<IDENTIFIER>`{% endraw %} 토큰은 공백, {% raw %}`<`{% endraw %}, {% raw %}`>`{% endraw %}, {% raw %}`/`{% endraw %}를 제외한 모든 문자를 처리합니다.
 
 하지만 이 파서는 중첩된 태그나 속성이 있는 XML을 처리할 수 없습니다. 그리고 일반적으로 XML에 대한 완전한 구문 분석을 처리하려면, 여러 다른 유형의 노드와 토큰을 처리할 수 있어야 하며, 문서의 끝, 주석, CDATA 섹션, 엔티티 참조 등 XML의 다른 특성을 처리해야 합니다. 따라서 위의 코드는 XML 파서의 간단한 예제일 뿐이며, 실제로는 더 복잡한 JJT를 작성해야 할 것입니다.
 

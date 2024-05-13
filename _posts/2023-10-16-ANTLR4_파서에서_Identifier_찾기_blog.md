@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 파서에서 Identifier 찾기"
-date: 2023-10-16
-tags: [Identifier, 파서, 찾기]
-categories: blog
+tags: [Identifier, 찾기, 파서]
 ---
 
 ## 사용자 입력:
@@ -14,25 +12,25 @@ categories: blog
 
 1. 먼저, 해당 토큰 (identifier)을 나타내는 터미널 룰 (lexer rule)을 정의해야 합니다. 예를 들어, "identifier"라는 이름의 lexer rule을 정의할 수 있습니다. 아래는 간단한 예시입니다:
 
-```antlr
+{% raw %}```antlr
 Identifier: [a-zA-Z_][a-zA-Z0-9_]*;
-```
+```{% endraw %}
 
 이렇게 정의한 Identifier 룰은 영문자나 밑줄로 시작하고, 영문자, 숫자, 밑줄의 조합으로 이루어진 토큰을 나타냅니다.
 
 2. 이제 context rule (parser rule)에서 이 identifier를 사용하려면 해당 룰에서 identifier를 참조하면 됩니다. 예를 들어, 다음과 같이 사용할 수 있습니다:
 
-```antlr
+{% raw %}```antlr
 someRule: Identifier;
-```
+```{% endraw %}
 
-위의 예에서 `someRule`은 `Identifier` 토큰을 기대하는 파서 규칙입니다. 이렇게하면 파서가 `Identifier` 토큰을 찾아내고 이를 `someRule`에 할당합니다.
+위의 예에서 {% raw %}`someRule`{% endraw %}은 {% raw %}`Identifier`{% endraw %} 토큰을 기대하는 파서 규칙입니다. 이렇게하면 파서가 {% raw %}`Identifier`{% endraw %} 토큰을 찾아내고 이를 {% raw %}`someRule`{% endraw %}에 할당합니다.
 
 3. 이제 파서를 실행할 때 입력 텍스트에 대한 토큰화 및 구문 분석을 수행하면, 파서가 입력 텍스트에서 "identifier" 토큰을 인식하고 이를 파서 규칙에 따라 처리할 것입니다.
 
 간단한 예제를 통해 더 자세히 설명하겠습니다. 다음은 식별자를 파싱하는 간단한 ANTLR4 파서의 일부입니다:
 
-```antlr
+{% raw %}```antlr
 grammar MyParser;
 
 // Lexer rules
@@ -40,11 +38,11 @@ Identifier: [a-zA-Z_][a-zA-Z0-9_]*;
 
 // Parser rules
 expression: Identifier;
-```
+```{% endraw %}
 
 위의 파서는 "expression" 규칙에서 "Identifier"를 파싱하는 간단한 예입니다. 이제 "expression" 규칙을 사용하여 식별자를 파싱할 수 있습니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.*;
 
 public class Main {
@@ -62,7 +60,7 @@ public class Main {
         System.out.println("Parsed Identifier: " + identifier);
     }
 }
-```
+```{% endraw %}
 
 위의 코드에서 "expression"을 파싱하면 입력 텍스트에서 "myVariable"라는 식별자를 인식하고, 이를 가져와서 출력합니다.
 
@@ -72,7 +70,7 @@ public class Main {
 ## ChatGPT 응답:
 > ANTLR4에서 특정 토큰을 찾아내기 위한 일반적인 유틸리티 클래스를 작성할 수 있습니다. 이를 위해서는 파서와 리스너 또는 비지터를 사용하여 파싱한 후, 원하는 토큰을 추출하는 코드를 작성해야 합니다. 다음은 이를 수행하는 간단한 유틸리티 클래스의 예시입니다.
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
@@ -107,9 +105,9 @@ public class TokenFinder {
         findTokens(input, ruleName);
     }
 }
-```
+```{% endraw %}
 
-위의 코드에서는 ANTLR4를 사용하여 파싱한 후, `YourListener` 클래스에서 exitEveryRule 메서드를 오버라이드하여 파서 규칙에서 마지막 토큰을 가져온 다음, 해당 토큰이 원하는 토큰인지 확인합니다. 이 경우, "IDENTIFIER" 토큰을 찾아내고 출력합니다.
+위의 코드에서는 ANTLR4를 사용하여 파싱한 후, {% raw %}`YourListener`{% endraw %} 클래스에서 exitEveryRule 메서드를 오버라이드하여 파서 규칙에서 마지막 토큰을 가져온 다음, 해당 토큰이 원하는 토큰인지 확인합니다. 이 경우, "IDENTIFIER" 토큰을 찾아내고 출력합니다.
 
 이렇게 하면 일반적인 유틸리티 클래스를 작성하여 특정 토큰을 찾을 수 있습니다. 원하는 규칙 및 토큰에 대한 조건을 설정하여 유용한 정보를 추출할 수 있습니다.
 
@@ -117,9 +115,9 @@ public class TokenFinder {
 > rulecontext아래 특정 ruleContext를 모두 찾아내는 util함수 알려줘.
 
 ## ChatGPT 응답:
-> ANTLR4에서 특정 `RuleContext` 아래에 있는 모든 `RuleContext`를 찾아내는 유틸리티 함수를 작성하는 것은 비교적 간단합니다. 아래는 이 작업을 수행하는 Java 유틸리티 함수의 예제입니다:
+> ANTLR4에서 특정 {% raw %}`RuleContext`{% endraw %} 아래에 있는 모든 {% raw %}`RuleContext`{% endraw %}를 찾아내는 유틸리티 함수를 작성하는 것은 비교적 간단합니다. 아래는 이 작업을 수행하는 Java 유틸리티 함수의 예제입니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 import java.util.ArrayList;
@@ -164,9 +162,9 @@ public class RuleContextFinder {
         }
     }
 }
-```
+```{% endraw %}
 
-위의 코드에서 `findAll` 함수는 주어진 `rootContext` 아래에서 특정 클래스의 `ParserRuleContext`를 찾아내는 데 사용됩니다. 이 함수는 재귀적으로 트리를 탐색하며 해당 클래스에 해당하는 `RuleContext`를 모두 찾아내고 리스트로 반환합니다.
+위의 코드에서 {% raw %}`findAll`{% endraw %} 함수는 주어진 {% raw %}`rootContext`{% endraw %} 아래에서 특정 클래스의 {% raw %}`ParserRuleContext`{% endraw %}를 찾아내는 데 사용됩니다. 이 함수는 재귀적으로 트리를 탐색하며 해당 클래스에 해당하는 {% raw %}`RuleContext`{% endraw %}를 모두 찾아내고 리스트로 반환합니다.
 
-실제 파서와 규칙에 맞게 코드를 수정하고 `YourSpecificRuleContext`를 찾으려는 규칙의 컨텍스트 클래스로 변경하십시오. 이제 `findAll` 함수를 호출하면 해당 클래스 아래에 있는 모든 `ParserRuleContext` 인스턴스를 찾을 수 있습니다.
+실제 파서와 규칙에 맞게 코드를 수정하고 {% raw %}`YourSpecificRuleContext`{% endraw %}를 찾으려는 규칙의 컨텍스트 클래스로 변경하십시오. 이제 {% raw %}`findAll`{% endraw %} 함수를 호출하면 해당 클래스 아래에 있는 모든 {% raw %}`ParserRuleContext`{% endraw %} 인스턴스를 찾을 수 있습니다.
 

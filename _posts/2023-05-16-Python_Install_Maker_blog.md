@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Python Install Maker"
-date: 2023-05-16
-tags: [Install, Maker, Python]
-categories: blog
+tags: [Python, Install, Maker]
 ---
 
 ## 사용자 입력:
@@ -31,12 +29,12 @@ categories: blog
 > 죄송합니다. Python 설치 프로그램을 만드는 과정은 복잡하고 개발 환경에 따라 다양한 방법이 존재하기 때문에, 간략한 단계로 설명드리기 어렵습니다. 하지만 여기에 간단한 예제를 제공하여 설치 프로그램을 만드는 방법을 보다 이해하기 쉽게 안내해 드리겠습니다.
 
 1. pyinstaller 설치: 설치 프로그램을 만들기 위해 PyInstaller를 사용할 것입니다. PyInstaller는 Python 스크립트를 실행 파일로 변환해주는 유용한 도구입니다. 다음 명령을 사용하여 PyInstaller를 설치합니다.
-   ```
+   {% raw %}```
    pip install pyinstaller
-   ```
+   ```{% endraw %}
 
-2. 설치 스크립트 작성: Python 스크립트를 실행 파일로 변환하는 PyInstaller에 대한 설치 스크립트를 작성해야 합니다. 예를 들어, `install_script.py`라는 이름의 스크립트 파일을 작성하고 다음과 같은 내용을 추가합니다.
-   ```python
+2. 설치 스크립트 작성: Python 스크립트를 실행 파일로 변환하는 PyInstaller에 대한 설치 스크립트를 작성해야 합니다. 예를 들어, {% raw %}`install_script.py`{% endraw %}라는 이름의 스크립트 파일을 작성하고 다음과 같은 내용을 추가합니다.
+   {% raw %}```python
    import os
    import subprocess
    
@@ -51,20 +49,20 @@ categories: blog
    
    # 변환된 실행 파일을 원하는 위치로 이동합니다.
    os.rename('dist/my_program', 'dist/' + executable)
-   ```
+   ```{% endraw %}
 
-   위 스크립트는 `my_program.py`라는 이름의 Python 스크립트를 실행 파일로 변환합니다. 스크립트에서 `my_program`은 실행 파일의 이름입니다.
+   위 스크립트는 {% raw %}`my_program.py`{% endraw %}라는 이름의 Python 스크립트를 실행 파일로 변환합니다. 스크립트에서 {% raw %}`my_program`{% endraw %}은 실행 파일의 이름입니다.
 
 3. 설치 프로그램 생성: 터미널 또는 명령 프롬프트에서 다음 명령을 실행하여 설치 프로그램을 생성합니다.
-   ```
+   {% raw %}```
    python install_script.py
-   ```
+   ```{% endraw %}
 
-   이 명령은 `install_script.py`에 작성한 스크립트를 실행하여 Python 스크립트를 실행 파일로 변환하고, `dist` 폴더에 변환된 실행 파일을 생성합니다.
+   이 명령은 {% raw %}`install_script.py`{% endraw %}에 작성한 스크립트를 실행하여 Python 스크립트를 실행 파일로 변환하고, {% raw %}`dist`{% endraw %} 폴더에 변환된 실행 파일을 생성합니다.
 
 4. 테스트: 생성된 설치 프로그램을 실행하여 프로그램이 정상적으로 작동하는지 확인합니다.
 
-5. 배포: 생성된 설치 프로그램(`dist` 폴더 안의 실행 파일)을 사용자에게 배포하고, 설치 지침을 제공하여 사용자가 프로그램을 설치하고 실행할 수 있도록 합니다.
+5. 배포: 생성된 설치 프로그램({% raw %}`dist`{% endraw %} 폴더 안의 실행 파일)을 사용자에게 배포하고, 설치 지침을 제공하여 사용자가 프로그램을 설치하고 실행할 수 있도록 합니다.
 
 이 예제는 간단한 설치 스크립트를 작성하여 설치 프로그램을 만드는 방법을 보여주었습니다. 실제 프로젝트에
 
@@ -74,7 +72,7 @@ categories: blog
 ## ChatGPT 응답:
 > Bamboo에서 stage 안에 정의된 job 실행 순서를 명시적으로 지정할 수 있습니다. Bamboo는 기본적으로 stage 내에서 job을 병렬로 실행하려고 시도하지만, 특정 job이 다른 job에 종속되어 실행 순서가 중요한 경우가 있을 수 있습니다. 이 경우 Bamboo에서 제공하는 몇 가지 방법을 사용하여 실행 순서를 제어할 수 있습니다.
 
-1. Dependencies(의존성) 설정: Bamboo에서는 stage 및 job 간에 의존성을 설정할 수 있습니다. 이를 통해 job 간에 실행 순서를 제어할 수 있습니다. 의존성은 `Plan Configuration`의 `Stages` 탭에서 구성할 수 있습니다. 의존성 설정을 사용하면 특정 job이 다른 job의 실행 완료를 기다릴 수 있습니다.
+1. Dependencies(의존성) 설정: Bamboo에서는 stage 및 job 간에 의존성을 설정할 수 있습니다. 이를 통해 job 간에 실행 순서를 제어할 수 있습니다. 의존성은 {% raw %}`Plan Configuration`{% endraw %}의 {% raw %}`Stages`{% endraw %} 탭에서 구성할 수 있습니다. 의존성 설정을 사용하면 특정 job이 다른 job의 실행 완료를 기다릴 수 있습니다.
 
 2. Job 상속: Bamboo에서는 stage 안에 정의된 job이 상속 관계를 가질 수 있습니다. 이를 통해 job 간의 순서를 명시적으로 제어할 수 있습니다. 예를 들어, 하나의 job을 다른 job의 상위 job으로 설정하면 하위 job은 상위 job의 실행이 완료된 후에 실행됩니다.
 

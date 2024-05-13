@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Optional 변환한 찾기 함수"
-date: 2024-01-19
-tags: [함수, 변환, Optional, 찾기]
-categories: blog
+tags: [함수, Optional, 찾기, 변환]
 ---
 
 ## 사용자 입력:
@@ -61,9 +59,9 @@ categories: blog
 위 소스는 자바소스인데,  findRule(ParseTree tree, Class<T> ruleClass) 의 리턴값을 optional로 바꿔봐.
 
 ## ChatGPT 응답:
-> Sure, you can modify the `findRule` method to return an `Optional<T>`. Here's the modified code:
+> Sure, you can modify the {% raw %}`findRule`{% endraw %} method to return an {% raw %}`Optional<T>`{% endraw %}. Here's the modified code:
 
-```java
+{% raw %}```java
 import java.util.Optional;
 
 public class YourClass {
@@ -124,15 +122,15 @@ public class YourClass {
 
     // Your other methods and code...
 }
-```
+```{% endraw %}
 
-Now, the `findRule` method returns an `Optional<T>`, and you should update the calling code accordingly. The same applies to the `findRuleByCheckParents` method.
+Now, the {% raw %}`findRule`{% endraw %} method returns an {% raw %}`Optional<T>`{% endraw %}, and you should update the calling code accordingly. The same applies to the {% raw %}`findRuleByCheckParents`{% endraw %} method.
 
 ## 사용자 입력:
 > javaDoc을 위해서 주석을 한글로 달아줘.
 
 ## ChatGPT 응답:
-> ```java
+> {% raw %}```java
 import java.util.Optional;
 
 public class YourClass {
@@ -203,7 +201,7 @@ public class YourClass {
 
     // Your other methods and code...
 }
-```
+```{% endraw %}
 
 ## 사용자 입력:
 >     public static <T extends ParserRuleContext> T findParentRule(ParseTree tree, Class<T> ruleClass) {
@@ -229,7 +227,7 @@ public class YourClass {
     } 이것도 바꿔줘.
 
 ## ChatGPT 응답:
-> ```java
+> {% raw %}```java
 import java.util.Optional;
 
 public class YourClass {
@@ -266,14 +264,14 @@ public class YourClass {
 
     // Your other methods and code...
 }
-```
+```{% endraw %}
 
 ## 사용자 입력:
 > 뭐하냐!!! findParentRule 이 리턴값을 optional로 바꿔야지.
 
 ## ChatGPT 응답:
 > 
-```java
+{% raw %}```java
 import java.util.Optional;
 
 public class YourClass {
@@ -310,13 +308,13 @@ public class YourClass {
 
     // Your other methods and code...
 }
-```
+```{% endraw %}
 
 ## 사용자 입력:
 > 한글 주석을 달아줘.
 
 ## ChatGPT 응답:
-> ```java
+> {% raw %}```java
 import java.util.Optional;
 
 public class YourClass {
@@ -362,5 +360,5 @@ public class YourClass {
 
     // Your other methods and code...
 }
-```
+```{% endraw %}
 

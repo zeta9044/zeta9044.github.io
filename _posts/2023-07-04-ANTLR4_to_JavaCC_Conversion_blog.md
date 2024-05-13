@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 to JavaCC Conversion"
-date: 2023-07-04
-tags: [JavaCC, Conversion, to]
-categories: blog
+tags: [Conversion, to, JavaCC]
 ---
 
 ## 사용자 입력:
@@ -78,7 +76,7 @@ IGNORE      :   .                       -> more ;
 
 그러나, 제시된 ANTRL4의 Lexer 규칙을 JavaCC의 JJ 문법으로 어느 정도 변환할 수 있습니다. 이는 정확한 변환에는 제한이 있을 수 있지만 아래에 간단한 예를 제시합니다. 
 
-```java
+{% raw %}```java
 TOKEN: {
     // 문자열들이 ANTRL4의 스킵을 대체. 해당 토큰은 무시됩니다.
     <DTD: "<!" (~["<"])* ">"> 
@@ -107,17 +105,17 @@ TOKEN: {
 |   <PI: "?>" >
 |   <IGNORE: ~[] >
 }
-```
+```{% endraw %}
 
-위 코드는 대략적인 변환입니다. 특히, XML 토큰의 정규 표현식이나 ANTLR4의 `pushMode`나 `popMode`와 같은 상태 전환을 직접 지원하지 않는 JavaCC에서는 정확하게 처리하기 어렵습니다. 이런 변환은 수동으로 코드를 작성하고, 테스트하며, 필요한 경우 개별적으로 조정해야 합니다. 따라서, 이 작업은 시간과 노력이 상당히 소요될 수 있습니다.
+위 코드는 대략적인 변환입니다. 특히, XML 토큰의 정규 표현식이나 ANTLR4의 {% raw %}`pushMode`{% endraw %}나 {% raw %}`popMode`{% endraw %}와 같은 상태 전환을 직접 지원하지 않는 JavaCC에서는 정확하게 처리하기 어렵습니다. 이런 변환은 수동으로 코드를 작성하고, 테스트하며, 필요한 경우 개별적으로 조정해야 합니다. 따라서, 이 작업은 시간과 노력이 상당히 소요될 수 있습니다.
 
 ## 사용자 입력:
 > <PI: "?>" > 와  <SPECIAL_CLOSE: "?>" > 이게 중복이 되네.
 
 ## ChatGPT 응답:
-> 네, 그렇습니다. JavaCC에서는 토큰 정의가 겹치면 먼저 정의된 토큰이 우선시 됩니다. 이 경우, `<PI: "?>" >`와 `<SPECIAL_CLOSE: "?>" >`는 동일한 문자열 패턴에 대해 정의되어 있으므로 문제가 될 수 있습니다.
+> 네, 그렇습니다. JavaCC에서는 토큰 정의가 겹치면 먼저 정의된 토큰이 우선시 됩니다. 이 경우, {% raw %}`<PI: "?>" >`{% endraw %}와 {% raw %}`<SPECIAL_CLOSE: "?>" >`{% endraw %}는 동일한 문자열 패턴에 대해 정의되어 있으므로 문제가 될 수 있습니다.
 
-ANTLR4에서의 모드 변경 기능이 JavaCC에는 없으므로 이 부분을 잘 처리하기 위해서는 다른 방식을 찾아야 합니다. 한 가지 방법은 상위 레벨의 파서 규칙에서 `PI`와 `SPECIAL_CLOSE`를 구별하는 것입니다. 예를 들어, 만약 `SPECIAL_CLOSE`가 항상 `XMLDeclOpen` 다음에 온다면, 파서에서 이 패턴을 확인하고 `PI` 대신 `SPECIAL_CLOSE`를 반환할 수 있습니다.
+ANTLR4에서의 모드 변경 기능이 JavaCC에는 없으므로 이 부분을 잘 처리하기 위해서는 다른 방식을 찾아야 합니다. 한 가지 방법은 상위 레벨의 파서 규칙에서 {% raw %}`PI`{% endraw %}와 {% raw %}`SPECIAL_CLOSE`{% endraw %}를 구별하는 것입니다. 예를 들어, 만약 {% raw %}`SPECIAL_CLOSE`{% endraw %}가 항상 {% raw %}`XMLDeclOpen`{% endraw %} 다음에 온다면, 파서에서 이 패턴을 확인하고 {% raw %}`PI`{% endraw %} 대신 {% raw %}`SPECIAL_CLOSE`{% endraw %}를 반환할 수 있습니다.
 
 그러나 이런 종류의 해결책은 상당히 복잡하며 경우에 따라 불가능할 수도 있습니다. 결국 ANTLR4와 JavaCC는 매우 다른 도구로, 완전한 호환성은 보장되지 않습니다. 그래서 경우에 따라 두 도구 사이의 완전한 변환은 어려울 수 있습니다.
 
@@ -176,7 +174,7 @@ reference   :   EntityRef | CharRef ;
 
 attribute   :   Name '=' STRING ; // Our STRING is AttValue in spec
 
-/** ``All text that is not markup constitutes the character data of
+/** {% raw %}``{% endraw %}All text that is not markup constitutes the character data of
  *  the document.''
  */
 chardata    :   TEXT | SEA_WS ;
@@ -189,7 +187,7 @@ misc        :   COMMENT | PI | SEA_WS ;
 
 이 변환의 주요 어려움 중 하나는 ANTLR4가 우선적으로 사용하는 LL(*) 파싱 전략을 JavaCC의 LALR 전략으로 바꾸는 것입니다. 아래는 위의 ANTLR4 파서 규칙들을 가능한 한 잘 JavaCC 스타일로 바꾼 것입니다:
 
-```java
+{% raw %}```java
 PARSER_BEGIN(PentahoParser)
 
 package com.ids.parser.pentaho.parser;
@@ -244,7 +242,7 @@ void chardata() : {} {
 void misc() : {} {
     <COMMENT> | <PI> | <SEA_WS>
 }
-```
+```{% endraw %}
 
 이 JavaCC 코드는 완벽하지 않을 수 있으며, 실제로 파서가 원하는 대로 동작하도록 제대로 조정하고 테스트하는 것은 개발자의 책임입니다. 또한, JavaCC는 ANTLR4가 제공하는 몇 가지 고급 기능을 지원하지 않을 수 있으므로, 그에 대한 적절한 해결책을 찾는 것이 필요할 수 있습니다.
 

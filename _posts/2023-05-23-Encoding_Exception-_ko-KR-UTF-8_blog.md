@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Encoding Exception: ko_KR.UTF-8"
-date: 2023-05-23
-tags: [UTF, Encoding, Exception]
-categories: blog
+title: "Encoding Exception - ko_KR.UTF-8"
+tags: [Encoding, Exception, UTF]
 ---
 
 ## 사용자 입력:
@@ -18,7 +16,7 @@ To resolve this issue, you can try using one of the standard encodings supported
 
 Here's an example of how you can specify the encoding as UTF-8 when working with file input/output in Java:
 
-```java
+{% raw %}```java
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -56,7 +54,7 @@ public class EncodingExample {
         }
     }
 }
-```
+```{% endraw %}
 
 By using "UTF-8" as the encoding name, you should be able to read and write Korean text without encountering the "java.io.UnsupportedEncodingException" exception.
 

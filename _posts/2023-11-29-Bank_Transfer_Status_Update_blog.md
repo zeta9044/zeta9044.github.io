@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Bank Transfer Status Update"
-date: 2023-11-29
-tags: [Status, Bank, Transfer, Update]
-categories: blog
+tags: [Bank, Transfer, Status, Update]
 ---
 
 ## 사용자 입력:

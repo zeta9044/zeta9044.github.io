@@ -1,16 +1,14 @@
 ---
 layout: post
-title: "추출한 코드: "attr = Word(alphas)""
-date: 2023-09-19
-tags: [alphas, 코드, Word, 추출, attr]
-categories: blog
+title: "추출한 코드 - 'attr = Word(alphas)'"
+tags: [Word, 추출, attr, 코드, alphas]
 ---
 
 ## 사용자 입력:
 > 첨부한 텍스트는 md파일의 일부분인데, 여기서 attr = Word(alphas) + "=" + QuotedString('"') 만 추출하는 파이썬 코드 만들어봐. 
 
 ## ChatGPT 응답:
-> 먼저, 첨부하신 `md_test.txt` 파일의 내용을 확인하겠습니다.
+> 먼저, 첨부하신 {% raw %}`md_test.txt`{% endraw %} 파일의 내용을 확인하겠습니다.
 
 ## ChatGPT 응답:
 > # Reading the content of the uploaded file
@@ -53,11 +51,11 @@ extracted_content
 ## ChatGPT 응답:
 > 아, 죄송합니다. 이해를 잘못했네요.
 
-Markdown 형식에서 코드는 보통 \````python ... \````와 같은 형식으로 감싸져 있습니다. 따라서 이러한 형식을 사용하여 코드 스트링만 추출하는 정규표현식을 작성하겠습니다.
+Markdown 형식에서 코드는 보통 \{% raw %}````python ... \```{% endraw %}{% raw %}`와 같은 형식으로 감싸져 있습니다. 따라서 이러한 형식을 사용하여 코드 스트링만 추출하는 정규표현식을 작성하겠습니다.
 
 ## ChatGPT 응답:
 > # Extracting code blocks from markdown content using regex
-code_pattern = r'```python\n(.*?)\n```'
+code_pattern = r'`{% endraw %}{% raw %}``{% endraw %}python\n(.*?)\n{% raw %}```'
 code_matches = re.findall(code_pattern, md_content, re.DOTALL)
 
 code_blocks = code_matches[0] if code_matches else None
@@ -78,11 +76,11 @@ code_blocks
 ## ChatGPT 응답:
 > 죄송합니다. 이해했습니다.
 
-Markdown에서 코드 블록은 일반적으로 \````언어명 ... \```` 형식으로 작성됩니다. 이러한 형식을 기반으로 모든 코드 블록(언어에 관계없이)을 추출하도록 정규 표현식을 수정하겠습니다.
+Markdown에서 코드 블록은 일반적으로 \```{% endraw %}{% raw %}`언어명 ... \`{% endraw %}{% raw %}``` 형식으로 작성됩니다. 이러한 형식을 기반으로 모든 코드 블록(언어에 관계없이)을 추출하도록 정규 표현식을 수정하겠습니다.
 
 ## ChatGPT 응답:
 > # Extracting all code blocks from markdown content regardless of the language
-all_code_pattern = r'```.*?\n(.*?)\n```'
+all_code_pattern = r'```{% endraw %}.*?\n(.*?)\n{% raw %}```'
 all_code_matches = re.findall(all_code_pattern, md_content, re.DOTALL)
 
 all_code_matches
@@ -114,11 +112,11 @@ wrapped_code_blocks_str
 ## ChatGPT 응답:
 > 다음과 같이 추출한 코드 블록을 `{% raw %} ... {% endraw %}` 태그로 감쌌습니다:
 
-```
+```{% endraw %}
 {% raw %}
 attr = Word(alphas) + "=" + QuotedString('"')
 {% endraw %}
-```
+{% raw %}```
 
 이렇게 처리하면 Jekyll의 Liquid 엔진에서 오류 없이 원시 코드 블록을 표시할 수 있습니다.
 
@@ -134,10 +132,10 @@ attr = Word(alphas) + "=" + QuotedString('"')
 > # Function to wrap code blocks with {% raw %} and {% endraw %} tags
 def wrap_code_blocks_with_raw(content):
     def replacement(match):
-        return "```" + match.group(1) + "\n{% raw %}\n" + match.group(2) + "\n{% endraw %}\n```"
+        return "```{% endraw %}" + match.group(1) + "\n{% raw %}\n" + match.group(2) + "\n{% endraw %}\n{% raw %}```"
     
     # Using regex to replace code blocks with wrapped versions
-    wrapped_content = re.sub(r'```(.*?)\n(.*?)\n```', replacement, content, flags=re.DOTALL)
+    wrapped_content = re.sub(r'```{% endraw %}(.*?)\n(.*?)\n{% raw %}```', replacement, content, flags=re.DOTALL)
     return wrapped_content
 
 wrapped_md_content = wrap_code_blocks_with_raw(md_content)
@@ -146,12 +144,12 @@ wrapped_md_content
 ## ChatGPT 응답:
 > 첨부하신 텍스트에서 원시 코드 블록을 찾아서 다음과 같이 `{% raw %} ... {% endraw %}` 태그로 감쌌습니다:
 
-```
-```python
+```{% endraw %}
+{% raw %}```python
 {% raw %}
 attr = Word(alphas) + "=" + QuotedString('"')
 {% endraw %}
-```
+```{% endraw %}
 
 이렇게 처리하면 Jekyll의 Liquid 엔진에서 원시 코드 블록을 오류 없이 표시할 수 있습니다.
 

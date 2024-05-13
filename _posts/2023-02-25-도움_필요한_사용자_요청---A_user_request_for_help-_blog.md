@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "도움 필요한 사용자 요청"
-date: 2023-02-25
-tags: [도움, 요청, 사용자]
-categories: blog
+tags: [요청, 도움, 사용자]
 ---
 
 (A user request for help)

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Dynamic Table Query Execution"
-date: 2023-03-09
-tags: [Dynamic, Execution, Table, Query]
-categories: blog
+tags: [Dynamic, Table, Execution, Query]
 ---
 
 ## 사용자 입력:
@@ -54,9 +52,9 @@ with Session() as session:
 ## ChatGPT 응답:
 > 
 
-다음은 `ais8801`과 `ais8800` 테이블 모두에 대해 동적으로 실행될 수 있는 코드입니다. `execute_query` 함수는 테이블 이름과 실행할 쿼리 문자열을 인자로 받습니다. 이 함수는 쿼리 문자열에 테이블 이름을 대입한 후에 해당 쿼리를 실행합니다.
+다음은 {% raw %}`ais8801`{% endraw %}과 {% raw %}`ais8800`{% endraw %} 테이블 모두에 대해 동적으로 실행될 수 있는 코드입니다. {% raw %}`execute_query`{% endraw %} 함수는 테이블 이름과 실행할 쿼리 문자열을 인자로 받습니다. 이 함수는 쿼리 문자열에 테이블 이름을 대입한 후에 해당 쿼리를 실행합니다.
 
-```python
+{% raw %}```python
 from typing import Tuple
 from sqlalchemy import create_engine, Column, Integer, String, DateTime, update
 from sqlalchemy.orm import sessionmaker
@@ -179,7 +177,7 @@ with Session() as session:
 ## ChatGPT 응답:
 > 아래는 argparse를 이용하여 ais8801,ais8800 테이블명을 받아서 동적테이블명을 바꾸는 프로그램입니다.
 
-```python
+```{% endraw %}python
 from sqlalchemy import create_engine, Column, Integer, String, DateTime,update
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -230,15 +228,15 @@ with Session() as session:
         raise
     else:
         session.commit()
-``` 
+{% raw %}``` 
 
 위의 프로그램에서, argparse를 사용하여 프로그램 실행 시 매개변수로 table_name을 입력받도록 하였습니다. 이렇게 하면 프로그램 실행 시 어떤 테이블을 대상으로 update 또는 insert 작업을 수행할지 선택할 수 있습니다. 그리고 table_name 변수를 이용하여 DynamicTable 클래스의 __tablename__ 변수를 동적으로 설정하였습니다.
 
 나머지 코드는 원래 코드와 동일합니다. 위 프로그램을 실행할 때는 아래와 같이 실행하면 됩니다.
 
-```python
+```{% endraw %}python
 python program_name.py ais8801
-```
+{% raw %}```
 
 위 예시는 program_name.py라는 파일명으로 프로그램을 저장한 후, ais8801 테이블을 대상으로 실행하는 것을 가정한 것입니다. 만약 ais8800 테이블을 대상
 
@@ -248,9 +246,9 @@ python program_name.py ais8801
 ## ChatGPT 응답:
 > 으로 실행하려면 아래와 같이 입력하면 됩니다.
 
-```python
+```{% endraw %}python
 python program_name.py ais8800
-```
+{% raw %}```
 
 이렇게 하면 프로그램 실행 시 매개변수로 받은 테이블명에 해당하는 테이블을 대상으로 update 또는 insert 작업을 수행할 수 있습니다.
 
@@ -270,7 +268,7 @@ python program_name.py ais8800
 ## ChatGPT 응답:
 > 아래는 `if __name__ == "__main__":` 구문을 추가하여 argparse를 이용하여 매개변수로 ais8801,ais8800 테이블명을 받아서 동적테이블명을 바꾸는 프로그램입니다.
 
-```python
+```{% endraw %}python
 from sqlalchemy import create_engine, Column, Integer, String, DateTime,update
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -325,15 +323,15 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     main(args.table_name)
-```
+{% raw %}```
 
 위와 같이 `if __name__ == "__main__":` 구문을 이용하여 main 함수를 정의하고, argparse를 이용하여 매개변수로 테이블명을 입력받도록 하였습니다. 이렇게 하면 프로그램을 실행할 때 입력받은 테이블명에 해당하는 테이블을 대상으로 update 또는 insert 작업을 수행할 수 있습니다.
 
 프로그램을 실행할 때는 아래와 같이 입력하면 됩니다.
 
-```python
+```{% endraw %}python
 python program_name.py ais8801
-```
+{% raw %}```
 
 위 예시는 program_name.py라는 파일명으로 프로그램을 저장한 후
 
@@ -345,7 +343,7 @@ python program_name.py ais8801
 
 아래는 예시 코드입니다.
 
-```python
+```{% endraw %}python
 # Define void function to declare class
 def create_class():
     class MyClass:
@@ -367,7 +365,7 @@ def use_class():
 
 # Call the function
 use_class()
-```
+{% raw %}``{% endraw %}`
 
 위 코드에서는 create_class() 함수에서 MyClass 클래스를 선언하고, 이를 반환합니다. use_class() 함수에서는 create_class() 함수를 호출하여 반환된 MyClass 클래스를 사용합니다.
 

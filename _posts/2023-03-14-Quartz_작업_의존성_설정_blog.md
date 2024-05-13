@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Quartz 작업 의존성 설정"
-date: 2023-03-14
-tags: [설정, 의존, Quartz, 작업]
-categories: blog
+tags: [작업, Quartz, 의존, 설정]
 ---
 
 ## 사용자 입력:
@@ -24,7 +22,7 @@ Quartz에서는 작업간의 의존성을 "트리거"를 사용하여 설정합�
 ## ChatGPT 응답:
 > 다음은 Quartz에서 작업 간 의존성을 설정하는 예제입니다.
 
-```java
+{% raw %}```java
 // 스케줄러 생성
 SchedulerFactory sf = new StdSchedulerFactory();
 Scheduler scheduler = sf.getScheduler();
@@ -60,7 +58,7 @@ scheduler.scheduleJob(jobB, triggerB);
 
 // 스케줄러 실행
 scheduler.start();
-```
+```{% endraw %}
 
 위 예제에서는 먼저 두 개의 작업(JobDetail)과 트리거(Trigger)를 생성합니다. 작업 A와 작업 B는 동일한 작업 클래스(MyJob)를 참조하고 있습니다. 작업 A는 즉시 실행되도록 설정되어 있고, 작업 B는 10초 후에 실행되도록 설정되어 있습니다.
 
@@ -76,7 +74,7 @@ scheduler.start();
 
 다음은 간단한 예제 코드입니다. 이 예제 코드는 Quartz 작업을 UI에서 생성하고, 의존성을 설정할 수 있도록 해줍니다. 이 예제는 JavaFX UI 프레임워크를 사용하여 작성되었습니다.
 
-```java
+{% raw %}```java
 public class QuartzUI extends Application {
 
     private final List<JobDetail> jobs = new ArrayList<>();
@@ -150,7 +148,7 @@ public class QuartzUI extends Application {
 
 다음은 간단한 예제 코드입니다. 이 예제 코드는 Spring Boot와 Thymeleaf 템플릿 엔진을 사용하여 작성되었습니다.
 
-```java
+```{% endraw %}java
 @Controller
 public class JobController {
 
@@ -214,7 +212,7 @@ public class JobController {
         }
     }
 }
-```
+{% raw %}```
 
 위 코드에서 `/jobs` 경로는 작업 목록을 표시하는 페이지를 나타냅니다. `showJobs` 메소드는 스케줄러에서 작업 목록을 가져와 Thymeleaf 템플릿에 전달합니다. `createJob` 메소드는 웹 폼에서 입력한 작업 정보를 사용하여 작업과 트리거를 생성하고, 선택된 작
 
@@ -226,7 +224,7 @@ public class JobController {
 
 다음은 작업을 생성하는 Thymeleaf 템플릿 코드입니다.
 
-```html
+```{% endraw %}html
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -290,9 +288,9 @@ public class JobController {
     </table>
 </body>
 </html>
-```
+{% raw %}``{% endraw %}{% raw %}`
 
 위 코드에서는 Thymeleaf를 사용하여 작업 목록과 작업 추가 폼을 생성합니다. 작업 추가 폼에서는 작업 이름, 작업 클래스, 의존 작업 이름 및 의존성 유형을 입력할 수 있습니다. 작업 목록에서는 각 작업마다 의존 작업 이름과 의존성 유형을 선택할 수 있습니다.
 
-위 코드를 실행하면 `/jobs` 경로로 접속하여 작업을 추가하고, 작업 간의 의존성을 설정할 수 있습니다. 작업이 추가되면 스케줄러에서 해당 작업
+위 코드를 실행하면 `{% endraw %}/jobs` 경로로 접속하여 작업을 추가하고, 작업 간의 의존성을 설정할 수 있습니다. 작업이 추가되면 스케줄러에서 해당 작업
 

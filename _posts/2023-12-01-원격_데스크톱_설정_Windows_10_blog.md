@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "원격 데스크톱 설정 Windows 10"
-date: 2023-12-01
-tags: [설정, 데스크톱, 원격, Windows]
-categories: blog
+tags: [원격, Windows, 설정, 데스크톱]
 ---
 
 ## 사용자 입력:

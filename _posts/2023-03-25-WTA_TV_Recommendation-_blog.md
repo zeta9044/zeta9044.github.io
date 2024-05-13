@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "WTA TV Recommendation."
-date: 2023-03-25
-tags: [TV, WTA, Recommendation]
-categories: blog
+tags: [Recommendation, WTA, TV]
 ---
 
 ## 사용자 입력:

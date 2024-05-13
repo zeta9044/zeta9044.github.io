@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "SQLPlus: 다중 파일 로딩"
-date: 2023-03-22
-tags: [SQLPlus, 다중, 파일, 로딩]
-categories: blog
+title: "SQLPlus - 다중 파일 로딩"
+tags: [다중, 로딩, 파일, SQLPlus]
 ---
 
 ## 사용자 입력:
@@ -18,11 +16,11 @@ categories: blog
 
 3. SQLPlus에서 다음 명령어를 입력합니다.
 
-```
+{% raw %}```
 @/path/to/directory/file1.sql
 @/path/to/directory/file2.sql
 @/path/to/directory/file3.sql
-```
+```{% endraw %}
 
 위의 명령어는 파일1.sql, 파일2.sql, 파일3.sql이 모두 /path/to/directory/ 디렉토리에 있고 SQLPlus에서 실행 중인 것으로 가정합니다. 파일들의 경로를 적절히 수정하여 사용하시면 됩니다.
 

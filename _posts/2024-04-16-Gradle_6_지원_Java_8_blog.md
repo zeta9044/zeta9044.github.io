@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Gradle 6 지원 Java 8"
-date: 2024-04-16
 tags: [지원, Gradle, Java]
-categories: blog
 ---
 
 ## 사용자 입력:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Guava 유지 및 개선"
-date: 2024-02-19
-tags: [Guava, 및, 유지, 개선]
-categories: blog
+tags: [유지, Guava, 및, 개선]
 ---
 
 ## 사용자 입력:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "HTML to Markdown Conversion"
-date: 2023-09-06
-tags: [Markdown, Conversion, to, HTML]
-categories: blog
+tags: [HTML, Conversion, to, Markdown]
 ---
 
 ## 사용자 입력:
@@ -60,7 +58,7 @@ jekyll_md_content = jekyll_front_matter + markdown_content
 jekyll_md_content[:1000]  # Displaying the first 1000 characters for a preview
 
 ## ChatGPT 응답:
-> 죄송합니다. `datetime` 모듈을 불러오지 않아서 오류가 발생했습니다. 해당 모듈을 불러온 후 다시 시도하겠습니다.
+> 죄송합니다. {% raw %}`datetime`{% endraw %} 모듈을 불러오지 않아서 오류가 발생했습니다. 해당 모듈을 불러온 후 다시 시도하겠습니다.
 
 ## ChatGPT 응답:
 > import datetime
@@ -82,7 +80,7 @@ jekyll_md_content = jekyll_front_matter + markdown_content
 jekyll_md_content[:1000]  # Displaying the first 1000 characters for a preview
 
 ## ChatGPT 응답:
-> 변환된 결과의 첫 부분을 보여드렸습니다. 이제 이 내용을 `.md` 파일로 저장하겠습니다. 저장 후에 파일을 다운로드 받으실 수 있게 하겠습니다.
+> 변환된 결과의 첫 부분을 보여드렸습니다. 이제 이 내용을 {% raw %}`.md`{% endraw %} 파일로 저장하겠습니다. 저장 후에 파일을 다운로드 받으실 수 있게 하겠습니다.
 
 ## ChatGPT 응답:
 > # Save the content to a markdown file

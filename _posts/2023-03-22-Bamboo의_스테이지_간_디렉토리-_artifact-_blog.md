@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Bamboo의 스테이지 간 디렉토리: artifact."
-date: 2023-03-22
-tags: [artifact, 의, 디렉토리, 간, 스테이지]
-categories: blog
+title: "Bamboo의 스테이지 간 디렉토리 - artifact."
+tags: [간, 스테이지, 의, artifact, 디렉토리]
 ---
 
 ## 사용자 입력:
@@ -46,21 +44,21 @@ ORA-12526, TNS:listener: all appropriate instances are in restricted mode
 
 2. 인스턴스가 제한 모드에 있으면, 다음 명령을 사용하여 인스턴스를 종료합니다.
 
-   ```
+   {% raw %}```
    SQL> shutdown immediate;
-   ```
+   ```{% endraw %}
 
 3. 데이터베이스 인스턴스를 재시작하고 일반 모드로 실행합니다.
 
-   ```
+   {% raw %}```
    SQL> startup;
-   ```
+   ```{% endraw %}
 
 4. 데이터베이스가 정상적으로 시작되었는지 확인합니다.
 
-   ```
+   {% raw %}```
    SQL> select status from v$instance;
-   ```
+   ```{% endraw %}
 
    이 명령은 인스턴스 상태를 반환합니다. "OPEN"이라는 결과가 표시되면 데이터베이스가 정상적으로 시작된 것입니다.
 
@@ -84,37 +82,37 @@ ORA-12526, TNS:listener: all appropriate instances are in restricted mode
 
 1. Docker 컨테이너를 시작합니다.
 
-   ```
+   {% raw %}```
    $ docker start <container-name>
-   ```
+   ```{% endraw %}
 
 2. Docker 컨테이너에 대한 bash 셸을 실행합니다.
 
-   ```
+   {% raw %}```
    $ docker exec -it <container-name> bash
-   ```
+   ```{% endraw %}
 
 3. 다음 명령을 사용하여 Oracle 인스턴스가 제한 모드로 시작되었는지 확인합니다.
 
-   ```
+   {% raw %}```
    $ sqlplus / as sysdba
    SQL> SELECT logins FROM v$instance;
-   ```
+   ```{% endraw %}
 
    이 명령은 인스턴스가 "RESTRICTED" 상태인지 확인합니다. 결과가 "RESTRICTED"이면, 인스턴스가 제한 모드로 시작되었습니다.
 
 4. 다음 명령을 사용하여 인스턴스를 정상 모드로 변경합니다.
 
-   ```
+   {% raw %}```
    SQL> ALTER SYSTEM DISABLE RESTRICTED SESSION;
-   ```
+   ```{% endraw %}
 
 5. 인스턴스를 다시 시작합니다.
 
-   ```
+   {% raw %}```
    SQL> SHUTDOWN IMMEDIATE;
    SQL> STARTUP;
-   ```
+   ```{% endraw %}
 
 6. 다시 시도하여 연결이 정상적으로 이루어지는지 확인합니다.
 
@@ -134,23 +132,23 @@ Session ID: 0 Serial number: 0
 
 1. Docker 컨테이너를 시작합니다.
 
-   ```
+   {% raw %}```
    $ docker start <container-name>
-   ```
+   ```{% endraw %}
 
 2. Docker 컨테이너에 대한 bash 셸을 실행합니다.
 
-   ```
+   {% raw %}```
    $ docker exec -it <container-name> bash
-   ```
+   ```{% endraw %}
 
 3. 다음 명령을 사용하여 Oracle 인스턴스를 시작합니다.
 
-   ```
+   {% raw %}```
    $ sqlplus /nolog
    SQL> CONNECT / AS SYSDBA
    SQL> STARTUP
-   ```
+   ```{% endraw %}
 
 4. 인스턴스가 정상적으로 시작되면 다시 시도하여 연결이 정상적으로 이루어지는지 확인합니다.
 

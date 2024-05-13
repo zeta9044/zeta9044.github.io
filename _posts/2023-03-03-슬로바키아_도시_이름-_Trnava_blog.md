@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "슬로바키아 도시 이름: Trnava"
-date: 2023-03-03
-tags: [슬로바키아, Trnava, 도시, 이름]
-categories: blog
+title: "슬로바키아 도시 이름 - Trnava"
+tags: [Trnava, 도시, 이름, 슬로바키아]
 ---
 
 ## 사용자 입력:

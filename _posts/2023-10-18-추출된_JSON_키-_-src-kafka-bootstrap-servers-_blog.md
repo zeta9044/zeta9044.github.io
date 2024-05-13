@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "추출된 JSON 키: "src.kafka.bootstrap.servers""
-date: 2023-10-18
-tags: [JSON, src, 키, 추출, kafka, bootstrap, servers]
-categories: blog
+title: "추출된 JSON 키 - 'src.kafka.bootstrap.servers'"
+tags: [servers, JSON, src, bootstrap, 추출, 키, kafka]
 ---
 
 ## 사용자 입력:
@@ -12,15 +10,15 @@ categories: blog
 ## ChatGPT 응답:
 > Oracle 19C에서 CLOB 컬럼에 저장된 JSON 데이터에서 "src.kafka.bootstrap.servers" 키에 해당하는 값을 추출하려면 Oracle의 JSON 함수를 사용하여 JSON 데이터를 쿼리해야 합니다. 다음은 이 작업을 수행하는 쿼리입니다:
 
-```sql
+{% raw %}```sql
 SELECT JSON_VALUE(your_clob_column, '$.src.kafka.bootstrap.servers') AS src_kafka_bootstrap_servers
 FROM your_table_name;
-```
+```{% endraw %}
 
 위 쿼리에서:
 
-- `your_clob_column`: JSON 데이터가 저장된 CLOB 컬럼의 이름을 나타냅니다.
-- `your_table_name`: 데이터를 저장하고 있는 테이블의 이름을 나타냅니다.
+- {% raw %}`your_clob_column`{% endraw %}: JSON 데이터가 저장된 CLOB 컬럼의 이름을 나타냅니다.
+- {% raw %}`your_table_name`{% endraw %}: 데이터를 저장하고 있는 테이블의 이름을 나타냅니다.
 
 이 쿼리는 JSON 데이터에서 "src.kafka.bootstrap.servers" 키에 해당하는 값을 추출하고, "src_kafka_bootstrap_servers"라는 별칭을 사용하여 결과를 반환합니다.
 
@@ -32,10 +30,10 @@ FROM your_table_name;
 ## ChatGPT 응답:
 > 죄송합니다, 'JSON_VALUE' 함수에서 JSON 경로 문자열은 단순 문자열로 표현되어야 합니다. '$.src.kafka.bootstrap.servers'는 경로 문자열이 아닙니다. 올바른 JSON 경로 문자열은 다음과 같이 단순한 키 이름으로 표현되어야 합니다:
 
-```sql
+{% raw %}```sql
 SELECT JSON_VALUE(your_clob_column, '$.src.kafka.bootstrap.servers') AS src_kafka_bootstrap_servers
 FROM your_table_name;
-```
+```{% endraw %}
 
 위의 SQL 쿼리에서는 '$.src.kafka.bootstrap.servers'를 사용하여 JSON 데이터에서 "src.kafka.bootstrap.servers" 키의 값을 추출합니다.
 

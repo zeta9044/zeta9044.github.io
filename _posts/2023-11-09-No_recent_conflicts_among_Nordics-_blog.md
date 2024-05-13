@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "No recent conflicts among Nordics."
-date: 2023-11-09
-tags: [Nordics, among, conflicts, recent, No]
-categories: blog
+tags: [among, recent, conflicts, No, Nordics]
 ---
 
 ## 사용자 입력:

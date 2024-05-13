@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Design: English Summary"
-date: 2024-02-13
+title: "Design - English Summary"
 tags: [English, Design, Summary]
-categories: blog
 ---
 
 ## 사용자 입력:

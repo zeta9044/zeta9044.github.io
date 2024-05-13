@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Java Constructor Inheritance"
-date: 2023-08-22
 tags: [Inheritance, Constructor, Java]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -12,7 +10,7 @@ categories: blog
 ## ChatGPT 응답:
 > 물론입니다! Java에서는 하위 클래스가 상위 클래스의 생성자를 호출할 수 있습니다. 아래 예제에서는 B 클래스가 A 클래스를 상속하고, A 클래스의 생성자를 호출하는 예제를 보여드리겠습니다.
 
-```java
+{% raw %}```java
 class A {
     private int valueA;
 
@@ -39,16 +37,16 @@ public class Main {
         B bObject = new B(10, 20); // B 클래스의 생성자 호출
     }
 }
-```
+```{% endraw %}
 
-위의 코드에서 `A` 클래스는 `valueA`라는 인스턴스 변수와 파라미터를 받는 생성자를 가지고 있습니다. `B` 클래스는 `A` 클래스를 상속받으며, `valueB`라는 인스턴스 변수와 파라미터를 받는 생성자를 가지고 있습니다. `B` 클래스의 생성자에서는 `super(valueA)`를 호출하여 `A` 클래스의 생성자를 호출하고, 그 후에 `B` 클래스의 생성자 로직을 수행합니다.
+위의 코드에서 {% raw %}`A`{% endraw %} 클래스는 {% raw %}`valueA`{% endraw %}라는 인스턴스 변수와 파라미터를 받는 생성자를 가지고 있습니다. {% raw %}`B`{% endraw %} 클래스는 {% raw %}`A`{% endraw %} 클래스를 상속받으며, {% raw %}`valueB`{% endraw %}라는 인스턴스 변수와 파라미터를 받는 생성자를 가지고 있습니다. {% raw %}`B`{% endraw %} 클래스의 생성자에서는 {% raw %}`super(valueA)`{% endraw %}를 호출하여 {% raw %}`A`{% endraw %} 클래스의 생성자를 호출하고, 그 후에 {% raw %}`B`{% endraw %} 클래스의 생성자 로직을 수행합니다.
 
 이 코드를 실행하면 다음과 같은 결과가 나타날 것입니다:
 
-```
+{% raw %}```
 A 클래스의 생성자 호출: 10
 B 클래스의 생성자 호출: 20
-```
+```{% endraw %}
 
 이와 같이 상속 관계에서 상위 클래스의 생성자를 호출하여 초기화할 수 있습니다.
 

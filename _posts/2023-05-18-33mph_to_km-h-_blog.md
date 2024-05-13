@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "33mph to km/h."
-date: 2023-05-18
-tags: [h, to, km]
-categories: blog
+tags: [to, h, km]
 ---
 
 ## 사용자 입력:

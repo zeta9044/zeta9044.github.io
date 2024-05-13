@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Resumo da conversa"
-date: 2023-11-23
-tags: [Resumo, conversa, da]
-categories: blog
+tags: [conversa, da, Resumo]
 ---
 
 ## 사용자 입력:
@@ -466,45 +464,45 @@ categories: blog
 이 자바코드에서 CRITICAL_PUBLIC_VARIABLE_WITHOUT_FINAL_MODIFIER  취약점 부분을 알려줘.
 
 ## ChatGPT 응답:
-> `CRITICAL_PUBLIC_VARIABLE_WITHOUT_FINAL_MODIFIER`는 Java에서 공개(public)으로 선언된 변수들이 `final`로 선언되지 않아 변경될 수 있는 상태임을 나타내는 취약점입니다. 이는 불변성을 보장하지 않기 때문에 코드의 예측 가능성과 안정성을 저하시킬 수 있습니다. 코드를 검토한 결과, 아래의 공개(public) 변수들이 `final`로 선언되지 않았습니다:
+> {% raw %}`CRITICAL_PUBLIC_VARIABLE_WITHOUT_FINAL_MODIFIER`{% endraw %}는 Java에서 공개(public)으로 선언된 변수들이 {% raw %}`final`{% endraw %}로 선언되지 않아 변경될 수 있는 상태임을 나타내는 취약점입니다. 이는 불변성을 보장하지 않기 때문에 코드의 예측 가능성과 안정성을 저하시킬 수 있습니다. 코드를 검토한 결과, 아래의 공개(public) 변수들이 {% raw %}`final`{% endraw %}로 선언되지 않았습니다:
 
-1. `public static FileInfo parseFile = null;`
-2. `public List<AIXmlTag> XmlTagList = new ArrayList<AIXmlTag>();`
-3. `public static String prjId = "";`
-4. `public static int fileId = 0;`
-5. `public static int objectId = 0;`
-6. `public static int functionId = 0;`
-7. `public static long totalLine = 0;`
-8. `public int variableId = 0;`
-9. `public int GrpId = 0;`
-10. `public int fseqid = 0;`
-11. `public int funcCallId = 0;`
-12. `public int headerFileId = 0;`
-13. `public int tagSeq = 0;`
-14. `public String groupName = "";`
-15. `public String fromFuncName = "";`
-16. `public String toFuncName = "";`
-17. `public int fromLine = 0;`
-18. `public int startLine = 0;`
-19. `public String namespaceName = "";`
-20. `public String functionName = "";`
-21. `public String functionType = "";`
-22. `public String prependValue = "";`
-23. `public String prependValueClose = "";`
-24. `public String compareValue = "";`
-25. `public String propertyName = "";`
-26. `public String prePropertyName = "";`
-27. `public String componentName = "";`
-28. `public String bizunitName = "";`
-29. `public String methodName = "";`
-30. `public String packageName = "";`
-31. `public String transactionId = "";`
-32. `public String componentNameKor = "";`
-33. `public String bizUnitNameKor = "";`
-34. `public String methodNameKor = "";`
-35. `public String ioGubun = "";`
-36. `public String tagName = "";`
-37. `public String analysisYn = "";`
+1. {% raw %}`public static FileInfo parseFile = null;`{% endraw %}
+2. {% raw %}`public List<AIXmlTag> XmlTagList = new ArrayList<AIXmlTag>();`{% endraw %}
+3. {% raw %}`public static String prjId = "";`{% endraw %}
+4. {% raw %}`public static int fileId = 0;`{% endraw %}
+5. {% raw %}`public static int objectId = 0;`{% endraw %}
+6. {% raw %}`public static int functionId = 0;`{% endraw %}
+7. {% raw %}`public static long totalLine = 0;`{% endraw %}
+8. {% raw %}`public int variableId = 0;`{% endraw %}
+9. {% raw %}`public int GrpId = 0;`{% endraw %}
+10. {% raw %}`public int fseqid = 0;`{% endraw %}
+11. {% raw %}`public int funcCallId = 0;`{% endraw %}
+12. {% raw %}`public int headerFileId = 0;`{% endraw %}
+13. {% raw %}`public int tagSeq = 0;`{% endraw %}
+14. {% raw %}`public String groupName = "";`{% endraw %}
+15. {% raw %}`public String fromFuncName = "";`{% endraw %}
+16. {% raw %}`public String toFuncName = "";`{% endraw %}
+17. {% raw %}`public int fromLine = 0;`{% endraw %}
+18. {% raw %}`public int startLine = 0;`{% endraw %}
+19. {% raw %}`public String namespaceName = "";`{% endraw %}
+20. {% raw %}`public String functionName = "";`{% endraw %}
+21. {% raw %}`public String functionType = "";`{% endraw %}
+22. {% raw %}`public String prependValue = "";`{% endraw %}
+23. {% raw %}`public String prependValueClose = "";`{% endraw %}
+24. {% raw %}`public String compareValue = "";`{% endraw %}
+25. {% raw %}`public String propertyName = "";`{% endraw %}
+26. {% raw %}`public String prePropertyName = "";`{% endraw %}
+27. {% raw %}`public String componentName = "";`{% endraw %}
+28. {% raw %}`public String bizunitName = "";`{% endraw %}
+29. {% raw %}`public String methodName = "";`{% endraw %}
+30. {% raw %}`public String packageName = "";`{% endraw %}
+31. {% raw %}`public String transactionId = "";`{% endraw %}
+32. {% raw %}`public String componentNameKor = "";`{% endraw %}
+33. {% raw %}`public String bizUnitNameKor = "";`{% endraw %}
+34. {% raw %}`public String methodNameKor = "";`{% endraw %}
+35. {% raw %}`public String ioGubun = "";`{% endraw %}
+36. {% raw %}`public String tagName = "";`{% endraw %}
+37. {% raw %}`public String analysisYn = "";`{% endraw %}
 
-이들 변수는 상수로 사용되거나 변경되지 않아야 할 값이라면 `final`로 선언되어야 합니다. 그렇지 않고 변경 가능한 상태가 필요하다면 현재 상태를 유지할 수 있습니다. 그러나 불변성을 요구하는 상황에서는 `final`을 추가하는 것이 좋습니다.
+이들 변수는 상수로 사용되거나 변경되지 않아야 할 값이라면 {% raw %}`final`{% endraw %}로 선언되어야 합니다. 그렇지 않고 변경 가능한 상태가 필요하다면 현재 상태를 유지할 수 있습니다. 그러나 불변성을 요구하는 상황에서는 {% raw %}`final`{% endraw %}을 추가하는 것이 좋습니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Modify JavaCC Code"
-date: 2023-07-03
-tags: [JavaCC, Modify, Code]
-categories: blog
+tags: [Modify, Code, JavaCC]
 ---
 
 ## 사용자 입력:
@@ -54,7 +52,7 @@ categories: blog
 ## ChatGPT 응답:
 > 제공해주신 JavaCC 코드를 다음과 같이 수정해보겠습니다.
 
-```java
+{% raw %}```java
 {
     { preLine = -1; }
 
@@ -84,7 +82,7 @@ categories: blog
         }
     )
 }
-```
+```{% endraw %}
 
 이렇게 수정된 JavaCC 코드는 주어진 코드와 동일한 동작을 수행합니다. 단순히 주어진 블록 내에서 코드를 정리하고 일부 들여쓰기를 수정하였습니다.
 
@@ -136,7 +134,7 @@ categories: blog
 ## ChatGPT 응답:
 > 코드를 변환하는 프로그램을 만들어드리겠습니다. 아래는 Python 프로그램으로, 주어진 코드를 입력으로 받아 수정된 코드를 출력하는 함수입니다.
 
-```python
+{% raw %}```python
 def convert_code(input_code):
     converted_code = ""
 
@@ -194,7 +192,7 @@ converted_code = convert_code(input_code)
 
 # 변환된 코드 출력
 print(converted_code)
-```
+```{% endraw %}
 
 위 프로그램을 실행하면 입력된 코드가 주어진 변환 요구사항에 맞게 수정된 코드로 출력됩니다. 프로그램을 사용하려면 Python 인터프리터가 필요합니다.
 
@@ -246,9 +244,9 @@ print(converted_code)
 } ''' 이런 결과 만들어줘.
 
 ## ChatGPT 응답:
-> 주어진 파이썬 문자열 `code`를 변환하여 `output` 변수에 원하는 결과를 저장하는 프로그램을 작성하겠습니다.
+> 주어진 파이썬 문자열 {% raw %}`code`{% endraw %}를 변환하여 {% raw %}`output`{% endraw %} 변수에 원하는 결과를 저장하는 프로그램을 작성하겠습니다.
 
-```python
+{% raw %}```python
 def convert_code(input_code):
     converted_code = ""
     indentation_level = 0
@@ -311,7 +309,7 @@ output = convert_code(code)
 
 # 변환된 코드 출력
 print(output)
-```
+```{% endraw %}
 
-위 프로그램을 실행하면 입력된 `code`가 주어진 변환 요구사항에 맞게 수정된 `output`으로 출력됩니다. 프로그램을 사용하려면 Python 인터프리터가 필요합니다.
+위 프로그램을 실행하면 입력된 {% raw %}`code`{% endraw %}가 주어진 변환 요구사항에 맞게 수정된 {% raw %}`output`{% endraw %}으로 출력됩니다. 프로그램을 사용하려면 Python 인터프리터가 필요합니다.
 

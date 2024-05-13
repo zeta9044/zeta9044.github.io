@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 Java Listener for C++14"
-date: 2024-01-06
-tags: [for, Java, C, Listener]
-categories: blog
+tags: [C, for, Listener, Java]
 ---
 
 ## 사용자 입력:
@@ -12,13 +10,13 @@ categories: blog
 ## ChatGPT 응답:
 > ANTLR4를 사용하여 C++14 코드의 변수 값 추적을 위한 자바 리스너를 구현하려면, 다음과 같은 단계를 따를 수 있습니다:
 
-1. **ANTLR4 설정**: ANTLR4를 사용하기 위해, C++14 언어에 대한 문법 파일을 사용해야 합니다. `CPP14.g4` 같은 파일을 찾아 ANTLR4로 파싱 트리를 생성합니다.
+1. **ANTLR4 설정**: ANTLR4를 사용하기 위해, C++14 언어에 대한 문법 파일을 사용해야 합니다. {% raw %}`CPP14.g4`{% endraw %} 같은 파일을 찾아 ANTLR4로 파싱 트리를 생성합니다.
 
-2. **리스너 클래스 생성**: Java에서 리스너 클래스를 생성합니다. 이 클래스는 `CPP14BaseListener`를 확장하거나 `CPP14Listener` 인터페이스를 구현합니다.
+2. **리스너 클래스 생성**: Java에서 리스너 클래스를 생성합니다. 이 클래스는 {% raw %}`CPP14BaseListener`{% endraw %}를 확장하거나 {% raw %}`CPP14Listener`{% endraw %} 인터페이스를 구현합니다.
 
-3. **변수 값 추적을 위한 자료구조**: 변수의 이름, 형식, 현재 값, 그리고 범위(지역/전역)를 저장할 수 있는 자료구조가 필요합니다. 예를 들어, `VariableInfo` 클래스를 정의할 수 있습니다.
+3. **변수 값 추적을 위한 자료구조**: 변수의 이름, 형식, 현재 값, 그리고 범위(지역/전역)를 저장할 수 있는 자료구조가 필요합니다. 예를 들어, {% raw %}`VariableInfo`{% endraw %} 클래스를 정의할 수 있습니다.
 
-   ```java
+   {% raw %}```java
    public class VariableInfo {
        private String name;
        private String type;
@@ -26,20 +24,20 @@ categories: blog
        private String scope; // local or global
        // getters and setters
    }
-   ```
+   ```{% endraw %}
 
-4. **변수 관리를 위한 클래스**: 모든 변수와 그 값을 관리하는 클래스를 만들 수 있습니다. 이 클래스는 `VariableInfo` 객체의 리스트를 관리합니다.
+4. **변수 관리를 위한 클래스**: 모든 변수와 그 값을 관리하는 클래스를 만들 수 있습니다. 이 클래스는 {% raw %}`VariableInfo`{% endraw %} 객체의 리스트를 관리합니다.
 
-   ```java
+   {% raw %}```java
    public class VariableManager {
        private List<VariableInfo> variables;
        // methods to add, update, find variables
    }
-   ```
+   ```{% endraw %}
 
-5. **리스너 로직**: 리스너 메소드에서는 변수 선언, 할당, 사용 등을 추적합니다. 이 때 `VariableManager` 클래스를 사용하여 변수 정보를 저장하고 업데이트합니다.
+5. **리스너 로직**: 리스너 메소드에서는 변수 선언, 할당, 사용 등을 추적합니다. 이 때 {% raw %}`VariableManager`{% endraw %} 클래스를 사용하여 변수 정보를 저장하고 업데이트합니다.
 
-   ```java
+   {% raw %}```java
    @Override
    public void enterVariableDeclaration(CPP14Parser.VariableDeclarationContext ctx) {
        // 변수 선언 추적
@@ -49,11 +47,11 @@ categories: blog
    public void enterAssignmentExpression(CPP14Parser.AssignmentExpressionContext ctx) {
        // 변수 할당 추적
    }
-   ```
+   ```{% endraw %}
 
 6. **변수 값 변경 감지**: 리스너는 함수 호출 시 변수 값의 변경을 감지하고 기록합니다. 이를 위해 함수 호출 문맥에 진입하고 나올 때의 변수 상태를 비교할 수 있습니다.
 
-7. **추적 기록**: 추적된 변수 정보는 파일이나 콘솔에 기록될 수 있습니다. `VariableManager`는 이러한 기록을 관리하는 메소드를 포함할 수 있습니다.
+7. **추적 기록**: 추적된 변수 정보는 파일이나 콘솔에 기록될 수 있습니다. {% raw %}`VariableManager`{% endraw %}는 이러한 기록을 관리하는 메소드를 포함할 수 있습니다.
 
 이 과정은 C++14 코드의 구조를 분석하고, Java에서 해당 구조를 이해하고 추적할 수 있는 리스너를 구현하는 복잡한 작업입니다. 따라서, C++14의 구체적인 문법과 ANTLR4의 사용법에 익숙해지는 것이 중요합니다.
 
@@ -65,29 +63,29 @@ categories: blog
 
 1. **함수 정보 추적을 위한 자료구조**: 함수 이름과 해당 함수 내에서 선언된 변수, 호출하는 함수들의 정보를 저장할 수 있는 자료구조를 만듭니다.
 
-   ```java
+   {% raw %}```java
    public class FunctionInfo {
        private String name;
        private List<VariableInfo> variables;
        private List<String> calledFunctions;
        // getters and setters
    }
-   ```
+   ```{% endraw %}
 
-2. **함수 관리를 위한 클래스**: 모든 함수와 그 내부의 변수, 함수 호출 정보를 관리하는 클래스를 만듭니다. 이 클래스는 `FunctionInfo` 객체의 리스트를 관리합니다.
+2. **함수 관리를 위한 클래스**: 모든 함수와 그 내부의 변수, 함수 호출 정보를 관리하는 클래스를 만듭니다. 이 클래스는 {% raw %}`FunctionInfo`{% endraw %} 객체의 리스트를 관리합니다.
 
-   ```java
+   {% raw %}```java
    public class FunctionManager {
        private List<FunctionInfo> functions;
        // methods to add, update, find functions
    }
-   ```
+   ```{% endraw %}
 
 3. **리스너 로직 개선**:
     - 함수 진입과 탈출을 추적하는 리스너 메소드를 추가합니다. 이를 통해 현재 처리 중인 함수를 파악할 수 있습니다.
     - 변수 선언과 할당, 함수 호출을 추적할 때 현재 함수 컨텍스트를 고려하여 정보를 저장합니다.
 
-   ```java
+   {% raw %}```java
    @Override
    public void enterFunctionDefinition(CPP14Parser.FunctionDefinitionContext ctx) {
        // 현재 함수 진입 추적
@@ -107,7 +105,7 @@ categories: blog
    public void enterFunctionCall(CPP14Parser.FunctionCallContext ctx) {
        // 함수 호출 추적, 현재 함수 컨텍스트 고려
    }
-   ```
+   ```{% endraw %}
 
 4. **변수와 함수의 상호작용 추적**: 함수 내부에서 변수가 어떻게 사용되고, 어떤 함수를 호출하는지 추적합니다. 이 과정에서 함수 내부에서 변수의 상태 변화나 함수 호출을 기록합니다.
 
@@ -119,9 +117,9 @@ categories: blog
 > 내가 c++14의 lexer와 parser파일 g4를 제공하면 좀 더 자세하게 할 수 있니?
 
 ## ChatGPT 응답:
-> 네, C++14의 lexer와 parser 파일(`.g4` 파일)을 제공하시면, 그에 기반한 ANTLR4 Java 리스너의 구현에 대해 더 자세한 지침을 제공할 수 있습니다. ANTLR4를 사용하여 구문 분석 트리를 생성하고, 해당 트리를 이용해 Java 리스너에서 필요한 기능을 구현하는 방법에 대해 안내해 드릴 수 있습니다.
+> 네, C++14의 lexer와 parser 파일({% raw %}`.g4`{% endraw %} 파일)을 제공하시면, 그에 기반한 ANTLR4 Java 리스너의 구현에 대해 더 자세한 지침을 제공할 수 있습니다. ANTLR4를 사용하여 구문 분석 트리를 생성하고, 해당 트리를 이용해 Java 리스너에서 필요한 기능을 구현하는 방법에 대해 안내해 드릴 수 있습니다.
 
-C++14의 `.g4` 파일을 여기에 업로드하시면, 해당 문법에 맞는 리스너 로직 구성에 대해 구체적인 조언을 드릴 수 있습니다. 파일을 받고 나면, 어떻게 변수와 함수 호출을 추적할 수 있는지, 필요한 자료 구조와 메소드에 대해 설명해 드리겠습니다.
+C++14의 {% raw %}`.g4`{% endraw %} 파일을 여기에 업로드하시면, 해당 문법에 맞는 리스너 로직 구성에 대해 구체적인 조언을 드릴 수 있습니다. 파일을 받고 나면, 어떻게 변수와 함수 호출을 추적할 수 있는지, 필요한 자료 구조와 메소드에 대해 설명해 드리겠습니다.
 
 ## 사용자 입력:
 > 내가 파일을 올렸어
@@ -168,15 +166,15 @@ lexer_preview, parser_preview
 
 
 ## ChatGPT 응답:
-> The previews of the C++14 Lexer and Parser files (`CPP14Lexer.g4` and `CPP14Parser.g4`) give us a basic understanding of their structure. The Lexer file defines the tokens used in C++14, and the Parser file contains the grammar rules to parse these tokens into meaningful structures.
+> The previews of the C++14 Lexer and Parser files ({% raw %}`CPP14Lexer.g4`{% endraw %} and {% raw %}`CPP14Parser.g4`{% endraw %}) give us a basic understanding of their structure. The Lexer file defines the tokens used in C++14, and the Parser file contains the grammar rules to parse these tokens into meaningful structures.
 
 To proceed with the implementation of a Java listener for tracking variable values and function calls in C++14 code, we can follow these steps:
 
 ### 1. Generate Lexer and Parser with ANTLR4
-- Use ANTLR4 to generate Java classes for the lexer and parser from these `.g4` files. This will create a set of classes that can parse C++14 code and generate a parse tree.
+- Use ANTLR4 to generate Java classes for the lexer and parser from these {% raw %}`.g4`{% endraw %} files. This will create a set of classes that can parse C++14 code and generate a parse tree.
 
 ### 2. Create a Java Listener
-- Extend `CPP14BaseListener` or implement `CPP14Listener` to create a custom listener class. This class will override methods to react to specific parse tree nodes (like variable declarations, assignments, and function calls).
+- Extend {% raw %}`CPP14BaseListener`{% endraw %} or implement {% raw %}`CPP14Listener`{% endraw %} to create a custom listener class. This class will override methods to react to specific parse tree nodes (like variable declarations, assignments, and function calls).
 
 ### 3. Tracking Variables and Function Calls
 - Within your listener, you will need to manage the context, such as the current function being processed. This can be achieved by maintaining a stack of function contexts.
@@ -185,8 +183,8 @@ To proceed with the implementation of a Java listener for tracking variable valu
 - Track function calls, recording which function is calling which.
 
 ### 4. Data Structures
-- `FunctionInfo`: To store information about each function, including its name, the variables it declares, and the functions it calls.
-- `VariableInfo`: To store details about each variable, such as its name, type, value, and the function in which it's declared.
+- {% raw %}`FunctionInfo`{% endraw %}: To store information about each function, including its name, the variables it declares, and the functions it calls.
+- {% raw %}`VariableInfo`{% endraw %}: To store details about each variable, such as its name, type, value, and the function in which it's declared.
 
 ### 5
 
@@ -197,10 +195,10 @@ To proceed with the implementation of a Java listener for tracking variable valu
 > C++14 코드의 변수 값 추적과 함수 호출 추적을 위해 ANTLR4를 사용한 자바 리스너를 구현하기 위한 단계는 다음과 같습니다:
 
 ### 1. ANTLR4로 Lexer와 Parser 생성
-- 업로드된 `.g4` 파일을 사용하여 ANTLR4로 자바 클래스를 생성합니다. 이 과정을 통해 C++14 코드를 파싱하고 파싱 트리를 생성할 수 있는 클래스가 만들어집니다.
+- 업로드된 {% raw %}`.g4`{% endraw %} 파일을 사용하여 ANTLR4로 자바 클래스를 생성합니다. 이 과정을 통해 C++14 코드를 파싱하고 파싱 트리를 생성할 수 있는 클래스가 만들어집니다.
 
 ### 2. 자바 리스너 클래스 생성
-- `CPP14BaseListener`를 확장하거나 `CPP14Listener` 인터페이스를 구현하여 맞춤형 리스너 클래스를 만듭니다. 이 클래스는 특정 파싱 트리 노드(변수 선언, 할당, 함수 호출 등)에 반응하는 메소드를 오버라이드합니다.
+- {% raw %}`CPP14BaseListener`{% endraw %}를 확장하거나 {% raw %}`CPP14Listener`{% endraw %} 인터페이스를 구현하여 맞춤형 리스너 클래스를 만듭니다. 이 클래스는 특정 파싱 트리 노드(변수 선언, 할당, 함수 호출 등)에 반응하는 메소드를 오버라이드합니다.
 
 ### 3. 변수 및 함수 호출 추적
 - 리스너 내에서 현재 처리 중인 함수의 컨텍스트를 관리합니다. 이는 함수 컨텍스트의 스택을 유지함으로써 달성할 수 있습니다.
@@ -209,12 +207,12 @@ To proceed with the implementation of a Java listener for tracking variable valu
 - 함수 호출을 추적하며, 어느 함수가 어느 함수를 호출하는지 기록합니다.
 
 ### 4. 데이터 구조
-- `FunctionInfo`: 각 함수에 대한 정보를 저장하기 위한 구조체로, 함수 이름, 선언된 변수들, 호출한 함수들의 정보를 포함합니다.
-- `VariableInfo`: 각 변수에 대한 세부 정보를 저장하기 위한 구조체로, 변수 이름, 타입, 값, 선언된 함수 등을 포함합니다.
+- {% raw %}`FunctionInfo`{% endraw %}: 각 함수에 대한 정보를 저장하기 위한 구조체로, 함수 이름, 선언된 변수들, 호출한 함수들의 정보를 포함합니다.
+- {% raw %}`VariableInfo`{% endraw %}: 각 변수에 대한 세부 정보를 저장하기 위한 구조체로, 변수 이름, 타입, 값, 선언된 함수 등을 포함합니다.
 
 ### 5. 리스너 로직 구현
 - 변수 선언, 할당, 함수 호출 시 발생하는 이벤트를 감지하고 처리하는 리스너 메소드를 구현합니다. 이 때, 현재 함수의 컨텍스트를 고려하여 변수나 함수 호출 정보를 추적합니다.
-- 예를 들어, 함수 호출 시 해당 함수의 이름과 호출하는 함수의 이름을 `FunctionInfo`에 기록합니다.
+- 예를 들어, 함수 호출 시 해당 함수의 이름과 호출하는 함수의 이름을 {% raw %}`FunctionInfo`{% endraw %}에 기록합니다.
 
 ### 6. 결과 처리 및 출력
 - 추적된 정보를 기반으로 결과를 처리하고 출력합니다. 예를 들어, 각 함수에서 사용된 변수의 목록이나 함수 호출 관계를 콘솔이나 파일로 출력할 수 있습니다.
@@ -225,10 +223,10 @@ To proceed with the implementation of a Java listener for tracking variable valu
 > 자바코드로 제시해줘
 
 ## ChatGPT 응답:
-> C++14 코드의 변수와 함수 호출을 추적하기 위한 자바 리스너 구현 예시를 제공하겠습니다. 이 예시는 ANTLR4가 생성한 `CPP14Parser`와 `CPP14Lexer` 클래스를 사용한다고 가정합니다.
+> C++14 코드의 변수와 함수 호출을 추적하기 위한 자바 리스너 구현 예시를 제공하겠습니다. 이 예시는 ANTLR4가 생성한 {% raw %}`CPP14Parser`{% endraw %}와 {% raw %}`CPP14Lexer`{% endraw %} 클래스를 사용한다고 가정합니다.
 
 ### 1. 데이터 구조 정의
-```java
+{% raw %}```java
 public class FunctionInfo {
     private String name;
     private List<String> calledFunctions;
@@ -255,10 +253,10 @@ public class VariableInfo {
 
     // 여기에 필요한 getters, setters 추가
 }
-```
+```{% endraw %}
 
 ### 2. 리스너 클래스 구현
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 // ... 기타 필요한 ANTLR4 및 자바 import
 
@@ -314,15 +312,15 @@ public class Main {
         // 결과 출력 로직...
     }
 }
-```
+```{% endraw %}
 
-이 코드는 기본적인 구조를 제공하며, 실제 C++14 문법과 ANTLR4를 사용한 구현에 맞게 조정이 필요합니다. 특히, 함수 이름과 변수 타입을 추출하는 방법은 파싱된 문맥의 구조에 따라 달라질 수 있으므로, 해당 부분은 `CPP14Parser`의 정확한 문법에 맞춰 수정해야 합니다. 또한, 변수 할당과 값 추적에 대한 상세한 로직은 실제 코드의 복잡성에 따라 크게 달라질 수 있습니다.
+이 코드는 기본적인 구조를 제공하며, 실제 C++14 문법과 ANTLR4를 사용한 구현에 맞게 조정이 필요합니다. 특히, 함수 이름과 변수 타입을 추출하는 방법은 파싱된 문맥의 구조에 따라 달라질 수 있으므로, 해당 부분은 {% raw %}`CPP14Parser`{% endraw %}의 정확한 문법에 맞춰 수정해야 합니다. 또한, 변수 할당과 값 추적에 대한 상세한 로직은 실제 코드의 복잡성에 따라 크게 달라질 수 있습니다.
 
 ## 사용자 입력:
 > 내가 제공한 g4파일을 안 본 것 같아. FunctionCall이라는 AST는 없어
 
 ## ChatGPT 응답:
-> 알겠습니다, 제공하신 `CPP14Parser.g4` 파일의 내용을 기반으로 하는 자바 리스너 클래스에 대해 더 정확한 구현 예시를 제공하겠습니다. 특히 `FunctionCall` 노드가 없다면, 함수 호출을 추적하는 방식을 문법 파일의 내용에 맞추어 조정해야 합니다.
+> 알겠습니다, 제공하신 {% raw %}`CPP14Parser.g4`{% endraw %} 파일의 내용을 기반으로 하는 자바 리스너 클래스에 대해 더 정확한 구현 예시를 제공하겠습니다. 특히 {% raw %}`FunctionCall`{% endraw %} 노드가 없다면, 함수 호출을 추적하는 방식을 문법 파일의 내용에 맞추어 조정해야 합니다.
 
 먼저, 파일 내용을 좀 더 상세히 살펴본 후, 함수 호출과 변수 할당을 추적하는 리스너 로직에 대한 수정된 예시를 제공하겠습니다. 제공된 파일의 일부를 분석하여 적절한 노드를 찾고, 그에 따라 리스너 메소드를 어떻게 구현할지 안내해 드리겠습니다. 
 
@@ -350,13 +348,13 @@ parser_preview
 
 
 ## ChatGPT 응답:
-> 파일의 초기 부분을 살펴본 결과, `CPP14Parser.g4` 파일은 C++14의 문법을 정의하고 있습니다. 파일의 전체 내용을 분석하지는 못했지만, 여기서 중요한 것은 함수 호출과 변수 할당을 처리하는 데 필요한 문법 규칙을 식별하는 것입니다.
+> 파일의 초기 부분을 살펴본 결과, {% raw %}`CPP14Parser.g4`{% endraw %} 파일은 C++14의 문법을 정의하고 있습니다. 파일의 전체 내용을 분석하지는 못했지만, 여기서 중요한 것은 함수 호출과 변수 할당을 처리하는 데 필요한 문법 규칙을 식별하는 것입니다.
 
 기본적으로, 함수 호출은 일반적으로 식별자(idExpression) 또는 표현식(expression)의 일부로 나타납니다. 변수 할당은 대입 표현식(assignmentExpression)에서 처리됩니다. 이를 기반으로 리스너 메소드를 구현할 수 있습니다.
 
 ### 수정된 리스너 클래스 예시
 
-```java
+{% raw %}```java
 public class CPP14ListenerImpl extends CPP14BaseListener {
     private Stack<FunctionInfo> functionStack = new Stack<>();
     private List<FunctionInfo> functions = new ArrayList<>();
@@ -405,9 +403,9 @@ public class Main {
         // ANTLR4 파싱 로직과 리스너 실행...
     }
 }
-```
+```{% endraw %}
 
-이 예시에서는 `PostfixExpressionContext`를 사용하여 함수 호출을 추적하고 있습니다. 실제 구현에서는 제공된 `.g4` 파일의 전체 내용을 분석하여 적절한 문맥을 찾아야 하며, 이를 통해 함수 호출과 변수 할당을 정확하게 추적할 수 있습니다.
+이 예시에서는 {% raw %}`PostfixExpressionContext`{% endraw %}를 사용하여 함수 호출을 추적하고 있습니다. 실제 구현에서는 제공된 {% raw %}`.g4`{% endraw %} 파일의 전체 내용을 분석하여 적절한 문맥을 찾아야 하며, 이를 통해 함수 호출과 변수 할당을 정확하게 추적할 수 있습니다.
 
 ## 사용자 입력:
 > 그런데 stack은 왜 쓰는거야?
@@ -500,7 +498,7 @@ public class Main {
 
 ### 예시 구현:
 
-```java
+{% raw %}```java
 public class FunctionContext {
     private String functionName;
     private Stack<VariableInfo> variableStack;
@@ -541,7 +539,7 @@ public class CPP14ListenerImpl extends CPP14BaseListener {
 
     // 여기에 필요한 다른 메소드들 추가...
 }
-```
+```{% endraw %}
 
 이 구조를 사용하면 각 함수의 지역 변수들을 해당 함수의 컨텍스트 내에서 독립적으로 추적하고 관리할 수 있습니다. 각 함수가 종료될 때 해당 함수의 지역 변수 스택도 함께 제거되므로, 변수의 범위와 생명주기를 정확히 관리할 수 있습니다.
 

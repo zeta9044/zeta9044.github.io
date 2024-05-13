@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Tomcat 9 DB 암호화"
-date: 2023-04-27
-tags: [Tomcat, 암호, DB]
-categories: blog
+tags: [암호, Tomcat, DB]
 ---
 
 ## 사용자 입력:
@@ -19,27 +17,27 @@ categories: blog
 2. 암호화를 위한 키 설정:
 암호화를 위한 키를 설정하고, 애플리케이션에 전달해야 합니다. 이 키는 애플리케이션의 환경 변수 또는 시스템 속성으로 전달할 수 있습니다. 예를 들어, Tomcat의 setenv.sh (또는 setenv.bat) 파일에 다음과 같이 추가하십시오:
 
-```
+{% raw %}```
 export JASYPT_ENCRYPTION_KEY=myencryptionkey
-```
+```{% endraw %}
 
 3. 사용자 이름 및 비밀번호 암호화:
 Jasypt를 사용하여 데이터베이스 사용자 이름과 비밀번호를 암호화하십시오. 이를 위해 다음과 같은 명령을 사용할 수 있습니다.
 
-```
+{% raw %}```
 java -cp jasypt-x.y.z.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="myDatabaseUsername" password=myencryptionkey algorithm=PBEWithMD5AndDES
-```
+```{% endraw %}
 
-```
+{% raw %}```
 java -cp jasypt-x.y.z.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="myDatabasePassword" password=myencryptionkey algorithm=PBEWithMD5AndDES
-```
+```{% endraw %}
 
 위 명령을 실행하면 암호화된 사용자 이름과 비밀번호가 출력됩니다. 이 값을 server.xml에 사용하십시오.
 
 4. server.xml에 암호화된 값 설정:
 암호화된 사용자 이름 및 비밀번호를 사용하여 server.xml 파일의 Resource 요소를 다음과 같이 수정하십시오.
 
-```xml
+{% raw %}```xml
 <Resource name="jdbc/myDataSource" auth="Container"
           type="javax.sql.DataSource"
           driverClassName="com.mysql.jdbc.Driver"
@@ -48,12 +46,12 @@ java -cp jasypt-x.y.z.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input
           password="ENC(암호화된 비밀번호)"
           maxTotal="20" maxIdle="10" maxWaitMillis="-1"
           factory="org.jasypt.util.password.ConfigurablePasswordEncryptor" />
-```
+```{% endraw %}
 
 5. 애플리케이션에서 DataSource 사용:
 애플리케이션에서 DataSource를 사용하려면 JNDI를 통해 DataSource를 검색하고 데이터베이스 연결을 얻습니다.
 
-```java
+{% raw %}```java
 Context initCtx = new InitialContext();
 Context envCtx = (Context) initCtx.lookup("java:comp/env");
 DataSource ds = (DataSource) envCtx.lookup("jdbc/myDataSource");
@@ -70,7 +68,7 @@ Connection conn = ds.getConnection();
 
 먼저, `org.jasypt.util.password.ConfigurablePasswordEncryptor`와 `com.zaxxer.hikari.HikariJNDIFactory`를 결합하는 사용자 정의 팩토리 클래스를 작성합니다.
 
-```java
+```{% endraw %}java
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import com.zaxxer.hikari.HikariJNDIFactory;
@@ -110,7 +108,7 @@ public class CustomHikariJNDIFactory extends HikariJNDIFactory implements Object
         return new HikariDataSource(config);
     }
 }
-```
+{% raw %}```
 
 2. 사용자 정의 팩토리 클래스를 Tomcat의 CLASSPATH에 추가:
 
@@ -120,7 +118,7 @@ public class CustomHikariJNDIFactory extends HikariJNDIFactory implements Object
 
 이제 `server.xml`의 `<Resource>` 태그에서 사용자 정의 팩토리 클래스를 사용하도록 설정하십시오.
 
-```xml
+```{% endraw %}xml
 <Resource name="jdbc/myDataSource" auth="Container"
           type="javax.sql.DataSource"
           factory="com.example.CustomHikariJNDIFactory"
@@ -129,7 +127,7 @@ public class CustomHikariJNDIFactory extends HikariJNDIFactory implements Object
           username="ENC(암호화된 사용자 이름)"
           password="ENC(암호화된 비밀번호)"
           maxTotal="20" maxIdle="10" maxWaitMillis="-1"/>
-```
+{% raw %}```
 
 이렇게 하면, 애플리케이션에서 `com.zaxxer
 
@@ -177,13 +175,13 @@ public class CustomHikariJNDIFactory extends HikariJNDIFactory implements Object
 
 - 프로젝트에서 `src` 폴더를 열고 새로운 자바 클래스를 작성합니다. 예를 들어, "Main"이라는 이름의 클래스를 만들고 다음과 같이 코드를 작성할 수 있습니다.
 
-```java
+```{% endraw %}java
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
     }
 }
-```
+{% raw %}```
 
 3. 프로젝트 구성 및 JAR 파일 생성:
 
@@ -197,7 +195,7 @@ IntelliJ IDEA를 사용하여 새 프로젝트를 생성하고 JAR 파일을 빌
 ## ChatGPT 응답:
 > HikariCP 4.0.3 버전에서 `assembleConfigFromJndi` 메소드를 찾을 수 없다면, `assembleConfigFromJndi` 메소드를 직접 구현하여 사용할 수 있습니다. 아래 코드는 `assembleConfigFromJndi` 메소드를 대체하여 사용할 수 있는 메소드를 보여줍니다.
 
-```java
+```{% endraw %}java
 private static HikariConfig assembleConfigFromJndi(Reference ref) {
     HikariConfig config = new HikariConfig();
 
@@ -210,13 +208,13 @@ private static HikariConfig assembleConfigFromJndi(Reference ref) {
 
     return config;
 }
-```
+{% raw %}```
 
 이제 이 메소드를 `CustomHikariJNDIFactory` 클래스 내에 추가하고 다음 코드를 사용하여 HikariConfig를 얻을 수 있습니다.
 
-```java
+```{% endraw %}java
 HikariConfig config = assembleConfigFromJndi(ref);
-```
+{% raw %}```
 
 이렇게 하면 `assembleConfigFromJndi` 메소드가 없는 HikariCP 4.0.3 버전에서도 사용자 정의 JNDI 팩토리가 올바르게 작동합니다.
 
@@ -232,19 +230,19 @@ HikariConfig config = assembleConfigFromJndi(ref);
 
 **Gradle:**
 
-```groovy
+```{% endraw %}groovy
 implementation 'com.zaxxer:HikariCP:3.4.5'
-```
+{% raw %}```
 
 **Maven:**
 
-```xml
+```{% endraw %}xml
 <dependency>
     <groupId>com.zaxxer</groupId>
     <artifactId>HikariCP</artifactId>
     <version>3.4.5</version>
 </dependency>
-```
+{% raw %}```
 
 2. 사용자 정의 팩토리 클래스:
 
@@ -272,14 +270,14 @@ implementation 'com.zaxxer:HikariCP:3.4.5'
 
 **Gradle:**
 
-```groovy
+```{% endraw %}groovy
 implementation 'com.zaxxer:HikariCP:4.0.3'
 implementation 'org.jasypt:jasypt:1.9.3'
-```
+{% raw %}```
 
 **Maven:**
 
-```xml
+```{% endraw %}xml
 <dependency>
     <groupId>com.zaxxer</groupId>
     <artifactId>HikariCP</artifactId>
@@ -290,13 +288,13 @@ implementation 'org.jasypt:jasypt:1.9.3'
     <artifactId>jasypt</artifactId>
     <version>1.9.3</version>
 </dependency>
-```
+{% raw %}```
 
 2. 사용자 정의 팩토리 클래스 작성:
 
 아래 코드는 HikariCP 4.0.3 버전과 Jasypt를 사용하여 사용자 이름과 비밀번호를 디코딩하는 사용자 정의 JNDI 팩토리 클래스를 작성하는 방법을 보여줍니다.
 
-```java
+```{% endraw %}java
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
@@ -349,17 +347,17 @@ public class CustomHikariJNDIFactory implements ObjectFactory {
         return new HikariDataSource(config);
     }
 }
-``
+{% raw %}``{% endraw %}
 
 ## 사용자 입력:
 > 위 소스에서 foreach not applicable to type 'java.util.Enumeration<javax.naming.RefAddr>' 이런 에러가 나네.
 
 ## ChatGPT 응답:
-> 죄송합니다. `ref.getAll()` 메소드는 `Enumeration<RefAddr>`을 반환하기 때문에 `for-each` 문을 사용할 수 없습니다. 이 문제를 해결하려면, `Enumeration<RefAddr>`를 사용하여 `RefAddr`를 반복해야 합니다.
+> 죄송합니다. {% raw %}`ref.getAll()`{% endraw %} 메소드는 {% raw %}`Enumeration<RefAddr>`{% endraw %}을 반환하기 때문에 {% raw %}`for-each`{% endraw %} 문을 사용할 수 없습니다. 이 문제를 해결하려면, {% raw %}`Enumeration<RefAddr>`{% endraw %}를 사용하여 {% raw %}`RefAddr`{% endraw %}를 반복해야 합니다.
 
-다음은 수정된 `assembleConfigFromJndi` 메소드입니다:
+다음은 수정된 {% raw %}`assembleConfigFromJndi`{% endraw %} 메소드입니다:
 
-```java
+{% raw %}```java
 private static HikariConfig assembleConfigFromJndi(Reference ref) {
     HikariConfig config = new HikariConfig();
     Properties properties = new Properties();
@@ -373,7 +371,7 @@ private static HikariConfig assembleConfigFromJndi(Reference ref) {
     config.setDataSourceProperties(properties);
     return config;
 }
-```
+```{% endraw %}
 
 이제 위의 수정된 메소드를 사용자 정의 팩토리 클래스에 적용하면 더 이상 해당 오류가 발생하지 않습니다.
 
@@ -386,9 +384,9 @@ private static HikariConfig assembleConfigFromJndi(Reference ref) {
 
 1. 스크립트 작성:
 
-새 파일을 만들고 아래의 코드를 붙여 넣습니다. 파일 이름을 `jasypt_encrypt.sh`로 지정하십시오.
+새 파일을 만들고 아래의 코드를 붙여 넣습니다. 파일 이름을 {% raw %}`jasypt_encrypt.sh`{% endraw %}로 지정하십시오.
 
-```bash
+{% raw %}```bash
 #!/bin/bash
 
 echo -n "Enter the input to encrypt: "
@@ -399,25 +397,25 @@ JASYPT_JAR_PATH="jasypt-x.y.z.jar"
 ALGORITHM="PBEWithMD5AndDES"
 
 java -cp "$JASYPT_JAR_PATH" org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="$INPUT" password="$ENCRYPTION_KEY" algorithm="$ALGORITHM"
-```
+```{% endraw %}
 
-위의 스크립트에서 `JASYPT_JAR_PATH`를 사용 중인 Jasypt JAR 파일의 경로로 변경해야 합니다.
+위의 스크립트에서 {% raw %}`JASYPT_JAR_PATH`{% endraw %}를 사용 중인 Jasypt JAR 파일의 경로로 변경해야 합니다.
 
 2. 실행 권한 부여:
 
-터미널에서 `chmod` 명령을 사용하여 스크립트에 실행 권한을 부여합니다.
+터미널에서 {% raw %}`chmod`{% endraw %} 명령을 사용하여 스크립트에 실행 권한을 부여합니다.
 
-```bash
+{% raw %}```bash
 chmod +x jasypt_encrypt.sh
-```
+```{% endraw %}
 
 3. 스크립트 실행:
 
 이제 스크립트를 실행하면 입력 값을 받아 Jasypt 명령을 실행합니다.
 
-```bash
+{% raw %}```bash
 ./jasypt_encrypt.sh
-```
+```{% endraw %}
 
 이 스크립트는 입력 값을 받아 Jasypt로 암호화하고 결과를 출력합니다.
 
@@ -434,23 +432,23 @@ chmod +x jasypt_encrypt.sh
 
 
 ## ChatGPT 응답:
-> 이 오류는 `StandardPBEStringEncryptor` 클래스의 `setPassword` 메소드에 빈 문자열이 전달되었기 때문에 발생합니다. 스크립트나 코드에서 `encryptionKey` 변수를 제대로 설정했는지 확인하십시오.
+> 이 오류는 {% raw %}`StandardPBEStringEncryptor`{% endraw %} 클래스의 {% raw %}`setPassword`{% endraw %} 메소드에 빈 문자열이 전달되었기 때문에 발생합니다. 스크립트나 코드에서 {% raw %}`encryptionKey`{% endraw %} 변수를 제대로 설정했는지 확인하십시오.
 
 위에서 제공한 사용자 정의 JNDI 팩토리 클래스에서 다음 코드 라인을 확인하십시오:
 
-```java
+{% raw %}```java
 String encryptionKey = System.getProperty("JASYPT_ENCRYPTION_KEY");
-```
+```{% endraw %}
 
-이 코드는 시스템 속성 `JASYPT_ENCRYPTION_KEY`에서 암호화 키를 가져옵니다. 이 시스템 속성을 설정하지 않았거나 빈 문자열로 설정한 경우에는 이 오류가 발생합니다.
+이 코드는 시스템 속성 {% raw %}`JASYPT_ENCRYPTION_KEY`{% endraw %}에서 암호화 키를 가져옵니다. 이 시스템 속성을 설정하지 않았거나 빈 문자열로 설정한 경우에는 이 오류가 발생합니다.
 
-애플리케이션을 실행할 때 `-D` 옵션을 사용하여 시스템 속성을 설정해야 합니다. 예를 들면:
+애플리케이션을 실행할 때 {% raw %}`-D`{% endraw %} 옵션을 사용하여 시스템 속성을 설정해야 합니다. 예를 들면:
 
-```bash
+{% raw %}```bash
 java -D JASYPT_ENCRYPTION_KEY=myencryptionkey -jar myapplication.jar
-```
+```{% endraw %}
 
-여기서 `myencryptionkey`를 실제 암호화 키로 바꾸고, `myapplication.jar`를 실제 애플리케이션의 JAR 파일 이름으로 바꿉니다.
+여기서 {% raw %}`myencryptionkey`{% endraw %}를 실제 암호화 키로 바꾸고, {% raw %}`myapplication.jar`{% endraw %}를 실제 애플리케이션의 JAR 파일 이름으로 바꿉니다.
 
 이렇게 하면 암호화 키를 올바르게 설정하고 오류가 발생하지 않도록 할 수 있습니다. 시스템 속성을 설정하지 않으면 위에서 언급한 오류가 발생합니다.
 
@@ -462,17 +460,17 @@ java -D JASYPT_ENCRYPTION_KEY=myencryptionkey -jar myapplication.jar
 
 
 ## ChatGPT 응답:
-> NullPointerException 오류는 `CustomHikariJNDIFactory` 클래스에서 객체 참조가 null인 상태에서 사용되었기 때문에 발생합니다. 이 경우, 오류가 발생한 라인은 다음과 같습니다:
+> NullPointerException 오류는 {% raw %}`CustomHikariJNDIFactory`{% endraw %} 클래스에서 객체 참조가 null인 상태에서 사용되었기 때문에 발생합니다. 이 경우, 오류가 발생한 라인은 다음과 같습니다:
 
-```java
+{% raw %}```java
 String encryptedUsername = config.getDataSourceProperties().getProperty("username");
-```
+```{% endraw %}
 
-여기서 `config.getDataSourceProperties()`가 null을 반환할 수 있습니다. 이를 해결하려면 `HikariConfig`의 데이터 소스 속성이 null이 아닌지 확인하고, 필요한 경우 새 `Properties` 객체를 생성해야 합니다.
+여기서 {% raw %}`config.getDataSourceProperties()`{% endraw %}가 null을 반환할 수 있습니다. 이를 해결하려면 {% raw %}`HikariConfig`{% endraw %}의 데이터 소스 속성이 null이 아닌지 확인하고, 필요한 경우 새 {% raw %}`Properties`{% endraw %} 객체를 생성해야 합니다.
 
-수정된 `assembleConfigFromJndi` 메소드는 다음과 같습니다:
+수정된 {% raw %}`assembleConfigFromJndi`{% endraw %} 메소드는 다음과 같습니다:
 
-```java
+{% raw %}```java
 private static HikariConfig assembleConfigFromJndi(Reference ref) {
     HikariConfig config = new HikariConfig();
     Properties properties = new Properties();
@@ -491,7 +489,7 @@ private static HikariConfig assembleConfigFromJndi(Reference ref) {
 
     return config;
 }
-```
+```{% endraw %}
 
 이제 위의 수정된 메소드를 사용자 정의 팩토리 클래스에 적용하면 더 이상 NullPointerException 오류가 발생하지 않습니다.
 
@@ -564,11 +562,11 @@ public class CustomHikariJNDIFactory extends HikariJNDIFactory implements Object
  발생
 
 ## ChatGPT 응답:
-> 감사합니다. 제공해주신 코드를 검토했습니다. 이 경우 `NullPointerException`이 발생하는 원인은 `config.getDataSourceProperties()`가 null을 반환하기 때문입니다. 이 문제를 해결하려면 데이터 소스 속성을 설정한 다음 사용자 이름과 암호를 가져와야 합니다.
+> 감사합니다. 제공해주신 코드를 검토했습니다. 이 경우 {% raw %}`NullPointerException`{% endraw %}이 발생하는 원인은 {% raw %}`config.getDataSourceProperties()`{% endraw %}가 null을 반환하기 때문입니다. 이 문제를 해결하려면 데이터 소스 속성을 설정한 다음 사용자 이름과 암호를 가져와야 합니다.
 
-수정된 `assembleConfigFromJndi` 메소드를 다음과 같이 변경하십시오:
+수정된 {% raw %}`assembleConfigFromJndi`{% endraw %} 메소드를 다음과 같이 변경하십시오:
 
-```java
+{% raw %}```java
 private static HikariConfig assembleConfigFromJndi(Reference ref) {
     HikariConfig config = new HikariConfig();
     Properties properties = new Properties();
@@ -583,11 +581,11 @@ private static HikariConfig assembleConfigFromJndi(Reference ref) {
 
     return config;
 }
-```
+```{% endraw %}
 
-그리고 `getObjectInstance` 메소드에서 데이터 소스 속성을 설정한 후에 사용자 이름과 암호를 가져오도록 변경하십시오:
+그리고 {% raw %}`getObjectInstance`{% endraw %} 메소드에서 데이터 소스 속성을 설정한 후에 사용자 이름과 암호를 가져오도록 변경하십시오:
 
-```java
+{% raw %}```java
 public Object getObjectInstance(Object obj, Name name, Context nameCtx, Hashtable<?, ?> environment) throws Exception {
     if (obj == null || !(obj instanceof Reference)) {
         return null;
@@ -613,23 +611,23 @@ public Object getObjectInstance(Object obj, Name name, Context nameCtx, Hashtabl
 
     return new HikariDataSource(config);
 }
-```
+```{% endraw %}
 
-이렇게 변경하면 `NullPointerException` 오류가 발생하지 않아야 합니다.
+이렇게 변경하면 {% raw %}`NullPointerException`{% endraw %} 오류가 발생하지 않아야 합니다.
 
 ## 사용자 입력:
 > tomcat 9.x server.xml resource HikariJNDIFactory jasypt username password 암호화
 
 ## ChatGPT 응답:
-> Apache Tomcat 9.x의 `server.xml`에서 `HikariJNDIFactory`를 사용하고 Jasypt를 사용하여 데이터베이스 사용자 이름과 비밀번호를 암호화하는 방법을 설명하겠습니다. 아래 단계를 따르십시오.
+> Apache Tomcat 9.x의 {% raw %}`server.xml`{% endraw %}에서 {% raw %}`HikariJNDIFactory`{% endraw %}를 사용하고 Jasypt를 사용하여 데이터베이스 사용자 이름과 비밀번호를 암호화하는 방법을 설명하겠습니다. 아래 단계를 따르십시오.
 
 1. Jasypt 라이브러리 다운로드 및 추가
-   Jasypt 라이브러리를 다운로드 받고 Tomcat의 `lib` 디렉토리에 추가하십시오. 다운로드 링크: http://www.jasypt.org/download.html
+   Jasypt 라이브러리를 다운로드 받고 Tomcat의 {% raw %}`lib`{% endraw %} 디렉토리에 추가하십시오. 다운로드 링크: http://www.jasypt.org/download.html
 
 2. 사용자 정의 Hikari JNDI 팩토리 생성
-   아래 코드를 사용하여 사용자 정의 `CustomHikariJNDIFactory`를 생성합니다. 이전에 제공한 코드에서 데이터 소스 속성을 설정한 후에 사용자 이름과 암호를 가져오도록 변경했습니다.
+   아래 코드를 사용하여 사용자 정의 {% raw %}`CustomHikariJNDIFactory`{% endraw %}를 생성합니다. 이전에 제공한 코드에서 데이터 소스 속성을 설정한 후에 사용자 이름과 암호를 가져오도록 변경했습니다.
 
-```java
+{% raw %}```java
 package com.example.hikari;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -689,7 +687,7 @@ public class CustomHikariJNDIFactory extends HikariJNDIFactory implements Object
         return new HikariDataSource(config);
     }
 }
-```
+```{% endraw %}
 
 3. 암호화된 데이터베이스 사용자 이름 및 암호 생성
    Jasypt CLI를 사용하여 데이터베이스 사용자 이름과 비밀번호를 암호화합니다. Jasypt 다운로드 페이지에서 CLI 도구를 다운로드하십시오. 다음
@@ -705,15 +703,15 @@ public class CustomHikariJNDIFactory extends HikariJNDIFactory implements Object
 ## ChatGPT 응답:
 > 이 에러는 암호화 된 텍스트를 복호화 할 때 잘못된 키 또는 암호화 된 텍스트를 사용했기 때문에 발생합니다. 에러를 해결하려면 다음 단계를 확인하십시오.
 
-1. 암호화 키 확인: Jasypt 암호화 및 복호화에서 사용되는 암호화 키가 올바른지 확인하십시오. 이 키는 암호화를 수행하는 동안과 복호화를 수행하는 동안 동일해야 합니다. 시스템 속성 `JASYPT_ENCRYPTION_KEY`를 사용하여 암호화 키를 설정하고 있는지 확인하십시오.
+1. 암호화 키 확인: Jasypt 암호화 및 복호화에서 사용되는 암호화 키가 올바른지 확인하십시오. 이 키는 암호화를 수행하는 동안과 복호화를 수행하는 동안 동일해야 합니다. 시스템 속성 {% raw %}`JASYPT_ENCRYPTION_KEY`{% endraw %}를 사용하여 암호화 키를 설정하고 있는지 확인하십시오.
 
 2. 암호화 된 텍스트 확인: 사용자 이름 및 암호를 암호화 할 때 사용한 암호화 된 텍스트가 올바른지 확인하십시오. 복호화를 시도하기 전에 암호화된 텍스트가 손상되지 않았는지 확인하십시오.
 
 3. 암호화 알고리즘 확인: 암호화 및 복호화에 사용되는 암호화 알고리즘이 동일한지 확인하십시오. 다음 코드에서 암호화 알고리즘을 설정하십시오.
 
-```java
+{% raw %}```java
 encryptor.setAlgorithm("PBEWithMD5AndDES");
-```
+```{% endraw %}
 
 해당 코드를 사용하여 암호화 및 복호화 작업을 수행하려면 암호화 프로세스에서 동일한 알고리즘을 사용해야 합니다.
 
@@ -728,11 +726,11 @@ java.lang.IllegalArgumentException: dataSource or dataSourceClassName or jdbcUrl
 
 
 ## ChatGPT 응답:
-> 이 에러는 HikariConfig에서 dataSource, dataSourceClassName 또는 jdbcUrl 중 하나가 필요하지만 설정되지 않았음을 나타냅니다. 사용자 정의 `CustomHikariJNDIFactory`에서 HikariConfig를 설정하는 방식을 변경해야 합니다.
+> 이 에러는 HikariConfig에서 dataSource, dataSourceClassName 또는 jdbcUrl 중 하나가 필요하지만 설정되지 않았음을 나타냅니다. 사용자 정의 {% raw %}`CustomHikariJNDIFactory`{% endraw %}에서 HikariConfig를 설정하는 방식을 변경해야 합니다.
 
-아래 코드에서 `assembleConfigFromJndi` 메소드를 사용하여 HikariConfig를 설정하는 방법을 변경했습니다.
+아래 코드에서 {% raw %}`assembleConfigFromJndi`{% endraw %} 메소드를 사용하여 HikariConfig를 설정하는 방법을 변경했습니다.
 
-```java
+{% raw %}```java
 package com.datastreams.hikari;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -796,11 +794,11 @@ public class CustomHikariJNDIFactory extends HikariJNDIFactory implements Object
         return new HikariDataSource(config);
     }
 }
-```
+```{% endraw %}
 
-이제 dataSource, dataSourceClassName 또는 jdbcUrl 중 하나가 설정되어 있어야 합니다. `server.xml`에서 `Resource` 요소를 사용하여 이러한 속성 중 하나를 설정해야 합니다. 예를 들어:
+이제 dataSource, dataSourceClassName 또는 jdbcUrl 중 하나가 설정되어 있어야 합니다. {% raw %}`server.xml`{% endraw %}에서 {% raw %}`Resource`{% endraw %} 요소를 사용하여 이러한 속성 중 하나를 설정해야 합니다. 예를 들어:
 
-```xml
+{% raw %}```xml
 <Resource name="jdbc/myDataSource"
           auth="Container"
           factory="com.datastreams.hikari.CustomHikariJNDIFactory"
@@ -825,7 +823,7 @@ public class CustomHikariJNDIFactory extends HikariJNDIFactory implements Object
 
 아래 코드를 사용하여 `assembleConfigFromJndi` 메소드를 업데이트하십시오.
 
-```java
+```{% endraw %}java
 private static HikariConfig assembleConfigFromJndi(Reference ref) {
     HikariConfig config = new HikariConfig();
     Properties properties = new Properties();
@@ -848,11 +846,11 @@ private static HikariConfig assembleConfigFromJndi(Reference ref) {
 
     return config;
 }
-```
+{% raw %}```
 
 또한, server.xml 파일에서 PostgreSQL 데이터 소스 클래스를 사용하려면 dataSourceClassName 속성을 설정해야 합니다.
 
-```xml
+```{% endraw %}xml
 <Resource name="jdbc/myDataSource"
           auth="Container"
           factory="com.datastreams.hikari.CustomHikariJNDIFactory"
@@ -865,7 +863,7 @@ private static HikariConfig assembleConfigFromJndi(Reference ref) {
           databaseName="mydatabase"
           ...
 />
-```
+{% raw %}```
 
 이제 CustomHikariJNDIFactory 클래스는 PostgreSQL 데이터 소스 클래스와 호환되어야 합니다. 이 변경사항을 적용한 후에도 문제가 발생하면 애플리케이션 구성을 검토하고 문제를 해결할 수 있는 추가 정보를 찾으십시오.
 
@@ -875,7 +873,7 @@ private static HikariConfig assembleConfigFromJndi(Reference ref) {
 ## ChatGPT 응답:
 > `HikariConfig` 인스턴스에서 properties의 이름을 출력하려면 `DataSourceProperties`에서 keySet을 사용하면 됩니다. 다음은 `assembleConfigFromJndi` 메소드에서 properties 이름을 출력하는 예제 코드입니다:
 
-```java
+```{% endraw %}java
 private static HikariConfig assembleConfigFromJndi(Reference ref) {
     HikariConfig config = new HikariConfig();
     Properties properties = new Properties();
@@ -903,7 +901,7 @@ private static HikariConfig assembleConfigFromJndi(Reference ref) {
 
     return config;
 }
-```
+{% raw %}``{% endraw %}{% raw %}`
 
-이제 `assembleConfigFromJndi` 메소드가 실행될 때마다 properties의 이름이 콘솔에 출력됩니다.
+이제 `{% endraw %}assembleConfigFromJndi` 메소드가 실행될 때마다 properties의 이름이 콘솔에 출력됩니다.
 

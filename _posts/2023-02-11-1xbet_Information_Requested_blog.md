@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "1xbet Information Requested"
-date: 2023-02-11
 tags: [Information, Requested]
-categories: blog
 ---
 
 ## 사용자 입력:

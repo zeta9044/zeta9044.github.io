@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR XML Lexer Grammar"
-date: 2023-06-30
-tags: [XML, Lexer, Grammar, ANTLR]
-categories: blog
+tags: [Grammar, XML, ANTLR, Lexer]
 ---
 
 ## 사용자 입력:
@@ -81,7 +79,7 @@ Based on the lexer rules you provided, it seems that you are defining a lexer gr
 
 Here's an example of a complete XML lexer grammar in ANTLR:
 
-```antlr
+{% raw %}```antlr
 lexer grammar XMLLexer;
 
 COMMENT     :   '<!--' .*? '-->' ;
@@ -140,7 +138,7 @@ mode PROC_INSTR;
 
 PI          :   '?>'                    -> popMode ;
 IGNORE      :   .                       -> more ;
-```
+```{% endraw %}
 
 Please note that this grammar only defines the lexer rules for XML and does not include parser rules. If you need to define parser rules as well, you would create a separate parser grammar file.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 to JavaCC 7.0"
-date: 2023-06-29
-tags: [JavaCC, to]
-categories: blog
+tags: [to, JavaCC]
 ---
 
 ## 사용자 입력:
@@ -92,7 +90,7 @@ reference   :   EntityRef | CharRef ;
 
 attribute   :   Name '=' STRING ; // Our STRING is AttValue in spec
 
-/** ``All text that is not markup constitutes the character data of
+/** {% raw %}``{% endraw %}All text that is not markup constitutes the character data of
  *  the document.''
  */
 chardata    :   TEXT | SEA_WS ;
@@ -103,7 +101,7 @@ misc        :   COMMENT | PI | SEA_WS ;
 ## ChatGPT 응답:
 > 아래는 주어진 ANTLR v4 예제 코드를 JavaCC 7.0용 .jj 파일로 변환한 것입니다.
 
-```java
+{% raw %}```java
 options {
   JDKVersion = "1.8";
 }
@@ -228,7 +226,7 @@ void parse() throws ParseException:
 {
   document()
 }
-```
+```{% endraw %}
 
 위의 코드는 ANTLR v4 예제 코드를 JavaCC 7.0 구문에 맞게 변환한 것입니다. JavaCC를 사용하여 .jj 파일을 컴파일하고 XML 파싱을 실행할 수 있습니다. 필요에 따라 코드를 수정하거나 추가 기능을 구현할 수 있습니다.
 
@@ -238,7 +236,7 @@ void parse() throws ParseException:
 ## ChatGPT 응답:
 > 알겠습니다. 아래는 주어진 ANTLR v4 예제 코드를 JavaCC 7.0용 .jjt 파일로 변환한 것입니다.
 
-```java
+{% raw %}```java
 void document() #Document:
 {}
 {
@@ -301,7 +299,7 @@ void PI() #ProcessingInstruction:
 {
   < SPECIAL_CLOSE >
 }
-```
+```{% endraw %}
 
 위의 코드는 ANTLR v4 예제 코드를 JavaCC 7.0 구문에 맞게 변환한 것입니다. JavaCC를 사용하여 .jjt 파일을 컴파일하고 XML 파싱을 실행할 수 있습니다. 필요에 따라 코드를 수정하거나 추가 기능을 구현할 수 있습니다.
 
@@ -317,7 +315,7 @@ void PI() #ProcessingInstruction:
 ## ChatGPT 응답:
 > 죄송합니다. 저의 이전 답변은 잘못된 정보를 담고 있었습니다. JavaCC는 실제로 .jjt 파일 형식을 지원합니다. 아래는 주어진 ANTLR v4 예제 코드를 JavaCC 7.0용 .jjt 파일로 변환한 것입니다.
 
-```java
+{% raw %}```java
 void document() #Document:
 {}
 {
@@ -380,7 +378,7 @@ void PI() #ProcessingInstruction:
 {
   < SPECIAL_CLOSE >
 }
-```
+```{% endraw %}
 
 이제 JavaCC를 사용하여 위의 .jjt 파일을 컴파일하고 실행할 수 있습니다. JavaCC를 설치하고 .jjt 파일을 컴파일한 다음 생성된 Java 구문 분석기 클래스를 사용하여 XML 파싱을 수행할 수 있습니다. 이 코드를 기반으로 필요에 따라 수정하거나 추가 기능을 구현할 수 있습니다.
 
@@ -424,7 +422,7 @@ TOKEN:
 ## ChatGPT 응답:
 > 아래는 주어진 JavaCC용 토큰 정의에서 오류를 수정하여 정상 동작하도록 변경한 코드입니다.
 
-```java
+{% raw %}```java
 TOKEN :
 {
   < COMMENT: "<!--" (~["-"] | "-" (~["-"] | "-"*) ~["-"]) "-->" >
@@ -455,7 +453,7 @@ TOKEN :
 {
   < NameStartChar: <~["a"-"z", "A"-"Z"]> | "\u2070"-"\\u218F" | "\u2C00"-"\\u2FEF" | "\u3001"-"\\uD7FF" | "\uF900"-"\\uFDCF" | "\uFDF0"-"\\uFFFD" >
 }
-```
+```{% endraw %}
 
 위의 코드는 JavaCC용 토큰 정의를 수정하여 오류를 해결하였습니다. 이제 코드를 사용하여 JavaCC를 실행하면 원하는 결과를 얻을 수 있을 것입니다.
 
@@ -479,7 +477,7 @@ reference   :   EntityRef | CharRef ;
 
 attribute   :   Name '=' STRING ; // Our STRING is AttValue in spec
 
-/** ``All text that is not markup constitutes the character data of
+/** {% raw %}``{% endraw %}All text that is not markup constitutes the character data of
  *  the document.''
  */
 chardata    :   TEXT | SEA_WS ;
@@ -556,7 +554,7 @@ IGNORE      :   .                       -> more ;     이 코드는 antlr4의 xm
 > 아래는 주어진 ANTLR v4 예제 코드를 JavaCC의 .jjt 파일로 변환한 것입니다.
 
 XMLParser.jjt:
-```java
+{% raw %}```java
 options {
   static = false;
 }
@@ -667,10 +665,10 @@ void PI() #ProcessingInstruction:
 {
   < SPECIAL_CLOSE >
 }
-```
+```{% endraw %}
 
 XMLLexer.jjt:
-```java
+{% raw %}```java
 options {
   static = false;
 }
@@ -719,7 +717,7 @@ void IGNORE() #IGNORE:
 {
   < ~[] >
 }
-```
+```{% endraw %}
 
 이제 JavaCC를 사용하여 위의 .jjt 파일들을 컴파일하고 실행할 수 있습니다. JavaCC를 설치하고 .jjt 파일을 컴파일한 다음 생성된 Java 구문 분석기 클래스를 사용하여 XML 파싱을 수행할 수 있습니다. 이 코드를 기반으로 필요에 따라 수정하거나 추가 기능을 구현할 수 있습니다.
 
@@ -729,7 +727,7 @@ void IGNORE() #IGNORE:
 ## ChatGPT 응답:
 > 아래는 JavaCC의 .jjt 예제 코드입니다.
 
-```java
+{% raw %}```java
 options {
   static = false;
 }
@@ -837,7 +835,7 @@ void IGNORE() :
 {
   (<#WHITESPACE> | <#COMMENT>)
 }
-```
+```{% endraw %}
 
 이 예제는 간단한 언어를 파싱하는 JavaCC의 .jjt 파일입니다. Start, Statement, Assignment, IfStatement, Loop과 같은 규칙들을 정의하고, 각 규칙의 구문을 정의하고 있습니다. INTEGER와 IDENTIFIER와 같은 토큰도 정의되어 있습니다.
 
@@ -851,7 +849,7 @@ JavaCC를 사용하여 .jjt 파일을 컴파일하고 생성된 Java 구문 분�
 
 다시한번 사과드리며, JavaCC의 .jj 파일을 사용하여 작성된 예제 코드를 아래에 제시하겠습니다.
 
-```java
+{% raw %}```java
 options {
   JDKVersion = "1.8";
 }
@@ -957,7 +955,7 @@ void IGNORE():
 {
   (<#WHITESPACE>)
 }
-```
+```{% endraw %}
 
 이제 JavaCC를 사용하여 위의 .jj 파일을 컴파일하고 생성된 Java 구문 분석기 클래스를 사용하여 해당 언어의 구문을 파싱할 수 있습니다. 이 코드를 기반으로 필요에 따라 코드를 수정하거나 추가 기능을 구현할 수 있습니다.
 
@@ -969,7 +967,7 @@ void IGNORE():
 
 아래는 JavaCC의 .jj 파일을 기반으로 구문 분석 트리를 생성하는 JJTree(.jjt) 파일의 예제입니다.
 
-```java
+{% raw %}```java
 options {
   NODE_PREFIX = "AST";
   VISITOR = true;
@@ -1080,7 +1078,7 @@ void IGNORE() :
 {
   (<#WHITESPACE> | <#COMMENT>)
 }
-```
+```{% endraw %}
 
 위의 예제는 JJTree(.jjt) 파일로 작성된 것이며, JavaCC의 .jj 파일을 기반으로 구문 분
 
@@ -1095,7 +1093,7 @@ JavaCC와 JJTree를 사용하여 위의 예제를 컴파일하고 실행하면 �
 ## ChatGPT 응답:
 > 아래는 JavaCC 7용 JJTree (.jjt) 파일로 XML 파싱을 위한 예제입니다.
 
-```java
+{% raw %}```java
 options {
   NODE_PREFIX = "AST";
   VISITOR = true;
@@ -1222,7 +1220,7 @@ void IGNORE() #void:
 {
   (<SEA_WS>)
 }
-```
+```{% endraw %}
 
 위의 코드는 JavaCC 7용 JJTree (.jjt) 파일로 작성된 XML 파서입니다. XML 문서를 파싱하여 구문 분석 트리를 생성하고, 생성된 트리에 대해 XMLVisitor를 사용하여 원하는 작업을 수행할 수 있습니다.
 

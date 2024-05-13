@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Skip Liquid Errors in Jekyll"
-date: 2023-09-27
-tags: [Liquid, Errors, Jekyll, in, Skip]
-categories: blog
+tags: [Liquid, Errors, Skip, Jekyll, in]
 ---
 
 ## 사용자 입력:
@@ -80,18 +78,18 @@ Here are some steps you could follow:
 1. **Use a Script to Validate Liquid Syntax**: Before the build process, run a script that checks all files with Liquid syntax for errors.
 2. **Exclude Files with Errors**: If a file has a Liquid syntax error, you can either:
     - Move it to a different directory.
-    - Add its path to the `exclude` array in `_config.yml`.
+    - Add its path to the {% raw %}`exclude`{% endraw %} array in {% raw %}`_config.yml`{% endraw %}.
 
 3. **Proceed with the Jekyll Build**: Once files with errors are excluded, proceed with the normal Jekyll build process.
 
 Let's sketch this out in the GitHub Actions workflow:
 
 1. Add a step that checks for Liquid syntax errors.
-2. If errors are found, move those files or add them to the `exclude` list.
+2. If errors are found, move those files or add them to the {% raw %}`exclude`{% endraw %} list.
 
 Here's a rough idea of how you might modify the workflow to achieve this:
 
-```yaml
+{% raw %}```yaml
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -114,7 +112,7 @@ jobs:
           JEKYLL_ENV: production
 
       # ... other steps ...
-```
+```{% endraw %}
 
 The trickiest part here is actually validating the Liquid syntax. Jekyll doesn't provide a standalone validator for Liquid syntax. You might need to use the Liquid gem directly in a Ruby script to try and parse each file and see if any errors are thrown.
 
@@ -133,7 +131,7 @@ Jekyll 빌드 프로세스 중에 Liquid 구문 오류가 있는 파일을 건�
 1. **Liquid 구문 검사 스크립트 사용**: 빌드 프로세스 전에 Liquid 구문이 있는 모든 파일을 검사하는 스크립트를 실행합니다.
 2. **오류가 있는 파일 제외**: 파일에 Liquid 구문 오류가 있으면 다음 중 하나를 수행합니다:
     - 파일을 다른 디렉토리로 이동합니다.
-    - `_config.yml`의 `exclude` 배열에 해당 파일의 경로를 추가합니다.
+    - {% raw %}`_config.yml`{% endraw %}의 {% raw %}`exclude`{% endraw %} 배열에 해당 파일의 경로를 추가합니다.
 3. **Jekyll 빌드 진행**: 오류가 있는 파일을 제외한 후, 평소와 같은 Jekyll 빌드 프로세스를 진행합니다.
 
 GitHub action 워크플로우를 이러한 방식으로 수정하는 방법:
@@ -141,7 +139,7 @@ GitHub action 워크플로우를 이러한 방식으로 수정하는 방법:
 1. Liquid 구문 오류를 검사하는 단계를 추가합니다.
 2. 오류가 발견되면 해당 파일을 이동하거나 제외 목록에 추가합니다.
 
-```yaml
+{% raw %}```yaml
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -164,7 +162,7 @@ jobs:
           JEKYLL_ENV: production
 
       # ... 기타 단계 ...
-```
+```{% endraw %}
 
 이 방법의 핵심은 Liquid 구문을 검증하는 것입니다. Jekyll은 Liquid 구문을 독립적으로 검증하는 기능을 제공하지 않기 때문에, 직접 Ruby 스크립트를 작성하여 Liquid gem을 사용하여 각 파일을 파싱하고 오류가 발생하는지 확인해야 할 수도 있습니다.
 

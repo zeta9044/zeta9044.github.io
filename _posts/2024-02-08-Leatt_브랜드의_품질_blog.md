@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Leatt 브랜드의 품질"
-date: 2024-02-08
 tags: [브랜드, Leatt, 품질]
-categories: blog
 ---
 
 ## 사용자 입력:

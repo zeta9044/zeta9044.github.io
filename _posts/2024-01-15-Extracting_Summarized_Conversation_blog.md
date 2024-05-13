@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Extracting Summarized Conversation"
-date: 2024-01-15
-tags: [Summarized, Extracting, Conversation]
-categories: blog
+tags: [Summarized, Conversation, Extracting]
 ---
 
 ## 사용자 입력:

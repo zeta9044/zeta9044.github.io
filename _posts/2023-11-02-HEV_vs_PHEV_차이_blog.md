@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "HEV vs PHEV 차이"
-date: 2023-11-02
-tags: [차이, PHEV, HEV, vs]
-categories: blog
+tags: [vs, PHEV, HEV, 차이]
 ---
 
 ## 사용자 입력:

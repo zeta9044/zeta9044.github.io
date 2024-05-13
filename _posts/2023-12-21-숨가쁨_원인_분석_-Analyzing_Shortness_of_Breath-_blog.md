@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "숨가쁨 원인 분석 (Analyzing Shortness of Breath)"
-date: 2023-12-21
-tags: [원인, of, Analyzing, Shortness, Breath, 분석]
-categories: blog
+tags: [Breath, Analyzing, Shortness, 분석, 원인, of]
 ---
 
 ## 사용자 입력:

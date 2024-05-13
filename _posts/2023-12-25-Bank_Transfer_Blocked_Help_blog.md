@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Bank Transfer Blocked Help"
-date: 2023-12-25
-tags: [Bank, Transfer, Help, Blocked]
-categories: blog
+tags: [Bank, Help, Transfer, Blocked]
 ---
 
 ## 사용자 입력:

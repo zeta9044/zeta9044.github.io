@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "JavaCC to ANTLR4 Listener"
-date: 2023-06-30
-tags: [JavaCC, to, Listener]
-categories: blog
+tags: [to, Listener, JavaCC]
 ---
 
 ## 사용자 입력:
@@ -20,7 +18,7 @@ JavaCC는 Visitor 패턴을 사용하여 파싱된 트리를 순회하고 처리
 
 JavaCC를 사용하여 Visitor를 구현하는 기본적인 예제는 다음과 같습니다:
 
-```java
+{% raw %}```java
 public class MyVisitor extends BaseVisitor {
 
     @Override
@@ -38,11 +36,11 @@ public class MyVisitor extends BaseVisitor {
     }
 
 }
-```
+```{% endraw %}
 
-위의 코드에서 `visitSomeProduction` 메소드는 JavaCC에서 생성된 AST의 특정 노드를 방문하는 메소드입니다. 이 메소드는 ANTLR4의 `enterSomeProduction` 및 `exitSomeProduction` 메소드와 유사한 역할을 합니다.
+위의 코드에서 {% raw %}`visitSomeProduction`{% endraw %} 메소드는 JavaCC에서 생성된 AST의 특정 노드를 방문하는 메소드입니다. 이 메소드는 ANTLR4의 {% raw %}`enterSomeProduction`{% endraw %} 및 {% raw %}`exitSomeProduction`{% endraw %} 메소드와 유사한 역할을 합니다.
 
-`visitChildren(ctx)` 호출은 ANTLR4의 Listener가 노드를 '입장'하고 '퇴장'하면서 자동으로 호출하는 것과 유사한 역할을 하며, 이는 Visitor가 모든 자식 노드를 순회하게 합니다.
+{% raw %}`visitChildren(ctx)`{% endraw %} 호출은 ANTLR4의 Listener가 노드를 '입장'하고 '퇴장'하면서 자동으로 호출하는 것과 유사한 역할을 하며, 이는 Visitor가 모든 자식 노드를 순회하게 합니다.
 
 이러한 방식으로, JavaCC의 Visitor를 ANTLR4의 Listener와 유사하게 동작하게 할 수 있습니다. 그러나, 이 두 도구는 본질적으로 다르기 때문에 완벽하게 동일하게 동작하도록 만들 수는 없습니다. 이 점을 유념해 주시기 바랍니다.
 
@@ -54,11 +52,11 @@ public class MyVisitor extends BaseVisitor {
 
 이 토큰 정보를 사용하려면, 당신은 PentahoExtendVisitor에서 각 노드를 방문할 때 해당 노드의 토큰 정보를 참조하면 됩니다.
 
-보통, 노드는 `jjtGetValue()`와 같은 메소드를 사용하여 토큰 정보에 접근할 수 있습니다.
+보통, 노드는 {% raw %}`jjtGetValue()`{% endraw %}와 같은 메소드를 사용하여 토큰 정보에 접근할 수 있습니다.
 
 예를 들어:
 
-```java
+{% raw %}```java
 public class PentahoExtendVisitor extends DefaultVisitor {
 
     public Object visit(ASTSomeNode node, Object data) {
@@ -69,9 +67,9 @@ public class PentahoExtendVisitor extends DefaultVisitor {
     }
 
 }
-```
+```{% endraw %}
 
-위의 코드에서 `ASTSomeNode`는 방문하려는 노드의 유형이며, `jjtGetValue()`는 해당 노드의 토큰 정보를 반환합니다.
+위의 코드에서 {% raw %}`ASTSomeNode`{% endraw %}는 방문하려는 노드의 유형이며, {% raw %}`jjtGetValue()`{% endraw %}는 해당 노드의 토큰 정보를 반환합니다.
 
 하지만 이는 일반적인 경우이며, 실제 구현은 파서에서 어떻게 토큰 정보를 AST에 저장하는지에 따라 다릅니다. 따라서, 이 코드가 모든 상황에 대해 작동한다고 보장할 수는 없습니다. 구체적인 구현은 작업하시는 프로젝트의 세부 사항에 따라 달라질 것입니다.
 
@@ -79,11 +77,11 @@ public class PentahoExtendVisitor extends DefaultVisitor {
 > 위에서 네가 말하는 건 jjtGetValue()가 토큰이 아닐 수도 있다는 건가?
 
 ## ChatGPT 응답:
-> 네, 맞습니다. `jjtGetValue()` 메소드가 반환하는 객체의 타입은 SimpleNode (혹은 그 하위 클래스)에 저장되는 값의 타입에 따라 다릅니다. 일반적으로, 이는 구문 분석 중에 해당 노드에 연관된 정보를 저장하는 데 사용됩니다.
+> 네, 맞습니다. {% raw %}`jjtGetValue()`{% endraw %} 메소드가 반환하는 객체의 타입은 SimpleNode (혹은 그 하위 클래스)에 저장되는 값의 타입에 따라 다릅니다. 일반적으로, 이는 구문 분석 중에 해당 노드에 연관된 정보를 저장하는 데 사용됩니다.
 
-따라서 `jjtGetValue()`가 토큰 정보를 반환하려면, 구문 분석 과정에서 토큰 정보가 해당 노드에 저장되어 있어야 합니다. 토큰 정보가 저장되지 않았다면, `jjtGetValue()` 메소드를 사용해서는 토큰 정보를 얻을 수 없습니다.
+따라서 {% raw %}`jjtGetValue()`{% endraw %}가 토큰 정보를 반환하려면, 구문 분석 과정에서 토큰 정보가 해당 노드에 저장되어 있어야 합니다. 토큰 정보가 저장되지 않았다면, {% raw %}`jjtGetValue()`{% endraw %} 메소드를 사용해서는 토큰 정보를 얻을 수 없습니다.
 
-만약 `jjtGetValue()`가 토큰 정보를 반환하지 않는다면, 그 이유는 구문 분석기가 토큰 정보를 해당 노드에 저장하지 않았기 때문일 가능성이 높습니다. 이 경우, 토큰 정보를 얻으려면 구문 분석기를 수정하여 토큰 정보를 노드에 저장하도록 해야 할 수도 있습니다.
+만약 {% raw %}`jjtGetValue()`{% endraw %}가 토큰 정보를 반환하지 않는다면, 그 이유는 구문 분석기가 토큰 정보를 해당 노드에 저장하지 않았기 때문일 가능성이 높습니다. 이 경우, 토큰 정보를 얻으려면 구문 분석기를 수정하여 토큰 정보를 노드에 저장하도록 해야 할 수도 있습니다.
 
 이러한 상세 구현은 JavaCC 문법 정의 및 파서 생성 전략에 따라 다르므로, 특정 프로젝트의 요구 사항 및 상황에 따라 조정해야 할 수 있습니다.
 
@@ -93,9 +91,9 @@ public class PentahoExtendVisitor extends DefaultVisitor {
 ## ChatGPT 응답:
 > JavaCC를 사용하여 파일을 파싱하고 생성된 AST를 방문하는 Java 코드 예제는 다음과 같습니다. 이 예제에서는 간단한 문법을 사용하고, 파일에서 읽어들인 문자열을 파싱한 후, 생성된 AST를 방문하여 각 노드를 처리합니다.
 
-먼저, 아래 코드는 JavaCC를 사용하여 간단한 문법을 정의한 파일입니다 (`Example.jjt`):
+먼저, 아래 코드는 JavaCC를 사용하여 간단한 문법을 정의한 파일입니다 ({% raw %}`Example.jjt`{% endraw %}):
 
-```java
+{% raw %}```java
 options {
     BUILD_NODE_FILES = true;
     VISITOR = true;
@@ -143,11 +141,11 @@ void Addition() : {}
 {
   <PLUS> <INTEGER>
 }
-```
+```{% endraw %}
 
-그리고 다음은 생성된 `ExampleVisitor.java` 파일의 일부입니다:
+그리고 다음은 생성된 {% raw %}`ExampleVisitor.java`{% endraw %} 파일의 일부입니다:
 
-```java
+{% raw %}```java
 public class ExampleVisitor extends DefaultVisitor {
     public Object visit(ASTStart node, Object data) {
         // You can handle the start node here if needed
@@ -164,11 +162,11 @@ public class ExampleVisitor extends DefaultVisitor {
         return super.visit(node, data);
     }
 }
-```
+```{% endraw %}
 
 마지막으로, 파일에서 읽어들인 문자열을 파싱하고 생성된 AST를 방문하는 Java 코드 예제는 다음과 같습니다:
 
-```java
+{% raw %}```java
 import com.example.*;
 
 import java.io.*;
@@ -191,11 +189,11 @@ public class Main {
         }
     }
 }
-```
+```{% endraw %}
 
 이 예제에서는 "example.txt"라는 파일에서 문자열을 읽어들입니다. 이 파일은 JavaCC로 정의된 문법에 따른 텍스트를 포함해야 합니다.
 
-`ExampleVisitor` 클래스에서는 각 노드를 방문하며 필요한 작업을 수행합니다. `jjtAccept()` 메소드를 호출하여 Visitor를 AST의 노드에 적용합니다. 
+{% raw %}`ExampleVisitor`{% endraw %} 클래스에서는 각 노드를 방문하며 필요한 작업을 수행합니다. {% raw %}`jjtAccept()`{% endraw %} 메소드를 호출하여 Visitor를 AST의 노드에 적용합니다. 
 
 위 코드는 개념적인 예제로, 실제 상황에 따라서 약간의 수정이 필요할 수 있습니다. 예를 들어, 파서의 동작, 입력 파일의 형식, 각 노드의
 
@@ -203,21 +201,21 @@ public class Main {
 > Incompatible types. Found: 'void', required: 'com.ids.parser.pentaho.parser.ASTDocument' 여기서 이런 에러가 나는데, jjt정의할 때 무엇이 빠졌니?
 
 ## ChatGPT 응답:
-> JavaCC를 사용할 때, AST의 루트 노드를 반환하는 메서드가 파서에 필요합니다. 이 메서드는 `ParseException`를 던질 수 있어야 하며, 루트 노드 타입을 반환해야 합니다.
+> JavaCC를 사용할 때, AST의 루트 노드를 반환하는 메서드가 파서에 필요합니다. 이 메서드는 {% raw %}`ParseException`{% endraw %}를 던질 수 있어야 하며, 루트 노드 타입을 반환해야 합니다.
 
 추측컨대 이 오류는 파서에서 AST의 루트 노드를 반환하는 메서드가 없거나, 또는 해당 메서드가 잘못된 타입을 반환하고 있어서 발생하는 것 같습니다. 이 메서드는 AST의 루트 노드 타입을 반환해야 합니다.
 
-예를 들어, 파서가 `ASTDocument`라는 루트 노드를 가진 AST를 생성한다면, 파서에는 다음과 같은 메서드가 있어야 합니다:
+예를 들어, 파서가 {% raw %}`ASTDocument`{% endraw %}라는 루트 노드를 가진 AST를 생성한다면, 파서에는 다음과 같은 메서드가 있어야 합니다:
 
-```java
+{% raw %}```java
 public ASTDocument Start() throws ParseException {
     // ...
 }
-```
+```{% endraw %}
 
-이 메서드는 루트 노드인 `ASTDocument` 객체를 반환합니다. 만약 이 메서드가 없거나, 또는 `void`를 반환한다면, Java 컴파일러는 `Incompatible types. Found: 'void', required: 'com.ids.parser.pentaho.parser.ASTDocument'`와 같은 오류를 발생시킬 것입니다.
+이 메서드는 루트 노드인 {% raw %}`ASTDocument`{% endraw %} 객체를 반환합니다. 만약 이 메서드가 없거나, 또는 {% raw %}`void`{% endraw %}를 반환한다면, Java 컴파일러는 {% raw %}`Incompatible types. Found: 'void', required: 'com.ids.parser.pentaho.parser.ASTDocument'`{% endraw %}와 같은 오류를 발생시킬 것입니다.
 
-따라서, `jjt` 파일을 수정하여 파서가 루트 노드를 반환하는 메서드를 제공하도록 해야 합니다. 이 메서드가 루트 노드 타입인 `ASTDocument`를 반환하도록 해야 합니다. 이렇게 하면 위의 오류를 해결할 수 있을 것입니다.
+따라서, {% raw %}`jjt`{% endraw %} 파일을 수정하여 파서가 루트 노드를 반환하는 메서드를 제공하도록 해야 합니다. 이 메서드가 루트 노드 타입인 {% raw %}`ASTDocument`{% endraw %}를 반환하도록 해야 합니다. 이렇게 하면 위의 오류를 해결할 수 있을 것입니다.
 
 ## 사용자 입력:
 > void Document() :
@@ -227,11 +225,11 @@ public ASTDocument Start() throws ParseException {
 }  이렇게 되어 있는데 어떻게 바꿔야 되지?
 
 ## ChatGPT 응답:
-> 문법에 반환 타입이 명시되지 않은 경우, JavaCC는 기본적으로 `void`를 반환 타입으로 가정합니다. 이를 해결하려면, 당신의 문법 파일에서 루트 노드를 반환하는 것으로 명시해야 합니다. 이를 위해선 문법 규칙에 반환 타입을 지정해야 하는데, 이는 규칙 이름 앞에 반환 타입을 명시하여 수행할 수 있습니다.
+> 문법에 반환 타입이 명시되지 않은 경우, JavaCC는 기본적으로 {% raw %}`void`{% endraw %}를 반환 타입으로 가정합니다. 이를 해결하려면, 당신의 문법 파일에서 루트 노드를 반환하는 것으로 명시해야 합니다. 이를 위해선 문법 규칙에 반환 타입을 지정해야 하는데, 이는 규칙 이름 앞에 반환 타입을 명시하여 수행할 수 있습니다.
 
-따라서, `Document` 규칙을 수정하여 루트 노드인 `ASTDocument`를 반환하도록 할 수 있습니다:
+따라서, {% raw %}`Document`{% endraw %} 규칙을 수정하여 루트 노드인 {% raw %}`ASTDocument`{% endraw %}를 반환하도록 할 수 있습니다:
 
-```java
+{% raw %}```java
 ASTDocument Document() : {}
 {
   (Prolog())? Element() (Misc())*
@@ -240,11 +238,11 @@ ASTDocument Document() : {}
     return new ASTDocument();
   }
 }
-```
+```{% endraw %}
 
-위 코드에서, `{}` 안의 코드는 해당 규칙이 일치한 후에 실행됩니다. 여기에서는 새로운 `ASTDocument` 인스턴스를 생성하고 반환하도록 했습니다.
+위 코드에서, {% raw %}`{}`{% endraw %} 안의 코드는 해당 규칙이 일치한 후에 실행됩니다. 여기에서는 새로운 {% raw %}`ASTDocument`{% endraw %} 인스턴스를 생성하고 반환하도록 했습니다.
 
-이렇게 수정하면, `Document()` 메서드는 이제 `ASTDocument`를 반환하므로, `Incompatible types. Found: 'void', required: 'com.ids.parser.pentaho.parser.ASTDocument'` 오류를 해결할 수 있을 것입니다.
+이렇게 수정하면, {% raw %}`Document()`{% endraw %} 메서드는 이제 {% raw %}`ASTDocument`{% endraw %}를 반환하므로, {% raw %}`Incompatible types. Found: 'void', required: 'com.ids.parser.pentaho.parser.ASTDocument'`{% endraw %} 오류를 해결할 수 있을 것입니다.
 
-단, 이 예제에서는 빈 `ASTDocument`를 반환하므로, 실제 사용 시에는 적절한 데이터로 `ASTDocument`를 채워야 할 수 있습니다.
+단, 이 예제에서는 빈 {% raw %}`ASTDocument`{% endraw %}를 반환하므로, 실제 사용 시에는 적절한 데이터로 {% raw %}`ASTDocument`{% endraw %}를 채워야 할 수 있습니다.
 

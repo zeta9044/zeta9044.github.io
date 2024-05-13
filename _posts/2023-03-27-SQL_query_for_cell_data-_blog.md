@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "SQL query for cell data."
-date: 2023-03-27
-tags: [SQL, for, query, data, cell]
-categories: blog
+tags: [for, data, cell, query, SQL]
 ---
 
 ## 사용자 입력:
@@ -160,7 +158,7 @@ categories: blog
 ## ChatGPT 응답:
 > 다음은 PostgreSQL용으로 변경한 쿼리입니다.
 
-```sql
+{% raw %}```sql
 SELECT DISTINCT
     (SELECT A.SYSTEM_TGT_SRV_ID
         FROM AIS1003 A
@@ -392,7 +390,7 @@ FROM (
 ## ChatGPT 응답:
 > Here's the Postgresql version of the given Oracle query in Mybatis XML format:
 
-```xml
+```{% endraw %}xml
 <select id="findShellLineageCells" resultMap="dwCellMap">
   SELECT DISTINCT -- Mxgraph.xml.findShellLineageCells
          (SELECT A.SYSTEM_TGT_SRV_ID
@@ -457,7 +455,7 @@ FROM (
 ## ChatGPT 응답:
 > postgresql 쿼리로 변환한 결과입니다.
 
-```xml
+{% raw %}```xml
 <select id="findShellLineageCells" resultMap="dwCellMap">
     SELECT DISTINCT -- Mxgraph.xml.findShellLineageCells
         (
@@ -709,7 +707,7 @@ FROM (
 ## ChatGPT 응답:
 > 아래는 PostgreSQL 쿼리를 Oracle 쿼리로 변환한 것입니다.
 
-```
+```{% endraw %}
 SELECT DISTINCT
   (SELECT A.SYSTEM_TGT_SRV_ID
    FROM AIS1003 A, AIS1011 B
@@ -852,7 +850,7 @@ FROM (
 ## ChatGPT 응답:
 > 다음은 Oracle SQL로 변환한 결과입니다.
 
-```
+{% raw %}```
 SELECT DISTINCT 
   (
     SELECT A.SYSTEM_TGT_SRV_ID 
@@ -944,7 +942,7 @@ FROM (
 ## ChatGPT 응답:
 > 죄송합니다, 계속 짤려서 완전히 보이지 않는 부분이 있었나봅니다. 다시 한 번 끝까지 마무리해드리겠습니다.
 
-```sql
+```{% endraw %}sql
 SELECT DISTINCT
   (SELECT A.SYSTEM_TGT_SRV_ID
    FROM AIS1003 A, AIS1011 B

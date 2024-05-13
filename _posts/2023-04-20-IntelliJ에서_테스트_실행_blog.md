@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "IntelliJ에서 테스트 실행"
-date: 2023-04-20
-tags: [테스트, 실행]
-categories: blog
+tags: [실행, 테스트]
 ---
 
 ## 사용자 입력:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "JavaCC DataStage Job Parser"
-date: 2023-01-14
-tags: [JavaCC, Job, DataStage, Parser]
-categories: blog
+tags: [Parser, Job, DataStage, JavaCC]
 ---
 
 
@@ -32,7 +30,7 @@ Overall, functional programming can be a powerful tool for creating parsers, as 
 
 ## ChatGPT 응답:
 > Here is an example of a simple parser written in JavaCC for a fictional language called "Simple":
-```
+{% raw %}```
 PARSER_BEGIN(SimpleParser)
 import java.io.*;
 public class SimpleParser {
@@ -75,9 +73,9 @@ void ConditionBlock() :
 {
     <LBRACE> ( Statement() | StatementBlock() )* <RBRACE>
 }
-```
+```{% endraw %}
 
-This parser recognizes a simple language that consists of "if-else" statements, expressions and condition blocks. The `Start()` function is the entry point of the parser, it calls the `Condition()` function that is responsible for recognizing the if-else statements. The function `Expression()` is used to recognize expressions and the `ConditionBlock()` function is used to recognize the condition blocks. The `TOKEN_MGR_DECLS` section is responsible for providing the next token from the input stream.
+This parser recognizes a simple language that consists of "if-else" statements, expressions and condition blocks. The {% raw %}`Start()`{% endraw %} function is the entry point of the parser, it calls the {% raw %}`Condition()`{% endraw %} function that is responsible for recognizing the if-else statements. The function {% raw %}`Expression()`{% endraw %} is used to recognize expressions and the {% raw %}`ConditionBlock()`{% endraw %} function is used to recognize the condition blocks. The {% raw %}`TOKEN_MGR_DECLS`{% endraw %} section is responsible for providing the next token from the input stream.
 
 This is just an example and it will likely have errors or missing elements, but it gives an idea of how a parser is defined using JavaCC.
 It's important to note that this is just a very basic example and there's a lot more to it when it comes to creating a functional and robust parser.
@@ -89,7 +87,7 @@ It's important to note that this is just a very basic example and there's a lot 
 ## ChatGPT 응답:
 > Here's an example of a simple parser for a fictional programming language called "MyLang" using JavaCC and functional programming concepts:
 
-```
+{% raw %}```
 PARSER_BEGIN(MyLangParser)
 public class MyLangParser {
   public static void main(String[] args) throws ParseException {
@@ -140,13 +138,13 @@ void Expression() :
   | <DIV>
   ( Expression() )
 }
-```
+```{% endraw %}
 
 This is a very basic example, but it should give you an idea of how JavaCC can be used with functional programming concepts to create a parser. The above example defines the grammar for the MyLang language, and creates a parser that can parse and interpret it.
 
-The example uses functional programming concepts like recursive functions and composable functions. The functions `Program()`, `Condition()`, and `Expression()` are recursive and composable, which allows them to be used to parse the grammar of MyLang.
+The example uses functional programming concepts like recursive functions and composable functions. The functions {% raw %}`Program()`{% endraw %}, {% raw %}`Condition()`{% endraw %}, and {% raw %}`Expression()`{% endraw %} are recursive and composable, which allows them to be used to parse the grammar of MyLang.
 
-In this example, the `Program()` function defines the starting point of the parser and calls the `Condition()` function recursively to parse the program. The `Condition()` function calls the `Expression()` function recursively to parse the expressions. The `Expression()` function uses the token definitions to match and parse the tokens in the input, such as integers, identifiers, and operators.
+In this example, the {% raw %}`Program()`{% endraw %} function defines the starting point of the parser and calls the {% raw %}`Condition()`{% endraw %} function recursively to parse the program. The {% raw %}`Condition()`{% endraw %} function calls the {% raw %}`Expression()`{% endraw %} function recursively to parse the expressions. The {% raw %}`Expression()`{% endraw %} function uses the token definitions to match and parse the tokens in the input, such as integers, identifiers, and operators.
 
 It's important to notice that this is a simplified example and it doesn't cover all the possibles scenarios or error handling that will be needed to create a real-world parser.
 
@@ -159,7 +157,7 @@ It's important to notice that this is a simplified example and it doesn't cover 
 
 The AHEAD construct is typically used in conjunction with the NOT operator, which negates the lookahead operation. For example, the following code uses AHEAD to check if the next token is NOT an "ELSE" keyword:
 
-```
+{% raw %}```
 void IfStatement() :
 {}
 {
@@ -169,7 +167,7 @@ void IfStatement() :
   ( Statement() )
   ( AHEAD(2) !<ELSE> <ELSE> ( Condition() ) )?
 }
-```
+```{% endraw %}
 
 In this example, the AHEAD(2) construct checks the next 2 tokens in the input stream, and the NOT operator negates the lookahead operation, so the parser checks if the next 2 tokens are NOT "ELSE". If this is the case, the parser consumes the "ELSE" token and parses the condition.
 
@@ -185,7 +183,7 @@ You can use the AHEAD construct to lookahead any number of tokens, but it's impo
 > JavaCC에서 "AHEAD" 구조는 입력 스트림에서 lookahead 작업을 수행하는 데 사용됩니다. Lookahead 작업은 파서가 입력 스트림의 다음 토큰을 훑어볼 수 있도록 합니다. 이러한 작업은 파서가 다음 토큰을 기반으로 결정을 내리는 경우 유용할 수 있습니다. 이때 현재 입력 스트림의 위치를 변경하지 않는 것이 중요합니다.
 
 AHEAD 구조는 NOT 연산자와 함께 사용되는 경우가 많습니다. 예를 들어, 다음 코드는 AHEAD를 사용하여 다음 토큰이 "ELSE" 키워드가 아닌지 확인합니다. 
-```
+{% raw %}```
 void IfStatement() :
 {}
 {
@@ -195,7 +193,7 @@ void IfStatement() :
   ( Condition() )
   ( AHEAD(2) !<ELSE> <ELSE> ( Condition() ) )?
 }
-```
+```{% endraw %}
 
 위 예제에서 AHEAD(2) 구조는 입력 스트림의 다음 2개 토큰을 확인합니다. NOT 연산자는 lookahead 작업을 반전시키므로 파서는 다음 2 토큰이 "ELSE"가 아닌지 확인합니다. 이 경우 파서는 "ELSE" 토
 
@@ -669,7 +667,7 @@ pyparsing은 상향식, 재귀적 파싱 접근 방법을 사용합니다. 이�
 
 ## ChatGPT 응답:
 > Here's an example of how you can use pyparsing to extract the URL from the given HTML anchor tag:
-```python
+{% raw %}```python
 from pyparsing import Word, Literal, QuotedString, Suppress, OneOrMore
 
 # Define the grammar for the tag
@@ -686,7 +684,7 @@ url = tag.parseString("<a href='http://google.com' ></a>")[0]
 
 # Print the URL
 print(url)
-```
+```{% endraw %}
 
 This code uses pyparsing's parseString() function to extract the URL from the given HTML anchor tag. The parseString() function takes a string as input and returns a list of the matched tokens. In this case, the URL is the first element in the list, so it's accessed using the [0] index. The output will be "http://google.com"
 
@@ -698,7 +696,7 @@ pyparsing 을 이용해서 html 태그를 파싱하는 것은 매우 쉽습니�
 
 ## ChatGPT 응답:
 > Here's an example of how you can use pyparsing to extract the URL from the given HTML anchor tag by skipping certain parts of the input string:
-```python
+{% raw %}```python
 from pyparsing import SkipTo, restOfLine
 
 # Define the grammar for the tag
@@ -714,7 +712,7 @@ url = tag.parseString("<a href='http://google.com' ></a>")[2]
 
 # Print the URL
 print(url)
-```
+```{% endraw %}
 This code uses pyparsing's SkipTo() and restOfLine() functions to skip over certain parts of the input string, in this case the parts before and after the URL. The SkipTo() function takes a string as an argument and skips over all characters until it encounters the specified string. The restOfLine() function is used to match the rest of the line after the "href=" part of the string. The output will be "http://google.com"
 
 코드에서는 pyparsing의 SkipTo()와 restOfLine() 함수를 사용하여 입력 문자열의 일부를 건너뛰는 것입니다. 이 경우 "href="문자열부터 나머지 라인에 있는 문자열을 추출하여 url을 파싱합니다
@@ -723,8 +721,8 @@ This code uses pyparsing's SkipTo() and restOfLine() functions to skip over cert
 > this code has errors.
 
 ## ChatGPT 응답:
-> I apologize, you are correct. The code I provided will not work as expected because restOfLine() function is not used in the correct way. restOfLine() function is used to match any remaining characters on the current line, but it does not return any match results. To solve this problem, you can use the `.setResultsName()` method to extract the matched value for the attribute value like this:
-```python
+> I apologize, you are correct. The code I provided will not work as expected because restOfLine() function is not used in the correct way. restOfLine() function is used to match any remaining characters on the current line, but it does not return any match results. To solve this problem, you can use the {% raw %}`.setResultsName()`{% endraw %} method to extract the matched value for the attribute value like this:
+{% raw %}```python
 from pyparsing import SkipTo, restOfLine, Literal
 
 # Define the grammar for the tag
@@ -740,7 +738,7 @@ result = tag.parseString("<a href='http://google.com' ></a>")
 
 # Print the URL
 print(result.url)
-```
+```{% endraw %}
 This code uses the QuotedString() to match the URL inside the quotes and the setResultsName("url") to set the name of the matched value, which can be accessed later via the parse results. This will correctly extract the URL from the input string, "http://google.com".
 
 저의 제공한 코드가 오류가 있음을 인정하며 죄송합니다. restOfLine() 함수는 현재 줄에 남아 있는 모든 문자를 일치시키지만 결과를 반환하지 않습니다. 이 문제를 해결하기 위해 '.setResultsName()' 메소드를 사용하여 속성값을 추출할 수 있습니다.
@@ -792,7 +790,7 @@ print(url)
 
 ## ChatGPT 응답:
 > The code you provided will not work as expected. The parseString() method returns a ParseResults object, which is a list-like object containing the matched values of each element in the grammar. To access the URL, you need to use the indexing operator [] to access the matched value of the attr_value element. You can do it like this:
-```python
+{% raw %}```python
 from pyparsing import Literal, QuotedString, Suppress
 
 # Define the grammar for the tag
@@ -809,7 +807,7 @@ result = tag.parseString("<a href='http://google.com' ></a>")
 
 # Print the URL
 print(result[2])
-```
+```{% endraw %}
 
 The output will be "http://google.com".
 
@@ -821,7 +819,7 @@ The output will be "http://google.com".
 
 ## ChatGPT 응답:
 > It's a bit challenging to convert the code to functional programming style because the pyparsing library is not designed with functional programming in mind. However, one possible way to convert the code to functional programming style is to use the pipe operator (|) and the partial function to chain the functions together. Here is an example of how the code could be refactored in a functional programming style:
-```python
+{% raw %}```python
 from functools import partial
 from operator import concat
 from pyparsing import Literal, QuotedString, Suppress
@@ -840,7 +838,7 @@ result = tag.parseString("<a href='http://google.com' ></a>")
 
 # Print the URL
 print(result[2])
-```
+```{% endraw %}
 The above code uses the functools.partial function to partially apply the operator.concat function to the grammar elements, and the functools.reduce function to concatenate them together.
 
 It's worth noting that this style of coding can make the code harder to understand and maintain, especially for others who may not be familiar with functional programming.
@@ -852,7 +850,7 @@ It's worth noting that this style of coding can make the code harder to understa
 
 ## ChatGPT 응답:
 > 예를 들면 다음과 같습니다.
-```python
+{% raw %}```python
 from functools import partial, reduce
 from operator import concat
 from pyparsing import Literal, QuotedString, Suppress
@@ -871,7 +869,7 @@ result = tag.parseString("<a href='http://google.com' ></a>")
 
 # Print the URL
 print(result[2])
-```
+```{% endraw %}
 
 이 코드는 함수적 프로그래밍 스타일로 개발된 것이 아니기 때문에, 함수형 프로그래밍 스타일로 변환하는 것은 이해하기 어렵고 유지보수 하기 어렵다.
 
@@ -881,7 +879,7 @@ print(result[2])
 
 ## ChatGPT 응답:
 > 예를 들면 다음과 같습니다.
-```python
+{% raw %}```python
 from pyparsing import Literal, QuotedString, Suppress
 
 class Parser:
@@ -898,7 +896,7 @@ class Parser:
 
 parser = Parser()
 print(parser.parse("<a href='http://google.com' ></a>"))
-```
+```{% endraw %}
 
 이 코드는 pyparsing 구문 분석기 객체를 클래스로 캡슐화하여, 객체 지향 프로그래밍 스타일로 개발되어 유지보수하기 쉬워졌다. 
 
@@ -939,16 +937,16 @@ pyparsing은 파싱 결과를 이용해 소스를 수정하는 기능을 직접 
 
 ## ChatGPT 응답:
 > 알겠습니다. 예를 들어, 아래와 같은 소스 파일이 있다고 합시다.
-```
+{% raw %}```
 var x = 10;
 var y = 20;
 var result = x + y;
 console.log(result);
-```
+```{% endraw %}
 pyparsing을 사용해서 이 소스에서 변수명을 찾아 변경하려면, 구문 파싱 결과를 이용해 해당 변수명을 찾은 후, 수정하는 코드를 추가로 작성해야 합니다.
 
 예를 들어, 변수 x를 new_x로 변경하려면, 아래와 같은 코드를 추가로 작성해야 합니다.
-```python
+{% raw %}```python
 # Find all instances of variable x
 for variable in parsed_result.searchFor(pyparsing.Word("x")):
     variable.setName("new_x")
@@ -956,7 +954,7 @@ for variable in parsed_result.searchFor(pyparsing.Word("x")):
 # Write the modified source code to a new file
 with open("modified_source.js", "w") as f:
     f.write(parsed_result.asString())
-```
+```{% endraw %}
 
 코드를 작성하면서 특정한 문제가 있다면 언제든지 문의해주세요.
 
@@ -966,7 +964,7 @@ with open("modified_source.js", "w") as f:
 
 ## ChatGPT 응답:
 > 네, python에서는 xml을 json으로 변환하는 라이브러리인 xmltodict를 사용할 수 있습니다. 아래는 xml을 json으로 변환하는 예제 코드입니다.
-```python
+{% raw %}```python
 import xmltodict
 
 # XML data
@@ -983,7 +981,7 @@ json_data = xmltodict.parse(xml_data)
 
 # Print the JSON data
 print(json_data)
-```
+```{% endraw %}
 
 이 코드를 실행하면, xml_data 변수에 저장된 XML 데이터가 json 형식으로 변환되어 json_data에 저장됩니다.
 

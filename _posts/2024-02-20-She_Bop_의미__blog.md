@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "She Bop 의미"
-date: 2024-02-20
-tags: [Bop, 의미, She]
-categories: blog
+tags: [의미, Bop, She]
 ---
 
 ## 사용자 입력:

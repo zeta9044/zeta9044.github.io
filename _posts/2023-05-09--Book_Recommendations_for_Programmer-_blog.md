@@ -1,9 +1,7 @@
 ---
 layout: post
-title: ""Book Recommendations for Programmer""
-date: 2023-05-09
-tags: [Programmer, Recommendations, Book, for]
-categories: blog
+title: "'Book Recommendations for Programmer'"
+tags: [Recommendations, Programmer, for, Book]
 ---
 
 ## 사용자 입력:

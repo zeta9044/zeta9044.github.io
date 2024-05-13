@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Pentaho Edition Comparison"
-date: 2023-06-28
 tags: [Pentaho, Edition, Comparison]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -54,17 +52,17 @@ Ultimately, the choice between Pentaho Community Edition and Pentaho Enterprise 
 1. 터미널을 엽니다. (Ctrl+Alt+T를 누르면 터미널을 실행할 수 있습니다.)
 
 2. 아래의 명령어를 입력합니다:
-```shell
+{% raw %}```shell
 dpkg --list
-```
+```{% endraw %}
 
 3. 위 명령어를 실행하면 현재 시스템에 설치된 모든 패키지의 리스트가 터미널에 표시됩니다. 리스트는 패키지명, 버전, 설치 상태 및 간단한 설명으로 구성되어 있습니다.
 
 이 명령어를 실행하면 많은 결과가 표시될 수 있으므로, 터미널 창을 스크롤하여 확인할 수 있습니다. 필요한 경우, 리스트를 텍스트 파일로 저장하려면 다음과 같이 명령어를 수정하여 실행할 수 있습니다:
-```shell
+{% raw %}```shell
 dpkg --list > installed_packages.txt
-```
-위 명령어를 실행하면 `installed_packages.txt`라는 파일에 패키지 리스트가 저장됩니다.
+```{% endraw %}
+위 명령어를 실행하면 {% raw %}`installed_packages.txt`{% endraw %}라는 파일에 패키지 리스트가 저장됩니다.
 
 ## 사용자 입력:
 >   Ubuntu 16.04 and later:
@@ -76,9 +74,9 @@ dpkg --list > installed_packages.txt
 1. Open the terminal on your Ubuntu system. You can do this by pressing Ctrl+Alt+T.
 
 2. Run the following command to install the libwebkitgtk package:
-```shell
+{% raw %}```shell
 sudo apt-get install libwebkitgtk-1.0.0
-```
+```{% endraw %}
 This command will prompt you for your password. Enter your password, and the installation process will begin.
 
 3. Follow the prompts and confirm any additional dependencies or packages that need to be installed. Press 'Y' and then Enter to proceed with the installation.
@@ -115,32 +113,32 @@ libwebkitgtk와 관련된 특정 소프트웨어나 애플리케이션을 실행
 
 1. Java 설치:
    - Pentaho Community Edition은 Java를 실행하기 위해 Java Development Kit (JDK)를 필요로 합니다. Ubuntu 22.04.2는 OpenJDK를 기본적으로 제공하므로 다음 명령어를 사용하여 OpenJDK를 설치합니다:
-   ```shell
+   {% raw %}```shell
    sudo apt update
    sudo apt install default-jdk
-   ```
+   ```{% endraw %}
 
 2. Pentaho Community Edition 다운로드:
    - Pentaho Community Edition을 공식 웹사이트(https://community.hitachivantara.com/docs/DOC-1009855)에서 다운로드합니다. 필요한 경우 회원가입이 필요할 수 있습니다.
 
 3. 압축 해제:
    - 다운로드한 Pentaho Community Edition 압축 파일을 원하는 디렉토리로 이동한 다음 압축을 해제합니다. 예를 들어, 다운로드한 파일이 "pentaho-community-ee.tar.gz"라고 가정하고 압축을 해제하는 방법은 다음과 같습니다:
-   ```shell
+   {% raw %}```shell
    tar -xvzf pentaho-community-ee.tar.gz
-   ```
+   ```{% endraw %}
 
 4. 실행 스크립트 설정:
    - 압축 해제된 폴더 내에 있는 "start-pentaho.sh" 스크립트 파일에 실행 권한을 부여합니다. 이를 위해 다음 명령어를 사용합니다:
-   ```shell
+   {% raw %}```shell
    cd pentaho-community-ee
    chmod +x start-pentaho.sh
-   ```
+   ```{% endraw %}
 
 5. Pentaho 실행:
    - 다음 명령어를 사용하여 Pentaho Community Edition을 실행합니다:
-   ```shell
+   {% raw %}```shell
    ./start-pentaho.sh
-   ```
+   ```{% endraw %}
    실행이 시작되면 웹 브라우저에서 "http://localhost:8080/pentaho"로 접속하여 Pentaho 사용자 인터페이스에 액세스할 수 있습니다.
 
 이제 Pentaho Community Edition을 Ubuntu 22.04.2에 성공적으로 설치했습니다. 원하는 경우 추가적인 구성이나 사용자 정의 설정을 위해 Pentaho를 조정할 수 있습니다.
@@ -154,38 +152,38 @@ libwebkitgtk와 관련된 특정 소프트웨어나 애플리케이션을 실행
 1. Java 설치:
    - Pentaho Community Edition은 Java에 의존하기 때문에 먼저 Java를 설치해야 합니다.
    - 터미널을 열고 다음 명령어를 실행하여 OpenJDK 11을 설치합니다:
-     ```
+     {% raw %}```
      sudo apt update
      sudo apt install openjdk-11-jdk
-     ```
+     ```{% endraw %}
 
 2. Pentaho Community Edition 다운로드:
    - Pentaho Community Edition 9.4를 다운로드하려면 웹 브라우저에서 다음 링크로 이동합니다: [https://sourceforge.net/projects/pentaho/files/Pentaho%209.4](https://sourceforge.net/projects/pentaho/files/Pentaho%209.4).
-   - 다운로드 페이지에서 `pdi-ce-9.4.0.0-197.zip` 파일을 선택하고 다운로드합니다.
+   - 다운로드 페이지에서 {% raw %}`pdi-ce-9.4.0.0-197.zip`{% endraw %} 파일을 선택하고 다운로드합니다.
 
 3. 압축 해제:
    - 터미널에서 다운로드한 파일이 있는 디렉토리로 이동합니다.
    - 다음 명령어를 실행하여 압축 파일을 압축 해제합니다:
-     ```
+     {% raw %}```
      unzip pdi-ce-9.4.0.0-197.zip
-     ```
+     ```{% endraw %}
 
 4. 실행 가능한 스크립트 설정:
    - 압축 해제된 디렉토리로 이동합니다:
-     ```
+     {% raw %}```
      cd data-integration/
-     ```
+     ```{% endraw %}
 
    - 실행 가능한 스크립트를 설정하기 위해 다음 명령어를 실행합니다:
-     ```
+     {% raw %}```
      chmod +x spoon.sh
-     ```
+     ```{% endraw %}
 
 5. Pentaho 실행:
    - 다음 명령어를 실행하여 Pentaho Spoon (ETL 도구)을 실행합니다:
-     ```
+     {% raw %}```
      ./spoon.sh
-     ```
+     ```{% endraw %}
 
    - Pentaho Spoon이 시작되면 Pentaho Community Edition 9.4가 정상적으로 설치된 것입니다. 워크플로우, 데이터 통합, 보고서 작성 등 다양한 BI 작업을 수행할 수 있습니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Cross vs Isolated Margin"
-date: 2023-12-21
-tags: [Margin, Cross, Isolated, vs]
-categories: blog
+tags: [Isolated, Cross, Margin, vs]
 ---
 
 ## 사용자 입력:

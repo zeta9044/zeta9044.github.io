@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Oracle query ambiguous columns"
-date: 2023-04-03
-tags: [columns, ambiguous, Oracle, query]
-categories: blog
+tags: [ambiguous, columns, query, Oracle]
 ---
 
 ## 사용자 입력:
@@ -376,7 +374,7 @@ ORA-00960 에러는 "ambiguous column naming in SELECT list" 즉 SELECT 절에 �
 
 예를 들어, "mm_abbr_name"을 "alias_mm_abbr_name"으로 변경하고, "mm_object_name"을 "alias_mm_object_name"으로 변경하면 다음과 같습니다.
 
-```
+{% raw %}```
 SELECT
     /* ManagerEngineOps.xml.findOptionDatas */
     CAST(MM_CLASS_ID AS VARCHAR(500)) AS MM_CLASS_ID,
@@ -436,7 +434,7 @@ SELECT
 ## ChatGPT 응답:
 > 앞서 설명한 대로 중복된 열 이름을 수정하고 별칭(alias)을 사용하여 이름을 구분한 완전한 SQL문은 다음과 같습니다.
 
-```
+```{% endraw %}
 SELECT
     /* ManagerEngineOps.xml.findOptionDatas */
     CAST(MM_CLASS_ID AS VARCHAR(500)) AS MM_CLASS_ID,

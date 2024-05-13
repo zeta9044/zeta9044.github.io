@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Java Compiler Version Check"
-date: 2023-10-05
-tags: [Check, Java, Version, Compiler]
-categories: blog
+tags: [Compiler, Version, Check, Java]
 ---
 
 ## 사용자 입력:
@@ -12,9 +10,9 @@ categories: blog
 ## ChatGPT 응답:
 > Java 컴파일러 버전을 확인하려면 다음 명령어를 사용할 수 있습니다. 명령 프롬프트 또는 터미널에서 다음과 같이 입력하십시오:
 
-```
+{% raw %}```
 javac -version
-```
+```{% endraw %}
 
 이 명령을 실행하면 현재 설치된 Java 컴파일러의 버전 정보가 표시됩니다. 예를 들어, "javac 1.8.0_181"과 같은 출력이 표시될 것입니다. 이 출력은 설치된 Java 개발 키트 (JDK) 버전을 나타냅니다.
 
@@ -24,7 +22,7 @@ javac -version
 > 클래스가 무슨 버전 인지 알아보는 법
 
 ## ChatGPT 응답:
-> Java 클래스 파일의 버전 정보를 확인하려면 `javap` 도구를 사용할 수 있습니다. `javap` 도구는 Java 클래스 파일의 바이트 코드를 분석하여 클래스의 세부 정보를 표시하는 데 사용됩니다. 클래스 파일의 버전 정보도 이 출력에 포함되어 있습니다.
+> Java 클래스 파일의 버전 정보를 확인하려면 {% raw %}`javap`{% endraw %} 도구를 사용할 수 있습니다. {% raw %}`javap`{% endraw %} 도구는 Java 클래스 파일의 바이트 코드를 분석하여 클래스의 세부 정보를 표시하는 데 사용됩니다. 클래스 파일의 버전 정보도 이 출력에 포함되어 있습니다.
 
 다음은 클래스 파일 버전을 확인하는 방법입니다:
 
@@ -32,20 +30,20 @@ javac -version
 
 2. 다음 명령을 사용하여 클래스 파일의 내용을 확인합니다:
 
-   ```
+   {% raw %}```
    javap -verbose YourClassName.class
-   ```
+   ```{% endraw %}
 
-   여기서 `YourClassName`은 확인하려는 클래스 파일의 이름입니다. 클래스 파일이 현재 작업 디렉토리에 있어야 합니다.
+   여기서 {% raw %}`YourClassName`{% endraw %}은 확인하려는 클래스 파일의 이름입니다. 클래스 파일이 현재 작업 디렉토리에 있어야 합니다.
 
-3. `javap`는 클래스 파일의 세부 정보를 표시합니다. 클래스 파일의 버전 정보는 출력 중에 "major version" 및 "minor version"과 같은 라인에서 나타납니다. 예를 들어:
+3. {% raw %}`javap`{% endraw %}는 클래스 파일의 세부 정보를 표시합니다. 클래스 파일의 버전 정보는 출력 중에 "major version" 및 "minor version"과 같은 라인에서 나타납니다. 예를 들어:
 
-   ```
+   {% raw %}```
    ...
    minor version: 0
    major version: 55
    ...
-   ```
+   ```{% endraw %}
 
    위의 예에서 "major version"은 주 버전을 나타내고, "minor version"은 부 버전을 나타냅니다. 이를 통해 클래스 파일의 Java 버전을 파악할 수 있습니다. 이 경우 "major version: 55"는 Java 11 버전을 나타냅니다.
 

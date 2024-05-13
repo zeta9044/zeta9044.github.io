@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 Java Variable Tracking"
-date: 2024-01-29
-tags: [Tracking, Java, Variable]
-categories: blog
+tags: [Variable, Tracking, Java]
 ---
 
 ## 사용자 입력:
@@ -44,7 +42,7 @@ categories: blog
 
 먼저, ANTLR4를 사용하여 어휘 분석기(lexer)와 구문 분석기(parser)를 생성해야 합니다. 이 예제에서는 간단한 언어의 구문을 가정합니다. 예를 들어, 변수 선언과 할당을 처리할 수 있습니다.
 
-```java
+{% raw %}```java
 grammar Example;
 
 prog:   stat+ ;
@@ -57,11 +55,11 @@ expr:   INT             // integer literals
      ;
 ID  :   [a-zA-Z]+ ;      // match identifiers
 INT :   [0-9]+ ;         // match integers
-```
+```{% endraw %}
 
 이렇게 생성된 구문 분석기는 Java 코드로 변환됩니다. 이제 Java 리스너 클래스를 만들어 antlr symtab을 사용하여 변수 추적을 구현할 수 있습니다.
 
-```java
+{% raw %}```java
 import org.antlr.symtab.*;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
@@ -96,9 +94,9 @@ public class VariableTrackingListener extends ExampleBaseListener {
 
     // Additional methods to handle expressions and other constructs
 }
-```
+```{% endraw %}
 
-이 리스너는 `Example.g4`로부터 생성된 구문 분석기의 구조를 따릅니다. 리스너는 각 변수 선언과 할당을 추적하여 스코프(scope) 내에 저장합니다. antlr symtab 라이브러리는 스코프와 심볼(symbol) 관리를 용이하게 합니다.
+이 리스너는 {% raw %}`Example.g4`{% endraw %}로부터 생성된 구문 분석기의 구조를 따릅니다. 리스너는 각 변수 선언과 할당을 추적하여 스코프(scope) 내에 저장합니다. antlr symtab 라이브러리는 스코프와 심볼(symbol) 관리를 용이하게 합니다.
 
 이 코드는 ANTLR4, antlr symtab 라이브러리, 그리고 해당 언어의 구문을 이해하는 데 기본적인 지식을 필요로 합니다. 실제 프로젝트에서는 이 코드를 특정 언어의 구문과 요구 사항에 맞게 조정해야 합니다.
 

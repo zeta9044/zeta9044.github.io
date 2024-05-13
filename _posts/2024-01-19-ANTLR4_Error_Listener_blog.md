@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 Error Listener"
-date: 2024-01-19
-tags: [Error, Listener]
-categories: blog
+tags: [Listener, Error]
 ---
 
 ## 사용자 입력:
@@ -55,11 +53,11 @@ categories: blog
 }  이 클래스에 대한  errorListener를 만들어줘. ANTLR4와는 관계없어.
 
 ## ChatGPT 응답:
-> Sure, I can help you create an error listener for the `CppMgr` class. In your code, you already have a class named `ParserErrorListener`. Assuming this class is used for error handling in the ANTLR4 parser, you can modify it to extend the `BaseErrorListener` class provided by ANTLR4.
+> Sure, I can help you create an error listener for the {% raw %}`CppMgr`{% endraw %} class. In your code, you already have a class named {% raw %}`ParserErrorListener`{% endraw %}. Assuming this class is used for error handling in the ANTLR4 parser, you can modify it to extend the {% raw %}`BaseErrorListener`{% endraw %} class provided by ANTLR4.
 
-Here's an example of how you can modify your `ParserErrorListener`:
+Here's an example of how you can modify your {% raw %}`ParserErrorListener`{% endraw %}:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
@@ -86,19 +84,19 @@ public class ParserErrorListener extends BaseErrorListener {
         System.err.println("Syntax error at " + filePath + " line " + line + ":" + charPositionInLine + " - " + msg);
     }
 }
-```
+```{% endraw %}
 
-In this example, the `ParserErrorListener` class extends `BaseErrorListener` and overrides the `syntaxError` method to handle syntax errors. You can customize this method to log or handle errors based on your specific needs.
+In this example, the {% raw %}`ParserErrorListener`{% endraw %} class extends {% raw %}`BaseErrorListener`{% endraw %} and overrides the {% raw %}`syntaxError`{% endraw %} method to handle syntax errors. You can customize this method to log or handle errors based on your specific needs.
 
-Remember to update the instantiation of `ParserErrorListener` in your `CppMgr` class accordingly.
+Remember to update the instantiation of {% raw %}`ParserErrorListener`{% endraw %} in your {% raw %}`CppMgr`{% endraw %} class accordingly.
 
 ## 사용자 입력:
 > ANTLR4로 만들라는게 아니라, ANTLR4의 ErrorListener처럼  어떤 클래스의  ErrorListener를 만들어 달라는 거야. 
 
 ## ChatGPT 응답:
-> I see, my apologies for the confusion. If you want to create a custom error listener for your `CppMgr` class without using ANTLR4, you can define your own error listener interface and implement it. Here's an example:
+> I see, my apologies for the confusion. If you want to create a custom error listener for your {% raw %}`CppMgr`{% endraw %} class without using ANTLR4, you can define your own error listener interface and implement it. Here's an example:
 
-```java
+{% raw %}```java
 public interface MyErrorListener {
     void syntaxError(String filePath, int line, int charPositionInLine, String message);
 }
@@ -148,7 +146,7 @@ public class CppMgr extends ParserImpl {
 
     // ... (existing code)
 }
-```
+```{% endraw %}
 
-Now, when you use the `CppMgr` class, you can set an instance of `MyErrorListener` using the `setMyErrorListener` method. This listener will be notified when a syntax error occurs, and you can customize its implementation based on your requirements.
+Now, when you use the {% raw %}`CppMgr`{% endraw %} class, you can set an instance of {% raw %}`MyErrorListener`{% endraw %} using the {% raw %}`setMyErrorListener`{% endraw %} method. This listener will be notified when a syntax error occurs, and you can customize its implementation based on your requirements.
 

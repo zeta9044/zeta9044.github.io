@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Adapter & Composite Pattern"
-date: 2024-02-13
 tags: [Adapter, Composite, Pattern]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -16,7 +14,7 @@ categories: blog
 
 어댑터 패턴은 한 클래스의 인터페이스를 사용자가 기대하는 다른 인터페이스로 변환할 때 사용됩니다. 기존 클래스의 인터페이스를 변경하지 않으면서도 새로운 인터페이스를 통해 그 기능을 사용할 수 있도록 해줍니다. 이 경우, 클래스 A와 B의 기능을 클래스 C에서 사용하고자 할 때 A와 B 각각에 대한 어댑터를 만들어 C에서 사용할 수 있습니다.
 
-예를 들어, 클래스 A에는 `doSomething` 메소드가 있고, 클래스 B에는 `performAction` 메소드가 있다고 가정합시다. 클래스 C에서 이 두 메소드를 사용하려면 각각에 대한 어댑터를 만들어서 C에서 호출할 수 있도록 합니다.
+예를 들어, 클래스 A에는 {% raw %}`doSomething`{% endraw %} 메소드가 있고, 클래스 B에는 {% raw %}`performAction`{% endraw %} 메소드가 있다고 가정합시다. 클래스 C에서 이 두 메소드를 사용하려면 각각에 대한 어댑터를 만들어서 C에서 호출할 수 있도록 합니다.
 
 ### 컴포지트(Composite) 패턴
 
@@ -26,7 +24,7 @@ categories: blog
 
 ### 예시 코드
 
-```java
+{% raw %}```java
 // 기존 클래스 A
 class A {
     public void doSomething() {
@@ -82,7 +80,7 @@ class C {
         System.out.println("C does a new thing using A and B");
     }
 }
-```
+```{% endraw %}
 
-위의 예시에서 `C` 클래스는 `A`와 `B`의 기능을 활용하여 새로운 기능을 수행합니다. `AAdapter`와 `BAdapter`는 각각 `A`와 `B`의 메소드를 `C`에서 사용할 수 있도록 인터페이스를 조정합니다. 이
+위의 예시에서 {% raw %}`C`{% endraw %} 클래스는 {% raw %}`A`{% endraw %}와 {% raw %}`B`{% endraw %}의 기능을 활용하여 새로운 기능을 수행합니다. {% raw %}`AAdapter`{% endraw %}와 {% raw %}`BAdapter`{% endraw %}는 각각 {% raw %}`A`{% endraw %}와 {% raw %}`B`{% endraw %}의 메소드를 {% raw %}`C`{% endraw %}에서 사용할 수 있도록 인터페이스를 조정합니다. 이
 

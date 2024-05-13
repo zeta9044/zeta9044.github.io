@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Java to Kotlin Conversion"
-date: 2023-06-29
-tags: [Conversion, Kotlin, Java, to]
-categories: blog
+tags: [Conversion, to, Kotlin, Java]
 ---
 
 ## 사용자 입력:

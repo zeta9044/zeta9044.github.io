@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "InMotion V8F vs V8S"
-date: 2023-05-16
-tags: [InMotion, vs]
-categories: blog
+tags: [vs, InMotion]
 ---
 
 ## 사용자 입력:

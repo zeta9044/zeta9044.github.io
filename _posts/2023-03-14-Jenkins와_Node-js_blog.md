@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Jenkins와 Node.js"
-date: 2023-03-14
 tags: [js, Node]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -75,7 +73,7 @@ NodeJS Plugin을 사용하여 Jenkins에 여러 버전의 Node.js를 설치한 �
 
 예를 들어, 다음과 같이 'withNpm' 블록을 사용하여 Node.js 버전 14.x를 사용하는 경우:
 
-```
+{% raw %}```
 pipeline {
   agent any
   stages {
@@ -89,7 +87,7 @@ pipeline {
     }
   }
 }
-```
+```{% endraw %}
 
 이렇게 하면 Jenkins 파이프라인에서 npm Plugin을 실행할 때 특정 Node.js 버전을 선택할 수 있습니다.
 
@@ -103,7 +101,7 @@ yarn은 JavaScript 프로젝트의 패키지 매니저이며, Node.js 환경에�
 
 Node.js가 설치되어 있는 경우, Pipeline에서 Node.js를 사용하여 yarn을 실행할 수 있습니다. 예를 들어, 다음과 같이 withNodeJS 블록을 사용하여 Node.js 버전을 지정하고 yarn build 명령을 실행할 수 있습니다.
 
-```
+{% raw %}```
 pipeline {
   agent any
   stages {
@@ -117,7 +115,7 @@ pipeline {
     }
   }
 }
-```
+```{% endraw %}
 
 위의 예제에서 'withNodeJS' 블록을 사용하여 Node.js 버전 14.x를 선택하고, 'sh' 스텝을 사용하여 yarn 명령어를 실행합니다. 따라서 Jenkins Pipeline에서 yarn build를 실행하려면 Node.js가 필요하며, Node.js가 설치된 빌드 에이전트를 사용해야 합니다.
 
@@ -360,30 +358,30 @@ node {
 ## ChatGPT 응답:
 > Docker 컨테이너 디렉토리를 호스트에 매핑하는 방법은 다음과 같습니다.
 
-```
+{% raw %}```
 docker run -v /호스트/디렉토리:/컨테이너/디렉토리 이미지명
-```
+```{% endraw %}
 
-위의 명령어에서 `-v` 옵션을 사용하여 호스트의 디렉토리와 컨테이너의 디렉토리를 매핑합니다. `/호스트/디렉토리`는 호스트의 디렉토리 경로를, `/컨테이너/디렉토리`는 컨테이너의 디렉토리 경로를 나타냅니다.
+위의 명령어에서 {% raw %}`-v`{% endraw %} 옵션을 사용하여 호스트의 디렉토리와 컨테이너의 디렉토리를 매핑합니다. {% raw %}`/호스트/디렉토리`{% endraw %}는 호스트의 디렉토리 경로를, {% raw %}`/컨테이너/디렉토리`{% endraw %}는 컨테이너의 디렉토리 경로를 나타냅니다.
 
-예를 들어, 다음과 같이 호스트의 `/home/user/data` 디렉토리를 컨테이너의 `/data` 디렉토리와 매핑하는 경우:
+예를 들어, 다음과 같이 호스트의 {% raw %}`/home/user/data`{% endraw %} 디렉토리를 컨테이너의 {% raw %}`/data`{% endraw %} 디렉토리와 매핑하는 경우:
 
-```
+{% raw %}```
 docker run -v /home/user/data:/data ubuntu
-```
+```{% endraw %}
 
-이렇게 하면 호스트의 `/home/user/data` 디렉토리가 컨테이너의 `/data` 디렉토리와 매핑되며, 컨테이너에서 `/data` 디렉토리를 사용하여 호스트의 `/home/user/data` 디렉토리를 읽고 쓸 수 있습니다.
+이렇게 하면 호스트의 {% raw %}`/home/user/data`{% endraw %} 디렉토리가 컨테이너의 {% raw %}`/data`{% endraw %} 디렉토리와 매핑되며, 컨테이너에서 {% raw %}`/data`{% endraw %} 디렉토리를 사용하여 호스트의 {% raw %}`/home/user/data`{% endraw %} 디렉토리를 읽고 쓸 수 있습니다.
 
-또한, `docker-compose.yml` 파일에서도 볼륨 매핑을 설정할 수 있습니다. 예를 들어, 다음과 같이 `docker-compose.yml` 파일에서 `volumes` 항목을 사용하여 호스트의 디렉토리와 컨테이너의 디렉토리를 매핑할 수 있습니다.
+또한, {% raw %}`docker-compose.yml`{% endraw %} 파일에서도 볼륨 매핑을 설정할 수 있습니다. 예를 들어, 다음과 같이 {% raw %}`docker-compose.yml`{% endraw %} 파일에서 {% raw %}`volumes`{% endraw %} 항목을 사용하여 호스트의 디렉토리와 컨테이너의 디렉토리를 매핑할 수 있습니다.
 
-```
+{% raw %}```
 version: '3'
 services:
   app:
     image: nginx
     volumes:
       - /home/user/data:/data
-```
+```{% endraw %}
 
-이렇게 하면 `docker-compose up` 명령을 실행할 때 호스트의 `/home/user/data` 디렉토리가 컨테이너의 `/data` 디렉토리와 매핑되며, 컨테이너에서 `/data` 디렉토리를 사용하여 호스트의 `/home/user/data` 디렉토리를 읽고 쓸 수 있습니다.
+이렇게 하면 {% raw %}`docker-compose up`{% endraw %} 명령을 실행할 때 호스트의 {% raw %}`/home/user/data`{% endraw %} 디렉토리가 컨테이너의 {% raw %}`/data`{% endraw %} 디렉토리와 매핑되며, 컨테이너에서 {% raw %}`/data`{% endraw %} 디렉토리를 사용하여 호스트의 {% raw %}`/home/user/data`{% endraw %} 디렉토리를 읽고 쓸 수 있습니다.
 

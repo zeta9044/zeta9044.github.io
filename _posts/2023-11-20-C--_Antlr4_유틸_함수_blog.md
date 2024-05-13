@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "C++ Antlr4 유틸 함수"
-date: 2023-11-20
 tags: [함수, C, 유틸]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -38,7 +36,7 @@ categories: blog
 
    이 함수는 현재 노드의 하위 노드들 중에서 현재 노드와 같은 타입의 노드들을 찾아 리스트로 반환합니다. 이 때, 현재 노드는 제외됩니다.
 
-   ```java
+   {% raw %}```java
    public static <T extends ParserRuleContext> List<T> findSubContextsOfSameType(ParserRuleContext currentContext, Class<T> targetContextClass) {
        List<T> foundContexts = new ArrayList<>();
        findSubContextsOfSameTypeRecursive(currentContext, targetContextClass, foundContexts, true);
@@ -57,13 +55,13 @@ categories: blog
            }
        }
    }
-   ```
+   ```{% endraw %}
 
 2. **현재 노드 상위의 동일한 룰 이름을 가진 노드 찾기:**
 
    이 함수는 현재 노드의 상위 노드들 중에서 현재 노드와 같은 타입의 노드들을 찾아 리스트로 반환합니다. 이 때, 현재 노드는 제외됩니다.
 
-   ```java
+   {% raw %}```java
    public static <T extends ParserRuleContext> List<T> findParentContextsOfSameType(ParserRuleContext currentContext, Class<T> targetContextClass) {
        List<T> foundContexts = new ArrayList<>();
        ParserRuleContext parent = currentContext.getParent();
@@ -75,7 +73,7 @@ categories: blog
        }
        return foundContexts;
    }
-   ```
+   ```{% endraw %}
 
 이 두 함수를 사용하면 현재 노드와 동일한 룰을 가진 하위 또는 상위 노드들을 쉽게 찾을 수 있습니다. 함수의 설계가 Antlr4의 C++ 버전에도 적합하게 구현되어 있어야 한다는 점을 유의하시기 바랍니다. C++ 구현에서는 Java의 제네릭 대신 템플릿을 사용할 수 있습니다.
 

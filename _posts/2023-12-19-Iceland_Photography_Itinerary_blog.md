@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Iceland Photography Itinerary"
-date: 2023-12-19
-tags: [Iceland, Itinerary, Photography]
-categories: blog
+tags: [Photography, Iceland, Itinerary]
 ---
 
 ## 사용자 입력:

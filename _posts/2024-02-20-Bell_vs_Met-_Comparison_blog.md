@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Bell vs Met: Comparison"
-date: 2024-02-20
-tags: [Met, vs, Comparison, Bell]
-categories: blog
+title: "Bell vs Met - Comparison"
+tags: [Comparison, Met, Bell, vs]
 ---
 
 ## 사용자 입력:

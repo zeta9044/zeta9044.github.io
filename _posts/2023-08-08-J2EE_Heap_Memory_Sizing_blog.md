@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "J2EE Heap Memory Sizing"
-date: 2023-08-08
-tags: [Heap, Memory, Sizing]
-categories: blog
+tags: [Heap, Sizing, Memory]
 ---
 
 ## 사용자 입력:

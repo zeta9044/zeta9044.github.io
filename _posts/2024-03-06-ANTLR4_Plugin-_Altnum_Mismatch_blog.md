@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "ANTLR4 Plugin: Altnum Mismatch"
-date: 2024-03-06
+title: "ANTLR4 Plugin - Altnum Mismatch"
 tags: [Plugin, Altnum, Mismatch]
-categories: blog
 ---
 
 ## 사용자 입력:

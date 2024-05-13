@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Multiple Copy Patterns Example"
-date: 2023-05-16
-tags: [Patterns, Copy, Example, Multiple]
-categories: blog
+tags: [Patterns, Multiple, Copy, Example]
 ---
 
 ## 사용자 입력:
@@ -19,9 +17,9 @@ categories: blog
 5. In the "Artifacts" configuration section, you will see an "Edit" button next to the artifact definition. Click on it.
 6. In the "Copy pattern" field, you can specify multiple patterns by separating them with a semicolon (;). Each pattern represents a file or directory to be included as an artifact. For example:
 
-   ```
+   {% raw %}```
    src/**/*.jar;docs/**/*.pdf
-   ```
+   ```{% endraw %}
 
    In the above example, it will include all JAR files under the "src" directory and all PDF files under the "docs" directory as artifacts.
 
@@ -46,19 +44,19 @@ Bamboo의 "Copy pattern"은 Ant 스타일의 패턴을 사용하여 파일 및 �
 정확한 패턴을 제공하기 위해 몇 가지 예시를 들겠습니다. 아래 예시를 참고하여 패턴을 수정해보시기 바랍니다.
 
 1. 단일 디렉토리의 모든 JAR 파일을 포함하는 경우:
-```
+{% raw %}```
 **/aiLIARTDEM/build/*.jar
-```
+```{% endraw %}
 
 2. 여러 디렉토리의 JAR 파일을 포함하는 경우:
-```
+{% raw %}```
 **/aiLIARTDEM/build/*.jar;**/aiLIACommon/build/*.jar
-```
+```{% endraw %}
 
 3. 하위 디렉토리를 재귀적으로 포함하는 경우:
-```
+{% raw %}```
 **/aiLIARTDEM/build/**/*.jar;**/aiLIACommon/build/**/*.jar
-```
+```{% endraw %}
 
 위 패턴은 제시된 디렉토리의 하위 디렉토리까지 재귀적으로 탐색하여 해당 패턴에 맞는 JAR 파일을 선택합니다.
 

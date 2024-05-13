@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Recommend Sites Using Theme"
-date: 2023-08-25
-tags: [Sites, Recommend, Using, Theme]
-categories: blog
+tags: [Sites, Recommend, Theme, Using]
 ---
 
 ## 사용자 입력:

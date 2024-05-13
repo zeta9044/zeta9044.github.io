@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Tennis TV Channels: Prices."
-date: 2023-03-25
-tags: [Tennis, Channels, Prices, TV]
-categories: blog
+title: "Tennis TV Channels - Prices."
+tags: [Channels, Tennis, Prices, TV]
 ---
 
 ## 사용자 입력:

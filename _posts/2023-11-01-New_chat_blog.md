@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "New chat"
-date: 2023-11-01
-tags: [chat, New]
-categories: blog
+tags: [New, chat]
 ---
 
 ## 사용자 입력:

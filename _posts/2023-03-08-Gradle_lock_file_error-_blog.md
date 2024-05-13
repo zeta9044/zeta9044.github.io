@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Gradle lock file error."
-date: 2023-03-08
-tags: [Gradle, file, error, lock]
-categories: blog
+tags: [file, Gradle, error, lock]
 ---
 
 ## 사용자 입력:
@@ -99,7 +97,7 @@ To resolve this error, you could try the following steps:
 ## ChatGPT 응답:
 > 아래는 MyBatis의 코드를 Ignite의 EdgeCache를 사용하여 변경한 코드입니다.
 
-```
+{% raw %}```
 IgniteCache<Integer, Edge> edgeCache = ignite.getOrCreateCache("edgeCache");
 SqlQuery<Integer, Edge> sql = new SqlQuery<>(Edge.class, "select * from Edge");
 QueryCursor<Cache.Entry<Integer, Edge>> cursor = edgeCache.query(sql);
@@ -121,7 +119,7 @@ for (Cache.Entry<Integer, Edge> entry : cursor) {
 }
 
 cursor.close();
-```
+```{% endraw %}
 
 이 코드는 IgniteCache를 사용하여 "edgeCache" 캐시를 만들고, Edge 객체를 가져오는 SQL 쿼리를 만듭니다. 그런 다음, QueryCursor를 사용하여 결과 집합에서 각 엔트리를 가져와서 Edge 객체를 가져와서 graph에 추가합니다.
 

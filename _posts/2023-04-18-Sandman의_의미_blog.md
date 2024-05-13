@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Sandman의 의미"
-date: 2023-04-18
-tags: [의, 의미]
-categories: blog
+tags: [의미, 의]
 ---
 
 ## 사용자 입력:

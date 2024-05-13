@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "AstroPay 출금 및 잔액"
-date: 2023-06-13
-tags: [AstroPay, 출금, 및, 잔액]
-categories: blog
+tags: [잔액, 및, AstroPay, 출금]
 ---
 
 ## 사용자 입력:
@@ -14,22 +12,22 @@ categories: blog
 
 예를 들어, 두 개의 쿼리문을 구분하려면 다음과 같이 작성할 수 있습니다:
 
-```java
+{% raw %}```java
 String query1 = "SELECT * FROM table1;"; // 첫 번째 쿼리문
 String query2 = "INSERT INTO table2 VALUES (1, 'value');"; // 두 번째 쿼리문
-```
+```{% endraw %}
 
-위의 예제에서는 `query1`과 `query2` 변수를 사용하여 두 개의 쿼리문을 각각 저장하고 있습니다. 이렇게 하면 각 쿼리문을 독립적으로 다룰 수 있습니다. 필요에 따라 쿼리문을 실행할 수 있는 JDBC 또는 ORM 라이브러리를 사용하여 데이터베이스와 상호작용할 수도 있습니다.
+위의 예제에서는 {% raw %}`query1`{% endraw %}과 {% raw %}`query2`{% endraw %} 변수를 사용하여 두 개의 쿼리문을 각각 저장하고 있습니다. 이렇게 하면 각 쿼리문을 독립적으로 다룰 수 있습니다. 필요에 따라 쿼리문을 실행할 수 있는 JDBC 또는 ORM 라이브러리를 사용하여 데이터베이스와 상호작용할 수도 있습니다.
 
 ## 사용자 입력:
 > 위의 예제는 펑션생성이 포함된 예제가 아니잖아
 
 ## ChatGPT 응답:
-> 죄송합니다, 이해를 잘못하고 있었습니다. 함수를 포함한 경우에는 세미콜론으로 문장을 분리하지 않습니다. 대신 중괄호 `{}`를 사용하여 함수의 범위를 나타냅니다.
+> 죄송합니다, 이해를 잘못하고 있었습니다. 함수를 포함한 경우에는 세미콜론으로 문장을 분리하지 않습니다. 대신 중괄호 {% raw %}`{}`{% endraw %}를 사용하여 함수의 범위를 나타냅니다.
 
 예를 들어, 함수를 생성하는 예제를 살펴보겠습니다:
 
-```java
+{% raw %}```java
 public class Example {
     public static void main(String[] args) {
         // 첫 번째 쿼리 실행
@@ -49,9 +47,9 @@ public class Example {
         System.out.println("Executing query 2...");
     }
 }
-```
+```{% endraw %}
 
-위의 예제에서는 `query1()`과 `query2()`라는 두 개의 함수를 정의하고 있습니다. 이 함수들은 각각 독립적인 작업을 수행합니다. `main()` 함수에서는 `query1()`과 `query2()`를 호출하여 실행할 수 있습니다.
+위의 예제에서는 {% raw %}`query1()`{% endraw %}과 {% raw %}`query2()`{% endraw %}라는 두 개의 함수를 정의하고 있습니다. 이 함수들은 각각 독립적인 작업을 수행합니다. {% raw %}`main()`{% endraw %} 함수에서는 {% raw %}`query1()`{% endraw %}과 {% raw %}`query2()`{% endraw %}를 호출하여 실행할 수 있습니다.
 
 따라서 자바에서는 쿼리문을 세미콜론으로 구분하고, 함수를 중괄호로 구분합니다. 이렇게 하면 각 문장과 함수를 독립적으로 분리하여 처리할 수 있습니다.
 
@@ -65,7 +63,7 @@ Java에서는 정규식(Regular Expression)을 사용하여 문자열을 분할�
 
 다음은 Java에서 정규식을 사용하여 INSERT 문과 함수를 추출하는 예제입니다:
 
-```java
+{% raw %}```java
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -94,11 +92,11 @@ public class Example {
         }
     }
 }
-```
+```{% endraw %}
 
-위의 예제에서는 `input` 변수에 단일 문자열로 INSERT 문과 함수가 포함되어 있습니다. 정규식을 사용하여 `INSERT INTO`로 시작하는 문자열과 `CREATE FUNCTION`으로 시작하고 중괄호로 끝나는 문자열을 추출합니다.
+위의 예제에서는 {% raw %}`input`{% endraw %} 변수에 단일 문자열로 INSERT 문과 함수가 포함되어 있습니다. 정규식을 사용하여 {% raw %}`INSERT INTO`{% endraw %}로 시작하는 문자열과 {% raw %}`CREATE FUNCTION`{% endraw %}으로 시작하고 중괄호로 끝나는 문자열을 추출합니다.
 
-이 예제에서는 두 개의 추출 패턴을 사용하여 INSERT 문과 함수를 분리하고, 각각의 결과를 출력합니다. `insertPattern` 변수와 `functionPattern` 변수에 사용된 정규식은 각각 INSERT 문과 함수를 식별하기 위한 패턴입니다.
+이 예제에서는 두 개의 추출 패턴을 사용하여 INSERT 문과 함수를 분리하고, 각각의 결과를 출력합니다. {% raw %}`insertPattern`{% endraw %} 변수와 {% raw %}`functionPattern`{% endraw %} 변수에 사용된 정규식은 각각 INSERT 문과 함수를 식별하기 위한 패턴입니다.
 
 실행 결과로 INSERT 문과 함수를 별도의 문자열로 추출할 수 있습니다.
 

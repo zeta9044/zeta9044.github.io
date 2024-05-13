@@ -1,36 +1,34 @@
 ---
 layout: post
 title: "한글 .properties 파일 인코딩"
-date: 2023-12-14
-tags: [properties, 파일, 인코딩, 한글]
-categories: blog
+tags: [파일, 한글, 인코딩, properties]
 ---
 
 ## 사용자 입력:
 > java의 .properties는 주로 디폴트가 ISO던데, 한글로 주석을 달면 다 깨지거든.
 
 ## ChatGPT 응답:
-> Java의 `.properties` 파일은 기본적으로 ISO-8859-1 인코딩을 사용합니다. 이 인코딩은 한글을 포함한 대부분의 비-라틴 문자를 지원하지 않기 때문에, `.properties` 파일에서 한글 주석을 사용하면 문자가 깨지는 문제가 발생합니다.
+> Java의 {% raw %}`.properties`{% endraw %} 파일은 기본적으로 ISO-8859-1 인코딩을 사용합니다. 이 인코딩은 한글을 포함한 대부분의 비-라틴 문자를 지원하지 않기 때문에, {% raw %}`.properties`{% endraw %} 파일에서 한글 주석을 사용하면 문자가 깨지는 문제가 발생합니다.
 
-이 문제를 해결하는 방법 중 하나는 `.properties` 파일에 한글 주석을 사용하기 전에 한글 텍스트를 Unicode 이스케이프 시퀀스로 변환하는 것입니다. 예를 들어, "안녕하세요"는 `\uC548\uB155\uD558\uC138\uC694`로 변환할 수 있습니다. 이렇게 변환된 문자열은 `.properties` 파일에서 정상적으로 읽힐 것입니다.
+이 문제를 해결하는 방법 중 하나는 {% raw %}`.properties`{% endraw %} 파일에 한글 주석을 사용하기 전에 한글 텍스트를 Unicode 이스케이프 시퀀스로 변환하는 것입니다. 예를 들어, "안녕하세요"는 {% raw %}`\uC548\uB155\uD558\uC138\uC694`{% endraw %}로 변환할 수 있습니다. 이렇게 변환된 문자열은 {% raw %}`.properties`{% endraw %} 파일에서 정상적으로 읽힐 것입니다.
 
-또 다른 방법은 Java 9 이상에서는 `.properties` 파일을 UTF-8 인코딩으로 저장하고 읽을 수 있습니다. 이를 위해서는 `Properties.load()` 메서드에 `InputStreamReader`를 사용하고, `InputStreamReader`의 생성자에 `Charset.forName("UTF-8")`을 전달하면 됩니다.
+또 다른 방법은 Java 9 이상에서는 {% raw %}`.properties`{% endraw %} 파일을 UTF-8 인코딩으로 저장하고 읽을 수 있습니다. 이를 위해서는 {% raw %}`Properties.load()`{% endraw %} 메서드에 {% raw %}`InputStreamReader`{% endraw %}를 사용하고, {% raw %}`InputStreamReader`{% endraw %}의 생성자에 {% raw %}`Charset.forName("UTF-8")`{% endraw %}을 전달하면 됩니다.
 
 예시 코드:
-```java
+{% raw %}```java
 Properties props = new Properties();
 try (InputStreamReader reader = new InputStreamReader(new FileInputStream("yourfile.properties"), StandardCharsets.UTF_8)) {
     props.load(reader);
 }
-```
+```{% endraw %}
 
-이렇게 하면 UTF-8 인코딩으로 저장된 `.properties` 파일에서 한글 주석을 포함한 모든 텍스트를 올바르게 읽을 수 있습니다.
+이렇게 하면 UTF-8 인코딩으로 저장된 {% raw %}`.properties`{% endraw %} 파일에서 한글 주석을 포함한 모든 텍스트를 올바르게 읽을 수 있습니다.
 
 ## 사용자 입력:
 > 왜 ISO로 쓰거야?
 
 ## ChatGPT 응답:
-> Java의 `.properties` 파일이 기본적으로 ISO-8859-1 인코딩을 사용하는 이유는 여러 역사적 및 기술적 배경 때문입니다:
+> Java의 {% raw %}`.properties`{% endraw %} 파일이 기본적으로 ISO-8859-1 인코딩을 사용하는 이유는 여러 역사적 및 기술적 배경 때문입니다:
 
 1. **역사적 배경**: Java가 처음 개발됐을 때, 영어권 사용자가 주요 대상이었습니다. ISO-8859-1 인코딩은 라틴 문자를 위한 표준이며, 초기의 인터넷과 컴퓨팅 환경에서 널리 사용되었습니다. 당시에는 다국어 지원에 대한 요구가 현재만큼 강하지 않았기 때문에, 이 인코딩이 충분했습니다.
 
@@ -38,7 +36,7 @@ try (InputStreamReader reader = new InputStreamReader(new FileInputStream("yourf
 
 3. **표준화 및 일관성**: Java의 초기 버전에서는 국제화(i18n)와 지역화(l10n)에 대한 요구사항이 상대적으로 낮았습니다. 따라서, 한 가지 인코딩을 표준으로 설정함으로써 플랫폼 간 일관성을 유지하려 했습니다.
 
-4. **후속 버전에서의 확장**: Java는 시간이 지나면서 다양한 언어와 문자 집합을 지원하기 시작했습니다. Java 9부터는 `.properties` 파일을 UTF-8로 처리할 수 있는 기능을 추가함으로써, 다양한 언어의 문자를 지원하게 되었습니다.
+4. **후속 버전에서의 확장**: Java는 시간이 지나면서 다양한 언어와 문자 집합을 지원하기 시작했습니다. Java 9부터는 {% raw %}`.properties`{% endraw %} 파일을 UTF-8로 처리할 수 있는 기능을 추가함으로써, 다양한 언어의 문자를 지원하게 되었습니다.
 
 ISO-8859-1을 사용하는 것은 초기 Java의 설계 결정 중 하나였으며, 당시의 기술 및 사용 환경을 반영한 것입니다. 현대적 관점에서 보면 제한적일 수 있지만, 당시의 컴퓨팅 환경과 요구사항에 적합한 결정이었습니다. 오늘날에는 UTF-8과 같은 더 광범위한 문자 집합을 지원하는 인코딩 방식이 널리 사용되고 있습니다.
 
@@ -84,26 +82,26 @@ Eclipse RCP에서 특정 인코딩을 설정하려면 다음과 같이 할 수 �
 > properties가 깨지는 경우는?
 
 ## ChatGPT 응답:
-> `.properties` 파일이 깨지는 경우는 주로 인코딩 문제 때문입니다. Java의 `.properties` 파일은 기본적으로 ISO-8859-1 인코딩을 사용합니다. 만약 파일에 다른 인코딩(예: UTF-8 또는 EUC-KR)으로 작성된 문자가 있다면, 이를 제대로 읽지 못해 깨져 보일 수 있습니다. 이런 문제를 해결하기 위한 몇 가지 방법을 소개합니다:
+> {% raw %}`.properties`{% endraw %} 파일이 깨지는 경우는 주로 인코딩 문제 때문입니다. Java의 {% raw %}`.properties`{% endraw %} 파일은 기본적으로 ISO-8859-1 인코딩을 사용합니다. 만약 파일에 다른 인코딩(예: UTF-8 또는 EUC-KR)으로 작성된 문자가 있다면, 이를 제대로 읽지 못해 깨져 보일 수 있습니다. 이런 문제를 해결하기 위한 몇 가지 방법을 소개합니다:
 
 ### 1. Unicode Escape 사용
-`.properties` 파일에서 비-ISO-8859-1 문자를 사용하려면, 이들을 Unicode escape 형식(예: `\uXXXX`)으로 변환해야 합니다. 이는 Java에서 자동으로 올바르게 해석됩니다. 예를 들어, 한글 문자 '안녕하세요'는 `\uC548\uB155\uD558\uC138\uC694`로 변환됩니다. 이 작업은 자동화할 수 있는 도구를 사용하여 수행할 수 있습니다.
+{% raw %}`.properties`{% endraw %} 파일에서 비-ISO-8859-1 문자를 사용하려면, 이들을 Unicode escape 형식(예: {% raw %}`\uXXXX`{% endraw %})으로 변환해야 합니다. 이는 Java에서 자동으로 올바르게 해석됩니다. 예를 들어, 한글 문자 '안녕하세요'는 {% raw %}`\uC548\uB155\uD558\uC138\uC694`{% endraw %}로 변환됩니다. 이 작업은 자동화할 수 있는 도구를 사용하여 수행할 수 있습니다.
 
 ### 2. UTF-8 사용 (Java 9 이상)
-Java 9 이상에서는 `.properties` 파일을 UTF-8로 읽을 수 있습니다. 이를 위해 `Properties.load()` 메서드와 `InputStreamReader`를 사용하면 됩니다:
+Java 9 이상에서는 {% raw %}`.properties`{% endraw %} 파일을 UTF-8로 읽을 수 있습니다. 이를 위해 {% raw %}`Properties.load()`{% endraw %} 메서드와 {% raw %}`InputStreamReader`{% endraw %}를 사용하면 됩니다:
 
-```java
+{% raw %}```java
 Properties props = new Properties();
 try (InputStreamReader reader = new InputStreamReader(new FileInputStream("path/to/yourfile.properties"), StandardCharsets.UTF_8)) {
     props.load(reader);
 }
-```
+```{% endraw %}
 
 ### 3. 인코딩 설정 확인 및 변환
-원본 `.properties` 파일이 어떤 인코딩으로 작성되었는지 확인하고, 필요한 경우 올바른 인코딩으로 변환해야 합니다. 예를 들어, UTF-8로 작성된 파일을 ISO-8859-1으로 변환하거나, 반대로 진행할 수 있습니다. 이 과정은 텍스트 에디터나 인코딩 변환 도구를 사용하여 수행할 수 있습니다.
+원본 {% raw %}`.properties`{% endraw %} 파일이 어떤 인코딩으로 작성되었는지 확인하고, 필요한 경우 올바른 인코딩으로 변환해야 합니다. 예를 들어, UTF-8로 작성된 파일을 ISO-8859-1으로 변환하거나, 반대로 진행할 수 있습니다. 이 과정은 텍스트 에디터나 인코딩 변환 도구를 사용하여 수행할 수 있습니다.
 
 ### 4. IDE의 인코딩 설정 확인
-Eclipse와 같은 IDE를 사용하는 경우, IDE의 인코딩 설정이 `.properties` 파일의 인코딩과 일치하는지 확인해야 합니다. IDE에서 파일을 열 때 잘못된 인코딩으로 해석되면 문자가 깨질 수 있습니다.
+Eclipse와 같은 IDE를 사용하는 경우, IDE의 인코딩 설정이 {% raw %}`.properties`{% endraw %} 파일의 인코딩과 일치하는지 확인해야 합니다. IDE에서 파일을 열 때 잘못된 인코딩으로 해석되면 문자가 깨질 수 있습니다.
 
 ### 5. 백업 및 테스트
 어떤 인코딩 관련 작업을 진행하기 전에는 항상 파일의 백업을 만들어 두는 것이 좋습니다. 또한, 변경 후에는 애플리케이션이 올바르게 문자를 처리하고 표시하는지 테스트해야 합니다.

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "한글 Javadoc 주석"
-date: 2024-01-15
-tags: [Javadoc, 주석, 한글]
-categories: blog
+tags: [한글, 주석, Javadoc]
 ---
 
 ## 사용자 입력:
@@ -30,7 +28,7 @@ categories: blog
     }  이 함수에 javadoc용 주석을 한글로 만들어줘.
 
 ## ChatGPT 응답:
-> ```java
+> {% raw %}```java
     /**
      * 주어진 변수명과 키 정보를 기반으로 변수 식별자를 검색하여 반환합니다.
      *
@@ -60,5 +58,5 @@ categories: blog
 
         return defaultVarId; // 일치하는 변수가 없을 경우 기본값을 반환합니다.
     }
-```
+```{% endraw %}
 

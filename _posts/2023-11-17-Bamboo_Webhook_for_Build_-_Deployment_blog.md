@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Bamboo Webhook for Build & Deployment"
-date: 2023-11-17
-tags: [for, Bamboo, Webhook, Build, Deployment]
-categories: blog
+tags: [Build, Webhook, for, Bamboo, Deployment]
 ---
 
 ## 사용자 입력:

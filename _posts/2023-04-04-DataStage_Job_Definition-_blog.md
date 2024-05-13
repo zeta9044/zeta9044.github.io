@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "DataStage Job Definition."
-date: 2023-04-04
 tags: [Definition, Job, DataStage]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -46,10 +44,10 @@ categories: blog
 
 INI 파일에서 UTF-8을 기본 인코딩으로 설정하려면, 다음과 같은 설정을 추가해야 합니다.
 
-```
+{% raw %}```
 -vmargs
 -Dfile.encoding=UTF-8
-```
+```{% endraw %}
 
 위 설정은 인코딩을 UTF-8로 설정하는 "-Dfile.encoding=UTF-8" JVM 인자를 추가합니다.
 

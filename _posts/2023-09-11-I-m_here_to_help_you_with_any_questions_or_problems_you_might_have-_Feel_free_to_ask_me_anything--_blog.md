@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "I'm here to help you with any questions or problems you might have. Feel free to ask me anything!"
-date: 2023-09-11
-tags: [with, or, I, any, here, anything, ask, questions, might, have, m, you, help, free, me, to, problems, Feel]
-categories: blog
+tags: [might, have, Feel, any, or, here, help, m, me, you, with, problems, I, free, anything, questions, to, ask]
 ---
 
 
@@ -15,7 +13,7 @@ categories: blog
 
 가변 매개변수를 사용하는 메서드를 만드는 예제를 보여드리겠습니다:
 
-```java
+{% raw %}```java
 public class VariableArgumentsExample {
     
     // 가변 매개변수를 사용한 메서드
@@ -35,9 +33,9 @@ public class VariableArgumentsExample {
         System.out.println("결과 2: " + result2);
     }
 }
-```
+```{% endraw %}
 
-위의 예제에서 `sum` 메서드는 가변 매개변수 `numbers`를 받아서 이들을 모두 더한 후 결과를 반환합니다. 메서드를 호출할 때 여러 개의 인수를 전달할 수 있으며, 이러한 인수들은 배열로 처리됩니다.
+위의 예제에서 {% raw %}`sum`{% endraw %} 메서드는 가변 매개변수 {% raw %}`numbers`{% endraw %}를 받아서 이들을 모두 더한 후 결과를 반환합니다. 메서드를 호출할 때 여러 개의 인수를 전달할 수 있으며, 이러한 인수들은 배열로 처리됩니다.
 
 가변 매개변수를 사용하면 메서드가 다양한 개수의 인수를 처리할 수 있어 편리합니다. 이를 통해 메서드를 호출할 때마다 매개변수의 개수를 일일이 조절할 필요가 없습니다.
 

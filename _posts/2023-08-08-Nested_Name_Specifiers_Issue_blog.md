@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Nested Name Specifiers Issue"
-date: 2023-08-08
-tags: [Nested, Issue, Specifiers, Name]
-categories: blog
+tags: [Specifiers, Nested, Issue, Name]
 ---
 
 ## 사용자 입력:
@@ -18,7 +16,7 @@ categories: blog
 ## ChatGPT 응답:
 > 위의 코드를 살펴보면 문법의 일부가 복잡하고 명확하지 않을 수 있어 분석하기 어려울 수 있습니다. 이러한 경우, 파서가 어떤 규칙을 따라야 할지 혼란스러워 할 수 있으며, 이로 인해 "choice conflict"가 발생할 수 있습니다.
 
-`(...)*` 구조는 괄호 안의 표현식이 0회 이상 반복됨을 나타냅니다. 여기서 `theTypeName() | namespaceName() | decltypeSpecifier()`은 세 가지 선택 중 하나를 나타내는데, 이 중 어떤 것을 선택해야 할지 명확하지 않을 수 있습니다. 또한 `<Doublecolon>` 다음에 오는 `nestedNameSpecifierSuffix()`의 반복도 이러한 혼란을 초래할 수 있습니다.
+{% raw %}`(...)*`{% endraw %} 구조는 괄호 안의 표현식이 0회 이상 반복됨을 나타냅니다. 여기서 {% raw %}`theTypeName() | namespaceName() | decltypeSpecifier()`{% endraw %}은 세 가지 선택 중 하나를 나타내는데, 이 중 어떤 것을 선택해야 할지 명확하지 않을 수 있습니다. 또한 {% raw %}`<Doublecolon>`{% endraw %} 다음에 오는 {% raw %}`nestedNameSpecifierSuffix()`{% endraw %}의 반복도 이러한 혼란을 초래할 수 있습니다.
 
 문제를 해결하려면 구문의 명확성을 향상시키기 위해 일부 규칙을 추가하거나 변경해야 할 수 있습니다. 문법의 의미와 목적에 따라 구체적인 해결 방안을 제시할 수 있습니다.
 
@@ -32,11 +30,11 @@ categories: blog
 
 왼쪽 재귀는 많은 파서에서 문제를 일으킬 수 있으므로, 왼쪽 재귀를 제거하려는 시도는 합리적입니다. 그러나 이러한 변환 과정에서 문법의 모호성이나 충돌이 발생할 수 있습니다.
 
-문제를 해결하려면 구문을 좀 더 명확하게 표현해야 할 수 있습니다. 여기서는 `theTypeName()`, `namespaceName()`, `decltypeSpecifier()` 간의 선택과 이어지는 `<Doublecolon>`와 `nestedNameSpecifierSuffix()`의 처리에 문제가 있는 것으로 보입니다.
+문제를 해결하려면 구문을 좀 더 명확하게 표현해야 할 수 있습니다. 여기서는 {% raw %}`theTypeName()`{% endraw %}, {% raw %}`namespaceName()`{% endraw %}, {% raw %}`decltypeSpecifier()`{% endraw %} 간의 선택과 이어지는 {% raw %}`<Doublecolon>`{% endraw %}와 {% raw %}`nestedNameSpecifierSuffix()`{% endraw %}의 처리에 문제가 있는 것으로 보입니다.
 
 단순화하기 위해 각 선택 사항을 별도의 규칙으로 분리하고, 중첩된 구조를 풀어내는 방법을 시도해 볼 수 있습니다.
 
-```cpp
+{% raw %}```cpp
 void nestedNameSpecifier() :
 {
     nestedNameSpecifierPrefix() (nestedNameSpecifierSuffix())*
@@ -48,7 +46,7 @@ void nestedNameSpecifierPrefix() :
     | namespaceName() <Doublecolon>
     | decltypeSpecifier() <Doublecolon>
 }
-```
+```{% endraw %}
 
 위의 예제는 원래 구문의 의도를 유지하면서 중첩과 충돌을 줄이려는 시도입니다. 실제 문법의 의미와 요구 사항에 따라 이 구조를 더 조정해야 할 수도 있습니다.
 
@@ -85,13 +83,13 @@ ANTLR의 이러한 기능은 파서 생성기가 왼쪽 재귀를 자동으로 �
 } 이것은 antlr4의 cpp파서구문을 javaCC로 변환한 것인데, left-recursion이 있다. 이를 해결할 방법을 모르겠다.
 
 ## ChatGPT 응답:
-> left-recursion을 가진 ANTLR 문법을 JavaCC로 변환하는 것은 복잡한 작업이 될 수 있습니다. 여기서 주어진 문법의 경우, `nestedNameSpecifier()`가 자신을 다시 호출하므로 이 부분에서 왼쪽 재귀가 발생합니다.
+> left-recursion을 가진 ANTLR 문법을 JavaCC로 변환하는 것은 복잡한 작업이 될 수 있습니다. 여기서 주어진 문법의 경우, {% raw %}`nestedNameSpecifier()`{% endraw %}가 자신을 다시 호출하므로 이 부분에서 왼쪽 재귀가 발생합니다.
 
 이 문제를 해결하려면 왼쪽 재귀 구조를 오른쪽 재귀 구조로 바꿔야 합니다. 왼쪽 재귀를 제거하는 일반적인 방법은 규칙을 둘 이상의 파트로 나누고 오른쪽 재귀를 사용하는 것입니다.
 
 다음은 원래 문법을 변환한 예시입니다:
 
-```java
+{% raw %}```java
 void nestedNameSpecifier() :
 {}
 {
@@ -109,9 +107,9 @@ void nestedNameSpecifierSuffix() :
 {
     (<Identifier> | (<Template>)? simpleTemplateId()) <Doublecolon>
 }
-```
+```{% endraw %}
 
-여기서 `nestedNameSpecifierPrefix()`는 처음의 선택 사항을 포함하고, `nestedNameSpecifierSuffix()`는 나머지 부분을 반복하도록 설계되었습니다. 이렇게 하면 왼쪽 재귀 구조를 제거하고 원래 의도와 일치하는 파싱 트리를 생성할 수 있을 것입니다.
+여기서 {% raw %}`nestedNameSpecifierPrefix()`{% endraw %}는 처음의 선택 사항을 포함하고, {% raw %}`nestedNameSpecifierSuffix()`{% endraw %}는 나머지 부분을 반복하도록 설계되었습니다. 이렇게 하면 왼쪽 재귀 구조를 제거하고 원래 의도와 일치하는 파싱 트리를 생성할 수 있을 것입니다.
 
 이 예제는 단순화된 버전이므로 실제 사용하는 문법에 맞게 조정해야 할 수도 있습니다. 변환 과정에서 문법의 의미와 구조를 정확하게 유지해야 하므로, 일반적인 변환 방법을 적용할 때 주의가 필요합니다.
 
@@ -123,7 +121,7 @@ void nestedNameSpecifierSuffix() :
 
 문법을 더 자세히 이해하지 못하면 완벽한 해결책을 제공하기 어렵지만, 아래 코드는 기본적인 아이디어를 제공해야 합니다.
 
-```java
+{% raw %}```java
 void nestedNameSpecifier() :
 {}
 {
@@ -141,9 +139,9 @@ void nestedNameSpecifierSuffix() :
 {
     (nestedNameSpecifier() (<Identifier> | (<Template>)? simpleTemplateId()) <Doublecolon>)?
 }
-```
+```{% endraw %}
 
-여기서 `nestedNameSpecifierPrefix()`는 처음의 선택 사항을 포함하고, `nestedNameSpecifierSuffix()`는 나머지 부분을 처리합니다.
+여기서 {% raw %}`nestedNameSpecifierPrefix()`{% endraw %}는 처음의 선택 사항을 포함하고, {% raw %}`nestedNameSpecifierSuffix()`{% endraw %}는 나머지 부분을 처리합니다.
 
 구문을 변환하면서 원래 구문의 의미를 완벽하게 보존하는 것은 복잡할 수 있으므로, 이 코드가 모든 케이스에 적합한지 확인하고 필요한 경우 조정해야 할 것입니다.
 

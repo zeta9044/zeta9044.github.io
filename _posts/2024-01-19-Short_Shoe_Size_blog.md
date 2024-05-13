@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Short Shoe Size"
-date: 2024-01-19
 tags: [Shoe, Short, Size]
-categories: blog
 ---
 
 ## 사용자 입력:

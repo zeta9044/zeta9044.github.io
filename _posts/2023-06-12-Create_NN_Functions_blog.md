@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Create NN Functions"
-date: 2023-06-12
-tags: [Functions, NN, Create]
-categories: blog
+tags: [NN, Functions, Create]
 ---
 
 ## 사용자 입력:
@@ -245,23 +243,23 @@ fprintf('\nTraining Set Accuracy: %f\n', mean(double(pred == y)) * 100);
 ## ChatGPT 응답:
 > Sure! I can help you create the required functions. Here they are:
 
-1. `sigmoidGradient.m`:
-```matlab
+1. {% raw %}`sigmoidGradient.m`{% endraw %}:
+{% raw %}```matlab
 function g = sigmoidGradient(z)
     g = sigmoid(z) .* (1 - sigmoid(z));
 end
-```
+```{% endraw %}
 
-2. `randInitializeWeights.m`:
-```matlab
+2. {% raw %}`randInitializeWeights.m`{% endraw %}:
+{% raw %}```matlab
 function W = randInitializeWeights(L_in, L_out)
     epsilon_init = 0.12;
     W = rand(L_out, 1 + L_in) * 2 * epsilon_init - epsilon_init;
 end
-```
+```{% endraw %}
 
-3. `nnCostFunction.m`:
-```matlab
+3. {% raw %}`nnCostFunction.m`{% endraw %}:
+{% raw %}```matlab
 function [J, grad] = nnCostFunction(nn_params, input_layer_size, hidden_layer_size, num_labels, X, y, lambda)
     % Reshape nn_params back into the parameters Theta1 and Theta2, the weight matrices
     % for our 2-layer neural network
@@ -309,9 +307,9 @@ function [J, grad] = nnCostFunction(nn_params, input_layer_size, hidden_layer_si
     % Unroll gradients
     grad = [Theta1_grad(:) ; Theta2_grad(:)];
 end
-```
+```{% endraw %}
 
-These functions should be placed in separate MATLAB files named `sigmoidGradient.m`, `randInitializeWeights.m`, and `nnCostFunction.m` respectively.
+These functions should be placed in separate MATLAB files named {% raw %}`sigmoidGradient.m`{% endraw %}, {% raw %}`randInitializeWeights.m`{% endraw %}, and {% raw %}`nnCostFunction.m`{% endraw %} respectively.
 
 Let me know if you need any further assistance!
 

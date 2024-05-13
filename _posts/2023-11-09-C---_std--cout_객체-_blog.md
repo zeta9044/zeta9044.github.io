@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "C++: std::cout 객체?"
-date: 2023-11-09
-tags: [std, cout, C, 객체]
-categories: blog
+title: "C++ - std -  - cout 객체?"
+tags: [cout, C, std, 객체]
 ---
 
 ## 사용자 입력:
@@ -22,21 +20,21 @@ categories: blog
 > C++에서 std::cout이 있는데 더블콘은 뭐하는 거야?
 
 ## ChatGPT 응답:
-> C++에서 `std::cout`은 표준 출력 스트림으로, 주로 콘솔에 텍스트를 출력하는 데 사용됩니다. `std::cout` 다음에 오는 `<<` 연산자는 삽입 연산자로, 출력 스트림에 데이터를 보내는 데 사용됩니다.
+> C++에서 {% raw %}`std::cout`{% endraw %}은 표준 출력 스트림으로, 주로 콘솔에 텍스트를 출력하는 데 사용됩니다. {% raw %}`std::cout`{% endraw %} 다음에 오는 {% raw %}`<<`{% endraw %} 연산자는 삽입 연산자로, 출력 스트림에 데이터를 보내는 데 사용됩니다.
 
-`더블콘(double colon)`, 또는 `::`, 은 범위 지정 연산자(scope resolution operator)라고 합니다. 이 연산자는 특정한 네임스페이스나 클래스의 멤버를 지정할 때 사용됩니다. 예를 들어, `std::cout`에서 `std`는 표준 라이브러리의 네임스페이스를, `cout`은 그 네임스페이스 내의 객체를 지정합니다. 범위 지정 연산자는 네임스페이스 외에도 클래스의 정적 멤버에 접근하거나, 열거형(enum), 타입 정의(typedef), 그리고 다른 범위 내에 있는 변수나 함수를 지정할 때 사용됩니다.
+{% raw %}`더블콘(double colon)`{% endraw %}, 또는 {% raw %}`::`{% endraw %}, 은 범위 지정 연산자(scope resolution operator)라고 합니다. 이 연산자는 특정한 네임스페이스나 클래스의 멤버를 지정할 때 사용됩니다. 예를 들어, {% raw %}`std::cout`{% endraw %}에서 {% raw %}`std`{% endraw %}는 표준 라이브러리의 네임스페이스를, {% raw %}`cout`{% endraw %}은 그 네임스페이스 내의 객체를 지정합니다. 범위 지정 연산자는 네임스페이스 외에도 클래스의 정적 멤버에 접근하거나, 열거형(enum), 타입 정의(typedef), 그리고 다른 범위 내에 있는 변수나 함수를 지정할 때 사용됩니다.
 
 ## 사용자 입력:
 > 그러면 cout이 객체야? 함수야?
 
 ## ChatGPT 응답:
-> `std::cout`은 객체입니다. 정확히 말하자면, `std::cout`은 `ostream` 클래스의 인스턴스입니다. 이 객체는 C++ 표준 라이브러리에서 표준 출력 스트림으로 정의되어 있으며, `iostream` 라이브러리에 포함되어 있습니다. 이 객체를 통해 출력 연산자 `<<`를 사용하여 콘솔에 텍스트를 출력할 수 있습니다.
+> {% raw %}`std::cout`{% endraw %}은 객체입니다. 정확히 말하자면, {% raw %}`std::cout`{% endraw %}은 {% raw %}`ostream`{% endraw %} 클래스의 인스턴스입니다. 이 객체는 C++ 표준 라이브러리에서 표준 출력 스트림으로 정의되어 있으며, {% raw %}`iostream`{% endraw %} 라이브러리에 포함되어 있습니다. 이 객체를 통해 출력 연산자 {% raw %}`<<`{% endraw %}를 사용하여 콘솔에 텍스트를 출력할 수 있습니다.
 
 ## 사용자 입력:
 > 그러면 cout는 자바로 치면 class야 인스턴스야?
 
 ## ChatGPT 응답:
-> `std::cout`을 자바의 개념으로 비교하자면, `System.out`에 더 가깝습니다. `System.out`은 자바에서 사전에 정의된 `PrintStream` 객체의 인스턴스입니다. 마찬가지로, C++에서 `std::cout`은 `ostream` 클래스의 인스턴스로, 표준 출력 스트림에 해당합니다. 따라서 자바로 치면 인스턴스에 해당합니다. 클래스 자체는 `ostream`이라고 할 수 있습니다.
+> {% raw %}`std::cout`{% endraw %}을 자바의 개념으로 비교하자면, {% raw %}`System.out`{% endraw %}에 더 가깝습니다. {% raw %}`System.out`{% endraw %}은 자바에서 사전에 정의된 {% raw %}`PrintStream`{% endraw %} 객체의 인스턴스입니다. 마찬가지로, C++에서 {% raw %}`std::cout`{% endraw %}은 {% raw %}`ostream`{% endraw %} 클래스의 인스턴스로, 표준 출력 스트림에 해당합니다. 따라서 자바로 치면 인스턴스에 해당합니다. 클래스 자체는 {% raw %}`ostream`{% endraw %}이라고 할 수 있습니다.
 
 ## 사용자 입력:
 > solarino 도시에 대해서 알려줘

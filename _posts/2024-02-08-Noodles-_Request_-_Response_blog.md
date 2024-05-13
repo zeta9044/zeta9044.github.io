@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Noodles: Request & Response"
-date: 2024-02-08
+title: "Noodles - Request & Response"
 tags: [Request, Noodles, Response]
-categories: blog
 ---
 
 ## 사용자 입력:

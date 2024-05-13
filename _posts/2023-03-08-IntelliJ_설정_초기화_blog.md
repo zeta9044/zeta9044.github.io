@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "IntelliJ 설정 초기화"
-date: 2023-03-08
 tags: [IntelliJ, 설정, 초기]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -26,11 +24,11 @@ categories: blog
 > groovy에서  @ComponentScan  예제 보여줘
 
 ## ChatGPT 응답:
-> Sure, here's an example of using `@ComponentScan` in a Groovy application:
+> Sure, here's an example of using {% raw %}`@ComponentScan`{% endraw %} in a Groovy application:
 
-Assuming you have a package `com.example` that contains all of your Spring components, you can use the following code in your Groovy application:
+Assuming you have a package {% raw %}`com.example`{% endraw %} that contains all of your Spring components, you can use the following code in your Groovy application:
 
-```
+{% raw %}```
 package com.example
 
 import org.springframework.boot.SpringApplication
@@ -44,15 +42,15 @@ class MyApplication {
         SpringApplication.run(MyApplication, args)
     }
 }
-```
+```{% endraw %}
 
-In the code above, `@SpringBootApplication` is used to enable Spring Boot features, while `@ComponentScan` is used to scan the `com.example` package and all of its sub-packages for Spring components to be managed by the Spring container.
+In the code above, {% raw %}`@SpringBootApplication`{% endraw %} is used to enable Spring Boot features, while {% raw %}`@ComponentScan`{% endraw %} is used to scan the {% raw %}`com.example`{% endraw %} package and all of its sub-packages for Spring components to be managed by the Spring container.
 
 Note that you can also specify multiple package names to scan by separating them with commas, like this:
 
-```
+{% raw %}```
 @ComponentScan({"com.example.package1", "com.example.package2"})
-```
+```{% endraw %}
 
 I hope this helps! Let me know if you have any more questions.
 
@@ -60,9 +58,9 @@ I hope this helps! Let me know if you have any more questions.
 > 위 코드에서 basePackages로 설정해봐
 
 ## ChatGPT 응답:
-> Sure! Here's an example of using `basePackages` instead of `value` in the `@ComponentScan` annotation:
+> Sure! Here's an example of using {% raw %}`basePackages`{% endraw %} instead of {% raw %}`value`{% endraw %} in the {% raw %}`@ComponentScan`{% endraw %} annotation:
 
-```
+{% raw %}```
 package com.example
 
 import org.springframework.boot.SpringApplication
@@ -76,15 +74,15 @@ class MyApplication {
         SpringApplication.run(MyApplication, args)
     }
 }
-```
+```{% endraw %}
 
-In this code, we're using `basePackages` to specify the base package to scan for Spring components. The value of `basePackages` is an array of strings, so you can specify multiple package names like this:
+In this code, we're using {% raw %}`basePackages`{% endraw %} to specify the base package to scan for Spring components. The value of {% raw %}`basePackages`{% endraw %} is an array of strings, so you can specify multiple package names like this:
 
-```
+{% raw %}```
 @ComponentScan(basePackages = ["com.example.package1", "com.example.package2"])
-```
+```{% endraw %}
 
-Note that `basePackages` and `value` are interchangeable, so you can use either one depending on your preference.
+Note that {% raw %}`basePackages`{% endraw %} and {% raw %}`value`{% endraw %} are interchangeable, so you can use either one depending on your preference.
 
 I hope this helps! Let me know if you have any more questions.
 
@@ -94,27 +92,27 @@ I hope this helps! Let me know if you have any more questions.
 ## ChatGPT 응답:
 > Java 9 이상의 버전에서는 액세스 규칙이 변경되어 일부 리플렉션 코드가 이전 버전과 호환되지 않을 수 있습니다. 이러한 변경으로 인해 애플리케이션에서 다음과 같은 경고 메시지가 표시될 수 있습니다.
 
-```
+{% raw %}```
 WARNING: An illegal reflective access operation has occurred
-```
+```{% endraw %}
 
 이 경고 메시지는 애플리케이션이 Java 9 이상의 버전에서 실행될 때 리플렉션 코드가 내부적으로 사용하는 API에 대한 비공개 액세스를 시도했음을 나타냅니다.
 
 이러한 경고 메시지를 제거하려면, 다음과 같은 JVM 옵션을 사용하여 액세스 규칙을 완화할 수 있습니다.
 
-```
+{% raw %}```
 --add-opens <module>/<package>=<module>(,<module>/<package>=<module>,...)
-```
+```{% endraw %}
 
-위의 옵션에서 `<module>/<package>`는 리플렉션 액세스가 필요한 모듈과 패키지를 지정하며, `<module>`은 해당 모듈의 이름을 지정합니다. 쉼표로 구분하여 여러 개의 모듈과 패키지를 지정할 수 있습니다.
+위의 옵션에서 {% raw %}`<module>/<package>`{% endraw %}는 리플렉션 액세스가 필요한 모듈과 패키지를 지정하며, {% raw %}`<module>`{% endraw %}은 해당 모듈의 이름을 지정합니다. 쉼표로 구분하여 여러 개의 모듈과 패키지를 지정할 수 있습니다.
 
-예를 들어, `com.example` 패키지에 대한 리플렉션 액세스를 허용하려면 다음과 같이 옵션을 사용할 수 있습니다.
+예를 들어, {% raw %}`com.example`{% endraw %} 패키지에 대한 리플렉션 액세스를 허용하려면 다음과 같이 옵션을 사용할 수 있습니다.
 
-```
+{% raw %}```
 --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.security=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.management/sun.management=ALL-UNNAMED --add-opens jdk.management/com.sun.management.internal=ALL-UNNAMED --add-opens jdk.management/com.sun.management.jmx=ALL-UNNAMED --add-opens jdk.management/com.sun.management.snmp=ALL-UNNAMED --add-opens jdk.management/com.sun.management=ALL-UNNAMED --add-opens java.xml/com.sun.org.apache.xerces.internal.jaxp=ALL-UNNAMED --add-opens jdk.xml.dom/com.sun.org.apache.xerces.internal.dom=ALL-UNNAMED --add-opens jdk.zipfs/jdk.nio.zipfs=ALL-UNNAMED --add-opens jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED --add-opens jdk.javadoc/jdk.javadoc.internal.tool=ALL-UNNAMED --add-opens jdk.jfr/jdk.jfr=ALL-UNNAMED
-```
+```{% endraw %}
 
-위의 옵션은 `java.base`, `java.management`, `jdk.management`, `java.xml`, `jdk.xml.dom`, `jdk.zipfs`, `jdk.compiler`, `jdk.javadoc` 및 `jdk.jfr` 모듈에 대한 모든 패키지에 대한 액세스
+위의 옵션은 {% raw %}`java.base`{% endraw %}, {% raw %}`java.management`{% endraw %}, {% raw %}`jdk.management`{% endraw %}, {% raw %}`java.xml`{% endraw %}, {% raw %}`jdk.xml.dom`{% endraw %}, {% raw %}`jdk.zipfs`{% endraw %}, {% raw %}`jdk.compiler`{% endraw %}, {% raw %}`jdk.javadoc`{% endraw %} 및 {% raw %}`jdk.jfr`{% endraw %} 모듈에 대한 모든 패키지에 대한 액세스
 
 ## 사용자 입력:
 > intellj에서 Execution failed for task ':qtrack-web:bootRun'.
@@ -123,18 +121,18 @@ WARNING: An illegal reflective access operation has occurred
 ## ChatGPT 응답:
 > 만약 IntelliJ에서 Gradle을 사용하여 실행 중인 Spring Boot 애플리케이션에서 JDK 11 대신 JDK 8을 사용하고자 한다면, 다음과 같은 단계를 수행할 수 있습니다.
 
-1. 프로젝트 구성 파일 (`build.gradle` 또는 `build.gradle.kts`)을 엽니다.
-2. `java` 플러그인을 찾습니다. 일반적으로 다음과 같이 정의됩니다.
+1. 프로젝트 구성 파일 ({% raw %}`build.gradle`{% endraw %} 또는 {% raw %}`build.gradle.kts`{% endraw %})을 엽니다.
+2. {% raw %}`java`{% endraw %} 플러그인을 찾습니다. 일반적으로 다음과 같이 정의됩니다.
 
-   ```groovy
+   {% raw %}```groovy
    plugins {
        id 'java'
    }
-   ```
+   ```{% endraw %}
 
-3. JDK 버전을 1.8로 변경하려면 `sourceCompatibility` 및 `targetCompatibility` 설정을 다음과 같이 변경합니다.
+3. JDK 버전을 1.8로 변경하려면 {% raw %}`sourceCompatibility`{% endraw %} 및 {% raw %}`targetCompatibility`{% endraw %} 설정을 다음과 같이 변경합니다.
 
-   ```groovy
+   {% raw %}```groovy
    plugins {
        id 'java'
    }
@@ -143,9 +141,9 @@ WARNING: An illegal reflective access operation has occurred
        sourceCompatibility = JavaVersion.VERSION_1_8
        targetCompatibility = JavaVersion.VERSION_1_8
    }
-   ```
+   ```{% endraw %}
 
-   위의 코드에서 `JavaVersion.VERSION_1_8`은 JDK 8을 나타냅니다.
+   위의 코드에서 {% raw %}`JavaVersion.VERSION_1_8`{% endraw %}은 JDK 8을 나타냅니다.
 
 4. IntelliJ에서 Gradle 뷰를 열고 "Refresh Gradle Project"를 클릭하여 프로젝트를 다시로드합니다.
 5. 이제 JDK 8로 Spring Boot 애플리케이션을 실행할 수 있어야합니다.

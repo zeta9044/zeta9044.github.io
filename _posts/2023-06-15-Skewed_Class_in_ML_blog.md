@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Skewed Class in ML"
-date: 2023-06-15
-tags: [Skewed, in, Class, ML]
-categories: blog
+tags: [Class, in, ML, Skewed]
 ---
 
 ## 사용자 입력:

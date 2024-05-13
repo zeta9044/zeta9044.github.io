@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "PostgreSQL 트랜잭션 상태"
-date: 2023-05-25
-tags: [PostgreSQL, 트랜잭션, 상태]
-categories: blog
+tags: [트랜잭션, 상태, PostgreSQL]
 ---
 
 ## 사용자 입력:
@@ -16,9 +14,9 @@ categories: blog
 
 "idle in transaction" 상태를 해결하려면 해당 세션을 확인하고 트랜잭션을 명시적으로 커밋하거나 롤백해야 합니다. 대기 중인 세션을 확인하기 위해 PostgreSQL의 관리 도구나 쿼리를 사용할 수 있습니다. 예를 들면 다음과 같은 쿼리를 사용할 수 있습니다:
 
-```sql
+{% raw %}```sql
 SELECT * FROM pg_stat_activity WHERE state = 'idle in transaction';
-```
+```{% endraw %}
 
 이를 통해 "idle in transaction" 상태에 있는 세션을 확인하고 해당 세션에 대해 적절한 조치를 취할 수 있습니다.
 

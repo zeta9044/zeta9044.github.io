@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Base64 Error: Illegal Character"
-date: 2024-01-03
-tags: [Illegal, Error, Character]
-categories: blog
+title: "Base64 Error - Illegal Character"
+tags: [Illegal, Character, Error]
 ---
 
 ## 사용자 입력:
@@ -36,11 +34,11 @@ To address this issue, you would typically need to ensure that the input string 
 > Base64.getUrlEncoder().encodeToString(encrypted) 을 디코드하는 방법
 
 ## ChatGPT 응답:
-> `Base64.getUrlEncoder().encodeToString(encrypted)` 코드는 Java에서 암호화된 데이터(`encrypted`)를 URL 안전한 base64 형식으로 인코딩하는 방법입니다. 이렇게 인코딩된 문자열을 디코딩하려면, Java의 `Base64.getUrlDecoder()` 메소드를 사용해야 합니다.
+> {% raw %}`Base64.getUrlEncoder().encodeToString(encrypted)`{% endraw %} 코드는 Java에서 암호화된 데이터({% raw %}`encrypted`{% endraw %})를 URL 안전한 base64 형식으로 인코딩하는 방법입니다. 이렇게 인코딩된 문자열을 디코딩하려면, Java의 {% raw %}`Base64.getUrlDecoder()`{% endraw %} 메소드를 사용해야 합니다.
 
 다음은 URL 안전한 base64 인코딩된 문자열을 디코딩하는 방법을 보여주는 Java 코드 예시입니다:
 
-```java
+{% raw %}```java
 import java.util.Base64;
 
 public class Main {
@@ -56,9 +54,9 @@ public class Main {
         // String decodedString = new String(decodedBytes); // 바이트 배열을 문자열로 변환하는 경우
     }
 }
-```
+```{% endraw %}
 
-이 코드에서는 `Base64.getUrlDecoder().decode(encodedString)`를 사용하여 인코딩된 문자열을 바이트 배열로 디코딩합니다. 디코딩된 바이트 배열은 원래의 데이터 형식(예: 암호화 해제, 문자열 변환 등)으로 다시 변환할 수 있습니다. 
+이 코드에서는 {% raw %}`Base64.getUrlDecoder().decode(encodedString)`{% endraw %}를 사용하여 인코딩된 문자열을 바이트 배열로 디코딩합니다. 디코딩된 바이트 배열은 원래의 데이터 형식(예: 암호화 해제, 문자열 변환 등)으로 다시 변환할 수 있습니다. 
 
-주의할 점은 인코딩된 문자열이 정확히 `Base64.getUrlEncoder()`를 사용하여 인코딩된 것이어야 한다는 것입니다. 일반 `Base64.getEncoder()`로 인코딩된 경우에는 `Base64.getDecoder()`를 사용해야 합니다.
+주의할 점은 인코딩된 문자열이 정확히 {% raw %}`Base64.getUrlEncoder()`{% endraw %}를 사용하여 인코딩된 것이어야 한다는 것입니다. 일반 {% raw %}`Base64.getEncoder()`{% endraw %}로 인코딩된 경우에는 {% raw %}`Base64.getDecoder()`{% endraw %}를 사용해야 합니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Tradeinn 신제품 판매"
-date: 2024-02-20
-tags: [신제품, Tradeinn, 판매]
-categories: blog
+tags: [판매, 신제품, Tradeinn]
 ---
 
 ## 사용자 입력:

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 Listener/Visitor 유틸리티"
-date: 2023-09-11
 tags: [Visitor, 유틸리티, Listener]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -14,15 +12,15 @@ categories: blog
 
 먼저, ANTLR4의 Listener 및 Visitor 패턴에 대한 간략한 개요를 제공하겠습니다:
 
-1. **Listener**: ANTLR4가 자동으로 생성하는 Listener는 모든 규칙에 대한 `enter`와 `exit` 메서드를 제공합니다. 사용자는 이 메서드들을 오버라이드하여 원하는 동작을 구현할 수 있습니다.
-2. **Visitor**: Visitor는 `visit` 메서드를 제공하며, 각 규칙에 대한 별도의 `visit` 메서드가 있습니다. 사용자는 특정 규칙을 방문할 때마다 해당 규칙에 대한 `visit` 메서드를 오버라이드하여 원하는 동작을 구현할 수 있습니다.
+1. **Listener**: ANTLR4가 자동으로 생성하는 Listener는 모든 규칙에 대한 {% raw %}`enter`{% endraw %}와 {% raw %}`exit`{% endraw %} 메서드를 제공합니다. 사용자는 이 메서드들을 오버라이드하여 원하는 동작을 구현할 수 있습니다.
+2. **Visitor**: Visitor는 {% raw %}`visit`{% endraw %} 메서드를 제공하며, 각 규칙에 대한 별도의 {% raw %}`visit`{% endraw %} 메서드가 있습니다. 사용자는 특정 규칙을 방문할 때마다 해당 규칙에 대한 {% raw %}`visit`{% endraw %} 메서드를 오버라이드하여 원하는 동작을 구현할 수 있습니다.
 
 이제 간단한 예제를 통해 Listener와 Visitor 유틸리티를 만들어 보겠습니다.
 
 ### 예제
 
 다음은 간단한 ANTLR4 문법 예제입니다:
-```
+{% raw %}```
 grammar Simple;
 
 start: expr EOF;
@@ -33,10 +31,10 @@ expr: INT
 
 INT: [0-9]+;
 WS: [ \t\r\n]+ -> skip;
-```
+```{% endraw %}
 
 1. **Listener 유틸리티**
-```java
+{% raw %}```java
 public class SimpleListener extends SimpleBaseListener {
     @Override
     public void enterExpr(SimpleParser.ExprContext ctx) {
@@ -50,10 +48,10 @@ public class SimpleListener extends SimpleBaseListener {
         System.out.println("Exiting expr: " + ctx.getText());
     }
 }
-```
+```{% endraw %}
 
 2. **Visitor 유틸리티**
-```java
+{% raw %}```java
 public class SimpleVisitor extends SimpleBaseVisitor<Void> {
     @Override
     public Void visitExpr(SimpleParser.ExprContext ctx) {
@@ -62,21 +60,21 @@ public class SimpleVisitor extends SimpleBaseVisitor<Void> {
         return super.visitExpr(ctx);
     }
 }
-```
+```{% endraw %}
 
 ### 사용 방법
 
 1. Listener 사용:
-```java
+{% raw %}```java
 SimpleListener listener = new SimpleListener();
 ParseTreeWalker.DEFAULT.walk(listener, parseTree);
-```
+```{% endraw %}
 
 2. Visitor 사용:
-```java
+{% raw %}```java
 SimpleVisitor visitor = new SimpleVisitor();
 visitor.visit(parseTree);
-```
+```{% endraw %}
 
 이러한 방식으로 Listener와 Visitor를 사용하여 ANTLR4에서 파싱된 구문 트리를 순회하며 사용자 정의 동작을 수행할 수 있습니다.
 
@@ -90,7 +88,7 @@ visitor.visit(parseTree);
 
 이 유틸리티는 모든 노드를 방문할 때마다 해당 노드의 context 정보를 출력합니다.
 
-```java
+{% raw %}```java
 public class TraverseListener extends SimpleBaseListener {
     @Override
     public void enterEveryRule(ParserRuleContext ctx) {
@@ -102,13 +100,13 @@ public class TraverseListener extends SimpleBaseListener {
         System.out.println("Exiting rule: " + ctx.getText());
     }
 }
-```
+```{% endraw %}
 
 ### 2. Visitor를 이용한 Traverse Utility
 
 이 유틸리티는 모든 노드를 방문할 때마다 해당 노드의 context 정보를 출력합니다.
 
-```java
+{% raw %}```java
 public class TraverseVisitor extends SimpleBaseVisitor<Void> {
     @Override
     public Void visitChildren(RuleNode node) {
@@ -116,21 +114,21 @@ public class TraverseVisitor extends SimpleBaseVisitor<Void> {
         return super.visitChildren(node);
     }
 }
-```
+```{% endraw %}
 
 ### 사용 방법
 
 1. Listener를 사용하여 traverse:
-```java
+{% raw %}```java
 TraverseListener listener = new TraverseListener();
 ParseTreeWalker.DEFAULT.walk(listener, parseTree);
-```
+```{% endraw %}
 
 2. Visitor를 사용하여 traverse:
-```java
+{% raw %}```java
 TraverseVisitor visitor = new TraverseVisitor();
 visitor.visit(parseTree);
-```
+```{% endraw %}
 
 위의 유틸리티를 사용하면 ANTLR4 구문 트리의 모든 노드를 순회하며 해당 노드의 context 정보를 출력할 수 있습니다.
 
@@ -142,7 +140,7 @@ visitor.visit(parseTree);
 
 다음은 해당 유틸리티의 예시입니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -174,22 +172,22 @@ public class ContextTraverser {
         }
     }
 }
-```
+```{% endraw %}
 
-이 유틸리티는 ANTLR4의 `ParserRuleContext`를 받아 해당 노드와 하위 노드들의 토큰 값과 규칙 이름을 가져옵니다. 
+이 유틸리티는 ANTLR4의 {% raw %}`ParserRuleContext`{% endraw %}를 받아 해당 노드와 하위 노드들의 토큰 값과 규칙 이름을 가져옵니다. 
 
 ### 사용 방법:
 
-예를 들어, `expr` 규칙의 `ParserRuleContext`를 가지고 있다고 가정하면:
+예를 들어, {% raw %}`expr`{% endraw %} 규칙의 {% raw %}`ParserRuleContext`{% endraw %}를 가지고 있다고 가정하면:
 
-```java
+{% raw %}```java
 ParserRuleContext exprContext = ...;
 List<String> tokens = ContextTraverser.getTokens(exprContext);
 System.out.println("Tokens: " + tokens);
 
 List<String> ruleNames = ContextTraverser.getRuleNames(exprContext, parser); // parser는 SimpleParser의 인스턴스
 System.out.println("Rule Names: " + ruleNames);
-```
+```{% endraw %}
 
 이 유틸리티를 사용하면 ANTLR4 구문 트리의 특정 노드에서 시작하여 그 노드와 하위 노드들의 토큰 값과 규칙 이름을 쉽게 가져올 수 있습니다.
 
@@ -201,15 +199,15 @@ System.out.println("Rule Names: " + ruleNames);
 
 Java 8부터는 람다 표현식이 도입되어 함수적 인터페이스를 람다 표현식으로 표현할 수 있게 되었습니다. 이와 관련하여 메서드 참조는 특정 메서드를 직접 참조할 수 있는 기능입니다.
 
-예를 들어, `tokens::add`는 `tokens` 리스트의 `add` 메서드를 참조합니다. 이는 다음 람다 표현식과 동일한 의미입니다:
+예를 들어, {% raw %}`tokens::add`{% endraw %}는 {% raw %}`tokens`{% endraw %} 리스트의 {% raw %}`add`{% endraw %} 메서드를 참조합니다. 이는 다음 람다 표현식과 동일한 의미입니다:
 
-```java
+{% raw %}```java
 token -> tokens.add(token)
-```
+```{% endraw %}
 
-하지만, 이해하기 쉽게 코드를 다시 작성하겠습니다. `tokens::add` 대신에 람다 표현식을 사용하는 방식으로 변경하겠습니다:
+하지만, 이해하기 쉽게 코드를 다시 작성하겠습니다. {% raw %}`tokens::add`{% endraw %} 대신에 람다 표현식을 사용하는 방식으로 변경하겠습니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
@@ -241,19 +239,19 @@ public class ContextTraverser {
         }
     }
 }
-```
+```{% endraw %}
 
-이제 `tokens::add` 대신 람다 표현식 `token -> tokens.add(token.getText())`를 사용하였습니다. 이로써 코드의 가독성이 향상되었을 것입니다.
+이제 {% raw %}`tokens::add`{% endraw %} 대신 람다 표현식 {% raw %}`token -> tokens.add(token.getText())`{% endraw %}를 사용하였습니다. 이로써 코드의 가독성이 향상되었을 것입니다.
 
 ## 사용자 입력:
 > 위에  ParserRuleContext를 ParseTree로 바꿔야지 될 것 같지 않아?
 
 ## ChatGPT 응답:
-> 네, 맞습니다. `ParseTree`는 ANTLR4에서 구문 트리의 모든 노드에 대한 상위 인터페이스이므로, `ParseTree`를 사용하면 더 범용적인 유틸리티를 얻을 수 있습니다.
+> 네, 맞습니다. {% raw %}`ParseTree`{% endraw %}는 ANTLR4에서 구문 트리의 모든 노드에 대한 상위 인터페이스이므로, {% raw %}`ParseTree`{% endraw %}를 사용하면 더 범용적인 유틸리티를 얻을 수 있습니다.
 
 이를 반영하여 코드를 수정하겠습니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.RuleNode;
 
@@ -285,19 +283,19 @@ public class ContextTraverser {
         }
     }
 }
-```
+```{% endraw %}
 
-위의 수정된 코드에서는 `ParserRuleContext` 대신 `ParseTree`를 사용하여 모든 노드 타입을 처리할 수 있도록 했습니다.
+위의 수정된 코드에서는 {% raw %}`ParserRuleContext`{% endraw %} 대신 {% raw %}`ParseTree`{% endraw %}를 사용하여 모든 노드 타입을 처리할 수 있도록 했습니다.
 
 ## 사용자 입력:
 > SimpleParser parser 매개변수에, parser의 인스턴스가 들어와야 되는거 아녀?
 
 ## ChatGPT 응답:
-> 네, 맞습니다. `SimpleParser`의 인스턴스를 통해 규칙 이름을 가져오려면 해당 인스턴스가 필요합니다. 하지만 `ParseTree`나 `ParserRuleContext`를 통해 해당 노드가 속한 파서에 대한 참조를 얻을 수 있기 때문에 이를 이용하면 `SimpleParser`를 파라미터로 전달할 필요가 없습니다.
+> 네, 맞습니다. {% raw %}`SimpleParser`{% endraw %}의 인스턴스를 통해 규칙 이름을 가져오려면 해당 인스턴스가 필요합니다. 하지만 {% raw %}`ParseTree`{% endraw %}나 {% raw %}`ParserRuleContext`{% endraw %}를 통해 해당 노드가 속한 파서에 대한 참조를 얻을 수 있기 때문에 이를 이용하면 {% raw %}`SimpleParser`{% endraw %}를 파라미터로 전달할 필요가 없습니다.
 
 이를 반영하여 코드를 수정하겠습니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.RuleNode;
@@ -331,19 +329,19 @@ public class ContextTraverser {
         }
     }
 }
-```
+```{% endraw %}
 
-이제 `SimpleParser` 파라미터를 제거하고 `ParseTree`의 `getPayload` 메서드를 사용하여 파서 인스턴스에 대한 참조를 얻었습니다. 이를 통해 규칙 이름을 가져올 수 있습니다.
+이제 {% raw %}`SimpleParser`{% endraw %} 파라미터를 제거하고 {% raw %}`ParseTree`{% endraw %}의 {% raw %}`getPayload`{% endraw %} 메서드를 사용하여 파서 인스턴스에 대한 참조를 얻었습니다. 이를 통해 규칙 이름을 가져올 수 있습니다.
 
 ## 사용자 입력:
 > 특성 파서의 인스턴스를 매개변수로 넘길거야.
 
 ## ChatGPT 응답:
-> 알겠습니다. 특정 `Parser` 인스턴스를 매개변수로 받아서 사용하는 것이 명확하게 동작을 이해하는 데 도움이 될 것입니다.
+> 알겠습니다. 특정 {% raw %}`Parser`{% endraw %} 인스턴스를 매개변수로 받아서 사용하는 것이 명확하게 동작을 이해하는 데 도움이 될 것입니다.
 
-다음은 해당 `Parser` 인스턴스를 매개변수로 받아 사용하는 수정된 코드입니다:
+다음은 해당 {% raw %}`Parser`{% endraw %} 인스턴스를 매개변수로 받아 사용하는 수정된 코드입니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.RuleNode;
@@ -376,31 +374,31 @@ public class ContextTraverser {
         }
     }
 }
-```
+```{% endraw %}
 
-위의 코드에서 `getRuleNames` 메서드는 `ParseTree`와 `Parser`의 인스턴스를 매개변수로 받아 해당 파서에서 규칙 이름을 가져옵니다.
+위의 코드에서 {% raw %}`getRuleNames`{% endraw %} 메서드는 {% raw %}`ParseTree`{% endraw %}와 {% raw %}`Parser`{% endraw %}의 인스턴스를 매개변수로 받아 해당 파서에서 규칙 이름을 가져옵니다.
 
 ## 사용자 입력:
 > getRuleNames(ParseTree context, Parser parser) 에서 Parser가 인터페이스인가?
 
 ## ChatGPT 응답:
-> 죄송합니다, 제 실수입니다. `Parser`는 `org.antlr.v4.runtime.Parser` 패키지에 있는 추상 클래스입니다, 인터페이스가 아닙니다. 따라서 `SimpleParser`와 같은 구체적인 파서 클래스는 `Parser`를 상속받습니다.
+> 죄송합니다, 제 실수입니다. {% raw %}`Parser`{% endraw %}는 {% raw %}`org.antlr.v4.runtime.Parser`{% endraw %} 패키지에 있는 추상 클래스입니다, 인터페이스가 아닙니다. 따라서 {% raw %}`SimpleParser`{% endraw %}와 같은 구체적인 파서 클래스는 {% raw %}`Parser`{% endraw %}를 상속받습니다.
 
-말씀하신 대로 `Parser`는 추상 클래스입니다. 코드에서는 파서의 인스턴스를 받아 해당 파서의 규칙 이름 배열을 사용하기 위해 `Parser` 타입의 매개변수를 사용하고 있습니다. 
+말씀하신 대로 {% raw %}`Parser`{% endraw %}는 추상 클래스입니다. 코드에서는 파서의 인스턴스를 받아 해당 파서의 규칙 이름 배열을 사용하기 위해 {% raw %}`Parser`{% endraw %} 타입의 매개변수를 사용하고 있습니다. 
 
-이 방식은 모든 ANTLR4 파서에 대해 동작하도록 설계되었습니다. 그러므로 `SimpleParser` 뿐만 아니라 다른 ANTLR4 파서 인스턴스도 받아들일 수 있습니다.
+이 방식은 모든 ANTLR4 파서에 대해 동작하도록 설계되었습니다. 그러므로 {% raw %}`SimpleParser`{% endraw %} 뿐만 아니라 다른 ANTLR4 파서 인스턴스도 받아들일 수 있습니다.
 
 ## 사용자 입력:
 > ANTLR4의  RuleContext의 child가 terminalNode만 있는지 확인
 
 ## ChatGPT 응답:
-> ANTLR4에서 `RuleContext`는 파서 규칙에 해당하는 노드를 나타내며, `TerminalNode`는 입력 텍스트에서 토큰에 직접 해당하는 노드를 나타냅니다.
+> ANTLR4에서 {% raw %}`RuleContext`{% endraw %}는 파서 규칙에 해당하는 노드를 나타내며, {% raw %}`TerminalNode`{% endraw %}는 입력 텍스트에서 토큰에 직접 해당하는 노드를 나타냅니다.
 
-`RuleContext`의 자식 노드가 모두 `TerminalNode`인지 확인하려면, 해당 `RuleContext`의 모든 자식 노드를 순회하며 각각이 `TerminalNode` 인스턴스인지 확인해야 합니다.
+{% raw %}`RuleContext`{% endraw %}의 자식 노드가 모두 {% raw %}`TerminalNode`{% endraw %}인지 확인하려면, 해당 {% raw %}`RuleContext`{% endraw %}의 모든 자식 노드를 순회하며 각각이 {% raw %}`TerminalNode`{% endraw %} 인스턴스인지 확인해야 합니다.
 
-다음은 `RuleContext`의 모든 자식 노드가 `TerminalNode`만 있는지 확인하는 유틸리티 메서드입니다:
+다음은 {% raw %}`RuleContext`{% endraw %}의 모든 자식 노드가 {% raw %}`TerminalNode`{% endraw %}만 있는지 확인하는 유틸리티 메서드입니다:
 
-```java
+{% raw %}```java
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -415,7 +413,7 @@ public class ANTLRUtils {
         return true;
     }
 }
-```
+```{% endraw %}
 
-이 유틸리티 메서드를 사용하면 주어진 `ParseTree` 또는 `RuleContext`의 모든 자식 노드가 `TerminalNode`만 있는지 쉽게 확인할 수 있습니다.
+이 유틸리티 메서드를 사용하면 주어진 {% raw %}`ParseTree`{% endraw %} 또는 {% raw %}`RuleContext`{% endraw %}의 모든 자식 노드가 {% raw %}`TerminalNode`{% endraw %}만 있는지 쉽게 확인할 수 있습니다.
 

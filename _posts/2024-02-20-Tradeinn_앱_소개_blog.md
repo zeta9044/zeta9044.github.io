@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Tradeinn 앱 소개"
-date: 2024-02-20
-tags: [소개, Tradeinn, 앱]
-categories: blog
+tags: [소개, 앱, Tradeinn]
 ---
 
 ## 사용자 입력:

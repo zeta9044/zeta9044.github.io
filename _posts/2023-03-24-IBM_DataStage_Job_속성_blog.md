@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "IBM DataStage Job 속성"
-date: 2023-03-24
-tags: [속성, IBM, Job, DataStage]
-categories: blog
+tags: [속성, Job, DataStage, IBM]
 ---
 
 ## 사용자 입력:

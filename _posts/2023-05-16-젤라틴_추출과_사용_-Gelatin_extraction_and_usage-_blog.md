@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "젤라틴 추출과 사용 (Gelatin extraction and usage)"
-date: 2023-05-16
-tags: [usage, 젤라틴, 추출, 사용, extraction, Gelatin, and]
-categories: blog
+tags: [젤라틴, Gelatin, extraction, and, 사용, 추출, usage]
 ---
 
 ## 사용자 입력:

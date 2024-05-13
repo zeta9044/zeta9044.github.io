@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Gradle .gitignore 파일"
-date: 2023-07-05
-tags: [파일, Gradle, gitignore]
-categories: blog
+tags: [파일, gitignore, Gradle]
 ---
 
 ## 사용자 입력:
@@ -12,7 +10,7 @@ categories: blog
 ## ChatGPT 응답:
 > 아래는 Gradle 프로젝트를 위한 Java용 .gitignore 파일입니다.
 
-```
+{% raw %}```
 # Gradle specific
 .gradle/
 build/
@@ -71,7 +69,7 @@ Thumbs.db
 build.gradle
 gradlew
 gradlew.bat
-```
+```{% endraw %}
 
 이 .gitignore 파일은 Gradle 프로젝트를 사용할 때 생성되는 빌드, IDE 설정 및 컴파일된 클래스 파일 등을 Git 저장소에서 제외합니다. 
 

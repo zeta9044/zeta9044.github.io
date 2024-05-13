@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "한글 Javadoc 주석"
-date: 2024-01-19
-tags: [Javadoc, 주석, 한글]
-categories: blog
+tags: [한글, 주석, Javadoc]
 ---
 
 ## 사용자 입력:
@@ -16,7 +14,7 @@ categories: blog
     }  두개의 함수 javadoc 주석 한글로 만들어줘.
 
 ## ChatGPT 응답:
-> ```java
+> {% raw %}```java
 /**
  * 지정된 인덱스에 대한 토큰 이름을 반환합니다.
  *
@@ -36,5 +34,5 @@ public static String getTokenName(int index) {
 public static String convertFirstCharToLowerCase(String input) {
     return input.isEmpty() ? input : input.substring(0, 1).toLowerCase() + input.substring(1);
 }
-```
+```{% endraw %}
 

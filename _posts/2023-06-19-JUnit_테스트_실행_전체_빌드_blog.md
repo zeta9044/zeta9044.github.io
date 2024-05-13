@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "JUnit 테스트 실행 전체 빌드"
-date: 2023-06-19
-tags: [JUnit, 빌드, 테스트, 실행, 전체]
-categories: blog
+tags: [전체, 테스트, JUnit, 빌드, 실행]
 ---
 
 ## 사용자 입력:
@@ -281,7 +279,7 @@ public class xmlParserTest extends TestCase {
 ## ChatGPT 응답:
 > 아래는 주어진 코드를 JUnit 4.x.x를 사용하여 수정한 예시입니다.
 
-```java
+{% raw %}```java
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -407,9 +405,9 @@ public class XmlParserTest {
         }
     }
 }
-```
+```{% endraw %}
 
-이렇게 수정된 코드는 `XmlParserTest` 클래스를 생성하고, 해당 클래스에 `testDumpVisitor` 메서드를 추가하여 테스트할 수 있습니다. JUnit의 `@Test` 애너테이션을 사용하여 테스트 메서드로 지정하고, `assertEquals` 등의 JUnit 단언문(assertion)을 사용하여 테스트 결과를 검증할 수 있습니다.
+이렇게 수정된 코드는 {% raw %}`XmlParserTest`{% endraw %} 클래스를 생성하고, 해당 클래스에 {% raw %}`testDumpVisitor`{% endraw %} 메서드를 추가하여 테스트할 수 있습니다. JUnit의 {% raw %}`@Test`{% endraw %} 애너테이션을 사용하여 테스트 메서드로 지정하고, {% raw %}`assertEquals`{% endraw %} 등의 JUnit 단언문(assertion)을 사용하여 테스트 결과를 검증할 수 있습니다.
 
 ## 사용자 입력:
 >  String prjId = "90"; ctx.put(Context.CTX_HOMEDIR, "D:/LIA-Engine/aiworks");
@@ -418,7 +416,7 @@ public class XmlParserTest {
 ## ChatGPT 응답:
 > 주어진 코드를 테스트할 때마다 변경 가능한 값들을 변수로 추출하여 유연성을 높일 수 있습니다. 아래는 해당 코드를 수정한 예시입니다.
 
-```java
+{% raw %}```java
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -545,9 +543,9 @@ public class XmlParserTest {
         }
     }
 }
-```
+```{% endraw %}
 
-위 코드에서 변경 가능한 값들은 `prjId`, `homeDir`, `repositoryDir`, `virtualPath`입니다. 이렇게 변수로 추출하여 필요에 따라 변경하실 수 있습니다.
+위 코드에서 변경 가능한 값들은 {% raw %}`prjId`{% endraw %}, {% raw %}`homeDir`{% endraw %}, {% raw %}`repositoryDir`{% endraw %}, {% raw %}`virtualPath`{% endraw %}입니다. 이렇게 변수로 추출하여 필요에 따라 변경하실 수 있습니다.
 
 ## 사용자 입력:
 > package com.ids.parser.test;
@@ -775,7 +773,7 @@ public class xmlParserTest extends TestCase {
 ## ChatGPT 응답:
 > 아래는 모듈화된 JUnit 테스트 코드로 변환된 예시입니다. 테스트 코드를 작성할 때에는 실제 코드에서 사용되는 의존성을 가장 가까운 단위로 대체하거나 목(mock) 객체를 사용하여 테스트하도록 권장합니다.
 
-```java
+{% raw %}```java
 import org.junit.Before;
 import org.junit.Test;
 
@@ -836,38 +834,38 @@ public class XmlParserTest {
         verify(cachedObj, times(1)).close(prjId);
     }
 }
-```
+```{% endraw %}
 
-위의 코드는 `XmlMgr` 클래스의 `parse` 메서드를 테스트하는 JUnit 테스트 코드입니다. `CachedObject`, `FileChannelManager`, `FileFinder` 등의 의존성을 Mockito 프레임워크를 사용하여 가짜(mock) 객체로 대체하였습니다. 테스트 코드에서는 `parse` 메서드 호출 전후의 메서드 호출 여부와 횟수를 검증하는 것을 포함하여, 예상한 대로 동작하는지를 확인할 수 있습니다.
+위의 코드는 {% raw %}`XmlMgr`{% endraw %} 클래스의 {% raw %}`parse`{% endraw %} 메서드를 테스트하는 JUnit 테스트 코드입니다. {% raw %}`CachedObject`{% endraw %}, {% raw %}`FileChannelManager`{% endraw %}, {% raw %}`FileFinder`{% endraw %} 등의 의존성을 Mockito 프레임워크를 사용하여 가짜(mock) 객체로 대체하였습니다. 테스트 코드에서는 {% raw %}`parse`{% endraw %} 메서드 호출 전후의 메서드 호출 여부와 횟수를 검증하는 것을 포함하여, 예상한 대로 동작하는지를 확인할 수 있습니다.
 
 ## 사용자 입력:
 > Caused by: java.lang.ClassNotFoundException: org.hamcrest.SelfDescribing
 
 ## ChatGPT 응답:
-> The `ClassNotFoundException` for `org.hamcrest.SelfDescribing` indicates that the Hamcrest library is not available in the classpath. Hamcrest is a commonly used library for creating assertions in JUnit tests.
+> The {% raw %}`ClassNotFoundException`{% endraw %} for {% raw %}`org.hamcrest.SelfDescribing`{% endraw %} indicates that the Hamcrest library is not available in the classpath. Hamcrest is a commonly used library for creating assertions in JUnit tests.
 
 To resolve this issue, you need to include the Hamcrest library as a dependency in your project. If you are using a build automation tool like Maven or Gradle, you can add the Hamcrest dependency to your project configuration file.
 
-For Maven, add the following dependency to your `pom.xml` file:
+For Maven, add the following dependency to your {% raw %}`pom.xml`{% endraw %} file:
 
-```xml
+{% raw %}```xml
 <dependency>
     <groupId>org.hamcrest</groupId>
     <artifactId>hamcrest-all</artifactId>
     <version>1.3</version>
     <scope>test</scope>
 </dependency>
-```
+```{% endraw %}
 
-For Gradle, add the following dependency to your `build.gradle` file:
+For Gradle, add the following dependency to your {% raw %}`build.gradle`{% endraw %} file:
 
-```groovy
+{% raw %}```groovy
 dependencies {
     testCompile 'org.hamcrest:hamcrest-all:1.3'
 }
-```
+```{% endraw %}
 
-Make sure to synchronize or recompile your project to fetch the Hamcrest library and resolve the `ClassNotFoundException`.
+Make sure to synchronize or recompile your project to fetch the Hamcrest library and resolve the {% raw %}`ClassNotFoundException`{% endraw %}.
 
 ## 사용자 입력:
 > 위 클래스없이 junit만 가지고 안되나?
@@ -877,11 +875,11 @@ Make sure to synchronize or recompile your project to fetch the Hamcrest library
 
 If you prefer to use JUnit without Hamcrest, you can modify the test code by removing the assertions that rely on Hamcrest matchers and use JUnit's built-in assertions instead.
 
-For example, instead of using `assertThat` with Hamcrest matchers like `is`, `equalTo`, or `containsString`, you can use JUnit's `assertEquals`, `assertTrue`, or `assertContains` methods.
+For example, instead of using {% raw %}`assertThat`{% endraw %} with Hamcrest matchers like {% raw %}`is`{% endraw %}, {% raw %}`equalTo`{% endraw %}, or {% raw %}`containsString`{% endraw %}, you can use JUnit's {% raw %}`assertEquals`{% endraw %}, {% raw %}`assertTrue`{% endraw %}, or {% raw %}`assertContains`{% endraw %} methods.
 
 Here's an example of how you can modify the test code to use only JUnit assertions:
 
-```java
+{% raw %}```java
 import junit.framework.TestCase;
 
 public class XmlParserTest extends TestCase {
@@ -919,7 +917,7 @@ public class XmlParserTest extends TestCase {
         }
     }
 }
-```
+```{% endraw %}
 
 By making these modifications, you can use JUnit without relying on the Hamcrest library.
 
@@ -929,7 +927,7 @@ By making these modifications, you can use JUnit without relying on the Hamcrest
 ## ChatGPT 응답:
 > Sure! Here's an example of a Java program that sets a system property:
 
-```java
+{% raw %}```java
 public class SystemPropertyExample {
     public static void main(String[] args) {
         // Set a system property
@@ -940,15 +938,15 @@ public class SystemPropertyExample {
         System.out.println("System Property: " + propertyValue);
     }
 }
-```
+```{% endraw %}
 
-In this example, we use the `System.setProperty(key, value)` method to set a system property with the key "my.property" and the value "Hello, World!". Then, we retrieve the value of the system property using `System.getProperty(key)` and print it to the console.
+In this example, we use the {% raw %}`System.setProperty(key, value)`{% endraw %} method to set a system property with the key "my.property" and the value "Hello, World!". Then, we retrieve the value of the system property using {% raw %}`System.getProperty(key)`{% endraw %} and print it to the console.
 
 You can run this program, and it will output:
 
-```
+{% raw %}```
 System Property: Hello, World!
-```
+```{% endraw %}
 
 Note that setting a system property affects the entire Java virtual machine (JVM) for the duration of its execution. Other parts of your program or other programs running in the same JVM can access the same system property using the same key.
 
@@ -956,9 +954,9 @@ Note that setting a system property affects the entire Java virtual machine (JVM
 > try { jj_input_stream = new JavaCharStream(streamPRMT, null, 1, 1); } catch(java.io.UnsupportedEncodingException e)  위 코드는 javacc 코드 인데, 오류가 있나?
 
 ## ChatGPT 응답:
-> The code you provided is incomplete, as the `streamPRMT` variable is not defined. However, based on the code snippet you provided, there doesn't seem to be any error related to `java.io.UnsupportedEncodingException`.
+> The code you provided is incomplete, as the {% raw %}`streamPRMT`{% endraw %} variable is not defined. However, based on the code snippet you provided, there doesn't seem to be any error related to {% raw %}`java.io.UnsupportedEncodingException`{% endraw %}.
 
-The line `jj_input_stream = new JavaCharStream(streamPRMT, null, 1, 1);` is creating a new `JavaCharStream` object, which is typically used as the input stream for the JavaCC parser. The constructor for `JavaCharStream` takes several arguments, including the input stream (`streamPRMT`), encoding (`null` in this case), and line and column numbers.
+The line {% raw %}`jj_input_stream = new JavaCharStream(streamPRMT, null, 1, 1);`{% endraw %} is creating a new {% raw %}`JavaCharStream`{% endraw %} object, which is typically used as the input stream for the JavaCC parser. The constructor for {% raw %}`JavaCharStream`{% endraw %} takes several arguments, including the input stream ({% raw %}`streamPRMT`{% endraw %}), encoding ({% raw %}`null`{% endraw %} in this case), and line and column numbers.
 
 If you are experiencing an error, it is likely related to another part of your code or the context in which this code is being used. Please provide more information or the complete code snippet if you need further assistance in identifying the issue.
 
@@ -966,9 +964,9 @@ If you are experiencing an error, it is likely related to another part of your c
 > 한글로 알려줘
 
 ## ChatGPT 응답:
-> 제공해 주신 코드에서는 `java.io.UnsupportedEncodingException`과 관련된 오류는 발생하지 않습니다.
+> 제공해 주신 코드에서는 {% raw %}`java.io.UnsupportedEncodingException`{% endraw %}과 관련된 오류는 발생하지 않습니다.
 
-`jj_input_stream = new JavaCharStream(streamPRMT, null, 1, 1);`라는 코드는 `JavaCharStream` 객체를 생성하는 부분으로, 일반적으로 JavaCC 파서의 입력 스트림으로 사용됩니다. `JavaCharStream` 생성자는 여러 인자를 받는데, 그 중 입력 스트림(`streamPRMT`), 인코딩(`null`로 표시됨), 그리고 라인과 컬럼 번호가 있습니다.
+{% raw %}`jj_input_stream = new JavaCharStream(streamPRMT, null, 1, 1);`{% endraw %}라는 코드는 {% raw %}`JavaCharStream`{% endraw %} 객체를 생성하는 부분으로, 일반적으로 JavaCC 파서의 입력 스트림으로 사용됩니다. {% raw %}`JavaCharStream`{% endraw %} 생성자는 여러 인자를 받는데, 그 중 입력 스트림({% raw %}`streamPRMT`{% endraw %}), 인코딩({% raw %}`null`{% endraw %}로 표시됨), 그리고 라인과 컬럼 번호가 있습니다.
 
 만약 오류가 발생한다면, 다른 부분의 코드나 해당 코드가 사용되는 컨텍스트와 관련이 있을 수 있습니다. 문제를 파악하기 위해 더 많은 정보나 전체 코드 스니펫을 제공해 주시면 추가적인 도움을 드릴 수 있습니다.
 
@@ -976,23 +974,23 @@ If you are experiencing an error, it is likely related to another part of your c
 > 위 변수 jj_input_stream은 별도로 선언된 부분이 없어도 되는 내장변수인가?
 
 ## ChatGPT 응답:
-> 제공해 주신 코드에서 `jj_input_stream` 변수는 별도로 선언된 부분이 없기 때문에 내장 변수로 추측됩니다. 
+> 제공해 주신 코드에서 {% raw %}`jj_input_stream`{% endraw %} 변수는 별도로 선언된 부분이 없기 때문에 내장 변수로 추측됩니다. 
 
-일반적으로 JavaCC에서는 내장 변수로 `jj_input_stream`과 같은 이름을 사용하여 입력 스트림을 참조합니다. 이 변수는 JavaCC에서 자동으로 생성되며, 입력 스트림과 관련된 작업을 수행하는 데 사용됩니다.
+일반적으로 JavaCC에서는 내장 변수로 {% raw %}`jj_input_stream`{% endraw %}과 같은 이름을 사용하여 입력 스트림을 참조합니다. 이 변수는 JavaCC에서 자동으로 생성되며, 입력 스트림과 관련된 작업을 수행하는 데 사용됩니다.
 
-따라서 `jj_input_stream` 변수를 사용하기 위해 별도로 선언할 필요 없이 해당 변수를 사용하면 됩니다. 그러나 이 변수를 사용하기 전에 해당 변수가 코드의 다른 부분에서 정의되거나 초기화되었는지 확인하는 것이 좋습니다.
+따라서 {% raw %}`jj_input_stream`{% endraw %} 변수를 사용하기 위해 별도로 선언할 필요 없이 해당 변수를 사용하면 됩니다. 그러나 이 변수를 사용하기 전에 해당 변수가 코드의 다른 부분에서 정의되거나 초기화되었는지 확인하는 것이 좋습니다.
 
 ## 사용자 입력:
 > jj_nt, jj_gen,jj_la1,jj_2_rtns, JJCalls() 도 동일한 내장인가?
 
 ## ChatGPT 응답:
-> `jj_nt`, `jj_gen`, `jj_la1`, `jj_2_rtns`, `JJCalls()`는 JavaCC에서 자동으로 생성되는 내장 변수나 메서드입니다.
+> {% raw %}`jj_nt`{% endraw %}, {% raw %}`jj_gen`{% endraw %}, {% raw %}`jj_la1`{% endraw %}, {% raw %}`jj_2_rtns`{% endraw %}, {% raw %}`JJCalls()`{% endraw %}는 JavaCC에서 자동으로 생성되는 내장 변수나 메서드입니다.
 
-- `jj_nt`: 현재 토큰을 나타내는 내부 변수입니다.
-- `jj_gen`: 현재 생성된 토큰을 나타내는 내부 변수입니다.
-- `jj_la1`: Lookahead 토큰을 나타내는 내부 변수입니다.
-- `jj_2_rtns`: `jj2()` 메서드 호출에서 리턴되는 값을 저장하는 내부 변수입니다.
-- `JJCalls()`: 구문 분석 스택에서 호출 정보를 관리하기 위한 내부 클래스입니다.
+- {% raw %}`jj_nt`{% endraw %}: 현재 토큰을 나타내는 내부 변수입니다.
+- {% raw %}`jj_gen`{% endraw %}: 현재 생성된 토큰을 나타내는 내부 변수입니다.
+- {% raw %}`jj_la1`{% endraw %}: Lookahead 토큰을 나타내는 내부 변수입니다.
+- {% raw %}`jj_2_rtns`{% endraw %}: {% raw %}`jj2()`{% endraw %} 메서드 호출에서 리턴되는 값을 저장하는 내부 변수입니다.
+- {% raw %}`JJCalls()`{% endraw %}: 구문 분석 스택에서 호출 정보를 관리하기 위한 내부 클래스입니다.
 
 이러한 내장 변수와 메서드는 JavaCC가 생성한 파서 클래스에서 자동으로 생성되며, 구문 분석과 관련된 작업을 수행하기 위해 사용됩니다. 일반적으로 JavaCC를 사용하여 생성된 파서 클래스 내부에서만 사용되며, 직접적으로 조작하거나 수정할 필요는 없습니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "English Practice: Elegant Responses"
-date: 2024-04-14
-tags: [Elegant, Practice, English, Responses]
-categories: blog
+title: "English Practice - Elegant Responses"
+tags: [English, Elegant, Practice, Responses]
 ---
 
 ## 사용자 입력:

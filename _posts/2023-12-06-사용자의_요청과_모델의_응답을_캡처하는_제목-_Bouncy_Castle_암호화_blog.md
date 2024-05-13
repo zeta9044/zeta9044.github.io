@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "사용자의 요청과 모델의 응답을 캡처하는 제목: Bouncy Castle 암호화"
-date: 2023-12-06
-tags: [Bouncy, Castle, 제목, 사용자, 모델, 요청, 캡처, 암호, 응답]
-categories: blog
+title: "사용자의 요청과 모델의 응답을 캡처하는 제목 - Bouncy Castle 암호화"
+tags: [모델, 제목, 요청, 응답, Castle, 암호, Bouncy, 캡처, 사용자]
 ---
 
 ## 사용자 입력:
@@ -53,19 +51,19 @@ Bouncy Castle 라이브러리는 이러한 표준 암호화 알고리즘들을 �
 ## ChatGPT 응답:
 > Java에서 Bouncy Castle 라이브러리를 사용하여 256비트 키를 사용하는 대칭 암호화 알고리즘(예: AES)을 사용한 간단한 암호화 및 복호화 예제를 제공할 수 있습니다. 아래는 AES 알고리즘을 사용하는 예제입니다.
 
-먼저, Bouncy Castle 라이브러리를 프로젝트에 추가해야 합니다. Maven을 사용하는 경우 `pom.xml`에 다음 종속성을 추가할 수 있습니다:
+먼저, Bouncy Castle 라이브러리를 프로젝트에 추가해야 합니다. Maven을 사용하는 경우 {% raw %}`pom.xml`{% endraw %}에 다음 종속성을 추가할 수 있습니다:
 
-```xml
+{% raw %}```xml
 <dependency>
     <groupId>org.bouncycastle</groupId>
     <artifactId>bcprov-jdk15on</artifactId>
     <version>[적절한 버전]</version>
 </dependency>
-```
+```{% endraw %}
 
 그리고 나서, AES 암호화 및 복호화 예제를 구현합니다:
 
-```java
+{% raw %}```java
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -105,7 +103,7 @@ public class AESExample {
         System.out.println("복호화된 텍스트: " + originalText);
     }
 }
-```
+```{% endraw %}
 
 이 코드는 AES 알고리즘을 사용하여 문자열을 암호화하고 복호화합니다. 원본 문자열을 암호화하여 Base64 인코딩된 문자열로 변환하고, 이를 다시 복호화하여 원래의 문자열을 얻습니다.
 

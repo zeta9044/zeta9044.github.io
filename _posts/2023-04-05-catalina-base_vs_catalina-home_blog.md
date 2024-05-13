@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "catalina.base vs catalina.home"
-date: 2023-04-05
-tags: [catalina, base, home, vs]
-categories: blog
+tags: [base, home, catalina, vs]
 ---
 
 ## 사용자 입력:
@@ -49,9 +47,9 @@ catalina.home은 Tomcat의 설치 디렉토리를 나타내며, 기본적으로 
 4. catalina.base/conf 디렉토리에 server.xml 파일을 복사합니다. 이 파일은 새로운 인스턴스에 대한 설정을 구성합니다. 
 5. 새로운 인스턴스를 실행하려면, catalina.base 디렉토리로 이동한 다음 다음 명령어를 실행합니다:
 
-    ```
+    {% raw %}```
     $CATALINA_HOME/bin/startup.sh -Dcatalina.base=$CATALINA_BASE
-    ```
+    ```{% endraw %}
 
    이 명령어는 catalina.base 환경 변수를 설정하고, Tomcat 서버를 시작합니다. 
 

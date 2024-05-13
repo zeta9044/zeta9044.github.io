@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "해석: "Immigrant Song""
-date: 2023-12-29
-tags: [해석, Immigrant, Song]
-categories: blog
+title: "해석 - 'Immigrant Song'"
+tags: [해석, Song, Immigrant]
 ---
 
 ## 사용자 입력:
@@ -14,7 +12,7 @@ categories: blog
 
 가사는 다음과 같습니다:
 
-```
+{% raw %}```
 Ah, ah,
 We come from the land of the ice and snow,
 From the midnight sun where the hot springs flow.
@@ -28,7 +26,7 @@ The
 
 가사의 내용은 대략 다음과 같습니다:
 
-```
+```{% endraw %}
 아아,
 우리는 얼음과 눈의 땅에서 왔어요,
 밤중에 태양이 빛나고 뜨거운 물이 흐르는 곳에서요.
@@ -47,7 +45,7 @@ The
 우리는 신들의 싸움을 할 거예요!
 아아,
 발할라에서 나를 기다려!
-```
+{% raw %}```
 
 이 노래는 바이킹과 그들의 모험, 전투를 묘사하며, 고대 스칸디나비아 문화와 신화에 대한 찬미를 담고 있습니다.
 
@@ -58,7 +56,7 @@ The
 > 물론입니다. "Immigrant Song"의 영어 가사와 그에 대한 한국어 해석을 교차하여 보여드리겠습니다.
 
 영어 가사:
-```
+```{% endraw %}
 Ah, ah,
 We come from the land of the ice and snow,
 From the midnight sun where the hot springs flow.

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "EU vs EEA 차이"
-date: 2024-01-31
-tags: [EEA, 차이, EU, vs]
-categories: blog
+tags: [vs, EU, 차이, EEA]
 ---
 
 ## 사용자 입력:

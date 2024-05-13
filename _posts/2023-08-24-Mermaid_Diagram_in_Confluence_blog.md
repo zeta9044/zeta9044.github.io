@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Mermaid Diagram in Confluence"
-date: 2023-08-24
-tags: [Diagram, in, Confluence, Mermaid]
-categories: blog
+tags: [in, Diagram, Confluence, Mermaid]
 ---
 
 ## 사용자 입력:
@@ -18,13 +16,13 @@ categories: blog
 
 아래는 Mermaid를 사용하여 간단한 데이터 흐름도(Data Flow Diagram)를 작성하는 예제입니다:
 
-```mermaid
+{% raw %}```mermaid
 graph TD;
     A[시작] --> B[데이터 입력];
     B --> C[데이터 처리];
     C --> D[데이터 저장];
     C --> E[데이터 출력];
-```
+```{% endraw %}
 
 이 코드는 다음과 같은 흐름을 나타냅니다:
 

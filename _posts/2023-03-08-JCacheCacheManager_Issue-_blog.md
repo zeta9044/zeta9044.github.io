@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "JCacheCacheManager Issue."
-date: 2023-03-08
 tags: [JCacheCacheManager, Issue]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -55,7 +53,7 @@ To resolve this issue, you can try the following steps:
 
 2. IgniteCacheManager를 구현한 새로운 클래스를 작성합니다. 이 클래스는 EhcacheCacheManager를 대체하며, Ignite 캐시 인스턴스를 만드는 로직을 포함해야 합니다. 이 클래스는 org.springframework.cache.CacheManager 인터페이스를 구현해야 하며, 다음과 같은 코드로 구현될 수 있습니다.
 
-```java
+{% raw %}```java
 import org.apache.ignite.Ignite;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
@@ -120,11 +118,11 @@ public class IgniteCacheManager implements CacheManager {
         }
     }
 }
-```
+```{% endraw %}
 
 3. 이제, Spring context 구성 파일에서 EhcacheCacheManager를 IgniteCacheManager로 교체합니다. 이를 위해, 다음과 같은 코드를 추가할 수 있습니다.
 
-```java
+{% raw %}```java
 import org.apache.ignite.Ignite;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -150,7 +148,7 @@ public class AppConfig {
     }
 
 }
-```
+```{% endraw %}
 
 4. 마지막으로, 캐시 관련 구성 파일에서 Ehcache 구성을 제거하고 Ignite 구성을 추가합니다.
 
@@ -168,7 +166,7 @@ public class AppConfig {
 
 Maven을 사용하는 경우, 다음과 같이 <exclusions> 요소를 의존성 선언에 추가합니다.
 
-```xml
+{% raw %}```xml
 <dependency>
     <groupId>org.apache.ignite</groupId>
     <artifactId>ignite-core</artifactId>
@@ -180,17 +178,17 @@ Maven을 사용하는 경우, 다음과 같이 <exclusions> 요소를 의존성 
         </exclusion>
     </exclusions>
 </dependency>
-```
+```{% endraw %}
 
 Gradle을 사용하는 경우, 다음과 같이 의존성 제외를 설정합니다.
 
-```gradle
+{% raw %}```gradle
 dependencies {
     implementation('org.apache.ignite:ignite-core:${ignite.version}') {
         exclude group: 'javax.cache', module: 'cache-api'
     }
 }
-```
+```{% endraw %}
 
 3. 변경 사항을 저장하고 빌드를 다시 실행합니다.
 
@@ -204,7 +202,7 @@ dependencies {
 
 1. 먼저, Spring context 구성 파일에서 JCacheCacheManager를 정의하고 ehcache.xml 파일을 사용하여 EhcacheCacheManager를 대체하는 코드를 찾습니다. 이 코드를 다음과 같이 수정하여 'javax.cache.jcache.provider' 속성을 추가합니다.
 
-```java
+{% raw %}```java
 import javax.cache.Caching;
 import javax.cache.spi.CachingProvider;
 import org.springframework.cache.CacheManager;
@@ -236,7 +234,7 @@ public class AppConfig {
     // ...
 
 }
-```
+```{% endraw %}
 
 위 코드에서, 'javax.cache.jcache.provider' 속성은 CachingProvider를 생성할 때 지정됩니다. 이 예에서는 ehcache.jsr107.EhcacheCachingProvider 클래스가 사용됩니다.
 
@@ -252,7 +250,7 @@ public class AppConfig {
 
 Maven을 사용하는 경우, 다음과 같이 Ehcache JSR-107 API 모듈을 추가할 수 있습니다.
 
-```xml
+{% raw %}```xml
 <dependency>
     <groupId>org.ehcache</groupId>
     <artifactId>ehcache</artifactId>
@@ -269,18 +267,18 @@ Maven을 사용하는 경우, 다음과 같이 Ehcache JSR-107 API 모듈을 추
     <artifactId>ehcache-jcache</artifactId>
     <version>${ehcache.version}</version>
 </dependency>
-```
+```{% endraw %}
 
 Gradle을 사용하는 경우, 다음과 같이 Ehcache JSR-107 API 모듈을 추가할 수 있습니다.
 
-```gradle
+{% raw %}```gradle
 dependencies {
     implementation('org.ehcache:ehcache:${ehcache.version}') {
         exclude group: 'javax.cache', module: 'cache-api'
     }
     implementation 'org.ehcache:ehcache-jcache:${ehcache.version}'
 }
-```
+```{% endraw %}
 
 위 코드에서 ${ehcache.version} 부분은 사용하는 Ehcache 버전에 맞게 수정해야 합니다.
 
@@ -296,7 +294,7 @@ dependencies {
 
 1. 먼저, Spring context에서 JCacheCacheManager 빈이 올바르게 정의되어 있는지 확인합니다. JCacheCacheManager는 JSR-107 캐시 관리자를 구현하는 데 사용됩니다. JCacheCacheManager 빈이 정의되지 않았거나 구성되지 않았을 수 있으므로, 이 경우 해당 빈을 정의해야 합니다.
 
-```java
+{% raw %}```java
 import javax.cache.Caching;
 import javax.cache.spi.CachingProvider;
 import org.springframework.cache.jcache.JCacheCacheManager;
@@ -316,13 +314,13 @@ public class AppConfig {
     // ...
     
 }
-```
+```{% endraw %}
 
 위 코드에서 JCacheCacheManager 빈을 정의하고, CachingProvider를 사용하여 JSR-107 캐시 관리자를 가져와 빈에 주입합니다.
 
 2. 문제가 계속되면, JCacheCacheManager를 사용하는 다른 빈에서 충돌이 발생할 수 있습니다. 이 경우, JCacheCacheManager 빈을 'primary'으로 설정하여 해당 빈이 다른 빈들보다 우선순위를 가지도록 해야 합니다.
 
-```java
+{% raw %}```java
 import javax.cache.Caching;
 import javax.cache.spi.CachingProvider;
 import org.springframework.cache.jcache.JCacheCacheManager;
@@ -344,7 +342,7 @@ public class AppConfig {
     // ...
     
 }
-```
+```{% endraw %}
 
 위 코드에서 @Primary 애노테이션을 사용하여 JCacheCacheManager 빈이 우선적으로 선택되도록 설정합니다.
 
@@ -363,29 +361,29 @@ public class AppConfig {
 
 Maven을 사용하는 경우, 다음과 같이 의존성을 추가합니다.
 
-```xml
+{% raw %}```xml
 <dependency>
     <groupId>javax.cache</groupId>
     <artifactId>cache-api</artifactId>
     <version>${jsr107.version}</version>
 </dependency>
-```
+```{% endraw %}
 
 Gradle을 사용하는 경우, 다음과 같이 의존성을 추가합니다.
 
-```gradle
+{% raw %}```gradle
 dependencies {
     implementation 'javax.cache:cache-api:${jsr107.version}'
 }
-```
+```{% endraw %}
 
 위 코드에서 ${jsr107.version} 부분은 사용하는 JSR-107 API 버전에 맞게 수정해야 합니다.
 
 만약 JSR-107 API 라이브러리가 제대로 설치되어 있지만 CachingProvider 클래스를 찾을 수 없다면, 다른 라이브러리와 충돌이 발생할 가능성이 있습니다. 이 경우, 프로젝트의 의존성 트리를 검토하여 충돌이 발생하는 라이브러리를 찾아야 합니다. 이를 위해 Maven을 사용한다면, 다음 명령어를 실행할 수 있습니다.
 
-```bash
+{% raw %}```bash
 mvn dependency:tree -Dverbose -Dincludes=javax.cache:jcache-api
-```
+```{% endraw %}
 
 위 명령어는 jcache-api 라이브러리와 관련된 모든 의존성을 출력하며, 이를 사용하여 충돌이 발생하는 라이브러리를 찾을 수 있습니다.
 
@@ -398,12 +396,12 @@ JSR-107 API 라이브러리가 제대로 설치되어 있지만 CachingProvider 
 ## ChatGPT 응답:
 > Gradle에서는 의존성 트리를 출력하는 명령어가 존재하지 않지만, 다음과 같은 방법으로 의존성 트리를 확인할 수 있습니다.
 
-1. Gradle 프로젝트 디렉토리에서 `./gradlew dependencies` 명령어를 실행합니다.
-2. 출력된 결과 중 `compileClasspath` 또는 `runtimeClasspath` 섹션에서 `javax.cache:jcache-api` 라이브러리가 어떻게 추가되었는지 확인합니다.
-3. 또는 Gradle 프로젝트 디렉토리에서 `./gradlew <task> --scan` 명령어를 실행합니다. 이 명령어는 Gradle 빌드를 실행하면서 빌드 정보를 Gradle Scan 서비스에 업로드합니다.
-4. Gradle Scan 서비스에서 빌드 정보를 검색하여 `javax.cache:jcache-api` 라이브러리가 어떻게 추가되었는지 확인할 수 있습니다.
+1. Gradle 프로젝트 디렉토리에서 {% raw %}`./gradlew dependencies`{% endraw %} 명령어를 실행합니다.
+2. 출력된 결과 중 {% raw %}`compileClasspath`{% endraw %} 또는 {% raw %}`runtimeClasspath`{% endraw %} 섹션에서 {% raw %}`javax.cache:jcache-api`{% endraw %} 라이브러리가 어떻게 추가되었는지 확인합니다.
+3. 또는 Gradle 프로젝트 디렉토리에서 {% raw %}`./gradlew <task> --scan`{% endraw %} 명령어를 실행합니다. 이 명령어는 Gradle 빌드를 실행하면서 빌드 정보를 Gradle Scan 서비스에 업로드합니다.
+4. Gradle Scan 서비스에서 빌드 정보를 검색하여 {% raw %}`javax.cache:jcache-api`{% endraw %} 라이브러리가 어떻게 추가되었는지 확인할 수 있습니다.
 
-의존성 트리를 확인하여 다른 라이브러리와 충돌이 발생하는 경우, Gradle에서는 `./gradlew dependencies` 명령어를 실행한 후 출력된 결과에서 충돌이 발생하는 라이브러리를 찾아 해당 라이브러리를 제외하거나 다른 버전으로 교체할 수 있습니다.
+의존성 트리를 확인하여 다른 라이브러리와 충돌이 발생하는 경우, Gradle에서는 {% raw %}`./gradlew dependencies`{% endraw %} 명령어를 실행한 후 출력된 결과에서 충돌이 발생하는 라이브러리를 찾아 해당 라이브러리를 제외하거나 다른 버전으로 교체할 수 있습니다.
 
 ## 사용자 입력:
 > javax.cache:cache-api는 있지만, javax.cache:jcache-api 없는데
@@ -413,13 +411,13 @@ JSR-107 API 라이브러리가 제대로 설치되어 있지만 CachingProvider 
 
 JSR-107 API의 정식 이름은 'javax.cache:cache-api'이며, jcache-api는 Ehcache에서 사용되는 기술 이름입니다. 따라서 Gradle에서는 다음과 같이 'javax.cache:cache-api' 의존성을 확인할 수 있습니다.
 
-```gradle
+{% raw %}```gradle
 dependencies {
     implementation 'javax.cache:cache-api:<version>'
 }
-```
+```{% endraw %}
 
-위 코드에서 `<version>` 부분은 사용하는 JSR-107 API 버전에 맞게 수정해야 합니다. 
+위 코드에서 {% raw %}`<version>`{% endraw %} 부분은 사용하는 JSR-107 API 버전에 맞게 수정해야 합니다. 
 
 위의 Gradle 의존성 설정으로 JSR-107 API 라이브러리를 추가한 후, CachingProvider 클래스를 찾을 수 없는 경우, 다른 라이브러리와 충돌이 발생한 것일 수 있습니다. 이 경우, 프로젝트의 의존성 트리를 검토하여 충돌이 발생하는 라이브러리를 찾아 제거해야 합니다.
 
@@ -431,27 +429,27 @@ dependencies {
 
 1. 먼저, Apache Ignite의 Spring Boot Starter를 의존성으로 추가해야 합니다. Maven을 사용하는 경우, 다음과 같이 의존성을 추가합니다.
 
-```xml
+{% raw %}```xml
 <dependency>
     <groupId>org.apache.ignite</groupId>
     <artifactId>ignite-spring-boot-starter</artifactId>
     <version>${ignite.version}</version>
 </dependency>
-```
+```{% endraw %}
 
 Gradle을 사용하는 경우, 다음과 같이 의존성을 추가합니다.
 
-```gradle
+{% raw %}```gradle
 dependencies {
     implementation 'org.apache.ignite:ignite-spring-boot-starter:${ignite.version}'
 }
-```
+```{% endraw %}
 
 위 코드에서 ${ignite.version} 부분은 사용하는 Apache Ignite 버전에 맞게 수정해야 합니다.
 
 2. 다음으로, Spring Boot 구성 클래스에서 IgniteConfigurer를 구현합니다. 이를 통해 Ignite 인스턴스를 구성하고 Apache Ignite CacheManager를 Spring CacheManager로 등록할 수 있습니다.
 
-```java
+{% raw %}```java
 import org.apache.ignite.configuration.CacheConfiguration;
 import org.apache.ignite.configuration.IgniteConfiguration;
 import org.apache.ignite.springdata22.repository.config.EnableIgniteRepositories;
@@ -505,7 +503,7 @@ public class AppConfig implements IgniteConfigurer {
     }
 
 }
-```
+```{% endraw %}
 
 위 코드에서 IgniteConfigurer 인터페이스를 구현하는 igniteConfiguration() 메소드에서는 Ignite 구성을 정의할 수 있습니다. 위 예제에서는 "myCache"라는 이름의 캐시를 만들고 만료 정책을 설정하였습니다. 만료 정책은 캐시 항목이 생성된 시간으로부터 ttlSeconds(초) 후에 만료됩니다. 
 
@@ -517,7 +515,7 @@ cacheManager() 메소드에서는 Ignite CacheManager를 Spring CacheManager로 
 ## ChatGPT 응답:
 > 에서는 JCacheCacheManagerFactoryBean을 생성하여 Ignite 캐시를 로딩하는 방법을 정의하고 있습니다. 이 예제에서는 "classpath:cache/ignite.xml" 경로에 위치한 Ignite 캐시 설정 파일을 로딩하도록 설정하였습니다. Ignite 캐시 설정 파일은 다음과 같이 정의될 수 있습니다.
 
-```xml
+{% raw %}```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://www.springframework.org/schema/cache"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -527,13 +525,13 @@ cacheManager() 메소드에서는 Ignite CacheManager를 Spring CacheManager로 
         <value-type>java.lang.String</value-type>
     </cache>
 </config>
-```
+```{% endraw %}
 
 위 설정 파일에서는 "myCache"라는 이름의 Ignite 캐시를 정의하고 있습니다. 이 캐시는 Long 키와 String 값을 저장합니다.
 
 3. 마지막으로, 캐시를 사용하는 코드에서 @Cacheable 어노테이션을 사용하여 캐시를 적용할 수 있습니다.
 
-```java
+{% raw %}```java
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -547,7 +545,7 @@ public class MyService {
     }
 
 }
-```
+```{% endraw %}
 
 위 코드에서는 @Cacheable 어노테이션을 사용하여 "myCache" 캐시를 적용하였습니다. 이 캐시는 Long 값을 키로 사용하며, getById(Long id) 메소드가 호출될 때 마다 캐시에서 값을 찾습니다. 캐시에서 값을 찾을 수 없는 경우, 메소드의 로직을 실행하여 결과를 캐시에 저장합니다.
 
@@ -557,11 +555,11 @@ public class MyService {
 > ignite로 @Cacheable(value = "FLOW_CACHE", keyGenerator = "tableFlowKeyGenerator") 만들 수 있나?
 
 ## ChatGPT 응답:
-> 네, Apache Ignite를 사용하여 `@Cacheable` 어노테이션을 적용할 수 있습니다. 
+> 네, Apache Ignite를 사용하여 {% raw %}`@Cacheable`{% endraw %} 어노테이션을 적용할 수 있습니다. 
 
-아래 예제는 `@Cacheable` 어노테이션을 사용하여, `tableFlowKeyGenerator` 라는 custom key generator를 사용하는 `FLOW_CACHE` 캐시를 만드는 방법입니다. 
+아래 예제는 {% raw %}`@Cacheable`{% endraw %} 어노테이션을 사용하여, {% raw %}`tableFlowKeyGenerator`{% endraw %} 라는 custom key generator를 사용하는 {% raw %}`FLOW_CACHE`{% endraw %} 캐시를 만드는 방법입니다. 
 
-```java
+{% raw %}``{% endraw %}`java
 import javax.cache.Cache;
 import javax.cache.Cache.Entry;
 import javax.cache.CacheManager;

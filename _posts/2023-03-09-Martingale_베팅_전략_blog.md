@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Martingale 베팅 전략"
-date: 2023-03-09
-tags: [베팅, Martingale, 전략]
-categories: blog
+tags: [베팅, 전략, Martingale]
 ---
 
 ## 사용자 입력:

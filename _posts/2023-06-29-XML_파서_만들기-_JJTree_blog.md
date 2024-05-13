@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "XML 파서 만들기: JJTree"
-date: 2023-06-29
-tags: [만들기, 파서, JJTree, XML]
-categories: blog
+title: "XML 파서 만들기 - JJTree"
+tags: [만들기, XML, 파서, JJTree]
 ---
 
 ## 사용자 입력:
@@ -14,7 +12,7 @@ categories: blog
 
 다음은 간단한 XML 문법에 대한 JJTree 파일의 예시입니다. 이 예시는 XML 요소, 속성, 텍스트 노드를 구문 분석하는 데 사용될 수 있습니다.
 
-```
+{% raw %}```
 options {
   NODE_DEFAULT_VOID = true;
 }
@@ -58,19 +56,19 @@ void Attribute() #Attribute : {}
 {
   < TEXT > < EQUALS > < QUOTE > < TEXT > < QUOTE >
 }
-```
+```{% endraw %}
 
-위의 예시는 간단한 XML 문법을 처리하기 위한 JJTree 파일입니다. 예시에서는 XML 요소를 처리하기 위한 `Element()` 규칙과 속성을 처리하기 위한 `Attribute()` 규칙이 정의되어 있습니다.
+위의 예시는 간단한 XML 문법을 처리하기 위한 JJTree 파일입니다. 예시에서는 XML 요소를 처리하기 위한 {% raw %}`Element()`{% endraw %} 규칙과 속성을 처리하기 위한 {% raw %}`Attribute()`{% endraw %} 규칙이 정의되어 있습니다.
 
-이제 이 파일을 `.jj` 확장자로 저장하고 JavaCC를 사용하여 파서 코드를 생성할 수 있습니다. JavaCC를 설치하고 시스템의 환경 변수에 추가한 후, 다음 명령을 사용하여 파서 코드를 생성합니다.
+이제 이 파일을 {% raw %}`.jj`{% endraw %} 확장자로 저장하고 JavaCC를 사용하여 파서 코드를 생성할 수 있습니다. JavaCC를 설치하고 시스템의 환경 변수에 추가한 후, 다음 명령을 사용하여 파서 코드를 생성합니다.
 
-```
+{% raw %}```
 javacc YourXmlParser.jj
-```
+```{% endraw %}
 
-위 명령을 실행하면 `YourXmlParser.java` 파일이 생성됩니다. 이 파일에는 JJTree 파일에서 정의한 규칙에 따라 XML 문서를 구문 분석할 수 있는 파서가 포함되어 있습니다.
+위 명령을 실행하면 {% raw %}`YourXmlParser.java`{% endraw %} 파일이 생성됩니다. 이 파일에는 JJTree 파일에서 정의한 규칙에 따라 XML 문서를 구문 분석할 수 있는 파서가 포함되어 있습니다.
 
-이제 `YourXmlParser.java` 파일을 프로젝트에 추가하고, `main` 메서드를 사용하여 XML 문서를 파싱하고 처리하는 코드를 작성할 수 있습니다. 파서를 사용하는 방법은 `YourXmlParser.java` 파일의 주석 부분에 설명되어 있습니다.
+이제 {% raw %}`YourXmlParser.java`{% endraw %} 파일을 프로젝트에 추가하고, {% raw %}`main`{% endraw %} 메서드를 사용하여 XML 문서를 파싱하고 처리하는 코드를 작성할 수 있습니다. 파서를 사용하는 방법은 {% raw %}`YourXmlParser.java`{% endraw %} 파일의 주석 부분에 설명되어 있습니다.
 
 이러한 절차를 따라 진행하면 JavaCC 및 JJTree를 사용하여 XML 파서를 만들 수 있습니다. 하지만 이 예시는 매우 단순한 XML 문법을 다루기 때문에 실제로는 더 복잡한 문법을 처리해야 할 수도 있습니다.
 
@@ -83,7 +81,7 @@ javacc YourXmlParser.jj
 ## ChatGPT 응답:
 > 복잡한 XML 문법을 다루기 위해 확장된 JJTree(JJT) 파일을 사용할 수 있습니다. 다음은 좀 더 복잡한 XML 문법을 다루는 예시입니다.
 
-```jjt
+{% raw %}```jjt
 options {
   NODE_DEFAULT_VOID = true;
 }
@@ -189,9 +187,9 @@ TOKEN : {
   < HEX_DIGITS : (["0"-"9", "A"-"F", "a"-"f"])+ >
 | < DEC_DIGITS : (["0"-"9"])+ >
 }
-```
+```{% endraw %}
 
-위의 예시는 더 복잡한 XML 문법을 다루는 JJTree 파일입니다. 이 예시에서는 Prolog, Misc 요소(주석, 처리 명령, 공백)를 처리하기 위한 규칙이 추가되었으며, CharData 요소(텍스트, 참조, CDATA, 처리 명령, 주석)를 처리하는 `CharData()` 규칙이 추가되었습니다.
+위의 예시는 더 복잡한 XML 문법을 다루는 JJTree 파일입니다. 이 예시에서는 Prolog, Misc 요소(주석, 처리 명령, 공백)를 처리하기 위한 규칙이 추가되었으며, CharData 요소(텍스트, 참조, CDATA, 처리 명령, 주석)를 처리하는 {% raw %}`CharData()`{% endraw %} 규칙이 추가되었습니다.
 
 이와 같은 복잡한 XML 문법을 다루는 JJTree 파일을 사용하여 JavaCC를 실행하
 
@@ -206,7 +204,7 @@ TOKEN : {
 ## ChatGPT 응답:
 > 죄송합니다. 앞서 제공한 예시 JJTree 파일에 오류가 있었습니다. 이제 올바른 형식의 JJTree 파일을 제공하겠습니다. 아래는 더 복잡한 XML 문법을 다루는 JJTree 파일의 예시입니다.
 
-```jjt
+{% raw %}```jjt
 options {
   NODE_DEFAULT_VOID = true;
 }
@@ -321,7 +319,7 @@ TOKEN : {
   < HEX_DIGITS : (["0"-"9", "A"-"F", "a"-"f"])+ >
 | < DEC_DIGITS : (["0"-"9"])+ >
 }
-```
+```{% endraw %}
 
 위의 예시는 더 복잡한 XML 문법을 다루기 위한 수정된 JJTree 파일입니다. 이 예시에서는 Prolog, StartTag, EndTag, Content, CharData, Attribute, Misc 등의 규칙이 정의되어 있습니다.
 
@@ -338,7 +336,7 @@ TOKEN : {
 ## ChatGPT 응답:
 > 물론입니다! XML용 JJ 파일을 기반으로 XML용 JJTree(JJT) 파일을 생성해 드릴 수 있습니다. 아래에 XML용 JJ 파일의 예시를 제공하겠습니다.
 
-```jj
+{% raw %}```jj
 PARSER_BEGIN(XmlParser)
 
 public class XmlParser {
@@ -411,7 +409,7 @@ void Comment() #Comment :
   "<!--" (~"-->" ~["-"])* "-->"
 }
 
-```
+```{% endraw %}
 
 이 XML용 JJ 파일을 사용하여 JavaCC를 실행하면 XML 파서 코드가 생성됩니다. 이 코드를 사용하여 XML 문서를 파싱하고 원하는 작업을 수행할 수 있습니다.
 

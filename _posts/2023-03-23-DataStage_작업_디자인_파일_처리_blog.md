@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "DataStage 작업 디자인 파일 처리"
-date: 2023-03-23
-tags: [처리, 파일, 디자인, DataStage, 작업]
-categories: blog
+tags: [처리, DataStage, 파일, 작업, 디자인]
 ---
 
 ## 사용자 입력:

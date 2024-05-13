@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "IntelliJ 클래스패스 문제 해결"
-date: 2023-12-28
-tags: [IntelliJ, 클래스, 해결, 패스, 문제]
-categories: blog
+tags: [패스, 문제, 해결, IntelliJ, 클래스]
 ---
 
 ## 사용자 입력:
@@ -37,11 +35,11 @@ categories: blog
 > 클래스 로더로 찍어보니, 프로젝트의 gradle dependency로 이루어지는데,   modify classpath에서 분명 다른 클래스경로를 지정했는데, 실제 클래스로드를 찍으면 설정한 클래스가 안나오네.
 
 ## ChatGPT 응답:
-> Gradle 의존성을 사용하는 프로젝트에서 `Modify Classpath`를 통해 다른 클래스 경로를 지정했음에도 불구하고, 실제로 클래스가 로드되지 않는 문제는 몇 가지 원인이 있을 수 있습니다. 이를 해결하기 위해 다음 단계를 시도해 볼 수 있습니다:
+> Gradle 의존성을 사용하는 프로젝트에서 {% raw %}`Modify Classpath`{% endraw %}를 통해 다른 클래스 경로를 지정했음에도 불구하고, 실제로 클래스가 로드되지 않는 문제는 몇 가지 원인이 있을 수 있습니다. 이를 해결하기 위해 다음 단계를 시도해 볼 수 있습니다:
 
 1. **Gradle Sync 확인**: IntelliJ IDEA에서 Gradle 프로젝트의 변경 사항을 적용하기 위해서는 Gradle Sync를 실행해야 합니다. 이는 IntelliJ가 Gradle 설정을 인식하고, 의존성을 올바르게 로드하도록 합니다. 'Gradle' 탭에서 'Refresh' 버튼을 클릭하거나, 'File' 메뉴에서 'Sync Project with Gradle Files'를 선택하여 동기화를 진행해보세요.
 
-2. **의존성 설정 확인**: Gradle의 `build.gradle` 파일을 확인하여 의존성이 올바르게 설정되어 있는지 검토하세요. 때때로, 클래스패스에 필요한 의존성이 누락되거나 잘못된 버전이 지정될 수 있습니다.
+2. **의존성 설정 확인**: Gradle의 {% raw %}`build.gradle`{% endraw %} 파일을 확인하여 의존성이 올바르게 설정되어 있는지 검토하세요. 때때로, 클래스패스에 필요한 의존성이 누락되거나 잘못된 버전이 지정될 수 있습니다.
 
 3. **커스텀 클래스 로더**: IntelliJ의 'Modify Classpath' 옵션을 사용할 때, 커스텀 클래스 로더가 올바르게 설정되어 있는지 확인해야 합니다. Gradle과 연동되어 있는 경우, Gradle의 설정이 우선 적용될 수 있으므로, Gradle 설정 내에서도 해당 클래스 경로가 반영되도록 해야 합니다.
 
@@ -53,5 +51,5 @@ categories: blog
 
 7. **Gradle Wrapper 버전**: 프로젝트의 Gradle Wrapper 버전이 최신인지 확인하세요. 때때로 이전 버전의 Gradle에서는 호환성 문제가 발생할 수 있습니다.
 
-이러한 절차를 따라 문제를 해결할 수 있기를 바랍니다. 여전히 문제가 해결되지 않는 경우, 오류 메시지나 로그, `build.gradle` 파일의 구체적인 내용을 추가적으로 검토해야 할 수도 있습니다.
+이러한 절차를 따라 문제를 해결할 수 있기를 바랍니다. 여전히 문제가 해결되지 않는 경우, 오류 메시지나 로그, {% raw %}`build.gradle`{% endraw %} 파일의 구체적인 내용을 추가적으로 검토해야 할 수도 있습니다.
 

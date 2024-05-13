@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "자바 프로그램 select 처리 속도 개선 방법"
-date: 2023-04-27
-tags: [프로그램, 방법, 처리, 속도, 자바, 개선, select]
-categories: blog
+tags: [자바, 처리, 프로그램, 속도, 개선, select, 방법]
 ---
 
 ## 사용자 입력:
@@ -22,13 +20,13 @@ categories: blog
 
 1. 데이터를 일정 단위로 나누어 처리하려면, 우선 LIMIT와 OFFSET을 사용하여 쿼리를 나눌 수 있습니다.
 예시: 
-```sql
+{% raw %}```sql
 INSERT INTO target_table (column1, column2, ...)
 SELECT column1, column2, ...
 FROM source_table
 WHERE some_condition
 LIMIT 1000 OFFSET 0;
-```
+```{% endraw %}
 이후, OFFSET 값을 증가시키면서 나머지 데이터를 삽입하십시오.
 
 2. Java 프로그램에서는 PreparedStatement를 사용하여 반복적으로 이 쿼리를 실행할 수 있습니다.
@@ -45,7 +43,7 @@ LIMIT 1000 OFFSET 0;
 
 예를 들어, PostgreSQL에서 파라미터를 받는 함수를 생성하는 방법은 다음과 같습니다:
 
-```sql
+{% raw %}```sql
 CREATE OR REPLACE FUNCTION filtered_view(param1 data_type, param2 data_type, ...)
 RETURNS TABLE (column1 data_type, column2 data_type, ...)
 AS $$
@@ -56,13 +54,13 @@ BEGIN
   WHERE some_condition AND column1 = param1 AND column2 = param2 ...;
 END;
 $$ LANGUAGE plpgsql;
-```
+```{% endraw %}
 
 이후, 함수를 호출하여 파라미터를 전달하고 결과를 받을 수 있습니다:
 
-```sql
+{% raw %}```sql
 SELECT * FROM filtered_view(value1, value2, ...);
-```
+```{% endraw %}
 
 각 데이터베이스 관리 시스템(DBMS)마다 함수 및 저장 프로시저 생성 방법이 다를 수 있으므로, 사용 중인 DBMS의 공식 문서를 참조하여 작성하십시오.
 
@@ -70,18 +68,18 @@ SELECT * FROM filtered_view(value1, value2, ...);
 > 네가 만든 filtered_view(value1, value2, ...)는 테이블이나 뷰처럼 조인이 안되지?
 
 ## ChatGPT 응답:
-> 맞습니다. `filtered_view(value1, value2, ...)`와 같은 함수를 사용할 때는 일반 테이블이나 뷰와 동일하게 JOIN 연산을 수행할 수 없습니다. 그러나 결과를 얻기 위해 함수를 FROM 절에 포함시켜 조인을 수행할 수 있습니다.
+> 맞습니다. {% raw %}`filtered_view(value1, value2, ...)`{% endraw %}와 같은 함수를 사용할 때는 일반 테이블이나 뷰와 동일하게 JOIN 연산을 수행할 수 없습니다. 그러나 결과를 얻기 위해 함수를 FROM 절에 포함시켜 조인을 수행할 수 있습니다.
 
 예를 들어, 다음과 같이 함수를 FROM 절에 포함시켜서 다른 테이블과 JOIN을 수행할 수 있습니다:
 
-```sql
+{% raw %}```sql
 SELECT t1.*, t2.*
 FROM filtered_view(value1, value2, ...) AS t1
 JOIN another_table AS t2
 ON t1.some_column = t2.some_column;
-```
+```{% endraw %}
 
-이렇게 하면, `filtered_view` 함수의 결과와 `another_table` 테이블을 조인할 수 있습니다. 이 방법은 대부분의 데이터베이스 관리 시스템(DBMS)에서 작동하지만, 사용 중인 DBMS의 공식 문서를 참조하여 작성하는 것이 좋습니다.
+이렇게 하면, {% raw %}`filtered_view`{% endraw %} 함수의 결과와 {% raw %}`another_table`{% endraw %} 테이블을 조인할 수 있습니다. 이 방법은 대부분의 데이터베이스 관리 시스템(DBMS)에서 작동하지만, 사용 중인 DBMS의 공식 문서를 참조하여 작성하는 것이 좋습니다.
 
 ## 사용자 입력:
 > with m as (select ...)
@@ -92,17 +90,17 @@ ON t1.some_column = t2.some_column;
 이렇게도 쓸 수 있나?
 
 ## ChatGPT 응답:
-> 제공해주신 예제 코드는 아래와 같이 수정해야 합니다. WITH 절(CTE, Common Table Expression)을 사용하여 `m`을 정의하고, 이를 CROSS JOIN하여 `filtered_view` 함수에 파라미터를 전달합니다.
+> 제공해주신 예제 코드는 아래와 같이 수정해야 합니다. WITH 절(CTE, Common Table Expression)을 사용하여 {% raw %}`m`{% endraw %}을 정의하고, 이를 CROSS JOIN하여 {% raw %}`filtered_view`{% endraw %} 함수에 파라미터를 전달합니다.
 
-```sql
+{% raw %}```sql
 WITH m AS (SELECT value1, value2, ... FROM some_table WHERE some_conditions)
 SELECT t1.*, t2.*
 FROM m, filtered_view(m.value1, m.value2, ...) AS t1
 JOIN another_table AS t2
 ON t1.some_column = t2.some_column;
-```
+```{% endraw %}
 
-이렇게 작성하면, `m` CTE를 사용하여 `filtered_view` 함수의 파라미터를 전달하고, 결과를 `another_table`과 조인할 수 있습니다. 그러나 이 경우 `m`이 단일 행을 반환해야합니다. 여러 행이 반환되면 문제가 발생할 수 있습니다.
+이렇게 작성하면, {% raw %}`m`{% endraw %} CTE를 사용하여 {% raw %}`filtered_view`{% endraw %} 함수의 파라미터를 전달하고, 결과를 {% raw %}`another_table`{% endraw %}과 조인할 수 있습니다. 그러나 이 경우 {% raw %}`m`{% endraw %}이 단일 행을 반환해야합니다. 여러 행이 반환되면 문제가 발생할 수 있습니다.
 
 또한, 이렇게 작성된 쿼리는 일부 데이터베이스 관리 시스템(DBMS)에서 작동하지 않을 수 있으므로 사용 중인 DBMS의 공식 문서를 참조하여 작성하는 것이 좋습니다.
 
@@ -110,20 +108,20 @@ ON t1.some_column = t2.some_column;
 > 너의 말은 WITH m AS (SELECT value1, value2, ... FROM some_table WHERE some_conditions) 결과가 단일행이어야 한다는 건가?
 
 ## ChatGPT 응답:
-> 네, 맞습니다. 제안된 쿼리에서 `filtered_view` 함수는 `m.value1`, `m.value2`와 같이 각각 하나의 파라미터 값을 필요로 합니다. 따라서 `WITH m AS (SELECT value1, value2, ... FROM some_table WHERE some_conditions)`에서 `m`이 단일 행을 반환해야 합니다.
+> 네, 맞습니다. 제안된 쿼리에서 {% raw %}`filtered_view`{% endraw %} 함수는 {% raw %}`m.value1`{% endraw %}, {% raw %}`m.value2`{% endraw %}와 같이 각각 하나의 파라미터 값을 필요로 합니다. 따라서 {% raw %}`WITH m AS (SELECT value1, value2, ... FROM some_table WHERE some_conditions)`{% endraw %}에서 {% raw %}`m`{% endraw %}이 단일 행을 반환해야 합니다.
 
-만약 `m`이 여러 행을 반환한다면, 쿼리가 예상대로 작동하지 않을 수 있습니다. 이 경우, 여러 행에 대한 처리 방법을 고려해야 합니다.
+만약 {% raw %}`m`{% endraw %}이 여러 행을 반환한다면, 쿼리가 예상대로 작동하지 않을 수 있습니다. 이 경우, 여러 행에 대한 처리 방법을 고려해야 합니다.
 
-예를 들어, 여러 행에 대해 `filtered_view` 함수를 호출하려면, 다음과 같이 조인을 사용하여 결과를 얻을 수 있습니다:
+예를 들어, 여러 행에 대해 {% raw %}`filtered_view`{% endraw %} 함수를 호출하려면, 다음과 같이 조인을 사용하여 결과를 얻을 수 있습니다:
 
-```sql
+{% raw %}```sql
 WITH m AS (SELECT value1, value2, ... FROM some_table WHERE some_conditions)
 SELECT t1.*, t2.*
 FROM m
 CROSS JOIN LATERAL filtered_view(m.value1, m.value2, ...) AS t1
 JOIN another_table AS t2
 ON t1.some_column = t2.some_column;
-```
+```{% endraw %}
 
 위 쿼리는 PostgreSQL에서 작동하며, 다른 데이터베이스 관리 시스템(DBMS)에서는 비슷한 구문을 사용하여 구현할 수 있습니다. 사용 중인 DBMS의 공식 문서를 참조하여 작성하는 것이 좋습니다.
 
@@ -131,22 +129,22 @@ ON t1.some_column = t2.some_column;
 > 위 쿼리를 오라클로 바꿔줘
 
 ## ChatGPT 응답:
-> 오라클 데이터베이스에서는 `CROSS JOIN LATERAL` 대신 `CROSS APPLY`를 사용할 수 있습니다. 아래의 쿼리는 오라클 데이터베이스에 맞게 수정한 예제입니다.
+> 오라클 데이터베이스에서는 {% raw %}`CROSS JOIN LATERAL`{% endraw %} 대신 {% raw %}`CROSS APPLY`{% endraw %}를 사용할 수 있습니다. 아래의 쿼리는 오라클 데이터베이스에 맞게 수정한 예제입니다.
 
-```sql
+{% raw %}```sql
 WITH m AS (SELECT value1, value2, ... FROM some_table WHERE some_conditions)
 SELECT t1.*, t2.*
 FROM m
 CROSS APPLY (SELECT * FROM TABLE(filtered_view(m.value1, m.value2, ...))) t1
 JOIN another_table t2
 ON t1.some_column = t2.some_column;
-```
+```{% endraw %}
 
-이 쿼리에서는 `CROSS APPLY`를 사용하여 `m`과 `filtered_view` 함수를 조인하고 있습니다. 그리고 `TABLE` 키워드를 사용하여 `filtered_view` 함수의 결과를 테이블로 변환합니다.
+이 쿼리에서는 {% raw %}`CROSS APPLY`{% endraw %}를 사용하여 {% raw %}`m`{% endraw %}과 {% raw %}`filtered_view`{% endraw %} 함수를 조인하고 있습니다. 그리고 {% raw %}`TABLE`{% endraw %} 키워드를 사용하여 {% raw %}`filtered_view`{% endraw %} 함수의 결과를 테이블로 변환합니다.
 
-참고로, 오라클에서는 `filtered_view` 함수가 테이블 함수로 정의되어 있어야 합니다. 테이블 함수는 결과를 테이블로 반환하는 사용자 정의 함수입니다. 테이블 함수를 생성하려면, 함수 정의에서 `PIPELINED` 키워드를 사용하십시오.
+참고로, 오라클에서는 {% raw %}`filtered_view`{% endraw %} 함수가 테이블 함수로 정의되어 있어야 합니다. 테이블 함수는 결과를 테이블로 반환하는 사용자 정의 함수입니다. 테이블 함수를 생성하려면, 함수 정의에서 {% raw %}`PIPELINED`{% endraw %} 키워드를 사용하십시오.
 
-```sql
+{% raw %}```sql
 CREATE OR REPLACE FUNCTION filtered_view(param1 data_type, param2 data_type, ...)
   RETURN result_table_type PIPELINED
   AS
@@ -160,9 +158,9 @@ BEGIN
   END LOOP;
 END;
 /
-```
+```{% endraw %}
 
-위 예제에서 `result_table_type`은 `filtered_view` 함수가 반환할 테이블의 데이터 형식입니다. 이 형식은 `CREATE TYPE` 명령을 사용하여 미리 정의해야 합니다.
+위 예제에서 {% raw %}`result_table_type`{% endraw %}은 {% raw %}`filtered_view`{% endraw %} 함수가 반환할 테이블의 데이터 형식입니다. 이 형식은 {% raw %}`CREATE TYPE`{% endraw %} 명령을 사용하여 미리 정의해야 합니다.
 
 데이터베이스 관리 시스템마다 구문이 다를 수 있으므로, 사용 중인 DBMS의 공식 문서를 참조하여 작성하십시오.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Tbilisi, Georgia's capital."
-date: 2023-08-11
-tags: [Georgia, s, Tbilisi, capital]
-categories: blog
+tags: [s, Tbilisi, Georgia, capital]
 ---
 
 ## 사용자 입력:

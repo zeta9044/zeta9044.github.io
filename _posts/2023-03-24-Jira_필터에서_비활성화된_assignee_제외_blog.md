@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Jira 필터에서 비활성화된 assignee 제외"
-date: 2023-03-24
-tags: [활성화, Jira, 비, assignee, 제외, 필터]
-categories: blog
+tags: [활성화, Jira, assignee, 비, 제외, 필터]
 ---
 
 ## 사용자 입력:
@@ -12,9 +10,9 @@ categories: blog
 ## ChatGPT 응답:
 > Jira에서 비활성화된 사용자를 제외하려면, "assignee not in inactiveUsers()" 를 필터에 추가해야 합니다. 따라서, 주어진 필터를 다음과 같이 변경할 수 있습니다:
 
-```
+{% raw %}```
 project = DFT AND assignee in (membersOf(DF)) AND assignee not in inactiveUsers() ORDER BY created DESC
-```
+```{% endraw %}
 
 이렇게 하면, 비활성화된 assignee가 필터에서 제외되어, 활성화된 assignee만 포함된 결과를 볼 수 있습니다.
 
@@ -30,9 +28,9 @@ project = DFT AND assignee in (membersOf(DF)) AND assignee not in inactiveUsers(
 
 2. 플러그인이 설치된 후, 다음과 같이 JQL을 작성하여 비활성 사용자를 제외할 수 있습니다.
 
-```
+{% raw %}```
 project = DFT AND assignee in (membersOf(DF)) AND assignee not in ("비활성 사용자 1", "비활성 사용자 2", ...) ORDER BY created DESC
-```
+```{% endraw %}
 
 이 방법은 비활성 사용자를 명시적으로 나열해야 한다는 단점이 있습니다.
 
@@ -82,7 +80,7 @@ project = DFT AND assignee in (membersOf(DF)) AND assignee not in ("비활성 �
 
 5. "Add Incoming WebHooks integration" 버튼을 클릭하세요.
 
-6. 설정 페이지에서 웹훅 URL이 생성됩니다. 이 URL은 "Webhook URL" 섹션에 표시되며, `https://hooks.slack.com/services/...`와 같은 형식입니다.
+6. 설정 페이지에서 웹훅 URL이 생성됩니다. 이 URL은 "Webhook URL" 섹션에 표시되며, {% raw %}`https://hooks.slack.com/services/...`{% endraw %}와 같은 형식입니다.
 
 7. 웹훅 설정을 사용자 지정하려면 해당 페이지에서 추가 옵션을 구성하세요. 예를 들어, 기본 사용자 이름, 아이콘, 레이블 등을 변경할 수 있습니다.
 

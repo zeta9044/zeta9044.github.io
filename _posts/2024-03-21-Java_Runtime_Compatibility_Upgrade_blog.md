@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Java Runtime Compatibility Upgrade"
-date: 2024-03-21
 tags: [Runtime, Upgrade, Compatibility, Java]
-categories: blog
 ---
 
 ## 사용자 입력:
@@ -18,7 +16,7 @@ To resolve this issue, you have a few options:
 
 2. **Recompile the application**: If you have access to the source code, you can recompile the application using a compatible version of the Java compiler. This would involve setting the source and target compatibility flags appropriately to ensure that the resulting bytecode is compatible with the version of Java you're using.
 
-3. **Downgrade the application's bytecode version**: If you can't update your Java environment and don't have access to the source code, you might be able to use a tool like `javap` to decompile the class files, modify the bytecode to an earlier version, and then recompile it. However, this approach is not recommended unless absolutely necessary, as it can be error-prone and may violate licensing agreements or security constraints.
+3. **Downgrade the application's bytecode version**: If you can't update your Java environment and don't have access to the source code, you might be able to use a tool like {% raw %}`javap`{% endraw %} to decompile the class files, modify the bytecode to an earlier version, and then recompile it. However, this approach is not recommended unless absolutely necessary, as it can be error-prone and may violate licensing agreements or security constraints.
 
 Overall, the best approach depends on your specific circumstances, such as whether you have control over the Java environment, access to the application's source code, and the constraints imposed by your environment or organization.
 
@@ -34,7 +32,7 @@ Overall, the best approach depends on your specific circumstances, such as wheth
 
 2. **어플리케이션 재컴파일**: 소스 코드에 접근할 수 있다면, 호환되는 자바 컴파일러를 사용하여 어플리케이션을 재컴파일할 수 있습니다. 이때 소스와 타겟 호환성 플래그를 적절하게 설정하여 생성된 바이트코드가 사용 중인 자바 버전과 호환되도록 합니다.
 
-3. **어플리케이션의 바이트코드 버전 낮추기**: 자바 환경을 업데이트할 수 없고 소스 코드에 접근할 수 없는 경우, `javap`와 같은 도구를 사용하여 클래스 파일을 디컴파일하고 바이트코드를 이전 버전으로 수정한 뒤 다시 컴파일할 수 있습니다. 그러나 이 방법은 필요한 경우를 제외하고 권장되지 않습니다. 오류가 발생할 수 있으며 라이선스 협약이나 보안 제약을 위반할 수 있습니다.
+3. **어플리케이션의 바이트코드 버전 낮추기**: 자바 환경을 업데이트할 수 없고 소스 코드에 접근할 수 없는 경우, {% raw %}`javap`{% endraw %}와 같은 도구를 사용하여 클래스 파일을 디컴파일하고 바이트코드를 이전 버전으로 수정한 뒤 다시 컴파일할 수 있습니다. 그러나 이 방법은 필요한 경우를 제외하고 권장되지 않습니다. 오류가 발생할 수 있으며 라이선스 협약이나 보안 제약을 위반할 수 있습니다.
 
 최상의 접근 방법은 자바 환경을 제어할 수 있는지, 어플리케이션의 소스 코드에 액세스할 수 있는지, 그리고 환경이나 조직에서 부과하는 제약사항에 따라 다를 수 있습니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "배터리 규격: 14S Voltage"
-date: 2024-03-03
-tags: [배터리, Voltage, 규격]
-categories: blog
+title: "배터리 규격 - 14S Voltage"
+tags: [규격, Voltage, 배터리]
 ---
 
 ## 사용자 입력:

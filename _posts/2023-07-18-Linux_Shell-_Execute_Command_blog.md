@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "Linux Shell: Execute Command"
-date: 2023-07-18
-tags: [Command, Shell, Linux, Execute]
-categories: blog
+title: "Linux Shell - Execute Command"
+tags: [Execute, Shell, Linux, Command]
 ---
 
 ## 사용자 입력:
@@ -12,7 +10,7 @@ categories: blog
 ## ChatGPT 응답:
 > 리눅스 쉘에서 다음과 같은 명령을 사용하여 pentaho-parser 디렉토리로 이동한 후 해당 명령을 실행할 수 있습니다:
 
-```shell
+{% raw %}```shell
 #!/bin/bash
 
 if [ -d "pentaho-parser" ]; then
@@ -20,21 +18,21 @@ if [ -d "pentaho-parser" ]; then
 else
   echo "pentaho-parser 디렉토리가 존재하지 않습니다."
 fi
-```
+```{% endraw %}
 
 위 스크립트는 현재 디렉토리에서 pentaho-parser 디렉토리가 있는지 확인하고, 디렉토리가 존재하는 경우 해당 디렉토리로 이동한 후 명령을 실행합니다. 디렉토리가 존재하지 않는 경우 오류 메시지를 출력합니다.
 
 위 스크립트를 텍스트 파일로 저장한 뒤 실행 가능한 스크립트로 만들려면 다음과 같은 명령을 실행합니다:
 
-```shell
+{% raw %}```shell
 chmod +x script.sh
-```
+```{% endraw %}
 
 스크립트를 실행하려면 다음과 같이 입력합니다:
 
-```shell
+{% raw %}```shell
 ./script.sh
-```
+```{% endraw %}
 
 위 스크립트가 pentaho-parser 디렉토리에 있는 경우 해당 디렉토리로 이동한 후 명령이 실행됩니다.
 
@@ -44,9 +42,9 @@ chmod +x script.sh
 ## ChatGPT 응답:
 > 다음은 한 줄로 작성된 명령입니다:
 
-```shell
+{% raw %}```shell
 [ -d "pentaho-parser" ] && cd pentaho-parser && ../gradlew compileJjtree compileJavacc clean build -x test
-```
+```{% endraw %}
 
 이 명령은 "pentaho-parser" 디렉토리가 존재하는지 확인하고, 디렉토리가 존재하는 경우 해당 디렉토리로 이동한 후 지정한 명령을 실행합니다. 위의 스크립트와 동일한 작업을 수행하지만 한 줄로 작성되었습니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "New chat"
-date: 2023-09-06
-tags: [chat, New]
-categories: blog
+tags: [New, chat]
 ---
 
 ## 사용자 입력:
@@ -12,7 +10,7 @@ categories: blog
 ## ChatGPT 응답:
 > Markdown 자체는 순수한 텍스트 포맷이기 때문에 JavaScript를 직접 실행할 수 없습니다. 그러나 Markdown 문서를 HTML로 변환할 때, 해당 HTML 페이지에 JavaScript 코드나 스크립트를 포함시킬 수 있습니다.
 
-예를 들면, GitHub에서의 Markdown 미리보기나 다른 많은 Markdown 렌더러에서는 보안상의 이유로 `<script>` 태그나 JavaScript 이벤트 핸들러를 제거합니다. 그러나, 자체 호스팅된 웹사이트나 어플리케이션에서 Markdown을 사용하고 있다면, 변환된 HTML에 JavaScript를 추가하여 사용할 수 있습니다.
+예를 들면, GitHub에서의 Markdown 미리보기나 다른 많은 Markdown 렌더러에서는 보안상의 이유로 {% raw %}`<script>`{% endraw %} 태그나 JavaScript 이벤트 핸들러를 제거합니다. 그러나, 자체 호스팅된 웹사이트나 어플리케이션에서 Markdown을 사용하고 있다면, 변환된 HTML에 JavaScript를 추가하여 사용할 수 있습니다.
 
 따라서 직접적으로 Markdown 내에서 JavaScript를 실행할 수는 없지만, 변환된 HTML 문서를 통해 JavaScript를 동작시킬 수는 있습니다.
 
@@ -26,7 +24,7 @@ Markdown 파일 내에서 HTML 코드를 사용하는 방법:
 
 1. **기본적인 HTML 사용**: Markdown 문서 내에 직접 HTML 태그를 삽입할 수 있습니다. 예를 들어:
 
-```markdown
+{% raw %}```markdown
 # 제목
 
 이것은 텍스트입니다.
@@ -36,11 +34,11 @@ Markdown 파일 내에서 HTML 코드를 사용하는 방법:
 </div>
 
 더 많은 텍스트...
-```
+```{% endraw %}
 
 2. **Liquid 템플릿 사용**: Jekyll은 Liquid 템플릿 언어를 지원합니다. 이를 통해 동적 콘텐츠를 생성할 수 있습니다. 예를 들어:
 
-```markdown
+{% raw %}```markdown
 ---
 layout: post
 title: "제목"
@@ -50,13 +48,13 @@ title: "제목"
   <h2>{{ post.title }}</h2>
   <p>{{ post.excerpt }}</p>
 {% endfor %}
-```
+```{% endraw %}
 
 3. **CSS와 JavaScript 포함**: Jekyll 사이트의 레이아웃 또는 특정 페이지에 CSS와 JavaScript를 포함시킬 수 있습니다.
 
 _layouts/default.html 파일의 예:
 
-```html
+{% raw %}```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,7 +68,7 @@ _layouts/default.html 파일의 예:
 <script src="/path/to/scripts.js"></script>
 </body>
 </html>
-```
+```{% endraw %}
 
 Jekyll과 관련된 이러한 기능들은 Jekyll의 기본 설정 및 구성을 통해 제어되며, 원하는 대로 커스터마이징하여 사용할 수 있습니다. Jekyll의 공식 문서나 다양한 튜토리얼을 통해 더 많은 정보와 세부사항을 확인할 수 있습니다.
 
@@ -80,7 +78,7 @@ Jekyll과 관련된 이러한 기능들은 Jekyll의 기본 설정 및 구성을
 ## ChatGPT 응답:
 > Jekyll은 정적 사이트 생성기로 작동하며, Confluence는 동적인 위키 및 협업 플랫폼입니다. 따라서 두 시스템의 기능은 근본적으로 다르지만, Jekyll 사이트에서 Confluence의 일부 기능을 모방하거나 통합하는 것은 가능합니다.
 
-1. **Confluence 내용 임베드**: Confluence의 페이지를 공개적으로 호스팅하고 있다면, 해당 페이지의 내용을 Jekyll 사이트에 `<iframe>`을 사용하여 임베드할 수 있습니다.
+1. **Confluence 내용 임베드**: Confluence의 페이지를 공개적으로 호스팅하고 있다면, 해당 페이지의 내용을 Jekyll 사이트에 {% raw %}`<iframe>`{% endraw %}을 사용하여 임베드할 수 있습니다.
 
 2. **Confluence API 사용**: Confluence는 REST API를 제공합니다. 이 API를 사용하여 Confluence의 내용을 가져와서 Jekyll 사이트에 표시할 수 있습니다. 하지만 이 방법은 Jekyll이 정적 사이트 생성기이기 때문에 매번 사이트를 빌드할 때마다 API를 호출해야 하는 문제가 있습니다.
 
@@ -123,12 +121,12 @@ Jekyll과 관련된 이러한 기능들은 Jekyll의 기본 설정 및 구성을
 
 기본적인 Markdown 테이블 구성은 다음과 같습니다:
 
-```markdown
+{% raw %}```markdown
 | 헤더1 | 헤더2 | 헤더3 |
 |-------|-------|-------|
 | 셀1  | 셀2  | 셀3  |
 | 셀4  | 셀5  | 셀6  |
-```
+```{% endraw %}
 
 이를 렌더링하면 다음과 같은 테이블이 생성됩니다:
 

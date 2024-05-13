@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Add JAR to Classpath"
-date: 2023-12-11
-tags: [Classpath, to, Add, JAR]
-categories: blog
+tags: [Classpath, JAR, to, Add]
 ---
 
 ## 사용자 입력:
@@ -15,15 +13,15 @@ if not jpype.isJVMStarted():
     jpype.startJVM(jpype.getDefaultJVMPath(), "-Djava.class.path={}".format(classpath), convertStrings=True)  여기에서 classpath에 추가 jar를 넣을려면? 예를 들어  ex.jar
 
 ## ChatGPT 응답:
-> To add additional JAR files to the classpath when starting the JVM with JPype, you can append the paths of the new JAR files to the existing classpath string. Each path should be separated by the appropriate path separator for your operating system (a semicolon `;` on Windows and a colon `:` on Unix-based systems like Linux or macOS). Here's how you can do it:
+> To add additional JAR files to the classpath when starting the JVM with JPype, you can append the paths of the new JAR files to the existing classpath string. Each path should be separated by the appropriate path separator for your operating system (a semicolon {% raw %}`;`{% endraw %} on Windows and a colon {% raw %}`:`{% endraw %} on Unix-based systems like Linux or macOS). Here's how you can do it:
 
-1. First, define the path to the additional JAR file (e.g., `ex.jar`). 
-2. Then, append this path to the existing `classpath` string using the appropriate path separator.
+1. First, define the path to the additional JAR file (e.g., {% raw %}`ex.jar`{% endraw %}). 
+2. Then, append this path to the existing {% raw %}`classpath`{% endraw %} string using the appropriate path separator.
 3. Start the JVM with this updated classpath.
 
-Here's an example assuming `ex.jar` is in the same directory as `lia-ds-cosec.jar`:
+Here's an example assuming {% raw %}`ex.jar`{% endraw %} is in the same directory as {% raw %}`lia-ds-cosec.jar`{% endraw %}:
 
-```python
+{% raw %}```python
 import os
 import jpype
 
@@ -41,7 +39,7 @@ print(classpath)
 # Check if the JVM is already started
 if not jpype.isJVMStarted():
     jpype.startJVM(jpype.getDefaultJVMPath(), "-Djava.class.path={}".format(classpath), convertStrings=True)
-```
+```{% endraw %}
 
-In this script, `os.pathsep` is used to ensure the correct path separator is used for the operating system where the script is running. This makes your code more portable. Remember to ensure that `jpype` is correctly installed and imported in your Python environment.
+In this script, {% raw %}`os.pathsep`{% endraw %} is used to ensure the correct path separator is used for the operating system where the script is running. This makes your code more portable. Remember to ensure that {% raw %}`jpype`{% endraw %} is correctly installed and imported in your Python environment.
 

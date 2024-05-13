@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Parse Tree Node Support"
-date: 2024-01-23
-tags: [Support, Parse, Node, Tree]
-categories: blog
+tags: [Support, Tree, Node, Parse]
 ---
 
 ## 사용자 입력:

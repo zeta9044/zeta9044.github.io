@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Same Type Literal Check"
-date: 2024-01-24
-tags: [Check, Same, Type, Literal]
-categories: blog
+tags: [Type, Same, Check, Literal]
 ---
 
 ## 사용자 입력:
@@ -53,7 +51,7 @@ categories: blog
 ## ChatGPT 응답:
 > 아래는 입력된 문자열이 같은 종류의 리터럴로만 이루어져 있는 경우에 참값을 반환하는 함수입니다.
 
-```java
+{% raw %}```java
 public static boolean isSameLiteralType(String in) {
     CharStream input = CharStreams.fromString(in);
     CPP14Lexer lexer = new CPP14Lexer(input);
@@ -79,9 +77,9 @@ public static boolean isSameLiteralType(String in) {
     // 모든 토큰이 같은 타입일 경우에만 참값 반환
     return true;
 }
-```
+```{% endraw %}
 
-이 함수는 입력된 문자열에서 모든 토큰이 같은 타입인지 확인하고, 같은 타입이면 참값을 반환합니다. 만약 토큰의 타입이 다른 것을 만나면 즉시 `false`를 반환하며 종료합니다.
+이 함수는 입력된 문자열에서 모든 토큰이 같은 타입인지 확인하고, 같은 타입이면 참값을 반환합니다. 만약 토큰의 타입이 다른 것을 만나면 즉시 {% raw %}`false`{% endraw %}를 반환하며 종료합니다.
 
 ## 사용자 입력:
 > 야. 리터럴 케이스는 유지 해야지.
@@ -89,7 +87,7 @@ public static boolean isSameLiteralType(String in) {
 ## ChatGPT 응답:
 > 알겠습니다. 리터럴의 종류를 유지하면서 해당 리터럴 종류로만 이루어져 있는 경우에 참값을 반환하는 함수는 다음과 같이 수정될 수 있습니다.
 
-```java
+{% raw %}```java
 public static boolean isSameLiteralType(String in) {
     CharStream input = CharStreams.fromString(in);
     CPP14Lexer lexer = new CPP14Lexer(input);
@@ -124,7 +122,7 @@ public static boolean isSameLiteralType(String in) {
             (!foundIntegerLiteral && !foundCharLiteral && foundFloatingLiteral && !foundStringLiteral) ||
             (!foundIntegerLiteral && !foundCharLiteral && !foundFloatingLiteral && foundStringLiteral);
 }
-```
+```{% endraw %}
 
 이 함수는 입력된 문자열에서 발견된 리터럴 종류를 확인하고, 입력된 문자열이 하나의 리터럴 종류로만 이루어져 있는 경우에 참값을 반환합니다.
 
@@ -134,7 +132,7 @@ public static boolean isSameLiteralType(String in) {
 ## ChatGPT 응답:
 > 알겠습니다. 이 경우에는 모든 토큰이 같은 종류일 때만 참값을 반환하도록 수정하겠습니다.
 
-```java
+{% raw %}```java
 public static boolean isSameLiteralType(String in) {
     CharStream input = CharStreams.fromString(in);
     CPP14Lexer lexer = new CPP14Lexer(input);
@@ -160,7 +158,7 @@ public static boolean isSameLiteralType(String in) {
     // 모든 토큰이 같은 타입일 경우에만 참값 반환
     return true;
 }
-```
+```{% endraw %}
 
 이 함수는 입력된 문자열에서 모든 토큰이 같은 타입인 경우에만 참값을 반환하도록 수정되었습니다.
 
@@ -170,7 +168,7 @@ public static boolean isSameLiteralType(String in) {
 ## ChatGPT 응답:
 > 알겠습니다. 이해가 더 잘못된 것 같아서 죄송합니다. 아래는 같은 종류의 리터럴로만 이루어져 있을 때 참값을 반환하는 함수입니다.
 
-```java
+{% raw %}```java
 public static boolean isSameLiteralType(String in) {
     CharStream input = CharStreams.fromString(in);
     CPP14Lexer lexer = new CPP14Lexer(input);
@@ -207,7 +205,7 @@ private static boolean isLiteralType(int tokenType) {
            tokenType == CPP14Lexer.FloatingLiteral ||
            tokenType == CPP14Lexer.StringLiteral;
 }
-```
+```{% endraw %}
 
 이 함수는 입력된 문자열에서 모든 리터럴이 같은 타입인 경우에만 참값을 반환합니다.
 
@@ -217,7 +215,7 @@ private static boolean isLiteralType(int tokenType) {
 ## ChatGPT 응답:
 > 물론이죠. 아래는 주석을 한글로 작성한 코드입니다.
 
-```java
+{% raw %}```java
 /**
  * 입력된 문자열이 같은 종류의 리터럴로만 이루어져 있는지 여부를 확인하는 함수.
  * @param in 입력 문자열
@@ -263,7 +261,7 @@ private static boolean isLiteralType(int tokenType) {
            tokenType == CPP14Lexer.FloatingLiteral ||
            tokenType == CPP14Lexer.StringLiteral;
 }
-```
+```{% endraw %}
 
 이제 주석이 Javadoc 형식에 맞게 한글로 작성되었습니다.
 

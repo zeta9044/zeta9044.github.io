@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Can ML make gambling?"
-date: 2023-01-26
-tags: [gambling, ML, make, Can]
-categories: blog
+tags: [make, gambling, Can, ML]
 ---
 
 ## 사용자 입력:

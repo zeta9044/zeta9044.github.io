@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Coinbase의 신뢰성과 서비스"
-date: 2024-01-04
-tags: [서비스, 신뢰, 의, 성과]
-categories: blog
+tags: [성과, 신뢰, 서비스, 의]
 ---
 
 ## 사용자 입력:

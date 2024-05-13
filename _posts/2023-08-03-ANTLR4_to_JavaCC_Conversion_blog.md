@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "ANTLR4 to JavaCC Conversion"
-date: 2023-08-03
-tags: [JavaCC, Conversion, to]
-categories: blog
+tags: [Conversion, to, JavaCC]
 ---
 
 ## 사용자 입력:
@@ -406,7 +404,7 @@ fragment Udsuffix: Identifier;
 ## ChatGPT 응답:
 > ANTLR4 와 JavaCC는 매우 다른 파서 생성기이기 때문에, 변환 작업은 매우 복잡하고 수동으로 수행되어야 할 수도 있습니다. 그러나 대략적으로 다음과 같이 표현할 수 있습니다:
 
-```
+{% raw %}```
 // UserDefinedLiteral
 void UserDefinedLiteral() :
 {}
@@ -452,8 +450,8 @@ TOKEN :
 
 // Other tokens and productions go here
 
-```
-위의 코드는 각 토큰과 생산물의 대략적인 변환을 보여줍니다. 이렇게 JavaCC로 변환하면서, 일부 문법(예: 파이프(`|`) 기호는 선택적인 요소를 나타냅니다)이 다르기 때문에 이러한 변환이 필요합니다.
+```{% endraw %}
+위의 코드는 각 토큰과 생산물의 대략적인 변환을 보여줍니다. 이렇게 JavaCC로 변환하면서, 일부 문법(예: 파이프({% raw %}`|`{% endraw %}) 기호는 선택적인 요소를 나타냅니다)이 다르기 때문에 이러한 변환이 필요합니다.
 
 그러나 JavaCC가 지원하는 문법은 ANTLR4보다 더 제한적이기 때문에, 모든 ANTLR4 문법을 완벽하게 JavaCC로 변환하는 것은 불가능할 수 있습니다. 따라서 이 코드는 JavaCC가 지원하는 범위 내에서 ANTLR4 코드를 최대한 변환한 것입니다.
 

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Handling NULL Subquery Results"
-date: 2023-05-15
-tags: [NULL, Results, Subquery, Handling]
-categories: blog
+tags: [NULL, Handling, Results, Subquery]
 ---
 
 ## 사용자 입력:
@@ -62,11 +60,11 @@ categories: blog
 					) table_name     이것은 postgresql 의 subquery 컬럼인데, s4.attr_value가 null 또는 second_part 결과가 빈 값일때는 어떻게 쿼리를 해야 에러가 안나지?
 
 ## ChatGPT 응답:
-> PostgreSQL handles NULL values in subqueries by returning NULL as the result. Therefore, if `s4.ATTR_VALUE` is NULL or if the result of `second_part` is an empty value, the subquery will return NULL for the respective columns.
+> PostgreSQL handles NULL values in subqueries by returning NULL as the result. Therefore, if {% raw %}`s4.ATTR_VALUE`{% endraw %} is NULL or if the result of {% raw %}`second_part`{% endraw %} is an empty value, the subquery will return NULL for the respective columns.
 
-To handle this and avoid errors, you can use the `COALESCE` function or conditional logic (`CASE` statement) to provide a default value when the subquery result is NULL or empty. Here's an example of how you can modify the query:
+To handle this and avoid errors, you can use the {% raw %}`COALESCE`{% endraw %} function or conditional logic ({% raw %}`CASE`{% endraw %} statement) to provide a default value when the subquery result is NULL or empty. Here's an example of how you can modify the query:
 
-```sql
+{% raw %}```sql
 SELECT
   COALESCE(
     (
@@ -96,13 +94,13 @@ SELECT
     ),
     'default_table_name'
   ) AS table_name;
-```
+```{% endraw %}
 
-In the modified query, the `COALESCE` function is used to provide default values ('default_owner_name' and 'default_table_name') when the subquery results are NULL or empty. You can replace these default values with any suitable values you prefer.
+In the modified query, the {% raw %}`COALESCE`{% endraw %} function is used to provide default values ('default_owner_name' and 'default_table_name') when the subquery results are NULL or empty. You can replace these default values with any suitable values you prefer.
 
-Alternatively, you can use a `CASE` statement to conditionally handle NULL or empty values:
+Alternatively, you can use a {% raw %}`CASE`{% endraw %} statement to conditionally handle NULL or empty values:
 
-```sql
+{% raw %}```sql
 SELECT
   CASE
     WHEN (
@@ -155,7 +153,7 @@ SELECT
 
 To handle this scenario, you can use the `COALESCE` function or a `CASE` statement to check for NULL values before applying the string operations. Here's an updated version of the query that handles the case when `s4.ATTR_VALUE` is NULL:
 
-```sql
+```{% endraw %}sql
 SELECT
   COALESCE(
     (
@@ -191,7 +189,7 @@ SELECT
     ),
     'default_table_name'
   ) AS table_name;
-```
+{% raw %}```
 
 In this updated version, the `COALESCE` function is used to replace the NULL value of `s4.ATTR_VALUE` with an empty string ('') before applying the string operations. This avoids the error and allows the query to handle NULL values appropriately.
 
@@ -200,7 +198,7 @@ In this updated version, the `COALESCE` function is used to replace the NULL val
 
 To handle this scenario, you can use the `COALESCE` function to provide a default value when `s4.ATTR_VALUE` is NULL. Here's an updated version of the query that handles NULL values:
 
-```sql
+```{% endraw %}sql
 SELECT
   COALESCE(
     (
@@ -222,7 +220,7 @@ SELECT
     ),
     'default_table_name'
   ) AS table_name;
-```
+{% raw %}```
 
 In this updated query, the `COALESCE` function is used to substitute a default value ('') when `s4.ATTR_VALUE` is NULL. This ensures that the `REVERSE(SPLIT_PART(REVERSE(s4.ATTR_VALUE), E'\\', 1))` expression doesn't encounter an error due to NULL values.
 
@@ -240,7 +238,7 @@ Again, you can replace 'default_owner_name' and 'default_table_name' with approp
 
 To avoid this error, you can modify the query to check for an empty string before performing the substring operation. Here's an updated version of the query that handles this scenario:
 
-```sql
+```{% endraw %}sql
 SELECT
   CASE
     WHEN second_part = '' THEN 'default_column1'
@@ -254,7 +252,7 @@ FROM (
     END AS second_part
   FROM (SELECT 1) AS dummy_table
 ) AS subquery_alias;
-```
+{% raw %}```
 
 In this updated query, the `CASE` statement is used to handle the empty string case. If `second_part` is an empty string, it will return the default value ('default_column1'). Otherwise, it performs the substring operation as before.
 
@@ -276,7 +274,7 @@ To avoid this error, you can use a conditional statement to check if the dot cha
 
 Here's an updated version of the query that handles the "negative substring length" error:
 
-```sql
+```{% endraw %}sql
 SELECT 
   CASE
     WHEN strpos(second_part, '.') > 0
@@ -287,7 +285,7 @@ FROM (
   SELECT REVERSE(SPLIT_PART(REVERSE(COALESCE('1', '')), E'\\', 1)) AS second_part
   FROM (SELECT 1) AS dummy_table
 ) AS subquery_alias;
-```
+{% raw %}```
 
 In this modified query, the `CASE` statement checks if the dot character exists in the `second_part` string using `strpos(second_part, '.') > 0`. If the dot character is found, it calculates the substring using `substring(second_part, 1, strpos(second_part, '.') - 1)`. Otherwise, it provides a default value ('default_value').
 
@@ -338,12 +336,12 @@ Please note that the exact steps and options may vary slightly depending on the 
 ## ChatGPT 응답:
 > To make the given query compatible with Oracle, you need to make a few modifications. Here's the revised query:
 
-```sql
+```{% endraw %}sql
 SELECT
     REVERSE(SUBSTR(REVERSE(s4.ATTR_VALUE), 1, INSTR(REVERSE(s4.ATTR_VALUE), '\') - 1)) AS second_part
 FROM
     (SELECT 1 FROM DUAL) dummy_table;
-```
+{% raw %}```
 
 In Oracle, the equivalent functions and syntax are used as follows:
 
@@ -359,12 +357,12 @@ By making these adjustments, the modified query should work in Oracle.
 ## ChatGPT 응답:
 > Apologies for the oversight. Here's the modified query that does not rely on the `DUAL` table in Oracle:
 
-```sql
+```{% endraw %}sql
 SELECT
     REVERSE(SUBSTR(REVERSE(s4.ATTR_VALUE), 1, INSTR(REVERSE(s4.ATTR_VALUE), '\') - 1)) AS second_part
 FROM
     (SELECT 1 AS ATTR_VALUE FROM DUAL) s4;
-```
+{% raw %}```
 
 In this revised version, a subquery with `SELECT 1 AS ATTR_VALUE FROM DUAL` is used instead of `(SELECT 1) dummy_table` to provide a dummy value for `ATTR_VALUE`. This allows the query to work without explicitly referencing the `DUAL` table.
 
@@ -374,14 +372,14 @@ In this revised version, a subquery with `SELECT 1 AS ATTR_VALUE FROM DUAL` is u
 ## ChatGPT 응답:
 > In PostgreSQL, there is no equivalent of the `DUAL` table present in Oracle. However, you can achieve the same functionality by using a simple `VALUES` clause to generate a single-row result. Here's the modified query that mimics the behavior of `DUAL` in Oracle:
 
-```sql
+```{% endraw %}sql
 SELECT
     REVERSE(SPLIT_PART(REVERSE(s4.ATTR_VALUE), E'\\', 1)) AS second_part
 FROM
     (VALUES (1)) AS dummy_table(ATTR_VALUE);
-```
+{% raw %}``{% endraw %}{% raw %}`
 
-In this modified query, the `VALUES` clause is used to generate a single-row result with the value `1`. This result is then aliased as `dummy_table` with a column name `ATTR_VALUE`, which can be used within the subquery.
+In this modified query, the `{% endraw %}VALUES{% raw %}` clause is used to generate a single-row result with the value `{% endraw %}1{% raw %}`. This result is then aliased as `{% endraw %}dummy_table{% raw %}` with a column name `{% endraw %}ATTR_VALUE{% raw %}`, which can be used within the subquery.
 
-Please note that the `(VALUES (1))` construct can be extended to include more rows if needed.
+Please note that the `{% endraw %}(VALUES (1))` construct can be extended to include more rows if needed.
 

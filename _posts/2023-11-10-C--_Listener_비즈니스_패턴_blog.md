@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "C++ Listener 비즈니스 패턴"
-date: 2023-11-10
-tags: [비즈니스, C, 패턴, Listener]
-categories: blog
+tags: [C, 비즈니스, Listener, 패턴]
 ---
 
 ## 사용자 입력:
@@ -25,7 +23,7 @@ categories: blog
 6. **유닛 테스트 (Unit Testing):** 비즈니스 로직을 별도의 클래스로 분리함으로써, 해당 로직에 대한 유닛 테스트를 보다 쉽게 작성할 수 있습니다. 이는 유지보수를 용이하게 하며, 코드의 안정성을 높입니다.
 
 예시 코드 구조:
-```cpp
+{% raw %}```cpp
 // 비즈니스 로직 인터페이스
 class BusinessLogicInterface {
 public:
@@ -53,7 +51,7 @@ public:
         businessLogic.processParsedData(data);
     }
 };
-```
+```{% endraw %}
 
 이러한 접근 방식은 코드의 유지보수를 용이하게 하고, 테스트 가능하며, 확장성 있는 설계를 가능하게 합니다.
 
@@ -75,7 +73,7 @@ public:
 
 예시 코드:
 
-```java
+{% raw %}```java
 // 비즈니스 로직 인터페이스
 public interface BusinessLogic {
     void processParsedData(ParsedData data);
@@ -103,7 +101,7 @@ public class MyListener extends ANTLRBaseListener {
         businessLogic.processParsedData(data);
     }
 }
-```
+```{% endraw %}
 
 이렇게 구성하면, 리스너는 파싱 로직에 집중할 수 있고, 비즈니스 로직은 별도의 클래스에서 관리됩니다. 이는 코드의 가독성과 재사용성을 향상시키며 유지보수를 용이하게 합니다.
 

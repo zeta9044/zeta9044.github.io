@@ -1,9 +1,7 @@
 ---
 layout: post
-title: "GitHub Pages "minimal mistakes" 포스트작성"
-date: 2023-09-06
-tags: [Pages, 작성, 포스트, GitHub, mistakes, minimal]
-categories: blog
+title: "GitHub Pages 'minimal mistakes' 포스트작성"
+tags: [포스트, 작성, Pages, minimal, GitHub, mistakes]
 ---
 
 ## 사용자 입력:
@@ -13,15 +11,15 @@ categories: blog
 > GitHub Pages를 사용하여 Jekyll 기반의 웹사이트를 호스팅할 때 "minimal mistakes" 테마를 사용하려면 다음과 같은 단계를 따라야 합니다:
 
 1. **테마 설치하기**: 
-   먼저 Gemfile에 `gem "minimal-mistakes-jekyll"`를 추가합니다. 그런 다음, 터미널에서 `bundle install`을 실행하여 필요한 gem들을 설치합니다.
+   먼저 Gemfile에 {% raw %}`gem "minimal-mistakes-jekyll"`{% endraw %}를 추가합니다. 그런 다음, 터미널에서 {% raw %}`bundle install`{% endraw %}을 실행하여 필요한 gem들을 설치합니다.
 
 2. **_config.yml 수정하기**: 
-   기본 설정 파일인 `_config.yml` 파일을 열어서 `theme: minimal-mistakes-jekyll`를 추가하거나 변경합니다.
+   기본 설정 파일인 {% raw %}`_config.yml`{% endraw %} 파일을 열어서 {% raw %}`theme: minimal-mistakes-jekyll`{% endraw %}를 추가하거나 변경합니다.
 
 3. **포스트 작성하기**:
-   `_posts` 디렉터리에 새로운 포스트를 작성하려면 해당 디렉터리에 YYYY-MM-DD-title-of-post.md 형식의 파일을 만듭니다. 각 포스트 파일의 상단에는 Jekyll front matter가 필요합니다. 예를 들면:
+   {% raw %}`_posts`{% endraw %} 디렉터리에 새로운 포스트를 작성하려면 해당 디렉터리에 YYYY-MM-DD-title-of-post.md 형식의 파일을 만듭니다. 각 포스트 파일의 상단에는 Jekyll front matter가 필요합니다. 예를 들면:
    
-   ```
+   {% raw %}```
    ---
    layout: single
    title: "제목"
@@ -29,10 +27,10 @@ categories: blog
    ---
    
    포스트의 내용을 여기에 작성합니다.
-   ```
+   ```{% endraw %}
 
 4. **로컬에서 사이트 실행하기**:
-   터미널에서 `bundle exec jekyll serve`를 실행하여 로컬에서 사이트를 미리 볼 수 있습니다. 이를 통해 변경 사항을 실시간으로 확인할 수 있습니다.
+   터미널에서 {% raw %}`bundle exec jekyll serve`{% endraw %}를 실행하여 로컬에서 사이트를 미리 볼 수 있습니다. 이를 통해 변경 사항을 실시간으로 확인할 수 있습니다.
 
 5. **GitHub에 푸시하기**:
    모든 변경 사항을 commit하고 GitHub repository에 push합니다. GitHub Pages가 자동으로 사이트를 빌드하고 호스팅합니다.

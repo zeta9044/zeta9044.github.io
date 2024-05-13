@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Harmful Content Request Refused"
-date: 2023-01-30
-tags: [Request, Content, Harmful, Refused]
-categories: blog
+tags: [Request, Harmful, Refused, Content]
 ---
 
 ## 사용자 입력:

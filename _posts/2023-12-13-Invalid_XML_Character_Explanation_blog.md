@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Invalid XML Character Explanation"
-date: 2023-12-13
-tags: [Invalid, Explanation, Character, XML]
-categories: blog
+tags: [Character, Explanation, XML, Invalid]
 ---
 
 ## 사용자 입력:

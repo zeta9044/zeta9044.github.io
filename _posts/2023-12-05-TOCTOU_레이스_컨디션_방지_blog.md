@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "TOCTOU 레이스 컨디션 방지"
-date: 2023-12-05
-tags: [컨디션, 방지, 레이스, TOCTOU]
-categories: blog
+tags: [컨디션, 방지, TOCTOU, 레이스]
 ---
 
 ## 사용자 입력:

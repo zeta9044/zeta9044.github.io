@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Wise USD 송금 시간"
-date: 2023-12-21
-tags: [Wise, USD, 시간, 송금]
-categories: blog
+tags: [시간, USD, 송금, Wise]
 ---
 
 ## 사용자 입력:

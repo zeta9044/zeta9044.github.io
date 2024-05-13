@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Bybit에서 Wise 송금 불가능"
-date: 2023-12-19
-tags: [Wise, 불가능, 송금]
-categories: blog
+tags: [송금, Wise, 불가능]
 ---
 
 ## 사용자 입력:

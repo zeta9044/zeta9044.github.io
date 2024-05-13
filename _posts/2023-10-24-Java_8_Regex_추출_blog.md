@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Java 8 Regex 추출"
-date: 2023-10-24
-tags: [추출, Java, Regex]
-categories: blog
+tags: [Regex, 추출, Java]
 ---
 
 ## 사용자 입력:
@@ -12,12 +10,12 @@ categories: blog
 ## ChatGPT 응답:
 > Java 8을 사용하여 #include 지시문에서 파일 이름을 추출하는 함수를 만드는 것은 다음과 같습니다. 여기서는 두 가지 경우를 처리하는 함수를 하나로 만들겠습니다:
 
-1. `#include "filename.h"`
-2. `#include <filename>`
+1. {% raw %}`#include "filename.h"`{% endraw %}
+2. {% raw %}`#include <filename>`{% endraw %}
 
 아래는 해당 함수입니다:
 
-```java
+{% raw %}```java
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -53,19 +51,19 @@ public class IncludeExtractor {
         return null;
     }
 }
-```
+```{% endraw %}
 
-위의 코드는 두 종류의 `#include` 지시문 모두를 처리합니다. 첫 번째 테스트 문자열에서는 `"Derived.h"`를, 두 번째 테스트 문자열에서는 `iostream`을 출력합니다.
+위의 코드는 두 종류의 {% raw %}`#include`{% endraw %} 지시문 모두를 처리합니다. 첫 번째 테스트 문자열에서는 {% raw %}`"Derived.h"`{% endraw %}를, 두 번째 테스트 문자열에서는 {% raw %}`iostream`{% endraw %}을 출력합니다.
 
 ## 사용자 입력:
 > 위에 추출한 파일명에서  ext만 추출하는 함수 추가해봐.
 
 ## ChatGPT 응답:
-> 파일 이름에서 확장자를 추출하는 함수를 만들려면, 파일 이름의 마지막 `.` 뒤에 오는 문자열을 가져오면 됩니다. 
+> 파일 이름에서 확장자를 추출하는 함수를 만들려면, 파일 이름의 마지막 {% raw %}`.`{% endraw %} 뒤에 오는 문자열을 가져오면 됩니다. 
 
 다음은 해당 함수를 추가한 코드입니다:
 
-```java
+{% raw %}```java
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -121,7 +119,7 @@ public class IncludeExtractor {
         return filename.substring(dotIndex + 1);
     }
 }
-```
+```{% endraw %}
 
-위의 코드에서는 `extractExtension` 메서드가 파일 이름의 확장자를 추출합니다. 확장자가 없는 경우 null을 반환합니다.
+위의 코드에서는 {% raw %}`extractExtension`{% endraw %} 메서드가 파일 이름의 확장자를 추출합니다. 확장자가 없는 경우 null을 반환합니다.
 

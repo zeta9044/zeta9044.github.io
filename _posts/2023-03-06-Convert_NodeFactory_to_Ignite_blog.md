@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Convert NodeFactory to Ignite"
-date: 2023-03-06
-tags: [Ignite, to, Convert, NodeFactory]
-categories: blog
+tags: [Ignite, Convert, to, NodeFactory]
 ---
 
 ## 사용자 입력:
@@ -42,7 +40,7 @@ public class NodeFactory{
 
 Apache Ignite is an in-memory computing platform that provides distributed caching and processing capabilities. To convert the above code to Apache Ignite, you can use Ignite's Cache API to store and retrieve Node objects. Here's an example implementation:
 
-```
+{% raw %}```
 import org.apache.ignite.Ignite;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.cache.CacheAtomicityMode;
@@ -83,15 +81,15 @@ public class NodeFactory {
         return cfg;
     }
 }
-```
+```{% endraw %}
 
 In this implementation, we create an Ignite instance and use it to create a distributed cache using Ignite's Cache API. We set the cache configuration to be partitioned and use an atomic cache mode. 
 
-In the `get()` method, we use the `getOrCreateCache()` method to get the cache with the given cache configuration, and then use the `get()` method to retrieve the cached node object. If the node object is not found in the cache, we add it to the cache using the `put()` method and return the new node object.
+In the {% raw %}`get()`{% endraw %} method, we use the {% raw %}`getOrCreateCache()`{% endraw %} method to get the cache with the given cache configuration, and then use the {% raw %}`get()`{% endraw %} method to retrieve the cached node object. If the node object is not found in the cache, we add it to the cache using the {% raw %}`put()`{% endraw %} method and return the new node object.
 
-The `contains()` method also uses the `getOrCreateCache()` method to get the cache and then uses the `get()` method to retrieve the cached node object. This method is used to check whether a node object is already cached.
+The {% raw %}`contains()`{% endraw %} method also uses the {% raw %}`getOrCreateCache()`{% endraw %} method to get the cache and then uses the {% raw %}`get()`{% endraw %} method to retrieve the cached node object. This method is used to check whether a node object is already cached.
 
-The `clear()` method uses the `clear()` method on the cache to remove all cached objects, and the `size()` method returns the size of the cache using the `size()` method on the cache.
+The {% raw %}`clear()`{% endraw %} method uses the {% raw %}`clear()`{% endraw %} method on the cache to remove all cached objects, and the {% raw %}`size()`{% endraw %} method returns the size of the cache using the {% raw %}`size()`{% endraw %} method on the cache.
 
 Overall, this implementation provides similar functionality to the original implementation, but with the added benefit of being able to distribute the cache across multiple nodes in a cluster using Apache Ignite.
 
@@ -103,7 +101,7 @@ Overall, this implementation provides similar functionality to the original impl
 
 아래는 간단한 예제 코드입니다.
 
-```
+{% raw %}```
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteException;
 import org.apache.ignite.Ignition;
@@ -149,7 +147,7 @@ public class RemoteClient {
         Ignition.stop(true);
     }
 }
-```
+```{% endraw %}
 
 이 예제 코드에서는 IgniteConfiguration을 사용하여 Ignite 클러스터를 설정합니다. TcpDiscoveryVmIpFinder를 사용하여 클러스터 내의 노드들의 IP 주소를 지정하고, TcpDiscoverySpi를 사용하여 IP 주소를 검색합니다.
 
@@ -188,7 +186,7 @@ public class RemoteClient {
 
 NodeFactory를 구현합니다. 이 때, IgniteConfiguration과 CacheConfiguration을 설정하여 Ignite 클러스터를 시작하고, 클러스터 내의 캐시에 접근할 수 있도록 합니다. 
 
-```
+{% raw %}```
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
 import org.apache.ignite.Ignition;
@@ -242,13 +240,13 @@ public class NodeFactory {
         return nodeCache.size();
     }
 }
-```
+```{% endraw %}
 
 3. NodeController 구현
 
 NodeFactory를 사용하는 NodeController를 구현합니다. 클라이언트는 NodeController의 REST API를 호출하여 NodeFactory를 사용할 수 있습니다.
 
-```
+{% raw %}```
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -288,7 +286,7 @@ public class NodeController {
         return nodeFactory.size();
     }
 }
-```
+```{% endraw %}
 
 4. 애플리케이션 실행
 

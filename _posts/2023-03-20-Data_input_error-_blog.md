@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Data input error."
-date: 2023-03-20
-tags: [Data, input, error]
-categories: blog
+tags: [error, input, Data]
 ---
 
 ## 사용자 입력:
@@ -61,12 +59,12 @@ categories: blog
 ## ChatGPT 응답:
 > It seems like you are encountering an exception in your Java application. The error message is not in English, but it roughly translates to: "Due to insufficient information in the input data, it is impossible to proceed with the analysis."
 
-The error is a custom exception called `QtrackException`, and it is being thrown in the `deleteAnalysis` method in the `QtrackAnalysisJobController.groovy` file at line 113. 
+The error is a custom exception called {% raw %}`QtrackException`{% endraw %}, and it is being thrown in the {% raw %}`deleteAnalysis`{% endraw %} method in the {% raw %}`QtrackAnalysisJobController.groovy`{% endraw %} file at line 113. 
 
 To debug this issue, I suggest you do the following:
 
-1. Check the input data being passed to the `deleteAnalysis` method to ensure that it contains all the required information. It's possible that some required fields are missing or have incorrect values.
-2. Inspect the code in the `deleteAnalysis` method around line 113 to identify any potential issues that might be causing the exception. You can add some logging statements to help with the debugging process.
+1. Check the input data being passed to the {% raw %}`deleteAnalysis`{% endraw %} method to ensure that it contains all the required information. It's possible that some required fields are missing or have incorrect values.
+2. Inspect the code in the {% raw %}`deleteAnalysis`{% endraw %} method around line 113 to identify any potential issues that might be causing the exception. You can add some logging statements to help with the debugging process.
 3. Add proper validation and error handling to your code. This way, when an issue occurs, the error message will be more informative, allowing you to identify the root cause more quickly.
 4. If the issue is still unclear, you may want to share more information about the application or the specific data that is causing the problem.
 
@@ -80,17 +78,17 @@ To debug this issue, I suggest you do the following:
 
 2. **Inspect custom security code**: Review your custom security code to ensure it is not causing the issue. Look for any potential misconfigurations, incorrect assumptions, or access control issues that could be preventing the proper handling of exceptions.
 
-3. **Enable debug logging**: Enable debug logging for Spring Security to get more insight into what might be causing the issue. In your `application.properties` or `application.yml` file, add the following line:
+3. **Enable debug logging**: Enable debug logging for Spring Security to get more insight into what might be causing the issue. In your {% raw %}`application.properties`{% endraw %} or {% raw %}`application.yml`{% endraw %} file, add the following line:
 
-   ```
+   {% raw %}```
    logging.level.org.springframework.security: DEBUG
-   ```
+   ```{% endraw %}
 
    This will provide more detailed log messages related to Spring Security, which can help you identify any potential issues.
 
 4. **Test different scenarios**: Test different scenarios, such as authenticated and unauthenticated requests, to see if the exception controller is working as expected in various cases. This can help you narrow down the problem and identify any issues related to security configuration or custom code.
 
-5. **Handle security-related exceptions**: Make sure that your exception controller is set up to handle security-related exceptions, such as `AccessDeniedException` and `AuthenticationException`. This will ensure that any security issues are properly reported and handled by your application.
+5. **Handle security-related exceptions**: Make sure that your exception controller is set up to handle security-related exceptions, such as {% raw %}`AccessDeniedException`{% endraw %} and {% raw %}`AuthenticationException`{% endraw %}. This will ensure that any security issues are properly reported and handled by your application.
 
 By following these steps, you should be able to diagnose and resolve any security issues that might be affecting your exception controller. If you are still having trouble, consider providing more information about your security configuration, custom code, and any error messages or logs that you have encountered.
 
@@ -102,9 +100,9 @@ By following these steps, you should be able to diagnose and resolve any securit
 
 Here's how you can set up Bamboo to build specific branches on demand:
 
-1. **Create a plan**: First, create a plan in Bamboo for your main branch (e.g., `master` or `main`).
+1. **Create a plan**: First, create a plan in Bamboo for your main branch (e.g., {% raw %}`master`{% endraw %} or {% raw %}`main`{% endraw %}).
 
-2. **Enable branch plans**: Go to the plan configuration and navigate to the "Branches" tab. Enable "Branch plans" by clicking on "Create plan branches for matching branches." You can specify a branch pattern, such as `*`, to match all branches or provide a more specific pattern to match only certain branches.
+2. **Enable branch plans**: Go to the plan configuration and navigate to the "Branches" tab. Enable "Branch plans" by clicking on "Create plan branches for matching branches." You can specify a branch pattern, such as {% raw %}`*`{% endraw %}, to match all branches or provide a more specific pattern to match only certain branches.
 
 3. **Manual build trigger**: In the plan configuration, navigate to the "Triggers" tab. Remove any existing triggers (such as "Repository triggers the build when changes are committed") and add a "Manual" trigger. This will ensure that the build only starts when manually triggered by a user.
 
@@ -120,9 +118,9 @@ By following these steps, you can manually select and build a specific branch in
 
 Bamboo를 사용하여 특정 브랜치를 요청에 따라 빌드하려면 다음 단계를 수행하세요.
 
-1. **계획 생성**: 먼저 Bamboo에서 메인 브랜치(예: `master` 또는 `main`)에 대한 계획을 생성합니다.
+1. **계획 생성**: 먼저 Bamboo에서 메인 브랜치(예: {% raw %}`master`{% endraw %} 또는 {% raw %}`main`{% endraw %})에 대한 계획을 생성합니다.
 
-2. **브랜치 계획 활성화**: 계획 구성으로 이동하여 "브랜치" 탭을 찾아갑니다. "일치하는 브랜치에 대한 계획 브랜치 생성"을 클릭하여 "브랜치 계획"을 활성화합니다. 모든 브랜치와 일치하는 패턴인 `*`을 지정하거나 특정 브랜치만 일치하도록 더 구체적인 패턴을 제공할 수 있습니다.
+2. **브랜치 계획 활성화**: 계획 구성으로 이동하여 "브랜치" 탭을 찾아갑니다. "일치하는 브랜치에 대한 계획 브랜치 생성"을 클릭하여 "브랜치 계획"을 활성화합니다. 모든 브랜치와 일치하는 패턴인 {% raw %}`*`{% endraw %}을 지정하거나 특정 브랜치만 일치하도록 더 구체적인 패턴을 제공할 수 있습니다.
 
 3. **수동 빌드 트리거**: 계획 구성에서 "트리거" 탭으로 이동합니다. 기존 트리거(예: "변경 사항이 커밋될 때 저장소가 빌드를 트리거함")를 제거하고 "수동" 트리거를 추가합니다. 이렇게 하면 사용자가 수동으로 트리거할 때만 빌드가 시작됩니다.
 
@@ -140,7 +138,7 @@ Bamboo를 사용하여 특정 브랜치를 요청에 따라 빌드하려면 다�
 
 2. **태그 기반 트리거 설정**: 계획 구성으로 이동한 다음 "트리거" 탭을 클릭합니다. "트리거 추가"를 클릭하고 "Repository Polling" 또는 "Repository Triggered"를 선택합니다. "Trigger conditions" 섹션에서 "Change detection options"을 클릭하여 드롭다운 메뉴를 엽니다.
 
-3. **태그 패턴 설정**: "태그" 옵션을 선택한 다음 태그 패턴을 입력합니다. 예를 들어, 모든 태그와 일치하도록 설정하려면 `refs/tags/*`를 입력합니다. 특정 태그를 대상으로 설정하려면 해당 태그의 이름을 사용하세요 (예: `refs/tags/v1.0.0`).
+3. **태그 패턴 설정**: "태그" 옵션을 선택한 다음 태그 패턴을 입력합니다. 예를 들어, 모든 태그와 일치하도록 설정하려면 {% raw %}`refs/tags/*`{% endraw %}를 입력합니다. 특정 태그를 대상으로 설정하려면 해당 태그의 이름을 사용하세요 (예: {% raw %}`refs/tags/v1.0.0`{% endraw %}).
 
 4. **저장**: 설정을 저장하고 계획 구성을 닫습니다.
 
@@ -155,7 +153,7 @@ Bamboo를 사용하여 특정 브랜치를 요청에 따라 빌드하려면 다�
 ## ChatGPT 응답:
 > Bamboo에서 태그를 사용하여 빌드를 수행하려면 다음 단계를 따르세요:
 
-1. **태그를 위한 전용 브랜치 계획 생성**: 메인 브랜치를 위한 Bamboo 계획을 생성한 후, 태그에 대한 전용 브랜치 계획을 만들어야 합니다. 계획 구성에서 "브랜치" 탭으로 이동하고 "브랜치 계획"을 활성화합니다. 이 경우, 태그와 일치하는 브랜치 패턴을 지정해야 합니다. 대부분의 경우, 이 패턴은 `refs/tags/*`입니다.
+1. **태그를 위한 전용 브랜치 계획 생성**: 메인 브랜치를 위한 Bamboo 계획을 생성한 후, 태그에 대한 전용 브랜치 계획을 만들어야 합니다. 계획 구성에서 "브랜치" 탭으로 이동하고 "브랜치 계획"을 활성화합니다. 이 경우, 태그와 일치하는 브랜치 패턴을 지정해야 합니다. 대부분의 경우, 이 패턴은 {% raw %}`refs/tags/*`{% endraw %}입니다.
 
 2. **수동 빌드 트리거 설정**: 태그를 사용하여 빌드를 수동으로 시작하려면, 계획 구성에서 "트리거" 탭으로 이동하고 기존 트리거를 제거한 후 "수동" 트리거를 추가합니다.
 
@@ -185,7 +183,7 @@ Bamboo 정보 섹션에는 버전 외에도 다양한 시스템 정보가 포함
 ## ChatGPT 응답:
 > Bamboo 6.7.1에서 태그를 사용하여 빌드를 수행하려면 다음 단계를 따르세요:
 
-1. **태그를 위한 전용 브랜치 계획 생성**: 메인 브랜치를 위한 Bamboo 계획을 생성한 후, 태그에 대한 전용 브랜치 계획을 만들어야 합니다. 계획 구성에서 "브랜치" 탭으로 이동하고 "브랜치 계획"을 활성화합니다. 이 경우, 태그와 일치하는 브랜치 패턴을 지정해야 합니다. 대부분의 경우, 이 패턴은 `refs/tags/*`입니다.
+1. **태그를 위한 전용 브랜치 계획 생성**: 메인 브랜치를 위한 Bamboo 계획을 생성한 후, 태그에 대한 전용 브랜치 계획을 만들어야 합니다. 계획 구성에서 "브랜치" 탭으로 이동하고 "브랜치 계획"을 활성화합니다. 이 경우, 태그와 일치하는 브랜치 패턴을 지정해야 합니다. 대부분의 경우, 이 패턴은 {% raw %}`refs/tags/*`{% endraw %}입니다.
 
 2. **수동 빌드 트리거 설정**: 태그를 사용하여 빌드를 수동으로 시작하려면, 계획 구성에서 "트리거" 탭으로 이동하고 기존 트리거를 제거한 후 "수동" 트리거를 추가합니다.
 

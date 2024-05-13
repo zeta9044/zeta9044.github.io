@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "연결된 Spring Boot 웹 앱"
-date: 2023-12-21
-tags: [웹, Boot, 연결, 앱, Spring]
-categories: blog
+tags: [Spring, 앱, 웹, 연결, Boot]
 ---
 
 ## 사용자 입력:
@@ -16,20 +14,20 @@ categories: blog
 
 2. **Apache 웹 서버 설치**: 서버에 Apache 웹 서버를 설치합니다.
 
-3. **모듈 활성화**: Apache에서 `mod_proxy` 및 `mod_proxy_http` 모듈을 활성화해야 합니다. 이 모듈들은 리버스 프록시 기능을 가능하게 합니다.
+3. **모듈 활성화**: Apache에서 {% raw %}`mod_proxy`{% endraw %} 및 {% raw %}`mod_proxy_http`{% endraw %} 모듈을 활성화해야 합니다. 이 모듈들은 리버스 프록시 기능을 가능하게 합니다.
 
-4. **Apache 설정 수정**: Apache의 설정 파일(예: `httpd.conf` 또는 `apache2.conf`)을 수정하여, 리버스 프록시 설정을 추가합니다. 이 설정은 외부에서 들어오는 요청을 Spring Boot 애플리케이션으로 전달하는 데 필요합니다.
+4. **Apache 설정 수정**: Apache의 설정 파일(예: {% raw %}`httpd.conf`{% endraw %} 또는 {% raw %}`apache2.conf`{% endraw %})을 수정하여, 리버스 프록시 설정을 추가합니다. 이 설정은 외부에서 들어오는 요청을 Spring Boot 애플리케이션으로 전달하는 데 필요합니다.
 
    예시 설정:
-   ```
+   {% raw %}```
    <VirtualHost *:80>
        ProxyPreserveHost On
        ProxyPass / http://localhost:8080/
        ProxyPassReverse / http://localhost:8080/
        ServerName www.yourdomain.com
    </VirtualHost>
-   ```
-   이 설정은 모든 요청을 `localhost`의 8080 포트로 전달합니다(여기서 Spring Boot 앱이 실행 중임).
+   ```{% endraw %}
+   이 설정은 모든 요청을 {% raw %}`localhost`{% endraw %}의 8080 포트로 전달합니다(여기서 Spring Boot 앱이 실행 중임).
 
 5. **서버 재시작**: Apache 서버를 재시작하여 변경 사항을 적용합니다.
 

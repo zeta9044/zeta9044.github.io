@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "PostgreSQL 속도 최적화"
-date: 2023-05-23
-tags: [속도, 최적화, PostgreSQL]
-categories: blog
+tags: [PostgreSQL, 속도, 최적화]
 ---
 
 ## 사용자 입력:
@@ -38,11 +36,11 @@ categories: blog
 ## ChatGPT 응답:
 > 아래는 주어진 쿼리를 최적화하여 PostgreSQL에서 성능을 향상시키는 방법입니다. 주요 변경사항은 다음과 같습니다:
 
-1. `UNION ALL` 대신 `UNION`을 사용하여 중복을 제거합니다.
-2. 서브쿼리 대신 `JOIN`을 사용하여 필요한 데이터를 조인합니다.
-3. `CASE` 문을 `COALESCE` 함수로 대체하여 NULL 검사를 줄입니다.
+1. {% raw %}`UNION ALL`{% endraw %} 대신 {% raw %}`UNION`{% endraw %}을 사용하여 중복을 제거합니다.
+2. 서브쿼리 대신 {% raw %}`JOIN`{% endraw %}을 사용하여 필요한 데이터를 조인합니다.
+3. {% raw %}`CASE`{% endraw %} 문을 {% raw %}`COALESCE`{% endraw %} 함수로 대체하여 NULL 검사를 줄입니다.
 
-```sql
+{% raw %}```sql
 SELECT
   MAX(COALESCE(DT1.UNIQUE_OWNER_TGT_SRV_ID_DB, DT2.UNIQUE_OWNER_TGT_SRV_ID_DB)) AS UNIQUE_OWNER_TGT_SRV_ID_DB,
   MAX(COALESCE(DT1.UNIQUE_OWNER_NAME_DB, DT2.UNIQUE_OWNER_NAME_DB)) AS UNIQUE_OWNER_NAME_DB,
@@ -79,7 +77,7 @@ LEFT JOIN
 > ANK' AND MM_CLASS_ID = '1002' AND MM_OBJ_RMK11 = AP_COMMON_FN_SETUP_SRV_IP(?))
     AND MM_OBJ_RMK13 = 'DEFAULT'
 ) AS DT2 ON 1=1;
-```
+```{% endraw %}
 
 위의 변경사항을 적용하면 원래 쿼리보다 성능이 향상되어야 합니다. 그러나 실제 성능 향상 여부는 데이터베이스 구조, 인덱스 및 데이터의 양에 따라 달라질 수 있으므로 실제 실행 계획을 확인하고 테스트해야 합니다.
 

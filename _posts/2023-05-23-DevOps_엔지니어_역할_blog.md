@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "DevOps 엔지니어 역할"
-date: 2023-05-23
 tags: [엔지니어, DevOps, 역할]
-categories: blog
 ---
 
 ## 사용자 입력:

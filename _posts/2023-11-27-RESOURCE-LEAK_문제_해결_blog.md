@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "RESOURCE_LEAK 문제 해결"
-date: 2023-11-27
-tags: [해결, 문제]
-categories: blog
+tags: [문제, 해결]
 ---
 
 ## 사용자 입력:
@@ -21,7 +19,7 @@ categories: blog
 
 다음은 수정된 코드 예제입니다:
 
-```java
+{% raw %}```java
 170.     	
 171.     	if (sf.exists()) {
 172.         	try (BufferedReader bfr = new BufferedReader(new FileReader(sf))) {
@@ -29,7 +27,7 @@ categories: blog
 174.             	// 이후에 temp 변수를 사용할 수 있습니다.
 175.         	}
 176.     	}
-```
+```{% endraw %}
 
 이렇게 수정된 코드에서는 try-with-resources 문을 사용하여 BufferedReader를 생성하고 파일을 읽은 후 자동으로 리소스를 닫아줍니다. 따라서 리소스 누수 문제가 해결됩니다.
 
